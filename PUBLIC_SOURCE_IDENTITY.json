@@ -1,0 +1,10 @@
+{
+  "private_source_commit": "780e824a33a35d2a857643b43a56858ce14ec8b6",
+  "checked_included_files": 4493,
+  "changed_included_files": [
+    "README.md"
+  ],
+  "native_and_test_source_identical": true,
+  "history": "new reviewed public source history; private history retained",
+  "packaging": "inherited ignore rules initially omitted some reviewed evidence; current source and the .1 tag include every manifest file; original tag remains immutable"
+}
