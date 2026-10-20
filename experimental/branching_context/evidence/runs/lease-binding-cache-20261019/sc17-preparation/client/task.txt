@@ -1,0 +1,11 @@
+Improve BranchWrite's real directory-grant admission in branchwrite/project_scope.py.
+Multiple read/edit directory scopes often overlap. They currently rewalk the same
+subtrees. Normalize selected scopes so each covered subtree is traversed only once,
+while preserving exact sorted file grants, path-component ancestry (pkg_extra is
+not inside pkg), existing safety checks, source bounds and public API behavior.
+Validate every explicit scope: an invalid scope must not disappear behind a
+covering valid scope. Keep Git administration excluded. Do not widen permissions,
+add dependencies or change other code/tests. Inspect relevant implementation and
+protected tests, make the smallest clear implementation change, then run:
+python3 -m unittest discover -s tests -p 'test_directory*.py' -v
+Explain the result and limits. Tests are not editable.

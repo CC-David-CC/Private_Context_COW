@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "stats_samples": 1,
+  "max_forward_tokens": 0,
+  "phase": "after unauthorized client and local admission negatives before positive release"
+}

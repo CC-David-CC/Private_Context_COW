@@ -1,0 +1,18 @@
+test_bp_001_actual_batched_work (test_batched_preflight.BatchedPreflightTests.test_bp_001_actual_batched_work) ... ok
+test_bp_002_identical_projection_inputs_and_unchanged_outputs (test_batched_preflight.BatchedPreflightTests.test_bp_002_identical_projection_inputs_and_unchanged_outputs) ... ok
+test_bp_003_batched_partition_invariance (test_batched_preflight.BatchedPreflightTests.test_bp_003_batched_partition_invariance) ... FAIL
+
+======================================================================
+FAIL: test_bp_003_batched_partition_invariance (test_batched_preflight.BatchedPreflightTests.test_bp_003_batched_partition_invariance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/batched-resume-20261014/experimental/branching_context/tests/real_resume/test_batched_preflight.py", line 52, in test_bp_003_batched_partition_invariance
+    assert_logits_close(tuple(actual),tuple(expected),atol=self.preflight['atol'],rtol=self.preflight['rtol'])
+  File "/home/dflanag3/branching-g3/batched-resume-20261014/experimental/branching_context/src/context_time_travel/numerics.py", line 66, in assert_logits_close
+    raise AssertionError(f"Logits diverged: max abs={report.max_absolute_error:.5g}, "
+AssertionError: Logits diverged: max abs=1.4496, normalized=inf
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.199s
+
+FAILED (failures=1)

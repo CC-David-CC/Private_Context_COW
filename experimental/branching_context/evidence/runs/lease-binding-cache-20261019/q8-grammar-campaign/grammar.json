@@ -1,0 +1,28 @@
+{
+  "answer": {
+    "format": "thinking",
+    "source": {
+      "schema": 1,
+      "max_tokens": 4096,
+      "final": {
+        "format": "json_schema",
+        "source": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "explanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "explanation"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "new_tests": 3,
+  "workspace_http_vision_tests": 54,
+  "G0": {
+    "passed": 51,
+    "failures": 0,
+    "skips": 0
+  },
+  "scope": "Canonical history metadata and CPU/HTTP fixtures; no new native/GPU qualification",
+  "fields": [
+    "root_input_cells",
+    "tip_input_cells"
+  ],
+  "semantics": "One input cell per text token or image embedding row; not message count, residency, native work counter or rotary index",
+  "deployment": "Separate branch; pinned server6647ae46 remains untouched",
+  "initial_fixture_error": "New test used nonexistent source keyword; corrected to actual source_branch/source_revision/source_tip signature; initial green.log retains error"
+}

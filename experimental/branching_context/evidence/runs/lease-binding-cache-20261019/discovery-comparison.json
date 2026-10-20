@@ -1,0 +1,59 @@
+{
+  "status": "NO_ADDITIONAL_DISCOVERY_FAILURES_NOT_FULL_SUITE_PASS",
+  "baseline_tests": 1950,
+  "candidate_tests": 1959,
+  "baseline_errors": 30,
+  "candidate_errors": 30,
+  "skips_each": 1,
+  "same_error_ids": true,
+  "error_leaf_differences": {
+    "test_attach_failure_cannot_leave_successful_receipt (test_native_build_provenance.NativeBuildProvenanceTests.test_attach_failure_cannot_leave_successful_receipt)": {
+      "baseline": "ValueError: missing required CMake compile flags in /tmp/tmpd7au08og/source/build/CMakeFiles/strata-branch.dir/flags.make: ['CXX_DEFINES', 'CXX_INCLUDES']",
+      "candidate": "ValueError: missing required CMake compile flags in /tmp/tmp5ba6i40z/source/build/CMakeFiles/strata-branch.dir/flags.make: ['CXX_DEFINES', 'CXX_INCLUDES']"
+    }
+  },
+  "baseline_errors_by_id": {
+    "test_canonical_ram_hit_miss_and_complete_eviction (test_c01_auto.AutomaticRamTests.test_canonical_ram_hit_miss_and_complete_eviction)": "KeyError: 'CTT_PROFILE'",
+    "test_cold_resident_identity_and_no_replay (test_c01_cold_identity.ColdIdentityTests.test_cold_resident_identity_and_no_replay)": "KeyError: 'CTT_PROFILE'",
+    "test_native_ram_forced_siblings_and_exact_miss (test_c01_ram.NativeRamCacheTests.test_native_ram_forced_siblings_and_exact_miss)": "KeyError: 'CTT_PROFILE'",
+    "setUpClass (test_c02_idle.RealIdleBoundaryTests)": "KeyError: 'CTT_PROFILE'",
+    "test_observers_install_and_restore_against_pinned_source_without_model_start (test_checkpoint_lifecycle_pinned_binding.PinnedLifecycleBindingTests.test_observers_install_and_restore_against_pinned_source_without_model_start)": "KeyError: 'CTT_DIAGNOSTIC_SOURCE_ROOT'",
+    "test_e01_real_record_noninterference (test_e01_real.EvaluationNoninterferenceTests.test_e01_real_record_noninterference)": "KeyError: 'CTT_PROFILE'",
+    "test_e04_invariant (test_e04.EvaluatedFuturesTests.test_e04_invariant)": "KeyError: 'CTT_PROFILE'",
+    "test_active_legacy_greedy_turn_can_opt_into_sampling_without_losing_resume_state (test_generation_settings_serving.GenerationSettingsAdapterTests.test_active_legacy_greedy_turn_can_opt_into_sampling_without_losing_resume_state)": "KeyError: 'schema'",
+    "test_new_sampling_request_fills_omitted_fields_from_documented_defaults (test_generation_settings_serving.GenerationSettingsAdapterTests.test_new_sampling_request_fills_omitted_fields_from_documented_defaults)": "KeyError: 'schema'",
+    "test_partial_settings_override_saved_policy_only_for_this_generation (test_generation_settings_serving.GenerationSettingsAdapterTests.test_partial_settings_override_saved_policy_only_for_this_generation)": "KeyError: 'schema'",
+    "test_resume_without_settings_reuses_saved_policy_and_cursor (test_generation_settings_serving.GenerationSettingsAdapterTests.test_resume_without_settings_reuses_saved_policy_and_cursor)": "KeyError: 'schema'",
+    "test_sampling_knobs_do_not_bypass_an_active_grammar_controller (test_generation_settings_serving.GenerationSettingsAdapterTests.test_sampling_knobs_do_not_bypass_an_active_grammar_controller)": "KeyError: 'schema'",
+    "test_zero_temperature_override_keeps_the_sampled_controller_at_its_boundary (test_generation_settings_serving.GenerationSettingsAdapterTests.test_zero_temperature_override_keeps_the_sampled_controller_at_its_boundary)": "KeyError: 'schema'",
+    "test_json_schema_grammar (unittest.loader._FailedTest.test_json_schema_grammar)": "ModuleNotFoundError: No module named 'tests.implementation'",
+    "test_n01_invariant (test_n01.PrefillDiagnosticTests.test_n01_invariant)": "KeyError: 'CTT_PROFILE'",
+    "test_normal_and_private_drivers_include_resident_experts (test_n02_dispatch.DispatchParityTests.test_normal_and_private_drivers_include_resident_experts)": "KeyError: 'CTT_PROFILE'",
+    "test_n02_projection_is_observed (test_n02_projection.ProjectionDiagnosticTests.test_n02_projection_is_observed)": "KeyError: 'CTT_PROFILE'",
+    "test_n02_state_observes_consumed_buffers (test_n02_state.StateDiagnosticTests.test_n02_state_observes_consumed_buffers)": "KeyError: 'CTT_PROFILE'",
+    "test_n02_step_consumes_forced_history (test_n02_step.OrdinaryStepTests.test_n02_step_consumes_forced_history)": "KeyError: 'CTT_PROFILE'",
+    "test_n03_invariant (test_n03.NumericalProfileTests.test_n03_invariant)": "KeyError: 'CTT_PROFILE'",
+    "test_n03_incomplete_cannot_freeze (test_n03_finalize.FinalizationTests.test_n03_incomplete_cannot_freeze)": "KeyError: 'CTT_CALIBRATION_PROGRESS'",
+    "test_completed_calibration_profile_binding (test_n03_finalized.CompletedCalibrationTests.test_completed_calibration_profile_binding)": "KeyError: 'CTT_PROFILE'",
+    "test_attach_failure_cannot_leave_successful_receipt (test_native_build_provenance.NativeBuildProvenanceTests.test_attach_failure_cannot_leave_successful_receipt)": "ValueError: missing required CMake compile flags in /tmp/tmpd7au08og/source/build/CMakeFiles/strata-branch.dir/flags.make: ['CXX_DEFINES', 'CXX_INCLUDES']",
+    "test_pool_root_residency (unittest.loader._FailedTest.test_pool_root_residency)": "ModuleNotFoundError: No module named 'tests.implementation'",
+    "test_real_operation_interpreter (test_q02_real.RealProgramTests.test_real_operation_interpreter)": "KeyError: 'CTT_PROFILE'",
+    "test_s01_invariant (test_s01.SerializedSlotTests.test_s01_invariant)": "KeyError: 'CTT_PROFILE'",
+    "test_foreign_owner_cannot_use_or_release_execution_lease (test_s01_owner.ExecutionOwnerTests.test_foreign_owner_cannot_use_or_release_execution_lease)": "KeyError: 'CTT_PROFILE'",
+    "test_s02_invariant (test_s02.SlotRecoveryTests.test_s02_invariant)": "KeyError: 'CTT_PROFILE'",
+    "test_real_ram_admission_pressure_preserves_evicted_history (test_s02_pressure.SlotPressureTests.test_real_ram_admission_pressure_preserves_evicted_history)": "KeyError: 'CTT_PROFILE'",
+    "test_coordinator_binds_original_source_revision_and_retry (test_store_fork_provenance.StoreForkProvenanceTests.test_coordinator_binds_original_source_revision_and_retry)": "AttributeError: 'ContextCoordinator' object has no attribute 'disk'"
+  },
+  "new_tests": [
+    "test_alternating_histories_never_reuse_the_other_expected_identity (test_vision_binding_cache.BindingCacheTests.test_alternating_histories_never_reuse_the_other_expected_identity) ... ok",
+    "test_cache_is_lease_local_and_release_discards_derived_history (test_vision_binding_cache.BindingCacheTests.test_cache_is_lease_local_and_release_discards_derived_history) ... ok",
+    "test_cached_expected_still_rejects_each_wrong_native_binding (test_vision_binding_cache.BindingCacheTests.test_cached_expected_still_rejects_each_wrong_native_binding) ... ok",
+    "test_equal_native_tokens_different_grid_cannot_share_expected_binding (test_vision_binding_cache.BindingCacheTests.test_equal_native_tokens_different_grid_cannot_share_expected_binding) ... ok",
+    "test_foreign_thread_cannot_read_write_or_release_warm_lease (test_vision_binding_cache.BindingCacheTests.test_foreign_thread_cannot_read_write_or_release_warm_lease) ... ok",
+    "test_interruption_at_each_cache_update_line_cannot_publish_partial_entry (test_vision_binding_cache.BindingCacheTests.test_interruption_at_each_cache_update_line_cannot_publish_partial_entry) ... ok",
+    "test_mutable_subclass_is_never_cached (test_vision_binding_cache.BindingCacheTests.test_mutable_subclass_is_never_cached) ... ok",
+    "test_repeated_check_reuses_expected_digest_but_queries_native_every_time (test_vision_binding_cache.BindingCacheTests.test_repeated_check_reuses_expected_digest_but_queries_native_every_time) ... ok",
+    "test_same_object_changed_encoded_bytes_cannot_hit_old_binding (test_vision_binding_cache.BindingCacheTests.test_same_object_changed_encoded_bytes_cannot_hit_old_binding) ... ok"
+  ],
+  "scope": "Unconfigured real-backend profile and existing fixture/dependency failures remain; no GPU qualification"
+}

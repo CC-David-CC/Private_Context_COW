@@ -1,0 +1,107 @@
+test_destructive_cancellation_remains_distinct_and_wins (test_consumed_pause.ConsumedPauseTests.test_destructive_cancellation_remains_distinct_and_wins) ... ERROR
+test_early_pause_consumes_one_token_and_resumes_exact_grammar (test_consumed_pause.ConsumedPauseTests.test_early_pause_consumes_one_token_and_resumes_exact_grammar) ... ERROR
+test_eos_and_pause_at_same_boundary_keep_stopped_controller (test_consumed_pause.ConsumedPauseTests.test_eos_and_pause_at_same_boundary_keep_stopped_controller) ... ERROR
+test_no_pause_preserves_normal_completion (test_consumed_pause.ConsumedPauseTests.test_no_pause_preserves_normal_completion) ... ERROR
+test_noncallable_pause_rejected_before_forward_work (test_consumed_pause.ConsumedPauseTests.test_noncallable_pause_rejected_before_forward_work) ... ERROR
+test_pause_after_second_consumed_token_retains_parser_progress (test_consumed_pause.ConsumedPauseTests.test_pause_after_second_consumed_token_retains_parser_progress) ... ERROR
+test_pause_callback_failure_does_not_publish_or_change_parent (test_consumed_pause.ConsumedPauseTests.test_pause_callback_failure_does_not_publish_or_change_parent) ... ERROR
+test_branch_a_can_enter_test_while_b_retains_edit_progress (test_vision_grammar_request.VisionGrammarRequestTests.test_branch_a_can_enter_test_while_b_retains_edit_progress) ... ok
+test_cancelled_progress_does_not_publish_and_parent_remains_usable (test_vision_grammar_request.VisionGrammarRequestTests.test_cancelled_progress_does_not_publish_and_parent_remains_usable) ... ok
+test_corrupted_repetition_progress_rejects_before_restore (test_vision_grammar_request.VisionGrammarRequestTests.test_corrupted_repetition_progress_rejects_before_restore) ... ok
+test_grammar_masks_before_greedy_and_counts_text_not_image_rows (test_vision_grammar_request.VisionGrammarRequestTests.test_grammar_masks_before_greedy_and_counts_text_not_image_rows) ... ok
+test_image_suffix_is_leased_and_does_not_enter_grammar_scope (test_vision_grammar_request.VisionGrammarRequestTests.test_image_suffix_is_leased_and_does_not_enter_grammar_scope) ... ok
+test_missing_embedding_rejects_before_restore (test_vision_grammar_request.VisionGrammarRequestTests.test_missing_embedding_rejects_before_restore) ... ok
+test_partial_scope_restores_using_text_scope_not_native_cell_count (test_vision_grammar_request.VisionGrammarRequestTests.test_partial_scope_restores_using_text_scope_not_native_cell_count) ... ok
+test_resume_cannot_change_state_or_add_an_image (test_vision_grammar_request.VisionGrammarRequestTests.test_resume_cannot_change_state_or_add_an_image) ... ok
+test_saved_sampled_controller_cannot_enter_greedy_image_resume (test_vision_grammar_request.VisionGrammarRequestTests.test_saved_sampled_controller_cannot_enter_greedy_image_resume) ... ok
+test_unqualified_image_sampling_is_not_enabled_by_grammar_change (test_vision_grammar_request.VisionGrammarRequestTests.test_unqualified_image_sampling_is_not_enabled_by_grammar_change) ... ok
+test_wrong_tokenizer_or_protocol_rejects_before_restore (test_vision_grammar_request.VisionGrammarRequestTests.test_wrong_tokenizer_or_protocol_rejects_before_restore) ... ok
+test_wrong_tokenizer_rejects_before_native_restore (test_vision_grammar_request.VisionGrammarRequestTests.test_wrong_tokenizer_rejects_before_native_restore) ... ok
+
+======================================================================
+ERROR: test_destructive_cancellation_remains_distinct_and_wins (test_consumed_pause.ConsumedPauseTests.test_destructive_cancellation_remains_distinct_and_wins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 47, in test_destructive_cancellation_remains_distinct_and_wins
+    self.fixture.request(on_token=seen.append,paused=lambda:True,cancelled=lambda:bool(seen))
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_early_pause_consumes_one_token_and_resumes_exact_grammar (test_consumed_pause.ConsumedPauseTests.test_early_pause_consumes_one_token_and_resumes_exact_grammar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 14, in test_early_pause_consumes_one_token_and_resumes_exact_grammar
+    paused=self.fixture.request(paused=lambda:True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_eos_and_pause_at_same_boundary_keep_stopped_controller (test_consumed_pause.ConsumedPauseTests.test_eos_and_pause_at_same_boundary_keep_stopped_controller)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 32, in test_eos_and_pause_at_same_boundary_keep_stopped_controller
+    seen=[];answer=self.fixture.request(on_token=seen.append,paused=lambda:len(seen)==3)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_no_pause_preserves_normal_completion (test_consumed_pause.ConsumedPauseTests.test_no_pause_preserves_normal_completion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 30, in test_no_pause_preserves_normal_completion
+    actual=self.fixture.request(paused=lambda:False);self.assertEqual(actual['tokens'],[0,0,6]);self.assertTrue(actual['stopped'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_noncallable_pause_rejected_before_forward_work (test_consumed_pause.ConsumedPauseTests.test_noncallable_pause_rejected_before_forward_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 36, in test_noncallable_pause_rejected_before_forward_work
+    with self.assertRaises(InvalidOperation):self.fixture.request(paused=True)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_pause_after_second_consumed_token_retains_parser_progress (test_consumed_pause.ConsumedPauseTests.test_pause_after_second_consumed_token_retains_parser_progress)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 25, in test_pause_after_second_consumed_token_retains_parser_progress
+    paused=self.fixture.request(on_token=seen.append,paused=lambda:len(seen)>=2)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+======================================================================
+ERROR: test_pause_callback_failure_does_not_publish_or_change_parent (test_consumed_pause.ConsumedPauseTests.test_pause_callback_failure_does_not_publish_or_change_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause.py", line 41, in test_pause_callback_failure_does_not_publish_or_change_parent
+    with self.assertRaisesRegex(RuntimeError,'pause observer failed'):self.fixture.request(paused=bad)
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_vision_grammar_request.py", line 55, in request
+    return self.model.run_state_request(snapshot or self.root,ids,steps,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BranchingModel.run_state_request() got an unexpected keyword argument 'paused'
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.202s
+
+FAILED (errors=7)

@@ -1,0 +1,13 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "source_commit": "19c961d671b422b584d2b13904b3eccc10c083d0",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/lease-binding-cache-q8-20261019-v1/runtime",
+  "execution_profile_id": "23818a15779e1ce655859a5d37ed56ef8eee250480fef91b8846fa8df1522df9",
+  "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+  "changed_runtime_files": [
+    "experimental/branching_context/src/context_time_travel/strata_backend.py"
+  ],
+  "store_policy": "new isolated store; no old checkpoint import",
+  "native_binary_unchanged": true,
+  "preparation_issue": "Copied source retained read-only mode; changed permission only on new owned backend copy."
+}

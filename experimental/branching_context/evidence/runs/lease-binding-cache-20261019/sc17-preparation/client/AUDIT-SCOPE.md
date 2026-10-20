@@ -1,0 +1,1 @@
+SC17 uses a fresh bootstrap, not an imported old-profile prefix: ledger audit requires fork=None. Installed-module and wheel paths target dev16. The frozen task, original project/test bytes, supplemental test assertions and independent seed/cases are unchanged. Audits refuse to inspect a producer unless command.exit is zero; ledger inspection uses only a copied terminal ledger.

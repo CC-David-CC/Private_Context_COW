@@ -1,0 +1,18 @@
+{
+  "service": {
+    "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/service-SC17-dev16-binding-cache-coding-replay-pass-20261019/evidence.tar.gz",
+    "sha256": "4877bf013f0b8cf9d6e19f74648c347785b661561bf979d6aac885f05e0f1022",
+    "bytes": 3680440,
+    "files": 37
+  },
+  "client": {
+    "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/client-SC17-dev16-binding-cache-complete-handoff-pass-20261019/evidence.tar.gz",
+    "sha256": "d708982965ffb3f33a7ba38580474fcfbf14df92b556af8980fad1df60f5257b",
+    "bytes": 15163363,
+    "files": 5686
+  },
+  "canonical_store_preserved": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC17-q8-binding-cache-dev16-v1/store",
+  "native_payload_backup": "Not claimed: working canonical store/checkpoints excluded from service evidence archive"
+}

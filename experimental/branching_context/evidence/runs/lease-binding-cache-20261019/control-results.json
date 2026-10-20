@@ -1,0 +1,14 @@
+[
+  {
+    "name": "baseline-G0",
+    "exit_code": 0
+  },
+  {
+    "name": "candidate-G0",
+    "exit_code": 0
+  },
+  {
+    "name": "candidate-mutation-smoke",
+    "exit_code": 0
+  }
+]

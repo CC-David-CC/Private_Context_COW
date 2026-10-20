@@ -1,0 +1,92 @@
+test_caller_mutations_cannot_change_comparison_inputs (test_input_prefix_comparison.InputPrefixComparisonTests.test_caller_mutations_cannot_change_comparison_inputs) ... ERROR
+test_image_provenance_grid_and_placement_cannot_collide (test_input_prefix_comparison.InputPrefixComparisonTests.test_image_provenance_grid_and_placement_cannot_collide) ... ERROR
+test_numeric_text_prefix_is_not_a_token_prefix (test_input_prefix_comparison.InputPrefixComparisonTests.test_numeric_text_prefix_is_not_a_token_prefix) ... ERROR
+test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction (test_input_prefix_comparison.InputPrefixComparisonTests.test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction) ... ERROR
+test_same_empty_shorter_and_longer_prefixes (test_input_prefix_comparison.InputPrefixComparisonTests.test_same_empty_shorter_and_longer_prefixes) ... ERROR
+test_seeded_prefix_comparisons_match_independent_reconstruction (test_input_prefix_comparison.InputPrefixComparisonTests.test_seeded_prefix_comparisons_match_independent_reconstruction) ... ERROR
+test_text_extension_and_new_span_after_images_match_reference (test_input_prefix_comparison.InputPrefixComparisonTests.test_text_extension_and_new_span_after_images_match_reference) ... ERROR
+
+======================================================================
+ERROR: test_caller_mutations_cannot_change_comparison_inputs (test_input_prefix_comparison.InputPrefixComparisonTests.test_caller_mutations_cannot_change_comparison_inputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 57, in test_caller_mutations_cannot_change_comparison_inputs
+    self.assertTrue(extended.starts_with(old));self.assertEqual(old.native_tokens,(1,2))
+                    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+======================================================================
+ERROR: test_image_provenance_grid_and_placement_cannot_collide (test_input_prefix_comparison.InputPrefixComparisonTests.test_image_provenance_grid_and_placement_cannot_collide)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 30, in test_image_provenance_grid_and_placement_cannot_collide
+    for value in variants:self.assertFalse((InputHistory(value)+(4,)).starts_with(root))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+======================================================================
+ERROR: test_numeric_text_prefix_is_not_a_token_prefix (test_input_prefix_comparison.InputPrefixComparisonTests.test_numeric_text_prefix_is_not_a_token_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 16, in test_numeric_text_prefix_is_not_a_token_prefix
+    self.assertFalse(InputHistory([dict(kind='text',tokens=left)]).starts_with(InputHistory([dict(kind='text',tokens=right)])))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+======================================================================
+ERROR: test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction (test_input_prefix_comparison.InputPrefixComparisonTests.test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/src/context_time_travel/execution_receipt.py", line 134, in append
+    if history.prefix(position) != self._history:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+AssertionError: rebuilt old prefix
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 49, in test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction
+    cursor.append(receipt(final,position=len(root)),final)
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/src/context_time_travel/execution_receipt.py", line 163, in append
+    raise ValueError('Invalid mixed execution extension') from error
+ValueError: Invalid mixed execution extension
+
+======================================================================
+ERROR: test_same_empty_shorter_and_longer_prefixes (test_input_prefix_comparison.InputPrefixComparisonTests.test_same_empty_shorter_and_longer_prefixes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 13, in test_same_empty_shorter_and_longer_prefixes
+    self.assertEqual(value.starts_with(prefix),expected)
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+======================================================================
+ERROR: test_seeded_prefix_comparisons_match_independent_reconstruction (test_input_prefix_comparison.InputPrefixComparisonTests.test_seeded_prefix_comparisons_match_independent_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 45, in test_seeded_prefix_comparisons_match_independent_reconstruction
+    self.assertEqual(history.starts_with(prefix),expected)
+                     ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+======================================================================
+ERROR: test_text_extension_and_new_span_after_images_match_reference (test_input_prefix_comparison.InputPrefixComparisonTests.test_text_extension_and_new_span_after_images_match_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-prefix-comparison-20261020/experimental/branching_context/tests/implementation/test_input_prefix_comparison.py", line 24, in test_text_extension_and_new_span_after_images_match_reference
+    self.assertTrue(value.starts_with(prefix),(value,n))
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'InputHistory' object has no attribute 'starts_with'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.005s
+
+FAILED (errors=7)

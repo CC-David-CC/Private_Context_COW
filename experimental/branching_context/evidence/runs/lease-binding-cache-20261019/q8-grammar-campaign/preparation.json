@@ -1,0 +1,8 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "grammar_engine_id": "19f143b562d6475bf4daa4a0b701be56d1ba8f5a1e9caea3e70f978af1dc1628",
+  "thinking_budget": 4096,
+  "final": "JSON Schema code/explanation fields",
+  "repetitions": 3,
+  "prefix_tokens": 8241
+}

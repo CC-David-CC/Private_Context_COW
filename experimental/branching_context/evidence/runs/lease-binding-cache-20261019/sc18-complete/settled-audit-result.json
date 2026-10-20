@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "stages": [
+    {
+      "script": "audit-output.py",
+      "exit_code": 1
+    }
+  ],
+  "error": "AssertionError('audit-output.py failed; retain evidence')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-SC18-lost-reply-dev17-20261019-v1/observe-settlement.py\", line 20, in <module>\n    assert p.returncode==0, name+' failed; retain evidence'\n           ^^^^^^^^^^^^^^^\nAssertionError: audit-output.py failed; retain evidence\n",
+  "seconds": 220.15655550698284
+}

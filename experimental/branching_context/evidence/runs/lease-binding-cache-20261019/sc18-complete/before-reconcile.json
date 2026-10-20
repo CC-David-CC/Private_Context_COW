@@ -1,0 +1,8 @@
+{
+  "phase": "before-reconcile",
+  "time_ns": 1792430559375822901,
+  "native_pid": 704194,
+  "forward_tokens": 1232,
+  "stats_samples": 652,
+  "trace_bytes": 3018989
+}

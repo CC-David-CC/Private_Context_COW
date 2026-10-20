@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "script": "audit-ledger.py",
+      "exit_code": 0
+    },
+    {
+      "script": "audit-public-flow-v2.py",
+      "exit_code": 0
+    }
+  ],
+  "original_attempt_retained": "settled-audit-result.json",
+  "correction": "Only isolated audit test-package markers; original task/test/output bytes unchanged",
+  "independent_output": "audit-output-result-v2.json",
+  "scope": "Lost ACK followed by new-process exact recovery and autonomous task completion; not SIGKILL/tool-effect crash qualification"
+}

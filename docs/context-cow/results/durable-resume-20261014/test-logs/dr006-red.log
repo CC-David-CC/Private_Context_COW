@@ -1,0 +1,29 @@
+test_dr_001_missing_disk_even_with_hot_image (test_durable_restore.DurableRestoreControlTests.test_dr_001_missing_disk_even_with_hot_image) ... ok
+test_dr_002_valid_receipt_and_frontier (test_durable_restore.DurableRestoreControlTests.test_dr_002_valid_receipt_and_frontier) ... ok
+test_dr_006_durable_move_retry_and_stale_revision (test_durable_restore.DurableRestoreControlTests.test_dr_006_durable_move_retry_and_stale_revision) ... ERROR
+test_dr_007_nonfinite_frontier_rejected (test_durable_restore.DurableRestoreControlTests.test_dr_007_nonfinite_frontier_rejected) ... ok
+test_dr_008_replay_is_failure (test_durable_restore.DurableRestoreControlTests.test_dr_008_replay_is_failure) ... ok
+test_dr_011_failed_write_keeps_old_head (test_durable_restore.DurableRestoreControlTests.test_dr_011_failed_write_keeps_old_head) ... ERROR
+
+======================================================================
+ERROR: test_dr_006_durable_move_retry_and_stale_revision (test_durable_restore.DurableRestoreControlTests.test_dr_006_durable_move_retry_and_stale_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 113, in test_dr_006_durable_move_retry_and_stale_revision
+    result = self.model.save_branch('main', 0, self.sid, 'save-one')
+             ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'save_branch'
+
+======================================================================
+ERROR: test_dr_011_failed_write_keeps_old_head (test_durable_restore.DurableRestoreControlTests.test_dr_011_failed_write_keeps_old_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 128, in test_dr_011_failed_write_keeps_old_head
+    self.model.save_branch('main', 0, self.sid, 'save-one')
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'save_branch'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.024s
+
+FAILED (errors=2)

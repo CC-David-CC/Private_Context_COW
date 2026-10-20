@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "scope": "128-token text prefix, two four-token suffixes, up to eight generated tokens; matching-profile regression and candidate process restart. Not full G1-G5 or whole-path speed qualification.",
+  "comparisons": [
+    {
+      "kind": "candidate",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "A",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "B",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "A",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "B",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    }
+  ],
+  "actual_generated_counts": {
+    "baseline": {
+      "A": 2,
+      "B": 2
+    },
+    "candidate": {
+      "A": 2,
+      "B": 2
+    },
+    "restart": {
+      "A": 2,
+      "B": 2
+    }
+  },
+  "strict_restore": {
+    "forward_tokens": 0,
+    "consumed": 128,
+    "seconds": 0.4033228170592338,
+    "native_pid": 692992,
+    "execution_profile_id": "23818a15779e1ce655859a5d37ed56ef8eee250480fef91b8846fa8df1522df9"
+  },
+  "restore_loaded_native_bytes": 121413624,
+  "command_counts": {
+    "baseline": {
+      "stats": 45,
+      "vision_info": 16,
+      "reset": 1,
+      "feed": 3,
+      "capture": 3,
+      "pages": 3,
+      "logits": 3,
+      "restore": 6,
+      "write": 1,
+      "audit": 3,
+      "quit": 1
+    },
+    "candidate": {
+      "stats": 45,
+      "vision_info": 16,
+      "reset": 1,
+      "feed": 3,
+      "capture": 3,
+      "pages": 3,
+      "logits": 3,
+      "restore": 6,
+      "write": 1,
+      "audit": 3,
+      "quit": 1
+    },
+    "restart": {
+      "stats": 43,
+      "vision_info": 14,
+      "load_image": 1,
+      "capture": 3,
+      "pages": 3,
+      "logits": 3,
+      "restore": 5,
+      "audit": 3,
+      "feed": 2,
+      "quit": 1
+    }
+  },
+  "native_exits": {
+    "baseline": {
+      "pid": 692143,
+      "exit_code": 0,
+      "absent": true
+    },
+    "candidate": {
+      "pid": 692669,
+      "exit_code": 0,
+      "absent": true
+    },
+    "restart": {
+      "pid": 692992,
+      "exit_code": 0,
+      "absent": true
+    }
+  },
+  "gpu_idle_after": true,
+  "performance_qualification": "NOT_DONE: two outputs per branch; no sustained TPS claim",
+  "independent_full_history_oracle": "NOT_RUN"
+}

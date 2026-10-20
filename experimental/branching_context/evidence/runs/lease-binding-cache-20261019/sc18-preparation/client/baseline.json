@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "scope": "Unmodified supplied interval tests in actual isolated Executor; expected failure"
+}

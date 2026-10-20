@@ -1,0 +1,1 @@
+Q8 regression campaign launched on llm-60 GPU0 under the shared GPU lock. Supervisor PID692129 was observed live. Authoritative incremental campaign.json and heartbeat.json are at /home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/lease-binding-cache-q8-20261019-v1. This record is not a result. No producer ledger is read.

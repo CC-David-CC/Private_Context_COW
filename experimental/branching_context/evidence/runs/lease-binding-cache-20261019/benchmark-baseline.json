@@ -1,0 +1,51 @@
+{
+  "scope": "Isolated host binding checks against explicit CPU native-response stub; not GPU/whole-request speed",
+  "source": "/home/dflanag3/src/context-cow-grammar-admission-20261019/experimental/branching_context/src/context_time_travel/strata_backend.py",
+  "source_sha256": "892346fe4b41950b28b5b18839618300f0e2146397206fc849d99a47f518a9b6",
+  "python": "3.12.3",
+  "prefix_cells": 17857,
+  "steps": 128,
+  "checks_per_step": 3,
+  "results": {
+    "text": {
+      "repetitions": [
+        {
+          "seconds": 1.172176389489323,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        },
+        {
+          "seconds": 1.1252563407178968,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        },
+        {
+          "seconds": 1.1252121548168361,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        }
+      ],
+      "median_seconds": 1.1252563407178968
+    },
+    "mixed": {
+      "repetitions": [
+        {
+          "seconds": 1.1476833866909146,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        },
+        {
+          "seconds": 1.148802021285519,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        },
+        {
+          "seconds": 1.1500106169842184,
+          "expected_binding_computations": 384,
+          "native_echo_queries": 384
+        }
+      ],
+      "median_seconds": 1.148802021285519
+    }
+  }
+}

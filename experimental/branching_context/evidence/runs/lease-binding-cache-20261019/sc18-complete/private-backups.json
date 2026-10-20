@@ -1,0 +1,17 @@
+{
+  "client": {
+    "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/client-SC18-dev17-recovered-new-task-complete-handoff-pass-20261019/evidence.tar.gz",
+    "sha256": "14dbf908517191afcaa246b288a91b32cbc8a04ecc5a784c8480fd8f2fd8cfbc",
+    "bytes": 315159,
+    "files": 448
+  },
+  "service": {
+    "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/service-SC18-dev17-exact-lost-ack-recovery-pass-20261019/evidence.tar.gz",
+    "sha256": "fdf2360c1eacfb9e924c8f1361bd02009fe22256010e1d9b9d47368923eba377",
+    "bytes": 2026442,
+    "files": 40
+  },
+  "canonical_store_preserved": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC17-q8-binding-cache-dev16-v1/store"
+}

@@ -1,0 +1,14 @@
+test_duplicate_relative_aliases_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_duplicate_relative_aliases_rejected) ... ok
+test_invalid_hash_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_invalid_hash_rejected) ... ok
+test_missing_declaration_is_reported_as_unverified (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_declaration_is_reported_as_unverified) ... ok
+test_missing_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_source_rejected) ... ok
+test_modified_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_modified_source_rejected) ... ok
+test_normal_server_rejects_declared_mismatch_before_creating_store (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_normal_server_rejects_declared_mismatch_before_creating_store) ... ok
+test_parent_escape_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_parent_escape_rejected) ... ok
+test_relocated_declared_sources_match_by_exact_bytes (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_relocated_declared_sources_match_by_exact_bytes) ... ok
+test_symlink_is_not_a_pinned_source_file (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_symlink_is_not_a_pinned_source_file) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.150s
+
+OK

@@ -1,0 +1,6 @@
+test_partial_pause_commits_and_resumes_same_random_sequence (test_consumed_pause_coordinator.PauseCoordinatorTests.test_partial_pause_commits_and_resumes_same_random_sequence) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.058s
+
+OK

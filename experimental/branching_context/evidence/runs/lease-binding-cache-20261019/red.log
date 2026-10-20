@@ -1,0 +1,45 @@
+test_alternating_histories_never_reuse_the_other_expected_identity (test_vision_binding_cache.BindingCacheTests.test_alternating_histories_never_reuse_the_other_expected_identity) ... FAIL
+test_cache_is_lease_local_and_release_discards_derived_history (test_vision_binding_cache.BindingCacheTests.test_cache_is_lease_local_and_release_discards_derived_history) ... ok
+test_cached_expected_still_rejects_each_wrong_native_binding (test_vision_binding_cache.BindingCacheTests.test_cached_expected_still_rejects_each_wrong_native_binding) ... FAIL
+test_equal_native_tokens_different_grid_cannot_share_expected_binding (test_vision_binding_cache.BindingCacheTests.test_equal_native_tokens_different_grid_cannot_share_expected_binding) ... ok
+test_foreign_thread_cannot_read_write_or_release_warm_lease (test_vision_binding_cache.BindingCacheTests.test_foreign_thread_cannot_read_write_or_release_warm_lease) ... FAIL
+test_mutable_subclass_is_never_cached (test_vision_binding_cache.BindingCacheTests.test_mutable_subclass_is_never_cached) ... ok
+test_repeated_check_reuses_expected_digest_but_queries_native_every_time (test_vision_binding_cache.BindingCacheTests.test_repeated_check_reuses_expected_digest_but_queries_native_every_time) ... FAIL
+test_same_object_changed_encoded_bytes_cannot_hit_old_binding (test_vision_binding_cache.BindingCacheTests.test_same_object_changed_encoded_bytes_cannot_hit_old_binding) ... ok
+
+======================================================================
+FAIL: test_alternating_histories_never_reuse_the_other_expected_identity (test_vision_binding_cache.BindingCacheTests.test_alternating_histories_never_reuse_the_other_expected_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-binding-cache-20261019/experimental/branching_context/tests/implementation/test_vision_binding_cache.py", line 36, in test_alternating_histories_never_reuse_the_other_expected_identity
+    self.assertEqual(binding.call_count,3)
+AssertionError: 4 != 3
+
+======================================================================
+FAIL: test_cached_expected_still_rejects_each_wrong_native_binding (test_vision_binding_cache.BindingCacheTests.test_cached_expected_still_rejects_each_wrong_native_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-binding-cache-20261019/experimental/branching_context/tests/implementation/test_vision_binding_cache.py", line 26, in test_cached_expected_still_rejects_each_wrong_native_binding
+    self.assertEqual(binding.call_count,1)
+AssertionError: 7 != 1
+
+======================================================================
+FAIL: test_foreign_thread_cannot_read_write_or_release_warm_lease (test_vision_binding_cache.BindingCacheTests.test_foreign_thread_cannot_read_write_or_release_warm_lease)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-binding-cache-20261019/experimental/branching_context/tests/implementation/test_vision_binding_cache.py", line 84, in test_foreign_thread_cannot_read_write_or_release_warm_lease
+    self.assertEqual(binding.call_count,1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_repeated_check_reuses_expected_digest_but_queries_native_every_time (test_vision_binding_cache.BindingCacheTests.test_repeated_check_reuses_expected_digest_but_queries_native_every_time)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-binding-cache-20261019/experimental/branching_context/tests/implementation/test_vision_binding_cache.py", line 16, in test_repeated_check_reuses_expected_digest_but_queries_native_every_time
+    self.assertEqual(binding.call_count,1)
+AssertionError: 3 != 1
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+FAILED (failures=4)

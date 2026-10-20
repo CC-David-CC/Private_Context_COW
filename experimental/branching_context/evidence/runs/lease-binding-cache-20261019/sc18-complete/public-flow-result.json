@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "review_export_apply_retry": true,
+  "offline_resume": true,
+  "state_bytes_and_modes_unchanged": true,
+  "applied_independent_cases": 1000
+}

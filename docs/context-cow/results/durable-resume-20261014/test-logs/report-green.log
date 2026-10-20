@@ -1,0 +1,7 @@
+test_exact_comparison_remains_numeric_zero (test_resume_report.ResumeReportTests.test_exact_comparison_remains_numeric_zero) ... ok
+test_nonzero_error_at_zero_tolerance_is_preserved (test_resume_report.ResumeReportTests.test_nonzero_error_at_zero_tolerance_is_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

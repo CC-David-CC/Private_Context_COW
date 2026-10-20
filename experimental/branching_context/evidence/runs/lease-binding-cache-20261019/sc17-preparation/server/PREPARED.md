@@ -1,0 +1,1 @@
+Prepared only. Do not start until grammar regression settles and GPU lock is free. Fresh store and grammar registry; installed dev16 client on llm-49 will recreate its canonical generic controller root. Replays frozen SC14 repository repair for integration, not a new unfamiliar-task claim. No SSH key installed yet.

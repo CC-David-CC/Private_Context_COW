@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "ledger_unchanged": true,
+  "model_calls": 6,
+  "output_tokens": 5216,
+  "whole_cli_seconds": 324.55219856707845,
+  "resume_cli_seconds": 302.5129617960192,
+  "first_interrupted_cli_seconds": 21.63816533703357,
+  "reconcile_cli_seconds": 0.4010714340256527,
+  "wheel_sha256": "292ecffe071bd13d082f0480d7e77e9ebbf9f1f92c0ee17451581e03c12c4840",
+  "numerical_oracle": "NOT_RUN"
+}

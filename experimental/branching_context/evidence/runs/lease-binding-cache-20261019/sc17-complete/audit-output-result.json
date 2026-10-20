@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "changed": [
+    "branchwrite/project_scope.py"
+  ],
+  "source_files": 710,
+  "independent_cases": 100,
+  "seed": 141019,
+  "original_source_unchanged": true,
+  "protected_tests_unchanged": true,
+  "isolated_executor": true
+}

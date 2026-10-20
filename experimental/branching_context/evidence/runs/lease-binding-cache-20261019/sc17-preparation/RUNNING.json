@@ -1,0 +1,13 @@
+{
+  "status": "RUNNING_NOT_QUALIFIED",
+  "server_supervisor_pid": 696734,
+  "server_pid": 696751,
+  "client_supervisor_pid": 2288015,
+  "observed_client_pid": 2288140,
+  "client_host": "llm-49",
+  "server_host": "llm-60",
+  "scope": "Frozen SC14 repair replay with installed dev16 and new candidate profile, actual tools; not a new unfamiliar task",
+  "negative_zero_forward_audit": "PASS",
+  "steering_stop_observer_session": 73021,
+  "chat_server": "OFF"
+}

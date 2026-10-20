@@ -1,0 +1,15 @@
+test_partial_pause_commits_and_resumes_same_random_sequence (test_consumed_pause_coordinator.PauseCoordinatorTests.test_partial_pause_commits_and_resumes_same_random_sequence) ... ERROR
+
+======================================================================
+ERROR: test_partial_pause_commits_and_resumes_same_random_sequence (test_consumed_pause_coordinator.PauseCoordinatorTests.test_partial_pause_commits_and_resumes_same_random_sequence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/experimental/branching_context/tests/implementation/test_consumed_pause_coordinator.py", line 22, in test_partial_pause_commits_and_resumes_same_random_sequence
+    self.assertTrue(consumed.wait(5));self.assertTrue(job.pause_supported)
+                                                      ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'pause_supported'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.044s
+
+FAILED (errors=1)
