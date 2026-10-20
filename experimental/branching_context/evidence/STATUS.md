@@ -8026,3 +8026,34 @@ Evidence: evidence/runs/bw-conversation-integration-20261020/.
 
 
 2026-10-20 consumed pause coordinator/HTTP CPU PASS:205focusedCOW,18HTTP,18decoder/recovery,363combinedclient/server,andG0 51/51,0skips. Authenticated stream control usesoriginalID/transientEvent;normalpartialpublication only. Unsupportedroot/legacyrequestrejects. Coordinatorpause1+resume7andlostackreplay preserveRNG/controller withno extraforwardwork. Clientwatcher/GPU pause notyetimplemented/qualified. See runs/CONSUMED-PAUSE-20261020/HTTP-HANDOFF.md.
+
+
+## 2026-10-20 ? IP01 input-view candidate, CPU validation only
+
+IP01 canonical-byte equivalence and cache rejection/retention tests passed:8new
+focused cases,98selected input/schedule/binding regressions,51G0 and4reference
+mutants killed. Three initial test import errors are retained and resolved by
+including the existing tokenizer tools path; no assertions changed. CPU64K text
+metadata microbenchmark20steps median0.25524s versus0.93022s serving4b1f8fda and
+0.74716s base780e824a. All canonical digests matched across24 configurations.
+Candidate is not deployed. GPU logits, controller continuation and end-to-end
+throughput for this candidate are NOT RUN; cumulativeG1-G5 remain unqualified.
+Evidence:evidence/runs/input-projection-20261020/.
+
+
+## 2026-10-20 ? IP02 pure-binding reuse, CPU validation only
+
+IP02 retains the current receipt cursor's fresh reference check.105 CPU
+regressions,51G0 and4reference mutants passed with zero final failures/skips. An
+initial attempt to cache the cursor check failed its required-call assertion;
+that implementation was removed, preserving the old test and independent check.
+Cold-cache CPU64K/64-step total median0.89059s to0.88048s; publication audit
+0.05006s to0.02498s. History/schedule hashes matched. Candidate is not deployed;
+real-GPU numerical/throughput tests NOT RUN. CumulativeG1-G5 stay unqualified.
+
+
+## 2026-10-20 IP03 complete-audit packing (CPU only)
+
+Bulk integer/position construction now preserves exact little-endian bytes without per-cell struct.pack calls in full publication audits. Nine new cases and 114 focused regressions passed; G0 51/51 and four reference mutants passed. The independent scalar per-token check and original equations remain unchanged. See runs/input-projection-20261020/IP03/summary.json for six-sample CPU timings and fingerprints. No GPU qualification, native TPS or cumulative G1-G5 pass is established. The earlier prepared IP02 source-closure profile is stale after this commit and remains unstarted. Live Q4 service unchanged.
+
+IP03 timings explicitly include a 128K whole-CPU-workflow regression: +6.25%, versus -2.72% at8K and -1.36% at64K. Full-audit finishing is19-22% faster. The128K total regression is not explained or hidden by the faster isolated measurement; no native speed or promotion claim is made.

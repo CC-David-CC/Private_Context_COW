@@ -22,3 +22,5 @@ arrangement equivalence is an accepted prototype limitation; cumulative G1-G5
 certification is incomplete. See the preserved mathematical specification for
 the broader original contract. An HTTP/client smoke pass is not certification.
 
+This branch is a CPU-only input-projection experiment, not the tested GPU baseline. It retains a measured128K CPU regression.
+

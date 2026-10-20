@@ -12,6 +12,7 @@ import hashlib
 import struct
 from .input_spans import canonical_inputs
 from .store import _json_bytes
+from .packed_input_binding import _i32_bytes, _position_bytes
 
 
 class _BindingCache:
@@ -83,7 +84,7 @@ class _InputScheduleProjection:
         root_close, text_close = b']}\n', b']}'
         canonical = hashlib.sha256(empty[:-3])
         self._digests = {}
-        ids, native, positions = [], bytearray(), bytearray()
+        ids = []
         self._cursors = [0]
         self._text_ends = bytearray([0])
         self._image_starts, self._image_ends = [], []
@@ -99,8 +100,6 @@ class _InputScheduleProjection:
                         canonical.update(b',')
                     canonical.update(str(token).encode('ascii'))
                     ids.append(token)
-                    native.extend(struct.pack('<i', token))
-                    positions.extend(struct.pack('<iii', cursor, cursor, cursor))
                     cursor += 1
                     cell += 1
                     self._cursors.append(cursor)
@@ -117,8 +116,6 @@ class _InputScheduleProjection:
                 for y in range(span['grid_height']):
                     for x in range(span['grid_width']):
                         ids.append(span['pad_token_id'])
-                        native.extend(struct.pack('<i', span['pad_token_id']))
-                        positions.extend(struct.pack('<iii', cursor, cursor+y, cursor+x))
                         cell += 1
                         self._cursors.append(0)  # Interior image boundaries are forbidden.
                         self._text_ends.append(0)
@@ -133,8 +130,11 @@ class _InputScheduleProjection:
         if cell != len(history) or canonical.hexdigest() != history.digest:
             raise ValueError('Canonical mixed history identity mismatch')
         self.native_tokens = tuple(ids)
-        self._native = memoryview(bytes(native))
-        self._positions = memoryview(bytes(positions))
+        packed_cursor, positions = _position_bytes(spans)
+        if packed_cursor != cursor or len(positions) != 12*cell:
+            raise ValueError('Packed mixed position construction disagrees with audited spans')
+        self._native = memoryview(_i32_bytes(ids))
+        self._positions = memoryview(positions)
         self._images = memoryview(bytes(image_bytes))
 
     def boundary(self, position):

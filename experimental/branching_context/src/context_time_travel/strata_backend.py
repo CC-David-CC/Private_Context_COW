@@ -29,7 +29,8 @@ from .store import IntegrityError, InvalidOperation
 from .pools import normalize_gpu_selection
 from .input_spans import InputHistory
 from .vision_execution import (VISION_PROTOCOL, RESUME_CONTRACT, POSITION_CONVENTION,
-                               input_binding, placements, validate_boundary)
+                               placements, validate_boundary)
+from .input_projection import cached_input_binding as input_binding
 
 
 def _tmpfs_mount(mounts, directory):

@@ -1,5 +1,5 @@
 {
-  "source_commit": "780e824a33a35d2a857643b43a56858ce14ec8b6",
+  "source_commit": "fc29c28ffb8bceea5b94607a55889964f24bb462",
   "private_history_preserved": true,
   "included": [
     {
@@ -6359,8 +6359,8 @@
     },
     {
       "path": "experimental/branching_context/evidence/DECISIONS.md",
-      "bytes": 379612,
-      "sha256": "1e010b1e24c0b9476c72a4a03e8d348333adc2c73694616a937446fce11849a3"
+      "bytes": 381457,
+      "sha256": "9ca26f8327fd3bef984e0e9f4376a7309f8bd285069756c817251c13a88f9943"
     },
     {
       "path": "experimental/branching_context/evidence/DISK-LRU-INTEGRATION-CPU-2026-10-15.json",
@@ -6711,6 +6711,11 @@
       "path": "experimental/branching_context/evidence/INITIAL-QUESTION-SERVING-2026-10-14.json",
       "bytes": 9410,
       "sha256": "e43ef2e03834bf5e4a53e2e842fa5dcf7a7154e23afbf3f501c76539f00f2c21"
+    },
+    {
+      "path": "experimental/branching_context/evidence/INPUT-PROJECTION-HANDOFF-2026-10-20.md",
+      "bytes": 4419,
+      "sha256": "5042372240c754ffb78ad280bd2a21c4a8c253fffc6c1e71080a630714ac13e3"
     },
     {
       "path": "experimental/branching_context/evidence/INTEGRATED-HARNESS-G0-2026-10-15.json",
@@ -8569,8 +8574,8 @@
     },
     {
       "path": "experimental/branching_context/evidence/STATUS.md",
-      "bytes": 583751,
-      "sha256": "95f1a60bb5a27af820dc3bd8b7ada78f996fa4c58b282b6bafb2237ae33808db"
+      "bytes": 586066,
+      "sha256": "ffd02aa635dcbdc111a82e699d1fe8346ce191ac15d742cfe8ee194476aeef66"
     },
     {
       "path": "experimental/branching_context/evidence/STORAGE-CLEANUP-2026-10-16.json",
@@ -11778,6 +11783,26 @@
       "sha256": "ceba1408d3de39351705d9ea03472f1a68317326a403d2430e3081f3050244eb"
     },
     {
+      "path": "experimental/branching_context/evidence/runs/20261020T162948443842Z-G0.json",
+      "bytes": 686,
+      "sha256": "295a508688b839e528b8d977d7efb75f96e3b1aaffeb568abe4ba8baf543ad6b"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/20261020T163700782827Z-G0.json",
+      "bytes": 686,
+      "sha256": "ea2722033bd44c7811f4414d1a136ecaacbbb33620d1218c7d0702316a34901d"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/20261020T164618608199Z-G0.json",
+      "bytes": 686,
+      "sha256": "da1725946eb6bf23ae2cc95aae6af429b2fd0a1fa91c88d4ab80445d4397a815"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/20261020T190311579147Z-G0.json",
+      "bytes": 686,
+      "sha256": "91c8c453bef1da4d4acdc67772bd61cbe229263803eecdeffaad3dd7e893c065"
+    },
+    {
       "path": "experimental/branching_context/evidence/runs/CONSUMED-PAUSE-20261020/G0-final-http.log",
       "bytes": 105,
       "sha256": "c829ddc5e53193133d6f6b954a606c96dbb9740b525c39758932779ff56a3e3e"
@@ -11956,6 +11981,296 @@
       "path": "experimental/branching_context/evidence/runs/canonical-history-counts-20261019/regressions.log",
       "bytes": 7165,
       "sha256": "ae409662d6992d84c53f29be5bef755614439957b9f8dbd8bd9af030c9c65968"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/G0-IP01.txt",
+      "bytes": 6633,
+      "sha256": "e5ed933e27cf22494fd8efa02f86721f6e636f3cf81177fac2ba3ceb99fa415d"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/G0-IP02.txt",
+      "bytes": 6633,
+      "sha256": "d477fdf50595bc4e202d4865c685aa3ea2916d19a39686de5893cd1507dc60b0"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/G0-baseline.txt",
+      "bytes": 6633,
+      "sha256": "a6daba0f25e5bf40c5db8e44272d31a21db85c3110619257182e35f1bb0be40b"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-README.md",
+      "bytes": 1694,
+      "sha256": "d079771382ce3eaf2bca9a1c077443fbb356ff19c2599df1da8c4caa75689140"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-fingerprints.json",
+      "bytes": 446,
+      "sha256": "9a36a3cf1e60004751c705a93e5ec6d2aff7f58d1f4310714514295ba355c25a"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-green.txt",
+      "bytes": 1512,
+      "sha256": "e79cefb28879e89081a4c1a755baada1a478f7df1f6a380d27685ffa54faa840"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-red.txt",
+      "bytes": 3127,
+      "sha256": "0b2df3a55497c1062fe6198dbe25d607d64701164b2a4d0c3e9ba57dd85d9e89"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-regressions.json",
+      "bytes": 19619,
+      "sha256": "fc84e82068bfcb67ae6d611306ad91f4dceaf4b109fd6e752ee5e8e18bc5ce9c"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP01-regressions.txt",
+      "bytes": 17846,
+      "sha256": "a4dd6c3b736f7c278e5980087648761f23578e50fddb010391a2fb476163c234"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-README.md",
+      "bytes": 1677,
+      "sha256": "00322dbecc46f2217e2cffcea82d14054206db69de7dd0466001ee5ea3a37f56"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-benchmark.json",
+      "bytes": 11534,
+      "sha256": "7c072302e10fb1b2bf3031ee04a95f9298d10b0d57caa7ec0c619d241f4aacef"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-benchmark.log",
+      "bytes": 9142,
+      "sha256": "6e68a2cfc2af31e14d995e409ec8ec6b1fd9bd94ebc63634b18942d39d4c1777"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-benchmark.py",
+      "bytes": 1192,
+      "sha256": "58a2b88edd6f4fc380ca786f4ae469e0ae55a58f39801465022a24060a428670"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-child.py",
+      "bytes": 1571,
+      "sha256": "b51aa8501abea8f7d1967dd55de985f35dbae506e9c22d32c445c1f2c21450d8"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-green.txt",
+      "bytes": 1505,
+      "sha256": "f3d66e8f9ede9df1f69799757d6074cdaf1e51607c7578d3aca1844abf641f2b"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-red.txt",
+      "bytes": 7643,
+      "sha256": "d469e2274056cc1e1c9c0537b62d0a6a954ce5b7d813db39bef182566e7941ac"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-regressions.json",
+      "bytes": 20933,
+      "sha256": "e7468e175465f2bb050240b73a75e2a7074796e6ebbe4e647113a7b024e39a2b"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP02-regressions.txt",
+      "bytes": 19254,
+      "sha256": "e99d746697fb7dea9baf49f4035bfcb0ede8b9a39d0116cfb524bd0e6011e96c"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/131072-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/131072-packed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/65536-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/65536-packed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/8192-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/8192-packed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/G0.log",
+      "bytes": 6633,
+      "sha256": "9df94fd2fe8796812e4fe115d137b123b56aa56a50843ac4611731a1161efc37"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/IP03-regressions.json",
+      "bytes": 22452,
+      "sha256": "77dac6ea24c80e8c63e90e6a0b3e6af55d565068c29d178df3e3672d72a3d4d4"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/IP03-regressions.txt",
+      "bytes": 20845,
+      "sha256": "7eb4de73f7866690520681c17694f5e3013309ae5d472db88c236dad6ef8d8a5"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/README.md",
+      "bytes": 2452,
+      "sha256": "0e4cfacc9bfc078a76cb922a8e0d6d369d06c67c1b984634decab3d6bd0b4b6c"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/baseline_projection.py",
+      "bytes": 7446,
+      "sha256": "40317820086e83a0c58fbb45a733a2d70cb392100931df3295e7b85059a37b14"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-child.py",
+      "bytes": 2005,
+      "sha256": "1486b9e0270c6af9221075ecbda0a26d2b01a2220e892f9a1414af16447b86cf"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-fresh.json",
+      "bytes": 3572,
+      "sha256": "43c02478e627b0ef2c5a578ceeabbcede1ae8fe6ce42d8d75c4213d90c5bf747"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-fresh.py",
+      "bytes": 992,
+      "sha256": "f6805ee173ebba8ef67b1e6bb419b8b7280e0ade0ec7c56a692323317a41b719"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-fresh.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-workflow.json",
+      "bytes": 33613,
+      "sha256": "3992029fc9f8c0e1126dad631b023094c90ee6d6563b77fe1841df22f5603bf9"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-workflow.log",
+      "bytes": 1099,
+      "sha256": "1b0db6128f8541d62bfaa05d16707ed78effe31ac940100d3d405910bcb48668"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/benchmark-workflow.py",
+      "bytes": 1921,
+      "sha256": "40d4b3ec091c4b9c940223ec95166bf27aab9605bea2e8fb6ff67be03525b8b3"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/green.txt",
+      "bytes": 1478,
+      "sha256": "8841877799c1f46b006a49385eaf6b0c1d56e6d11a44181379f9139d95f1f731"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/initial-green.txt",
+      "bytes": 2448,
+      "sha256": "e249c3628020eb3c5ef3c924b310b56f4112f323b4def469ffa0bb8082594515"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/initial-workflow-unbalanced-cache.json",
+      "bytes": 8897,
+      "sha256": "67ea7afb581c85204d3cc57fe9a10ec3c64d41df304e90a37c8c6be489116336"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/integration-green.txt",
+      "bytes": 1689,
+      "sha256": "3838a69a0a8a1441d9ef836492afd1aa7cd39422c0bc9dc8fd7357093def3b71"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/integration-red.txt",
+      "bytes": 1365,
+      "sha256": "cc31fc46995f47d15029d4b139c3433646c7dcd1976eb184fbb76d5ccd975a17"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/mutants.log",
+      "bytes": 178,
+      "sha256": "64e8a1d32187b95415f5830742aab198fc400dbad44d6214c7003a402c862101"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/red.txt",
+      "bytes": 8809,
+      "sha256": "9bcdb1839685dab694f837e67de9ab29d49c00bfe6d67f487ad4f68d96413a36"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/regressions.log",
+      "bytes": 108,
+      "sha256": "50cd5e397090e91cd989fcc4c041dc1d2cd3befcdc51de51d87716f1b1b63ae1"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/run_IP03.py",
+      "bytes": 2083,
+      "sha256": "1330deb406dd603c16ae32976d4c7eee1eb7ef77fb69ffa5c55c21b72f05d712"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/IP03/summary.json",
+      "bytes": 2405,
+      "sha256": "66b225ad0657ff65c06382fd9c2e83875f5c76019f04df0174d3d5217b30c094"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/benchmark.json",
+      "bytes": 12653,
+      "sha256": "79781d35a103eac3b985420c12c9557e922722f7415794a541d4e711a8d7d4c6"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/benchmark.log",
+      "bytes": 10134,
+      "sha256": "32f68a85396b460e3ae31e98086b3c496cd4834926444f05f9414eb12c5a6604"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/benchmark.py",
+      "bytes": 1546,
+      "sha256": "3206ba8ad75b50fad467f67adb9f1d09b9db288817301d0c3faafade9022acf9"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/child.py",
+      "bytes": 1095,
+      "sha256": "cb52cbe535719dd77e9a93d82e126e0f09375d26a095d40d5e97a93986646a6a"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/initial-IP02-regressions.json",
+      "bytes": 20932,
+      "sha256": "4a8f208393fd1671de26126d553a30b1e2c85fb0e691bc62fb2cd0e333c8df67"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/initial-IP02-regressions.txt",
+      "bytes": 19958,
+      "sha256": "e8a908132b4ab7624e151518a72ea84713caf9ef628df3d8e5f20e490a812c4b"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/initial-environment-IP01-regressions.json",
+      "bytes": 19622,
+      "sha256": "4f0cc1e9d13ba30b61b9b231d28f324c9bdca18c0629fd1c2b86e8b535460dbb"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/initial-environment-IP01-regressions.txt",
+      "bytes": 20561,
+      "sha256": "2efe051995c3e8399b1130de8f4d0f5d8c003c2655a361f79f86e4d89e11a700"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/mutants-IP01.txt",
+      "bytes": 178,
+      "sha256": "64e8a1d32187b95415f5830742aab198fc400dbad44d6214c7003a402c862101"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/mutants-IP02.txt",
+      "bytes": 178,
+      "sha256": "64e8a1d32187b95415f5830742aab198fc400dbad44d6214c7003a402c862101"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/run_IP01.py",
+      "bytes": 2025,
+      "sha256": "19067d37e98a611b5ba4d726fac0d46526cdd4a503f5bc83b200890641e0babf"
+    },
+    {
+      "path": "experimental/branching_context/evidence/runs/input-projection-20261020/run_IP02.py",
+      "bytes": 2055,
+      "sha256": "f5feba627070814b2c362fcc119c9140178c0dd15382fb4810ad3ad14b41c172"
     },
     {
       "path": "experimental/branching_context/evidence/runs/lease-binding-cache-20261019/G0-final.log",
@@ -14378,14 +14693,19 @@
       "sha256": "03e2a6560558f564cc893148bdc01f17989dd7a21721f5129cc9829754dea62d"
     },
     {
+      "path": "experimental/branching_context/src/context_time_travel/input_projection.py",
+      "bytes": 1461,
+      "sha256": "f5264bd8e6b7ec7c03756cfc56b9b40a5edcfc6c3179dc029d31e39dd16b7a18"
+    },
+    {
       "path": "experimental/branching_context/src/context_time_travel/input_schedule_projection.py",
-      "bytes": 7446,
-      "sha256": "40317820086e83a0c58fbb45a733a2d70cb392100931df3295e7b85059a37b14"
+      "bytes": 7366,
+      "sha256": "b436edd8f85cce74de6ea2efdd87f66cedbed691194eee605479044421c58a3f"
     },
     {
       "path": "experimental/branching_context/src/context_time_travel/input_spans.py",
-      "bytes": 9734,
-      "sha256": "48b287d3732cdde339e36c17712a2dc483147c6af9061fed14a936972c57d104"
+      "bytes": 12658,
+      "sha256": "b234e707af647e6879969db81d492af428caae14ca1d5a510ca74be3ecf97f78"
     },
     {
       "path": "experimental/branching_context/src/context_time_travel/min_p.py",
@@ -14406,6 +14726,11 @@
       "path": "experimental/branching_context/src/context_time_travel/oracle.py",
       "bytes": 2781,
       "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+    },
+    {
+      "path": "experimental/branching_context/src/context_time_travel/packed_input_binding.py",
+      "bytes": 3657,
+      "sha256": "d0795d293c0a1c66c39af809b322d455e09cad1593252e8959dc110654b3f2d7"
     },
     {
       "path": "experimental/branching_context/src/context_time_travel/pools.py",
@@ -14454,8 +14779,8 @@
     },
     {
       "path": "experimental/branching_context/src/context_time_travel/strata_backend.py",
-      "bytes": 109673,
-      "sha256": "c60ac110c337ab845c5231dd10efac92c34dc2f0a8a45027242bf2bf7e3bd6f8"
+      "bytes": 109726,
+      "sha256": "0abb61d8001b2bc8140ae6befca3ae02ae2f62a456a3812fa54ef9455e09fdb9"
     },
     {
       "path": "experimental/branching_context/src/context_time_travel/text_stops.py",
@@ -15163,9 +15488,19 @@
       "sha256": "369302c0672e0df1738d91b8234fc2813aef43467ce1bebc53ea6684d432b6c4"
     },
     {
+      "path": "experimental/branching_context/tests/implementation/test_input_history_views.py",
+      "bytes": 4120,
+      "sha256": "2bf83489a066cd0246aa1fdb180d6aafdd8679d4e78bc77bede8779ec7de691f"
+    },
+    {
       "path": "experimental/branching_context/tests/implementation/test_input_prefix_comparison.py",
       "bytes": 3399,
       "sha256": "4ecd8c7b87058c6cefb32e9313a14c5a2b6ceafbc059c166048f13543e0c3197"
+    },
+    {
+      "path": "experimental/branching_context/tests/implementation/test_input_projection_cache.py",
+      "bytes": 3663,
+      "sha256": "d75abf45a4ca316da8bb68ef4253c44fd24811fc74c2a4b2cd556e1184db21e4"
     },
     {
       "path": "experimental/branching_context/tests/implementation/test_json_schema_grammar.py",
@@ -15381,6 +15716,11 @@
       "path": "experimental/branching_context/tests/implementation/test_p4_import_durability.py",
       "bytes": 6393,
       "sha256": "e41edf67da0983bef906afd96b14f5d4ea489b75cb6a14881dfb0e36a3b91dea"
+    },
+    {
+      "path": "experimental/branching_context/tests/implementation/test_packed_input_binding.py",
+      "bytes": 5109,
+      "sha256": "4d4ec683b9b77657b5f572b740e1b491eb411ae654d0be7d46c32ff2ecc5092b"
     },
     {
       "path": "experimental/branching_context/tests/implementation/test_paired_prefix_reuse.py",
@@ -33035,7 +33375,7 @@
     {
       "path": "README.md",
       "source_sha256": "e777a8bb975b36991ef1936adeb68c92acfb47e7484b8dd2309b7f29e2fe56d6",
-      "release_sha256": "f3f6b61cdd4924d9361a304b24442ecd5b4aed8fdc86155c96f3648466d85d08"
+      "release_sha256": "1c7d74a2fe95ef5bb1a84d0bbc4e4b700e2a0b047d8438d9a9644d4343e56d20"
     }
   ]
 }

@@ -93,12 +93,36 @@ class InputHistory:
 
     def __init__(self, spans):
         canonical = canonical_inputs(spans)
-        object.__setattr__(self, '_encoded', _json_bytes(dict(schema=1, spans=canonical)))
-        object.__setattr__(self, '_count', input_count(canonical))
+        encoded = _json_bytes(dict(schema=1, spans=canonical))
+        count = sum(len(span['tokens']) if span['kind']=='text' else span['rows']
+                    for span in canonical)
+        object.__setattr__(self, '_encoded', encoded)
+        object.__setattr__(self, '_count', count)
+        # Detached, immutable derived views only. The canonical bytes above
+        # remain the identity and serialization; caches are not dataclass fields.
+        views = tuple(('text',tuple(span['tokens'])) if span['kind']=='text'
+                      else ('image',tuple(sorted(span.items()))) for span in canonical)
+        self._remember_views(views)
+
+    def _remember_views(self, views):
+        object.__setattr__(self, '_views_cache', (self._encoded, views, self._count))
+        if len(views)==1 and views[0][0]=='text':
+            object.__setattr__(self, '_native_cache', (self._encoded,views[0][1]))
+
+    def _owned_views(self):
+        cached = getattr(self, '_views_cache', None)
+        if (type(self) is InputHistory and cached is not None
+                and cached[0] is self._encoded and cached[2]==self._count):
+            return cached[1]
+        return None
 
     @property
     def spans(self):
-        return json.loads(self._encoded)['spans']
+        views = self._owned_views()
+        if views is None:
+            return json.loads(self._encoded)['spans']
+        return [dict(kind='text',tokens=list(data)) if kind=='text' else dict(data)
+                for kind,data in views]
 
     @property
     def digest(self):
@@ -106,13 +130,28 @@ class InputHistory:
 
     @property
     def native_tokens(self):
-        return tuple(token for span in self.spans for token in
-                     (span['tokens'] if span['kind'] == 'text'
-                      else [span['pad_token_id']]*span['rows']))
+        views = self._owned_views()
+        if views is None:
+            return tuple(token for span in self.spans for token in
+                         (span['tokens'] if span['kind']=='text'
+                          else [span['pad_token_id']]*span['rows']))
+        cached = getattr(self, '_native_cache', None)
+        if cached is not None and cached[0] is self._encoded:
+            return cached[1]
+        result = []
+        for kind,data in views:
+            if kind=='text':result.extend(data)
+            else:
+                image=dict(data);result.extend([image['pad_token_id']]*image['rows'])
+        ids=tuple(result)
+        object.__setattr__(self, '_native_cache', (self._encoded,ids))
+        return ids
 
     @property
     def text_runs(self):
-        return text_runs(self.spans)
+        views = self._owned_views()
+        if views is None:return text_runs(self.spans)
+        return tuple(data for kind,data in views if kind=='text')
 
     @property
     def text_tokens(self):
@@ -125,7 +164,24 @@ class InputHistory:
     def __add__(self, tokens):
         if isinstance(tokens,InputHistory):
             return InputHistory(self.spans+tokens.spans)
-        return InputHistory(self.spans + [dict(kind='text', tokens=list(tokens))])
+        delta=tuple(_tokens(list(tokens)))
+        views=self._owned_views()
+        if (views is not None and delta and views and views[-1][0]=='text'
+                and self._encoded.endswith(b']}]}\n')):
+            # Canonical adjacent text is one JSON integer array. Validate the
+            # new IDs once, append their exact decimal bytes, and keep all prior
+            # canonical bytes unchanged. No prefix parse or revalidation needed.
+            encoded=(self._encoded[:-5]+b','+b','.join(str(t).encode('ascii') for t in delta)
+                     +self._encoded[-5:])
+            child=object.__new__(InputHistory)
+            object.__setattr__(child,'_encoded',encoded)
+            object.__setattr__(child,'_count',len(self)+len(delta))
+            child._remember_views(views[:-1]+(('text',views[-1][1]+delta),))
+            cached=getattr(self,'_native_cache',None)
+            if cached is not None and cached[0] is self._encoded:
+                object.__setattr__(child,'_native_cache',(encoded,cached[1]+delta))
+            return child
+        return InputHistory(self.spans+[dict(kind='text',tokens=list(delta))])
 
     def starts_with(self, prefix):
         """Compare already validated immutable canonical bytes, not text meaning.

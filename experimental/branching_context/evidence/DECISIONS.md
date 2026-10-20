@@ -5396,3 +5396,30 @@ operations; coding forks an exact committed conversation tip.
 
 
 2026-10-20 consumed pause coordinator/HTTP CPU PASS:205focusedCOW,18HTTP,18decoder/recovery,363combinedclient/server,andG0 51/51,0skips. Authenticated stream control usesoriginalID/transientEvent;normalpartialpublication only. Unsupportedroot/legacyrequestrejects. Coordinatorpause1+resume7andlostackreplay preserveRNG/controller withno extraforwardwork. Clientwatcher/GPU pause notyetimplemented/qualified. See runs/CONSUMED-PAUSE-20261020/HTTP-HANDOFF.md.
+
+
+## 2026-10-20 ? Cache detached views, retain canonical bytes
+
+IP01 keeps _encoded as the canonical history read-view identity and adds only
+immutable derived caches outside its dataclass fields. Exact type, encoded-object
+identity and consumed-count matching constrain cache use. Changed encoded bytes
+and mutable subclasses miss the caches. New text IDs are validated and canonical
+serialization/hashes remain identical to independent reconstruction. This avoids
+prefix JSON parsing and duplicate validation without removing corruption checks
+or changing the native input/position equations. CPU evidence supports keeping
+the candidate for further qualification, not promoting it to the live server.
+
+
+## 2026-10-20 ? Keep one fresh current-receipt calculation
+
+The IP02 integration test exposed that replacing the cursor's current binding
+calculation would remove an existing independent check. It remains on the full
+reference function. Backend expected bindings may populate the bounded pure-hash
+cache so final full-schedule audits reuse values already calculated and checked.
+This measured a small total CPU improvement and roughly halved final-audit time
+in the64K microbenchmark. No reference equations or tolerances were modified.
+
+
+## 2026-10-20 IP03: pack audited words in bulk, retain the fresh cursor check
+
+The scalar equations and independent per-token comparison remain authoritative. Full audit byte construction uses stdlib signed integer arrays with explicit little-endian output and int32 overflow rejection. Every hash and receipt comparison remains. Complete-workflow CPU benefit is smaller than the isolated packing benefit; retained measurements distinguish them. No public flag or persisted format was introduced. Native/source profile compatibility still requires a newly pinned qualification before live deployment.
