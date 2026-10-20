@@ -685,6 +685,8 @@ if(STRATA_ENABLE_CUDA OR STRATA_ENABLE_HIP)
   if(STRATA_ENABLE_CUDA)
     add_executable(strata-branch src/program/generate.cpp src/core/branch_driver.cpp)
     target_compile_definitions(strata-branch PRIVATE STRATA_BRANCH_DRIVER=1)
+    target_compile_definitions(strata-branch PRIVATE MIN_P_SELECT_ENABLE_V4=1 MIN_P_SELECT_ENABLE_V5=1)
+    target_include_directories(strata-branch PRIVATE experimental/branching_context/native)
     target_include_directories(strata-branch PRIVATE ${_strata_gpu_include_directories})
     target_link_libraries(strata-branch PRIVATE strata_engine strata_prefill strata_spec ${_strata_gpu_runtime_target})
     # Bounded diagnostic: ordinary initialization with forced token-by-token input.

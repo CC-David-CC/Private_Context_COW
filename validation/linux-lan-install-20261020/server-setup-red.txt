@@ -1,0 +1,50 @@
+test_all_split_model_shards_are_required (test_cow_server_setup.CowServerSetupTests.test_all_split_model_shards_are_required) ... ERROR
+test_output_directory_is_never_reused (test_cow_server_setup.CowServerSetupTests.test_output_directory_is_never_reused) ... ERROR
+test_shards_are_sorted_and_hashes_read_actual_bytes (test_cow_server_setup.CowServerSetupTests.test_shards_are_sorted_and_hashes_read_actual_bytes) ... ERROR
+
+======================================================================
+ERROR: test_all_split_model_shards_are_required (test_cow_server_setup.CowServerSetupTests.test_all_split_model_shards_are_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 20, in test_all_split_model_shards_are_required
+    self.module().model_shards(p)
+    ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 12, in module
+    spec.loader.exec_module(result)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/home/dflanag3/src/context-cow-lan-install-20261020/tools/cow_server_setup.py'
+
+======================================================================
+ERROR: test_output_directory_is_never_reused (test_cow_server_setup.CowServerSetupTests.test_output_directory_is_never_reused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 29, in test_output_directory_is_never_reused
+    self.module().new_output(p)
+    ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 12, in module
+    spec.loader.exec_module(result)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/home/dflanag3/src/context-cow-lan-install-20261020/tools/cow_server_setup.py'
+
+======================================================================
+ERROR: test_shards_are_sorted_and_hashes_read_actual_bytes (test_cow_server_setup.CowServerSetupTests.test_shards_are_sorted_and_hashes_read_actual_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 38, in test_shards_are_sorted_and_hashes_read_actual_bytes
+    self.assertEqual(self.module().model_shards(a),[a,b])
+                     ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-lan-install-20261020/tests/test_cow_server_setup.py", line 12, in module
+    spec.loader.exec_module(result)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/home/dflanag3/src/context-cow-lan-install-20261020/tools/cow_server_setup.py'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=3)

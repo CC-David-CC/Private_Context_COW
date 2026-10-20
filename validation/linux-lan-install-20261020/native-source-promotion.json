@@ -1,0 +1,20 @@
+{
+  "scope": "Promote the executed CUDA driver into the canonical build; full rebuild and new-process validation still required.",
+  "inputs": [
+    {
+      "target": "src/core/branch_driver.cpp",
+      "source_sha256": "9a89fdf1f490a9f71e990bf5ab18543e010cc3867168c531edfc8042f6ab98d7",
+      "previous_sha256": "a57669ca577a19f5c5a0413d6f3b9935581f0a27368cd73c0f27de21b1892105"
+    },
+    {
+      "target": "src/program/generate.cpp",
+      "source_sha256": "e85dc1a87754c38c35d7a9e889637fb442c4fa309def319928400aa06d790cf7",
+      "previous_sha256": "32ebb09d134df32d8307f7558c5863c23ccc8f830b7de9e7e8a52695a0a76e7f"
+    },
+    {
+      "target": "include/strata/core/branch_driver.hpp",
+      "source_sha256": "0febf8c1afc0fbb6fdf2c4edc153d2de6ad9f7d371066ee05ff1de2447319f95",
+      "previous_sha256": "8afc6e787e30d1cca8852232cc8adf7fa86d7e2dfabe5b9cb1ac9bda053104b2"
+    }
+  ]
+}

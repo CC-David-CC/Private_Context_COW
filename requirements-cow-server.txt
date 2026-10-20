@@ -1,0 +1,7 @@
+# Text, literal-safe templates and server-side GBNF/JSON Schema.
+# Model weights, CUDA toolkit and compiler are separate server prerequisites.
+jinja2==3.1.6
+regex==2026.9.10
+numpy==2.5.3
+llguidance==1.9.1
+pillow==12.3.0

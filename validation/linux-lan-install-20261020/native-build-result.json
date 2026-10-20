@@ -1,0 +1,9 @@
+{
+  "status": "BUILD_PASS_NOT_GPU_QUALIFIED",
+  "command": "cmake --build build --target strata-branch -j 32",
+  "native_sha256": "319e5dac708c7f78523e22a9b33ae9dae3069331421a8f3cc0d7f55a7319b807",
+  "source_tree_only": true,
+  "prior_object_files_linked": false,
+  "source_syntax_baseline_exit_code": 0,
+  "scope": "NVIDIA CUDA build only; HIP/SYCL not executed, no numerical certification"
+}

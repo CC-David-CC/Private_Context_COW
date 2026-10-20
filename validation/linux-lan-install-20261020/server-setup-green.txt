@@ -1,0 +1,8 @@
+test_all_split_model_shards_are_required (test_cow_server_setup.CowServerSetupTests.test_all_split_model_shards_are_required) ... ok
+test_output_directory_is_never_reused (test_cow_server_setup.CowServerSetupTests.test_output_directory_is_never_reused) ... ok
+test_shards_are_sorted_and_hashes_read_actual_bytes (test_cow_server_setup.CowServerSetupTests.test_shards_are_sorted_and_hashes_read_actual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK

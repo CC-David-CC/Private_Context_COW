@@ -6893,7 +6893,19 @@ int main(int argc, char** argv) {
         const int pcie_mode = o.pcie_mode == "dma" ? 0 : o.pcie_mode == "direct" ? 1 : 2;
 #ifdef STRATA_BRANCH_DRIVER
         return strata::core::branch_driver(wt, g, ss, hits, native_head.loaded() ? &native_head : nullptr,
-                                           &drive_pool_multi, &drive, drive.d, pcie_mode);
+                                           &drive_pool_multi, &drive, drive.d, pcie_mode,
+            srcp, o.expert_cache > 0 ? &xcache : nullptr, host_res.empty() ? nullptr : host_res.data(),
+            o.prefill_chunk, main_cs,
+            [&](const float* row, float* host, std::string& e) {
+                if (cudaMemcpyAsync(ss.R, row, (size_t)g.hc*g.n_embd*sizeof(float), cudaMemcpyDeviceToDevice,
+                                    (cudaStream_t)main_cs) != cudaSuccess || !run_head(main_cs) ||
+                    cudaMemcpyAsync(host, d_logits, (size_t)n_vocab*sizeof(float), cudaMemcpyDeviceToHost,
+                                    (cudaStream_t)main_cs) != cudaSuccess ||
+                    cudaStreamSynchronize((cudaStream_t)main_cs) != cudaSuccess) {
+                    e = err.empty() ? "prefill frontier projection/copy failed" : err; return false;
+                }
+                return true;
+            }, o.tokens, std::getenv("STRATA_DUMP_FIRST_LOGITS") ? std::getenv("STRATA_DUMP_FIRST_LOGITS") : "", o.max_new);
 #else
         const char* output = std::getenv("STRATA_DUMP_FIRST_LOGITS");
         return strata::core::fresh_driver(wt, g, ss, hits, native_head.loaded() ? &native_head : nullptr,
