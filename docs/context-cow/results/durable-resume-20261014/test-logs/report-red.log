@@ -1,0 +1,25 @@
+test_exact_comparison_remains_numeric_zero (test_resume_report.ResumeReportTests.test_exact_comparison_remains_numeric_zero) ... ERROR
+test_nonzero_error_at_zero_tolerance_is_preserved (test_resume_report.ResumeReportTests.test_nonzero_error_at_zero_tolerance_is_preserved) ... ERROR
+
+======================================================================
+ERROR: test_exact_comparison_remains_numeric_zero (test_resume_report.ResumeReportTests.test_exact_comparison_remains_numeric_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/reporting-api/tests/implementation/test_resume_report.py", line 29, in test_exact_comparison_remains_numeric_zero
+    record = runner.numerical_record(compare_logits((1.,),(1.,),atol=0,rtol=0))
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'durable_resume_report' has no attribute 'numerical_record'
+
+======================================================================
+ERROR: test_nonzero_error_at_zero_tolerance_is_preserved (test_resume_report.ResumeReportTests.test_nonzero_error_at_zero_tolerance_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/reporting-api/tests/implementation/test_resume_report.py", line 19, in test_nonzero_error_at_zero_tolerance_is_preserved
+    record = runner.numerical_record(report)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'durable_resume_report' has no attribute 'numerical_record'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (errors=2)

@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "states": {
+    "BW_TOOLS_THINK_256": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 256,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_512": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 512,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_1024": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 1024,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_2048": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 2048,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 4096,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_8192": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 8192,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_16384": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 16384,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    },
+    "BW_TOOLS_THINK_32768": {
+      "format": "thinking",
+      "source": {
+        "schema": 1,
+        "max_tokens": 32768,
+        "final": {
+          "format": "gbnf",
+          "source": "root ::= call-0 | call-1 | call-2 | call-3 | call-4\nws ::= [ \\t\\n\\r]*\nstring ::= \"\\\"\" char{0,32768} \"\\\"\"\nnonempty ::= \"\\\"\" char{1,32768} \"\\\"\"\nshell-command ::= \"\\\"\" char{1,16384} \"\\\"\"\ndigest ::= \"\\\"\" [0-9a-f]{64} \"\\\"\"\nchar ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bfnrt] | \"u\" [0-9a-fA-F]{4})\npaths-0-0 ::= \"\\\"README.md\\\"\" | \"\\\"ledger.py\\\"\" | \"\\\"tests/__init__.py\\\"\" | \"\\\"tests/test_ledger.py\\\"\"\ncall-0 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"read_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-0-0 ws \"}\" ws \"}\" ws\npaths-1-0 ::= \"\\\"ledger.py\\\"\"\ncall-1 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace_text_file\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-1-0 ws \",\" ws \"\\\"lines\\\"\" ws \":\" ws text-lines ws \",\" ws \"\\\"line_ending\\\"\" ws \":\" ws line-ending ws \",\" ws \"\\\"final_newline\\\"\" ws \":\" ws boolean ws \"}\" ws \"}\" ws\npaths-2-0 ::= \"\\\"ledger.py\\\"\"\ncall-2 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"replace\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"path\\\"\" ws \":\" ws paths-2-0 ws \",\" ws \"\\\"before\\\"\" ws \":\" ws nonempty ws \",\" ws \"\\\"after\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ncall-3 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"run_shell\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"command\\\"\" ws \":\" ws shell-command ws \"}\" ws \"}\" ws\ncall-4 ::= \"{\" ws \"\\\"tool\\\"\" ws \":\" ws \"\\\"finish\\\"\" ws \",\" ws \"\\\"arguments\\\"\" ws \":\" ws \"{\" ws \"\\\"answer\\\"\" ws \":\" ws string ws \"}\" ws \"}\" ws\ntext-lines ::= \"[\" ws (line-string (ws \",\" ws line-string){0,4095})? ws \"]\"\nline-string ::= \"\\\"\" line-char{0,32768} \"\\\"\"\nline-char ::= [^\"\\\\\\x00-\\x1F] | \"\\\\\" ([\"\\\\/bft] | \"u\" [0-9a-fA-F]{4})\nline-ending ::= \"\\\"LF\\\"\" | \"\\\"CRLF\\\"\"\nboolean ::= \"true\" | \"false\"\n"
+        }
+      }
+    }
+  }
+}

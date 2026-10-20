@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "scope": "128-token text prefix, two four-token suffixes, up to eight generated tokens; matching-profile regression and candidate process restart. Not full G1-G5 or whole-path speed qualification.",
+  "started": 1792426728.9118063,
+  "stages": [
+    {
+      "kind": "baseline",
+      "pid": 692140,
+      "exit_code": 0,
+      "absent": true
+    },
+    {
+      "kind": "candidate",
+      "pid": 692666,
+      "exit_code": 0,
+      "absent": true
+    },
+    {
+      "kind": "restart",
+      "pid": 692989,
+      "exit_code": 0,
+      "absent": true
+    }
+  ],
+  "comparisons": [
+    {
+      "kind": "candidate",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "A",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "B",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "A",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "B",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    }
+  ]
+}

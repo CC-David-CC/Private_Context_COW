@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "SC17 complete-run counters; numerical qualification is provided separately by bounded cache campaigns, not this coding task",
+  "counters": {
+    "forward_tokens": 43084,
+    "prefill_tokens": 33688,
+    "decode_timed_tokens": 9396,
+    "decode_prepare_ns": 16674420878,
+    "decode_compute_ns": 158346385916,
+    "decode_finish_ns": 1033990100,
+    "captures": 14,
+    "restores": 27,
+    "written_file_bytes": 13042633104,
+    "loaded_file_bytes": 0,
+    "integrity_mismatches": 0,
+    "integrity_device_hashed_bytes": 7111383711744
+  },
+  "native_timed_tps": 53.369747179664714,
+  "native_exit": {
+    "native_pid": 696757,
+    "native_exit_code": 0,
+    "close_succeeded": true,
+    "trace_sha256": "ed2ab449954387baba1f3ad14c7f842ca9cc19ee709e208561ea2cae65951c20",
+    "event_count": 58
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "counters": {
+    "forward_tokens": 9482,
+    "prefill_tokens": 4266,
+    "decode_timed_tokens": 5216,
+    "captures": 9,
+    "restores": 15,
+    "loaded_file_bytes": 523907260,
+    "written_file_bytes": 5422169736,
+    "integrity_mismatches": 0,
+    "decode_prepare_ns": 6091630659,
+    "decode_compute_ns": 101204327369,
+    "decode_finish_ns": 564564935
+  },
+  "native_timed_tps": 48.358749398881315,
+  "reconciliation_forward_tokens": 0,
+  "gpu_idle": true,
+  "server_native_exit_zero": true,
+  "scope": "Counters and lost-ack recovery, not fresh-logit numerical qualification"
+}

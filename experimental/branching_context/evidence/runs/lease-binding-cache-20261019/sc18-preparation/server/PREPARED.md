@@ -1,0 +1,1 @@
+Prepared only. Reuses canonical SC17 store and candidate profile, not an incompatible native checkpoint. Source is retained idle generic root. Expired checkpoints may require explicit reported reconstruction. Installed dev17 on llm-49; one model completion ACK is deliberately lost after commitment, then exact reconcile and resume. Not process-kill or tool crash qualification.

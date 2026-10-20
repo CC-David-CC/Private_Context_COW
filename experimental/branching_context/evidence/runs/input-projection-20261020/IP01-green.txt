@@ -1,0 +1,13 @@
+test_append_does_not_retain_a_chain_of_prior_full_histories (test_input_history_views.InputHistoryViewTests.test_append_does_not_retain_a_chain_of_prior_full_histories) ... ok
+test_append_matches_independent_canonical_encoding_at_every_step (test_input_history_views.InputHistoryViewTests.test_append_matches_independent_canonical_encoding_at_every_step) ... ok
+test_append_still_rejects_invalid_new_ids_and_preserves_uint32 (test_input_history_views.InputHistoryViewTests.test_append_still_rejects_invalid_new_ids_and_preserves_uint32) ... ok
+test_changed_encoded_identity_misses_all_old_derived_views (test_input_history_views.InputHistoryViewTests.test_changed_encoded_identity_misses_all_old_derived_views) ... ok
+test_image_rows_remain_lazy_when_only_building_history (test_input_history_views.InputHistoryViewTests.test_image_rows_remain_lazy_when_only_building_history) ... ok
+test_mutable_subclass_views_are_never_trusted_or_cached (test_input_history_views.InputHistoryViewTests.test_mutable_subclass_views_are_never_trusted_or_cached) ... ok
+test_owned_append_and_native_view_do_not_decode_prior_json (test_input_history_views.InputHistoryViewTests.test_owned_append_and_native_view_do_not_decode_prior_json) ... ok
+test_returned_views_are_detached_and_do_not_poison_future_appends (test_input_history_views.InputHistoryViewTests.test_returned_views_are_detached_and_do_not_poison_future_appends) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.007s
+
+OK

@@ -1,0 +1,15 @@
+test_interruption_at_each_cache_update_line_cannot_publish_partial_entry (test_vision_binding_cache.BindingCacheTests.test_interruption_at_each_cache_update_line_cannot_publish_partial_entry) ... 
+  test_interruption_at_each_cache_update_line_cannot_publish_partial_entry (test_vision_binding_cache.BindingCacheTests.test_interruption_at_each_cache_update_line_cannot_publish_partial_entry) (interrupted_line=531) ... FAIL
+
+======================================================================
+FAIL: test_interruption_at_each_cache_update_line_cannot_publish_partial_entry (test_vision_binding_cache.BindingCacheTests.test_interruption_at_each_cache_update_line_cannot_publish_partial_entry) (interrupted_line=531)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-binding-cache-20261019/experimental/branching_context/tests/implementation/test_vision_binding_cache.py", line 113, in test_interruption_at_each_cache_update_line_cannot_publish_partial_entry
+    with self.assertRaises(IntegrityError):self.backend._check_input_binding(other)
+AssertionError: IntegrityError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

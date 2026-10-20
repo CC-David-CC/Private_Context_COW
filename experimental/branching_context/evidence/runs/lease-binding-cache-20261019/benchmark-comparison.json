@@ -1,0 +1,16 @@
+{
+  "scope": "Isolated host binding checks against explicit CPU native-response stub; not GPU/whole-request speed",
+  "comparison": {
+    "text": {
+      "baseline_seconds": 1.1252563407178968,
+      "candidate_seconds": 0.37365975277498364,
+      "isolated_host_speedup": 3.011446462620558
+    },
+    "mixed": {
+      "baseline_seconds": 1.148802021285519,
+      "candidate_seconds": 0.37731521227397025,
+      "isolated_host_speedup": 3.0446745424389854
+    }
+  },
+  "gpu_evidence": false
+}

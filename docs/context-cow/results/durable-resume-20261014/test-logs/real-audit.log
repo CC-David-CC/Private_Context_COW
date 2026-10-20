@@ -1,0 +1,21 @@
+test_dr_001_new_native_process_and_zero_prefix_work (test_executed_resume.ExecutedResumeTests.test_dr_001_new_native_process_and_zero_prefix_work) ... ok
+test_dr_002_full_frontier_and_real_payload_bytes (test_executed_resume.ExecutedResumeTests.test_dr_002_full_frontier_and_real_payload_bytes) ... ok
+test_dr_003_independent_branches_and_fresh_oracle (test_executed_resume.ExecutedResumeTests.test_dr_003_independent_branches_and_fresh_oracle) ... FAIL
+test_dr_008_actual_batched_work_and_exact_suffix_work (test_executed_resume.ExecutedResumeTests.test_dr_008_actual_batched_work_and_exact_suffix_work) ... ok
+test_dr_009_generated_token_boundary_restart (test_executed_resume.ExecutedResumeTests.test_dr_009_generated_token_boundary_restart) ... ok
+
+======================================================================
+FAIL: test_dr_003_independent_branches_and_fresh_oracle (test_executed_resume.ExecutedResumeTests.test_dr_003_independent_branches_and_fresh_oracle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/reporting-api/tests/real_resume/test_executed_resume.py", line 67, in test_dr_003_independent_branches_and_fresh_oracle
+    self.assertEqual(comparisons['status'],'PASS')
+AssertionError: 'RUNNING' != 'PASS'
+- RUNNING
++ PASS
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.729s
+
+FAILED (failures=1)

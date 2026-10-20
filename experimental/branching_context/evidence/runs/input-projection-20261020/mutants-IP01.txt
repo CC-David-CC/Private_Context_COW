@@ -1,0 +1,5 @@
+KILLED: sibling suffix leakage
+KILLED: RNG cursor reset
+KILLED: logit corruption
+KILLED: ABA stale reference
+REFERENCE MUTANT SMOKE PASS (4 deliberately wrong outcomes rejected)

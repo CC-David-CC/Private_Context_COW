@@ -1,0 +1,45 @@
+test_dr_001_missing_disk_even_with_hot_image (test_durable_restore.DurableRestoreControlTests.test_dr_001_missing_disk_even_with_hot_image) ... ERROR
+test_dr_002_valid_receipt_and_frontier (test_durable_restore.DurableRestoreControlTests.test_dr_002_valid_receipt_and_frontier) ... ERROR
+test_dr_007_nonfinite_frontier_rejected (test_durable_restore.DurableRestoreControlTests.test_dr_007_nonfinite_frontier_rejected) ... ERROR
+test_dr_008_replay_is_failure (test_durable_restore.DurableRestoreControlTests.test_dr_008_replay_is_failure) ... ERROR
+
+======================================================================
+ERROR: test_dr_001_missing_disk_even_with_hot_image (test_durable_restore.DurableRestoreControlTests.test_dr_001_missing_disk_even_with_hot_image)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 72, in test_dr_001_missing_disk_even_with_hot_image
+    self.model.restore_checkpoint(self.sid)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'restore_checkpoint'. Did you mean: '_load_checkpoint'?
+
+======================================================================
+ERROR: test_dr_002_valid_receipt_and_frontier (test_durable_restore.DurableRestoreControlTests.test_dr_002_valid_receipt_and_frontier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 77, in test_dr_002_valid_receipt_and_frontier
+    receipt = self.model.restore_checkpoint(self.sid)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'restore_checkpoint'. Did you mean: '_load_checkpoint'?
+
+======================================================================
+ERROR: test_dr_007_nonfinite_frontier_rejected (test_durable_restore.DurableRestoreControlTests.test_dr_007_nonfinite_frontier_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 97, in test_dr_007_nonfinite_frontier_rejected
+    self.model.restore_checkpoint(self.sid)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'restore_checkpoint'. Did you mean: '_load_checkpoint'?
+
+======================================================================
+ERROR: test_dr_008_replay_is_failure (test_durable_restore.DurableRestoreControlTests.test_dr_008_replay_is_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/durable-resume-20261013/experimental/branching_context/tests/implementation/test_durable_restore.py", line 104, in test_dr_008_replay_is_failure
+    self.model.restore_checkpoint(self.sid)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'restore_checkpoint'. Did you mean: '_load_checkpoint'?
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.016s
+
+FAILED (errors=4)

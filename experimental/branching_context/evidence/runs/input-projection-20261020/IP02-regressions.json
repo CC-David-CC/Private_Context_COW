@@ -1,0 +1,473 @@
+{
+  "status": "PASS",
+  "tests_run": 105,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "source_unchanged": true,
+  "source_sha256": {
+    "input_schedule_projection.py": "40317820086e83a0c58fbb45a733a2d70cb392100931df3295e7b85059a37b14",
+    "__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "adaptive_p_pipeline.py": "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb",
+    "typical.py": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e",
+    "strata_backend.py": "0abb61d8001b2bc8140ae6befca3ae02ae2f62a456a3812fa54ef9455e09fdb9",
+    "sampling_proposal.py": "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c",
+    "vision_artifacts.py": "c654c71ee0ed91db01ccd8cccf6ebca62a6734fa2a535734b0694bfec8138b9d",
+    "controller.py": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+    "min_p.py": "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+    "presentation_request.py": "08f9e5b55e4850af8f3b7537453d6e859d869b6366afbd4a5f607e84e71cdcf7",
+    "mirostat2.py": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9",
+    "checkpoint_cache.py": "84e32e9d2208a87fb41f5cc576c84d8e47fa6afc7c82f16c2ad8b78918aaac55",
+    "vision_dry.py": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10",
+    "evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "real.py": "4f6bc47c66834867026f18e8f8db300d4ae1e141b573cf4166f7c0c211525ef8",
+    "sampled_controller.py": "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393",
+    "vision_execution.py": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+    "coordinator.py": "b7c5b8c504e41652419ff42ac01fe97be01ccec67da340d1f7aad904e28e3ef1",
+    "evaluation.py": "bb26837681e30fa510d6dd961126669e68f174ef940449a09ef3ebda3938097d",
+    "vision_embeddings.py": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6",
+    "presentation_binding.py": "a911b28eafd87b75b7adeea0f1b7c7f110b71598bd730943b97983b0499e6f0d",
+    "slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "execution_receipt.py": "9c712fa9c9cbf8291e05c871c47e7987022bbd260f2f9df3d60870e94abf5df4",
+    "text_stops.py": "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619",
+    "xtc_pipeline.py": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386",
+    "adaptive_p.py": "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+    "seed_controls.py": "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b",
+    "thinking_grammar.py": "5aad49e045e5e20635d0c6e7e8777fbcc40b826832a8fae5aeea3933a2aa2784",
+    "vision_controllers.py": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a",
+    "digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "grammar_first.py": "03e2a6560558f564cc893148bdc01f17989dd7a21721f5129cc9829754dea62d",
+    "input_spans.py": "b234e707af647e6879969db81d492af428caae14ca1d5a510ca74be3ecf97f78",
+    "dynatemp.py": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b",
+    "numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "pools.py": "d36555a0a706308c1626fa22adb253738744331ed0948d26a0a1003c9f4d29aa",
+    "oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "input_projection.py": "f5264bd8e6b7ec7c03756cfc56b9b40a5edcfc6c3179dc029d31e39dd16b7a18",
+    "store.py": "f3848f0a6e1b8ca30fe29dc155e45ad5431b52bd55142e92e183cc13558034d2",
+    "dry.py": "cdf0b57a8856cecf576484d6a9a042558e6f4e5c6c10e452f0d276f3a4cc14bf"
+  },
+  "seconds": 0.7276113419793546,
+  "scope": "CPU structural/reference and host-protocol tests, no GPU numerics",
+  "tests": [
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_all_seeded_text_image_and_append_bindings_match_reference",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_cache_eviction_changes_work_not_bindings_or_size_bound",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_cached_expected_does_not_replace_a_native_query_or_accept_wrong_reply",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_complete_schedule_validation_and_incremental_binding_share_only_hashes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_projection_cache.InputProjectionCacheTests.test_provenance_grid_placement_and_suffix_changes_do_not_collide",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_append_does_not_retain_a_chain_of_prior_full_histories",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_append_matches_independent_canonical_encoding_at_every_step",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_append_still_rejects_invalid_new_ids_and_preserves_uint32",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_changed_encoded_identity_misses_all_old_derived_views",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_image_rows_remain_lazy_when_only_building_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_mutable_subclass_views_are_never_trusted_or_cached",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_owned_append_and_native_view_do_not_decode_prior_json",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_history_views.InputHistoryViewTests.test_returned_views_are_detached_and_do_not_poison_future_appends",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_caller_mutations_cannot_change_comparison_inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_image_provenance_grid_and_placement_cannot_collide",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_numeric_text_prefix_is_not_a_token_prefix",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_receipt_cursor_still_rejects_ancestry_rewrite_without_prefix_reconstruction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_same_empty_shorter_and_longer_prefixes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_seeded_prefix_comparisons_match_independent_reconstruction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_input_prefix_comparison.InputPrefixComparisonTests.test_text_extension_and_new_span_after_images_match_reference",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc001_different_pixels_with_same_pad_count_have_different_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc001_equivalent_span_fragmentation_and_separate_calls_share_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc002_forks_append_one_canonical_mixed_history_and_keep_parent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc002_image_metadata_and_text_lists_are_detached_from_callers",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc002_legacy_history_remains_schema_one_and_exact_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc002_text_only_entrypoints_cannot_discard_image_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_branch_move_retry_and_stale_revision_work_with_image_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_changed_encoder_grid_or_placement_changes_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_collection_keeps_live_mixed_ancestors_and_other_text_roots",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_cross_version_ancestry_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_input_count_counts_image_rows_without_sampler_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_invalid_image_metadata_rejected_before_publication",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_missing_derived_root_index_is_repaired_from_mixed_ancestry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_move_rejects_cross_version_parent_without_moving_reference",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_input_history.VisionInputHistoryTests.test_vc003_unknown_stored_version_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_append_and_prefix_keep_images_and_reject_partial_image_boundaries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_decode_cannot_claim_to_consume_image_rows",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_detached_immutable_view_does_not_change_canonical_spans",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_grid_and_placement_changes_invalidate_receipts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_history_has_explicit_native_projection_and_text_runs",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_identical_pad_tokens_cannot_alias_another_image",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_missing_altered_or_unknown_receipts_fail",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_native_identity_has_independently_encoded_payload_and_placement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_positions_follow_grid_extent_and_not_image_row_count",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_provenance_is_bound_even_when_model_payload_is_identical",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_request_boundary_cannot_end_on_image_row_but_native_chunk_can",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_execution.VisionExecutionTests.test_schedule_covers_each_consumed_prefix_and_generated_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_hashes_only_current_binding_full_audit_at_open_and_finish",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_matches_unchanged_full_validator_on_independent_branches",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_rejects_every_altered_binding_or_native_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_constructor_rejects_missing_altered_or_noncontiguous_root_schedule",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_decode_rejects_new_images_and_requests_ending_on_image_rows",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_foreign_thread_cannot_append_or_close_but_owner_can_continue",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_input_and_export_aliases_do_not_mutate_private_proof",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_invalid_append_poisoned_and_closed_cursor_cannot_be_reused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_prefill_extension_can_add_a_complete_new_image",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleCursorTests.test_same_length_tokens_cannot_rewrite_owned_ancestry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_bad_native_extension_cannot_publish_and_original_owner_can_retry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_failed_final_audit_cannot_publish_streamed_progress",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_generation_uses_incremental_receipts_and_full_validation_before_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_complete_validation_does_not_reconstruct_prefix_histories_per_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_decode_cannot_swallow_images_but_prefill_chunks_can_split_rows",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_empty_and_unknown_receipt_layout_keep_existing_contract",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_every_binding_on_an_early_receipt_is_checked",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_image_provenance_embedding_geometry_and_placement_remain_distinct",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_native_token_and_chunk_validation_not_bypassed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_projection_matches_unchanged_reference_at_every_text_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_removed_reordered_and_duplicate_receipts_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_request_boundaries_inside_or_at_end_of_image_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_schedule_projection.ScheduleProjectionTests.test_seeded_mixed_schedules_match_independent_prefix_reference",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_alternating_histories_never_reuse_the_other_expected_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_cache_is_lease_local_and_release_discards_derived_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_cached_expected_still_rejects_each_wrong_native_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_equal_native_tokens_different_grid_cannot_share_expected_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_foreign_thread_cannot_read_write_or_release_warm_lease",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_interruption_at_each_cache_update_line_cannot_publish_partial_entry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_mutable_subclass_is_never_cached",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_repeated_check_reuses_expected_digest_but_queries_native_every_time",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_binding_cache.BindingCacheTests.test_same_object_changed_encoded_bytes_cannot_hit_old_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_all_receipt_fields_rejected_even_with_warm_cache",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_bounded_lru_eviction_recomputes_without_retaining_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_cache_hit_cannot_allow_image_interior_or_image_end_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_changed_canonical_content_cannot_inherit_warm_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_concurrent_lookup_and_eviction_preserve_independent_results",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_deliberately_wrong_hash_computation_is_detected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_extension_and_sibling_share_only_identical_prefix",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_false_declared_history_digest_rejected_before_cache_lookup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_growing_schedule_hashes_new_boundary_but_reuses_prior_boundaries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_independent_equations_match_cold_and_warm_for_mixed_inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_invalid_cache_capacity_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingCacheTests.test_returned_dict_is_detached_from_cached_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_schedule_binding_cache.BindingReuseTests.test_repeated_validation_hashes_each_immutable_prefix_body_once",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_dry_projection.VisionDryProjectionTests.test_invalid_or_overlapping_placements_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_dry_projection.VisionDryProjectionTests.test_leading_trailing_images_and_image_only_prefix",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_dry_projection.VisionDryProjectionTests.test_literal_pad_id_remains_text_outside_recorded_image_rows",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_dry_projection.VisionDryProjectionTests.test_randomized_projection_matches_cell_walk",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_dry_projection.VisionDryProjectionTests.test_tail_cut_and_adjacent_images_keep_exact_unique_boundaries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_bad_completed_work_receipt_invalidates_mixed_execution",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_foreign_owner_cannot_ingest_or_restore_mixed_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_legacy_unbound_hot_image_cannot_enter_mixed_restore",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_missing_embedding_fails_before_reset_or_forward",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_native_echo_must_bind_payload_position_and_consumed_extent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_vision_backend_binding.VisionBackendBindingTests.test_same_length_wrong_image_rejected_before_native_restore",
+      "status": "PASS"
+    }
+  ]
+}

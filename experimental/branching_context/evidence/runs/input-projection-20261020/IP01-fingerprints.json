@@ -1,0 +1,9 @@
+{
+  "base_commit": "780e824a33a35d2a857643b43a56858ce14ec8b6",
+  "host": "dflanag3-B650-GAMING-X-AX",
+  "python": "3.12.3",
+  "cpu_affinity_count": 32,
+  "reference_binding_sha256": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+  "input_spans_sha256": "b234e707af647e6879969db81d492af428caae14ca1d5a510ca74be3ecf97f78",
+  "scope": "CPU only; native build/model/GPU numerical qualification not executed for this candidate"
+}

@@ -1,0 +1,115 @@
+test_duplicate_relative_aliases_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_duplicate_relative_aliases_rejected) ... ERROR
+test_invalid_hash_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_invalid_hash_rejected) ... ERROR
+test_missing_declaration_is_reported_as_unverified (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_declaration_is_reported_as_unverified) ... ERROR
+test_missing_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_source_rejected) ... ERROR
+test_modified_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_modified_source_rejected) ... ERROR
+test_normal_server_rejects_declared_mismatch_before_creating_store (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_normal_server_rejects_declared_mismatch_before_creating_store) ... FAIL
+test_parent_escape_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_parent_escape_rejected) ... ERROR
+test_relocated_declared_sources_match_by_exact_bytes (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_relocated_declared_sources_match_by_exact_bytes) ... ERROR
+test_symlink_is_not_a_pinned_source_file (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_symlink_is_not_a_pinned_source_file) ... ERROR
+
+======================================================================
+ERROR: test_duplicate_relative_aliases_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_duplicate_relative_aliases_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 29, in test_duplicate_relative_aliases_rejected
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_invalid_hash_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_invalid_hash_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 23, in test_invalid_hash_rejected
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_missing_declaration_is_reported_as_unverified (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_declaration_is_reported_as_unverified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 34, in test_missing_declaration_is_reported_as_unverified
+    result=backend.verify_runtime_source_closure(dict(native_build={}),self.root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_missing_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_missing_source_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 20, in test_missing_source_rejected
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_modified_source_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_modified_source_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 17, in test_modified_source_rejected
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_parent_escape_rejected (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_parent_escape_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 26, in test_parent_escape_rejected
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_relocated_declared_sources_match_by_exact_bytes (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_relocated_declared_sources_match_by_exact_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 14, in test_relocated_declared_sources_match_by_exact_bytes
+    result=self.verify();self.assertEqual(result['status'],'verified');self.assertEqual(result['files'],1)
+           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+ERROR: test_symlink_is_not_a_pinned_source_file (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_symlink_is_not_a_pinned_source_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 32, in test_symlink_is_not_a_pinned_source_file
+    with self.assertRaises(IntegrityError):self.verify()
+                                           ^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 12, in verify
+    def verify(self):return backend.verify_runtime_source_closure(self.profile,self.root)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.strata_backend' has no attribute 'verify_runtime_source_closure'
+
+======================================================================
+FAIL: test_normal_server_rejects_declared_mismatch_before_creating_store (serve.test_cow_runtime_source_identity.RuntimeSourceIdentityTests.test_normal_server_rejects_declared_mismatch_before_creating_store)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_runtime_source_identity.py", line 42, in test_normal_server_rejects_declared_mismatch_before_creating_store
+    self.assertIn('Runtime source fingerprint mismatch',r.stderr)
+AssertionError: 'Runtime source fingerprint mismatch' not found in 'Traceback (most recent call last):\n  File "<frozen runpy>", line 198, in _run_module_as_main\n  File "<frozen runpy>", line 88, in _run_code\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/cow_http.py", line 816, in <module>\n    if __name__==\'__main__\': main()\n                             ^^^^^^\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/cow_http.py", line 782, in main\n    coordinator.ready();adapter=CowAdapter(coordinator,grammar_registry=grammar_registry)\n    ^^^^^^^^^^^^^^^^^^^\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 187, in ready\n    models = [w[\'ready\'].result(max(0,deadline-time.monotonic())) for w in self._workers.values()]\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result\n    raise self._exception\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 2213, in _worker\n    model = self._factory(gpu)\n            ^^^^^^^^^^^^^^^^^^\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/cow_http.py", line 775, in factory\n    def factory(gpu): return BranchingModel(args.store,StrataBackend(profile,gpu_id=gpu),profile)\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/strata_backend.py", line 406, in __init__\n    command = worker_command(profile,gpu_id)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/strata_backend.py", line 100, in worker_command\n    command = list(profile[\'execution\'][\'sut_command\'])\n                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nKeyError: \'sut_command\'\n'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.123s
+
+FAILED (failures=1, errors=8)

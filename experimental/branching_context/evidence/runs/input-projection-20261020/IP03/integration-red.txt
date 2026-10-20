@@ -1,0 +1,20 @@
+test_full_audit_constructs_identical_payloads_without_scalar_per_cell_pack (test_packed_input_binding.PackedProjectionWorkTests.test_full_audit_constructs_identical_payloads_without_scalar_per_cell_pack) ... FAIL
+
+======================================================================
+FAIL: test_full_audit_constructs_identical_payloads_without_scalar_per_cell_pack (test_packed_input_binding.PackedProjectionWorkTests.test_full_audit_constructs_identical_payloads_without_scalar_per_cell_pack)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_packed_input_binding.py", line 84, in test_full_audit_constructs_identical_payloads_without_scalar_per_cell_pack
+    self.assertEqual(calls,[], 'full audit still packs native/position words once per consumed cell')
+AssertionError: Lists differ: ['<i', '<iii', '<i', '<iii', '<i', '<iii',[114739 chars]iii'] != []
+
+First list contains 16398 additional elements.
+First extra element 0:
+'<i'
+
+Diff is 163985 characters long. Set self.maxDiff to None to see it. : full audit still packs native/position words once per consumed cell
+
+----------------------------------------------------------------------
+Ran 1 test in 0.078s
+
+FAILED (failures=1)

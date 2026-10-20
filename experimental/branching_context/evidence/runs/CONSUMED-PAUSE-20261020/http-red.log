@@ -1,0 +1,53 @@
+test_auth_origin_id_and_unknown_request (serve.test_cow_http_pause.PauseHTTPTests.test_auth_origin_id_and_unknown_request) ... FAIL
+test_publication_failure_after_pause_never_emits_complete (serve.test_cow_http_pause.PauseHTTPTests.test_publication_failure_after_pause_never_emits_complete) ... ERROR
+test_requested_pause_is_not_durable_acknowledgment (serve.test_cow_http_pause.PauseHTTPTests.test_requested_pause_is_not_durable_acknowledgment) ... ERROR
+test_unsupported_request_rejects_pause_without_setting_event (serve.test_cow_http_pause.PauseHTTPTests.test_unsupported_request_rejects_pause_without_setting_event) ... ERROR
+
+======================================================================
+ERROR: test_publication_failure_after_pause_never_emits_complete (serve.test_cow_http_pause.PauseHTTPTests.test_publication_failure_after_pause_never_emits_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 46, in test_publication_failure_after_pause_never_emits_complete
+    response,worker=self.pending(failure=True);code,value=self.pause_active();self.assertEqual(code,200,value)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 11, in pending
+    handle=Request('request-a','signature',pause_supported=supported)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Request.__init__() got an unexpected keyword argument 'pause_supported'
+
+======================================================================
+ERROR: test_requested_pause_is_not_durable_acknowledgment (serve.test_cow_http_pause.PauseHTTPTests.test_requested_pause_is_not_durable_acknowledgment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 37, in test_requested_pause_is_not_durable_acknowledgment
+    response,worker=self.pending();code,value=self.pause_active()
+                    ^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 11, in pending
+    handle=Request('request-a','signature',pause_supported=supported)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Request.__init__() got an unexpected keyword argument 'pause_supported'
+
+======================================================================
+ERROR: test_unsupported_request_rejects_pause_without_setting_event (serve.test_cow_http_pause.PauseHTTPTests.test_unsupported_request_rejects_pause_without_setting_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 51, in test_unsupported_request_rejects_pause_without_setting_event
+    response,worker=self.pending(supported=False);code,value=self.pause_active();self.assertEqual(code,409,value)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 11, in pending
+    handle=Request('request-a','signature',pause_supported=supported)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Request.__init__() got an unexpected keyword argument 'pause_supported'
+
+======================================================================
+FAIL: test_auth_origin_id_and_unknown_request (serve.test_cow_http_pause.PauseHTTPTests.test_auth_origin_id_and_unknown_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-consumed-pause-20261020/serve/test_cow_http_pause.py", line 57, in test_auth_origin_id_and_unknown_request
+    self.assertEqual(self.f.call('/cow/pause',body)[0],400)
+AssertionError: 404 != 400
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.018s
+
+FAILED (failures=1, errors=3)

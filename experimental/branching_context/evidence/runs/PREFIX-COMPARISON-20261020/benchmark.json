@@ -1,0 +1,43 @@
+{
+  "scope": "CPU canonical prefix comparison only, not model/agent throughput",
+  "status": "PASS",
+  "source_sha256": "48b287d3732cdde339e36c17712a2dc483147c6af9061fed14a936972c57d104",
+  "cases": [
+    {
+      "tokens": 8192,
+      "repetitions": 3,
+      "checks_per_repetition": 100,
+      "samples": {
+        "reconstruct": [
+          0.127633468946442,
+          0.1261858029756695,
+          0.12627482297830284
+        ],
+        "canonical_bytes": [
+          0.00021667196415364742,
+          0.00021279486827552319,
+          0.00021751411259174347
+        ]
+      },
+      "ratio": 582.7926260397873
+    },
+    {
+      "tokens": 65536,
+      "repetitions": 3,
+      "checks_per_repetition": 100,
+      "samples": {
+        "reconstruct": [
+          1.0136505938135087,
+          0.9799387860111892,
+          0.9770330958999693
+        ],
+        "canonical_bytes": [
+          0.0012478551361709833,
+          0.0012301208917051554,
+          0.0012233778834342957
+        ]
+      },
+      "ratio": 796.6199034737378
+    }
+  ]
+}

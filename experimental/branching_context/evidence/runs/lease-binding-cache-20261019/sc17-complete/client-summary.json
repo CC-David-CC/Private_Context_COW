@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "ledger_unchanged": true,
+  "model_calls": 10,
+  "output_tokens": 9396,
+  "whole_cli_seconds": 812.1997522410238,
+  "wheel_sha256": "367a93ee855d6a9b5d6e38c327f96609ac32c12d37765bb80aef13ad319e3773",
+  "numerical_oracle": "NOT_RUN"
+}

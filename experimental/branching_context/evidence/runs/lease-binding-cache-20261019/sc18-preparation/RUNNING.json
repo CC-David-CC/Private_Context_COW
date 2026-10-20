@@ -1,0 +1,11 @@
+{
+  "status": "RESUMED_TASK_RUNNING_NOT_YET_PASS",
+  "server_pid": 704188,
+  "native_pid": 704194,
+  "client_supervisor_pid": 2295318,
+  "client_host": "llm-49",
+  "server_host": "llm-60",
+  "steering_observer_session": 82395,
+  "recovery_forward_work_delta": 0,
+  "scope": "Real lost acknowledgment after durable model request; not SIGKILL or tool-effect crash"
+}

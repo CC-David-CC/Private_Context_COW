@@ -1,0 +1,15 @@
+test_dr_001_missing_disk_even_with_hot_image (test_durable_restore.DurableRestoreControlTests.test_dr_001_missing_disk_even_with_hot_image) ... ok
+test_dr_002_valid_receipt_and_frontier (test_durable_restore.DurableRestoreControlTests.test_dr_002_valid_receipt_and_frontier) ... ok
+test_dr_005_process_kills_at_publication_boundaries (test_durable_restore.DurableRestoreControlTests.test_dr_005_process_kills_at_publication_boundaries) ... ok
+test_dr_006_durable_move_retry_and_stale_revision (test_durable_restore.DurableRestoreControlTests.test_dr_006_durable_move_retry_and_stale_revision) ... ok
+test_dr_006_reader_pins_released_candidate_during_gc (test_durable_restore.DurableRestoreControlTests.test_dr_006_reader_pins_released_candidate_during_gc) ... ok
+test_dr_007_corruption_and_compatibility_matrix (test_durable_restore.DurableRestoreControlTests.test_dr_007_corruption_and_compatibility_matrix) ... ok
+test_dr_007_nonfinite_frontier_rejected (test_durable_restore.DurableRestoreControlTests.test_dr_007_nonfinite_frontier_rejected) ... ok
+test_dr_008_replay_is_failure (test_durable_restore.DurableRestoreControlTests.test_dr_008_replay_is_failure) ... ok
+test_dr_011_failed_write_keeps_old_head (test_durable_restore.DurableRestoreControlTests.test_dr_011_failed_write_keeps_old_head) ... ok
+test_dr_011_retry_must_flush_visible_manifest_before_ack (test_durable_restore.DurableRestoreControlTests.test_dr_011_retry_must_flush_visible_manifest_before_ack) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.576s
+
+OK

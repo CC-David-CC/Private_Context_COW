@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "exit_code": 1,
+  "changed": [
+    "intervals.py"
+  ],
+  "original_source_unchanged": true,
+  "protected_tests_unchanged": true,
+  "generated_cases": 1000,
+  "seed": 181019,
+  "scope": "New interval repair after real lost acknowledgment; not process-kill/tool-crash qualification"
+}

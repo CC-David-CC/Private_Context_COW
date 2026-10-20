@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "scope": "Original supplied tests unchanged; package marker added only to isolated audit copy; twelve actual methods ran and failed"
+}

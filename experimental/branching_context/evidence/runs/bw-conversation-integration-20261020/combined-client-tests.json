@@ -1,0 +1,1350 @@
+{
+  "status": "PASS",
+  "scope": "Client setup, real PTY, CLI subprocess, CPU COW HTTP/admission/recovery. No language model, GPU or G1-G5 qualification.",
+  "tests_run": 295,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "elapsed_seconds": 86.97120105591603,
+  "source_unchanged_during_tests": true,
+  "branchwrite_base": "8f4779158a63b48bf9e1e0903700ffb8bfd1140a",
+  "cow_base": "a4cd062b2916543c48801d45d7cae7845bda2b8d",
+  "source_sha256": {
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/__init__.py": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/__main__.py": "c7d1e67c7659353890a41ca0e782e6c83effb81dfb94aedd25f99b85925f15de",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/base_choice.py": "e33521074261cc0aeebe449b202431fe69741d050975e003bd2dc6fb84de3956",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/base_cli.py": "3345a8a3d44e39480d0857f1fa6c7a1e44d372b1f8974b9417e4a7b10652d266",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/browser_assets.py": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/browser_capture.py": "fe2cf850c0fda370fd286e5e9907aaeaa8607d3bb1bb21c88b5efb03160dfdec",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/browser_isolation.py": "67391b6c237afe4d03e042917592c284c492eac1a91f754e5959b92bea6523a4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/browser_worker.py": "d37e44545734c614c053a37c2dc77a57f90c9dbc26b8789d26022c8cad6b1fe1",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/chat_cli.py": "c7f3a1edd95d9ffeb9f73680ee7bf187c695090b0b58c7cf7f113c0767fb56f4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/client_doctor.py": "0f45b433effb5d2b3cb871386f35d264e881cd6b56050c34eafd525d7b339e67",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/client_setup.py": "747c844ddfe74b33014b406bbab8d5223bf974d0e0cc3e36a257e96b907611b3",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_cli.py": "786fd4172da62a90cb1b105174f1b1ee560bc7df7b01557dc53c8cee84f47ae2",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_contract.py": "4c0f0435523dbc8d8f4e45553ac5068dd09bd2f549e99d6b1732ca747f952eac",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_defaults.py": "252c7cf29f9ce9922618b8c14f5f25b885e8c47e70643b7b71bf365489d237d8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_reconciliation.py": "d2899865f669e8a5ada1c4fa7648ec101dec3fdfa8df0118a33d22390e4b8fb1",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_review.py": "3e6946a90f0f7c6485f370ca820b4b8f42dd2c0dd0bf0e196a1fe7f67b18ea55",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/coding_status.py": "bd62f119d874a380d7273630996f996b72124cdbfd57ab93f76da6b1cb217d13",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/command_outputs.py": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/component_model.py": "cdfa18438cff524f9a37a3e44dac0351eda736fb6222c93a7fb37f36c4901b5b",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/context_pack.py": "2b0b03edeaa8c12e0812b7278a0c4e07a1ce2feeb23a66f8c10f5a658794ae90",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/control_contract.py": "69982583752013c32270932b7e5cf1cb5e03d0afb9691d7c3dc88948bb9270e6",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/cow_actions.py": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/cow_client.py": "71b3cfc37073cfecc037c8a9a735382a9ef2fb0e57e118fba5a9cb36cea5c9bb",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/cow_fork.py": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/execution.py": "ddd6b9166cc51f8e5fab1a5a5d9c40f25e8dcffe3ea4e1a410bde87f0a98f755",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/golden_path.py": "63ce84648175fc86178c20b02fff4d7c9e7e98e38cb2e6195257ff586081e3fa",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/guided_cli.py": "429d521f97b6d1b974603a6ac037f5cb985d1ea8986fcc841b3f74c5e2a25521",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/http_request.py": "31841bf628dd3c76073ab576288e0712667a89c7ead195a7cd233c29c74cc9b6",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/image_feedback.py": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/interpreter.py": "d8783eac3529feeed1d065fc9dcc6bf365bf4a6ef771a4e4c08417f9e22a67ec",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/kernel.py": "106a3a564e0ee5bb190e7a6c3c246336e4c4b91a93df906110e930c02b6a8521",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/language.py": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/model_dispatch.py": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/model_inputs.py": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/planning_retry.py": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/project_apply.py": "a081f1dd0a8a1632b09c63e1456823d0c42bc0e7deef655cf1bf61a91d94cda8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/project_baseline.py": "72da8ff7ace695a809a0cf341f8b86d85e2166e8acb9dc08a5bf153ae44c4621",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/project_context.py": "e3337d3a7b112ad9f6e6232193219503f28dc600e754642ad1d9fca42726a842",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/project_export.py": "93eb7d71362984038f95801094cc49e82ea599371459b7529bb024207d0fad9e",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/project_scope.py": "8977522dd1d76e73721b47a48688abc7517e4998338068613b554c2062e9c64a",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/receipt_cli.py": "b94dd32e7368ea90283da5bc7b602ad9a803989321cd89d3bbb072cd6396f87b",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/records.py": "600d0093a8c1768be967e627627a40c244233c118d39fcd24979a76e55b2f677",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/run_cli.py": "2b02e0c67ca39c3a1a047c6d46f89d1a9bdc1831875da2ed140eeb3ea75d47d8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/task_breakdown.py": "0abd71f9c2077413ddc4ee0bfbf594399264eff23631d4b51bbc5d51817ea6f3",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/terminal.py": "d962c3626914d8aa99e8ac98fe799cb851935af0dbb8dde5cb9f5a6a0de22e72",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/terminal_components.py": "e583db55b25ae9171581ba3234e984d574b6aeaa3733de43211735fb1225e5e8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/terminal_worker.py": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/text_file_codec.py": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/thinking_ladder.py": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/tool_dispatch.py": "c64fe3db0071d2433258ffc2bfa0522099f60d7f162ca678227893ddb836183a",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/tool_registry.py": "97512aee870dc1fb9712fff112cf2574cd90e0f82952401db89baf27ea361bc8",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/branchwrite/verification.py": "60297b6dabae83d52f7490dcd3db118417114c7446893b16deb54221a5e0846f",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/pyproject.toml": "24a3c5dddd7189825b16825f837b319e8cbe72a384b8aa43a707ab490a0560d4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_apply_reconciliation.py": "b73a70e4b4a2abb4db8cc9b5b7995b63f8503372367433aba3a1a127040dba74",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_base_catalog_publication.py": "3775ca7411fdd790be95b3dfe6b508598045924bc348ae37410b3981788717bf",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_base_choice_http.py": "cfb4c32044965729fd994de7394375d3ea5c890cf630cc2e6ddc254fceb63817",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_base_pack_freshness.py": "21259a2f9491310a2304114b3dd74ac2462e75c0590bb7c9599c25a7ce81ac1c",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_base_project_prepare.py": "75eb8f88ca06775b2a6666dcce89dc3071845526fbf3920298dd6530ba6e5d7b",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_chat_cli_http.py": "0288c1b6616bc23b1771f04d836f29d3e9068dfa32f350a61e3f4cc013069a5c",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_client_setup.py": "6a4ce8e304ff4620178e6aae83e37fa4c527c9a96211e68b4f5c7fe48ac7f8c7",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_client_setup_cow.py": "61ad87dab0759d66f704ee5234014f690e0ae36a593a342b6b4b595809e1bef3",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_coding_launcher.py": "1f21a6440a6eea7f8d22553be11a6491ccc538574f6d35754ef186f31f698177",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_coding_launcher_http.py": "a492b4ec5f17f0c0a34f849684a136f5c3539771f5c25b32f53a8ec3319a4e02",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_coding_reconciliation.py": "636b50d25cee5ccf506494b979107b215f2ad16ad4e631ea83787f65991a5c4e",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_coding_sampler_choice.py": "4089a48e73544c326dc1dda2d79ad623f3692e4d4a38a2af9de90e35c2334a3b",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_coding_status.py": "ed2022217d7945d95a91884939abc53bf55b0131641bd45b8aa56e11758fc422",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_cow_client.py": "0b32e1aa579ddbb04c78d48fecc986332755bce2c60418b8ff01050f03b7d1c5",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_cow_client_flow.py": "2fe459daceffe0ecf74cba8ca0f886938ec3017f199d6b884e8c7b956a65a45b",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_cow_http_process_restart.py": "a7ff7f6970da1a498c49db7fa17843f78b506d49b42ddc22ef1ff4280fc968af",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_file_tools.py": "ebfe9005150fdcb4dcc398ede515bfd02e7d92850e2c874cb694188bd89bca2c",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_full_project_review.py": "aeb35d8256706be17c85c4fbda5283ed7fe571b3bf2edb2dba322dd5a9ea35bd",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_generation_stream_uncertainty.py": "12ed609a1c452db7bea9745be1e4717854224147010752bf452484e6ef130436",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_guided_cli.py": "06831db481933cf679d1f9661f1359edacb746be6d40626c8b3bf14eb29765a1",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_guided_conversation.py": "5d7b1b512d5089e0007d4f00d90a14ebc3c110d2a15d3d2ca387471dd5252ba6",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_guided_project_start.py": "e27194f3d9e56da5236481c549f0d8ec26691a4a5344353ff458de7283f921a7",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_program_cli.py": "8582d6f7b61c7ef6d354307d18aeb58b73d8e97ddada730f6a0384274dcaabe4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_apply.py": "e3335156905a303344d07f258731f2f6b4723203a5f29d5ac46a4d5b849c86ec",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_baseline.py": "3476c1b7240bedc7f9e967e6dff577e769cef8fcf35b2a90b5d40c4a24e4afe1",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_checks.py": "ff03d88b7e3ab8530b9b1973be46cd88886966114cf007c0cd1e56273a6de5ca",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_context_real_cow_restart.py": "5d5cd7e90a2f53788f703b3696f5eaca6d4566add527a079e744685da808cf6f",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_context_receipt.py": "693440ab9ed88c4da0ba887e40b543b0a6238963a0fb085648241c3d9f52bb79",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_export.py": "3bef5696a71e03c93296da331bc6b94e226323675acd9dede119a230cad0f437",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_file_scope.py": "49886064aecac2e625fbbadc6605d9e4226f1b55541585103f58b4d092ea4df4",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_project_scope_review.py": "ea68dc3efedc69d8b0964c032e81079dd20f2289894826663bb5fe4b9336d10f",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_receipt_cli.py": "74c2cae6f8e9579c9522a63d61e9a4946dfd95a0388f0c5b4f24008deb5a15ef",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tests/test_shell_admission.py": "6a86707f2479c2c9dd84db0f3b251ad2b0b841ee620a4d4f8093b7e6491ad022",
+    "/home/dflanag3/src/branchwrite-standalone-followup-20261020/tools/check_client_setup.py": "d73e1c252d167533966ee80471247e56a3d6e10ebee9ecdff4af0abd03c37517",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/adaptive_p.py": "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py": "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/checkpoint_cache.py": "84e32e9d2208a87fb41f5cc576c84d8e47fa6afc7c82f16c2ad8b78918aaac55",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/controller.py": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/coordinator.py": "8253d46a40146eacd1f1b9da609340398bfcce573d3728524689edb0528c8796",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/dry.py": "cdf0b57a8856cecf576484d6a9a042558e6f4e5c6c10e452f0d276f3a4cc14bf",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/dynatemp.py": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/evaluation.py": "bb26837681e30fa510d6dd961126669e68f174ef940449a09ef3ebda3938097d",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/execution_receipt.py": "f03740fb405254ad932b6acb28c732b5313cfd07fcbe44b9e44d2757f42f8930",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/grammar_first.py": "03e2a6560558f564cc893148bdc01f17989dd7a21721f5129cc9829754dea62d",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/input_schedule_projection.py": "578c6bdaf6f190f6903a7595647199a9b9187e18c84b0ae590f719728b925662",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/input_spans.py": "9304236e4e8c81cc3dc8d1dc8059b99bc536af3c2a17abbfbe22f2e745eb6ec2",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/min_p.py": "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/mirostat2.py": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/pools.py": "d36555a0a706308c1626fa22adb253738744331ed0948d26a0a1003c9f4d29aa",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/presentation_binding.py": "a911b28eafd87b75b7adeea0f1b7c7f110b71598bd730943b97983b0499e6f0d",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/presentation_request.py": "08f9e5b55e4850af8f3b7537453d6e859d869b6366afbd4a5f607e84e71cdcf7",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/real.py": "57791ff21a3c79e954a7546945f1f862b5e0d43bcbe4312264809edc56486fc4",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/sampled_controller.py": "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/sampling_proposal.py": "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/seed_controls.py": "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/store.py": "f3848f0a6e1b8ca30fe29dc155e45ad5431b52bd55142e92e183cc13558034d2",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/strata_backend.py": "c60ac110c337ab845c5231dd10efac92c34dc2f0a8a45027242bf2bf7e3bd6f8",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/text_stops.py": "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/thinking_grammar.py": "5aad49e045e5e20635d0c6e7e8777fbcc40b826832a8fae5aeea3933a2aa2784",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/typical.py": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/vision_artifacts.py": "c654c71ee0ed91db01ccd8cccf6ebca62a6734fa2a535734b0694bfec8138b9d",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/vision_controllers.py": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/vision_dry.py": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/vision_embeddings.py": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/vision_execution.py": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/src/context_time_travel/xtc_pipeline.py": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/experimental/branching_context/tests/implementation/test_store_branch_catalog.py": "6468c738186c67a91b694f8940f0582cfc042bac3fb3091ba0811164c8cdac0e",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_adapter.py": "9dfd1e4a1d0e2605539dbc1c9be39fa098447f054b48236bb60893e7a1a60074",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_browser_fixture.py": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_grammar.py": "169b9a58ec6bbf62e3826915e6a6a11761b9436c75f344eef6c2742c8341eada",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_grammar_catalog.py": "9d4c9712687ca2607321ab22b2e8ce0491cf3f60d9c87a0410a780e8e13d711d",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_grammar_disk.py": "7e65d5c3581672e399775b8e129fddb3b5cab9e14c5e5381458269e3cb0a1026",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_grammar_router.py": "e719332c2a5260a6498ae28c20318678a3286fbf9ce93dd76998ff75281f42fa",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_http.py": "33890f0e5d55fa9091e747fb5355d15db8adb0bb5d0b905061dd98dc5e1c9d85",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_prefix.py": "83a0feaa70b7d0305ba6a14de378b67b5da302c6df20ede57c9694671aef38db",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_prompt_encoder.py": "ccfdebd6114ff22aee39671325f57c0bbd40b5198c4db786cdc2ed43c84c06dc",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_renderer.py": "90c2b552559c0e88fedecf58cdc71c86344e757b645eff18378f5a9401496b06",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_text_adapter.py": "94e95b0807919d751c65748ec013bc36bfef8c82eefb48334437c96c3e7aba29",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_vision.py": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_vision_encoder.py": "54bf5ff283d46df81628a2992588ba138e44cf3004708e6e1ec159bd6a7b2445",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_vision_preparer.py": "d1de11d62a10e8cced55a93b2df618eaabc86643c28760c58cefa51a25ca1148",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/cow_workspace.py": "8f2012a3560a914f670187f04ea9b5580c71fe5d72b14d69238575300781fe19",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_connection_info.py": "594c5a566dec750bcc5ab6ba3a3f7e9f4c10207d9941f3d47c08f4a6f2e6dbe7",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_grammar_canonical_flow.py": "57f748dcd7e0d725b633089082eaf6596fba9d11c8e4a754a56ee03eb461b349",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_history_counts.py": "d4671bd764081b12e8b92bf3ac3616a0f4a28b96080bb4379ac7674a8d8f64db",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_http.py": "0cd99b1ac9f3fbf00b330f830096128824612d3dffb5625924ef23907c5fbe96",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_http_pool_trace.py": "9d344d78458f61c293e4d7977e866c741a244fe17ca8079056b558a3073dc233",
+    "/home/dflanag3/src/context-cow-bw-conversation-20261020/serve/test_cow_http_publication_errors.py": "1fc7053e520f20610f387c1103ec9110966850bd19e5728de6f29649fdcf1d49"
+  },
+  "tests": [
+    {
+      "id": "tests.test_project_scope_review.ProjectScopeReviewTests.test_after_check_change_cannot_be_reviewed",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_scope_review.ProjectScopeReviewTests.test_model_chosen_names_and_nested_directories_reach_review_export",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_scope_review.ProjectScopeReviewTests.test_project_file_scope_does_not_silently_grant_deletion",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_existing_files_need_actual_read_and_current_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_fixed_grants_do_not_gain_project_access",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_new_names_can_be_created_read_and_refined_after_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_project_scope_rejects_escape_git_and_symlink_routes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_project_shell_sees_files_created_after_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_file_scope.ProjectFileScopeTests.test_schema_and_grammar_accept_future_paths_but_host_validates_them",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_actual_check_of_current_files_can_pass",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_changes_require_checks_to_run_again",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_different_check_cannot_hide_a_failed_named_check",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_finish_without_a_check_is_not_verified",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_latest_failure_overrides_an_earlier_pass",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_nonzero_check_is_not_verified",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_plain_shell_observation_is_not_a_project_check",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_checks.ProjectChecksTests.test_repaired_named_check_can_replace_a_broken_command",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_project_start.GuidedProjectStartTests.test_fixed_scope_launch_still_requires_explicit_checks",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_project_start.GuidedProjectStartTests.test_project_launch_has_no_filename_or_check_list",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_project_start.GuidedProjectStartTests.test_review_error_does_not_claim_completed_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_project_start.GuidedProjectStartTests.test_task_alone_admits_whole_project_and_model_selected_checks",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_cli_connect_uses_environment_key_without_printing_it",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_cli_save_api_flag_explicitly_persists_private_key",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_connection_discovers_identities_and_private_key_can_be_reused",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_default_connection_does_not_persist_the_api_key",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_failed_authentication_does_not_create_settings",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_guided_save_api_flag_is_explicit",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_interrupted_configuration_never_uses_key_for_a_changed_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_invalid_or_unsupported_server_response_preserves_existing_settings",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_key_does_not_follow_changed_connection_or_loose_file_permissions",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_linked_config_directory_or_credential_file_is_not_overwritten",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_missing_settings_can_be_configured_inside_first_run",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_normal_cow_requests_do_not_follow_redirects_either",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_real_terminal_first_start_connects_and_hides_the_key",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_reconnecting_without_opt_in_removes_an_old_saved_key",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_redirects_do_not_forward_bearer_credentials",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup.ClientSetupTests.test_saved_key_applies_only_to_the_exact_admitted_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_client_setup_cow.ClientSetupCowTests.test_connect_then_code_and_resume_use_saved_key_and_frozen_profile",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_empty_task_starts_no_model_work_and_writes_no_state",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_entrypoint_without_arguments_opens_guided_start",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_guided_start_defaults_to_current_project_and_existing_cow_coding_command",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_interrupt_after_submission_keeps_run_and_does_not_claim_it_was_unsent",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_malformed_success_cannot_exit_with_success",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_missing_api_key_uses_hidden_prompt_and_restores_process_environment",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_verified_copy_is_not_attempted_when_independent_verification_failed",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_cli.GuidedCliTests.test_verified_result_is_copied_only_after_a_separate_explicit_yes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherCommandTests.test_code_and_resume_are_public_commands",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherCommandTests.test_invalid_budget_fails_before_transport_or_state_creation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherCommandTests.test_invalid_connection_does_not_create_a_run",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherCommandTests.test_tampered_resume_does_not_create_a_world",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_connection_cannot_contain_credentials_or_unknown_fields",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_fresh_launch_uses_existing_workflow_and_explicit_grants",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_interrupted_stage_cleanup_cannot_strand_a_published_manifest",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_manifest_reopens_exactly_and_cannot_be_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_retained_launch_does_not_bootstrap_or_rebase",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_state_cannot_be_inside_source_or_a_symlink",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_tampered_manifest_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_uncertain_fork_reports_original_id_and_never_starts_interpreter",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher.CodingLauncherTests.test_unresolved_fork_cannot_be_published",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_launcher_http.CodingLauncherHttpTests.test_code_prepares_real_context_and_resume_keeps_pinned_setup",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_cannot_reconcile_a_tool_effect",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_reconciles_after_checkpoint_eviction_and_server_reconstruction",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_reconciles_after_server_reconstruction_without_new_work",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_refuses_live_workflow_writer",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_refuses_operation_not_owned_by_pending_model_frame",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_cli_restores_output_then_existing_step_resumes_without_new_work",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_failed_operation_remains_unresolved_after_server_reconstruction",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_failed_uncommitted_model_operation_stays_unresolved",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_self_consistent_changed_launch_rejected_before_network",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_reconciliation.CodingReconciliationTests.test_uncommitted_bootstrap_stays_pending_without_new_root_work",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_generation_stream_uncertainty.StreamUncertaintyTests.test_eof_retains_original_pending_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_generation_stream_uncertainty.StreamUncertaintyTests.test_error_retains_original_pending_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_generation_stream_uncertainty.StreamUncertaintyTests.test_failure_retains_original_pending_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_generation_stream_uncertainty.StreamUncertaintyTests.test_first_cli_failure_reports_unresolved_original_operation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_generation_stream_uncertainty.StreamUncertaintyTests.test_rejected_http_response_is_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client_flow.CowClientFlowTests.test_actual_cli_subprocess_conforms_to_http_client_flow",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client_flow.CowClientFlowTests.test_http_client_prepare_fork_continue_history_tool_observation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client_flow.CowClientFlowTests.test_http_stale_revision_reaches_server_and_is_rejected_before_inference",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client_flow.CowClientFlowTests.test_real_http_accepts_128_byte_branch_and_operation_names",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client_flow.CowClientFlowTests.test_user_conversation_tip_stays_current_and_work_fork_is_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_full_project_review.FullProjectReviewTests.test_binary_creation_and_exact_newline_flags",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_full_project_review.FullProjectReviewTests.test_file_deletion_has_no_implicit_permission",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_full_project_review.FullProjectReviewTests.test_mode_change_requires_mode_grant",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_full_project_review.FullProjectReviewTests.test_shell_written_edit_is_in_complete_review",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_full_project_review.FullProjectReviewTests.test_ungranted_shell_write_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_export.ProjectExportTests.test_actual_cli_exports_without_changing_the_ledger",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_export.ProjectExportTests.test_complete_export_contains_exact_binary_and_text_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_export.ProjectExportTests.test_existing_destination_is_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_export.ProjectExportTests.test_export_cannot_write_into_original_project_or_run_state",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_export.ProjectExportTests.test_failed_review_creates_no_export",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_destination_created_at_publication_is_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_exact_copy_applied_without_touching_original",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_existing_empty_destination_is_not_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_flush_failure_before_publication_leaves_no_output",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_hash_pinned_but_malformed_manifest_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_overlapping_destination_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_source_drift_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_apply.ProjectApplyTests.test_wrong_archive_hash_is_rejected_before_output",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_copying_the_receipt_does_not_copy_publication_ownership",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_modified_published_result_is_not_acknowledged",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_other_operation_cannot_claim_existing_output",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_process_exit_after_publication_is_reconciled_in_new_process",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_process_exit_before_publication_can_retry_without_partial_output",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_apply_reconciliation.ApplyReconciliationTests.test_retry_returns_identical_receipt_after_source_changes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_baseline.ProjectBaselineTests.test_links_are_rejected_without_reading_target",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_baseline.ProjectBaselineTests.test_manifest_is_chunked_beyond_codec_container_limit",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_baseline.ProjectBaselineTests.test_missing_payload_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_baseline.ProjectBaselineTests.test_real_cli_binds_manifest_and_reuses_it_after_a_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_baseline.ProjectBaselineTests.test_saved_bytes_do_not_follow_later_workspace_or_original_changes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_bad_payloads_paths_and_ids_reject_without_creation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_changed_read_is_not_published_as_stable_content",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_competing_create_does_not_overwrite_other_owner",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_create_and_read_exact_bytes_with_separate_artifacts",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_directory_fifo_missing_and_oversize_reads_reject",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_existing_target_is_never_overwritten",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_failed_write_leaves_no_target_or_temporary_file",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_grant_validation_and_legacy_defaults",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_grants_are_separate_and_reject_before_effects",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_hardlink_is_not_a_private_read_target",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_nested_file_and_empty_payload",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_replaced_workspace_root_rejects_read_and_create",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_file_tools.FileToolTests.test_symlink_leaf_and_parent_cannot_escape",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_bad_utf8_crlf_and_truncated_program_exit_nonzero_without_outputs",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_canonicalize_outputs_exact_program_without_editing_source",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_canonicalize_preserves_utf8_literal_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_check_has_no_native_or_tool_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_check_reports_syntax_only_and_changes_no_files",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_fifo_source_is_rejected_without_waiting_for_a_writer",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_oversize_input_is_rejected_before_parser_entry",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_program_cli.ProgramCliTests.test_unimplemented_run_never_claims_execution_support",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_catalog_publication.BaseCatalogPublicationTests.test_hardlinked_catalog_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_catalog_publication.BaseCatalogPublicationTests.test_identical_publication_keeps_same_file_and_changed_value_fails",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_catalog_publication.BaseCatalogPublicationTests.test_oversize_publication_creates_no_catalog",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_catalog_publication.BaseCatalogPublicationTests.test_symlink_target_is_not_read_or_overwritten",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_changed_source_excludes_stale_base_and_selects_fresh_alternative",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_explicit_choice_cannot_bypass_source_freshness",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_fresh_pack_bound_base_is_selected_and_binding_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_incompatible_pack_is_not_opened",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_pack_catalog_does_not_fall_back_to_unverified_legacy_entry",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_partial_binding_and_relative_pack_path_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_stale_pack_fails_cli_admission_before_state_or_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_pack_freshness.BasePackFreshnessTests.test_wrong_pack_identity_fails_without_fallback",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_shell_admission.ShellAdmissionTests.test_missing_read_path_without_create_grant_still_fails",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_shell_admission.ShellAdmissionTests.test_real_probe_settles_without_changing_workspace",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_shell_admission.ShellAdmissionTests.test_shell_can_test_before_and_after_granted_file_creation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_shell_admission.ShellAdmissionTests.test_shell_rejection_precedes_any_cow_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_input_is_detached_at_startup",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_missing_profile_is_explicitly_unavailable",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_reports_only_public_profile_fields_without_using_adapter",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_wrong_key_and_foreign_query_cannot_discover",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_append_user_route_passes_only_new_content_and_streams_text",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_auth_and_foreign_origin_reject_before_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_catalog_route_is_authenticated_read_only_and_root_scoped",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_disconnect_sets_transient_cancellation_before_publication",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_explicit_cancel_stops_an_admitted_request_at_its_cancel_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_head_fork_and_rewind_use_adapter_authority",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_missing_request_fields_reject_before_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_nonstream_response_contains_acknowledged_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_public_bind_requires_key",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_publication_failure_never_emits_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_stream_separates_provisional_token_and_durable_success",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_text_routes_are_explicitly_disabled_without_text_adapter",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_text_stream_and_nonstream_decode_same_canonical_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_unknown_options_do_not_silently_change_the_contract",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_efbig_nonstream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_efbig_stream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_enospc_nonstream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_enospc_stream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_nonstream_disconnect_cancels_waiting_model_and_handler_exits",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_chat_lifecycle_fork_retry_and_namespace_catalog",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_closed_user_context_is_forkable_and_independent_questions_use_only_suffixes",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_context_and_prepared_root_operations_are_not_interchangeable",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_synthetic_frontier_bytes_are_actually_validated",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_accepts_on_demand_disk_load_after_request_received",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_disk_load_that_succeeds_after_source_acquisition",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_intervening_eviction_wrong_key_and_overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_missing_eviction_reload_or_request_success",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_eviction_read_request_audit_accepts_matching_chain",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_graceful_ready_close_publishes_bounded_private_trace",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_http_trace_is_opt_in_and_binds_request_to_canonical_source",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_incomplete_or_failed_server_lifecycle_never_publishes_trace",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_overflowed_trace_is_not_published_as_complete_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_pool_acquisition_marker_is_opt_in_and_carries_operation_source",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_trace_target_preflight_requires_private_directory_and_new_path",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_worker_close_trace_records_actual_numeric_exit_and_preserves_errors",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_project_prepare.ProjectPrepareTests.test_cli_builds_pack_from_project_and_stable_cow_tip",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_project_prepare.ProjectPrepareTests.test_invalid_code_request_fails_before_context_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_project_prepare.ProjectPrepareTests.test_normal_code_cli_freezes_and_reuses_project_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_active_or_mismatched_branch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_build_binds_project_files_and_saved_branch_tips",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_death_between_snapshot_rename_and_state_receipt_recovers_orphan",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_image_or_conflicting_branch_message_is_not_flattened",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_new_state_sees_changed_project_and_branch",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_parent_and_child_context_selections_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_process_death_after_source_snapshot_resumes_frozen_inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_retry_uses_frozen_files_and_branch_tip_after_crash",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_receipt.ProjectContextReceiptTests.test_symlinked_source_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_project_context_real_cow_restart.RealCowClientReceiptTests.test_client_recovers_source_and_committed_answer_receipts",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_http_process_restart.CowHttpProcessRestartTests.test_lost_answer_ack_recovers_after_cow_process_restart_without_forward_work",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_cli_accepts_full_128_byte_branch_and_operation_names",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_cli_keeps_user_conversation_tip_current_and_work_fork_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_local_followups_are_durable_and_sent_as_one_combined_turn",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_local_queue_survives_client_death_and_drains_after_reconcile",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_lost_cli_ack_reconciles_the_same_saved_user_turn",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_stop_add_before_first_answer_preserves_old_attempt_as_a_sibling",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_chat_cli_http.ChatCliHttpTests.test_stop_add_cancels_before_output_and_retries_with_both_user_inputs",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_receipt_cli.ReceiptCommandTests.test_missing_operation_is_reported_without_creating_state",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_receipt_cli.ReceiptCommandTests.test_pending_intent_is_unresolved_and_never_queries_endpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_receipt_cli.ReceiptCommandTests.test_tampered_journal_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_active_writer_is_reported_without_ledger_read",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_closed_result_is_recorded_not_claimed_reverified",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_corrupt_log_is_not_repaired",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_human_output_labels_verification_scope",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_incomplete_run_does_not_claim_success",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_missing_state_is_not_created",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_model_guidance_explains_durable_only_recovery_and_resume",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_pending_model_status_supplies_exact_recovery_argv_without_execution",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_pending_tool_is_not_presented_as_model_output_recovery",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_status_activity_zero_hides_tail_and_human_output_names_step",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_status_rejects_unbounded_activity_tail",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_status_shows_bounded_recent_activity_without_payloads",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_status.CodingStatusTests.test_unsettled_operation_is_visible",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_cli_defaults_connection_to_operator_config",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_cli_defaults_project_to_terminal_directory",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_cli_generates_durable_state_and_branch_when_omitted",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_cli_passes_explicit_choice_to_normal_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_default_keeps_existing_greedy_launch_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_default_state_inside_project_fails_before_creating_files",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_default_state_parent_is_created_private",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_default_state_parent_rejects_xdg_symlink",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_generated_branch_is_reported_when_state_is_explicit",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_new_admissions_select_exact_existing_presets",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_saved_sampler_cannot_be_replaced_on_same_run",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_coding_sampler_choice.CodingSamplerChoiceTests.test_unknown_preset_fails_before_state_or_network",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliMachineResultTests.test_cli_machine_envelope_preserves_exact_answer_text",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliMachineResultTests.test_cli_machine_envelope_preserves_prepare_answer_without_text",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliMachineResultTests.test_cli_machine_envelope_rejects_nonstring_optional_text",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliMachineResultTests.test_frame_identity_rejects_wrong_operation_or_target_branch",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliRevisionMappingTests.test_generation_commands_pass_the_original_revision_to_cli",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CliRevisionMappingTests.test_stale_expected_revision_is_rejected_before_cli_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_completed_operation_replay_uses_original_receipt_without_head_read",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_eof_leaves_exact_intent_pending_and_never_resends_automatically",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_generation_completion_without_exact_text_is_rejected_and_intent_retained",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_intent_is_durable_before_stream_send_and_receipt_is_bound",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_operation_id_accepts_128_ascii_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_operation_id_cannot_be_reused_for_changed_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_read_routes_return_typed_observations",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_receipt_for_wrong_branch_is_rejected_and_intent_retained",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.CowClientTests.test_unknown_process_local_operation_is_indeterminate",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.FrameSlotTests.test_reverse_delivery_duplicate_old_result_and_restart_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_cow_client.FrameSlotTests.test_slot_rejects_digest_mismatch_and_detaches_return_value",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_automatic_host_selection_uses_existing_fork_and_ask_api",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_code_cli_builds_project_receipt_then_uses_real_cpu_cow_root",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_prepare_base_cli_publishes_catalog_and_retries_without_prefill",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_prepare_base_recovers_context_ack_loss_without_prefix_recompute",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_prepare_base_recovers_namespace_ack_loss_in_new_process",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_prepare_base_unknown_context_is_not_replayed",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_base_choice_http.BaseChoiceHttpTests.test_proposed_base_source_uses_existing_fork_and_ask_api",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_code_switch_pins_the_completed_conversation_in_a_new_workflow",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_coding_failure_exits_through_coding_recovery_instead_of_chatting_again",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_existing_start_accepts_chat_without_a_filename_wizard",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_external_tip_move_rejects_coding_selection_without_model_work",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_open_and_exit_makes_no_namespace_or_model_request",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_resume_cannot_silently_select_a_different_profile",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_resume_talk_keeps_the_same_branch_and_adds_one_turn",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_talk_keeps_two_turns_without_starting_coding_or_reading_project",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_unfinished_answer_cannot_become_a_coding_source",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_unknown_slash_command_is_not_sent_as_a_user_message",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.GuidedConversationTests.test_unsent_queue_prevents_picking_an_older_coding_source",
+      "status": "PASS"
+    },
+    {
+      "id": "tests.test_guided_conversation.TalkEntrypointTests.test_talk_uses_the_same_guided_setup_without_saving_the_key",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_active_parser_rejects_host_state_change_before_backend_work",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_actual_coordinator_dispatch_restores_parser_and_allows_host_transition_after_completion",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_changed_retry_requires_the_original_grammar_registry_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_completed_grammar_can_start_a_host_selected_new_generation_scope",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_coordinator_forks_preserve_independent_real_grammar_controllers",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_explicit_sampler_override_resumes_saved_grammar_progress",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_generated_long_grammar_state_name_survives_committed_generation_validation",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_missing_server_registry_fails_closed_at_load",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_model_profile_and_registry_identity_are_checked_by_grammar_engine",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_grammar_canonical_flow.CowCanonicalGrammarFlowTests.test_text_answer_selects_registry_state_and_publishes_generation_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_history_counts.HistoryCountHTTPTests.test_counts_come_from_actual_http_without_model_work",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_history_counts.HistoryCountTests.test_root_and_tip_counts_follow_canonical_ancestry",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_history_counts.MixedHistoryCountTests.test_image_rows_and_text_tokens_are_counted_as_model_input_cells",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_branch_and_operation_ids_accept_128_ascii_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_catalog_does_not_change_branch_or_history_files",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_catalog_scans_branch_records_not_unrelated_receipts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_catalog_snapshot_serializes_with_concurrent_move",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_corrupt_branch_record_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_empty_catalog",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_forks_and_distinct_roots_are_sorted_exact_records",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_rewind_catalog_reports_exact_committed_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_shared_ancestry_is_hash_validated_once_per_catalog_query",
+      "status": "PASS"
+    },
+    {
+      "id": "test_store_branch_catalog.StoreBranchCatalogTests.test_unauthorized_root_and_branch_are_not_disclosed",
+      "status": "PASS"
+    }
+  ],
+  "g0": {
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "status": "PASS"
+  },
+  "gpu_inference": false
+}

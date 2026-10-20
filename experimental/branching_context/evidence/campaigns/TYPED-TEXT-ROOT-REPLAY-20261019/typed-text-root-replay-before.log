@@ -1,0 +1,29 @@
+test_plain_text_root_replay_after_restart_preserves_canonical_span_identity (serve.test_cow_vision_text_flow.CowVisionTextFlowTests.test_plain_text_root_replay_after_restart_preserves_canonical_span_identity) ... ERROR
+
+======================================================================
+ERROR: test_plain_text_root_replay_after_restart_preserves_canonical_span_identity (serve.test_cow_vision_text_flow.CowVisionTextFlowTests.test_plain_text_root_replay_after_restart_preserves_canonical_span_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_vision_text_flow.py", line 89, in test_plain_text_root_replay_after_restart_preserves_canonical_span_identity
+    replay=self.text.create('text-root',messages,'text-root-op',namespace_id=self.namespace)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/cow_text_adapter.py", line 687, in create
+    return self.token_adapter.create(branch, ids, operation_id, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/cow_adapter.py", line 273, in create
+    return self.coordinator.create(branch, ids, operation_id, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 1199, in create
+    return self._submit(branch,ids,0,operation,'create',presentation=presentation,cancelled=cancelled)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 1178, in _submit
+    try: self._recover(job,receipt)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 676, in _recover
+    raise IntegrityError('Committed request history differs from recorded inputs')
+context_time_travel.store.IntegrityError: Committed request history differs from recorded inputs
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+FAILED (errors=1)

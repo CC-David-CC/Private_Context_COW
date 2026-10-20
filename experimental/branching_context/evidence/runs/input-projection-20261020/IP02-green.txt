@@ -1,0 +1,12 @@
+test_all_seeded_text_image_and_append_bindings_match_reference (test_input_projection_cache.InputProjectionCacheTests.test_all_seeded_text_image_and_append_bindings_match_reference) ... ok
+test_cache_eviction_changes_work_not_bindings_or_size_bound (test_input_projection_cache.InputProjectionCacheTests.test_cache_eviction_changes_work_not_bindings_or_size_bound) ... ok
+test_cached_expected_does_not_replace_a_native_query_or_accept_wrong_reply (test_input_projection_cache.InputProjectionCacheTests.test_cached_expected_does_not_replace_a_native_query_or_accept_wrong_reply) ... ok
+test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference (test_input_projection_cache.InputProjectionCacheTests.test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference) ... ok
+test_complete_schedule_validation_and_incremental_binding_share_only_hashes (test_input_projection_cache.InputProjectionCacheTests.test_complete_schedule_validation_and_incremental_binding_share_only_hashes) ... ok
+test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results (test_input_projection_cache.InputProjectionCacheTests.test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results) ... ok
+test_provenance_grid_placement_and_suffix_changes_do_not_collide (test_input_projection_cache.InputProjectionCacheTests.test_provenance_grid_placement_and_suffix_changes_do_not_collide) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.021s
+
+OK

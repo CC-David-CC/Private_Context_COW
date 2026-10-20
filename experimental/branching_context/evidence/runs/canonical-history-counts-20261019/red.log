@@ -1,0 +1,25 @@
+test_counts_come_from_actual_http_without_model_work (serve.test_cow_history_counts.HistoryCountHTTPTests.test_counts_come_from_actual_http_without_model_work) ... ERROR
+test_root_and_tip_counts_follow_canonical_ancestry (serve.test_cow_history_counts.HistoryCountTests.test_root_and_tip_counts_follow_canonical_ancestry) ... ERROR
+
+======================================================================
+ERROR: test_counts_come_from_actual_http_without_model_work (serve.test_cow_history_counts.HistoryCountHTTPTests.test_counts_come_from_actual_http_without_model_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-history-counts-20261019/serve/test_cow_history_counts.py", line 25, in test_counts_come_from_actual_http_without_model_work
+    self.assertEqual(value['root_input_cells'],expected);self.assertEqual(value['tip_input_cells'],expected);self.assertEqual(self.models[0].stats,before)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'root_input_cells'
+
+======================================================================
+ERROR: test_root_and_tip_counts_follow_canonical_ancestry (serve.test_cow_history_counts.HistoryCountTests.test_root_and_tip_counts_follow_canonical_ancestry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-history-counts-20261019/serve/test_cow_history_counts.py", line 9, in test_root_and_tip_counts_follow_canonical_ancestry
+    first=self.workspace.history('chat');self.assertEqual(first['root_input_cells'],2);self.assertEqual(first['tip_input_cells'],2)
+                                                          ~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'root_input_cells'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.543s
+
+FAILED (errors=2)

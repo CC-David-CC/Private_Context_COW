@@ -1,0 +1,61 @@
+{
+  "status": "BOUNDED_CPU_PASS_NOT_GPU_QUALIFIED",
+  "tests": 114,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "G0": {
+    "status": "PASS",
+    "tests": 51
+  },
+  "reference_mutants_killed": 4,
+  "unchanged_scalar_reference": true,
+  "unchanged_cursor_fresh_reference_check": true,
+  "hash_equations_unchanged": true,
+  "source_sha256": {
+    "input_schedule_projection.py": "b436edd8f85cce74de6ea2efdd87f66cedbed691194eee605479044421c58a3f",
+    "packed_input_binding.py": "d0795d293c0a1c66c39af809b322d455e09cad1593252e8959dc110654b3f2d7",
+    "vision_execution.py": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+    "execution_receipt.py": "9c712fa9c9cbf8291e05c871c47e7987022bbd260f2f9df3d60870e94abf5df4",
+    "input_spans.py": "b234e707af647e6879969db81d492af428caae14ca1d5a510ca74be3ecf97f78"
+  },
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+  "host": "llm-60",
+  "backend_executed": false,
+  "numerical_max_error": null,
+  "workflow_measurements": [
+    {
+      "prefix": 8192,
+      "baseline_total": 0.11718375759664923,
+      "packed_total": 0.11399390106089413,
+      "baseline_finish": 0.0037149220006540418,
+      "packed_finish": 0.003000652533955872,
+      "total_change_percent": -2.722097841182647,
+      "finish_change_percent": -19.22703805281556
+    },
+    {
+      "prefix": 65536,
+      "baseline_total": 0.8938115754863247,
+      "packed_total": 0.8816240545129403,
+      "baseline_finish": 0.025765673955902457,
+      "packed_finish": 0.020108749973587692,
+      "total_change_percent": -1.3635447680069634,
+      "finish_change_percent": -21.9552727089402
+    },
+    {
+      "prefix": 131072,
+      "baseline_total": 1.7416743704816326,
+      "packed_total": 1.8504517315886915,
+      "baseline_finish": 0.051635241019539535,
+      "packed_finish": 0.04173524945508689,
+      "total_change_percent": 6.245562485769263,
+      "finish_change_percent": -19.17293571014096
+    }
+  ],
+  "limitations": [
+    "CPU metadata measurements only, not native inference or G1-G5 qualification",
+    "Per-token independent scalar reference remains; the integrated optimization only bulk-packs complete publication audits",
+    "Big-endian branch exists but no actual big-endian host was tested",
+    "Prepared IP02 service source closure is stale after this source change; do not launch it without deriving and checking a new pinned profile"
+  ]
+}

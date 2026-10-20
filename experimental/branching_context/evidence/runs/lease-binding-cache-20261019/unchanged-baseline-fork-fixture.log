@@ -1,0 +1,20 @@
+test_coordinator_binds_original_source_revision_and_retry (test_store_fork_provenance.StoreForkProvenanceTests.test_coordinator_binds_original_source_revision_and_retry) ... ERROR
+
+======================================================================
+ERROR: test_coordinator_binds_original_source_revision_and_retry (test_store_fork_provenance.StoreForkProvenanceTests.test_coordinator_binds_original_source_revision_and_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-grammar-admission-20261019/experimental/branching_context/tests/implementation/test_store_fork_provenance.py", line 72, in test_coordinator_binds_original_source_revision_and_retry
+    first=coordinator.fork('coordinator-copy',self.root,source_branch='left',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-grammar-admission-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 1431, in fork
+    self._validate_optional_checkpoint(snapshot)
+  File "/home/dflanag3/src/context-cow-grammar-admission-20261019/experimental/branching_context/src/context_time_travel/coordinator.py", line 1346, in _validate_optional_checkpoint
+    path=self.disk.directory/(snapshot+'.json')
+         ^^^^^^^^^
+AttributeError: 'ContextCoordinator' object has no attribute 'disk'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (errors=1)

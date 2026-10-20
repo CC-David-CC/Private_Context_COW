@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "scope": "8K-plus coding-reference prefix, two coding questions, three repetitions each, up to128 generated tokens. Native API timing and exact regression, not autonomous coding completion or full G1-G5.",
+  "started": 1792427080.0908906,
+  "stages": [
+    {
+      "kind": "baseline",
+      "pid": 693622,
+      "exit_code": 0,
+      "absent": true
+    },
+    {
+      "kind": "candidate",
+      "pid": 693970,
+      "exit_code": 0,
+      "absent": true
+    },
+    {
+      "kind": "restart",
+      "pid": 694355,
+      "exit_code": 0,
+      "absent": true
+    }
+  ],
+  "comparisons": [
+    {
+      "kind": "candidate",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "A0",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "A1",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "A2",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "B0",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "B1",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "candidate",
+      "label": "B2",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "prefix",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "A0",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "A1",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "A2",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "B0",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "B1",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    },
+    {
+      "kind": "restart",
+      "label": "B2",
+      "bytes": 993280,
+      "exact": true,
+      "max_abs_error": 0
+    }
+  ]
+}

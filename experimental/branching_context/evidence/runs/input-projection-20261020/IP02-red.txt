@@ -1,0 +1,72 @@
+test_all_seeded_text_image_and_append_bindings_match_reference (test_input_projection_cache.InputProjectionCacheTests.test_all_seeded_text_image_and_append_bindings_match_reference) ... ERROR
+test_cache_eviction_changes_work_not_bindings_or_size_bound (test_input_projection_cache.InputProjectionCacheTests.test_cache_eviction_changes_work_not_bindings_or_size_bound) ... ERROR
+test_cached_expected_does_not_replace_a_native_query_or_accept_wrong_reply (test_input_projection_cache.InputProjectionCacheTests.test_cached_expected_does_not_replace_a_native_query_or_accept_wrong_reply) ... ok
+test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference (test_input_projection_cache.InputProjectionCacheTests.test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference) ... ERROR
+test_complete_schedule_validation_and_incremental_binding_share_only_hashes (test_input_projection_cache.InputProjectionCacheTests.test_complete_schedule_validation_and_incremental_binding_share_only_hashes) ... ERROR
+test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results (test_input_projection_cache.InputProjectionCacheTests.test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results) ... ERROR
+test_provenance_grid_placement_and_suffix_changes_do_not_collide (test_input_projection_cache.InputProjectionCacheTests.test_provenance_grid_placement_and_suffix_changes_do_not_collide) ... ERROR
+
+======================================================================
+ERROR: test_all_seeded_text_image_and_append_bindings_match_reference (test_input_projection_cache.InputProjectionCacheTests.test_all_seeded_text_image_and_append_bindings_match_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 26, in test_all_seeded_text_image_and_append_bindings_match_reference
+    self.assertEqual(self.binding(h),input_binding(h));h=h+(rng.randrange(200000),)
+                     ^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 13, in binding
+    from context_time_travel.input_projection import cached_input_binding
+ModuleNotFoundError: No module named 'context_time_travel.input_projection'
+
+======================================================================
+ERROR: test_cache_eviction_changes_work_not_bindings_or_size_bound (test_input_projection_cache.InputProjectionCacheTests.test_cache_eviction_changes_work_not_bindings_or_size_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 41, in test_cache_eviction_changes_work_not_bindings_or_size_bound
+    h=InputHistory([dict(kind='text',tokens=[i])]);self.assertEqual(self.binding(h),input_binding(h))
+                                                                    ^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 13, in binding
+    from context_time_travel.input_projection import cached_input_binding
+ModuleNotFoundError: No module named 'context_time_travel.input_projection'
+
+======================================================================
+ERROR: test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference (test_input_projection_cache.InputProjectionCacheTests.test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 32, in test_changed_encoded_bytes_and_mutable_subclass_use_uncached_reference
+    h=InputHistory(spans());self.binding(h);other=InputHistory(spans(embedding_sha256='f'*64));object.__setattr__(h,'_encoded',other._encoded)
+                            ^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 13, in binding
+    from context_time_travel.input_projection import cached_input_binding
+ModuleNotFoundError: No module named 'context_time_travel.input_projection'
+
+======================================================================
+ERROR: test_complete_schedule_validation_and_incremental_binding_share_only_hashes (test_input_projection_cache.InputProjectionCacheTests.test_complete_schedule_validation_and_incremental_binding_share_only_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 46, in test_complete_schedule_validation_and_incremental_binding_share_only_hashes
+    from context_time_travel import input_projection as module
+ImportError: cannot import name 'input_projection' from 'context_time_travel' (/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/src/context_time_travel/__init__.py)
+
+======================================================================
+ERROR: test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results (test_input_projection_cache.InputProjectionCacheTests.test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 16, in test_distinct_equal_objects_share_derived_hashes_but_not_mutable_results
+    from context_time_travel import input_projection as module
+ImportError: cannot import name 'input_projection' from 'context_time_travel' (/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/src/context_time_travel/__init__.py)
+
+======================================================================
+ERROR: test_provenance_grid_placement_and_suffix_changes_do_not_collide (test_input_projection_cache.InputProjectionCacheTests.test_provenance_grid_placement_and_suffix_changes_do_not_collide)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 30, in test_provenance_grid_placement_and_suffix_changes_do_not_collide
+    self.assertEqual(self.binding(h),input_binding(h));self.assertEqual(self.binding(h+(31,)),input_binding(h+(31,)))
+                     ^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-input-projection-20261020/experimental/branching_context/tests/implementation/test_input_projection_cache.py", line 13, in binding
+    from context_time_travel.input_projection import cached_input_binding
+ModuleNotFoundError: No module named 'context_time_travel.input_projection'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.005s
+
+FAILED (errors=6)

@@ -1,0 +1,26 @@
+{
+  "gates": [
+    {
+      "errors": 0,
+      "expected_failures": 0,
+      "failure_ids": [],
+      "failures": 0,
+      "found_tests": 51,
+      "gate": "G0",
+      "required_cases": 0,
+      "skipped": 0,
+      "skipped_ids": [],
+      "status": "PASS",
+      "test_count": 51,
+      "unexpected_successes": 0
+    }
+  ],
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "requested": "G0",
+  "schema": 1,
+  "source_tree_sha256": "0644a8a8751feb74b47d9a2f958e3e1698d8b4844b76a8dcef269ce25b84b2f9",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-20T16:37:00.419895+00:00",
+  "tool": "scripts/verify.py"
+}

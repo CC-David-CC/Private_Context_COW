@@ -1,0 +1,18 @@
+test_committed_receipt_survives_coordinator_reconstruction (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_committed_receipt_survives_coordinator_reconstruction) ... ok
+test_corrupt_intent_is_rejected_even_with_committed_reference (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_corrupt_intent_is_rejected_even_with_committed_reference) ... ok
+test_corrupt_root_intent_cannot_prove_commit (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_corrupt_root_intent_cannot_prove_commit) ... ok
+test_lookup_needs_no_numerical_checkpoint (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_needs_no_numerical_checkpoint) ... ok
+test_lookup_returns_original_result_not_later_tip (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_returns_original_result_not_later_tip) ... ok
+test_root_lookup_does_not_require_optional_checkpoint_files (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_root_lookup_does_not_require_optional_checkpoint_files) ... ok
+test_root_receipt_survives_reconstruction_and_later_append (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_root_receipt_survives_reconstruction_and_later_append) ... ok
+test_unknown_operation_is_not_a_commit_or_abort_proof (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_unknown_operation_is_not_a_commit_or_abort_proof) ... ok
+test_chat_lifecycle_fork_retry_and_namespace_catalog (serve.test_cow_presentation_flow.CowPresentationFlowTests.test_chat_lifecycle_fork_retry_and_namespace_catalog) ... ok
+test_closed_user_context_is_forkable_and_independent_questions_use_only_suffixes (serve.test_cow_presentation_flow.CowPresentationFlowTests.test_closed_user_context_is_forkable_and_independent_questions_use_only_suffixes) ... ok
+test_context_and_prepared_root_operations_are_not_interchangeable (serve.test_cow_presentation_flow.CowPresentationFlowTests.test_context_and_prepared_root_operations_are_not_interchangeable) ... ok
+test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens (serve.test_cow_presentation_flow.CowPresentationFlowTests.test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens) ... ok
+test_synthetic_frontier_bytes_are_actually_validated (serve.test_cow_presentation_flow.CowPresentationFlowTests.test_synthetic_frontier_bytes_are_actually_validated) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.470s
+
+OK

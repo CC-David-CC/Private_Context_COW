@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "same_history_and_receipt_digests": true,
+  "results": [
+    {
+      "prefix": 8192,
+      "steps": 64,
+      "scope": "CPU complete receipt workflow; no native engine and no inference",
+      "baseline": {
+        "prefix": 8192,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 0.12008273904211819,
+            "finish_seconds": 0.0037306929007172585,
+            "total_seconds": 0.12381343194283545,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          },
+          {
+            "loop_seconds": 0.11475307308137417,
+            "finish_seconds": 0.003848416032269597,
+            "total_seconds": 0.11860148911364377,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          },
+          {
+            "loop_seconds": 0.11929644201882184,
+            "finish_seconds": 0.0037679430097341537,
+            "total_seconds": 0.12306438502855599,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          }
+        ],
+        "median_total": 0.12306438502855599,
+        "median_loop": 0.11929644201882184,
+        "median_finish": 0.0037679430097341537
+      },
+      "packed": {
+        "prefix": 8192,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 0.10878437990322709,
+            "finish_seconds": 0.003119389060884714,
+            "total_seconds": 0.1119037689641118,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          },
+          {
+            "loop_seconds": 0.10778482700698078,
+            "finish_seconds": 0.0031342171132564545,
+            "total_seconds": 0.11091904412023723,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          },
+          {
+            "loop_seconds": 0.10792417195625603,
+            "finish_seconds": 0.003130418946966529,
+            "total_seconds": 0.11105459090322256,
+            "history_digest": "dac4527e505b208f7eaf1db6d1a8d3d2f64f01cd61c844cb855bff0e83e0b33b",
+            "schedule_digest": "a8970c5db5c7122da515839b6d24eccff05a85983eea89468b3b0476df55d40f"
+          }
+        ],
+        "median_total": 0.11105459090322256,
+        "median_loop": 0.10792417195625603,
+        "median_finish": 0.003130418946966529
+      },
+      "total_change_percent": -9.758951887295952,
+      "finish_change_percent": -16.9196843243286
+    },
+    {
+      "prefix": 65536,
+      "steps": 64,
+      "scope": "CPU complete receipt workflow; no native engine and no inference",
+      "baseline": {
+        "prefix": 65536,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 0.8793713869526982,
+            "finish_seconds": 0.025533596985042095,
+            "total_seconds": 0.9049049839377403,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          },
+          {
+            "loop_seconds": 0.8828451791778207,
+            "finish_seconds": 0.026288734981790185,
+            "total_seconds": 0.9091339141596109,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          },
+          {
+            "loop_seconds": 0.8828018270432949,
+            "finish_seconds": 0.025655569974333048,
+            "total_seconds": 0.908457397017628,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          }
+        ],
+        "median_total": 0.908457397017628,
+        "median_loop": 0.8828018270432949,
+        "median_finish": 0.025655569974333048
+      },
+      "packed": {
+        "prefix": 65536,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 0.8790460468735546,
+            "finish_seconds": 0.020448497030884027,
+            "total_seconds": 0.8994945439044386,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          },
+          {
+            "loop_seconds": 0.8797613380011171,
+            "finish_seconds": 0.020397780928760767,
+            "total_seconds": 0.9001591189298779,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          },
+          {
+            "loop_seconds": 0.8821731598582119,
+            "finish_seconds": 0.020010762847959995,
+            "total_seconds": 0.9021839227061719,
+            "history_digest": "49a85390888b0d5f5942e06b8a1cf6500a59c7f18dc42dfe61d1964f85786af0",
+            "schedule_digest": "c09ff15987e53dab587f4878d1dafb60269aa6148ae16765e32707654111c859"
+          }
+        ],
+        "median_total": 0.9001591189298779,
+        "median_loop": 0.8797613380011171,
+        "median_finish": 0.020397780928760767
+      },
+      "total_change_percent": -0.9134471374213526,
+      "finish_change_percent": -20.493752626943785
+    },
+    {
+      "prefix": 131072,
+      "steps": 64,
+      "scope": "CPU complete receipt workflow; no native engine and no inference",
+      "baseline": {
+        "prefix": 131072,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 1.7348721090238541,
+            "finish_seconds": 0.05127071309834719,
+            "total_seconds": 1.7861428221222013,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          },
+          {
+            "loop_seconds": 1.7321509481407702,
+            "finish_seconds": 0.051666495855897665,
+            "total_seconds": 1.7838174439966679,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          },
+          {
+            "loop_seconds": 1.7419803680386394,
+            "finish_seconds": 0.05051155691035092,
+            "total_seconds": 1.7924919249489903,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          }
+        ],
+        "median_total": 1.7861428221222013,
+        "median_loop": 1.7348721090238541,
+        "median_finish": 0.05127071309834719
+      },
+      "packed": {
+        "prefix": 131072,
+        "steps": 64,
+        "samples": [
+          {
+            "loop_seconds": 1.7568938878830522,
+            "finish_seconds": 0.042543939081951976,
+            "total_seconds": 1.7994378269650042,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          },
+          {
+            "loop_seconds": 1.790305231930688,
+            "finish_seconds": 0.04243445093743503,
+            "total_seconds": 1.832739682868123,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          },
+          {
+            "loop_seconds": 1.8125411900691688,
+            "finish_seconds": 0.04200760880485177,
+            "total_seconds": 1.8545487988740206,
+            "history_digest": "2265dd082847659a549df5d358a8732c798b0b045f531913a4d5cf23fc02abcb",
+            "schedule_digest": "8d67aac9c998ad19e4efcc83dceca5c945064eac4773f1c3b688e913b1b9f0c6"
+          }
+        ],
+        "median_total": 1.832739682868123,
+        "median_loop": 1.790305231930688,
+        "median_finish": 0.04243445093743503
+      },
+      "total_change_percent": 2.6087981413803085,
+      "finish_change_percent": -17.234521673147963
+    }
+  ]
+}

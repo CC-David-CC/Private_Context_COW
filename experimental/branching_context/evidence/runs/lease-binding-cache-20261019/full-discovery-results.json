@@ -1,0 +1,10 @@
+[
+  {
+    "name": "baseline-full-discovery",
+    "exit_code": 1
+  },
+  {
+    "name": "candidate-atomic-full-discovery",
+    "exit_code": 1
+  }
+]

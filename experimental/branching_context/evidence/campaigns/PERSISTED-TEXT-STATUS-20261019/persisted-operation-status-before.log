@@ -1,0 +1,57 @@
+test_committed_receipt_survives_coordinator_reconstruction (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_committed_receipt_survives_coordinator_reconstruction) ... FAIL
+test_corrupt_intent_is_rejected_even_with_committed_reference (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_corrupt_intent_is_rejected_even_with_committed_reference) ... FAIL
+test_lookup_needs_no_numerical_checkpoint (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_needs_no_numerical_checkpoint) ... FAIL
+test_lookup_returns_original_result_not_later_tip (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_returns_original_result_not_later_tip) ... ERROR
+test_unknown_operation_is_not_a_commit_or_abort_proof (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_unknown_operation_is_not_a_commit_or_abort_proof) ... ok
+
+======================================================================
+ERROR: test_lookup_returns_original_result_not_later_tip (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_returns_original_result_not_later_tip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 36, in test_lookup_returns_original_result_not_later_tip
+    expected=self.commit();head=self.case.coordinator.store.head('chat');self.case.text.resume('chat',head.revision,'later-op',2).durable.result(5)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+KeyError: "'later-op'"
+
+======================================================================
+FAIL: test_committed_receipt_survives_coordinator_reconstruction (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_committed_receipt_survives_coordinator_reconstruction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 34, in test_committed_receipt_survives_coordinator_reconstruction
+    expected=self.commit();self.case.new_coordinator();self.assert_read_only_lookup(expected)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 31, in assert_read_only_lookup
+    self.assertEqual(code,200,value);self.assertTrue(value['durable']);self.assertEqual(value['receipt'],expected);self.assertEqual(value['operation_id'],'answer-op');self.assertEqual(value['scope'],'canonical-presentation')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200 : {'error': 'Unknown evaluation operation: answer-op'}
+
+======================================================================
+FAIL: test_corrupt_intent_is_rejected_even_with_committed_reference (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_corrupt_intent_is_rejected_even_with_committed_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 48, in test_corrupt_intent_is_rejected_even_with_committed_reference
+    code,value=self.lookup('answer-op');self.assertEqual(code,409,value);self.assertNotIn('receipt',value)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 409 : {'error': 'Unknown evaluation operation: answer-op'}
+
+======================================================================
+FAIL: test_lookup_needs_no_numerical_checkpoint (serve.test_cow_persisted_operation_status.PersistedTextStatusTests.test_lookup_needs_no_numerical_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 43, in test_lookup_needs_no_numerical_checkpoint
+    self.case.new_coordinator();self.assert_read_only_lookup(expected)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-persistent-operation-status-20261019/serve/test_cow_persisted_operation_status.py", line 31, in assert_read_only_lookup
+    self.assertEqual(code,200,value);self.assertTrue(value['durable']);self.assertEqual(value['receipt'],expected);self.assertEqual(value['operation_id'],'answer-op');self.assertEqual(value['scope'],'canonical-presentation')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200 : {'error': 'Unknown evaluation operation: answer-op'}
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.167s
+
+FAILED (failures=3, errors=1)
