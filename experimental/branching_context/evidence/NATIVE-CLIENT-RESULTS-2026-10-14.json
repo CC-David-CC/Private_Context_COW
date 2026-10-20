@@ -1,0 +1,327 @@
+{
+  "scope": "Executed same-host subprocess client; greedy same-profile; not cumulative gates",
+  "modes": {
+    "resident": {
+      "status": "PASS",
+      "scope": "same-host subprocess client; not HTTP or remote network speed",
+      "mode": "resident",
+      "profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+      "startup_seconds": 66.73265538993292,
+      "native_exit_observed": true,
+      "branches": {
+        "A": {
+          "measured_requests": 3,
+          "medians": {
+            "time_to_first_token_seconds": 3.3897518538869917,
+            "steady_received_tps": 51.68125006249029,
+            "median_tpot_seconds": 0.018286187201738358,
+            "p95_tpot_seconds": 0.026206723181530833,
+            "request_tps": 47.304167744420845,
+            "durable_request_tps": 44.34985232795604
+          }
+        },
+        "B": {
+          "measured_requests": 3,
+          "medians": {
+            "time_to_first_token_seconds": 3.2418262329883873,
+            "steady_received_tps": 41.52123627078015,
+            "median_tpot_seconds": 0.01989879715256393,
+            "p95_tpot_seconds": 0.04096667794510722,
+            "request_tps": 38.79809723598354,
+            "durable_request_tps": 36.78666770380837
+          }
+        }
+      },
+      "work": [
+        {
+          "request": "A-0",
+          "warmup": true,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 10.939360714051872
+        },
+        {
+          "request": "B-0",
+          "warmup": true,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 11.352860157145187
+        },
+        {
+          "request": "A-1",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.4311058341991156
+        },
+        {
+          "request": "B-1",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.433167692972347
+        },
+        {
+          "request": "A-2",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.44172709598206
+        },
+        {
+          "request": "B-2",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.4630893170833588
+        },
+        {
+          "request": "A-3",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.4612124878913164
+        },
+        {
+          "request": "B-3",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": null,
+          "durable_save_seconds": 2.45804721605964
+        }
+      ],
+      "client_sha256": "53d19ba9a2037a04891eb2b87df930e2974ea7fbe56b682f1a9eb0aad5b19821",
+      "worker_sha256": "95767a910ab7e198876366c6b821f6d2d060b9562b18e79840ef120f0dc6ef9f",
+      "limitations": [
+        "Same-profile greedy reference; not cumulative certification",
+        "Repeated deterministic completions may reuse existing durable payloads",
+        "Warm filesystem cache; no cold-storage or HTTP/network qualification"
+      ]
+    },
+    "disk": {
+      "status": "PASS",
+      "scope": "same-host subprocess client; not HTTP or remote network speed",
+      "mode": "disk",
+      "profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+      "startup_seconds": 70.62129973596893,
+      "native_exit_observed": true,
+      "branches": {
+        "A": {
+          "measured_requests": 3,
+          "medians": {
+            "time_to_first_token_seconds": 7.6169567599426955,
+            "steady_received_tps": 51.99978402486617,
+            "median_tpot_seconds": 0.01814797311089933,
+            "p95_tpot_seconds": 0.02606996288523078,
+            "request_tps": 43.13264788909898,
+            "durable_request_tps": 40.665687416272725
+          }
+        },
+        "B": {
+          "measured_requests": 3,
+          "medians": {
+            "time_to_first_token_seconds": 7.973741463152692,
+            "steady_received_tps": 41.46648109039427,
+            "median_tpot_seconds": 0.01992324204184115,
+            "p95_tpot_seconds": 0.04116805107332766,
+            "request_tps": 35.58766267371636,
+            "durable_request_tps": 33.932652859299786
+          }
+        }
+      },
+      "work": [
+        {
+          "request": "A-0",
+          "warmup": true,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.135082799941301
+          },
+          "durable_save_seconds": 7.342056924011558
+        },
+        {
+          "request": "B-0",
+          "warmup": true,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.140564010944217
+          },
+          "durable_save_seconds": 7.429434269899502
+        },
+        {
+          "request": "A-1",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.424524483969435
+          },
+          "durable_save_seconds": 2.3734963489696383
+        },
+        {
+          "request": "B-1",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.473358618095517
+          },
+          "durable_save_seconds": 2.3224822089541703
+        },
+        {
+          "request": "A-2",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.203457948984578
+          },
+          "durable_save_seconds": 2.328289133962244
+        },
+        {
+          "request": "B-2",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.212622849969193
+          },
+          "durable_save_seconds": 2.4421034320257604
+        },
+        {
+          "request": "A-3",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.295177710009739
+          },
+          "durable_save_seconds": 2.393765544053167
+        },
+        {
+          "request": "B-3",
+          "warmup": false,
+          "outputs": 2048,
+          "forward_tokens": 10383,
+          "loaded_file_bytes": 0,
+          "disk_restore": {
+            "snapshot": "a0b48415b06e59a550111a37ad0cb1b467d5ac2f264dbcb64ef35e5562f3a764",
+            "payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+            "schedule_sha256": "d11ba3d6b4cde19930a6703e0a2b3d4c78e6f0d8e29eee7d65c7fe7afe1eda16",
+            "consumed": 65536,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+            "execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+            "native_pid": 1651835,
+            "forward_tokens": 0,
+            "seconds": 4.568986430997029
+          },
+          "durable_save_seconds": 2.348501875065267
+        }
+      ],
+      "client_sha256": "01ced5a24308c139da6cbb08f932c0b263471e007f3869ec013117af9f0c25d0",
+      "worker_sha256": "18f5f00ac361c18c844e0aeb29c627a5f31689525696c5717c4e2bdb5b568259",
+      "limitations": [
+        "Same-profile greedy reference; not cumulative certification",
+        "Repeated deterministic completions may reuse existing durable payloads",
+        "Warm filesystem cache; no cold-storage or HTTP/network qualification"
+      ]
+    }
+  }
+}

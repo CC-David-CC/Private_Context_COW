@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014/native_serving_baseline.py", line 151, in <module>
+    main()
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014/native_serving_baseline.py", line 137, in main
+    record.setdefault('exits', []).append(dict(pid=engine.proc.pid,
+                                                   ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'pid'

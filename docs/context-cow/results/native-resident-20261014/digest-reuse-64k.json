@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "one before/after measurement per branch; no repetition confidence interval",
+  "source_sha256": {
+    "docs\\context-cow\\results\\native-resident-20261014\\q4-timing-64k.json": "c6bcb86cf8920e0ccf85a12d08b3ced8b055b72efcb1052c4b9daf1b41b9ba2f",
+    "docs\\context-cow\\results\\native-resident-20261014\\digest-reuse-q4-64k.json": "6e95c9e08504a9afaa5553e8576d7033a1854d5d2e56c224aa492bdf4aba2960",
+    "docs\\context-cow\\results\\native-resident-20261014\\q8-timing-64k.json": "be19b2624ca555bffbb9e22ed37c5019dbb8fc1aeb26887a873d145ea33cc70b",
+    "docs\\context-cow\\results\\native-resident-20261014\\digest-reuse-q8-64k.json": "849897da854ab8dce5729eabf97db24855d98e5427c65f0f66959bb755e3767c"
+  },
+  "script_sha256": "777028d97a99ab7906f7e9310a74722fd22eb8a68d089fec8367a5bb3cf0d8b6",
+  "matplotlib_version": "3.11.2",
+  "rows": [
+    {
+      "label": "Q4 A",
+      "preparation_ms": [
+        9.038211297363281,
+        6.653043551757812
+      ],
+      "generation_tps": [
+        57.43800265616526,
+        66.72657865226711
+      ],
+      "request_tps": [
+        53.4710967403981,
+        61.45952726888196
+      ],
+      "tokens_and_final_frontier_identical": true
+    },
+    {
+      "label": "Q4 B",
+      "preparation_ms": [
+        9.067998881347656,
+        6.68604345703125
+      ],
+      "generation_tps": [
+        57.37554132137382,
+        66.6730929740732
+      ],
+      "request_tps": [
+        53.63843950778159,
+        61.67173899937485
+      ],
+      "tokens_and_final_frontier_identical": true
+    },
+    {
+      "label": "Q8 A",
+      "preparation_ms": [
+        9.23500532080078,
+        6.750309321289063
+      ],
+      "generation_tps": [
+        44.367338945804406,
+        49.70537859129695
+      ],
+      "request_tps": [
+        41.159077416477466,
+        45.72114851787301
+      ],
+      "tokens_and_final_frontier_identical": true
+    },
+    {
+      "label": "Q8 B",
+      "preparation_ms": [
+        9.275910270996095,
+        6.7890476118164065
+      ],
+      "generation_tps": [
+        37.79323849805155,
+        41.67732164632484
+      ],
+      "request_tps": [
+        35.54931869666305,
+        38.97539895606747
+      ],
+      "tokens_and_final_frontier_identical": true
+    }
+  ]
+}

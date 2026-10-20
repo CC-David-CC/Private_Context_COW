@@ -1,0 +1,141 @@
+{
+  "schema": "q8-p5-pressure-running-v1",
+  "recorded_epoch": 1792043502.6291687,
+  "status": "RUNNING_UNQUALIFIED",
+  "scope": "Q8 real-GPU P5 pressure campaign; no terminal pass claim",
+  "source": {
+    "frozen_root": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015",
+    "authorized_commit": "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+    "source_digest_prefix": "44f8729d",
+    "source_mutated": false
+  },
+  "fixture": {
+    "raw_path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q8_64k.json",
+    "raw_sha256": "d8f44b8706a982b491b91848d4eb59ee2029de9f934e613de529337cbbb2ce09",
+    "previously_reviewed_normalized_path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/fixture.json",
+    "normalized_sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+    "cpu_normalization_equal": true,
+    "prefix_tokens": [
+      65536,
+      65536,
+      65536
+    ],
+    "suffix_tokens": [
+      8336,
+      8311,
+      8320,
+      8311,
+      8315,
+      8318
+    ],
+    "tree_roots": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "generated_limit": 2048
+  },
+  "profile": {
+    "input_base_sha256": "9ca098986ef330669deb32e4ad1e6c3d65b98761cf53edd449893618dac55119",
+    "derived_unbound_sha256": "3c62ee193163f77e715a898af395a089508f30086e9483b833a97bc7d410aa73",
+    "bound_profile_path": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/gpu0-bound-profile/profile.json",
+    "bound_profile_sha256": "2a891ac2aba133cd3bbb2e14f9257b54bcaa28c97b701c67cbe9ccb03c9ea237",
+    "bound_execution_profile_id": "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+    "config_sha256": "4304864c5484d70192d3ba8175a6f7a6e73f2851ea3c073d8893d600831bdf45",
+    "capacity": 98304,
+    "prefill_chunk": 8192,
+    "kv_dtype": "FP16"
+  },
+  "runner": {
+    "path": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/pool_campaign.py",
+    "sha256": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f",
+    "argv": [
+      "python3",
+      "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/pool_campaign.py",
+      "campaign",
+      "--config",
+      "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/campaign-config.json",
+      "--output",
+      "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/q8-64k-pressure",
+      "--fixture",
+      "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q8_64k.json",
+      "--generated",
+      "2048",
+      "--exercise-rewind",
+      "--pressure-order",
+      "interleaved-roots"
+    ]
+  },
+  "attempts": [
+    {
+      "run": "v1",
+      "status": "FAILED_BEFORE_NATIVE",
+      "command_exit": 1,
+      "cause": "passed normalized prefixes/suffixes fixture to normalize_context_fixture which requires raw contexts list",
+      "gpu_compute_started": false,
+      "stderr_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v1/stderr.log"
+    },
+    {
+      "run": "v2",
+      "status": "RUNNING",
+      "tmux_session": "p5-q8-full96-v2",
+      "wrapper_pid": 1927700,
+      "campaign_pid": 1927704,
+      "prepare_pid": 1927706,
+      "native_pid": 1927712,
+      "sampler_pid": 1928450,
+      "launch_epoch": 1792043425,
+      "profile_execution_id": "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+      "phase": "prepare",
+      "result_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/q8-64k-pressure/result.json",
+      "command_exit": null,
+      "wrapper_exit": null
+    }
+  ],
+  "telemetry": {
+    "heartbeat_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/telemetry/heartbeat.jsonl",
+    "initial_sample": {
+      "ts_epoch": 1792043459.029494,
+      "ts_utc": "2026-10-15T05:50:59.144038+00:00",
+      "campaign_pid": 1927704,
+      "process_tree": [
+        {
+          "pid": 1927704,
+          "ppid": 1927700,
+          "minflt": 8684,
+          "majflt": 0,
+          "rss_pages": 9179,
+          "state": "S"
+        },
+        {
+          "pid": 1927706,
+          "ppid": 1927704,
+          "minflt": 18011,
+          "majflt": 0,
+          "rss_pages": 20245,
+          "state": "S"
+        },
+        {
+          "pid": 1927712,
+          "ppid": 1927706,
+          "minflt": 1693014,
+          "majflt": 114,
+          "rss_pages": 12768728,
+          "state": "R"
+        }
+      ],
+      "mem_available_bytes": 126905020416,
+      "swap_free_bytes": 3819130880,
+      "pswpin_bytes": 145272832,
+      "disk_free_bytes": 55378677760,
+      "gpu": "0, 4 %, 83457 MiB, 97887 MiB"
+    },
+    "first_sampler_attempt_failed": true,
+    "failure_reason": "v2 wrapper referenced telemetry/sample.py which was not staged",
+    "repair": "started reviewed v1 sample.py as sidecar against campaign PID without restarting campaign",
+    "sampler_pid": 1928450
+  }
+}

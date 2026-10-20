@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "status": "phase_hook_cpu_tests_and_q4_resident_lifecycle_attribution_passed",
+  "cpu_test": {
+    "host": "llm-60",
+    "scratch_source": "/home/dflanag3/branching-g3/checkpoint-lifecycle-diagnostics-luna-20261015-v9",
+    "pinned_module_root": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015",
+    "artifact_directory": "/home/dflanag3/spatial-artifacts/checkpoint-lifecycle-diagnostics-focused-v16",
+    "command": "env PYTHONPATH=. CTT_DIAGNOSTIC_SOURCE_ROOT=/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015 python3 -m unittest experimental.branching_context.tests.implementation.test_checkpoint_lifecycle_diagnostics experimental.branching_context.tests.implementation.test_checkpoint_lifecycle_pinned_binding",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 0.046,
+    "historical_red": {
+      "artifact_directory": "/home/dflanag3/spatial-artifacts/checkpoint-lifecycle-diagnostics-focused-v11",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "failure": "v11: phase test expected two total stage events after a third finalizing event was added; corrected expected total to three. v12/v13 passed before complete preflight-before-import coverage was added."
+    },
+    "expected_stderr": "argparse refusal diagnostics from protected-output-path tests; eight dots and unittest summary in stderr"
+  },
+  "local_remote_sha256_match": {
+    "checkpoint_lifecycle_diagnostics.py": "4fd182338e4f9613c26b15b0d48aa18a18efb9b0479bd60e31726ba9bc071906",
+    "test_checkpoint_lifecycle_diagnostics.py": "d2616d48771671d3a2b60e748daee439e4f7c42e796afa2f9a9118986b6ec029"
+  },
+  "pinned_binding_test_sha256": "b7d29e8dc68ed1b689144aec2a7f1d1662fb4b4b5443fe5913d2e2a94dfe880b",
+  "actual_staged_runner": {
+    "path": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/scripts/p4_return_latency.py",
+    "sha256": "f3e1898ab70fb9125216fb477d756a0ca7cd8a543c55cdab7597ae816b4f8fc9"
+  },
+  "actual_pinned_modules": {
+    "real.py": "6ab1abe6d2e6e4d8c92b7af0cb896e55ede51edf721a61a6a746f8aa3ca4fddd",
+    "pools.py": "7c90645bf87a414e1686543a0b099e5c9648616c391e74bee754496fd9b2a78f",
+    "strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "profile": {
+    "source_case": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+    "profile_sha256": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+    "execution_profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+    "native_build_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "fixture_sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+    "prefix_tokens": 65536,
+    "selected_suffix_tokens": [8336, 8320, 8315],
+    "capacity": 98304,
+    "prefill_chunk": 8192,
+    "kv_dtype": "FP16",
+    "gpu": 0,
+    "runner_samples": {"warmups": 3, "measured_requests_per_arm": 9, "repeats_per_root": 3}
+  },
+  "storage_envelope": {
+    "largest_measured_output_state_bytes": 2051648056,
+    "largest_state_evidence": {
+      "path": "experimental/branching_context/evidence/P4-Q4-DISK-RECLAIM-MAP-2026-10-15.json",
+      "sha256": "6fdfdbd3e6ee8e8ae2926d0fb316bfa7eb047eb9d15f34bf974c491ac838f2a56"
+    },
+    "states_per_arm": 15,
+    "projected_state_payload_bytes_per_arm": 30774720840,
+    "safety_margin_bytes": 10737418240,
+    "required_free_after_restore_bytes": 41512139080,
+    "native_runner_builtin_gate_bytes": 38196451720,
+    "external_preflight_required_free_bytes": 41512139080,
+    "additional_external_gate_bytes_reason": "runner built-in gate sizes from root input payloads; external gate projects against larger measured output-state size before importing P4 or model modules",
+    "runner_disk_budget_bytes": 137438953472,
+    "host_memavailable_floor_bytes": 17179869184,
+    "diagnostics_output": "bounded JSON sidecar outside frozen source and runner output"
+  },
+  "observer_semantics": {
+    "phases": ["checkpoint_import", "environment_setup", "coordinator_startup", "resident_root_preload", "warmup", "measured_request", "finalizing", "cleanup"],
+    "per_sample_context": "phase plus root_index and repeat; omitted root/repeat fields retain their latest explicit values",
+    "timing": "host perf_counter_ns; inclusive plus same-thread exclusive; cross-thread phase association only; no CUDA event timing",
+    "native_request_bytes": "UTF-8 command text length, not payload-transfer bytes",
+    "serialization_and_export_bytes": "actual returned byte lengths",
+    "fsync": "nested inside payload or manifest publication timing",
+    "performance_claim": false,
+    "storage_preflight": "read-only disk_usage check, external to frozen source and before P4 invocation"
+  },
+  "activation_preflight": {
+    "host": "llm-60",
+    "timestamp_utc": "2026-10-15",
+    "read_only": true,
+    "pinned_tool": {
+      "path": "/home/dflanag3/branching-g3/checkpoint-lifecycle-diagnostics-luna-20261015-v9/experimental/branching_context/scripts/checkpoint_lifecycle_diagnostics.py",
+      "sha256": "4fd182338e4f9613c26b15b0d48aa18a18efb9b0479bd60e31726ba9bc071906"
+    },
+    "p4_command_runner": {
+      "path": "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+      "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+    },
+    "input_directories_present": [
+      "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+      "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context"
+    ],
+    "gpu0": {"uuid": "GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58", "memory_used_mib": 15, "utilization_percent": 0},
+    "memavailable_bytes": 129743446016,
+    "disk": {"mount": "/", "available_bytes": 48794247168, "required_bytes": 41512139080, "admitted": true},
+    "prior_refusal": {"receipt_directory": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-preflight-v1", "command_exit": 2, "wrapper_exit": 2, "free_bytes": 31004344320, "required_bytes": 41512139080},
+    "passing_receipt": {"directory": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-preflight-v2", "command_exit": 0, "wrapper_exit": 0, "status": "COMPLETE", "stdout_sha256": "78df0a7da5e18d454bdc79b18e798d3d9633ab41cfcfad02911f3757c8727cd7", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "immediate_prelaunch_receipt": {"directory": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-preflight-v3", "command_exit": 0, "wrapper_exit": 0, "status": "COMPLETE", "stdout_sha256": "76bfcaf85d8c0ee7b1776bb9d0ee6789217634da6c5d144add5816edcfdd53a8a", "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "free_bytes": 48794198016, "required_free_bytes": 41512139080, "memavailable_bytes": 129735655424},
+    "launch_decision": "authorized_single_resident_arm_completed",
+    "lock": "/home/dflanag3/branching-g3/native-client-speed.gpu0.lock",
+    "lifecycle_started": true
+  },
+  "launch_script": {
+    "local_path": "experimental/branching_context/evidence/p4-q4-lifecycle-attribution-start-v1-2026-10-15.sh",
+    "remote_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-start-v1/input/start.sh",
+    "sha256": "ada508425b33a4ae8d64e318224184c136c5ab1f96eb8a9f415a7f5ee34b06c9",
+    "line_endings": "LF",
+    "remote_bash_n": "PASS",
+    "preflight_only_mode": true,
+    "gpu0_lock_held_by_fd9_from_checks_through_nested_p4_runner": true,
+    "launch_requires_root_authorization": true,
+    "authorization_received": true,
+    "session": "p4-q4-lifecycle-attribution-v1",
+    "outer_runner_receipt": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-launch-v1",
+    "outer_command_exit": 0,
+    "outer_wrapper_exit": 0,
+    "outer_terminal_status": "COMPLETE",
+    "launcher_processes_gone": true,
+    "gpu0_idle_after": true,
+    "disk_free_after_bytes": 30980411392
+  },
+  "corrected_activation": {
+    "sha_verification": "printf '%s  %s\\n' EXPECTED_SHA256 ABSOLUTE_TOOL_PATH | sha256sum --check --status; no quoted heredoc with a literal $TOOL",
+    "gpu_lock_scope": "the launcher opens the established lock as FD 9, runs flock -n 9, and keeps the launcher shell alive while the nested verified run-command wrapper and native child complete",
+    "actual_command_in_md": "NATIVE-LIFECYCLE-DIAGNOSTICS-PHASES-2026-10-15.md"
+  },
+  "lifecycle_result": {
+    "status": "PASS",
+    "scope": "single Q4 resident arm; full 3 roots, 3 warmups, 9 measured requests; no disk/resident comparison",
+    "inner_receipt_directory": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/command-receipts/resident",
+    "inner_command_exit": 0,
+    "inner_wrapper_exit": 0,
+    "native_exit_codes": [0],
+    "result_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/result.json",
+    "result_sha256": "fa1f7b856f1808c8f8a109e248d5a5191f4fb0ab0b213a1ef4547c407976345c",
+    "diagnostics_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/diagnostics/resident.json",
+    "diagnostics_sha256": "4c5b67145a62b4eb9b62521719bb9e549427f86881b05d8c01476ba375e6de4f",
+    "diagnostics_bytes": 243069,
+    "diagnostic_events": 267,
+    "dropped_events": 0,
+    "instrumentation_errors": 0,
+    "output_tokens": [128,128,128,128,128,128,128,128,128],
+    "eos_completed_requests": 0,
+    "source_checkpoints_unchanged": true,
+    "startup_seconds": 32.49333413387649,
+    "latency_summary": {
+      "submit_to_first_token_seconds_median": 4.920950036961585,
+      "submit_to_first_token_seconds_p95": 5.141636181157082,
+      "submit_to_durable_seconds_median": 13.415506965015084,
+      "submit_to_durable_seconds_p95": 14.601158554898575,
+      "token_gap_seconds_median": 0.014803766971454024,
+      "token_gap_seconds_p95": 0.015095010166987777
+    },
+    "measured_request_stage_totals": {
+      "native_request_write": {"calls": 9, "command_text_bytes": 441, "inclusive_ns": 6839899543, "exclusive_ns": 6839899543},
+      "native_request_load": {"calls": 9, "command_text_bytes": 1134, "inclusive_ns": 10937201234, "exclusive_ns": 10937201234},
+      "backend_serialize": {"calls": 9, "returned_bytes": 18453054012, "inclusive_ns": 14626475275, "exclusive_ns": 1637547480},
+      "export_state_readback": {"calls": 9, "returned_bytes": 18453054012, "inclusive_ns": 6149028252, "exclusive_ns": 6149028252},
+      "checkpoint_digest": {"calls": 54, "digest_input_bytes": 53426226576, "inclusive_ns": 20549726279, "exclusive_ns": 20549726279},
+      "pool_checkpoint_digest": {"calls": 9, "digest_input_bytes": 18461993532, "inclusive_ns": 6800761628, "exclusive_ns": 6800761628},
+      "shared_pool_internal_admit": {"calls": 9, "payload_bytes": 18461993532, "inclusive_ns": 6817739844, "exclusive_ns": 16978216},
+      "prepare_checkpoint": {"calls": 9, "payload_bytes": 18461993532, "inclusive_ns": 25685411944, "exclusive_ns": 4176811484},
+      "prepared_checkpoint": {"calls": 18, "payload_bytes": 36923987064, "inclusive_ns": 13709310745, "exclusive_ns": 148139771},
+      "publish_prepared_checkpoint": {"calls": 9, "inclusive_ns": 24855668234, "exclusive_ns": 6559401992},
+      "payload_publish": {"calls": 3, "payload_bytes": 6153997844, "inclusive_ns": 3370045187, "exclusive_ns": 2875789612},
+      "payload_file_fsync": {"calls": 3, "inclusive_ns": 493378165, "exclusive_ns": 493378165},
+      "manifest_publish": {"calls": 9, "manifest_bytes": 23445, "inclusive_ns": 8367256, "exclusive_ns": 1771693},
+      "validate_checkpoint": {"calls": 9, "payload_bytes": 18461993532, "inclusive_ns": 8070037910, "exclusive_ns": 8070037910}
+    },
+    "timing_caveat": "Inclusive stage totals are nested and must not be added; command bytes are UTF-8 native request text, not checkpoint payload. Host wall timings only, no CUDA events; instrumentation overhead unmeasured. This is an attribution-only resident arm, not a paired speed comparison."
+  },
+  "execution": {"lifecycle_run": true, "compiler": false, "gpu": true, "model_or_server": true}
+}

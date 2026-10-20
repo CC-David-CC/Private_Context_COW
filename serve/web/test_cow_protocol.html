@@ -1,0 +1,76 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>pending</title>
+<body></body>
+<script src="workspace.js"></script>
+<script>
+(async () => {
+  let pass = 0;
+  const results = [];
+  const assert = (value, message) => { if (!value) throw Error(message); };
+  const response = (parts) => {
+    let i = 0;
+    return {body: new ReadableStream({
+      pull(controller) {
+        if (i < parts.length) controller.enqueue(new TextEncoder().encode(parts[i++]));
+        else controller.close();
+      }
+    })};
+  };
+  const test = async (name, run) => {
+    try { await run(); pass++; results.push(`PASS ${name}`); }
+    catch (error) { results.push(`FAIL ${name}: ${error}`); }
+  };
+  await test('chunked text with durable complete', async () => {
+    let seen = '';
+    const event = await CowProtocol.consumeCowEvents(response([
+      '{"event":"text","text":"he',
+      'llo"}\n{"event":"complete","answer":{"snapshot":"s"},"receipt":{"branch":{"name":"b1","revision":2,"tip":"s","root":"r"},"snapshot":"s"}}'
+    ]), text => seen += text);
+    assert(seen === 'hello', 'text was not joined across chunks');
+    assert(event.receipt.branch.revision === 2, 'receipt was not returned');
+  });
+  await test('EOF without receipt rejected', async () => {
+    let rejected = false;
+    try { await CowProtocol.consumeCowEvents(response([
+      '{"event":"text","text":"partial"}\n'
+    ]), () => {}); } catch (error) { rejected = /without a durable/.test(error.message); }
+    assert(rejected, 'incomplete stream was accepted');
+  });
+  await test('error event rejected', async () => {
+    let rejected = false;
+    try { await CowProtocol.consumeCowEvents(response([
+      '{"event":"error","error":"cancelled"}\n'
+    ]), () => {}); } catch (error) { rejected = /cancelled/.test(error.message); }
+    assert(rejected, 'error event was accepted');
+  });
+  await test('complete event without final newline', async () => {
+    const event = await CowProtocol.consumeCowEvents(response([
+      '{"event":"complete","answer":{"snapshot":"s"},"receipt":{"branch":{"name":"b1","revision":1,"tip":"s","root":"r"},"snapshot":"s"}}'
+    ]), () => {});
+    assert(event.receipt.branch.revision === 1, 'final event was not parsed');
+  });
+  await test('malformed complete receipt rejected', async () => {
+    let rejected = false;
+    try { await CowProtocol.consumeCowEvents(response(['{"event":"complete","receipt":{"revision":1}}']), () => {}); }
+    catch (error) { rejected = /receipt/.test(error.message); }
+    assert(rejected, 'malformed receipt was accepted');
+  });
+  await test('duplicate complete rejected', async () => {
+    let rejected = false;
+    const complete = '{"event":"complete","answer":{"snapshot":"s"},"receipt":{"branch":{"name":"b1","revision":1,"tip":"s","root":"r"},"snapshot":"s"}}';
+    try { await CowProtocol.consumeCowEvents(response([complete+'\n'+complete]), () => {}); }
+    catch (error) { rejected = /after complete|duplicate complete/.test(error.message); }
+    assert(rejected, 'duplicate complete was accepted');
+  });
+  await test('event after complete rejected', async () => {
+    let rejected = false;
+    const complete = '{"event":"complete","answer":{"snapshot":"s"},"receipt":{"branch":{"name":"b1","revision":1,"tip":"s","root":"r"},"snapshot":"s"}}';
+    try { await CowProtocol.consumeCowEvents(response([complete+'\n{"event":"text","text":"late"}']), () => {}); }
+    catch (error) { rejected = /after complete/.test(error.message); }
+    assert(rejected, 'post-complete data was accepted');
+  });
+  document.body.textContent = results.join('\n');
+  document.title = `${pass}/7 PASS`;
+})();
+</script>

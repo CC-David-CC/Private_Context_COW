@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "verified_at_utc": "2026-10-14T16:33:02Z",
+  "code_commit": "3e799117",
+  "private_branch": "feat/shared-context-pools",
+  "private_git_remote": "box-git:/srv/data/git/private_context_cow.git",
+  "source": "llm-60:/home/dflanag3/branching-g3/shared-pools-20261014",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261014-shared-pools",
+  "regular_files_checked": 3050,
+  "manifest_sha256": "ffaf8107053efe9791478cfd1c093968db567e2ef0be6a452d2ba5cdd3c26099",
+  "copy_exit_code": 0,
+  "sha256_verification_exit_code": 0,
+  "verification_log": "SHA256-VERIFY.log",
+  "scope": "Raw pool campaign tree, including retained failures and frozen API versions; no model weights. Source and copied file contents verified. This does not certify upstream dependencies or original gates."
+}

@@ -1,0 +1,53 @@
+{
+  "artifacts": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1",
+  "base": "67a0dc5397eb708e73d4f777e047478d7fe941b3",
+  "branch": "work/vision-pool-pressure-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "final_evidence": "VISION-POOL-PRESSURE-2026-10-17.json",
+  "host": "llm-60",
+  "initial_gpu_attempt": {
+    "archive": {
+      "archive_bytes": 45760357,
+      "archive_sha256": "55453850a744ac7e08e711c407ab6b446d36c62c7abf3616f2d659499fce994a",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-pool-pressure-v1/evidence.tar.gz",
+      "individually_verified_data_files": 346,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 347,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "controller_exact": true,
+    "encoder_calls": 1,
+    "explanation": "Disk LRU legitimately evicted final SVE while RAM copy served intervening roots. A process restart then correctly reencoded once. Expected encoder work must be bound to pre-restart file presence/hash, not assumed zero.",
+    "generated": 36,
+    "numerical_error": 0,
+    "prefix_forward": 366,
+    "result": "FAIL_HARNESS_ASSUMPTION_EMBEDDING_ZERO_ENCODER_WORK",
+    "retirement": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-pool-pressure-collected-v1/derived-retirement-receipt.json",
+    "tokens_exact": true
+  },
+  "invariant": "Active image leases preserve bytes during real expiry; eligible RAM/disk copies evict; process-separated reconstruction matches uninterrupted continuation and reports prefix work.",
+  "manual_git_exception": "Installed helper pins unrelated Spatial repository. Reviewed manual Git with explicit source paths, identity, private remote/ref and full SHA verification.",
+  "owned_paths": [
+    "experimental/branching_context/scripts/run_vision_pool_pressure.py",
+    "experimental/branching_context/tests/implementation/test_vision_pool_pressure.py",
+    "experimental/branching_context/evidence/VISION-POOL-PRESSURE-HARNESS-2026-10-17.json"
+  ],
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+  "publication": "Private LAN only",
+  "reference": "Same exact consumed history/controller and pinned profile; no fresh-full-history oracle or cross-arrangement claim.",
+  "remaining": [
+    "VC08 bounded host allocation and deeper cancellation",
+    "VC09 target/restart/performance matrix",
+    "Original cumulative G1-G5 qualification"
+  ],
+  "revised_contract": "Require zero encodings if verified pre-restart SVE exists; exactly one otherwise. Exact controller/frontier/native work assertions unchanged. No registered gate/reference/tolerance edits or production changes.",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+  "scope": "1GiB shared RAM/disk only; unchanged native16GiB image cache and engine resources. Clean process exit is the final native release boundary, explicitly observed.",
+  "status": "VC08_BOUNDED_Q4_COMBINED_POOL_PRESSURE_PASS",
+  "tests": {
+    "G0": "51 PASS",
+    "new_contract_RED": "six harness methods against frozen original: one explicit evicted-embedding error",
+    "related": "172 PASS, including6 harness methods, no failures/errors/skips",
+    "retained_setup_error": "First broad selection included opt-in GPU C02 without CTT_PROFILE; retained, never counted green"
+  }
+}

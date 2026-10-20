@@ -1,0 +1,1 @@
+Continue the earlier ledger project: implement the new optional Unicode casefold mode described in the CURRENT README.md. The workspace and tests have changed since the earlier conversation; inspect them through tools. Preserve existing defaults and validation, change only ledger.py, run the required tests, and report actual receipts.

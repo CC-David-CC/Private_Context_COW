@@ -1,0 +1,10 @@
+{
+  "script_sha256": "a654d95d88247741376c9d625c93df7536b182913f69e7c9c01b114480d5f252",
+  "sources": {
+    "speed-8k-20261013/cow-prepare.json": "59a460878e994afac5d3a825e3efb46205b27c7d7779f825fca55abe82c79590",
+    "external-integrity-20261013/external-model.json": "208c7a30dd307a1f65be00ef6e3bbcbca76579470d24320b23e65ffcf31d231b",
+    "external-integrity-20261013/external-prepared-model.json": "47154e0eb85263e6ed0d92e4787e2d131ad1f39f6f3f94ccfef2bd51ddb3d77d",
+    "external-integrity-20261013/v011-guarded-control.json": "012e75c4350e5b3249412604fbe26c71d8ea44033278e4ca6e80f8a721ca30ff",
+    "external-integrity-20261013/v011-external-control.json": "b0e1f59f7f31931f6f0737c9e01f72e7d9af3058b727437472bc5747e1314a5c"
+  }
+}

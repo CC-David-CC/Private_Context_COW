@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "title": "Bounded owned-child host allocator ENOMEM probe",
+  "date": "2026-10-16",
+  "scope": "CPU-only native host allocation probe. RLIMIT_AS was constrained only on the tracer-owned test child. It demonstrates virtual-address exhaustion and recovery, not system-wide RAM exhaustion, CUDA OOM, or full-service COW recovery.",
+  "current_main_source": {
+    "commit": "9c40ad971246ef738ccf36f12dd191507f408057",
+    "checkout": "C:/Users/dflanag3/Documents/fleet/context-cow-model-free-fleet",
+    "external_frozen_api_snapshot": "/home/dflanag3/spatial-artifacts/capacity-main-integration-20261015-v2/source/experimental/branching_context",
+    "note": "Current main is ahead of this evidence branch for documents and a new CPU test only. Runtime modules used by this probe match the frozen snapshot hashes below. The omitted C++ helper was copied unchanged from current main into an external, minimal probe stage."
+  },
+  "source_hashes": {
+    "tests/native/test_allocation_probe.py": "17759b26ef3bf43fe9b8193605f88d0cb0a8b1148653d1da05d089bfd2d1eda3",
+    "tests/native/host_allocation_child.cpp": "7e32df14aa8e9f4a83bd31d55da23a7945ecf21636272ea01ad8cd382d8b2e05",
+    "scripts/allocation_probe.py": "cfcb3fef7b3e1de541264eda2e4b318be2d6d26510fda47915c87ac4fe5b6878",
+    "src/context_time_travel/coordinator.py": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "src/context_time_travel/real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "src/context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "src/context_time_travel/pools.py": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+  },
+  "run": {
+    "external_stage": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/source",
+    "run_directory": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1",
+    "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "command": "bash run-command.sh CHECKOUT RUN_DIR env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=CHECKOUT/src CTT_HOST_ALLOCATION_OBSERVATIONS=RUN_DIR/observations.jsonl PYTHON -m unittest discover -s CHECKOUT/tests/native -p test_allocation_probe.py -v",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "python_version": "3.12.3",
+    "compiler": "/usr/bin/x86_64-linux-gnu-g++-13",
+    "compiler_version": "13.3.0",
+    "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+    "tracer": "/usr/bin/strace",
+    "tracer_version": "6.8",
+    "tracer_sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001",
+    "result": "PASS",
+    "tests_run": 2,
+    "failures": 0,
+    "errors": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "test_ids": [
+      "test_allocation_probe.AllocationProbeTests.test_real_child_limit_fails_and_recovers",
+      "test_allocation_probe.AllocationProbeTests.test_unlimited_child_has_no_allocation_failure"
+    ]
+  },
+  "limited_child_case": {
+    "first_result": "std::bad_alloc",
+    "allocation_bytes_requested": 67108864,
+    "observed_failed_syscalls": [
+      {"syscall": "mmap", "requested_bytes": 67112960, "errno": "ENOMEM"},
+      {"syscall": "mmap", "requested_bytes": 67244032, "errno": "ENOMEM"}
+    ],
+    "recovery_result": {"status": "allocated", "bytes": 67108864, "last": 81},
+    "limit_restored": true,
+    "native_child_exited": true,
+    "tracer_returncode": 0,
+    "native_executable_sha256": "a59674fd33a0a5cece83b28c025825d0453e0285b6a56f236b8d1021740912d2",
+    "trace_sha256": "0140df7a6427cb9b5af938cda154a7cca213590d0616a5c3be459d6c96fd7c6d",
+    "trace_bytes": 2806
+  },
+  "unlimited_control": {
+    "initial_and_retry_results": "both 64 MiB allocations succeeded",
+    "failed_syscalls": [],
+    "child_exited": true,
+    "tracer_returncode": 0,
+    "trace_sha256": "5286c611e8392456e26e78dc973a719745e63a9cb4fb1219e86b75812bf7dee9",
+    "trace_bytes": 2615
+  },
+  "raw_receipt_paths_and_hashes": {
+    "observations_jsonl": {
+      "path": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1/observations.jsonl",
+      "sha256": "14b0ff3abfea3ba0b1eaff8673f308919970fc06b5eae77e40b4ace53d409676"
+    },
+    "command_exit": {
+      "path": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1/command.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "wrapper_exit": {
+      "path": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1/wrapper.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "stderr_log": {
+      "path": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1/stderr.log",
+      "sha256": "c3c1353c78e8755e4923f78e88d75a8a0860e0d2e82c6881faf98fd66c64a919"
+    },
+    "summary_json": {
+      "path": "/home/dflanag3/spatial-artifacts/host-allocation-probe-20261016-v1/runs/native-host-allocation-v1/summary.json",
+      "sha256": "6d0b4212fac939d97488cb66864f59064cf1195de8e7e355e5f5eb7366cf9193"
+    }
+  },
+  "trace_retention": "Separate strace temporary files were removed when the test's TemporaryDirectory exited. The complete failure-window trace text is embedded in observations.jsonl alongside parsed syscall rows and trace hashes.",
+  "model_or_gpu_work": "none; no model loaded, no GPU used, no service or chat request"
+}

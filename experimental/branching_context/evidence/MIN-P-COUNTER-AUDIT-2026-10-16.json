@@ -1,0 +1,527 @@
+{
+  "rows": [
+    {
+      "arithmetic_ns_per_choice": 243706.5,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 974826,
+      "stage": "prepare"
+    },
+    {
+      "arithmetic_ns_per_choice": 466169.25,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 7458708,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 419458.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "audit",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 2516749,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 504224.9166666667,
+      "logit_input_bytes": 11919360,
+      "mask_input_bytes": 372480,
+      "outputs": 12,
+      "phase": "audit",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 6050699,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 311045.3125,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 4976725,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 294460.6666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "warmup",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1766764,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 310442.3125,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 4967077,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 303875.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1823251,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 324722.4375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 5195559,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 289581.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1737487,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 311761.75,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 4988188,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 270454.8333333333,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q4-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1622729,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 480895.0,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 1923580,
+      "stage": "prepare"
+    },
+    {
+      "arithmetic_ns_per_choice": 455044.375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 7280710,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 441053.3125,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 7056853,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 445254.0833333333,
+      "logit_input_bytes": 11919360,
+      "mask_input_bytes": 372480,
+      "outputs": 12,
+      "phase": "audit",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 5343049,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 303083.1875,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4849331,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 300955.25,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4815284,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 302897.9375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4846367,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 300770.25,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4812324,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 304338.0,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4869408,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 301001.75,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4816028,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 301792.6875,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4828683,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 303259.8125,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q4-medium-plain-v1",
+      "selection_arithmetic_ns": 4852157,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 504475.25,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q4-tiny-plain-v2",
+      "selection_arithmetic_ns": 2017901,
+      "stage": "prepare"
+    },
+    {
+      "arithmetic_ns_per_choice": 458511.625,
+      "logit_input_bytes": 7946240,
+      "mask_input_bytes": 248320,
+      "outputs": 8,
+      "phase": "audit",
+      "run": "gpu-q4-tiny-plain-v2",
+      "selection_arithmetic_ns": 3668093,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 475970.0,
+      "logit_input_bytes": 7946240,
+      "mask_input_bytes": 248320,
+      "outputs": 8,
+      "phase": "audit",
+      "run": "gpu-q4-tiny-plain-v2",
+      "selection_arithmetic_ns": 3807760,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 429901.0,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q4-tiny-plain-v2",
+      "selection_arithmetic_ns": 1719604,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 242221.0,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 968884,
+      "stage": "prepare"
+    },
+    {
+      "arithmetic_ns_per_choice": 392862.4375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 6285799,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 349777.5,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "audit",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 2098665,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 395105.5,
+      "logit_input_bytes": 11919360,
+      "mask_input_bytes": 372480,
+      "outputs": 12,
+      "phase": "audit",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 4741266,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 337000.3125,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 5392005,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 283651.3333333333,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "warmup",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1701908,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 315434.875,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 5046958,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 274098.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1644589,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 314542.0625,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 5032673,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 276361.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1658167,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 310611.25,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 4969780,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 274242.1666666667,
+      "logit_input_bytes": 5959680,
+      "mask_input_bytes": 186240,
+      "outputs": 6,
+      "phase": "measured",
+      "run": "gpu-q8-medium-gbnf-v1",
+      "selection_arithmetic_ns": 1645453,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 710823.0,
+      "logit_input_bytes": 3973120,
+      "mask_input_bytes": 124160,
+      "outputs": 4,
+      "phase": "audit",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 2843292,
+      "stage": "prepare"
+    },
+    {
+      "arithmetic_ns_per_choice": 376953.75,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 6031260,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 387418.6875,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "audit",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 6198699,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 385846.9166666667,
+      "logit_input_bytes": 11919360,
+      "mask_input_bytes": 372480,
+      "outputs": 12,
+      "phase": "audit",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 4630163,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 341059.9375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5456959,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 339149.9375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "warmup",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5426399,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 325629.1875,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5210067,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 338418.5,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5414696,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 336522.4375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5384359,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 334983.0625,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5359729,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 341157.5,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5458520,
+      "stage": "resume"
+    },
+    {
+      "arithmetic_ns_per_choice": 327724.9375,
+      "logit_input_bytes": 15892480,
+      "mask_input_bytes": 496640,
+      "outputs": 16,
+      "phase": "measured",
+      "run": "gpu-q8-medium-plain-v1",
+      "selection_arithmetic_ns": 5243599,
+      "stage": "resume"
+    }
+  ],
+  "scope": "Completed native rows only; logical inputs, not memory traffic",
+  "status": "PASS",
+  "validator_sha256": "4644f9961a2954420798516fa089df6b282e6a8f49cb221b4cd9f00914e6a6ff"
+}

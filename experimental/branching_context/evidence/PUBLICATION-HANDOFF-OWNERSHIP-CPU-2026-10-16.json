@@ -1,0 +1,319 @@
+{
+    "schema":  "publication-handoff-ownership-cpu-qualification-v1",
+    "status":  "PASS",
+    "scope":  "Synthetic CPU ownership/publication tests only; no GPU or model qualification.",
+    "base_commit":  "40ac335dffa44b38817d665acdbfd3a19763682c",
+    "runner":  {
+                   "path":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+                   "sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+                   "interpreter":  "/home/dflanag3/src/Strata/.venv/bin/python",
+                   "bytecode_disabled":  true
+               },
+    "final_source":  {
+                         "path":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/source",
+                         "frozen_read_only":  true,
+                         "owned_files_before_after_match":  true,
+                         "files":  {
+                                       "experimental/branching_context/src/context_time_travel/coordinator.py":  "a45638c8aa159c3ab91213d085e70822b8433d16ec9ad826e9c2a963d19d48dd",
+                                       "experimental/branching_context/tests/implementation/test_publication_handoff_ownership.py":  "38aa3012536e8573413498de4950ca03f4deac5f3aae3a3f78098246e4060076"
+                                   }
+                     },
+    "qualification":  [
+                          {
+                              "suite":  "publication_handoff_ownership",
+                              "stage":  "principal-green-v1/run-tests",
+                              "command_exit":  0,
+                              "wrapper_exit":  0,
+                              "tests":  8,
+                              "passed":  8,
+                              "failed":  0,
+                              "skipped":  0,
+                              "stdout":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/run-tests/stdout.log",
+                              "stderr":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/run-tests/stderr.log",
+                              "test_ids":  [
+                                               "test_backend_cleanup_failure_before_writer_handoff_cannot_publish_half_owned_job",
+                                               "test_capture_failure_after_target_cache_admission_discards_only_new_image",
+                                               "test_enqueue_then_raise_cannot_publish_after_worker_reports_handoff_failure",
+                                               "test_entry_limit_one_and_two_evictions_do_not_steal_blocked_writer_ownership",
+                                               "test_pre_submit_failure_preserves_identical_durable_alias_and_retries_branch",
+                                               "test_pre_submit_retry_keeps_principal_bound_model",
+                                               "test_retry_submit_rejection_preserves_failed_payload_and_can_retry_again",
+                                               "test_submit_failure_after_pool_pin_releases_pin_lease_and_nondurable_entry"
+                                           ]
+                          },
+                          {
+                              "suite":  "publication_overlap+cold_cache_ownership+poisoned_worker_replacement+bounded_tree_retention+failed_publication_lru",
+                              "stage":  "principal-green-v1/regressions",
+                              "command_exit":  0,
+                              "wrapper_exit":  0,
+                              "tests":  37,
+                              "passed":  37,
+                              "failed":  0,
+                              "skipped":  0,
+                              "stdout":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/regressions/stdout.log",
+                              "stderr":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/regressions/stderr.log",
+                              "test_ids":  [
+                                               "test_cancelled_queued_job_does_not_consume_worker_or_reorder_remaining_jobs",
+                                               "test_first_writer_failure_leaves_siblings_durable_and_retry_reuses_computed_target",
+                                               "test_writer_overlap_computes_three_fifo_siblings_without_durable_ack_or_head_moves",
+                                               "test_cold_alias_is_pinned_and_reserved_during_execution",
+                                               "test_execution_exception_removes_temporary_cold_alias_and_releases_ownership",
+                                               "test_native_image_uses_fast_cache_without_shared_pool_load",
+                                               "test_removed_pool_entry_cannot_be_bypassed_by_cached_cold_bytes",
+                                               "test_successful_create_records_root_before_followup_request",
+                                               "test_close_during_replacement_does_not_deadlock_or_start_unowned_child",
+                                               "test_close_exception_after_proven_exit_still_allows_replacement",
+                                               "test_close_failure_without_proven_process_exit_does_not_spawn_replacement",
+                                               "test_durable_receipt_recovers_after_replacement_failure",
+                                               "test_durable_receipt_recovers_while_replacement_is_blocked",
+                                               "test_failed_replacement_marks_worker_unavailable_and_new_request_fails_promptly",
+                                               "test_healthy_gpu_continues_when_poisoned_peer_replacement_fails",
+                                               "test_malformed_replacement_gpu_is_closed_before_worker_is_unavailable",
+                                               "test_mismatched_replacement_model_or_profile_is_unavailable",
+                                               "test_poisoned_job_fails_once_then_replacement_preserves_publication_retry",
+                                               "test_process_exit_without_backend_closed_marker_is_not_sufficient",
+                                               "test_request_queued_during_replacement_fails_if_factory_fails",
+                                               "test_transition_trace_failure_closes_unpublished_replacement",
+                                               "test_unproven_replacement_exit_remains_owned_until_final_shutdown",
+                                               "test_cache_still_enforces_byte_budget_and_preserves_existing_images_on_oversize",
+                                               "test_hot_roots_survive_tree_switch_and_post_request_pruning_within_budget",
+                                               "test_small_budget_evicts_lru_and_evicted_source_uses_pinned_pool",
+                                               "test_collected_failed_history_is_not_retryable_and_never_recomputes",
+                                               "test_detached_oserror_preserves_errno_27_and_28",
+                                               "test_durable_checkpoint_stays_durable_when_re_admitted",
+                                               "test_errno_27_and_28_survive_request_future_and_failure_event",
+                                               "test_failed_bytes_are_evictable_and_retry_after_eviction_is_explicit",
+                                               "test_failed_publication_releases_pin_lease_and_prepared_object",
+                                               "test_failure_for_existing_durable_alias_does_not_mark_or_drop_it",
+                                               "test_new_request_can_advance_branch_after_failure",
+                                               "test_newer_active_request_supersedes_failed_publication_status",
+                                               "test_retry_before_eviction_reuses_bytes_without_forward_work",
+                                               "test_stale_retry_cannot_overwrite_new_branch_head",
+                                               "test_visible_manifest_after_failed_save_does_not_prove_durability"
+                                           ]
+                          },
+                          {
+                              "suite":  "G0",
+                              "stage":  "principal-green-v1/g0-v3",
+                              "command_exit":  0,
+                              "wrapper_exit":  0,
+                              "tests":  51,
+                              "passed":  51,
+                              "failed":  0,
+                              "skipped":  0,
+                              "required_real_backend_cases":  0,
+                              "no_write":  true,
+                              "stdout":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/g0-v3/stdout.log",
+                              "stderr":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-green-v1/g0-v3/stderr.log",
+                              "test_ids":  [
+                                               "test_01_root_history",
+                                               "test_02_fork_same_logical_state",
+                                               "test_03_independent_suffixes",
+                                               "test_04_empty_delta_controller_transition",
+                                               "test_05_canonical_content_identity",
+                                               "test_06_mutable_arguments_do_not_modify_saved_state",
+                                               "test_07_snapshot_integrity_reject_tampered_blob",
+                                               "test_08_missing_parent_fails_closed",
+                                               "test_09_invalid_inputs_rejected",
+                                               "test_10_invalid_controller_rejected",
+                                               "test_11_fork_duplicate_fails",
+                                               "test_12_missing_head_fails",
+                                               "test_13_atomic_CAS_updates_one_revision",
+                                               "test_14_successful_retry_is_idempotent",
+                                               "test_15_reuse_operation_id_with_different_payload_rejected",
+                                               "test_16_ABA_fails_with_stale_revision",
+                                               "test_17_cannot_move_between_unrelated_roots",
+                                               "test_18_branch_pointer_restart_persists",
+                                               "test_19_retry_receipt_restart_persists",
+                                               "test_20_crash_before_reference_staging_keeps_old_tip",
+                                               "test_21_crash_after_stage_before_rename_keeps_old_tip",
+                                               "test_22_failure_after_rename_has_retryable_receipt",
+                                               "test_23_evaluation_like_reads_do_not_move_branch",
+                                               "test_24_store_ref_index_rejects_corrupt_json",
+                                               "test_25_invalid_branch_or_operation_names",
+                                               "test_26_history_can_have_multiple_empty_deltas",
+                                               "test_27_copy_on_read_cannot_modify_store",
+                                               "test_28_same_history_different_controller_not_same_snapshot",
+                                               "test_29_racing_writers_exactly_one_wins",
+                                               "test_30_unreferenced_snapshot_survives_branch_rewind",
+                                               "test_31_second_future_after_rewind_stays_independent",
+                                               "test_32_external_mutation_after_fork_does_not_propagate",
+                                               "test_close_tie_is_not_mislabelled_large_margin",
+                                               "test_corruption_is_detected",
+                                               "test_exact_vectors_pass",
+                                               "test_invalid_tolerance_rejected",
+                                               "test_kl_zero_for_identical_values",
+                                               "test_nan_rejected",
+                                               "test_nonmatching_shape_rejected",
+                                               "test_shift_in_logits_detected_by_elementwise_even_if_softmax_same",
+                                               "test_small_numerical_error_passes",
+                                               "test_top1_flip_is_detected",
+                                               "test_chunking_does_not_reset_random_stream",
+                                               "test_eviction_preserves_history_and_rng_position",
+                                               "test_feed_associativity",
+                                               "test_fresh_input_oracle_matches_each_forced_future",
+                                               "test_other_stream_does_not_mutate_parent",
+                                               "test_rewind_does_not_delete_old_future",
+                                               "test_same_snapshot_repeats_sampled_future",
+                                               "test_sibling_scheduling_does_not_change_a",
+                                               "test_worked_attention_outputs"
+                                           ]
+                          }
+                      ],
+    "principal_binding_regression":  {
+                                         "red_stage":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/principal-red-v1/run-tests",
+                                         "command_exit":  1,
+                                         "wrapper_exit":  1,
+                                         "tests":  8,
+                                         "passed":  7,
+                                         "failed":  1,
+                                         "failure":  "test_pre_submit_retry_keeps_principal_bound_model: retry discarded the principal-bound model",
+                                         "fix":  "Store the principal-bound model in the pre-submit _FailedPublication record."
+                                     },
+    "source_mappings":  [
+                            {
+                                "stage":  "red-v1",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "a37bb10992645e6467cea3c9780a85f088536c17ecc85127084ee31c72bc7214"
+                            },
+                            {
+                                "stage":  "red-v2",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "50a4673d859eedd2e3c8a2187dca1c58742fba39a97ee8e431ae92f9c9dadd61"
+                            },
+                            {
+                                "stage":  "red-v3",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "866df809730c97e99f93c10dd090059af0fb95b43c2a5ba72892232fca6e3f50"
+                            },
+                            {
+                                "stage":  "red-v4",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "b9ca48ba5c581c1773ab5dfccdc30b72e3abe9a9e4a104dbb1bc7ad0cafdf65a"
+                            },
+                            {
+                                "stage":  "red-v5",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "46f3f1845e2f3ae4f653fc68ca3dd201327ec21b867ba6ef6318406eb8e89983"
+                            },
+                            {
+                                "stage":  "red-v6",
+                                "coordinator_sha256":  "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+                                "test_sha256":  "565c32869ced0d79ca59fd79fbcd7aede55f22e432f21cb77b3bd6c5e49942e2"
+                            },
+                            {
+                                "stage":  "green-v1",
+                                "coordinator_sha256":  "f054a23565316df842b07ff8464db87a2a6e7185dfd2c7a0fb2f0b824ad3fde3",
+                                "test_sha256":  "50a4673d859eedd2e3c8a2187dca1c58742fba39a97ee8e431ae92f9c9dadd61"
+                            },
+                            {
+                                "stage":  "green-v2",
+                                "coordinator_sha256":  "581e5f41a2fb0b85be81d568469f98abc4a6df92d2ea932c09828b035325eda6",
+                                "test_sha256":  "565c32869ced0d79ca59fd79fbcd7aede55f22e432f21cb77b3bd6c5e49942e2"
+                            },
+                            {
+                                "stage":  "principal-red-v1",
+                                "coordinator_sha256":  "581e5f41a2fb0b85be81d568469f98abc4a6df92d2ea932c09828b035325eda6",
+                                "test_sha256":  "00c0d1509ea0e90e5c8826650db11b90658a54ce51389efec295104cf30fa382"
+                            },
+                            {
+                                "stage":  "principal-green-v1",
+                                "coordinator_sha256":  "a45638c8aa159c3ab91213d085e70822b8433d16ec9ad826e9c2a963d19d48dd",
+                                "test_sha256":  "38aa3012536e8573413498de4950ca03f4deac5f3aae3a3f78098246e4060076"
+                            }
+                        ],
+    "earlier_attempts":  [
+                             {
+                                 "stage":  "red-v1",
+                                 "classification":  "test-authoring error; not backend evidence",
+                                 "details":  "Capture-failure case assumed snapshot future success and synthetic history expected an extra token."
+                             },
+                             {
+                                 "stage":  "red-v2",
+                                 "command_exit":  1,
+                                 "wrapper_exit":  1,
+                                 "tests":  4,
+                                 "passed":  2,
+                                 "failed":  2,
+                                 "test_sha256":  "50a4673d859eedd2e3c8a2187dca1c58742fba39a97ee8e431ae92f9c9dadd61",
+                                 "failure":  "Backend-release and publication-submit failures leaked one pool pin each."
+                             },
+                             {
+                                 "stage":  "red-v3",
+                                 "classification":  "interrupted teardown; not a terminal receipt",
+                                 "details":  "The test process stalled during teardown and its exact process group was terminated."
+                             },
+                             {
+                                 "stage":  "red-v4",
+                                 "command_exit":  1,
+                                 "wrapper_exit":  1,
+                                 "tests":  5,
+                                 "passed":  2,
+                                 "failed":  3,
+                                 "classification":  "intermediate ownership-test version"
+                             },
+                             {
+                                 "stage":  "red-v5/run-retry-red",
+                                 "command_exit":  1,
+                                 "wrapper_exit":  1,
+                                 "tests":  1,
+                                 "passed":  0,
+                                 "failed":  1,
+                                 "classification":  "retry submission rejection left replacement future unterminalized"
+                             },
+                             {
+                                 "stage":  "red-v5 full run",
+                                 "classification":  "interrupted teardown; not a terminal receipt",
+                                 "details":  "Five failures and one error were printed before a teardown stall; exact process group terminated; wrapper terminal receipt absent."
+                             },
+                             {
+                                 "stage":  "red-v6",
+                                 "command_exit":  1,
+                                 "wrapper_exit":  1,
+                                 "tests":  7,
+                                 "passed":  2,
+                                 "failed":  5,
+                                 "test_sha256":  "565c32869ced0d79ca59fd79fbcd7aede55f22e432f21cb77b3bd6c5e49942e2",
+                                 "classification":  "terminal RED for the seven-test suite before principal-binding regression"
+                             },
+                             {
+                                 "stage":  "principal-green-v1/g0-v2 write attempt",
+                                 "command_exit":  1,
+                                 "wrapper_exit":  1,
+                                 "tests":  51,
+                                 "passed":  51,
+                                 "failed":  0,
+                                 "classification":  "tests passed, but evidence-file write failed because the source stage was read-only; superseded by green-v3 no-write G0 and final principal-green-v1 G0."
+                             }
+                         ],
+    "process_observation":  {
+                                "checked_after_final_runs":  true,
+                                "matching_unittest_or_g0_python_processes":  0,
+                                "method":  "ps process listing filtered for the owned unittest module and verify.py --gate G0 command"
+                            },
+    "limitations":  [
+                        "Synthetic NativeImageModel tests only; no real GPU, native backend, or model qualification.",
+                        "Known baseline conflict in test_pool_branch_actions missing-manifest expectation was not run or changed."
+                    ],
+    "final_test_red_confirmation":  {
+                                        "stage":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/red-final-principal-v1",
+                                        "coordinator_sha256":  "581e5f41a2fb0b85be81d568469f98abc4a6df92d2ea932c09828b035325eda6",
+                                        "test_sha256":  "38aa3012536e8573413498de4950ca03f4deac5f3aae3a3f78098246e4060076",
+                                        "prior_principal_red_test_sha256":  "00c0d1509ea0e90e5c8826650db11b90658a54ce51389efec295104cf30fa382",
+                                        "test_only_difference":  "Final test adds three addCleanup registrations restoring model.for_principal, model.save_prepared_branch, and coordinator._submit_publication after the test; no assertion or scenario behavior changed.",
+                                        "runner":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+                                        "runner_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+                                        "command_exit":  1,
+                                        "wrapper_exit":  1,
+                                        "tests":  1,
+                                        "passed":  0,
+                                        "failed":  1,
+                                        "skipped":  0,
+                                        "failure":  "retry discarded the principal-bound model",
+                                        "stdout":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/red-final-principal-v1/run-tests/stdout.log",
+                                        "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                        "stderr":  "/home/dflanag3/spatial-artifacts/publication-handoff-ownership-20261016-v1/red-final-principal-v1/run-tests/stderr.log",
+                                        "stderr_sha256":  "4c55bdc20af22286483ccc050e029fa1a40047b466ff4360edae21a91aeb76c3",
+                                        "test_process_absent_after_run":  true
+                                    }
+}

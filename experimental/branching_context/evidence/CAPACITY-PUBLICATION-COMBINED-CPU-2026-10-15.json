@@ -1,0 +1,127 @@
+{
+  "schema": "cow-primary-cpu-policy-audit-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "host": "llm-60",
+  "integration": "Combined Store policy, process-shared reservations, growth and manifest-first caller draft; not main or real-GPU capacity qualified",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/branch-checkpoint-policy-20261015-v1",
+  "base_commit": "9dbb336513cf0e5ca50c22c74b212e455c0c728e",
+  "source_sha256": {
+    "store.py": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "pools.py": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+    "coordinator.py": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "test_branch_checkpoint_eviction.py": "0b2f2128a49c44d8582d3bad8d59dda91e4ab4ada0a157eb7f6f2ee757fbdd42",
+    "test_publication_capacity_pin.py": "f4b4178e4fe27b17cd08cddf4a26682ada796c115896a107217167b430b177c6",
+    "test_disk_lru.py": "4d2fd5905ec8123f997c0e04f778d55f65057a747e9204fc0395b26b6c366533",
+    "test_disk_reservation_growth.py": "9c0aa0ebcaa5375be339bdfe5ef7f8900076e8ba4c73bb6e23c5c1153de42cd7",
+    "test_disk_pool.py": "1f54a64b508a58014d062e3fff899f0c876c176d4cc39228533b0e69a45ea334",
+    "test_disk_pool_process_reservations.py": "f65b11aa22606fd1816b46c578168162ffc5837abcbd5e06350345ebc362bafc"
+  },
+  "suites": [
+    {
+      "name": "green-v2",
+      "tests": 70,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "426e00f39e058bce087a1daf2cd7f821d1bded887969fe5ad1351614940e853d"
+      }
+    },
+    {
+      "name": "combined-v3",
+      "tests": 232,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "77ca5dfee03defdf84bbcfd50147c865c9539d79ea1da42917ca6af732a10134"
+      }
+    },
+    {
+      "name": "serving-v2",
+      "tests": 141,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "46ba079542ee38ad4cd3b8ab941d8b8a7a16f0d6a416ffff0f6326e27586e6f9"
+      }
+    },
+    {
+      "name": "g0-capacity-v1",
+      "tests": 51,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "9321588e258d802a5916988b1267e5367d45ace024edca87d5729d0e74710fed",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "new_test_ids": [
+    "test_active_conflicting_byte_limit_blocks_growth (test_disk_reservation_growth.DiskReservationGrowthTests.test_active_conflicting_byte_limit_blocks_growth)",
+    "test_all_branch_checkpoint_eviction_allows_fork_retry_and_reported_rebuild (test_branch_checkpoint_eviction.EvictedBranchContinuationTests.test_all_branch_checkpoint_eviction_allows_fork_retry_and_reported_rebuild)",
+    "test_concurrent_processes_with_different_limits_fail_explicitly (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_concurrent_processes_with_different_limits_fail_explicitly)",
+    "test_existing_payload_cannot_disappear_between_probe_and_admission (test_publication_capacity_pin.PublicationCapacityPinTests.test_existing_payload_cannot_disappear_between_probe_and_admission)",
+    "test_failed_admission_cleanup_closes_reservation_descriptor_once (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_failed_admission_cleanup_closes_reservation_descriptor_once)",
+    "test_growth_and_collection_keep_digest_until_reservation_release (test_disk_reservation_growth.DiskReservationGrowthTests.test_growth_and_collection_keep_digest_until_reservation_release)",
+    "test_growth_updates_one_global_marker_and_accounting (test_disk_reservation_growth.DiskReservationGrowthTests.test_growth_updates_one_global_marker_and_accounting)",
+    "test_invalid_and_closed_growth_reject_without_changing_reservation (test_disk_reservation_growth.DiskReservationGrowthTests.test_invalid_and_closed_growth_reject_without_changing_reservation)",
+    "test_live_root_and_tip_leases_still_bound_capacity (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_live_root_and_tip_leases_still_bound_capacity)",
+    "test_marker_storage_failure_aborts_corrupted_reservation (test_disk_reservation_growth.DiskReservationGrowthTests.test_marker_storage_failure_aborts_corrupted_reservation)",
+    "test_missing_payload_has_full_reservation_before_writing (test_publication_capacity_pin.PublicationCapacityPinTests.test_missing_payload_has_full_reservation_before_writing)",
+    "test_other_process_capacity_blocks_growth_then_allows_retry (test_disk_reservation_growth.DiskReservationGrowthTests.test_other_process_capacity_blocks_growth_then_allows_retry)",
+    "test_other_process_collection_preserves_inflight_orphan_payload (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_other_process_collection_preserves_inflight_orphan_payload)",
+    "test_release_closes_reservation_descriptor_once (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_release_closes_reservation_descriptor_once)",
+    "test_reservations_from_two_processes_share_one_byte_limit (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_reservations_from_two_processes_share_one_byte_limit)",
+    "test_shared_payload_remains_until_last_live_manifest_is_released (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_shared_payload_remains_until_last_live_manifest_is_released)",
+    "test_sigkill_releases_stale_reservation_and_next_process_reclaims_marker (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_sigkill_releases_stale_reservation_and_next_process_reclaims_marker)",
+    "test_timeout_preserves_original_reservation_and_digest_lease (test_disk_reservation_growth.DiskReservationGrowthTests.test_timeout_preserves_original_reservation_and_digest_lease)",
+    "test_unleased_branch_and_named_history_are_not_permanent_numerical_pins (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_unleased_branch_and_named_history_are_not_permanent_numerical_pins)",
+    "test_unleased_root_and_tip_are_lru_victims_without_canonical_changes (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_unleased_root_and_tip_are_lru_victims_without_canonical_changes)",
+    "test_waiting_digest_is_protected_globally_until_timeout_then_released (test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_waiting_digest_is_protected_globally_until_timeout_then_released)"
+  ],
+  "intentional_supplemental_policy_test_renames": {
+    "test_retention_is_exact_roots_tips_saved_and_fork_points": "test_history_roots_tips_and_saved_points_do_not_permanently_pin_numerical_copies",
+    "test_no_eligible_space_fails_boundedly_without_deleting_anchors": "test_no_eligible_space_fails_boundedly_without_deleting_leased_anchors"
+  },
+  "registered_tests_and_references_changed": false,
+  "red": {
+    "tests": 5,
+    "failures": 1,
+    "errors": 4,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "stderr_sha256": "12e928eeabb23fdbaa04d85dab2681086ce53abde3db805264904483e98c8f8e"
+  },
+  "g0_imports": {
+    "pools_sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+    "coordinator_sha256": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "store": "/home/dflanag3/spatial-artifacts/branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/store.py",
+    "store_sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "verifier": "/home/dflanag3/spatial-artifacts/rebuild-combined-20261015-v1/source/experimental/branching_context/scripts/verify.py",
+    "verifier_sha256": "df7e8caf244ddeb529af106aca2b5629fb56296399cfd48c2706912318109a24"
+  },
+  "retained_combined_failure": "combined-v2 executed232 with5CLIjournal collisions from mistakenly reused client-state-v1; corrected combined-v3 uses fresh client-state-v3, no code/test edits",
+  "g0_baseline_attempt": "g0-v1 ran51 but used unmodified base Store; g0-candidate-v1 explicitly preloads candidate Store and runs unchanged full verifier/tests",
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "limits": [
+    "CPU filesystem/controller/synthetic HTTP tests only; no new native numerical claim.",
+    "Needs bounded actual-GPU LRU capacity/reconstruction run before integration; registered gates stay separate.",
+    "Startup recency remains mtime/name; in-process touch recency is transient.",
+    "Capacity waiting is bounded; filesystem I/O and scheduling are not hard wall-clock deadlines."
+  ],
+  "primary_audit_sha256": "d1ca32dcb0b1479d4fb71540cdc8fb45cd5323768a8d4987bbbdcfdd3604f197",
+  "publication_race_red": {
+    "path": "\\home\\dflanag3\\spatial-artifacts\\branch-checkpoint-policy-20261015-v1\\publication-admission-red-v1",
+    "tests": 2,
+    "failures": 1,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "invariant": "A separate collector must not delete deduplicated payload after its existence probe and before publication admission.",
+    "control": "Fresh missing-payload full-reservation control passed on the old caller."
+  }
+}

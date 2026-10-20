@@ -1,0 +1,2748 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "gate_status": "NOT_QUALIFIED",
+  "scope": "fixed aligned prefix/chunk prototype; no full acceptance qualification",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11
+  },
+  "profile_sha256": "4014612be5bdf22ab59a0d532427de973e28fe10d0739e2c490cc5434d1a7b1c",
+  "model_contract_id": "50f15fcca3784a1c0c2b2c144a79f479696fa76b2029f09391e02951f0471704",
+  "execution_profile_id": "97b64cb3bde846bb1fa6d6b28fd5b7c4e4c57133ac15e7d807b0155929c8888d",
+  "sampling": {
+    "temperature": 0,
+    "output_work_bound": 128,
+    "excluded_eos_ids": [
+      248044,
+      248046
+    ]
+  },
+  "cases": [
+    {
+      "id": "LONG-128",
+      "prefix_tokens": 128,
+      "added_tokens": 128,
+      "output_tokens": 128,
+      "status": "PASS",
+      "paths": [
+        {
+          "lane": "recompute",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "recompute prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 93",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 94",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 95",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 96",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 97",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 98",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 99",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 100",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 101",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 102",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 103",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 104",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 105",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 106",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 107",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 108",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 109",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 110",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 111",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 112",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 113",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 114",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 115",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 116",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 117",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 118",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 119",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 120",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 121",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 122",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 123",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 124",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 125",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 126",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 127",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 2.8652788389008492,
+          "added_prefill_seconds": 2.4465994130587205,
+          "prompt_frontier_seconds": 5.31187825195957,
+          "prefill_counter_delta": 256,
+          "native_load_bytes": 0,
+          "decode_seconds": 55.668669545906596,
+          "total_seconds": 66.80338042695075,
+          "outputs": [
+            271,
+            96847,
+            271,
+            248068,
+            198,
+            760,
+            1156,
+            682,
+            3106,
+            1092,
+            7701,
+            310,
+            381,
+            264,
+            886,
+            314,
+            4055,
+            5587,
+            7854,
+            539,
+            328,
+            96847,
+            1,
+            318,
+            7949,
+            3254,
+            328,
+            90010,
+            1,
+            303,
+            8193,
+            553,
+            6558,
+            728,
+            1353,
+            506,
+            411,
+            777,
+            15060,
+            13,
+            271,
+            760,
+            886,
+            7701,
+            310,
+            381,
+            25,
+            3405,
+            27,
+            40,
+            53,
+            66,
+            8,
+            21,
+            34,
+            47,
+            60,
+            2,
+            15,
+            28,
+            41,
+            54,
+            67,
+            9,
+            22,
+            35,
+            48,
+            61,
+            3,
+            16,
+            29,
+            42,
+            55,
+            68,
+            10,
+            23,
+            36,
+            49,
+            18205,
+            11173,
+            3679,
+            2942,
+            11,
+            7854,
+            539,
+            328,
+            5834,
+            1,
+            11173,
+            1599,
+            2942,
+            11,
+            1179,
+            328,
+            96847,
+            1,
+            318,
+            90010,
+            553,
+            271,
+            1919,
+            5686,
+            1040,
+            424,
+            1362,
+            381,
+            25,
+            198,
+            16,
+            13,
+            357,
+            4055,
+            886,
+            593,
+            1228,
+            1879,
+            198,
+            17,
+            13,
+            4188,
+            2993,
+            314,
+            19873,
+            1876,
+            198,
+            18,
+            13,
+            4450
+          ],
+          "snapshot": "db57bfb784ae27e3d526c07916db160932cf6c8d632e828e9f101e830eee0112",
+          "counters": {
+            "forward_tokens": 384,
+            "prefill_tokens": 256,
+            "windows": 128,
+            "loaded_file_bytes": 0,
+            "cow_pages": 0,
+            "copied_bytes": 0
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        },
+        {
+          "lane": "resident",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 93",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 94",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 95",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 96",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 97",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 98",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 99",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 100",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 101",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 102",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 103",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 104",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 105",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 106",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 107",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 108",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 109",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 110",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 111",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 112",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 113",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 114",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 115",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 116",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 117",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 118",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 119",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 120",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 121",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 122",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 123",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 124",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 125",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 126",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 127",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.03216712805442512,
+          "added_prefill_seconds": 2.2326563940150663,
+          "prompt_frontier_seconds": 2.2648235220694914,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 0,
+          "decode_seconds": 58.098046937957406,
+          "total_seconds": 66.20253859600052,
+          "outputs": [
+            271,
+            96847,
+            271,
+            248068,
+            198,
+            760,
+            1156,
+            682,
+            3106,
+            1092,
+            7701,
+            310,
+            381,
+            264,
+            886,
+            314,
+            4055,
+            5587,
+            7854,
+            539,
+            328,
+            96847,
+            1,
+            318,
+            7949,
+            3254,
+            328,
+            90010,
+            1,
+            303,
+            8193,
+            553,
+            6558,
+            728,
+            1353,
+            506,
+            411,
+            777,
+            15060,
+            13,
+            271,
+            760,
+            886,
+            7701,
+            310,
+            381,
+            25,
+            3405,
+            27,
+            40,
+            53,
+            66,
+            8,
+            21,
+            34,
+            47,
+            60,
+            2,
+            15,
+            28,
+            41,
+            54,
+            67,
+            9,
+            22,
+            35,
+            48,
+            61,
+            3,
+            16,
+            29,
+            42,
+            55,
+            68,
+            10,
+            23,
+            36,
+            49,
+            18205,
+            11173,
+            3679,
+            2942,
+            11,
+            7854,
+            539,
+            328,
+            5834,
+            1,
+            11173,
+            1599,
+            2942,
+            11,
+            1179,
+            328,
+            96847,
+            1,
+            318,
+            90010,
+            553,
+            271,
+            1919,
+            5686,
+            1040,
+            424,
+            1362,
+            381,
+            25,
+            198,
+            16,
+            13,
+            357,
+            4055,
+            886,
+            593,
+            1228,
+            1879,
+            198,
+            17,
+            13,
+            4188,
+            2993,
+            314,
+            19873,
+            1876,
+            198,
+            18,
+            13,
+            4450
+          ],
+          "snapshot": "db57bfb784ae27e3d526c07916db160932cf6c8d632e828e9f101e830eee0112",
+          "counters": {
+            "forward_tokens": 256,
+            "prefill_tokens": 128,
+            "windows": 128,
+            "loaded_file_bytes": 0,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        },
+        {
+          "lane": "disk",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "disk prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 93",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 94",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 95",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 96",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 97",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 98",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 99",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 100",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 101",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 102",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 103",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 104",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 105",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 106",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 107",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 108",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 109",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 110",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 111",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 112",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 113",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 114",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 115",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 116",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 117",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 118",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 119",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 120",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 121",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 122",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 123",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 124",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 125",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 126",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 127",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.4277996140299365,
+          "added_prefill_seconds": 2.2371698160422966,
+          "prompt_frontier_seconds": 2.664969430072233,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 121413624,
+          "decode_seconds": 58.18991462094709,
+          "total_seconds": 66.76217946503311,
+          "outputs": [
+            271,
+            96847,
+            271,
+            248068,
+            198,
+            760,
+            1156,
+            682,
+            3106,
+            1092,
+            7701,
+            310,
+            381,
+            264,
+            886,
+            314,
+            4055,
+            5587,
+            7854,
+            539,
+            328,
+            96847,
+            1,
+            318,
+            7949,
+            3254,
+            328,
+            90010,
+            1,
+            303,
+            8193,
+            553,
+            6558,
+            728,
+            1353,
+            506,
+            411,
+            777,
+            15060,
+            13,
+            271,
+            760,
+            886,
+            7701,
+            310,
+            381,
+            25,
+            3405,
+            27,
+            40,
+            53,
+            66,
+            8,
+            21,
+            34,
+            47,
+            60,
+            2,
+            15,
+            28,
+            41,
+            54,
+            67,
+            9,
+            22,
+            35,
+            48,
+            61,
+            3,
+            16,
+            29,
+            42,
+            55,
+            68,
+            10,
+            23,
+            36,
+            49,
+            18205,
+            11173,
+            3679,
+            2942,
+            11,
+            7854,
+            539,
+            328,
+            5834,
+            1,
+            11173,
+            1599,
+            2942,
+            11,
+            1179,
+            328,
+            96847,
+            1,
+            318,
+            90010,
+            553,
+            271,
+            1919,
+            5686,
+            1040,
+            424,
+            1362,
+            381,
+            25,
+            198,
+            16,
+            13,
+            357,
+            4055,
+            886,
+            593,
+            1228,
+            1879,
+            198,
+            17,
+            13,
+            4188,
+            2993,
+            314,
+            19873,
+            1876,
+            198,
+            18,
+            13,
+            4450
+          ],
+          "snapshot": "db57bfb784ae27e3d526c07916db160932cf6c8d632e828e9f101e830eee0112",
+          "counters": {
+            "forward_tokens": 256,
+            "prefill_tokens": 128,
+            "windows": 128,
+            "loaded_file_bytes": 121413624,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        }
+      ],
+      "oracle": {
+        "command": [
+          "<measurement-home>/branching-g3/long-prefill-build-20261013/strata-batched-fresh",
+          "--pack",
+          "<measurement-home>/branching-g3/q8-pack",
+          "--native",
+          "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+          "--mmap-experts",
+          "--max-new",
+          "128",
+          "--max-context",
+          "4096",
+          "--pool-workers",
+          "2",
+          "--spec",
+          "2",
+          "--prefill",
+          "128",
+          "--suffix-draft",
+          "0",
+          "--expert-profile",
+          "<measurement-home>/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+          "--expert-cache",
+          "512",
+          "--pcie-frac",
+          "0.55",
+          "--tokens-file",
+          "<measurement-home>/branching-g3/long-prefill-smoke2-20261013/prefix-128/prompt.tokens"
+        ],
+        "prompt_tokens": 256,
+        "outputs": [
+          271,
+          96847,
+          271,
+          248068,
+          198,
+          760,
+          1156,
+          682,
+          3106,
+          1092,
+          7701,
+          310,
+          381,
+          264,
+          886,
+          314,
+          4055,
+          5587,
+          7854,
+          539,
+          328,
+          96847,
+          1,
+          318,
+          7949,
+          3254,
+          328,
+          90010,
+          1,
+          303,
+          8193,
+          553,
+          6558,
+          728,
+          1353,
+          506,
+          411,
+          777,
+          15060,
+          13,
+          271,
+          760,
+          886,
+          7701,
+          310,
+          381,
+          25,
+          3405,
+          27,
+          40,
+          53,
+          66,
+          8,
+          21,
+          34,
+          47,
+          60,
+          2,
+          15,
+          28,
+          41,
+          54,
+          67,
+          9,
+          22,
+          35,
+          48,
+          61,
+          3,
+          16,
+          29,
+          42,
+          55,
+          68,
+          10,
+          23,
+          36,
+          49,
+          18205,
+          11173,
+          3679,
+          2942,
+          11,
+          7854,
+          539,
+          328,
+          5834,
+          1,
+          11173,
+          1599,
+          2942,
+          11,
+          1179,
+          328,
+          96847,
+          1,
+          318,
+          90010,
+          553,
+          271,
+          1919,
+          5686,
+          1040,
+          424,
+          1362,
+          381,
+          25,
+          198,
+          16,
+          13,
+          357,
+          4055,
+          886,
+          593,
+          1228,
+          1879,
+          198,
+          17,
+          13,
+          4188,
+          2993,
+          314,
+          19873,
+          1876,
+          198,
+          18,
+          13,
+          4450
+        ],
+        "counters": {
+          "consumed": 256,
+          "prefill_tokens": 256,
+          "prefill_chunks": 2,
+          "prefill_seconds": 6.61745,
+          "decode_seconds": 31.7749,
+          "generated": [
+            271,
+            96847,
+            271,
+            248068,
+            198,
+            760,
+            1156,
+            682,
+            3106,
+            1092,
+            7701,
+            310,
+            381,
+            264,
+            886,
+            314,
+            4055,
+            5587,
+            7854,
+            539,
+            328,
+            96847,
+            1,
+            318,
+            7949,
+            3254,
+            328,
+            90010,
+            1,
+            303,
+            8193,
+            553,
+            6558,
+            728,
+            1353,
+            506,
+            411,
+            777,
+            15060,
+            13,
+            271,
+            760,
+            886,
+            7701,
+            310,
+            381,
+            25,
+            3405,
+            27,
+            40,
+            53,
+            66,
+            8,
+            21,
+            34,
+            47,
+            60,
+            2,
+            15,
+            28,
+            41,
+            54,
+            67,
+            9,
+            22,
+            35,
+            48,
+            61,
+            3,
+            16,
+            29,
+            42,
+            55,
+            68,
+            10,
+            23,
+            36,
+            49,
+            18205,
+            11173,
+            3679,
+            2942,
+            11,
+            7854,
+            539,
+            328,
+            5834,
+            1,
+            11173,
+            1599,
+            2942,
+            11,
+            1179,
+            328,
+            96847,
+            1,
+            318,
+            90010,
+            553,
+            271,
+            1919,
+            5686,
+            1040,
+            424,
+            1362,
+            381,
+            25,
+            198,
+            16,
+            13,
+            357,
+            4055,
+            886,
+            593,
+            1228,
+            1879,
+            198,
+            17,
+            13,
+            4188,
+            2993,
+            314,
+            19873,
+            1876,
+            198,
+            18,
+            13,
+            4450
+          ]
+        },
+        "process_seconds": 43.27640782401431,
+        "frontier_sha256": "bbb4c10cc15dfbd208e1d2dfb8f3dd6c53d9977ecdb77a950bf84e3d7ea9d76d",
+        "trace_sha256": "a206ae430ae88612c968ce2a6f8018e687abb30afe687f7a1bdcbffc06cac17d"
+      },
+      "prepare_seconds": 4.304292950080708,
+      "save_seconds": 0.27169187692925334,
+      "checkpoint": {
+        "bytes": 122406904,
+        "sha256": "8c3b2e57586fd2eccb3dc13dd0bb65b825bbf0e3cb04921d1cc290cb72679e30",
+        "manifest_sha256": "58bacd241d36c220f2f70669196aaae9bacf1e2610398299e4ddb940d8ef95a8"
+      }
+    }
+  ],
+  "phase": "complete",
+  "updated_utc": "2026-10-13T05:22:10Z",
+  "prefix_tokens": 128,
+  "accepted_outputs": 128
+}

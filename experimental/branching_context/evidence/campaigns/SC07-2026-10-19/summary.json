@@ -1,0 +1,25 @@
+{
+  "status": "WORKFLOW_FAIL",
+  "reason": "Host memory headroom below configured minimum",
+  "model": "Q8_0",
+  "kv": "FP16",
+  "sampler": "greedy",
+  "client": "installed dev1 on llm-49",
+  "independent_patch_checks": {
+    "methods": 16,
+    "generated_cases": 64,
+    "status": "PASS"
+  },
+  "model_calls": 14,
+  "output_tokens": 5179,
+  "whole_cli_seconds": 1114.4121310920455,
+  "numerical_oracle": "NOT_RUN",
+  "ram_budget_gib": 96,
+  "host_ram_gib_approx": 124,
+  "additional_issue": "Pure configuration parsing attempted actual root-ownership admission inside user namespace",
+  "recovery": "Not attempted; original pending client operation retained; no silent migration",
+  "backups": {
+    "client_sha256": "dc30e90705df2a795e501558d1efcd1c9a98408e73440a37cb75e193c4577324",
+    "server_sha256": "e2cc49713241341a1708487ed0865e4d5b269be823179ed986b9b9989ee1f17d"
+  }
+}

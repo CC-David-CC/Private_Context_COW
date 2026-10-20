@@ -1,0 +1,15 @@
+{
+  "script_sha256": "98c9fce9c50243c7e75685ce12b70481f8061ffe5603969319548428ed392e78",
+  "matplotlib_version": "3.11.2",
+  "sources": {
+    "cow-before.json": "96f587598a1163a27d50197a6855c33cd97c951667fecbb3149bd79e80bb38de",
+    "cow-timed.json": "3496e383cc59a4e2ab5a710b716154ea34a251a9c644553e4b4ade605a63ee95",
+    "cow-prepare.json": "59a460878e994afac5d3a825e3efb46205b27c7d7779f825fca55abe82c79590",
+    "ram-sequence.json": "ae9933f3ab390bf2b04c1149d40a7f1edf36f423b0f31f1ea406e61111c488fe",
+    "prototype-serving.json": "bbaa6c09a06cf7912f77b7241f8bb16b79b1b77f6b1afb1421afb63ab8969d6d",
+    "main-serving.json": "c4735122f1dc8941504997dcdaf372783b7c3001896d729d485aefee1dc8fdba",
+    "cpu-launch-serving.json": "23f6946aa962fcef779a4e6a76f5bfbdca22e19eecccf924ddc6516763e6194e",
+    "prototype-fixed.json": "c79e1305ef0945c6039b1411505cdcd3eff874047ae882194c020f2ede5f8401",
+    "main-fixed.json": "1e480087c16e80416d34f62b5948713a9471c49eb8cb59d9029acae0893834c0"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema": "context-cow-real-client-smoke-v1",
+  "status": "PASS_CLIENT_FLOW_ONLY",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "execution_profile_id": "47cff934d48881e9a15ffe76ced11efde570898bbdb759ca762779d1c5d10f81",
+  "profile_sha256": "b1f06c0d78ca2e2c2f7c771a88e675bc81a26171215f24b567095de7516a650c",
+  "startup_seconds": 31.73810432595201,
+  "elapsed_seconds": 50.297393654007465,
+  "ram_gib": 96,
+  "disk_gib": 128,
+  "native_worker_shutdown": [
+    {
+      "close_succeeded": true,
+      "event": "native_worker_closed",
+      "gpu_id": 0,
+      "key": [
+        "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "47cff934d48881e9a15ffe76ced11efde570898bbdb759ca762779d1c5d10f81",
+        "worker-0"
+      ],
+      "monotonic_ns": 1127544600289333,
+      "phase": "cow-http",
+      "phase_id": "6952f768b9c5456aa71607f1d8601aad",
+      "pid": 2339271,
+      "process_id": 2339265,
+      "returncode": 0,
+      "sequence": 8
+    }
+  ],
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "browser_exit": 0,
+  "server_exit": 0,
+  "root_tokens": 8814,
+  "branches": {
+    "A": {
+      "snapshot": "6def8ab034c7ec9f1bc86713a4509ac03c9c4847bd8fb4cf7d93d48b33d2ad1c",
+      "generated_tokens": 128,
+      "request_seconds": 3.09999442496337,
+      "generation_seconds": 1.7248615459538996,
+      "counters": {
+        "forward_tokens": 584,
+        "prefill_tokens": 456,
+        "captures": 2,
+        "restores": 0,
+        "loaded_file_bytes": 348303280,
+        "cold_restore_copy_bytes": 230203392,
+        "integrity_mismatches": 0
+      }
+    },
+    "B": {
+      "snapshot": "8b1438ef8fc0bee671e974119c9430961ee9084a0c6b159769b983b5e1d8aca4",
+      "generated_tokens": 128,
+      "request_seconds": 2.65181423118338,
+      "generation_seconds": 1.718596733175218,
+      "counters": {
+        "forward_tokens": 640,
+        "prefill_tokens": 512,
+        "captures": 1,
+        "restores": 1,
+        "loaded_file_bytes": 0,
+        "cold_restore_copy_bytes": 0,
+        "integrity_mismatches": 0
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "SMOKE-HEALTH",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-EMPTY-NAMESPACE",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-CONTEXT-ROOT",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-A",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ROOT-FORK",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-B",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-REWIND",
+      "status": "PASS"
+    }
+  ],
+  "rewind": {
+    "branch": "b-81ead5814a2f46898d9125ba3a856729",
+    "revision_before": 1,
+    "revision_after": 2,
+    "tip_before": "8b1438ef8fc0bee671e974119c9430961ee9084a0c6b159769b983b5e1d8aca4",
+    "tip_after": "610929faef2064aa3067f44bcf14a850c8aa42631c17855d54e8cea76d929577",
+    "saved_tip_retained": true,
+    "active_messages_after": 1,
+    "previous_tip_count": 4
+  },
+  "numerical_audit": "NOT_RUN",
+  "pool_eviction_recovery": "NOT_EXERCISED_NORMAL_96_GIB_POOL",
+  "raw_directory": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-single-ui-smoke-v1",
+  "raw_sha256": {
+    "result.json": "821efd1e8aa787be7ef532f03c632135b39f0e0716b97bad244ef2635986f606",
+    "browser/report.json": "e6b9a3d17fc5222336e3e95239171e4a476a21b5deb890395961d8099de2ed89",
+    "pool-trace.json": "46c17e34e698b47c5781fa4139d2a00f7145b6dd2d6ac0b3b2f5df23ec4c35ad"
+  },
+  "limitation": "One browser context, one run, greedy continuation. This is neither a repeated speed comparison nor fresh numerical/cumulative gate qualification.",
+  "backup": {
+    "path": "/srv/data/git/private_context_cow.evidence/20261015-client-cpu-supplement-v4/evidence.tar",
+    "bytes": 1089843200,
+    "archive_sha256": "98bc0ccca88ae9c0d55697aeb1497a14559654e5aaf9290002afc0051324d013",
+    "members": 458,
+    "receipt_sha256": "4d58874090c000abc4dd29345221c5f9eaa8ecf4168e2e117be866f038ac80c2",
+    "verification": "Receiver verified all member names, sizes and hashes; root inspected receiver receipt and archive stat",
+    "scope": "Terminal CPU evidence and full single-context UI result/store; excludes later three-context failure and optimized-v1"
+  }
+}

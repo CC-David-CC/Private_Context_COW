@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "target": "SC05",
+  "run_id": "standalone-sc05-q8-installed-20261019-v1",
+  "branch": "standalone-sc05-q8-installed-20261019-v1",
+  "source": "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc05-q8-installed-v1/source",
+  "task_file": "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc05-q8-installed-v1/task.txt",
+  "workflow": "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/coding.bw",
+  "grammar_registration": "inline",
+  "grant": {
+    "edit_paths": [
+      "envconfig.py"
+    ],
+    "create_paths": [],
+    "read_paths": [
+      "README.md",
+      "envconfig.py",
+      "envsyntax.py",
+      "tests/__init__.py",
+      "tests/test_envsyntax.py",
+      "tests/test_envconfig.py",
+      "tests/test_duplicates.py"
+    ],
+    "allow_tests": false,
+    "allow_shell": true
+  },
+  "verification": {
+    "schema": 1,
+    "commands": [
+      {
+        "command": "python3 -m unittest discover -s tests -v",
+        "disposition": "exited",
+        "exit_code": 0
+      }
+    ]
+  },
+  "shell": {
+    "timeout": 12,
+    "expected_hostname": "r4090"
+  },
+  "profiles": {
+    "control": {
+      "output_format": "thinking",
+      "grammar_state": "BW_TOOLS",
+      "thinking_ladder": "standard",
+      "request_tokens": 2048,
+      "max_requests": 32,
+      "max_output_tokens": 65536,
+      "settings": {
+        "temperature": 0.0,
+        "min_p": 0.0,
+        "top_k": 0,
+        "top_p": 1.0,
+        "dry_multiplier": 0.0,
+        "dry_base": 1.75,
+        "dry_allowed_length": 2,
+        "dry_penalty_last_n": 256
+      }
+    }
+  },
+  "thinking_tokens": 4096
+}

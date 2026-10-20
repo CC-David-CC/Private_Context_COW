@@ -1,0 +1,100 @@
+{
+  "status": "RERUN_RUNNING_NOT_COMPLETE",
+  "source_fix": "fdf097617dccc4fdab3eea6fd23cffd0c9e974aa",
+  "profile": {
+    "commit": "fdf097617dccc4fdab3eea6fd23cffd0c9e974aa",
+    "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-reap-v1",
+    "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/profile-reap-v1.json",
+    "execution_profile_id": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775",
+    "profile_sha256": "79bdb3bff3cc2e94d10ebbcf9a72079fb1bae7814a18ab31ca91f181aa3d23bd",
+    "closure_files": 53,
+    "changes": {
+      "serve/cow_vision_encoder.py": {
+        "old": "0cfbc4cf4510d555fac7a881bb12883781da62e1bdf6f9c12dd7a757c2773477",
+        "new": "54bf5ff283d46df81628a2992588ba138e44cf3004708e6e1ec159bd6a7b2445"
+      }
+    }
+  },
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1",
+  "cpu": {
+    "executions": 669,
+    "unique_methods": 669,
+    "failures": 0,
+    "skips": 0,
+    "g0": 51
+  },
+  "branchwrite_cow_cpu": {
+    "executions": 157,
+    "unique_methods": 157,
+    "failures": 0,
+    "skips": 0
+  },
+  "numerical": [
+    {
+      "size": "tiny",
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "comparison_instances": 102,
+      "controller_comparisons": 6,
+      "max_abs_error": 0.0,
+      "frontier_policy": "every-generated",
+      "profile": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775"
+    },
+    {
+      "size": "medium",
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "comparison_instances": 190,
+      "controller_comparisons": 6,
+      "max_abs_error": 0.0,
+      "frontier_policy": "every-generated",
+      "profile": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775"
+    },
+    {
+      "size": "target",
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "comparison_instances": 71,
+      "controller_comparisons": 6,
+      "max_abs_error": 0.0,
+      "frontier_policy": "sampled",
+      "profile": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775"
+    }
+  ],
+  "completed_gpu_stages": [
+    {
+      "name": "reap-medium",
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "passed": true,
+      "seconds": 211.67195121198893
+    },
+    {
+      "name": "reap-target",
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "passed": true,
+      "seconds": 278.6318092769943
+    },
+    {
+      "name": "grammar",
+      "status": "PASS",
+      "passed": true,
+      "seconds": 99.5862790630199
+    },
+    {
+      "name": "minp",
+      "status": "PASS",
+      "passed": true,
+      "seconds": 155.92819693288766
+    }
+  ],
+  "client_notes": "Linux49 client/browser final union797PASS after configuring launcher and restoring original complete122-file pack. Full client evidence consolidation pending.",
+  "L00_L02": "Prepared,not yet admitted;L01 retains explicitly qualified DRY0. L02 uses defaultDRY.8 plus new line tools/examples.",
+  "L03": "Prepared only;blocked on preceding requested reruns passing.",
+  "initial_failures_retained": [
+    "Encoder adopted-zombie lifecycle defect fixed without changing existing assertions.",
+    "v1 collector statted an optional manifest after eligible retirement;fixed collector only.",
+    "Broad BW launch lacked required fixture/environment;corrected launcher and byte-exact full original pack."
+  ],
+  "limits": [
+    "Original G1-G5 and complete supported VC matrix remain separate",
+    "Owner-deferred imageDRY+XTC,Q8,split,soak remain unsupported/unrun",
+    "Cross-arrangement equality excluded from bounded profile contract"
+  ]
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>RUNNING native graph controls</title>
+<style>#graph-scroll{width:800px;height:600px;overflow:auto}.graph-drawing{position:relative}.graph-drawing button{position:absolute}</style>
+<details id="branch-viewer"><summary>History</summary>
+<input type="checkbox" id="graph-previous"><button id="graph-refresh"></button>
+<button id="graph-zoom-in"></button><button id="graph-zoom-out"></button><button id="graph-fit"></button>
+<span id="graph-scale"></span><p id="graph-summary"></p><p id="graph-status"></p>
+<div id="graph-scroll"><div id="graph-canvas"></div></div><div id="graph-inspector" hidden></div></details>
+<pre id="report"></pre>
+<script>
+const $=id=>document.getElementById(id),busy=null;
+const store={get:(_key,fallback)=>fallback,set:()=>{}};
+const harnessFailure=error=>{$('report').textContent+='FAIL harness: '+String(error?.stack||error)+'\n';document.title='FAIL native graph harness';};
+window.addEventListener('error',event=>harnessFailure(event.error||event.message));
+window.addEventListener('unhandledrejection',event=>harnessFailure(event.reason));
+</script>
+<script src="workspace.js"></script><script src="workspace-graph.js"></script>
+<script>
+(async()=>{
+  const results=[];
+  const assert=(value,message)=>{if(!value)throw Error(message);};
+  const run=async(name,fn)=>{try{await fn();results.push('PASS '+name);}catch(error){results.push('FAIL '+name+': '+error.message);}};
+  const node=(id,parent_id,depth,count,action_snapshot=null,increment=1)=>({id,parent_id,depth,
+    role:depth===1?'user':'assistant',preview:id,current_branch_count:count,action_snapshot,
+    boundary_available:!!action_snapshot,message_increment:increment});
+  const data={chat_id:'chat',root_id:'r',shared_prefix_messages:1,previous_tips:[],
+    nodes:[node('r',null,0,2,'root-snapshot',0),node('u','r',1,2),node('a','u',2,2,'partial-snapshot'),
+      node('left','a',2,1,'left-snapshot',0),node('right','a',2,1,'right-snapshot',0)],
+    branches:[{id:'b1',name:'Left',tip:'left',snapshot:'left-snapshot',revision:1,saved_messages:2},
+      {id:'b2',name:'Right',tip:'right',snapshot:'right-snapshot',revision:1,saved_messages:2}]};
+  data.shared_partial_messages=1;data.nodes.find(n=>n.id==='a').shared_partial=true;
+  const calls=[];
+  ContextWorkspace.enabled=true;ContextWorkspace.nativeMode=true;
+  ContextWorkspace.current={id:'b1',chat_id:'chat',revision:1};
+  ContextWorkspace.nativeRequest=async path=>{calls.push(path);return structuredClone(data);};
+  ContextWorkspace.request=async()=>{throw Error('ordinary SQLite route used');};
+  ContextWorkspace.savedPointControls=()=>{};
+  ContextWorkspace.savedPoints=()=>{throw Error('canonical saved points overwritten by graph IDs');};
+  ContextGraph.init();
+  await run('native graph uses authenticated COW workspace route',async()=>{
+    await ContextGraph.refresh();assert(!ContextGraph.stale,'native graph failed to load');
+    assert(calls[0]==='workspace/graph?chat=chat','wrong graph route: '+calls[0]);
+  });
+  await run('continuation versions do not increase saved message counts',async()=>{
+    ContextGraph.data=structuredClone(data);ContextGraph.stale=false;ContextGraph.render();
+    const segments=Array.from($('graph-canvas').querySelectorAll('[data-graph-segment]'));
+    assert(segments.filter(b=>/continued/i.test(b.textContent)).length===2,'continuation segments counted as new messages');
+    assert(!segments.some(b=>b.textContent==='0 messages'),'zero-message segment label');
+    assert(Array.from($('graph-canvas').querySelectorAll('[data-graph-branch] small')).every(b=>b.textContent==='2 saved messages'),'branch count changed');
+  });
+  await run('shared answer prefix is distinguished from a complete shared message',async()=>{
+    assert($('graph-summary').textContent.includes('shared answer prefix'),'shared partial answer absent from summary');
+    assert(Array.from($('graph-canvas').querySelectorAll('[data-graph-segment]')).some(b=>b.textContent.includes('1 message + answer prefix')),'partial answer counted as a full shared message');
+  });
+  await run('unavailable message boundary exposes no state action',async()=>{
+    ContextGraph.inspect(['u'],ContextGraph.model(data));
+    assert(!$('graph-inspector').querySelector('.workspace-message-actions button'),'invented checkpoint action');
+  });
+  await run('snapshot actions use canonical snapshot rather than graph ID',async()=>{
+    const observed=[];ContextWorkspace.forkNative=async snapshot=>observed.push(snapshot);
+    ContextGraph.inspect(['left'],ContextGraph.model(data));
+    const fork=$('graph-inspector').querySelector('[data-workspace-fork]');
+    assert(fork,'restorable boundary missing fork action');fork.click();
+    assert(observed[0]==='left-snapshot','graph ID used as native snapshot: '+observed[0]);
+  });
+  await run('sibling path cannot mutate the selected branch',async()=>{
+    ContextGraph.inspect(['right'],ContextGraph.model(data));
+    assert(!$('graph-inspector').querySelector('.workspace-message-actions button'),'sibling action exposed for selected branch');
+  });
+  await run('selected branch previous tip exposes restore only',async()=>{
+    ContextWorkspace.current.saved_points=[{snapshot_id:'right-snapshot',boundary_available:true}];
+    ContextGraph.inspect(['right'],ContextGraph.model(data));
+    assert($('graph-inspector').querySelector('[data-workspace-rewind]'),'own saved point cannot restore');
+    assert(!$('graph-inspector').querySelector('[data-workspace-fork]'),'fork uses current head provenance for an abandoned tip');
+    ContextWorkspace.current.saved_points=[];
+  });
+  await run('graph branch selection uses native selection',async()=>{
+    let selected;ContextWorkspace.selectNative=async branch=>{selected=branch;};
+    $('graph-canvas').querySelector('[data-graph-branch="b2"]').click();
+    await Promise.resolve();assert(selected==='b2','branch badge did not select native branch');
+  });
+  await run('stale graph disables mutations',async()=>{
+    ContextGraph.inspect(['left'],ContextGraph.model(data));ContextGraph.failed(Error('offline'));
+    assert(Array.from($('graph-inspector').querySelectorAll('.workspace-message-actions button')).every(b=>b.disabled),'stale actions remained enabled');
+  });
+  $('report').textContent=results.join('\n');document.title=results.every(r=>r.startsWith('PASS '))?'9/9 PASS native graph controls':'FAIL native graph controls';
+})();
+</script>

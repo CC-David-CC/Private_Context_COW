@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "name": "q4-client-pilot",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-client-v1/scripts/client_stream_speed.py", "client", "--case", "/home/dflanag3/branching-g3/resident-real-v1-20261014/q4-real-8k", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/client-stream-v1-20261014/q4-client-pilot", "--mode", "resident", "--repetitions", "1"]
+    },
+    {
+      "name": "q8-client-resident",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-client-v1/scripts/client_stream_speed.py", "client", "--case", "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q8-8k", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/client-stream-v1-20261014/q8-client-resident", "--mode", "resident", "--warmup", "--repetitions", "3"]
+    },
+    {
+      "name": "q8-client-disk",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-client-v1/scripts/client_stream_speed.py", "client", "--case", "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q8-8k", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/client-stream-v1-20261014/q8-client-disk", "--mode", "disk", "--warmup", "--repetitions", "3"]
+    },
+    {
+      "name": "q8-real-64k",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-client-v1/scripts/resident_resume.py", "campaign", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/client-stream-v1-20261014/q8-real-64k", "--fixture", "/home/dflanag3/branching-g3/codebase-fixtures-20261014/q8-64k.json", "--generated", "2048"]
+    }
+  ]
+}

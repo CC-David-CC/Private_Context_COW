@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "inference_kind": "none",
+  "scope": "live same-origin COW UI; display-only equation row; no generation requests",
+  "browser": "Chrome/155.0.8059.39",
+  "browser_gpu_disabled": true,
+  "service": "context-cow",
+  "namespace_id": "d7fa669b0a5f6fa09a2b47c1de78db64",
+  "canonical_projection_sha256_before": "df4f88246189b6c8a2ce4974950901314232fcb3e2216cb84d3bc73920a630f8",
+  "canonical_projection_sha256_after": "df4f88246189b6c8a2ce4974950901314232fcb3e2216cb84d3bc73920a630f8",
+  "display_equation_source_sha256": "0bee84c193776b628f61426cc9534d5742a60011d3d7135b2d44fa379dca5692",
+  "source_sha256": {
+    "serve/web/cow_math_engines_browser_test.py": "36f6ff3048a0f3ea103b8b6575cbb0f18f7ef52472c4ebda02831edd4101561b",
+    "serve/web/app.js": "d4ec08ef9005fba146c1aea769747ca0ef289b9921132f6a2f98748048a9d5ed",
+    "serve/web/math.js": "c6be1a8002451352df8b0018051490b5b8b50860b458246e27fd3702e7ac108a",
+    "serve/web/math-adapter.js": "c5b2553eead63a31ae3dfe3cd01507fc3ef8f0a6540ec3761d6158290231d80c",
+    "serve/web/math-katex.js": "cfe15c91032d1cb84a7d52181b8fc5c634489171fe14e9bcdd29150ac05fb26e",
+    "serve/web/math-mathjax.js": "067535b6697a44485077454192b87bca23cb672e783beabb4235ca5e7cafda2c",
+    "serve/web/vendor/katex/dist/katex.min.js": "103a53763cc033bba8d175bf3f0ba597c3505c9b6747dd3f2c7bc2a6bfcc8ae7",
+    "serve/web/vendor/mathjax/tex-chtml.js": "6ecd14970a73fca8bb115f8d6967aef818135dee0091339061c41ada230072b6"
+  },
+  "checks": [
+    {
+      "id": "MATHJAX-RENDER",
+      "status": "PASS",
+      "actual_element": "MJX-CONTAINER"
+    },
+    {
+      "id": "KATEX-RENDER",
+      "status": "PASS",
+      "actual_element": "katex"
+    },
+    {
+      "id": "MATH-DISABLED-SOURCE",
+      "status": "PASS",
+      "literal_preserved": true
+    },
+    {
+      "id": "MATH-PERSIST-RELOAD",
+      "status": "PASS",
+      "same_namespace": true,
+      "canonical_projection_unchanged": true
+    }
+  ],
+  "client_errors": [
+    {
+      "kind": "log_error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url_path": "/fonts/outfit-latin-wght.woff2",
+      "http_status": 401,
+      "expected_unauthenticated_bootstrap": true,
+      "fixture_optional_route_absent": false
+    },
+    {
+      "kind": "log_error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url_path": "/cow/workspace/chats",
+      "http_status": 401,
+      "expected_unauthenticated_bootstrap": true,
+      "fixture_optional_route_absent": false
+    },
+    {
+      "kind": "log_error",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url_path": "/fonts/outfit-latin-wght.woff2",
+      "http_status": 401,
+      "expected_unauthenticated_bootstrap": true,
+      "fixture_optional_route_absent": false
+    }
+  ],
+  "client_error_count": 3,
+  "client_errors_unexpected_for_fixture_scope": 0,
+  "api_key_in_report": false,
+  "screenshots": {
+    "01-mathjax.png": {
+      "bytes": 97376,
+      "sha256": "eb9dd9a10fa8d15437584ef42c00c0ce7fe94e7a7f580d17ce9921a704c58631"
+    },
+    "02-katex.png": {
+      "bytes": 97450,
+      "sha256": "b197615dac406ededf0cd1c690802d6b7bc9ebdb9b3829f53626e7afd0600a34"
+    },
+    "03-plain-source.png": {
+      "bytes": 98092,
+      "sha256": "2921138180640a3e8dc2ef54576eac0d69ace888c7f762a2599228a914a7ca10"
+    },
+    "04-katex-reenabled.png": {
+      "bytes": 97454,
+      "sha256": "a6ab3c5a3224117e128f121d962b9b36e403206fed6fbea1e3c57cd3132b0909"
+    },
+    "05-persisted-katex-after-reload.png": {
+      "bytes": 88180,
+      "sha256": "e431d9940531689f2be122eeb3282b54f0ec1435c762eafe543d7c2a1d5497d4"
+    }
+  }
+}

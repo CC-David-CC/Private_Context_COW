@@ -1,0 +1,59 @@
+{
+  "status": "FAIL",
+  "scope": "Combined native device-seal comparison and streaming checkpoint candidate; resident Q4 tiny request probe",
+  "host": "llm-60",
+  "source_commit": "520abdbc3157aca6f2d575459446b43c479ea66e",
+  "builder_overlay_commit": "4a250759b9a9bdbd3a7dde0ed596d463b1dc8a8d",
+  "source_commit_note": "Resolve source commit against Git; source archive SHA is authoritative for the transferred tree.",
+  "source_archive_sha256": "1b9551ae9cc40b34e26d596771f75a3a38bec1efc691539e5da8921378947c05",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "build": {
+    "receipts": "runs/native-probe-build-v2",
+    "commands": 14,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "build_json_sha256": "f0cc49958346a68c9db533860ff76862ca737f5498dc651aeb576ed07ec99843",
+    "branch_binary_sha256": "b323dbedccfde9f5022085cad9c61c13343970c1ed8698ef4699b1d5593019e6",
+    "fresh_binary_sha256": "2b273dfe37bc02ae61fed6f7729cb7a8fbc892bc60422eea7b33dae8a6e0bf5d",
+    "generated_driver_sha256": "eab0938921358172b16c6390ecdcec21824bd838b3ef02c9d335f6ea503b5f35"
+  },
+  "profile_id": "2817d0b2835cbd5d6dbf349a02952f0ae3aab7910149825b8cd1d2dbdfb41c5e",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "fixture": {"prefix_tokens": 128, "suffix_tokens_per_branch": 4, "output_limit": 8, "checked_boundaries": "every"},
+  "reference_gate": {
+    "gate": "G0",
+    "status": "PASS",
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "required_real_backend_cases": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "receipts": "runs/g0-source-520-v1",
+    "limit": "Reference semantics only; does not qualify native candidate"
+  },
+  "run": {
+    "receipts": "runs/native-probe-tiny-v2",
+    "result": "probe-tiny-v2/result.json",
+    "result_sha256": "e3d7bcf5522140e4b28d522f2a9876e6c89268e5c5b8a78b65d219fc10a505be",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "comparisons_completed": 12,
+    "comparison_scope": "Harness ordering: ten independent-reference A/A-repeat frontier comparisons, one resident root frontier and one resident A-suffix frontier. No completed resident generated-frontier comparison before failure.",
+    "numerical_max_error": 0.0,
+    "completed_branch_records": 0,
+    "native_pid": 2180521,
+    "native_exit_code": -9,
+    "native_exit_observed": true,
+    "error": "Incomplete or inconsistent native request completion",
+    "cleanup_error": "Native request protocol failed; restart the backend"
+  },
+  "diagnosis": {
+    "source_finding": "Generated stats count prefill plus normal-forward work; generated request completion counts normal-forward work only. Python requires the same cumulative work counter at both boundaries.",
+    "fixture_arithmetic": "Before-work stats = 132; eight generated tokens imply completion total = 140. Existing completion source instead reports 8, whose delta from 132 is -124.",
+    "raw_completion_object_captured": false,
+    "limitation": "Source-level diagnosis, not a captured response. Native -9 is not independently established as OOM or spontaneous process death. Preserve the failing run unchanged.",
+    "next": "Failing build-source regression, consistent cumulative native counter, corrected build and independently pinned profile, then rerun the tiny model test. Keep Python guard strict."
+  },
+  "qualification": "No combined model PASS or measured performance gain. No G1-G5 certification. Chat remains off; private box-git only."
+}

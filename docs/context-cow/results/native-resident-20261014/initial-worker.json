@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "pid": 1494696,
+  "phases": [
+    {
+      "phase": "native-smoke",
+      "exit_code": 1,
+      "expected_exit_code": 0,
+      "seconds": 85.16388844803441
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "native-smoke",
+  "child_pid": 1494703,
+  "elapsed_seconds": 60.001289010979235,
+  "error": "native-smoke unexpected exit; inspect retained logs",
+  "restored_server_pid": 1495302,
+  "server_http_status": 200
+}

@@ -1,0 +1,602 @@
+{
+  "schema": 1,
+  "status": "PASS_CHECKSUM_VERIFIED_OFFLOAD",
+  "source": "/home/dflanag3/spatial-artifacts",
+  "destination": "r730:/mnt/data10tb/context-cow/llm-60/offload-20261018/spatial-artifacts",
+  "bytes": 27296310760,
+  "files": [
+    {
+      "path": "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-A-repeat.f32.decode.f32",
+      "bytes": 2034237440,
+      "ino": 4739796,
+      "mtime_ns": 1792073980068312902,
+      "ctime_ns": 1792073980068312902,
+      "sha256": "67f2fc2a2a5521ff0db2f422eacefda0b685258550741b001db58f1cdd783672"
+    },
+    {
+      "path": "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-A.f32.decode.f32",
+      "bytes": 2034237440,
+      "ino": 4739776,
+      "mtime_ns": 1792073698735228603,
+      "ctime_ns": 1792073698735228603,
+      "sha256": "67f2fc2a2a5521ff0db2f422eacefda0b685258550741b001db58f1cdd783672"
+    },
+    {
+      "path": "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-B.f32.decode.f32",
+      "bytes": 2034237440,
+      "ino": 4739789,
+      "mtime_ns": 1792073839658779904,
+      "ctime_ns": 1792073839658779904,
+      "sha256": "32247a410935fde181eae0711c1407215f51206c0fea7a6d56d3ceef9c904d4d"
+    },
+    {
+      "path": "cow-three-context-ui-archive-v1/evidence.tar",
+      "bytes": 10598184960,
+      "ino": 2786986,
+      "mtime_ns": 1792082609894401361,
+      "ctime_ns": 1792082609895401392,
+      "sha256": "8b928cde774c24f041803c8815438bf9102bfc930e717e20ebadf5eb7341b199"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-combined-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 6307470,
+      "mtime_ns": 1792182347733362801,
+      "ctime_ns": 1792182347780364300,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-combined-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 6307458,
+      "mtime_ns": 1792182345754299672,
+      "ctime_ns": 1792182345801301172,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-integrated-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 6301560,
+      "mtime_ns": 1792181102473859885,
+      "ctime_ns": 1792181102516861266,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+      "bytes": 145806840,
+      "ino": 6307153,
+      "mtime_ns": 1792181801358962148,
+      "ctime_ns": 1792181801371962561,
+      "sha256": "22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/27141e0d1f96bca1ed191e585db80c2c20558ac194fbb411f250891437c3a420.state",
+      "bytes": 147896120,
+      "ino": 6307191,
+      "mtime_ns": 1792181805293087160,
+      "ctime_ns": 1792181805305087542,
+      "sha256": "27141e0d1f96bca1ed191e585db80c2c20558ac194fbb411f250891437c3a420"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+      "bytes": 147582728,
+      "ino": 6307168,
+      "mtime_ns": 1792181803147018965,
+      "ctime_ns": 1792181803158019315,
+      "sha256": "42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/99f2bf1bf44a86bbf163cc6af7cfc572c227304837a3337cd3509c07e129e740.state",
+      "bytes": 147896120,
+      "ino": 6307221,
+      "mtime_ns": 1792181830329882867,
+      "ctime_ns": 1792181830342883280,
+      "sha256": "99f2bf1bf44a86bbf163cc6af7cfc572c227304837a3337cd3509c07e129e740"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-tiny-v2/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 6307028,
+      "mtime_ns": 1792181681590159254,
+      "ctime_ns": 1792181681611159921,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-tiny-v2/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 6307016,
+      "mtime_ns": 1792181679699099258,
+      "ctime_ns": 1792181679719099893,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/0887caa279ad967cbc04546d5cdbf0c799e967bc2b347f436913d56af79ba456.state",
+      "bytes": 147896120,
+      "ino": 6307360,
+      "mtime_ns": 1792182156771274085,
+      "ctime_ns": 1792182156782274436,
+      "sha256": "0887caa279ad967cbc04546d5cdbf0c799e967bc2b347f436913d56af79ba456"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/2cc2490eea3bc603d43bda4c257f03630b90514fc2c7c3dc359ec96ce2447669.state",
+      "bytes": 147896120,
+      "ino": 6307390,
+      "mtime_ns": 1792182239216902132,
+      "ctime_ns": 1792182239228902514,
+      "sha256": "2cc2490eea3bc603d43bda4c257f03630b90514fc2c7c3dc359ec96ce2447669"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+      "bytes": 145806840,
+      "ino": 6307322,
+      "mtime_ns": 1792182152734145428,
+      "ctime_ns": 1792182152747145842,
+      "sha256": "49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+      "bytes": 147582728,
+      "ino": 6307337,
+      "mtime_ns": 1792182154547203207,
+      "ctime_ns": 1792182154558203558,
+      "sha256": "ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-q4-8k-timing-v1/store/checkpoints/110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74.state",
+      "bytes": 346482184,
+      "ino": 6307830,
+      "mtime_ns": 1792182519489843148,
+      "ctime_ns": 1792182519546844967,
+      "sha256": "110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-adaptive-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+      "bytes": 333006328,
+      "ino": 6307818,
+      "mtime_ns": 1792182516078734279,
+      "ctime_ns": 1792182516137736162,
+      "sha256": "7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-8k-timing-v2/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+      "bytes": 346482184,
+      "ino": 6191027,
+      "mtime_ns": 1792180022119018966,
+      "ctime_ns": 1792180022175020789,
+      "sha256": "4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-8k-timing-v2/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+      "bytes": 333006328,
+      "ino": 6191015,
+      "mtime_ns": 1792180018709908039,
+      "ctime_ns": 1792180018772910089,
+      "sha256": "7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-tiny-v2/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 6190615,
+      "mtime_ns": 1792179629473145979,
+      "ctime_ns": 1792179629493146641,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-tiny-v2/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 6190603,
+      "mtime_ns": 1792179627558082576,
+      "ctime_ns": 1792179627579083271,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca.state",
+      "bytes": 147896120,
+      "ino": 6299285,
+      "mtime_ns": 1792180534120585136,
+      "ctime_ns": 1792180534132585522,
+      "sha256": "3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+      "bytes": 145806840,
+      "ino": 6298168,
+      "mtime_ns": 1792180446806769967,
+      "ctime_ns": 1792180446819770386,
+      "sha256": "49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+      "bytes": 147582728,
+      "ino": 6298183,
+      "mtime_ns": 1792180448608828099,
+      "ctime_ns": 1792180448621828518,
+      "sha256": "ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb.state",
+      "bytes": 147896120,
+      "ino": 6298206,
+      "mtime_ns": 1792180450841900133,
+      "ctime_ns": 1792180450852900488,
+      "sha256": "c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+      "bytes": 346482184,
+      "ino": 6169150,
+      "mtime_ns": 1792178668966590849,
+      "ctime_ns": 1792178669098595017,
+      "sha256": "4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+      "bytes": 333006328,
+      "ino": 6169138,
+      "mtime_ns": 1792178665303475197,
+      "ctime_ns": 1792178665429479175,
+      "sha256": "7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+      "bytes": 145806840,
+      "ino": 6063087,
+      "mtime_ns": 1792177877587718837,
+      "ctime_ns": 1792177877600719242,
+      "sha256": "22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+      "bytes": 147582728,
+      "ino": 6063102,
+      "mtime_ns": 1792177879453777041,
+      "ctime_ns": 1792177879465777415,
+      "sha256": "42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/6d4f723fcd39b2aa833116045b6dd6c7b57ab383c8160afe76d40a1d0ad7ebfb.state",
+      "bytes": 147896120,
+      "ino": 6063169,
+      "mtime_ns": 1792177907531653207,
+      "ctime_ns": 1792177907544653612,
+      "sha256": "6d4f723fcd39b2aa833116045b6dd6c7b57ab383c8160afe76d40a1d0ad7ebfb"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/ad33aae5a47cc8d2687946f3a6040ff5df47c2bd11bf936b9082fd530f831929.state",
+      "bytes": 147896120,
+      "ino": 6063125,
+      "mtime_ns": 1792177881920853996,
+      "ctime_ns": 1792177881932854371,
+      "sha256": "ad33aae5a47cc8d2687946f3a6040ff5df47c2bd11bf936b9082fd530f831929"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 6062525,
+      "mtime_ns": 1792177739437419869,
+      "ctime_ns": 1792177739458420521,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 6062513,
+      "mtime_ns": 1792177737469358784,
+      "ctime_ns": 1792177737489359405,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca.state",
+      "bytes": 147896120,
+      "ino": 6064312,
+      "mtime_ns": 1792178305325126978,
+      "ctime_ns": 1792178305336127324,
+      "sha256": "3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+      "bytes": 145806840,
+      "ino": 6064270,
+      "mtime_ns": 1792178216955348093,
+      "ctime_ns": 1792178216968348502,
+      "sha256": "49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+      "bytes": 147582728,
+      "ino": 6064282,
+      "mtime_ns": 1792178218817406611,
+      "ctime_ns": 1792178218828406957,
+      "sha256": "ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb.state",
+      "bytes": 147896120,
+      "ino": 6064304,
+      "mtime_ns": 1792178221352486281,
+      "ctime_ns": 1792178221364486659,
+      "sha256": "c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-8k-timing-v2/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+      "bytes": 346482184,
+      "ino": 5790873,
+      "mtime_ns": 1792173354339986372,
+      "ctime_ns": 1792173354397988217,
+      "sha256": "4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-8k-timing-v2/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+      "bytes": 333006328,
+      "ino": 5790861,
+      "mtime_ns": 1792173350951878591,
+      "ctime_ns": 1792173351013880564,
+      "sha256": "7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+      "bytes": 145806840,
+      "ino": 5777302,
+      "mtime_ns": 1792171912320995749,
+      "ctime_ns": 1792171912333996166,
+      "sha256": "22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+      "bytes": 147582728,
+      "ino": 5777317,
+      "mtime_ns": 1792171914095052667,
+      "ctime_ns": 1792171914107053052,
+      "sha256": "42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/4cc60e709c5b998cb2ebaf1dd972a70662868f95c1081b5eb25afeae19fa6ecd.state",
+      "bytes": 147896120,
+      "ino": 5777370,
+      "mtime_ns": 1792171941185921624,
+      "ctime_ns": 1792171941197922009,
+      "sha256": "4cc60e709c5b998cb2ebaf1dd972a70662868f95c1081b5eb25afeae19fa6ecd"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/ada1b0cec91cc2cd353cd8963dabf9770a26b56276820c5887ba509a0352bf56.state",
+      "bytes": 147896120,
+      "ino": 5777340,
+      "mtime_ns": 1792171916231121197,
+      "ctime_ns": 1792171916243121582,
+      "sha256": "ada1b0cec91cc2cd353cd8963dabf9770a26b56276820c5887ba509a0352bf56"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-timing-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+      "bytes": 145806840,
+      "ino": 5783986,
+      "mtime_ns": 1792172834382440250,
+      "ctime_ns": 1792172834437442002,
+      "sha256": "22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-timing-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+      "bytes": 147582728,
+      "ino": 5783998,
+      "mtime_ns": 1792172836466506626,
+      "ctime_ns": 1792172836519508314,
+      "sha256": "42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 5777167,
+      "mtime_ns": 1792171765703285179,
+      "ctime_ns": 1792171765747286595,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 5777155,
+      "mtime_ns": 1792171763718221304,
+      "ctime_ns": 1792171763774223106,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+      "bytes": 145806840,
+      "ino": 5777459,
+      "mtime_ns": 1792172244632632932,
+      "ctime_ns": 1792172244644633315,
+      "sha256": "49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/742a843b1cff91c3f4718a803614b22af41428984f726ba303d4399b40dba272.state",
+      "bytes": 147896120,
+      "ino": 5777527,
+      "mtime_ns": 1792172332307433091,
+      "ctime_ns": 1792172332320433506,
+      "sha256": "742a843b1cff91c3f4718a803614b22af41428984f726ba303d4399b40dba272"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0.state",
+      "bytes": 147896120,
+      "ino": 5777497,
+      "mtime_ns": 1792172248833767155,
+      "ctime_ns": 1792172248845767539,
+      "sha256": "81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+      "bytes": 147582728,
+      "ino": 5777474,
+      "mtime_ns": 1792172246532693638,
+      "ctime_ns": 1792172246544694022,
+      "sha256": "ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-8k-timing-v1/store/checkpoints/110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74.state",
+      "bytes": 346482184,
+      "ino": 6037461,
+      "mtime_ns": 1792176376223772292,
+      "ctime_ns": 1792176376334775878,
+      "sha256": "110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+      "bytes": 333006328,
+      "ino": 6037449,
+      "mtime_ns": 1792176372658657115,
+      "ctime_ns": 1792176372778660992,
+      "sha256": "7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+      "bytes": 145806840,
+      "ino": 5931357,
+      "mtime_ns": 1792175802151139579,
+      "ctime_ns": 1792175802164140004,
+      "sha256": "22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/b26839a33979fc209c57d97b8433fc8f21389b8762af7fc1a50b44bf19fd1678.state",
+      "bytes": 147896120,
+      "ino": 5931395,
+      "mtime_ns": 1792175806068267566,
+      "ctime_ns": 1792175806080267958,
+      "sha256": "b26839a33979fc209c57d97b8433fc8f21389b8762af7fc1a50b44bf19fd1678"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/b7e4ff9b33d7f5f47d4d2aab4d0a91ea2e6fc6a77a0bbb3a8cfeec93a9c46e6d.state",
+      "bytes": 147896120,
+      "ino": 5931425,
+      "mtime_ns": 1792175831193088103,
+      "ctime_ns": 1792175831205088495,
+      "sha256": "b7e4ff9b33d7f5f47d4d2aab4d0a91ea2e6fc6a77a0bbb3a8cfeec93a9c46e6d"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/c40a803da882a59b606fb2d027c7c85236b79a110b5a44ef3b4020062a1f7bfe.state",
+      "bytes": 147582728,
+      "ino": 5931372,
+      "mtime_ns": 1792175803933197808,
+      "ctime_ns": 1792175803944198167,
+      "sha256": "c40a803da882a59b606fb2d027c7c85236b79a110b5a44ef3b4020062a1f7bfe"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+      "bytes": 124182792,
+      "ino": 5931232,
+      "mtime_ns": 1792175671999876893,
+      "ctime_ns": 1792175672020877582,
+      "sha256": "21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+      "bytes": 122406904,
+      "ino": 5931220,
+      "mtime_ns": 1792175670100814535,
+      "ctime_ns": 1792175670122815257,
+      "sha256": "e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+      "bytes": 145806840,
+      "ino": 5931564,
+      "mtime_ns": 1792176115804345037,
+      "ctime_ns": 1792176115816345426,
+      "sha256": "49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/7a4305ffb18d61447af5f98fcaf80a034bde766261e2923841845ee31f863184.state",
+      "bytes": 147896120,
+      "ino": 5933200,
+      "mtime_ns": 1792176200554091037,
+      "ctime_ns": 1792176200566091425,
+      "sha256": "7a4305ffb18d61447af5f98fcaf80a034bde766261e2923841845ee31f863184"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0.state",
+      "bytes": 147896120,
+      "ino": 5931602,
+      "mtime_ns": 1792176120021481770,
+      "ctime_ns": 1792176120032482127,
+      "sha256": "81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0"
+    },
+    {
+      "path": "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/c98857dd4b5e37b75534a445db65b10522cd94d7353449c5604b24d83c4266ac.state",
+      "bytes": 147582728,
+      "ino": 5931579,
+      "mtime_ns": 1792176117710406839,
+      "ctime_ns": 1792176117721407195,
+      "sha256": "c98857dd4b5e37b75534a445db65b10522cd94d7353449c5604b24d83c4266ac"
+    }
+  ],
+  "local_copies_removed": [
+    "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-A-repeat.f32.decode.f32",
+    "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-A.f32.decode.f32",
+    "cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1/fresh-B.f32.decode.f32",
+    "cow-three-context-ui-archive-v1/evidence.tar",
+    "sampler-extensions-20261016-v1/gpu-adaptive-combined-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-combined-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-integrated-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/27141e0d1f96bca1ed191e585db80c2c20558ac194fbb411f250891437c3a420.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-serving-v1/store/checkpoints/99f2bf1bf44a86bbf163cc6af7cfc572c227304837a3337cd3509c07e129e740.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-tiny-v2/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q4-tiny-v2/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/0887caa279ad967cbc04546d5cdbf0c799e967bc2b347f436913d56af79ba456.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/2cc2490eea3bc603d43bda4c257f03630b90514fc2c7c3dc359ec96ce2447669.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-preview-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-q4-8k-timing-v1/store/checkpoints/110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74.state",
+    "sampler-extensions-20261016-v1/gpu-adaptive-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-8k-timing-v2/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-8k-timing-v2/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-tiny-v2/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-tiny-v2/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-linear-q8-serving-v1/store/checkpoints/c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/6d4f723fcd39b2aa833116045b6dd6c7b57ab383c8160afe76d40a1d0ad7ebfb.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-serving-v1/store/checkpoints/ad33aae5a47cc8d2687946f3a6040ff5df47c2bd11bf936b9082fd530f831929.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/3d2c7e2a7531169a275da56ca9887306dc870718bc2e8f74085dc1dc59abf5ca.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+    "sampler-extensions-20261016-v1/gpu-mirostat2-q8-serving-v1/store/checkpoints/c41dc1b077a0068cb2d13aa19875a74eebc0ee52f039741736529ee8e3891dcb.state",
+    "sampler-extensions-20261016-v1/gpu-q4-8k-timing-v2/store/checkpoints/4b2367c1e1ab11b7e9159e5482f79abcd9a41fd86ff0fc602e055fb2be07cbe0.state",
+    "sampler-extensions-20261016-v1/gpu-q4-8k-timing-v2/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+    "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+    "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+    "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/4cc60e709c5b998cb2ebaf1dd972a70662868f95c1081b5eb25afeae19fa6ecd.state",
+    "sampler-extensions-20261016-v1/gpu-q4-serving-v1/store/checkpoints/ada1b0cec91cc2cd353cd8963dabf9770a26b56276820c5887ba509a0352bf56.state",
+    "sampler-extensions-20261016-v1/gpu-q4-timing-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+    "sampler-extensions-20261016-v1/gpu-q4-timing-v1/store/checkpoints/42a19274efa7cf14812b18620a41417e69925960bdb8e0219783d3118074e14a.state",
+    "sampler-extensions-20261016-v1/gpu-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+    "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/742a843b1cff91c3f4718a803614b22af41428984f726ba303d4399b40dba272.state",
+    "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0.state",
+    "sampler-extensions-20261016-v1/gpu-q8-serving-v1/store/checkpoints/ae1b29e4c3af5cb2bbcc1c8f208651eee5b8c06bb99da6f70bf8cb1954540f8d.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-8k-timing-v1/store/checkpoints/110bea5f0d2302dcad37c376a6da40d40df14adba168a0764351ae95af2bae74.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-8k-timing-v1/store/checkpoints/7894ed488b96ad28a0caea47760d0ebcacf093a22c9e91bbbb1480cf8b143a65.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/22169bdbfae25c2fd5571c10015c21c94737b00a347f198d78afcdfce590d6ae.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/b26839a33979fc209c57d97b8433fc8f21389b8762af7fc1a50b44bf19fd1678.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/b7e4ff9b33d7f5f47d4d2aab4d0a91ea2e6fc6a77a0bbb3a8cfeec93a9c46e6d.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-serving-v1/store/checkpoints/c40a803da882a59b606fb2d027c7c85236b79a110b5a44ef3b4020062a1f7bfe.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-tiny-v1/store/checkpoints/21c868a01d2a59a6efd752824cfe9e0c2f439aa687d3a64da490f5073f051310.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q4-tiny-v1/store/checkpoints/e20a7d69a24e722f46b2bd16e1b0822d9ed63b4bfa530966ec9c7a31fc948bd6.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/49b6d5ace7d77947535884556d2a18653eda1f5afc5d7d37ad14b5bc0f8903a1.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/7a4305ffb18d61447af5f98fcaf80a034bde766261e2923841845ee31f863184.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/81d2aa27c6e4b9be3ad4c852c2db00b7dcc66b360fc9bb2cf4045ef8dd7b3bd0.state",
+    "sampler-extensions-20261016-v1/gpu-xtc-q8-serving-v1/store/checkpoints/c98857dd4b5e37b75534a445db65b10522cd94d7353449c5604b24d83c4266ac.state"
+  ],
+  "free_before": 5477638144,
+  "free_after": 32773820416,
+  "elapsed_seconds": 335.3646755218506,
+  "remote_readback": "/home/dflanag3/spatial-artifacts/cow-offload-r730-20261018-v1/remote-verified.json",
+  "scope": "Completed test archives, raw logits and old sampler checkpoint payloads only; active model files and current test files excluded.",
+  "limitation": "Archived frozen fixtures require fetching their payloads from r730 before local restore. Canonical records and lightweight local manifests retained. Model weights already backed up separately; no new model backup made."
+}

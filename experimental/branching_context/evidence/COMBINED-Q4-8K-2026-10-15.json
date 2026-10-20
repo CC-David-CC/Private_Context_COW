@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "Bounded Q4 resident and clean-restart qualification; deterministic greedy, matching operators and native batch boundaries",
+  "host": "llm-60", "GPU": [0],
+  "execution_profile_id": "f94ff12f7da0ef492c6aa05cafe3c755295af55be6a835c8f12d45d4f4c31f12",
+  "fingerprints": "NATIVE-REQUEST-COUNTER-FIX-2026-10-15.json",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "fixture": {"prefix": 8192, "suffix_per_branch": 512, "output_limit": 16, "branches": 2},
+  "resident": {
+    "result": "probe-8k-v3/result.json", "result_sha256": "732875c4d96c97fca962c05abb8d18240d65fd7b1acacd8d07564703e0af4c6f",
+    "receipts": "runs/native-probe-8k-v3", "command_exit": 0, "wrapper_exit": 0,
+    "frontier_comparisons": 28, "numerical_max_error": 0.0, "native_exit": 0,
+    "outputs_per_branch": 16, "checked_generated_boundaries_per_branch": [1, 16],
+    "per_branch_generation": {"forward_tokens": 16, "prefill_tokens": 0, "captures": 0, "restores": 0,
+      "integrity_device_hashed_bytes": 40265318400, "integrity_digest_copy_bytes": 0, "integrity_compare_result_copy_bytes": 128}
+  },
+  "restart": {
+    "result": "pool-8k-v3/result.json", "result_sha256": "5f3e29171427ad658a595191c1be331714e363fb37df4a3165419b116830cad9",
+    "resume_sha256": "be31fa12e5a298bf1ffb7a2ab92df99747ab5deb5b7b1b7e1c9950ee3ee1cf90",
+    "receipts": "runs/pool-campaign-8k-v3", "command_exit": 0, "wrapper_exit": 0,
+    "prepare": {"python_pid": 2206859, "python_exit": 0, "native_pid": 2206865, "native_exit": 0},
+    "resume": {"python_pid": 2207149, "python_exit": 0, "native_pid": 2207155, "native_exit": 0},
+    "branches": [
+      {"tree": 0, "outputs": 16, "resumed_outputs": 12, "checked_generated_boundaries": [4, 16], "resumed_forward_tokens": 12, "resumed_prefill_tokens": 0, "loaded_file_bytes": 345488904, "cold_restore_copy_bytes": 227389440, "cold_restore_copy_calls": 36},
+      {"tree": 1, "outputs": 1, "already_stopped": true, "resumed_outputs": 0, "checked_generated_boundaries": [1], "resume_inference_exercised": false}
+    ],
+    "full_generated_frontier_comparisons": 4, "unique_generated_boundaries": 3,
+    "numerical_max_error": 0.0, "parent_bytes_unchanged": true,
+    "ram_pool_limit_gib": 96, "disk_pool_limit_gib": 128
+  },
+  "failures": [], "skips": [], "xfails": [],
+  "limits": ["Pool B reached EOS before restart; it is not evidence of resumed B inference.", "Resident and pool fixtures have different suffix token histories; do not combine their output lengths.", "Target resident frontiers are sampled, not every generated frontier.", "No new RNG/grammar, crash, cross-schedule or cumulative G1-G5 qualification.", "Performance comparison remains unrun."],
+  "next": "Matched Q4 before/after performance, Q8 final validation, then longer useful workloads."
+}

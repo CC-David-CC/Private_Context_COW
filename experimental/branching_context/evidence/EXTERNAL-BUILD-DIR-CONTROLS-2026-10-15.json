@@ -1,0 +1,102 @@
+{
+  "schema": "cow-external-build-dir-controls-v1",
+  "timestamp_utc": "2026-10-15T07:37:35Z",
+  "scope": "CPU controls only; compiler calls mocked; no native build or GPU run",
+  "staged_source": {
+    "commit": "c2c3a0e9319b306384743a373b02ca219f065f7c",
+    "remote_root": "/home/dflanag3/branching-g3/context-cow-build-dir-support-c2c3a0e9-20261015",
+    "branching_context_archive_sha256": "7a86aee9cc3bcab74e8c201ff7bb77a460af2e3eba5b14c07f55ff21e13681b8",
+    "serve_tools_archive_sha256": "2b401ff6b5ab165e3113e73bd925602e6dc5b4421ff5240c7c106071cd0d162c",
+    "test_overlay_sha256": "2db9c0acf80985b34d70cefa61d6c2e8b7e74f5fbfb1489bb41cf975f80b2671",
+    "test_overlay_note": "Six focused cases: explicit external path through the builder chain, default path, missing and malformed recipe preflight, successful generated counter instrumentation, and restoration after injected build failure."
+  },
+  "source_sha256": {
+    "experimental/branching_context/scripts/build_digest_reuse_probe.py": "28e42908aa4958fe346e8717aef7bc09521c00fe47290b61e964223a174c3a9c",
+    "experimental/branching_context/scripts/build_native_request_probe.py": "73b726f89c837f6200efc48dd3b31c61df97c036615443d2a738eb364ec8bf72",
+    "experimental/branching_context/scripts/build_fast_prefill_probe.py": "c06f5f10e125a78b579d7b02c3ec66b394045f0b7c233beac8b38d0459838bfb",
+    "experimental/branching_context/scripts/build_batched_resume_probe.py": "14e46ba434373e3fddd5a840eea487ee9a10ab7c625e7adf16ad0a2a7c1c581c",
+    "experimental/branching_context/scripts/native_build_provenance.py": "8faf0ec80277641dd9537397ddaac5f3a9d643b765b2cc291a7ed9327d9d496d",
+    "experimental/branching_context/scripts/verify_pool_control.py": "a859c79502409a65fd5b31f8430d8f04ec2c8b2f45960b539646ca79fd8a19d0",
+    "experimental/branching_context/scripts/verify.py": "df7e8caf244ddeb529af106aca2b5629fb56296399cfd48c2706912318109a24",
+    "experimental/branching_context/docs/acceptance.json": "a6f59153a78fbcc8e4e0fcee1d47f5dfded645f6f7f474010883421ac6695f3b",
+    "experimental/branching_context/docs/locked-references.json": "c7c734a01471e9e39471259283e1e7a406801357178c6b2b49ade1ab38eb64a5",
+    "experimental/branching_context/tests/implementation/test_external_build_dir.py": "2db9c0acf80985b34d70cefa61d6c2e8b7e74f5fbfb1489bb41cf975f80b2671",
+    "serve/cow_adapter.py": "319a8fcb2709583c15a1275d6641452a7a63f64c0841ad6f92fd47e6a13a5eb9",
+    "serve/test_cow_presentation_flow.py": "28ee1b5e902d0089de69973a6396a523c96ac2a94e5762aaa76099002cdf4ea3",
+    "tools/strata_tokenizer.py": "40595124e02c198e464c12cbe5fe6d4fb079daa3238263fc71ea8d2cf279ca12",
+    "dependency/regex/__init__.py": "039934ae6f0b9fb1cab1f1bef2c11661e85e93ccc22847bab105b94065009925"
+  },
+  "runs": [
+    {
+      "name": "focused-v2",
+      "command": "python3 -m unittest -v experimental.branching_context.tests.implementation.test_external_build_dir",
+      "wrapper": "/home/dflanag3/spatial-artifacts/cow-build-dir-test-tools/run-command.sh",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests": 6,
+      "status": "PASS",
+      "failures": [],
+      "errors": [],
+      "skips": [],
+      "stderr_sha256": "2939cc74786a1633540273e904b93460b8ab9494b80383d88bda8442ba94a8b1",
+      "stderr_summary": "Six named tests passed; 0.051s."
+    },
+    {
+      "name": "pool-control-v2-missing-optional-dependency",
+      "command": "python3 experimental/branching_context/scripts/verify_pool_control.py --output /home/dflanag3/spatial-artifacts/cow-build-dir-support-g0-v2/summary.json",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "tests": 218,
+      "status": "FAIL",
+      "failures": [],
+      "errors": ["unittest.loader._FailedTest.test_audit_namespace_http"],
+      "skips": [],
+      "xfails": [],
+      "stderr_sha256": "794da3d07d3665255a79c959df21d0aacb6a7cade0fea50c222bcd71d6ebb473",
+      "stderr_summary": "Optional dependency regex was not on PYTHONPATH. Preserved as the first attempt; no package installation."
+    },
+    {
+      "name": "pool-control-v3-existing-dependency-path",
+      "command": "python3 experimental/branching_context/scripts/verify_pool_control.py --output /home/dflanag3/spatial-artifacts/cow-build-dir-support-g0-v3/summary.json",
+      "environment": "PYTHONPATH begins /home/dflanag3/issue-2026-20261012/deps followed by the isolated source root and branching_context scripts/src/tests paths",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests": 221,
+      "status": "PASS",
+      "failures": [],
+      "errors": [],
+      "skips": [],
+      "xfails": [],
+      "summary_json_sha256": "f4d1db51240308efd7b8a40113c0857486a03114e81b67579f9235ac230afc70",
+      "stderr_sha256": "ea9832241551fca46c4d7e2bacfa86d349dbd9a0f491d1fbcd1e4e77f321a1e6",
+      "stderr_summary": "Ran 221 tests in 2.493s; OK."
+    },
+    {
+      "name": "actual-g0-v1",
+      "command": "python3 experimental/branching_context/scripts/verify.py --gate G0 --no-write",
+      "environment": "PYTHONPATH begins /home/dflanag3/issue-2026-20261012/deps followed by the isolated source root and branching_context scripts/src/tests paths",
+      "wrapper": "/home/dflanag3/spatial-artifacts/cow-build-dir-test-tools/run-command.sh",
+      "run_dir": "/home/dflanag3/spatial-artifacts/cow-build-dir-actual-g0-v1",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "status": "PASS",
+      "gate_result": {
+        "gate": "G0",
+        "status": "PASS",
+        "test_count": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": 0,
+        "unexpected_successes": 0,
+        "required_real_backend_cases": 0
+      },
+      "stdout_sha256": "4256cbad9f0ce4c8918cd7dbc9f80d2756f9d9f6900c8d250129c78f0acfaf0c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "argv_sha256": "a879debf16caaa00067f7552cc98d566bec09e50ee0038eb044f6a3ec127f5db",
+      "stdout_summary": "51 tests in 0.267s; OK; G0: PASS: 51 tests; 0 required real-backend cases.",
+      "verifier_json_note": "verify.py --no-write does not emit a JSON file. gate_result is a structured transcription of the retained stdout; the raw stdout remains at run_dir/stdout.log."
+    }
+  ],
+  "suite_scope_note": "The six focused external-build-dir tests are supplemental, not part of either verifier suite. scripts/verify_pool_control.py is a separate 221-test pool/control suite, not gate G0. Actual G0 was run separately through scripts/verify.py --gate G0 --no-write and passed 51 tests; its --no-write mode emits no JSON file, so gate_result transcribes retained stdout without claiming to be a verifier-generated report."
+}

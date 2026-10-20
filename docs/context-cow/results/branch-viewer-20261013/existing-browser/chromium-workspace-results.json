@@ -1,0 +1,191 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "sleek_icons_are_default",
+    "icons_have_accessible_names",
+    "brief_hover_does_not_show_tooltip",
+    "held_hover_shows_tooltip",
+    "teaching_mode_shows_labels",
+    "math_in_saved_branch_renders",
+    "fork_does_not_open_confirmation",
+    "rename_and_clear_have_distinct_icons",
+    "fork_retains_prefix_messages",
+    "fork_has_its_own_suffix",
+    "parent_branch_is_unchanged",
+    "rewind_does_not_open_confirmation",
+    "clear_empties_only_selected_branch",
+    "restore_does_not_open_confirmation",
+    "clear_is_recoverable",
+    "reload_keeps_selected_branch_and_history",
+    "branch_can_be_named",
+    "archived_chat_is_recoverable",
+    "archiving_keeps_sqlite_history"
+  ],
+  "overflow_elements": [
+    {
+      "id": "view-chat",
+      "cls": "view view--chat",
+      "right": 840
+    },
+    {
+      "id": "",
+      "cls": "workspace-shell",
+      "right": 840
+    },
+    {
+      "id": "workspace-sidebar",
+      "cls": "workspace-sidebar",
+      "right": 840
+    },
+    {
+      "id": "",
+      "cls": "workspace-side-head",
+      "right": 824
+    },
+    {
+      "id": "",
+      "cls": "small muted",
+      "right": 824
+    },
+    {
+      "id": "show-archived",
+      "cls": "",
+      "right": 741.0625
+    },
+    {
+      "id": "chat-list",
+      "cls": "",
+      "right": 824
+    },
+    {
+      "id": "",
+      "cls": "workspace-chat-row",
+      "right": 407.015625
+    },
+    {
+      "id": "",
+      "cls": "workspace-chat",
+      "right": 407.015625
+    },
+    {
+      "id": "",
+      "cls": "st-btn workspace-chat-archive cow-icon",
+      "right": 404.015625
+    }
+  ],
+  "mobile_layout": {
+    "width": 390,
+    "scroll": 840,
+    "teaching": "false",
+    "buttons": [
+      {
+        "id": "archive-chat-btn",
+        "x": 205,
+        "right": 233,
+        "tooltip": "98.1875px"
+      },
+      {
+        "id": "",
+        "x": 376.015625,
+        "right": 404.015625,
+        "tooltip": "84.7812px"
+      },
+      {
+        "id": "new-btn",
+        "x": 8,
+        "right": 44,
+        "tooltip": "68.2031px"
+      },
+      {
+        "id": "export-btn",
+        "x": 52,
+        "right": 89,
+        "tooltip": "54.125px"
+      },
+      {
+        "id": "rename-chat-btn",
+        "x": 405.8125,
+        "right": 442.8125,
+        "tooltip": "76.5156px"
+      },
+      {
+        "id": "rename-branch-btn",
+        "x": 450.8125,
+        "right": 487.8125,
+        "tooltip": "90.3125px"
+      },
+      {
+        "id": "clear-branch-btn",
+        "x": 495.8125,
+        "right": 532.8125,
+        "tooltip": "87.4844px"
+      },
+      {
+        "id": "teaching-btn",
+        "x": 795,
+        "right": 832,
+        "tooltip": "120.266px"
+      },
+      {
+        "id": "restore-point-btn",
+        "x": 795,
+        "right": 832,
+        "tooltip": "88.7344px"
+      },
+      {
+        "id": "",
+        "x": 742,
+        "right": 779,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 787,
+        "right": 824,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 742,
+        "right": 779,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 787,
+        "right": 824,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.2969px"
+      }
+    ]
+  },
+  "error": "AssertionError('mobile_has_no_page_overflow')"
+}

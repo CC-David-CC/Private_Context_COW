@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "scope": "native COW browser integration; synthetic CPU model fixture only",
+  "baseline_commit": "f1345ba1f6727955ede4efd829c4fac8ed70b547",
+  "host": "llm-60",
+  "host_utc_started": "2026-10-15T02:52:34Z",
+  "runtime": {
+    "python": "Python 3.12.3",
+    "browser": "Chromium 155.0.8059.39 snap",
+    "model_weights_loaded": false,
+    "gpu_test": false
+  },
+  "fixture": {
+    "module_sha256": "7d88a26f8539a4b3fac5530ed82b34b1a68ec2e710e860776080d316f00d4c0b",
+    "ready_record": {
+      "event": "ready",
+      "address": "http://127.0.0.1:37789",
+      "pid": 1808000,
+      "synthetic": true,
+      "api_key_required": true,
+      "store_path": "/tmp/cow-browser-fixture-cpnaw229"
+    },
+    "shutdown": "PASS; exact fixture PID 1808000 sent SIGTERM after native-settings socket regression run"
+  },
+  "executed_checks": [
+    {
+      "id": "UI-BOOT",
+      "status": "PASS",
+      "result": "same-origin native discovery and workspace initialization"
+    },
+    {
+      "id": "UI-ISOLATION",
+      "status": "PASS",
+      "result": "legacy local history was not imported; no ordinary workspace routes"
+    },
+    {
+      "id": "UI-LIMIT",
+      "status": "PASS",
+      "result": "editable 2048-token bound; unsupported stochastic and tool controls disabled"
+    },
+    {
+      "id": "UI-PREPARE",
+      "status": "PASS",
+      "result": "first send created canonical prepared branch and active assistant snapshot"
+    },
+    {
+      "id": "UI-RESUME",
+      "status": "PASS",
+      "result": "explicit resume completed the active answer"
+    },
+    {
+      "id": "UI-FORK",
+      "status": "PASS",
+      "result": "fork selected a distinct canonical branch"
+    },
+    {
+      "id": "UI-APPEND",
+      "status": "PASS",
+      "result": "stopped branch accepted another user turn and projected answer"
+    },
+    {
+      "id": "UI-REWIND",
+      "status": "PASS",
+      "result": "rewind refreshed canonical projection"
+    },
+    {
+      "id": "UI-ROUTES",
+      "status": "PASS",
+      "result": "real fetch used prepare/answer/resume/append-user/fork/rewind and no SQLite workspace routes"
+    },
+    {
+      "id": "UI-PROTOCOL",
+      "status": "PASS",
+      "result": "7/7 browser checks for chunked NDJSON, EOF, error, receipt shape, identity, duplicate complete and post-complete data"
+    },
+    {
+      "id": "UI-FAIL-CLOSED",
+      "status": "PASS",
+      "result": "mock DOM test recovered from failed health discovery and blocked native auth failure without ordinary workspace fallback"
+    },
+    {
+      "id": "UI-ACK-LOSS",
+      "status": "PASS",
+      "result": "a missing stream receipt triggered operation-status lookup; the confirmed durable turn was reloaded from canonical history without duplicate submission"
+    },
+    {
+      "id": "UI-DRAFT-RECOVERY",
+      "status": "PASS",
+      "result": "mock DOM test retained a repeated-question draft after rejection even though an identical older question existed"
+    },
+    {
+      "id": "UI-MATH-SETTINGS",
+      "status": "PASS",
+      "result": "native drawer Apply preserved local math enable, MathJax engine, show-thinking preference and localStorage; equation repaint changed from literal $x^2$ to chat-math span, then disabling math restored plain source; native speed-projection control disabled"
+    }
+  ],
+  "browser_command": "/snap/bin/chromium --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --virtual-time-budget=60000 --dump-dom http://127.0.0.1:37789/web/native-socket-test.html",
+  "browser_command_exit": 0,
+  "browser_terminal_status": "COMPLETE",
+  "protocol_browser_command_exit": 0,
+  "protocol_browser_terminal_status": "COMPLETE",
+  "mock_dom_browser_command_exit": 0,
+  "mock_dom_browser_terminal_status": "COMPLETE",
+  "source_sha256": {
+    "serve/web/app.js": "6894a3da873faac0b6c032c3eec878ae4aa0a9dacac527ac840be41fae4d278d",
+    "serve/web/workspace.js": "2883c8df26f5ee4dc94fe868a08a34582fed1aeb9fd35d903428518303cf355a",
+    "serve/web/prepare_native_ui_test.py": "3ff2ce351ee373265dc7a3e1c05f4d47896c2ef09cd6b14b7a5633fdfe75617e",
+    "serve/web/test_cow_native_ui.js": "2cd294e1f96e89035b585b0bcbab6ce3010dee699fc5ab99a619fe75fe3f1cf2",
+    "serve/web/test_cow_protocol.html": "c619f76c259c6a13ed7b76e735262ca91ecc754a220120686331f03828d228fa",
+    "serve/web/test_cow_protocol.js": "8381035a9708d77c6dc5a60a287a82110b8933ea7e12e367c560094828e04902",
+    "serve/web/test_cow_native_socket.js": "1d9a3d5b559df66bb2d7f8e2600154e9ab51ac86dfaea35c15edaaa0a95c9aa3",
+    "serve/web/prepare_cow_native_socket_test.py": "cc5846c441935d2c2ece9861049f45b6cb7cd48a9cae659109801da435f79cde",
+    "serve/web/native-socket-test.html.generated": "63484815b6567632efe9a530f7667a6cd03b5dfd61ec11d04d754a9d54791599",
+    "serve/cow_browser_fixture.py": "7d88a26f8539a4b3fac5530ed82b34b1a68ec2e710e860776080d316f00d4c0b",
+    "serve/cow_http.py": "c044ce2519bace3bab15e4d45ba8d2b19b645e5dc23b0c5e76cd13262454e94c",
+    "serve/cow_workspace.py": "520f7f3c5b23857efe62d3416eeeefaf7bf7971d58427d6f1f9d3172ad502fdb",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "d963bf356c2296aac1f47738282034aac6f5167aaaa6f38759caa2634d223dc9",
+    "experimental/branching_context/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "serve/test_cow_presentation_flow.py": "7afb6739c44bc00ec35df6a34354c7e7c12a7727a984cd8cedf68c12015738da"
+  },
+  "retained_nonpassing_harness_attempt": {
+    "run_directory": "/home/dflanag3/branching-g3/cow-ui-socket-luna-20261014-evidence/browser-native",
+    "reason": "test page was served below /web without a root base URL, so its relative health request targeted /web/health; the harness was corrected and the final real-socket run passed"
+  },
+  "qualification_limit": "This verifies browser-to-HTTP integration against a CPU-only synthetic FlowModel; it makes no GPU, model-quality, or production-throughput claim.",
+  "added_mock_dom_run": {
+    "directory": "/home/dflanag3/branching-g3/cow-ui-socket-luna-20261014-evidence/mock-ui-math-final",
+    "command_exit": 0,
+    "terminal_status": "COMPLETE",
+    "browser_output": "PASS local history isolation, native init, prepare, answer recovery, fail-closed auth",
+    "stderr": "Chromium emitted AppArmor/DBus warnings; command exit 0"
+  },
+  "added_socket_run": {
+    "directory": "/home/dflanag3/branching-g3/cow-ui-socket-luna-20261014-evidence/native-settings-socket-final/browser",
+    "command_exit": 0,
+    "terminal_status": "COMPLETE",
+    "pass_markers": 20,
+    "fixture_pid": 1808000
+  }
+}

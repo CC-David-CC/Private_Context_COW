@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-grammar-q8-spot-v1/evidence.tar",
+  "archive_bytes": 33320960,
+  "archive_sha256": "8b96ad566f453d3db6fade3d044e10cca20fbead71acc077d9c4ddab4f174658",
+  "extracted_files": 0,
+  "manifest_sha256": "0c87e47fb4fda3be9e7fceb8771292138956f2dbb3741fa9ce48f7ee068bb7c4",
+  "schema": "cow-q8-grammar-spot-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 33250759,
+  "verified_members": 69
+}

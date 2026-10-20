@@ -1,0 +1,168 @@
+{
+  "schema": "namespace-http-q8-qualification-v1",
+  "status": "PASS_WITH_SCOPE_LIMITS",
+  "date": "2026-10-14",
+  "record_corrections": [
+    "Correction to commit 940704809d5f431c2f8aa4bfc8b5ef63a8e94a9e: the input profile is under source-b0072ac0/tree/profile.json; the executed, derived profile is the run artifact result/profile.json. The input and executed profile hashes are now recorded separately.",
+    "The 16-GiB minimum is available host RAM enforced by PoolConfig.min_available_bytes, not a disk-free threshold. Root filesystem free space is recorded separately as an approximate post-run observation."
+  ],
+  "source": {
+    "base_commit": "b0072ac0acc88812f68ed42039126f74de7a3631",
+    "integrated_runtime_commit": "85cb6afcc2b049dbdb40a93eb14aae9acf582c16",
+    "overlay": "Only the two pinned-profile-generic fixture builders and their two focused tests were overlaid on the archived source tree.",
+    "remote_tree": "/home/dflanag3/branching-g3/namespace-q8-http-luna-20261014/source-b0072ac0/tree",
+    "tree_manifest": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/source-sha256.txt",
+    "tree_manifest_sha256": "043bced5081ea34961261b4173dc3dccc931f567aaeeb4c22370f467ccde37f0",
+    "archive_sha256": "172dbebf33d397001072922c64ab47bd80448c445ccbc8d590f7ea0c5af766d",
+    "probe_sha256": "4dbe074895406750b064bc7a5bc3659939796d6641e957027b4a851c6df2c43a",
+    "builder_1k_sha256": "666f82b35477d42e021dc5b197bf9c932e0ddb9c8c629a43be6474eb1ae14a96",
+    "builder_8k_sha256": "d17ed0fa221545828961a2b76891d3f145d915f6686ee1ebee222ee8449ea45c"
+  },
+  "cpu_fixture_tests": {
+    "command": "python3 -m unittest discover -s experimental/branching_context/tests/implementation -p 'test_namespace_http_fixture*.py' -v",
+    "host": "llm-60",
+    "exit_code": 0,
+    "tests_passed": 8,
+    "tests_skipped": 0,
+    "executed_ids": [
+      "test_namespace_http_fixture.NamespaceHTTPFixtureTests.test_actual_source_bundle_is_prioritized_and_contains_fork_projection_seam",
+      "test_namespace_http_fixture.NamespaceHTTPFixtureTests.test_method_excerpt_is_exact_and_file_hash_covers_the_source",
+      "test_namespace_http_fixture.NamespaceHTTPFixtureTests.test_missing_source_method_fails_closed",
+      "test_namespace_http_fixture.NamespaceHTTPFixtureTests.test_model_variant_comes_from_pinned_profile_path",
+      "test_namespace_http_fixture.NamespaceHTTPFixtureTests.test_excerpt_receipts_bind_exact_source_bytes_and_ranges",
+      "test_namespace_http_fixture_8k.NamespaceHTTPFixture8KTests.test_expanded_bundle_is_request_publication_and_workspace_code_only",
+      "test_namespace_http_fixture_8k.NamespaceHTTPFixture8KTests.test_quantization_label_is_read_from_the_selected_profile",
+      "test_namespace_http_fixture_8k.NamespaceHTTPFixture8KTests.test_questions_are_distinct_source_review_tasks_with_boundary_requirements"
+    ]
+  },
+  "profile": {
+    "model_variant": "Q8_0",
+    "input_profile": {
+      "path": "/home/dflanag3/branching-g3/namespace-q8-http-luna-20261014/source-b0072ac0/tree/profile.json",
+      "sha256": "9dae2fc8967fd98e3b61a93e9a9f0d3a16bae84f266b44729a8f591b77fafd43"
+    },
+    "executed_profile": {
+      "path": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-8k-512-128-v1/result/profile.json",
+      "sha256": "14b3d16b9ba65e84e42c16352ffcd88304e4ff3ea2302a235d75ef1ecb164e59",
+      "execution_profile_id": "b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1"
+    },
+    "model_contract_sha256": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "capacity_tokens": 98304,
+    "prefill_chunk_tokens": 8192,
+    "kv_dtype": "fp16",
+    "gpu_ids": [0],
+    "sut_binary_sha256": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b",
+    "fresh_reference_binary_sha256": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c",
+    "resources": {
+      "pool_ram_gib": 96,
+      "pool_disk_gib": 128,
+      "minimum_available_host_ram_gib": 16,
+      "resident_budget_gib": 40,
+      "vram_reserve_mib": 8192,
+      "host": "llm-60 RTX PRO 6000, driver 595.91.07",
+      "root_filesystem_free_after_run_gib_approx": 35
+    }
+  },
+  "fixtures": [
+    {
+      "size": "1K plumbing",
+      "path": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/fixture-q8-1k-full96-v1.json",
+      "sha256": "e4b3742d146503f4a1ba396dd723db13812c18cfb1b2023a13c9910809c9d0af",
+      "source_tokens": 1577,
+      "rendered_base_tokens": 1612,
+      "suffix_tokens": {"A": 58, "B": 44},
+      "tokenizer_template": "Actual Q8_0 GGUF tokenizer and chat template; literal-safe encoding parity and exact prefix were checked on CPU."
+    },
+    {
+      "size": "8K source review",
+      "path": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/fixture-q8-8k-full96-v1.json",
+      "sha256": "f1d23f1092672cd623d8d51295b71820bf7d4976853498d00d2195a686a32f49",
+      "source_tokens": 8806,
+      "rendered_base_tokens": 8841,
+      "suffix_tokens": {"A": 456, "B": 512},
+      "tokenizer_template": "Actual Q8_0 GGUF tokenizer and chat template; literal-safe encoding parity and exact prefix were checked on CPU."
+    }
+  ],
+  "gpu_runs": [
+    {
+      "run": "1K plumbing, 8 output tokens",
+      "directory": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-1k-8-v1",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "native_exit": 0,
+      "independent_audit": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/root-audit-1k.json",
+      "audit_sha256": "d06bd805e41c14115254d578e128c4a81eb55a87a31b82f8ac0c73eeffa8d3b3",
+      "result_sha256": "c8a460f46b20b829e726235e1f314376fadfb95bdc0378c2ee9c740720432026",
+      "outcome": "PASS; four full-vector comparisons, exact controller records, zero numerical error; A/B native forward work 66/52."
+    },
+    {
+      "run": "8K source review, maximum 128 output tokens per branch",
+      "directory": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-8k-512-128-v1",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "native_exit": 0,
+      "schedule": {
+        "A_requests": [8841, 456],
+        "A_prefill_chunks": [[0, 8192], [8192, 649], [8841, 456]],
+        "B_requests": [8841, 512],
+        "B_prefill_chunks": [[0, 8192], [8192, 649], [8841, 512]]
+      },
+      "independent_audit": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/audit-q8-8k-512-128-v1.json",
+      "audit_sha256": "cd5263aa2db2c8ce46c7883e8ec8429d6487a084ea3cdacf8207c106676e959c",
+      "audit_source_sha256": "fe554493d99b9dde0a42a314dcc166317bc2fe8ffa8654a33879959b2920db27",
+      "result_sha256": "7f6ee843d1014c743188d1b8a5a4f5ffc519c4a9e504a1acd7865f1c471a6914",
+      "execution_profile_id": "b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1",
+      "checks": ["HTTP-GPU-001", "HTTP-GPU-2", "HTTP-GPU-3", "HTTP-GPU-EXACT-A", "HTTP-GPU-EXACT-B"],
+      "outcome": "PASS; independent parent audit exit 0; four full-vector comparisons (root and final per branch), maximum error 0, exact generated tokens and complete controller records.",
+      "work": {
+        "A_suffix_tokens": 456,
+        "A_generated_tokens": 128,
+        "A_native_forward_tokens": 584,
+        "B_suffix_tokens": 512,
+        "B_generated_tokens": 128,
+        "B_native_forward_tokens": 640,
+        "fresh_reference_A_prefill_tokens": 9297,
+        "fresh_reference_B_prefill_tokens": 9353,
+        "fresh_reference_normal_forward_tokens_per_branch": 128
+      },
+      "single_observation_metrics": {
+        "startup_seconds": 73.16808006702922,
+        "total_run_seconds": 269.63571109296754,
+        "A_received_generation_tokens_per_second": 49.3726356607,
+        "A_ttft_seconds": 1.4650967,
+        "A_durable_seconds": 5.68818,
+        "B_received_generation_tokens_per_second": 52.4805235343,
+        "B_ttft_seconds": 0.9494751,
+        "B_durable_seconds": 4.99958
+      },
+      "capacity_metrics": {
+        "pool_ram_limit_bytes": 103079215104,
+        "peak_accounted_ram_bytes": 8850816596,
+        "resident_ram_bytes_after": 1082049396,
+        "pool_disk_limit_bytes": 137438953472,
+        "disk_bytes_after": 1082055054,
+        "gpu_high_water_used_mib_observed": 92364,
+        "observed_vram_capacity_mib": 97887,
+        "free_root_filesystem_minimum_gib_required": 16,
+        "free_root_filesystem_after_run_gib_approx": 35
+      }
+    }
+  ],
+  "limitations": [
+    "This qualifies the Q8 namespace-bound HTTP probe path against an independent fresh-process reference, not a real browser interaction or normal chat/OpenAI endpoint.",
+    "The 8K result is one observation per branch; TPS and latency are not repeated medians or a production throughput claim.",
+    "The audit compares root and final full vectors and exact complete controller/token outputs; it does not claim per-token full-vector comparison for every intermediate step.",
+    "No cross-quantization equality claim is made. No A100 or multi-GPU result is implied.",
+    "The earlier Q4 qualification is separate. The Q8 profile is the full 98,304-token, 96-GiB RAM / 128-GiB disk configuration with 16-GiB minimum host free space."
+  ],
+  "next_browser_smoke_contract": {
+    "status": "PROPOSED_PENDING_ROOT_REVIEW; NOT RUN",
+    "frozen_source": "/home/dflanag3/branching-g3/namespace-q8-http-luna-20261014/source-b0072ac0/tree",
+    "profile": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-8k-512-128-v1/result/profile.json",
+    "loopback_url": "http://127.0.0.1:18099/",
+    "launch_shape": "PYTHONPATH=<tree>/experimental/branching_context/src:<tree>:<tree>/tools:/home/dflanag3/issue-2026-20261012/deps python3 <tree>/serve/cow_http.py --profile <profile> --store <fresh-private-store-dir> --host 127.0.0.1 --port 18099 --api-key <fresh-local-only-key> --text",
+    "tokenizer_kwargs": "Use pinned Q8_0 GGUF tokenizer/template path and the same enable_thinking=false, literal-safe Service.encode_prompt behavior validated by the fixture builders; root must confirm browser route wiring before launch.",
+    "stop_contract": "Capture server and native child PIDs from the readiness/terminal receipts; stop the tmux pane with Ctrl-C, then verify both exact PIDs exited and the store was closed. Do not launch until root reviews the browser driver and chooses the key/store path."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "base": "a8dc50fdb61e62135cb44e9cd2caf7a27e5a3627",
+  "frozen_source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-complete-frontiers-source-v1",
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-user-suffix-profile-v1/profile.json",
+  "red": "vision-frontiers-red-run-v1: policy argument missing; original errors retained",
+  "scope": "Tiny/medium require every generated frontier; target sampling unchanged. Native/model/profile/operators/controller/reference equations and tolerances unchanged.",
+  "source_files": {
+    "experimental/branching_context/scripts/run_vision_qualification.py": "8846de0f3d3e57f1f63524ff0fb26ca275ad5c31fc8f30c3547e44fcbf93334b",
+    "experimental/branching_context/tests/implementation/test_vision_frontier_coverage.py": "dce592dac31ab1f71320a6eb7a9aec9edd824613685a61561fe370f8887a3077"
+  },
+  "status": "CPU_PASS_GPU_UNRUN",
+  "tests": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "focused": 9,
+    "skips": 0,
+    "with_fixture_regressions": 17
+  }
+}

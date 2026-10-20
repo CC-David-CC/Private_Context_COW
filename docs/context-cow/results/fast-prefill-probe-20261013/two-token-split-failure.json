@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "scope": "hard-coded prefill-only experiment; no G1/G2/G3 qualification",
+  "timed_generated_tokens": 0,
+  "cross_operator_control_max_new": 1,
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11
+  },
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "execution_profile_id": "bc11c4ee22056b196b24778a8b259e5f7ba4378697ba8ce3ce2095ccf7d72071",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "profile_sha256": "ba49b4e6826a80a7916b8438270e6fbf6eaabb7f135a28acf776b3661ead96b6",
+  "comparisons": [
+    {
+      "label": "restore 100 then batched 117: resident",
+      "compared_logits": 248320,
+      "max_absolute_error": 3.0646746158599854,
+      "top1_actual": 4101,
+      "top1_expected": 9304,
+      "requirement": "exact experimental baseline"
+    },
+    {
+      "label": "restore 100 then batched 117: disk",
+      "compared_logits": 248320,
+      "max_absolute_error": 3.0646746158599854,
+      "top1_actual": 4101,
+      "top1_expected": 9304,
+      "requirement": "exact experimental baseline"
+    }
+  ],
+  "forwards": [
+    {
+      "label": "two-restored-fresh",
+      "command": [
+        "<measurement-home>/branching-g3/fast-prefill-probe2-20261013/strata-batched-fresh",
+        "--pack",
+        "<measurement-home>/branching-g3/q8-pack",
+        "--native",
+        "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+        "--mmap-experts",
+        "--max-new",
+        "1",
+        "--max-context",
+        "4096",
+        "--pool-workers",
+        "2",
+        "--spec",
+        "2",
+        "--prefill",
+        "128",
+        "--suffix-draft",
+        "0",
+        "--expert-profile",
+        "<measurement-home>/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+        "--expert-cache",
+        "512",
+        "--pcie-frac",
+        "0.55",
+        "--tokens-file",
+        "<measurement-home>/branching-g3/fast-prefill-two-restore-20261013/two-restored-fresh.tokens"
+      ],
+      "exit_code": 0,
+      "seconds": 4.614391921903007,
+      "history": [
+        100,
+        117
+      ],
+      "logits_sha256": "574f9fe1f8f31e79ed3b89f2fc00550528747bfc28e9e0e2e0a7236c9d159655",
+      "bytes": 993280,
+      "counters": {
+        "consumed": 2,
+        "prefill_tokens": 2,
+        "prefill_chunks": 1
+      }
+    }
+  ],
+  "timings": [],
+  "tests": [
+    {
+      "id": "__main__.main.<locals>.Probe.test_04_two_token_restore_then_prefill",
+      "failures": 3,
+      "errors": 0,
+      "skips": 0
+    }
+  ],
+  "two_token_restore_counters": [
+    {
+      "lane": "resident",
+      "forward_tokens": 1,
+      "prefill_tokens": 1,
+      "native_load_bytes": 0
+    },
+    {
+      "lane": "disk",
+      "forward_tokens": 1,
+      "prefill_tokens": 1,
+      "native_load_bytes": 118169084
+    }
+  ],
+  "parent_audits": [
+    {
+      "lane": "resident",
+      "index": 0,
+      "sha256": "af0abab624e2777da5f5e4885f5120f07c940832790ccc3b0be16c58f18b669a",
+      "bytes": 244885556
+    },
+    {
+      "lane": "disk",
+      "index": 0,
+      "sha256": "af0abab624e2777da5f5e4885f5120f07c940832790ccc3b0be16c58f18b669a",
+      "bytes": 244885556
+    }
+  ],
+  "test_count": 1,
+  "failures": [
+    {
+      "id": "__main__.main.<locals>.Probe.test_04_two_token_restore_then_prefill (lane='resident')",
+      "trace": "Traceback (most recent call last):\n  File \"<measurement-home>/branching-g3/fast_prefill_probe_two_restore_20261013.py\", line 271, in test_04_two_token_restore_then_prefill\n    compare(actual,expected,'restore 100 then batched 117: '+lane)\n  File \"<measurement-home>/branching-g3/fast_prefill_probe_two_restore_20261013.py\", line 101, in compare\n    if enforce and error!=0: raise AssertionError(label+': max absolute error '+str(error))\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: restore 100 then batched 117: resident: max absolute error 3.0646746158599854\n"
+    },
+    {
+      "id": "__main__.main.<locals>.Probe.test_04_two_token_restore_then_prefill (lane='disk')",
+      "trace": "Traceback (most recent call last):\n  File \"<measurement-home>/branching-g3/fast_prefill_probe_two_restore_20261013.py\", line 271, in test_04_two_token_restore_then_prefill\n    compare(actual,expected,'restore 100 then batched 117: '+lane)\n  File \"<measurement-home>/branching-g3/fast_prefill_probe_two_restore_20261013.py\", line 101, in compare\n    if enforce and error!=0: raise AssertionError(label+': max absolute error '+str(error))\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: restore 100 then batched 117: disk: max absolute error 3.0646746158599854\n"
+    },
+    {
+      "id": "__main__.main.<locals>.Probe.test_04_two_token_restore_then_prefill (lane='host-ram')",
+      "trace": "Traceback (most recent call last):\n  File \"<measurement-home>/branching-g3/fast_prefill_probe_two_restore_20261013.py\", line 256, in test_04_two_token_restore_then_prefill\n    self.assertTrue(backend.restore_cached(lease,(100,)))\nAssertionError: False is not true\n"
+    }
+  ],
+  "errors": [],
+  "skips": []
+}

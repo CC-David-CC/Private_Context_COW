@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "pid": 1515902,
+  "phases": [
+    {
+      "phase": "q4-tiny",
+      "exit_code": 1,
+      "expected_exit_code": 0,
+      "seconds": 33.871235897997394
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "q4-tiny",
+  "child_pid": 1515917,
+  "elapsed_seconds": 30.00094746600371,
+  "error": "q4-tiny unexpected exit; inspect retained logs",
+  "restored_server_pid": 1516033,
+  "server_http_status": 200
+}

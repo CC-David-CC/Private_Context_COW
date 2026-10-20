@@ -1,0 +1,47 @@
+{
+  "browser": "chromium",
+  "status": "PASS",
+  "scope": "actual browser UI; mock inference, no GPU",
+  "checks": [
+    "rendering_starts_disabled",
+    "no_vendor_load_when_disabled",
+    "renderer_selector_exists",
+    "katex_switch_keeps_streaming_element",
+    "katex_adapter_selected",
+    "katex_source_preserved_while_streaming",
+    "katex_persisted_choice",
+    "katex_completed_api_source_preserved",
+    "mathjax_switch_keeps_streaming_element",
+    "mathjax_adapter_selected",
+    "mathjax_source_preserved_while_streaming",
+    "mathjax_persisted_choice",
+    "mathjax_completed_api_source_preserved",
+    "katex_switch_keeps_streaming_element",
+    "katex_adapter_selected",
+    "katex_source_preserved_while_streaming",
+    "katex_persisted_choice",
+    "katex_completed_api_source_preserved",
+    "switch_discards_old_results_and_keeps_queue_serial",
+    "reload_restores_selected_viewer_and_source",
+    "unknown_saved_viewer_falls_back_to_katex",
+    "narrow_viewport_has_no_page_overflow",
+    "disabled_round_trip_uses_original_markdown",
+    "no_browser_errors",
+    "no_external_asset_requests"
+  ],
+  "engines": {
+    "katex": [
+      {
+        "chat_ms": 286.12279999651946
+      },
+      {
+        "chat_ms": 3864.863900002092
+      }
+    ],
+    "mathjax": [
+      {
+        "chat_ms": 3707.8223999997135
+      }
+    ]
+  }
+}

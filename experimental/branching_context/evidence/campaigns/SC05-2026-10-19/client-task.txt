@@ -1,0 +1,1 @@
+Continue the CURRENT EnvLite project. Add optional reject_duplicates support exactly as documented in the current README. Read the current source/tests, edit only envconfig.py, keep helper/tests unchanged, run the configured tests, and report actual outcomes.

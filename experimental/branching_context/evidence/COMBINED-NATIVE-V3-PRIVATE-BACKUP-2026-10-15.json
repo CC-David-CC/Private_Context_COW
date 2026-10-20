@@ -1,0 +1,28 @@
+{
+  "archive_bytes": 3883735040,
+  "archive_sha256": "cd423c94c923e80d4efd3098f8b8b696bae9573f969194d8b6db5dc4c444d4d0",
+  "bundle_helper_sha256": "5438a97aa384a036c2d184d2b2e61bc2824c76cdb72e306dcf4bf84536e5449d",
+  "caller_sha256": "3099a9c9132b05956a92b9f4c43b672b0992f17e5fcde520cfce68cea3373746",
+  "destination_directory_mode": "700",
+  "destination_mode_size": "600 3883735040",
+  "destination_sha256": "cd423c94c923e80d4efd3098f8b8b696bae9573f969194d8b6db5dc4c444d4d0",
+  "destination_sha256_recheck": "sender sha256sum passed before its stat argv error; receiver also reopened final file and verified exact hash",
+  "manifest_raw_sha256": "eca4d80fffe7b212c58fe9b383caf4c095347c581149b86acbd6863858d29370",
+  "member_count": 613,
+  "member_listing_sha256": "aaba87abab2a81433ed9e1a4842fea4e55ae48db24a8d55620853d8751d9370b",
+  "no_deletions": true,
+  "receipt_mode_size": "600 792",
+  "receiver_manifest_canonical_sha256": "1bf53e8125d3685c22e5eabf972c1c0fc455ed7b2ae199ec8b83076f197f399a",
+  "receiver_status": "PASS",
+  "receiver_verification": "every regular tar member matches the embedded sorted input manifest",
+  "sender_post_stream_check_v1_failure": {
+    "archive_stream_and_receiver_checks_before_failure": "PASS",
+    "failed_step": "extra stat command was passed as split SSH argv; remote stat interpreted %s as a path",
+    "raw_error": "stat: cannot statx '%s': No such file or directory",
+    "sender_destination_sha256_check_before_failure": "PASS (sender reached stat after sha256sum assertion)",
+    "sender_python_exit": 1,
+    "status": "RECOVERED_POST_STREAM_CHECK_FAILURE"
+  },
+  "status": "PASS",
+  "target": "/srv/data/git/private_context_cow.evidence/20261015-combined-native-v3/combined-native-v3.tar"
+}

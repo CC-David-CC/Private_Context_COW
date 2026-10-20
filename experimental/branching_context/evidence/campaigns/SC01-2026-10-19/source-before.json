@@ -1,0 +1,22 @@
+{
+  "neighbor.txt": {
+    "sha256": "86d871d3c54d4b3612c54033ead10a50f089ed37216a3a48ba855b31a8a8f20e",
+    "mode": "0o664"
+  },
+  "README.md": {
+    "sha256": "6d2c7f96dd7328214c876d6863d4dd77b1fbd41ef20b2315536067beb281a65a",
+    "mode": "0o664"
+  },
+  "ledger.py": {
+    "sha256": "b824933e0fc749bc303714848b33d973719ed6c0dd65d718677b318383247d48",
+    "mode": "0o664"
+  },
+  "tests/test_ledger.py": {
+    "sha256": "4310152d1df97e4b6599275f6a211e883f0a98b493e587fe076fd1c1d95ce3e6",
+    "mode": "0o664"
+  },
+  "tests/__init__.py": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mode": "0o664"
+  }
+}

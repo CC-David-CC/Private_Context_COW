@@ -1,0 +1,1 @@
+Continue CURRENT EnvLite project: implement required_keys exactly as CURRENT README documents, preserving reject_duplicates and all existing behavior. Inspect current files and tests. Edit only envconfig.py, keep helper/tests unchanged, run required tests and report actual results.

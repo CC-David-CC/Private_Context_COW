@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "scope": "isolated CUDA SHA-256; not inference; three passes after warm-up per process",
+  "bytes_per_pass": 536870912,
+  "fixture_sha256": "977ca80cc5bb5d1b04229c71c8916280ce03a91b297637e7c1f7e3078fe299b7",
+  "binary_sha256": "aafc2aac5d813a1914e50d97ecc1655469cf6fba25726acc42c3197b59672e7b",
+  "harness_sha256": "16a627501e9b40731014f39fdae9c433c89382b7df432636d451823323dd5d91",
+  "repetitions": [
+    {
+      "wall_ns": 7222524,
+      "plan_upload_ns": 18387,
+      "page_hash_ns": 3455699,
+      "page_digest_download_ns": 846310,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "workspace_live_bytes": 0,
+      "repetition": 0,
+      "process_seconds": 27.65933769394178,
+      "ms_per_pass": {
+        "wall_ns": 2.407508,
+        "plan_upload_ns": 0.006129,
+        "page_hash_ns": 1.1518996666666668,
+        "page_digest_download_ns": 0.2821033333333333
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    },
+    {
+      "wall_ns": 7198688,
+      "plan_upload_ns": 18544,
+      "page_hash_ns": 3462252,
+      "page_digest_download_ns": 847865,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "workspace_live_bytes": 0,
+      "repetition": 1,
+      "process_seconds": 27.524223055923358,
+      "ms_per_pass": {
+        "wall_ns": 2.3995626666666667,
+        "plan_upload_ns": 0.006181333333333333,
+        "page_hash_ns": 1.154084,
+        "page_digest_download_ns": 0.28262166666666666
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    },
+    {
+      "wall_ns": 7068830,
+      "plan_upload_ns": 18125,
+      "page_hash_ns": 3451672,
+      "page_digest_download_ns": 859907,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "workspace_live_bytes": 0,
+      "repetition": 2,
+      "process_seconds": 27.54723440494854,
+      "ms_per_pass": {
+        "wall_ns": 2.3562766666666666,
+        "plan_upload_ns": 0.0060416666666666665,
+        "page_hash_ns": 1.1505573333333334,
+        "page_digest_download_ns": 0.2866356666666667
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    }
+  ]
+}

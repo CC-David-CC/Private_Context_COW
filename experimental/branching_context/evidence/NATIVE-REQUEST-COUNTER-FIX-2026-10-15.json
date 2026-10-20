@@ -1,0 +1,81 @@
+{
+  "status": "Q4_TINY_NATIVE_REQUEST_PASS",
+  "scope": "Generated probe completion and stats must expose the same cumulative native forward-token count",
+  "host": "llm-60",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "failure_record": "COMBINED-Q4-TINY-FAIL-2026-10-15.json",
+  "change": "Add completed batched-prefill work to the generated request-completion forward_tokens field, matching stats. Keep Python request-completion validation unchanged.",
+  "focused_red": {
+    "receipts": "runs/counter-red-v2",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "tests": 1,
+    "failures": 1,
+    "assertion": "Only one of two generated counter expressions is cumulative: 1 != 2"
+  },
+  "focused_green": {
+    "receipts": "runs/counter-green-v2",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests": 1,
+    "failures": 0
+  },
+  "preserved_setup_failure": {"receipts": "runs/counter-red-v1", "classification": "setup error; not behavioral RED"},
+  "reviewed_canonical_builder_sha256": "4f3f3dd5e67cb975de665d938e8858d69e15b48fb3be7cf5b875e99a962547f1",
+  "canonical_test_sha256": "f1c96691c517841a3f04ef64c7c69f07ad5b160a612f0a6c3f0a21860a93ca27",
+  "combined_recipe_tests": {
+    "receipts": "/home/dflanag3/spatial-artifacts/cow-seal-counter-builder-run-20261015-v2",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "preserved_v1": "Ten tests; nine passed and one setup error because the new fixture lacked the now-required CMakeCache. Added that fixture input; no assertion weakened. v1 receipts retained alongside v2."
+  },
+  "test_limit": "Compiler subprocesses mocked for source-generation assertions only. This is not GPU, model or performance evidence. Final canonical builder and robust-import/cache fixture passed the combined ten-test recipe suite.",
+  "corrected_native_build": {
+    "receipts": "/home/dflanag3/spatial-artifacts/cow-seal-native-probe-build-v3-run",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "commands": 14,
+    "all_compile_link_commands_exit": 0,
+    "build_receipt": "native-probe-v3/build.json",
+    "build_receipt_sha256": "d251cd11267d2e32a57144d25588a7f6450bd466df72f1cd828b21b36a2c7b0c",
+    "branch_binary_sha256": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+    "fresh_binary_sha256": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129",
+    "generated_driver_sha256": "9370d129ee83399ad88cceee6b696c4f2e04655a9de0f362b610904f99a86d75",
+    "execution_profile_id": "f94ff12f7da0ef492c6aa05cafe3c755295af55be6a835c8f12d45d4f4c31f12"
+  },
+  "gpu_rerun": {
+    "receipts": "runs/native-probe-tiny-v3",
+    "output": "probe-tiny-v3",
+    "status_at_checkpoint": "PASS",
+    "observed_python_pid": 2188734,
+    "fixture": "128 prefix / 4 suffix / up to 8 outputs per branch; every frontier",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "result_sha256": "a3ec990be20585850f00f2892606ede1be00591d63280066d3eec59ba3130067",
+    "comparisons": 32,
+    "numerical_max_error": 0.0,
+    "outputs_per_branch": {"A": 8, "B": 8},
+    "checked_generated_boundaries_per_branch": [1, 2, 3, 4, 5, 6, 7, 8],
+    "parent_byte_audit": "PASS",
+    "cancellation_consumed": 133,
+    "native_pid": 2189250,
+    "native_exit_code": 0,
+    "generation_work_per_branch": {
+      "forward_tokens": 8,
+      "prefill_tokens": 0,
+      "captures": 0,
+      "restores": 0,
+      "integrity_device_hashed_bytes": 20132659200,
+      "integrity_digest_copy_bytes": 0,
+      "integrity_compare_result_copy_bytes": 64,
+      "integrity_mismatches": 0
+    },
+    "completion_cumulative_forward_tokens": {"A": 140, "B": 220},
+    "limit": "Native resident request only. Does not exercise cold streaming load or process-separated durable publication. Tiny timing is not a throughput qualification."
+  },
+  "next": "Process-separated Q4 tiny disk restart, then 1K and 8K correctness; matched performance and Q8 remain. Preserve v2 failure and v3 success separately."
+}

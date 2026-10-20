@@ -1,0 +1,38 @@
+{
+  "work-summary.json": {
+    "bytes": 1246,
+    "sha256": "b4c006907cd82eff7b518a280a675d820b5efc89788b23dcf8de4b8b8178e6e5"
+  },
+  "saved-bytes-audit.json": {
+    "bytes": 1550,
+    "sha256": "a5396c4db5f9c3aecf16fc0e61aa38c52218ad8db6f84d4ac95af004c55a9a9e"
+  },
+  "audit-result.json": {
+    "bytes": 11539,
+    "sha256": "5690a7125fdcb7b6ee5411991bc83d3a901e4d9ad1fc1e379f732b1668572c99"
+  },
+  "SCOPE.txt": {
+    "bytes": 444,
+    "sha256": "85366d00545ebd69d892d423824d70a3c3a285fe20994b9f75119e4ea9a21153"
+  },
+  "operator-visible.stderr": {
+    "bytes": 650,
+    "sha256": "47ab168627913a451f231d506bb5dc9ada337c1b876c1a0176603973dbc067c7"
+  },
+  "result.json": {
+    "bytes": 4184,
+    "sha256": "1820c2fd2b21fb3c88fc7ff40cbb33738aba90c439de8b3c75e44b899ac47a27"
+  },
+  "operator-heldout.stderr": {
+    "bytes": 169,
+    "sha256": "735c8bf98b27fd734edd4f7890f4d58c17b1982370ff138192833197c3041ab5"
+  },
+  "ssh-cleanup.json": {
+    "bytes": 62,
+    "sha256": "0a249c4de9a2f435461f9e9b4061888602aa349ba24f7888329184cdaca81d51"
+  },
+  "ledger.py": {
+    "bytes": 706,
+    "sha256": "e98604e25c7ccaded994f2da3135ee884531b00ac3c181b5842c91a686231a13"
+  }
+}

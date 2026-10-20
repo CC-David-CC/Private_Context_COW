@@ -1,0 +1,715 @@
+{
+    "command_exit":  0,
+    "commands":  [
+                     {
+                         "elapsed_seconds":  0.0586356280837208,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "namespace",
+                         "native_trace_bytes_after":  3388,
+                         "native_trace_bytes_before":  3388,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  {
+                                         "created_at_ns":  1792200601631150886,
+                                         "namespace_id":  "70a209921de754349493454b8f12aad2",
+                                         "operation_id":  "seed-stop-ns-5bde4f777425",
+                                         "title":  "Seed/STOP probe 5bde4f777425"
+                                     },
+                         "stderr_sha256":  "f0fe9d891b8e48681488fed17850d64b10e69df09721f8b4e8987b155518f0c1",
+                         "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                     },
+                     {
+                         "elapsed_seconds":  0.6481504540424794,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "prepare",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  3388,
+                         "native_trace_delta_sha256":  "d932cb54256ea8e959e42603f7ea4464cb99a557164071af6175ef93ef964e8f",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "main",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "a89ea08b45c9230a813e1fa9705a40021bb9f78e95af45bcbf40a16e7919cbca",
+                                         "snapshot":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b"
+                                     },
+                         "stderr_sha256":  "5f752e96f86da0877f54fac476ec1f9814803fa468e00ab9e2a276a68104ed2b",
+                         "stdout_sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+                     },
+                     {
+                         "elapsed_seconds":  0.11979737202636898,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "fork-sampled",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  51126,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  {
+                                         "name":  "seeded-5bde4f777425",
+                                         "revision":  0,
+                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                         "tip":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b"
+                                     },
+                         "stderr_sha256":  "0477ca7efa68f3e0472796699ae68f6320dcf66a8f2f1b7db5e56616ac55f6ca",
+                         "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                     },
+                     {
+                         "elapsed_seconds":  0.12047928897663951,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "fork-grammar",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  51126,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  {
+                                         "name":  "grammar-stop-5bde4f777425",
+                                         "revision":  0,
+                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                         "tip":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b"
+                                     },
+                         "stderr_sha256":  "2ced652a6b829837cfe38d0689bfcd05a07c7abaa13ce12a15f9f84e359b5d98",
+                         "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                     },
+                     {
+                         "elapsed_seconds":  1.202853438211605,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "sampled-partial",
+                         "native_trace_bytes_after":  107756,
+                         "native_trace_bytes_before":  51126,
+                         "native_trace_delta_sha256":  "62b51a4cc1ba4d524a426c94a93796d7782cdbfa2606625691ed75709867cfc7",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "604e629ef3f62354614219a04a03f7f864d509dde2af5ac704d0d001dffcac2c",
+                                         "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                     },
+                         "stderr_sha256":  "abd5b90c8a3c4bb7cc77bb8503ae5d1b876e0aab95023ca43a4da2b11649bf10",
+                         "stdout_sha256":  "06f961b802bc46ee168555f066d28f4f0e9afdf3f88174c1ee6f9de004fc30a0"
+                     },
+                     {
+                         "elapsed_seconds":  0.5576454231049865,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "reseed",
+                         "native_trace_bytes_after":  136541,
+                         "native_trace_bytes_before":  107756,
+                         "native_trace_delta_sha256":  "9f9d22676c7ab87474b127dfe806423d7cca8d5570f8feb9bd9e21ffdf4c54c2",
+                         "receipt":  {
+                                         "name":  "seeded-5bde4f777425",
+                                         "revision":  2,
+                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                         "tip":  "bf4a788e44d8f25d9fe979c22ff2ca578ae3ca69873a10517bf41058574480ea"
+                                     },
+                         "stderr_sha256":  "6629bd38869d54df381fc4a0d7cbf89dbea1c5333d29dac5e1bda491a1312af1",
+                         "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                     },
+                     {
+                         "elapsed_seconds":  0.9994443331379443,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "sampled-continue",
+                         "native_trace_bytes_after":  314578,
+                         "native_trace_bytes_before":  136541,
+                         "native_trace_delta_sha256":  "f20ba0278235d5115827c9884dd148006083fcd7b7c2829d7588d8d09092a6ec",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  3,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "466542337dbee0f4697a3094c988e3d6180a67a1290a1b9842da5dde3a4514bd",
+                                         "snapshot":  "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9"
+                                     },
+                         "stderr_sha256":  "a5bda9474e39060d62eea763b8b7e2466b8d2af17ac2377e5cb4ffcef27c8210",
+                         "stdout_sha256":  "42b87d3f60bcf375a4c525f08183aee06c383198eae7c871ed8e3c7212da8ae1"
+                     },
+                     {
+                         "elapsed_seconds":  0.07867614296264946,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "sampled-exact-retry",
+                         "native_trace_bytes_after":  314578,
+                         "native_trace_bytes_before":  314578,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "604e629ef3f62354614219a04a03f7f864d509dde2af5ac704d0d001dffcac2c",
+                                         "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                     },
+                         "stderr_sha256":  "0b560248d427a1efadf82af01f716bef706945d11edfa33a3de0f6c8306b6da9",
+                         "stdout_sha256":  "06f961b802bc46ee168555f066d28f4f0e9afdf3f88174c1ee6f9de004fc30a0"
+                     },
+                     {
+                         "elapsed_seconds":  0.12514399900101125,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "restart-exact-retry",
+                         "native_trace_bytes_after":  3388,
+                         "native_trace_bytes_before":  3388,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "604e629ef3f62354614219a04a03f7f864d509dde2af5ac704d0d001dffcac2c",
+                                         "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                     },
+                         "stderr_sha256":  "0b560248d427a1efadf82af01f716bef706945d11edfa33a3de0f6c8306b6da9",
+                         "stdout_sha256":  "06f961b802bc46ee168555f066d28f4f0e9afdf3f88174c1ee6f9de004fc30a0"
+                     },
+                     {
+                         "elapsed_seconds":  1.9940723818726838,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "restart-continue",
+                         "native_trace_bytes_after":  141012,
+                         "native_trace_bytes_before":  3388,
+                         "native_trace_delta_sha256":  "3a7948718b67e7e5d2c7761fd1b344558f1d2715e9ebc50d8a6d694939f51991",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  4,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "afb2504a6f4eb80edb608ceea1b3ee74671f09a34599103f51b12ba0965d27ca",
+                                         "snapshot":  "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9"
+                                     },
+                         "stderr_sha256":  "7c8fdb0054834ad8bbad6767465fc4d00f3682333eb0d897e5aa2dbfcd1ff681",
+                         "stdout_sha256":  "8238f2b051108d46a4263735bd269e7657b2ac762e6984d29c725928f39e6a93"
+                     },
+                     {
+                         "elapsed_seconds":  1.203549682162702,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "read-stop",
+                         "native_trace_bytes_after":  239784,
+                         "native_trace_bytes_before":  141012,
+                         "native_trace_delta_sha256":  "a57d85095d569624055149d3840f132048d2c4239937aa20ca3500a3ed1d71c9",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "grammar-stop-5bde4f777425",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "466acfdbedbd2233daabfbb8c961af9122ef3f45d313d5710a74e04c606eae4f"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "a0950bda906cdda8531cbd3de77f55063a5a3e6907b09acb01a4b0a1a061abdc",
+                                         "snapshot":  "466acfdbedbd2233daabfbb8c961af9122ef3f45d313d5710a74e04c606eae4f"
+                                     },
+                         "stderr_sha256":  "5b73c4f86dfabb47f9287718042dc3583327fc9c9e15d134b527050c60a69f0d",
+                         "stdout_sha256":  "4c801d61dac1a4e34c15e36924ded1802213effefba3fd575cbfe4b3c4f9be32"
+                     },
+                     {
+                         "elapsed_seconds":  0.9673513867892325,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "append-test",
+                         "native_trace_bytes_after":  383138,
+                         "native_trace_bytes_before":  239784,
+                         "native_trace_delta_sha256":  "8aa4cd04142127e909499e85d727672434a8e1f3ba7070212a8784e008ffeb34",
+                         "receipt":  {
+                                         "branch":  {
+                                                        "name":  "grammar-stop-5bde4f777425",
+                                                        "revision":  2,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "78700c4f56e47fd56c18da4afe3d2b98a746c6dda58d929f5c8bba5054c73e9f"
+                                                    },
+                                         "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                         "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                         "payload_sha256":  "963777f69a5eaf816169fe61bb15375c06181edfa38d26c07071c93d8a718f77",
+                                         "snapshot":  "78700c4f56e47fd56c18da4afe3d2b98a746c6dda58d929f5c8bba5054c73e9f"
+                                     },
+                         "stderr_sha256":  "366a984a5f1bf5252e32c9aafb67f33b07f7828503342c817a0d9b46e3ea9435",
+                         "stdout_sha256":  "cd694241a2d7a34cef035b7bac21e942aafdf9722247f046f6f307b66eb8bb8b"
+                     },
+                     {
+                         "elapsed_seconds":  0.09746303502470255,
+                         "exit_code":  0,
+                         "expected_exit_code":  0,
+                         "label":  "workspace-history",
+                         "native_trace_bytes_after":  383138,
+                         "native_trace_bytes_before":  383138,
+                         "native_trace_delta_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "receipt":  null,
+                         "stderr_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                         "stdout_sha256":  "1f00da9c01465f597b29ed06de749c91fe8eb5933a0692fd81e248e9cdaf0793"
+                     }
+                 ],
+    "full_frontier_numerical_max_error":  null,
+    "harness":  "/home/dflanag3/spatial-artifacts/seed-stop-eos-postcondition-20261016-v1/runs/green-grammar-complete-v3/source/scripts/run_cli_seed_stop_probe.py",
+    "harness_sha256":  "86f96e0d9e5aa52c0bbb4bcff6b5ce941b4f4dc464fc196ff29d265a85c67ba5",
+    "host":  "llm-60",
+    "limitations":  [
+                        "Bounded CLI workflow with tiny prefix and sampled grammar continuation; no cumulative gate qualification.",
+                        "Production runtime is frozen v16; the external harness corrections are pinned separately.",
+                        "Additional malformed-controller reseed validation is being implemented independently; it is not part of this tested runtime."
+                    ],
+    "numerical_status":  "PENDING_INDEPENDENT_FRESH_NATIVE_AUDIT",
+    "profile_identity":  {
+                             "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                             "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                             "model_weights_sha256":  "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+                         },
+    "profile_sha256":  "682b7f8ea85487c0617333636a274e33022c07c57567df9ee8762defb5c5740b",
+    "raw_artifact_directory":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/gpu-cli-results-v4",
+    "raw_result_sha256":  "e34a8e291bb43ff12e3d8991eff94bb4e57bcd90b504039f82a5aa7f9d8e01a3",
+    "runtime":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source",
+    "schema":  "cow-cli-seed-stop-flow-evidence-v1",
+    "scopes":  {
+                   "append_test":  {
+                                       "controller_sha256":  "865309b350d634280d4db7f2384d5077da68c7870eec191c0c6ab7188fc1bd69",
+                                       "controller_summary":  {
+                                                                  "accepted_in_scope":  11,
+                                                                  "next_draw":  0,
+                                                                  "output_pending_hex":  "",
+                                                                  "schema":  2,
+                                                                  "status":  "stopped",
+                                                                  "text_stop":  null
+                                                              },
+                                       "head":  {
+                                                    "name":  "grammar-stop-5bde4f777425",
+                                                    "revision":  2,
+                                                    "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                    "tip":  "78700c4f56e47fd56c18da4afe3d2b98a746c6dda58d929f5c8bba5054c73e9f"
+                                                },
+                                       "history_display_sha256":  "cd05e9f4b729d2a99a88fd4a883a2d331cba01293d8eac55c9fe2ed6b8601d00",
+                                       "history_message_count":  4,
+                                       "history_sha256":  "1f00da9c01465f597b29ed06de749c91fe8eb5933a0692fd81e248e9cdaf0793",
+                                       "input_span":  {
+                                                          "count":  18,
+                                                          "start":  23,
+                                                          "token_ids_sha256":  "253ba1a74fba9dad75ec494e1a454c66a59cb41bda1a9fc908927fa463af4c24"
+                                                      },
+                                       "input_suffix_sha256":  "20a2ee8ea5ea7ca257e656ff1f53fc95896d2b8dc2441567bf4efe7d4d274c13",
+                                       "operation":  "append-test-5bde4f777425",
+                                       "receipt":  {
+                                                       "branch":  {
+                                                                      "name":  "grammar-stop-5bde4f777425",
+                                                                      "revision":  2,
+                                                                      "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                                      "tip":  "78700c4f56e47fd56c18da4afe3d2b98a746c6dda58d929f5c8bba5054c73e9f"
+                                                                  },
+                                                       "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                                       "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                                       "payload_sha256":  "963777f69a5eaf816169fe61bb15375c06181edfa38d26c07071c93d8a718f77",
+                                                       "snapshot":  "78700c4f56e47fd56c18da4afe3d2b98a746c6dda58d929f5c8bba5054c73e9f"
+                                                   },
+                                       "stdout_sha256":  "cd694241a2d7a34cef035b7bac21e942aafdf9722247f046f6f307b66eb8bb8b",
+                                       "tokens":  [
+                                                      4754,
+                                                      13766,
+                                                      3147,
+                                                      5917,
+                                                      31436,
+                                                      2129,
+                                                      48310,
+                                                      3147,
+                                                      3715,
+                                                      8934,
+                                                      248046
+                                                  ]
+                                   },
+                   "read_stop":  {
+                                     "canonical_output_bytes_sha256":  "3a9e9ef243fb78d3840c5f6f06fd9e12e43455aa45735ac51fd82c7e3b708512",
+                                     "controller_sha256":  "81dda3ee12e601b37205b9d8e49b99d1d47c3af052f438c07ce6875222da6c64",
+                                     "controller_summary":  {
+                                                                "accepted_in_scope":  5,
+                                                                "next_draw":  0,
+                                                                "output_pending_hex":  "",
+                                                                "schema":  5,
+                                                                "status":  "stopped",
+                                                                "text_stop":  {
+                                                                                  "finished":  false,
+                                                                                  "matched_stop":  "read_file",
+                                                                                  "pending_hex":  "",
+                                                                                  "schema":  1,
+                                                                                  "stop_sequences":  [
+                                                                                                         "read_file"
+                                                                                                     ],
+                                                                                  "stopped":  true
+                                                                              }
+                                                            },
+                                     "display_sha256":  "4c801d61dac1a4e34c15e36924ded1802213effefba3fd575cbfe4b3c4f9be32",
+                                     "head":  {
+                                                  "name":  "grammar-stop-5bde4f777425",
+                                                  "revision":  1,
+                                                  "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                  "tip":  "466acfdbedbd2233daabfbb8c961af9122ef3f45d313d5710a74e04c606eae4f"
+                                              },
+                                     "operation":  "read-stop-5bde4f777425",
+                                     "snapshot":  "466acfdbedbd2233daabfbb8c961af9122ef3f45d313d5710a74e04c606eae4f",
+                                     "tokens":  [
+                                                    4754,
+                                                    13766,
+                                                    3147,
+                                                    851,
+                                                    2378
+                                                ]
+                                 },
+                   "reseed":  {
+                                  "ack":  {
+                                              "name":  "seeded-5bde4f777425",
+                                              "revision":  2,
+                                              "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                              "tip":  "bf4a788e44d8f25d9fe979c22ff2ca578ae3ca69873a10517bf41058574480ea"
+                                          },
+                                  "controller_sha256":  "7347f18cc80b59c25f0254de8446000dc4dbe35b8da43dc4af607cedc896c99a",
+                                  "controller_summary":  {
+                                                             "accepted_in_scope":  1,
+                                                             "next_draw":  0,
+                                                             "output_pending_hex":  "",
+                                                             "schema":  3,
+                                                             "status":  "active",
+                                                             "text_stop":  null
+                                                         },
+                                  "head":  {
+                                               "name":  "seeded-5bde4f777425",
+                                               "revision":  2,
+                                               "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                               "tip":  "bf4a788e44d8f25d9fe979c22ff2ca578ae3ca69873a10517bf41058574480ea"
+                                           },
+                                  "operation":  "reseed-active-5bde4f777425",
+                                  "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                              },
+                   "restart_continue":  {
+                                            "controller_sha256":  "ea791dd11df3e8afb500834e619f20cbae503af9a9f9d2d292666ea4f91cb919",
+                                            "controller_summary":  {
+                                                                       "accepted_in_scope":  27,
+                                                                       "next_draw":  26,
+                                                                       "output_pending_hex":  "",
+                                                                       "schema":  3,
+                                                                       "status":  "stopped",
+                                                                       "text_stop":  null
+                                                                   },
+                                            "head":  {
+                                                         "name":  "seeded-5bde4f777425",
+                                                         "revision":  4,
+                                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                         "tip":  "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9"
+                                                     },
+                                            "progress":  {
+                                                             "accepted_delta":  10,
+                                                             "consumed_tokens":  10,
+                                                             "draw_delta":  10,
+                                                             "grammar_complete":  true,
+                                                             "status":  "stopped",
+                                                             "terminal_eos":  true
+                                                         },
+                                            "receipt":  {
+                                                            "branch":  {
+                                                                           "name":  "seeded-5bde4f777425",
+                                                                           "revision":  4,
+                                                                           "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                                           "tip":  "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9"
+                                                                       },
+                                                            "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                                            "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                                            "payload_sha256":  "afb2504a6f4eb80edb608ceea1b3ee74671f09a34599103f51b12ba0965d27ca",
+                                                            "snapshot":  "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9"
+                                                        },
+                                            "stdout_sha256":  "8238f2b051108d46a4263735bd269e7657b2ac762e6984d29c725928f39e6a93",
+                                            "tokens":  [
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           50553,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           248046
+                                                       ]
+                                        },
+                   "restart_replay":  {
+                                          "receipt":  {
+                                                          "branch":  {
+                                                                         "name":  "seeded-5bde4f777425",
+                                                                         "revision":  1,
+                                                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                                         "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                                     },
+                                                          "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                                          "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                                          "payload_sha256":  "604e629ef3f62354614219a04a03f7f864d509dde2af5ac704d0d001dffcac2c",
+                                                          "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                      },
+                                          "status":  "PASS_NO_BRANCH_MOVE_NO_NATIVE_RPC"
+                                      },
+                   "sampled_continue":  {
+                                            "cli_stdout_sha256":  "42b87d3f60bcf375a4c525f08183aee06c383198eae7c871ed8e3c7212da8ae1",
+                                            "controller_sha256":  "8197012749b5104a0229c674aca949af7ce84ec61b5d9487fa49c5e9a8a270c3",
+                                            "controller_summary":  {
+                                                                       "accepted_in_scope":  17,
+                                                                       "next_draw":  16,
+                                                                       "output_pending_hex":  "",
+                                                                       "schema":  3,
+                                                                       "status":  "active",
+                                                                       "text_stop":  null
+                                                                   },
+                                            "head":  {
+                                                         "name":  "seeded-5bde4f777425",
+                                                         "revision":  3,
+                                                         "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                         "tip":  "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9"
+                                                     },
+                                            "progress":  {
+                                                             "accepted_delta":  16,
+                                                             "consumed_tokens":  16,
+                                                             "draw_delta":  16,
+                                                             "grammar_complete":  false,
+                                                             "status":  "active",
+                                                             "terminal_eos":  false
+                                                         },
+                                            "receipt":  {
+                                                            "branch":  {
+                                                                           "name":  "seeded-5bde4f777425",
+                                                                           "revision":  3,
+                                                                           "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                                           "tip":  "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9"
+                                                                       },
+                                                            "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                                            "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                                            "payload_sha256":  "466542337dbee0f4697a3094c988e3d6180a67a1290a1b9842da5dde3a4514bd",
+                                                            "snapshot":  "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9"
+                                                        },
+                                            "tokens":  [
+                                                           56,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           55,
+                                                           50553,
+                                                           5955,
+                                                           9763,
+                                                           55,
+                                                           9763,
+                                                           55
+                                                       ]
+                                        },
+                   "sampled_exact_retry":  {
+                                               "receipt":  {
+                                                               "branch":  {
+                                                                              "name":  "seeded-5bde4f777425",
+                                                                              "revision":  1,
+                                                                              "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                                              "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                                          },
+                                                               "execution_profile_id":  "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+                                                               "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                                                               "payload_sha256":  "604e629ef3f62354614219a04a03f7f864d509dde2af5ac704d0d001dffcac2c",
+                                                               "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                           },
+                                               "status":  "PASS_NO_BRANCH_MOVE_NO_NATIVE_RPC"
+                                           },
+                   "sampled_partial":  {
+                                           "cli_stdout_sha256":  "06f961b802bc46ee168555f066d28f4f0e9afdf3f88174c1ee6f9de004fc30a0",
+                                           "controller_sha256":  "3c5ba227be7886f7fdcf871f6aa2837727e55f3c7332f0b1b774b14d1695fea4",
+                                           "controller_summary":  {
+                                                                      "accepted_in_scope":  1,
+                                                                      "next_draw":  1,
+                                                                      "output_pending_hex":  "",
+                                                                      "schema":  3,
+                                                                      "status":  "active",
+                                                                      "text_stop":  null
+                                                                  },
+                                           "head":  {
+                                                        "name":  "seeded-5bde4f777425",
+                                                        "revision":  1,
+                                                        "root":  "1379021b31ea825f4e5a2704956f2140da8d43b01486d4b6a9021ad2b55ebf4b",
+                                                        "tip":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d"
+                                                    },
+                                           "operation":  "sampled-partial-5bde4f777425",
+                                           "snapshot":  "a9fd55e8becfc2d875b7c7540a25e5bdbe26dc03c9fdb54efb05a086d874175d",
+                                           "tokens":  [
+                                                          32
+                                                      ]
+                                       }
+               },
+    "services":  [
+                     {
+                         "absent_pids":  [
+                                             3698077,
+                                             3698147
+                                         ],
+                         "pid":  3698077,
+                         "service_exit":  0,
+                         "source_imports":  {
+                                                "context_time_travel.coordinator":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                                                        "sha256":  "9e2dd1239559e148e52c0356e7d41c87d7a4610a9bbded73ab713fac93aa6eda"
+                                                                                    },
+                                                "context_time_travel.grammar_first":  {
+                                                                                          "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/grammar_first.py",
+                                                                                          "sha256":  "131097cff80d001d17e6a23b2061f2eebde59336b4e1776a883c01588fa3c012"
+                                                                                      },
+                                                "context_time_travel.presentation_binding":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+                                                                                                 "sha256":  "fcc33419bcfc2b0de1f049f5a82f8c55cb4fceb21fcb33aa2ad7c60b911ea98b"
+                                                                                             },
+                                                "context_time_travel.presentation_request":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                                                 "sha256":  "06653a2211fce6bb29a50225726daba815676fdf5b76d689b2a36a6937c69ec7"
+                                                                                             },
+                                                "context_time_travel.real":  {
+                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                                                 "sha256":  "cfaa22181fd61e6f676c2579beeb407b9f990f1fd7420871f7c61e082b429d44"
+                                                                             },
+                                                "context_time_travel.sampled_controller":  {
+                                                                                               "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/sampled_controller.py",
+                                                                                               "sha256":  "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393"
+                                                                                           },
+                                                "context_time_travel.seed_controls":  {
+                                                                                          "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/seed_controls.py",
+                                                                                          "sha256":  "8d6df067c06e691779f57bd1f6e55d3470b46306506dc5417d9c3b16c4f40f87"
+                                                                                      },
+                                                "context_time_travel.store":  {
+                                                                                  "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                                                  "sha256":  "03a80e060c6c99eee3475501e891fbc1e8fd425d453773d43da6361c5e58a91f"
+                                                                              },
+                                                "context_time_travel.text_stops":  {
+                                                                                       "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/text_stops.py",
+                                                                                       "sha256":  "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+                                                                                   },
+                                                "serve.cow_http":  {
+                                                                       "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_http.py",
+                                                                       "sha256":  "a972a56edd0a3619c730c09b9b43792d5c8cbab37ceaa3b3b519560b6f73ff0a"
+                                                                   },
+                                                "serve.cow_prompt_encoder":  {
+                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_prompt_encoder.py",
+                                                                                 "sha256":  "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8"
+                                                                             },
+                                                "serve.cow_text_adapter":  {
+                                                                               "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_text_adapter.py",
+                                                                               "sha256":  "4a473f81ddac1aa7d3ce15ff86b43b08a9cb2d9867ee34f8f354fbf76f69e28f"
+                                                                           },
+                                                "serve.cow_workspace":  {
+                                                                            "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_workspace.py",
+                                                                            "sha256":  "ab8aec48846161efc94f5f4f7ff3a421e415e7e9374fdc9af38b38aa16c36ae4"
+                                                                        }
+                                            },
+                         "startup_seconds":  20.07113858498633,
+                         "worker_shutdown":  {
+                                                 "close_succeeded":  true,
+                                                 "event_count":  9,
+                                                 "native_exit_code":  0,
+                                                 "native_pid":  3698147,
+                                                 "trace_sha256":  "e8944ff00af94cb7d866973c040fc34614bc2bb437f67de0df97877743532979"
+                                             }
+                     },
+                     {
+                         "absent_pids":  [
+                                             3698945,
+                                             3698951
+                                         ],
+                         "pid":  3698945,
+                         "service_exit":  0,
+                         "source_imports":  {
+                                                "context_time_travel.coordinator":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                                                        "sha256":  "9e2dd1239559e148e52c0356e7d41c87d7a4610a9bbded73ab713fac93aa6eda"
+                                                                                    },
+                                                "context_time_travel.grammar_first":  {
+                                                                                          "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/grammar_first.py",
+                                                                                          "sha256":  "131097cff80d001d17e6a23b2061f2eebde59336b4e1776a883c01588fa3c012"
+                                                                                      },
+                                                "context_time_travel.presentation_binding":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+                                                                                                 "sha256":  "fcc33419bcfc2b0de1f049f5a82f8c55cb4fceb21fcb33aa2ad7c60b911ea98b"
+                                                                                             },
+                                                "context_time_travel.presentation_request":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                                                 "sha256":  "06653a2211fce6bb29a50225726daba815676fdf5b76d689b2a36a6937c69ec7"
+                                                                                             },
+                                                "context_time_travel.real":  {
+                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                                                 "sha256":  "cfaa22181fd61e6f676c2579beeb407b9f990f1fd7420871f7c61e082b429d44"
+                                                                             },
+                                                "context_time_travel.sampled_controller":  {
+                                                                                               "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/sampled_controller.py",
+                                                                                               "sha256":  "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393"
+                                                                                           },
+                                                "context_time_travel.seed_controls":  {
+                                                                                          "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/seed_controls.py",
+                                                                                          "sha256":  "8d6df067c06e691779f57bd1f6e55d3470b46306506dc5417d9c3b16c4f40f87"
+                                                                                      },
+                                                "context_time_travel.store":  {
+                                                                                  "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                                                  "sha256":  "03a80e060c6c99eee3475501e891fbc1e8fd425d453773d43da6361c5e58a91f"
+                                                                              },
+                                                "context_time_travel.text_stops":  {
+                                                                                       "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/experimental/branching_context/src/context_time_travel/text_stops.py",
+                                                                                       "sha256":  "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+                                                                                   },
+                                                "serve.cow_http":  {
+                                                                       "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_http.py",
+                                                                       "sha256":  "a972a56edd0a3619c730c09b9b43792d5c8cbab37ceaa3b3b519560b6f73ff0a"
+                                                                   },
+                                                "serve.cow_prompt_encoder":  {
+                                                                                 "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_prompt_encoder.py",
+                                                                                 "sha256":  "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8"
+                                                                             },
+                                                "serve.cow_text_adapter":  {
+                                                                               "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_text_adapter.py",
+                                                                               "sha256":  "4a473f81ddac1aa7d3ce15ff86b43b08a9cb2d9867ee34f8f354fbf76f69e28f"
+                                                                           },
+                                                "serve.cow_workspace":  {
+                                                                            "path":  "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source/serve/cow_workspace.py",
+                                                                            "sha256":  "ab8aec48846161efc94f5f4f7ff3a421e415e7e9374fdc9af38b38aa16c36ae4"
+                                                                        }
+                                            },
+                         "startup_seconds":  19.97796285804361,
+                         "worker_shutdown":  {
+                                                 "close_succeeded":  true,
+                                                 "event_count":  17,
+                                                 "native_exit_code":  0,
+                                                 "native_pid":  3698951,
+                                                 "trace_sha256":  "21b42399266e44406c1b75177dcc51230c1658997951455f3025440e04febf2b"
+                                             }
+                     }
+                 ],
+    "status":  "CLI_SEED_STOP_FLOW_PASS_NUMERICAL_AUDIT_PENDING",
+    "wrapper_exit":  0,
+    "backup":  {
+                   "path":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-cow-cli-restart-resident-q4-v1/evidence.tar.gz",
+                   "sha256":  "fac93ebaa29b5a6af79eb4a22fec366f54339386eaa4cf7043bc103bacaa5d87",
+                   "bytes":  18335326,
+                   "native_state_payloads_included":  false
+               }
+}

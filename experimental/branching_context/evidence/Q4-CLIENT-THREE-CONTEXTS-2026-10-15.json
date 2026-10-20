@@ -1,0 +1,255 @@
+{
+  "schema": "context-cow-three-context-client-v1",
+  "status": "PASS_CLIENT_FLOW_ONLY",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "browser_exit": 0,
+  "server_exit": 0,
+  "execution_profile_id": "47cff934d48881e9a15ffe76ced11efde570898bbdb759ca762779d1c5d10f81",
+  "profile_sha256": "b1f06c0d78ca2e2c2f7c771a88e675bc81a26171215f24b567095de7516a650c",
+  "elapsed_seconds": 65.72377014299855,
+  "startup_seconds": 19.071435949997976,
+  "ram_gib": 96,
+  "disk_gib": 128,
+  "native_worker_shutdown": [
+    {
+      "close_succeeded": true,
+      "event": "native_worker_closed",
+      "gpu_id": 0,
+      "key": [
+        "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "47cff934d48881e9a15ffe76ced11efde570898bbdb759ca762779d1c5d10f81",
+        "worker-0"
+      ],
+      "monotonic_ns": 1129173764572850,
+      "phase": "cow-http",
+      "phase_id": "8b6ead3009524cab9a21efa6a126ccfb",
+      "pid": 2355423,
+      "process_id": 2355417,
+      "returncode": 0,
+      "sequence": 28
+    }
+  ],
+  "browser_harness_sha256": "9fab12d003c311f9cc82827b97d4eec920cd5fa5922e7f91cafb0d285b5d1448",
+  "contexts": [
+    {
+      "name": "native_cow_engine",
+      "namespace_id": "88a5144d33ac8578b2bce5a0fbbdff40",
+      "root_token_count": 7231,
+      "A_suffix_tokens": 512,
+      "B_suffix_tokens": 488,
+      "branches": {
+        "A": {
+          "snapshot": "74d7498eff9d95208c9c87a4d2d6c5df44b49cd593faeb8a5c19cbf08abc99e7",
+          "generated_tokens": 128,
+          "forward_tokens": 640,
+          "prefill_tokens": 512,
+          "integrity_mismatches": 0
+        },
+        "B": {
+          "snapshot": "0db77a377a0b2bde2265ce64032836e7edafb25026247949d082f57a8ccf7f4e",
+          "generated_tokens": 128,
+          "forward_tokens": 616,
+          "prefill_tokens": 488,
+          "integrity_mismatches": 0
+        }
+      },
+      "rewind": {
+        "branch": "b-6859b1d2aee644438e6bcc8ee750c514",
+        "revision_before": 1,
+        "revision_after": 2,
+        "tip_before": "0db77a377a0b2bde2265ce64032836e7edafb25026247949d082f57a8ccf7f4e",
+        "tip_after": "5678974213eb09e8d49c9c42f6f72364845a20d6fd53de3c1a9320a234d2d5f4",
+        "saved_tip_retained": true,
+        "active_messages_after": 1,
+        "previous_tip_count": 4,
+        "previous_graph_observation": "rewind-previous-graph-observation.json"
+      }
+    },
+    {
+      "name": "canonical_api_store",
+      "namespace_id": "1a514b70078130af674cfb46efd7d0a5",
+      "root_token_count": 7845,
+      "A_suffix_tokens": 461,
+      "B_suffix_tokens": 448,
+      "branches": {
+        "A": {
+          "snapshot": "ee61e3e311d3666ee78302551c9630daa73ae14f41098e62d3ff516a531634d5",
+          "generated_tokens": 128,
+          "forward_tokens": 589,
+          "prefill_tokens": 461,
+          "integrity_mismatches": 0
+        },
+        "B": {
+          "snapshot": "92cccdbe9ae3c477ec844d53b47c275ec30ed18b6fcaa293ba282b24118fc44e",
+          "generated_tokens": 128,
+          "forward_tokens": 576,
+          "prefill_tokens": 448,
+          "integrity_mismatches": 0
+        }
+      },
+      "rewind": {
+        "branch": "b-d0393048436f4b5286f9e2cdea7e959c",
+        "revision_before": 1,
+        "revision_after": 2,
+        "tip_before": "92cccdbe9ae3c477ec844d53b47c275ec30ed18b6fcaa293ba282b24118fc44e",
+        "tip_after": "4f8c49836a076e22cb82b0741a2fb4625f27674da1d6022de23daafc4eeb52a3",
+        "saved_tip_retained": true,
+        "active_messages_after": 1,
+        "previous_tip_count": 4,
+        "previous_graph_observation": "rewind-previous-graph-observation.json"
+      }
+    },
+    {
+      "name": "serving_tooling_template",
+      "namespace_id": "ccd43200f5678e9c3679999245720868",
+      "root_token_count": 8087,
+      "A_suffix_tokens": 478,
+      "B_suffix_tokens": 464,
+      "branches": {
+        "A": {
+          "snapshot": "41462dd5f2efaf9256f3e39e432ea28ef2f2bf9eb4f0f465814e81f768c0f43e",
+          "generated_tokens": 128,
+          "forward_tokens": 606,
+          "prefill_tokens": 478,
+          "integrity_mismatches": 0
+        },
+        "B": {
+          "snapshot": "262cd76dc4ee0a3353cff4a61c3a2fb83d78d73de49df08f152fb2bdc51fcea8",
+          "generated_tokens": 128,
+          "forward_tokens": 592,
+          "prefill_tokens": 464,
+          "integrity_mismatches": 0
+        }
+      },
+      "rewind": {
+        "branch": "b-4dd01b3219b24bb89af1dd5f11f8a3cf",
+        "revision_before": 1,
+        "revision_after": 2,
+        "tip_before": "262cd76dc4ee0a3353cff4a61c3a2fb83d78d73de49df08f152fb2bdc51fcea8",
+        "tip_after": "97b708ab5043038f9d743201b48794e9db421a546cf7e095bc732eefd6f59da1",
+        "saved_tip_retained": true,
+        "active_messages_after": 1,
+        "previous_tip_count": 4,
+        "previous_graph_observation": "rewind-previous-graph-observation.json"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "SMOKE-HEALTH",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-EMPTY-NAMESPACE",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-CONTEXT-ROOT",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-A",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ROOT-FORK",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-B",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-REWIND",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-CONTEXT-ROOT",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-A",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ROOT-FORK",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-B",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-REWIND",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-CONTEXT-ROOT",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-A",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ROOT-FORK",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-ASK-B",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REUSABLE-REWIND",
+      "status": "PASS"
+    },
+    {
+      "id": "SMOKE-REVISIT-OLDEST-BRANCH",
+      "status": "PASS"
+    }
+  ],
+  "revisit": {
+    "source_snapshot": "74d7498eff9d95208c9c87a4d2d6c5df44b49cd593faeb8a5c19cbf08abc99e7",
+    "result_snapshot": "758806cb3c4d48bcc66341a590e5757ef89f0288b599a45c7c86f203067466eb",
+    "generated_tokens": 128,
+    "forward_tokens": 128,
+    "prefill_tokens": 0
+  },
+  "numerical_audit": "NOT_QUALIFIED: independent auditor first actual-data preflight rejected report-schema join before inference; correction pending",
+  "pressure_eviction_recovery": "NOT_EXERCISED_NORMAL_96_GIB_POOL",
+  "raw_directory": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-three-context-ui-v4",
+  "raw_sha256": {
+    "result.json": "6e6a63fd04507cf3b52adc975aa28de81e90c32f7ebc29e5956f76968fefb790",
+    "browser/report.json": "ae1ad1d3d42d2219683646c8dbac3245cfd3292667180453d2f92ed2d1ce0b45",
+    "pool-trace.json": "45946cdd671231217c056f50655c6a3728b4e9f0f7f1b5024610c6309691f1ff"
+  },
+  "prior_attempts": [
+    {
+      "run": "q4-three-context-ui-v1",
+      "status": "FAIL",
+      "reason": "Unawaited graph refresh allowed stale previous-tip data",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    },
+    {
+      "run": "q4-three-context-ui-v2",
+      "status": "FAIL",
+      "reason": "Awaited refresh could be superseded; captured rev1 while branch was at rev2",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    },
+    {
+      "run": "q4-three-context-ui-v3",
+      "status": "FAIL",
+      "reason": "All context flows completed; old-branch validator incorrectly rejected zero-input resume",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    }
+  ],
+  "scope": "One Chromium client and long-lived Q4 coordinator, three real source contexts, all greedy. No repeated speed comparison, original cumulative gate qualification or process-restart claim."
+}

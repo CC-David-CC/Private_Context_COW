@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "cpu_support_tests_passed_no_lifecycle_run",
+  "scope": "external bounded observer for the frozen P4 lifecycle; no production/API/native/checkpoint/integrity changes",
+  "test_run": {
+    "host": "llm-60",
+    "scratch_source": "/home/dflanag3/branching-g3/checkpoint-lifecycle-diagnostics-luna-20261015",
+    "pinned_module_root": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015",
+    "command": "env PYTHONPATH=. CTT_DIAGNOSTIC_SOURCE_ROOT=/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015 python3 -m unittest experimental.branching_context.tests.implementation.test_checkpoint_lifecycle_diagnostics experimental.branching_context.tests.implementation.test_checkpoint_lifecycle_pinned_binding",
+    "runner": "/home/dflanag3/branching-g3/checkpoint-lifecycle-diagnostics-luna-20261015/runner/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "artifact_directory": "/home/dflanag3/spatial-artifacts/checkpoint-lifecycle-diagnostics-focused-v7",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 0.046,
+    "stderr_note": "Expected argparse refusal messages from tests checking in-source and existing-receipt protection."
+  },
+  "source_sha256": {
+    "experimental/branching_context/scripts/checkpoint_lifecycle_diagnostics.py": "3e23fb8bda00e3761bc103a80bd7833a08dc1ab886f1477d41ec3655d162f255",
+    "experimental/branching_context/tests/implementation/test_checkpoint_lifecycle_diagnostics.py": "f33c066511715c59b9f563d69f2b30a2d7b9809d9c7bf696426472a90f309138",
+    "experimental/branching_context/tests/implementation/test_checkpoint_lifecycle_pinned_binding.py": "b7d29e8dc68ed1b689144aec2a7f1d1662fb4b4b5443fe5913d2e2a94dfe880b"
+  },
+  "pinned_runtime_module_sha256": {
+    "experimental/branching_context/src/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "experimental/branching_context/src/real.py": "6ab1abe6d2e6e4d8c92b7af0cb896e55ede51edf721a61a6a746f8aa3ca4fddd",
+    "experimental/branching_context/src/pools.py": "7c90645bf87a414e1686543a0b099e5c9648616c391e74bee754496fd9b2a78f"
+  },
+  "attribution": {
+    "timing": "nested inclusive and same-thread exclusive; do not sum nested rows",
+    "bounds": {"events": 512, "threads": 32, "stages": 64},
+    "covered_edges": ["native_request_write_load", "serialize", "export_state_readback", "checkpoint_digest", "pool_checkpoint_digest_admission", "prepared_checkpoint", "payload_publish_fsync", "validate_checkpoint", "load_checkpoint"],
+    "return_and_exception_semantics": "observer hooks preserve wrapped return values and re-raise the same exception",
+    "observer_overhead_measured": false
+  },
+  "limitations": [
+    "No actual P4 lifecycle was run under this wrapper.",
+    "No performance result or production attribution is claimed.",
+    "No compiler, GPU, model, or server process was used."
+  ],
+  "initial_test_first_failure": "One fixture callback used the wrong arity; corrected fixture passed without production behavior changes."
+}

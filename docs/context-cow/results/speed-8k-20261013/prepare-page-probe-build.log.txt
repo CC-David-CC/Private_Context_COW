@@ -1,0 +1,9 @@
+[  7%] Built target ggml-base
+[ 11%] Built target strata_core
+[ 25%] Built target ggml-cpu
+[ 51%] Built target strata_kernels_cpu
+[ 81%] Built target strata_kernels
+[100%] Built target strata_engine
+[100%] Building CXX object CMakeFiles/branch_digest_pages_gpu.dir/tests/core/branch_digest_pages_gpu.cpp.o
+[100%] Linking CXX executable branch_digest_pages_gpu
+[100%] Built target branch_digest_pages_gpu

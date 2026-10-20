@@ -1,0 +1,43 @@
+{
+  "counters": {
+    "forward_tokens": 21077,
+    "consumed": 21077,
+    "prefill_tokens": 19906,
+    "prefill_chunks": 45,
+    "decode_prepare_ns": 1360321418,
+    "decode_compute_ns": 21133525979,
+    "decode_finish_ns": 152539262,
+    "decode_timed_tokens": 1171,
+    "integrity_device_hashed_bytes": 523776294912,
+    "copied_bytes": 528482304,
+    "cow_pages": 252
+  },
+  "commands": {
+    "stats": 2477,
+    "vision_info": 1211,
+    "reset": 1,
+    "feed": 8,
+    "capture": 8,
+    "pages": 8,
+    "logits": 8,
+    "restore": 15,
+    "write": 8,
+    "ram_clear": 8,
+    "sample_mask_v2": 1171,
+    "decode": 1171,
+    "quit": 1
+  },
+  "scope": "Native instrumentation values; timings may not cover every grammar-controlled execution path. No cache speedup comparison or fresh-logit oracle run.",
+  "native_decode_section_seconds": 22.646386659,
+  "native_decode_section_tps": 51.70802820036757,
+  "source_acquisitions": {
+    "model_cache": 7
+  },
+  "initial_profile_id": "15ef2e771faf1b5858fb138b5a03201105bd467361ef033ce3b07ec7fc77fce8",
+  "limitations": [
+    "Counter-defined decode section,not whole request TPS",
+    "No stock-serving speedup comparison",
+    "No fresh-logit oracle",
+    "No power-loss or full certification"
+  ]
+}

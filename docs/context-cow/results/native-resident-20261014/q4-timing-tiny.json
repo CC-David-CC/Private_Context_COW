@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "profile_id": "c09a31080abdbf58de19aca7e963749a6eeebd9080366c7141ca5bbce05d9127",
+  "harness_sha256": "09aa39168804eea02eced08e175ea4f41246cd81d4e30a58de52dca1f85f11b8",
+  "scope": "prepare/compute/finish blocking native wall time; not GPU-event durations; one run per branch",
+  "branches": {
+    "A": {
+      "outputs": 8,
+      "tokens": [
+        487,
+        198,
+        406,
+        328,
+        1272,
+        763,
+        328,
+        248045
+      ],
+      "timings": {
+        "decode_prepare_ns": 9668260,
+        "decode_compute_ns": 68510516,
+        "decode_finish_ns": 937855,
+        "decode_timed_tokens": 8
+      },
+      "ms_per_output": {
+        "decode_prepare_ns": 1.2085325,
+        "decode_compute_ns": 8.5638145,
+        "decode_finish_ns": 0.117231875
+      },
+      "unassigned_generation_seconds": 0.002302824003924661,
+      "generation_seconds": 0.08141945500392467,
+      "request_seconds": 0.3213441390544176,
+      "frontier_sha256": "18d50b06db25f1232f92270db79d6946d0542be1e76b375da6999485195d1e3c",
+      "hashed_bytes": 2994733056,
+      "digest_copy_bytes": 23396352
+    },
+    "B": {
+      "outputs": 8,
+      "tokens": [
+        235,
+        128,
+        251,
+        131,
+        250,
+        133,
+        251,
+        150
+      ],
+      "timings": {
+        "decode_prepare_ns": 8697043,
+        "decode_compute_ns": 61533228,
+        "decode_finish_ns": 526682,
+        "decode_timed_tokens": 8
+      },
+      "ms_per_output": {
+        "decode_prepare_ns": 1.087130375,
+        "decode_compute_ns": 7.6916535,
+        "decode_finish_ns": 0.06583525
+      },
+      "unassigned_generation_seconds": 0.00223108495129061,
+      "generation_seconds": 0.07298803795129061,
+      "request_seconds": 0.306310637970455,
+      "frontier_sha256": "bdb12f4a0db5c552d5a08c5409ab62a362d1a80c980f444f64e5f674031f76c3",
+      "hashed_bytes": 2994733056,
+      "digest_copy_bytes": 23396352
+    }
+  },
+  "numerical_max_error": 0.0,
+  "checks": [
+    {
+      "reference": "A",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.268766,
+        "decode_seconds": 0.0717077,
+        "generated": [
+          487,
+          198,
+          406,
+          328,
+          1272,
+          763,
+          328,
+          248045
+        ]
+      }
+    },
+    {
+      "reference": "B",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.270562,
+        "decode_seconds": 0.0713214,
+        "generated": [
+          235,
+          128,
+          251,
+          131,
+          250,
+          133,
+          251,
+          150
+        ]
+      }
+    },
+    {
+      "reference": "A-repeat",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.276325,
+        "decode_seconds": 0.0711619,
+        "generated": [
+          487,
+          198,
+          406,
+          328,
+          1272,
+          763,
+          328,
+          248045
+        ]
+      }
+    }
+  ],
+  "startup_seconds": 30.74426761607174,
+  "native_exit_observed": true
+}

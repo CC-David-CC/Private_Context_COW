@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "greedy matching-native-operator resident/disk resume; not gate certification",
+  "profile_id": "38ce18d79f55fe1036ae6e68f6e4e080acef9481d79974985cfb1a46804979ed",
+  "fixture_sizes": {
+    "prefix": 8192,
+    "suffix": 512,
+    "output_limit": 128
+  },
+  "comparisons": 5,
+  "numerical_max_error": 0.0,
+  "harness_sha256": "d0886c628680c18a031d0919d42ff48f764f8a8e19aaf53d48cf8148766c53e1",
+  "fixture_sha256": "3d0343ecc8c3777af2a8e5fe6a13f75f3b8a5e4ea100637d8407ec4965904c4b",
+  "phases": [
+    {
+      "phase": "prepare",
+      "python_pid": 1519468,
+      "exit_code": 0,
+      "native_exit_observed": true
+    },
+    {
+      "phase": "resume",
+      "python_pid": 1519642,
+      "exit_code": 0,
+      "native_exit_observed": true
+    }
+  ],
+  "phase": "prepare",
+  "child_pid": 1519468,
+  "elapsed_seconds": 30.000278917956166,
+  "checked_boundaries": "prefix, completed generation and A generated-token 4; primitive has separate per-frontier evidence"
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "pid": 1486374,
+  "phases": [
+    {
+      "phase": "parsed-green",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 46.38775260699913
+    },
+    {
+      "phase": "q4-parsed-tiny",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 199.16407873807475
+    },
+    {
+      "phase": "q4-parsed-medium",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 243.07390361197758
+    },
+    {
+      "phase": "parsed-profile",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 33.8211539540207
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "parsed-profile",
+  "child_pid": 1488816,
+  "elapsed_seconds": 30.00088299799245,
+  "restored_server_pid": 1488961,
+  "server_http_status": 200
+}

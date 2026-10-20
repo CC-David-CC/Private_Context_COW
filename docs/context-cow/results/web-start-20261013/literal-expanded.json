@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "seconds": 2.6964972999994643,
+  "executed_ids": [
+    "serve.test_literal_boundaries.LiteralBoundaries.test_all_special_literals_in_user_text_are_plain",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_end_of_turn_inside_reasoning_does_not_invent_an_answer",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_literal_output_is_chunk_independent",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_ordinary_prompt_is_identical",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_ordinary_text_tokenizer_keeps_literals",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_real_tool_call_is_parsed_across_every_split",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_tool_arguments_keep_literal_closers",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_tools_and_tool_result_literals_do_not_create_markers",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_wrapped_user_message_is_a_new_query_not_a_tool_result",
+    "serve.test_literal_boundaries.LiteralHTTP.test_non_streamed_literals_are_exact",
+    "serve.test_literal_boundaries.LiteralHTTP.test_streamed_literals_are_exact"
+  ],
+  "executed_methods": 11,
+  "failures": [],
+  "errors": [],
+  "skips": []
+}

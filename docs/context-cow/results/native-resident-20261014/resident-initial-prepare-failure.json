@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "python_pid": 1515918,
+  "phase": "prepare",
+  "startup_seconds": 30.66577588801738,
+  "native_pid": 1515921,
+  "prefix_seconds": 0.42839622299652547,
+  "error": "Expected 1..64 character ASCII branch/operation ID",
+  "native_exit_observed": true
+}

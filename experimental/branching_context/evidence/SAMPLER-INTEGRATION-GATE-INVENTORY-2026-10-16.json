@@ -1,0 +1,530 @@
+{
+    "schema":  "context-cow-static-gate-inventory-v1",
+    "source_commit":  "5143e44786083ff135315abc92b6f93d2faccadb",
+    "registered":  85,
+    "present":  84,
+    "missing":  [
+                    "G5-011"
+                ],
+    "scope":  "Static method-name presence only, not unittest discovery, execution or gate qualification",
+    "engineering_estimates":  {
+                                  "G1":  95,
+                                  "G2":  90,
+                                  "G3":  90,
+                                  "G4":  90,
+                                  "G5":  70
+                              },
+    "estimate_scope":  "Manual supported-prototype implementation estimate; cross-arrangement equivalence paused; not measured pass percentages",
+    "cases":  [
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-001",
+                      "method":  "test_g1_001_fresh_suffix_a",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-002",
+                      "method":  "test_g1_002_fresh_suffix_b",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-003",
+                      "method":  "test_g1_003_empty_suffix_frontier",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-004",
+                      "method":  "test_g1_004_every_accepted_boundary",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-005",
+                      "method":  "test_g1_005_split_prefill_associativity",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-006",
+                      "method":  "test_g1_006_partial_page_boundary",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-007",
+                      "method":  "test_g1_007_repeated_token_history",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-008",
+                      "method":  "test_g1_008_same_last_block_different_prefix",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-009",
+                      "method":  "test_g1_009_absolute_positions",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-010",
+                      "method":  "test_g1_010_rope_and_yarn_contract",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-011",
+                      "method":  "test_g1_011_tokenizer_and_template_contract",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-012",
+                      "method":  "test_g1_012_attention_mask_visibility",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-013",
+                      "method":  "test_g1_013_different_interleave_order",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-014",
+                      "method":  "test_g1_014_pending_sampled_token",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-015",
+                      "method":  "test_g1_015_mid_generation_rng_replay",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-016",
+                      "method":  "test_g1_016_sampler_multiple_draws",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-017",
+                      "method":  "test_g1_017_grammar_mid_production",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-018",
+                      "method":  "test_g1_018_stop_progress_and_eos",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-019",
+                      "method":  "test_g1_019_chunked_generate_equivalence",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-020",
+                      "method":  "test_g1_020_sibling_rng_independence",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-021",
+                      "method":  "test_g1_021_alternate_stream_not_forced_different",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-022",
+                      "method":  "test_g1_022_unsupported_hybrid_state",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-023",
+                      "method":  "test_g1_023_incompatible_model_rejected",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-024",
+                      "method":  "test_g1_024_execution_profile_mismatch",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-025",
+                      "method":  "test_g1_025_true_uncached_oracle",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-026",
+                      "method":  "test_g1_026_near_tie_numerics",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G1",
+                      "id":  "G1-027",
+                      "method":  "test_g1_027_stream_publication_boundary",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-001",
+                      "method":  "test_g2_001_cold_process_reopen",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-002",
+                      "method":  "test_g2_002_remove_all_kv_checkpoints",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-003",
+                      "method":  "test_g2_003_checkpoint_payload_corruption",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-004",
+                      "method":  "test_g2_004_checkpoint_manifest_corruption",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-005",
+                      "method":  "test_g2_005_partial_checkpoint_write",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-006",
+                      "method":  "test_g2_006_crash_before_snapshot_publish",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-007",
+                      "method":  "test_g2_007_crash_before_branch_rename",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-008",
+                      "method":  "test_g2_008_crash_after_branch_rename",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-009",
+                      "method":  "test_g2_009_idempotency_payload_mismatch",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-010",
+                      "method":  "test_g2_010_aba_pointer_revision",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-011",
+                      "method":  "test_g2_011_racing_cas_processes",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-012",
+                      "method":  "test_g2_012_kill_during_decode",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-013",
+                      "method":  "test_g2_013_out_of_memory_transaction",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-014",
+                      "method":  "test_g2_014_eviction_vs_deletion",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-015",
+                      "method":  "test_g2_015_checkpoint_from_wrong_model",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-016",
+                      "method":  "test_g2_016_checkpoint_restore_grammar_rng",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-017",
+                      "method":  "test_g2_017_missing_input_artifact",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-018",
+                      "method":  "test_g2_018_external_effects_not_replayed",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G2",
+                      "id":  "G2-019",
+                      "method":  "test_g2_019_power_loss_scope_honest",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-001",
+                      "method":  "test_g3_001_actual_prefix_work_shared",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-002",
+                      "method":  "test_g3_002_unique_kv_page_accounting",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-003",
+                      "method":  "test_g3_003_partial_tail_cow",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-004",
+                      "method":  "test_g3_004_shared_page_never_written",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-005",
+                      "method":  "test_g3_005_quantization_scale_isolation",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-006",
+                      "method":  "test_g3_006_recurrent_buffer_isolation",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-007",
+                      "method":  "test_g3_007_evict_one_branch_keep_other",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-008",
+                      "method":  "test_g3_008_cpu_ram_ssd_roundtrip",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-009",
+                      "method":  "test_g3_009_memory_pressure_recovery",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-010",
+                      "method":  "test_g3_010_tail_copy_bounded",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-011",
+                      "method":  "test_g3_011_fork_latency_and_work",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-012",
+                      "method":  "test_g3_012_allocation_leak_cycles",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-013",
+                      "method":  "test_g3_013_stress_interleaving_and_eviction",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-014",
+                      "method":  "test_g3_014_corrupt_page_refusal",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-015",
+                      "method":  "test_g3_015_counters_are_direct",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G3",
+                      "id":  "G3-016",
+                      "method":  "test_g3_016_long_context_resource_profile",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-001",
+                      "method":  "test_g4_001_three_future_demonstration",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-002",
+                      "method":  "test_g4_002_rewind_and_new_fourth_future",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-003",
+                      "method":  "test_g4_003_evaluator_read_only",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-004",
+                      "method":  "test_g4_004_evaluator_reproducibility",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-005",
+                      "method":  "test_g4_005_evaluator_side_effects_sandbox",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-006",
+                      "method":  "test_g4_006_winner_adoption_cas",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-007",
+                      "method":  "test_g4_007_adoption_race_loses_cleanly",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-008",
+                      "method":  "test_g4_008_evaluation_records_are_immutable",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-009",
+                      "method":  "test_g4_009_winning_branch_cold_replay",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-010",
+                      "method":  "test_g4_010_evaluation_does_not_consume_rng",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G4",
+                      "id":  "G4-011",
+                      "method":  "test_g4_011_retained_loser_accessible",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-001",
+                      "method":  "test_g5_001_supported_matrix",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-002",
+                      "method":  "test_g5_002_randomized_state_machine",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-003",
+                      "method":  "test_g5_003_replay_after_upgrade",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-004",
+                      "method":  "test_g5_004_long_soak",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-005",
+                      "method":  "test_g5_005_sanitizer_diagnostics",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-006",
+                      "method":  "test_g5_006_access_control_snapshot_ids",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-007",
+                      "method":  "test_g5_007_encrypted_sensitive_persistence",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-008",
+                      "method":  "test_g5_008_retention_and_gc",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-009",
+                      "method":  "test_g5_009_concurrent_gc_and_load",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-010",
+                      "method":  "test_g5_010_restart_with_journal_ambiguity",
+                      "present":  true
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-011",
+                      "method":  "test_g5_011_negative_mutant_campaign",
+                      "present":  false
+                  },
+                  {
+                      "gate":  "G5",
+                      "id":  "G5-012",
+                      "method":  "test_g5_012_release_rollback",
+                      "present":  true
+                  }
+              ]
+}

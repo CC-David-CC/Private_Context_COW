@@ -1,0 +1,51 @@
+{
+    "schema":  1,
+    "scope":  "Static method-name inventory only; not discovery, execution or correctness evidence",
+    "source_commit":  "44e1f860fceb3e47185b0c5caa947da647985a05",
+    "registry_sha256":  "a6f59153a78fbcc8e4e0fcee1d47f5dfded645f6f7f474010883421ac6695f3b",
+    "registered":  85,
+    "named_methods":  84,
+    "gates":  [
+                  {
+                      "gate":  "G1",
+                      "registered":  27,
+                      "named_methods":  27,
+                      "missing":  [
+
+                                  ]
+                  },
+                  {
+                      "gate":  "G2",
+                      "registered":  19,
+                      "named_methods":  19,
+                      "missing":  [
+
+                                  ]
+                  },
+                  {
+                      "gate":  "G3",
+                      "registered":  16,
+                      "named_methods":  16,
+                      "missing":  [
+
+                                  ]
+                  },
+                  {
+                      "gate":  "G4",
+                      "registered":  11,
+                      "named_methods":  11,
+                      "missing":  [
+
+                                  ]
+                  },
+                  {
+                      "gate":  "G5",
+                      "registered":  12,
+                      "named_methods":  11,
+                      "missing":  [
+                                      "G5-011"
+                                  ]
+                  }
+              ],
+    "unexecuted":  true
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "CPU_FOCUSED_PASS_GPU_CRASH_CAMPAIGN_PENDING_RERUN",
+  "base": "ba8d6936db397a943ae5f0ec6979b645b146caa9",
+  "bug": "real dead subprocess leaves checkpoint staging inode counted forever by DiskCheckpointPool",
+  "change": "create/lock staging inode under Store lock, hold advisory ownership through publication/cleanup; collect unlocked abandoned regular stage files without following symlinks or unlinking replacements",
+  "source_files": {
+    "src/context_time_travel/real.py": "9d05350d7543b7d5bb0c568689df76433b6d1aaf7d62ec135dbaa15506576599",
+    "src/context_time_travel/pools.py": "d36555a0a706308c1626fa22adb253738744331ed0948d26a0a1003c9f4d29aa",
+    "tests/implementation/test_checkpoint_stage_recovery.py": "8dad2360ced1b9c610d5b686718f3d58fe01b1029790ccf1e0d6bea01143dca3"
+  },
+  "tests": {
+    "new_methods": 5,
+    "affected_unique_passes": 263,
+    "g0": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "evidence_runs": [
+    "checkpoint-stage-recovery-red-run-v1",
+    "checkpoint-stage-recovery-green-run-v1",
+    "checkpoint-stage-ownership-red-run-v1",
+    "checkpoint-stage-ownership-green-run-v1",
+    "checkpoint-stage-recovery-broad-run-v1",
+    "checkpoint-stage-recovery-import-rerun-v1",
+    "checkpoint-stage-recovery-g0-run-v1"
+  ],
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "native_changes": false,
+  "checkpoint_format_changes": false,
+  "remaining": "Fresh source/profile full GPU crash matrix; VC08/09 and original G1-G5 remain unqualified",
+  "real_gpu_finding": {
+    "run": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-publication-crash-cli-gpu-v2/result.json",
+    "point": "payload_during_write",
+    "semantic_recovery": "tokens/controller/frontier exact; zero prefix work,36 output forwards; actual SIGKILL/reap of server and native",
+    "failure": "stale checkpoint stage remained because startup did not invoke collection below capacity",
+    "fix": "targeted abandoned-stage recovery in DiskCheckpointPool constructor; existing request-time manifest validation retained"
+  },
+  "current_core_commit": "062a25124a37d76b957b20a050679ac6aa60bf82"
+}

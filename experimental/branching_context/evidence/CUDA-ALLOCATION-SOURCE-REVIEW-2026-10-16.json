@@ -1,0 +1,128 @@
+{
+  "schema": "context-cow-cuda-allocation-source-inspection-v3",
+  "status": "READ_ONLY_SOURCE_REVIEW_COMPLETE",
+  "reviewed_at": "2026-10-16",
+  "repository": "C:/Users/dflanag3/Documents/fleet/context-cow-model-free-fleet",
+  "head": "1c1ee168c7a756ff0ab9aac145a1ce992b29a408",
+  "worktree_note": "Only pre-existing dirty file: experimental/branching_context/evidence/NATIVE-SPEED-MILESTONE.md; untouched.",
+  "profile": {
+    "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/profiles-v2/q4/profile.json",
+    "sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+    "runtime": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/runtime-v4",
+    "binary": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/strata-batched-branch-lazy",
+    "binary_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+    "build_receipt": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/build.json",
+    "build_receipt_sha256": "f9b0cecf967dd1f1c52e11007f274808c3522ee58c3f62b43f2c84db05b79f4a",
+    "source_sha256_matches": {
+      "src/core/branch_pages.cpp": "ff3a99b3e08fc839c6f20ff9977227fcce38e28b36f1c64da0b2480dc3247d1f",
+      "src/core/branch_session.cpp": "00b12a76e1173c4fefe799c866a0d82033e8b2ef6b2d473ca5b486dce9f83a8a"
+    },
+    "source_match_limit": "The selected build receipt input_sha256 binds the generated branch_driver.cpp source and the linked branch_driver.o/vmm.o objects; the adjacent native-probe-v3-core/build.json records successful compile argv for vmm.cpp. This is stronger than the separate source_sha256 subset, but is not a complete reproducible build closure for every linked archive/toolchain input.",
+    "selected_build_inputs": {
+      "build_json_input_sha256": {
+        "generated_driver_source": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/branch_driver.cpp",
+          "sha256": "9370d129ee83399ad88cceee6b696c4f2e04655a9de0f362b610904f99a86d75",
+          "independent_sha256sum": "9370d129ee83399ad88cceee6b696c4f2e04655a9de0f362b610904f99a86d75"
+        },
+        "branch_driver_object": {
+          "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_driver.o",
+          "sha256": "691502e8dd08f087b27eb3731126b6f2fe9393225afd61e215c6aa23553925b3"
+        },
+        "vmm_object": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3-core/vmm.o",
+          "sha256": "d52ff2fbf613fd3c44e9bf9c43f39489cd76a02f494b41a2035deb214450672d",
+          "independent_sha256sum": "d52ff2fbf613fd3c44e9bf9c43f39489cd76a02f494b41a2035deb214450672d"
+        },
+        "branch_pages_object": {
+          "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_pages.o",
+          "sha256": "f3331e49249f436a2e1815c3781cadb54c4f5bf5a225b6e208e1f918c403cbd6"
+        },
+        "branch_session_object": {
+          "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_session.o",
+          "sha256": "c7c51806233711e2b738aef683a1262490cc1e71d2f4131c2998f2df88c4c4a7"
+        }
+      },
+      "generated_driver_source_match": "Independent sha256sum of the source path matches build.json input_sha256.",
+      "vmm_compile_receipt": {
+        "path": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3-core/build.json",
+        "sha256": "467418bb774060d4c8ef442190576b522c7dd3342e4b91776c5b80b2e5791526",
+        "note": "Receipt status is BUILDING; its command row records the vmm.cpp compile command with exit 0, but the status alone does not prove the whole core build completed."
+      },
+      "vmm_source": {
+        "path": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/source/src/core/vmm.cpp",
+        "sha256": "b4cffbb8ca4299fd2a1729c3f0ec06e1257e683735cf2991bcdee107ea38c094",
+        "note": "Matches selected current src/core/vmm.cpp hash."
+      },
+      "limits": "These pins establish the generated driver and selected object inputs relevant to error/restore/stats behavior. They do not by themselves establish a complete reproducible closure for every library, compiler, or link input."
+    }
+  },
+  "current_file_sha256": {
+    "src/core/branch_pages.cpp": "ff3a99b3e08fc839c6f20ff9977227fcce38e28b36f1c64da0b2480dc3247d1f",
+    "src/core/branch_session.cpp": "00b12a76e1173c4fefe799c866a0d82033e8b2ef6b2d473ca5b486dce9f83a8a",
+    "src/core/branch_driver.cpp": "a57669ca577a19f5c5a0413d6f3b9935581f0a27368cd73c0f27de21b1892105",
+    "src/core/vmm.cpp": "b4cffbb8ca4299fd2a1729c3f0ec06e1257e683735cf2991bcdee107ea38c094",
+    "experimental/branching_context/src/context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "experimental/branching_context/tests/implementation/test_native_request_protocol.py": "ce72134b211c3338378de2d97585391f9f097a15517194739335483da6ddb6ea",
+    "tests/core/branch_pressure.hpp": "b768ebe8a7d0f27aaa186a2e1545aa3a212b3c19d881ca62659d74ac08917e17",
+    "tests/core/branch_pressure_test.cpp": "967e2ad5ce90ead4fdbc936d434512cb1f7611f25ed0290039e8d73e150bf7de",
+    "experimental/branching_context/tests/gates/G3/test_pressure.py": "a2d3e883894ea4066eab9da75295ca4a38fc241bb1db02c40f2fa1e69761814c"
+  },
+  "source_facts": [
+    {
+      "file": "src/core/vmm.cpp",
+      "lines": "26-35,208-215",
+      "fact": "cuMemCreate failures retain driver error, operation name, and OOM count."
+    },
+    {
+      "file": "src/core/branch_pages.cpp",
+      "lines": "33-49,142-157,233-294",
+      "fact": "PhysicalPage owns a VMM chunk. prepare_writes validates all pools, grows all pools, then performs private COW copies; a shared sealed page replacement reaches cuMemCreate."
+    },
+    {
+      "file": "src/core/branch_session.cpp",
+      "lines": "160-184,258-274",
+      "fact": "begin marks session failed on prepare_writes failure and returns generic error. restore can reactivate a bound retained image and return ready on success."
+    },
+    {
+      "file": "generated branch_driver.cpp (selected build input; not current src/core/branch_driver.cpp)",
+      "lines": "176, 217-230, 356-380",
+      "fact": "Generated driver handles failed generate with error_reply then continue; restore failure similarly replies and continues; stats is a subsequent command beginning at line 356 and exposes VMM OOM counters. The selected build input_sha256 pins this exact generated source; this is the driver source recorded for the selected binary."
+    },
+    {
+      "file": "experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "lines": "268-270,287-313,439-443",
+      "fact": "NativeRequest treats status:error as invalid-token protocol failure and poisons Python adapter; later commands are refused."
+    },
+    {
+      "file": "experimental/branching_context/src/context_time_travel/coordinator.py",
+      "lines": "999-1057",
+      "fact": "Per-job worker catch continues with same model/backend; no backend recreation in this loop."
+    }
+  ],
+  "same_pipe_assessment": {
+    "raw_driver": "The selected generated driver source is independently rehashed and matches the path in build.json input_sha256. Its generate-error path replies and continues; restore-error also replies and continues; stats begins at line 356. This supports same-pipe stats/restore in source/build-input evidence, but has not been executed after CUDA OOM.",
+    "python_adapter": "Current greedy adapter poisons on status:error; malformed-response poisoning remains required.",
+    "execution_status": "NOT_EXECUTED; no GPU/native service run. Build-input provenance now includes generated branch_driver.cpp and relevant selected objects, but is not a full reproducible toolchain/link closure.",
+    "next_verification": [
+      "With GPU0 exclusive and Q4 source warm, a test-only observer around StrataBackend._read waits for an owned active greedy iterator and captures its native terminal status:error.",
+      "Before returning that saved error to the unchanged iterator parser, observer sends stats on the same pipe and reads the response.",
+      "Require VMM OOM counter increment, CUDA_ERROR_OUT_OF_MEMORY, last operation cuMemCreate. Do not turn the response into protocol success.",
+      "Then unchanged parser poisons adapter; release pressure in finally, restart service, and verify committed source/following request.",
+      "Keep a separate negative test proving malformed frames still poison."
+    ],
+    "observer_scope": "Harness-only; no production source or native binary changes."
+  },
+  "existing_coverage": {
+    "core": "tests/core/branch_pressure_test.cpp uses actual VMM allocation pressure, requires cuMemCreate OOM, releases pressure, restores root, retries COW write, and checks sibling bytes.",
+    "model": "experimental/branching_context/tests/gates/G3/test_pressure.py checks real OOM stats, no forward/capture/output/history mutation, releases pressure, then retries both branches and checks bytes/controllers.",
+    "gap": "Neither exercises production greedy HTTP wrapper. test_native_request_protocol.py tests malformed receipt/work poison, no valid terminal status:error."
+  },
+  "unknowns": [
+    "Same-process CUDA context behavior and native restore after a real cuMemCreate OOM remain unexecuted.",
+    "Multi-pool preparation may detach earlier private pages before a later OOM; an eventual runtime witness must inspect page/counter deltas and source immutability.",
+    "The collected input hashes bind the generated driver and selected relevant objects, but do not establish the complete compiler, library, and link-input closure needed to claim a reproducible full build."
+  ],
+  "provenance_note": "V1 and v2 receipts are preserved unchanged. V3 corrects the stats line range, removes the superseded branch_driver/vmm binding limitation, and records the adjacent core receipt BUILDING status. The selected input hashes are relevant-source/object provenance, not a complete reproducible build closure."
+}

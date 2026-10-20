@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-grammar-native-select-v1/evidence.tar",
+  "archive_bytes": 223324160,
+  "archive_sha256": "c14ddd7225fbf14d607133ce4e99653d6ba6117be295271070ab5f820df03f05",
+  "extracted_files": 0,
+  "manifest_sha256": "7071f805448c414536b8f3f4ceed2371f7c6d6f624ba395c5b0d6f93b7a7b63a",
+  "schema": "cow-grammar-first-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 218058947,
+  "verified_members": 4412
+}

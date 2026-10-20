@@ -1,0 +1,119 @@
+{
+  "actual_encoder_calls": 2,
+  "actual_native_work": [
+    {
+      "actual_forward_tokens": 403,
+      "generated": 73,
+      "operation": "suffix-question-A",
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 330
+    },
+    {
+      "actual_forward_tokens": 394,
+      "generated": 64,
+      "operation": "suffix-question-B",
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 330
+    },
+    {
+      "actual_forward_tokens": 86,
+      "generated": 63,
+      "operation": "suffix-warm-after-image",
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 23
+    },
+    {
+      "actual_forward_tokens": 755,
+      "generated": 111,
+      "operation": "suffix-followup-A",
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 644
+    },
+    {
+      "actual_forward_tokens": 86,
+      "generated": 63,
+      "operation": "suffix-question-cold",
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 23
+    }
+  ],
+  "cold_loaded_bytes": 138330668,
+  "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+  "frozen_harness": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-flow-source-v4",
+  "full_controller_comparisons": 1,
+  "full_vector_comparisons": 14,
+  "later_local_vector_retirement": {
+    "report": "VISION-LATENCY-LOG-RETIREMENT-2026-10-18.json",
+    "scope": "Full numerical .f32 logs are now archive-only after exact remote archive+manifest re-verification and local ownership/inode/checksum validation. Original executed result unchanged. Canonical/originals/embeddings/manifests/controllers/non-numerical logs remain."
+  },
+  "limits": [
+    "Final OK constrained; thought quality not scored. Fresh references force observed generated tokens; prefix/final frontiers only, not every token.",
+    "Only the declared image fixtures/controllers are tested; broad format/controller/performance matrix and original G1-G5 remain unqualified. Q8 deferred.",
+    "Full state payloads inventoried then removed after private archive verification; vectors/canonical/originals/embeddings retained locally. Full qualification still open."
+  ],
+  "local_retirement": 707600800,
+  "max_abs_error": 0,
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "outputs": {
+    "suffix-followup-A": 111,
+    "suffix-question-A": 73,
+    "suffix-question-B": 64,
+    "suffix-question-cold": 63,
+    "suffix-warm-after-image": 63
+  },
+  "parent_payload": {
+    "bytes": 128773072,
+    "sha256": "54a10a95f0537827f2d5335bc6224dd401fba398cbf204da2793a8a11faabd09"
+  },
+  "prior_failures": [
+    {
+      "attempt": 1,
+      "fix": "Freeze missing helper and exact import preflight",
+      "kind": "IMPORT_CLOSURE_SETUP_FAILURE_BEFORE_MODEL"
+    },
+    {
+      "attempt": 2,
+      "bad_profile": "8e7fa4f7a25a97c03adc8b2e28dd8adc203d2a8d7c8b05409a9209fe18660682",
+      "fix": "First preparation and retry share render_suffix; new source profile92df",
+      "kind": "REAL_FIRST_ADMISSION_DUPLICATED_42_SYSTEM_TOKENS"
+    },
+    {
+      "attempt": 3,
+      "fix": "Select ask for idle, append-user for stopped; production behavior unchanged",
+      "kind": "HARNESS_ASK_ON_STOPPED_CONTEXT_HTTP400"
+    }
+  ],
+  "private_archive": {
+    "archive_bytes": 56596661,
+    "archive_sha256": "829aa8fb60744aa7cf0ab037a8bd556cf744ce25f3249ecfad4cba973dfb2ca9",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-thinking-new-image-flow-v1/evidence.tar.gz",
+    "individually_verified_data_files": 275,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 276,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "result_sha256": "f77e96a8ea7714bc28cfb0a47692e145dd77e690f33f5bb8b86dc83b3f847594",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-image-route-source-v1",
+  "scope": "Q4 real CLI/HTTP/GPU new-image first admission, sibling/repeated-image followups, original request replay and producer-free disk continuation;4 checkpoint-free forced-token references; sampled consumed-image/prefix/final frontiers, not per-token certification.",
+  "source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+  "status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+  "terminal_native_work": [
+    {
+      "forward_tokens": 2008,
+      "native_pid": 271548
+    },
+    {
+      "forward_tokens": 86,
+      "native_pid": 271875
+    }
+  ],
+  "tests": {
+    "api_harness_union": 116,
+    "errors": 0,
+    "failures": 0,
+    "g0": 51,
+    "phase_helpers": 15,
+    "serving_unique": 424,
+    "skips": 0
+  }
+}

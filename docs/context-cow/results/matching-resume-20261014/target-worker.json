@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "pid": 1451031,
+  "phases": [
+    {
+      "phase": "medium",
+      "exit_code": 0,
+      "seconds": 824.848976542009
+    },
+    {
+      "phase": "target",
+      "exit_code": 0,
+      "seconds": 3357.000448776991
+    },
+    {
+      "phase": "restore-repeat-2",
+      "exit_code": 0,
+      "seconds": 74.13992001104634
+    },
+    {
+      "phase": "restore-repeat-3",
+      "exit_code": 0,
+      "seconds": 74.19085057603661
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "restore-repeat-3",
+  "child_pid": 1464416,
+  "elapsed_seconds": 60.00136305007618,
+  "restored_server_pid": 1464608,
+  "server_http_status": 200
+}

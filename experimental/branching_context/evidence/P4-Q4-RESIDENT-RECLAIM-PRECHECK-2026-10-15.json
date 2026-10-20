@@ -1,0 +1,22 @@
+{
+  "schema": "p4-q4-resident-reclaim-precheck-v1",
+  "status": "PRECHECK_PASS_NOT_UNLINKED",
+  "host": "llm-60",
+  "gpu_used": false,
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "command": "python3 -m py_compile <reclaim-resident-v1.py> && python3 <reclaim-resident-v1.py>",
+  "helper_path": "experimental/branching_context/scripts/reclaim_p4_q4_resident_payloads.py",
+  "helper_sha256": "9f65322f27d006ab5ab157da4070dc2906c63cff6d7fa56e21d845e33c6c8d58",
+  "map_path": "experimental/branching_context/evidence/P4-Q4-RESIDENT-RECLAIM-MAP-2026-10-15.json",
+  "map_sha256": "1d80892dc4deee21897b22dd37ddbfd14843e8af3fcbe0fd92dd241f80e001ea",
+  "archive_match_proof_sha256": "3ab78750a2b599ad66a58a4d163f0a008af1733eb770798208b62b59f6e5ad3c",
+  "archive_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "candidate_count": 9,
+  "candidate_bytes": 17789976604,
+  "protected_file_count": 90,
+  "protected_fingerprint_sha256": "905c45ad3a575c792ddc47af59e1ab278a072f03d000b213beb96126ac9f53bc",
+  "observed_epoch_ns": 1792053364915695364,
+  "removed": [],
+  "stdout": "{\"archive_sha256\":\"afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60\",\"candidate_bytes\":17789976604,\"candidate_count\":9,\"checked_utc_epoch_ns\":1792053364915695364,\"map_sha256\":\"1d80892dc4deee21897b22dd37ddbfd14843e8af3fcbe0fd92dd241f80e001ea\",\"operation\":\"precheck_only\",\"protected_file_count\":90,\"protected_fingerprint_sha256\":\"905c45ad3a575c792ddc47af59e1ab278a072f03d000b213beb96126ac9f53bc\",\"removed\":[],\"status\":\"PRECHECK_PASS_NOT_UNLINKED\"}"
+}

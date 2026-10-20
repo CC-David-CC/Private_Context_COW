@@ -1,0 +1,11 @@
+{
+  "native_forward_tokens": 27918,
+  "prefill_tokens": 26854,
+  "decode_timed_tokens": 1064,
+  "decode_section_seconds": 23.749465185,
+  "decode_section_tps": 44.801008852696825,
+  "recomputed_source_tokens": 21077,
+  "additional_prefill_tokens": 5777,
+  "decode_scope": "Native timed prepare+compute+finish only; excludes other grammar/client/tool/persistence costs",
+  "numerical_oracle": "NOT_RUN"
+}

@@ -1,0 +1,18 @@
+{
+    "archive_bytes":  43304960,
+    "archive_sha256":  "a4dd8ac15840959c3cceb17242b825639b5288657b73895c77cec5d3c5332b6a",
+    "extracted_files":  0,
+    "manifest_sha256":  "eaca81dafd024a8bfc7bcbae963af9018de19ea6665946e54d452a70572081eb",
+    "remote_archive":  "/srv/data/git/private_context_cow.evidence/20261016-q4-recovery-candidate-fixture-v1/evidence.tar",
+    "schema":  "compact-receiver-primary-readback-v1",
+    "status":  "PASS",
+    "symlinks_or_hardlinks":  0,
+    "verified_member_bytes":  42832940,
+    "verified_regular_files":  465,
+    "transfer_command_exit":  0,
+    "transfer_wrapper_exit":  0,
+    "readback_command_exit":  0,
+    "readback_wrapper_exit":  0,
+    "scope":  "Fresh candidate profile/runtime source, producer/reference raw logits and metadata, HTTP controls and fixture reproducers. Excludes model files, numerical .state payloads, duplicate source trees and the pending strict recovery campaign.",
+    "self_collection_limit":  "Archive includes partial receipts from its own still-live collection wrapper. Terminal transfer/readback receipts were inspected separately; archived self-wrapper records are not used as terminal proof."
+}

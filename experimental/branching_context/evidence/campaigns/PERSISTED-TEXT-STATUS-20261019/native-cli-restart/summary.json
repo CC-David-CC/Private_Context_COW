@@ -1,0 +1,25 @@
+{
+  "status": "BOUNDED_REAL_Q8_PROCESS_RESTART_OUTPUT_RECONCILIATION_PASS",
+  "model": "Q8_0; FP16 KV; capacity262144; prefill512",
+  "native_profile": "New source-bound execution identity; native executable/model/settings retained",
+  "failures_retained": [
+    "First launcher rejected profile fingerprint before inference; retained producer/launch.stderr",
+    "Client setup omitted explicit verification command; rejected before generation",
+    "Client setup changed local tunnel port; original operation journal rejected changed endpoint",
+    "First model admission used ask on prepared-user root; rejected before generation; its pending state remains preserved",
+    "Corrected independent admission used answer with new branch and operation IDs"
+  ],
+  "limitations": [
+    "One bounded16-token greedy output-recovery experiment, not general coding-agent qualification",
+    "No new-generation computational-state load in recovery; zero loaded bytes is expected",
+    "Legacy unannotated publication compatibility remains incomplete",
+    "Initial client setup exceptions were returned by steering tools; no separate raw stderr file was captured"
+  ],
+  "cleanup": {
+    "chat_server": "OFF",
+    "server_native_exit": 0,
+    "temporary_key_revoked": true,
+    "original_authorized_keys_restored": true,
+    "credentials_removed": true
+  }
+}

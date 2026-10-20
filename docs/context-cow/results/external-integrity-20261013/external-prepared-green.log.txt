@@ -1,0 +1,5 @@
+{"format":0,"external_promise_violation_detected_before_write":false}
+{"format":1,"external_promise_violation_detected_before_write":false}
+{"format":2,"external_promise_violation_detected_before_write":false}
+{"format":3,"external_promise_violation_detected_before_write":false}
+{"status":"PASS","checks":214,"failures":0,"contract":"caller-managed-write-integrity","model_forward":false}

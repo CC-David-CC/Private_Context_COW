@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scope": "CPU-only worker exception lifetime regression for missing-source rebuild; no GPU, native inference, model load, or serving qualification",
+  "source_base": "9eafc96e018a56491151985feec4478003319439",
+  "changed_source": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+    "experimental/branching_context/tests/implementation/test_missing_source_rebuild.py": "f66a7c8b588d2e64a7d5af79ea96a802299151f9ed5cffc1b7ba7548e33b62d7"
+  },
+  "remote_root": "/home/dflanag3/spatial-artifacts/cow-rebuild-missing-luna-20261015",
+  "runs": {
+    "weakref_red": {
+      "path": "runs/red-v11",
+      "source_coordinator_sha256": "2085114bf28445c7338c272c0c8b5b0a0101e1ab43b5affb23464c75af5a692a",
+      "test_sha256": "f66a7c8b588d2e64a7d5af79ea96a802299151f9ed5cffc1b7ba7548e33b62d7",
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "finding": "The unread snapshot/durable Future exceptions retained the rebuilt checkpoint through their traceback after worker cache cleanup."
+    },
+    "focused_green": {
+      "path": "runs/green-v17",
+      "coordinator_sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+      "test_sha256": "f66a7c8b588d2e64a7d5af79ea96a802299151f9ed5cffc1b7ba7548e33b62d7",
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "a5d6fcb6048e0cfdae586ece5a109e103f0eed60dda932ca376f1f05623b18f1"
+    },
+    "coordinator_regression": {
+      "path": "runs/coordinator-v8",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "4c20eb26770d649ff5908f3f84a2d13eacbb8ee93d0679bf6e55b9fe1680611b"
+    },
+    "formal_g0": {
+      "path": "runs/g0-v8",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "required_real_backend_cases": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stdout_sha256": "c10632b816276e775c7a12bdc2fe7e8bebb6e187299d768bc8310ac831fe2951"
+    }
+  },
+  "implementation": "On worker failure, cleanup runs first; the exception sent to retained request Futures is detached from worker traceback frames. Detached errors preserve rendered type/message, OSError errno/filename, and exception notes.",
+  "limitations": [
+    "This does not qualify native image lifetime on a real GPU backend.",
+    "Combined serving verifier is left for root's integrated-source pass."
+  ]
+}

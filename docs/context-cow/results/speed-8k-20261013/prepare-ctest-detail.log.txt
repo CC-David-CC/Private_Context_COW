@@ -1,0 +1,107 @@
+Start testing: Oct 13 03:45 EDT
+----------------------------------------------------------
+18/124 Testing: branch_lifecycle_test
+18/124 Test: branch_lifecycle_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_lifecycle_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_lifecycle_test" start time: Oct 13 03:45 EDT
+Output:
+----------------------------------------------------------
+{"format":0,"cycles":64,"children":128,"images_allocated":129,"images_released":129,"live_images":0,"payload_capacity_bytes":0,"page_allocations":390,"page_releases":390,"live_page_bytes":0,"handle_peak_bytes":80,"handle_live_bytes":0}
+{"format":1,"cycles":64,"children":128,"images_allocated":129,"images_released":129,"live_images":0,"payload_capacity_bytes":0,"page_allocations":650,"page_releases":650,"live_page_bytes":0,"handle_peak_bytes":80,"handle_live_bytes":0}
+{"format":2,"cycles":64,"children":128,"images_allocated":129,"images_released":129,"live_images":0,"payload_capacity_bytes":0,"page_allocations":390,"page_releases":390,"live_page_bytes":0,"handle_peak_bytes":80,"handle_live_bytes":0}
+{"format":3,"cycles":64,"children":128,"images_allocated":129,"images_released":129,"live_images":0,"payload_capacity_bytes":0,"page_allocations":520,"page_releases":520,"live_page_bytes":0,"handle_peak_bytes":80,"handle_live_bytes":0}
+{"status":"PASS","checks":14728,"formats":4,"model_forward":false,"gpu_used":true}
+<end of output>
+Test time =   2.45 sec
+----------------------------------------------------------
+Test Passed.
+"branch_lifecycle_test" end time: Oct 13 03:46 EDT
+"branch_lifecycle_test" time elapsed: 00:00:02
+----------------------------------------------------------
+
+19/124 Testing: branch_pages_test
+19/124 Test: branch_pages_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_pages_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_pages_test" start time: Oct 13 03:46 EDT
+Output:
+----------------------------------------------------------
+{"status":"PASS","granularity":2097152,"allocations":6,"releases":6,"cow_pages":3,"copied_bytes":6291456,"live_bytes":0,"failures":0}
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"branch_pages_test" end time: Oct 13 03:46 EDT
+"branch_pages_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/124 Testing: branch_page_batch_test
+20/124 Test: branch_page_batch_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_page_batch_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_page_batch_test" start time: Oct 13 03:46 EDT
+Output:
+----------------------------------------------------------
+{"status":"PASS","failures":0}
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"branch_page_batch_test" end time: Oct 13 03:46 EDT
+"branch_page_batch_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/124 Testing: branch_prepare_test
+21/124 Test: branch_prepare_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_prepare_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_prepare_test" start time: Oct 13 03:46 EDT
+Output:
+----------------------------------------------------------
+{"format":0,"prepare_seconds":0.002574694,"hashed_bytes":119537664,"launches":9}
+{"format":1,"prepare_seconds":0.002565495,"hashed_bytes":48234496,"launches":9}
+{"format":2,"prepare_seconds":0.002393056,"hashed_bytes":44040192,"launches":9}
+{"format":3,"prepare_seconds":0.002495372,"hashed_bytes":46137344,"launches":9}
+{"status":"PASS","checks":546,"failures":0,"model_forward":false}
+<end of output>
+Test time =   0.30 sec
+----------------------------------------------------------
+Test Passed.
+"branch_prepare_test" end time: Oct 13 03:46 EDT
+"branch_prepare_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/124 Testing: branch_session_test
+25/124 Test: branch_session_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_session_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_session_test" start time: Oct 13 03:46 EDT
+Output:
+----------------------------------------------------------
+{"status":"PASS","checks":434,"formats":4,"model_forward":false}
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"branch_session_test" end time: Oct 13 03:46 EDT
+"branch_session_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/124 Testing: branch_integrity_test
+27/124 Test: branch_integrity_test
+Command: "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_integrity_test"
+Directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+"branch_integrity_test" start time: Oct 13 03:46 EDT
+Output:
+----------------------------------------------------------
+{"status":"PASS","checks":30,"failures":0,"granularity":2097152}
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"branch_integrity_test" end time: Oct 13 03:46 EDT
+"branch_integrity_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 13 03:46 EDT

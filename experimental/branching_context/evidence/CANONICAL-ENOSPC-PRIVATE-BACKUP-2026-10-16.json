@@ -1,0 +1,48 @@
+{
+  "archive": "box-git:/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-recovery-compact-v1/evidence.tar",
+  "archive_sha256": "bb1f3939f4fbf39358ab7adcfa28ea56e5b1673a24758e3c14d71a918bf0d224",
+  "archive_size_bytes": 14735360,
+  "exclusions": {
+    "checkpoint_state_bytes": 985002364,
+    "checkpoint_state_files": 3,
+    "image_file": "canonical-ext4-64m.img (excluded; no mount/copy)",
+    "other": "models, packs, cache blobs, compiled/build assets, source tar staging, pycache."
+  },
+  "manifest_export": "New checkpoint-volume manifests included as JSON only; all .state payloads and canonical image excluded.",
+  "manifest_local_path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-recovery-backup-work-20261016-v1/member-manifest.json",
+  "manifest_local_sha256": "556fd9135ff706c71e544600251d46f65e50704de322c44762dca200c57e38fd",
+  "manifest_sha256": "556fd9135ff706c71e544600251d46f65e50704de322c44762dca200c57e38fd",
+  "modes": {
+    "archive": "0600",
+    "directory": "0700",
+    "receipt": "0600"
+  },
+  "payload_member_bytes": 14458764,
+  "payload_member_count": 217,
+  "primary_audit_path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/primary-audit-gpu-q4-v2.json",
+  "primary_audit_sha256": "ac302ac48e18d383f810b26fcf524b74516e7d2db3ba98840f32e0df5ec38f5e",
+  "qualification": {
+    "errno": 28,
+    "fault_outputs": 16,
+    "following_outputs": 8,
+    "http_exit": 0,
+    "native_exit": 0,
+    "native_forward_tokens": 24,
+    "native_prefill_tokens": 0,
+    "numerical_max_error": null,
+    "scope": "Real Q4 canonical branch-reference ENOSPC while checkpoint storage remains available; no fresh numerical oracle, no full-volume or power-loss qualification, no performance qualification.",
+    "status": "FOCUSED-PASS"
+  },
+  "raw_result_sha256": "90f3fc738516f818e2c7f44ae9bf089d3bb57de53b28b4167381cc27f312413e",
+  "receiver_link_members": 0,
+  "receiver_receipt": "box-git:/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-recovery-compact-v1/receiver.verify.json",
+  "receiver_receipt_sha256": "f973751d41b0c5c4b2af39498b4afca915cbead4303040d519f9045e3334ef1a",
+  "receiver_status": "PASS",
+  "receiver_verified_member_bytes": 14458764,
+  "receiver_verified_member_count": 217,
+  "runner_command_exit": 0,
+  "runner_receipt_path": "/home/dflanag3/spatial-artifacts/enospc-backup-runs-20261016-v1/recovery-stream-v1",
+  "runner_wrapper_exit": 0,
+  "schema": 1,
+  "source_history": "Includes final-green-v1 through v6 and v5-red CPU/source evidence; final-green-v5 assertion failure is retained. Earlier audit v1 API-head projection failure is retained with corrected v2 audit PASS. Preparation provenance v3 overwrite/source 959 retention limitation is disclosed."
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "cow-focused-evidence-v1",
+  "status": "FOCUSED_CPU_PASS",
+  "host": "llm-60",
+  "base_native_tested_cli_sha256": "c8f517a63217801cec97881e653055319f53175b915ede40cd95246e69ab757a",
+  "corrected_cli_sha256": "8b6ed68280aed798a099c05062184ff1070a7b676aeb60b4cab9a25bd309ab8e",
+  "corrected_test_sha256": "8f085ef109587e13bc3aa59425d9e9084ef52373e651b78b36e305d23dd68a71",
+  "change": "Configure stdout UTF8 strict and stderr UTF8 backslashreplace before argument processing. No change to requests, controller, history, pools, native engine or execution profiles.",
+  "red": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-cli-20261015-v1/runs/unicode-red-v1",
+    "test_id": "tools.test_cow_cli.CowCliTests.test_subprocess_stdio_is_utf8_when_parent_requests_cp1252",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "observed_failure": "charmap encoding error on Unicode history and answer/receipt output under cp1252"
+  },
+  "green": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-cli-20261015-v1/runs/unicode-green-full-v2",
+    "tests": 9,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "integrated": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/cli-integrated-cpu-v2",
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 6.406,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "g0": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/g0-cli-v2",
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "qualification": "CPU/socket regression for output encoding. Earlier native CLI campaigns retain their original pre-stdio-change source hash; no claim that those campaigns were rerun. Actual default-Windows SSH result is separate."
+}

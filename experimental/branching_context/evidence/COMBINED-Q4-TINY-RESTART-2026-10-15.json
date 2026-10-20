@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "Bounded greedy matching-operator Q4 restart with integrated native device-seal comparison and streaming loader; not cumulative G2",
+  "host": "llm-60",
+  "GPU": [0],
+  "execution_profile_id": "f94ff12f7da0ef492c6aa05cafe3c755295af55be6a835c8f12d45d4f4c31f12",
+  "fingerprints": "NATIVE-REQUEST-COUNTER-FIX-2026-10-15.json",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/pool-tiny-v3",
+  "result_sha256": "8148991c58094298cdf261807ec3f63f91b0b08f0fe8001ec51b1b28e0261243",
+  "resume_sha256": "95641436af294c59fe26c76a0139acaf8734255facf3bd830ff05cc57bcefdb1",
+  "runner_receipts": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/pool-campaign-tiny-v3",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "fixture": {"prefix": 128, "suffix_per_branch": 4, "output_limit": 8, "roots": 1, "branches": 2},
+  "processes": {
+    "prepare": {"python_pid": 2190834, "python_exit": 0, "native_pid": 2190840, "native_exit": 0, "seconds": 24.950769720133394},
+    "resume": {"python_pid": 2190961, "python_exit": 0, "native_pid": 2190967, "native_exit": 0, "seconds": 23.797841787105426}
+  },
+  "branches": [
+    {"tree": 0, "outputs": 8, "resumed_outputs": 4, "checked_generated_boundaries": [4, 8], "full_frontier_checks": 2, "max_absolute_error": 0.0, "stopping_reason": "output_bound", "resume_forward_tokens": 4, "resume_prefill_tokens": 0},
+    {"tree": 1, "outputs": 5, "resumed_outputs": 1, "checked_generated_boundaries": [4, 5], "full_frontier_checks": 2, "max_absolute_error": 0.0, "stopping_reason": "eos", "resume_forward_tokens": 1, "resume_prefill_tokens": 0}
+  ],
+  "cold_restore_per_request": {"loaded_file_bytes": 121622552, "checkpoint_import_bytes": 121622552, "cold_restore_copy_bytes": 3557376, "cold_restore_copy_calls": 36, "integrity_mismatches": 0},
+  "parent_bytes_unchanged": true,
+  "numerical_max_error": 0.0,
+  "executed_test_ids": ["POOL-REAL-ROOTS", "POOL-REAL-SOURCE-TREES", "POOL-REAL-RESTART", "POOL-REAL-ZERO-PREFIX-WORK", "POOL-REAL-PARENT-BYTES", "POOL-REAL-MATCHING-REFERENCES"],
+  "failures": [], "skips": [], "xfails": [],
+  "limits": [
+    "One tiny clean-restart campaign, not crash/power-loss, controller or full gate certification.",
+    "Four generated-frontier comparisons, not every-token restarted oracle checks. Separate resident tiny probe checked every generated boundary.",
+    "Pool configuration used 16 GiB RAM / 64 GiB disk without pressure. Larger runs should use the normal 96/128 GiB pools.",
+    "Native streaming loader is exercised; Python still materializes the outer checkpoint bytes and temporary native file. No end-to-end constant-memory claim.",
+    "No speedup inference from tiny elapsed times; fresh model startup is included in phase times."
+  ],
+  "next": "1K/64/16 and 8K/512/16 sequential correctness, then matched Q4 performance and final Q8 validation."
+}

@@ -1,0 +1,82 @@
+{
+  "schema": "mirostat2-linear-private-backup-index-v1",
+  "status": "PASS",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261016-mirostat2-linear-qualified-v1",
+  "archive": {
+    "path": "/srv/data/git/private_context_cow.evidence/20261016-mirostat2-linear-qualified-v1/evidence.tar",
+    "bytes": 1565614080,
+    "sha256": "d27b4fd4e95f54e9776b1fe83e37c273b298df0f1d520f34b4bf226d6d62e079",
+    "mode": "0600",
+    "directory_mode": "0700",
+    "member_count": 1788,
+    "member_bytes": 1563964754,
+    "member_manifest_sha256": "026f297f8081cd573ed5d35c9dbe2c840fa8e92c8ef935723486ec464373ea7e"
+  },
+  "receiver_verification": {
+    "status": "PASS",
+    "path": "/srv/data/git/private_context_cow.evidence/20261016-mirostat2-linear-qualified-v1/receiver.verify.json",
+    "sha256": "bb6b4467db45d4e9324d9447b117e862ce7a61ee1687bb1e1f67e5b355bf66e9",
+    "mode": "0600",
+    "verification": "Full archive streamed from box-git and every regular member matched frozen path, size, and SHA-256 manifest; whole archive SHA and byte count matched; no extraction performed."
+  },
+  "source": {
+    "commit": "de26ad5acd4f334d635ca262577e6fd8ae40bc43",
+    "proof_path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-committed-source-verification-v1.json",
+    "proof_sha256": "2213e7955e526d816e37a53836ed65ccd56d6ae7961e1c66d6dc2367e5c14a80",
+    "file_count": 47,
+    "cpu": {"tests": 690, "status": "PASS", "command_wrapper": "0/0"},
+    "g0": {"tests": 51, "status": "PASS", "command_wrapper": "0/0"}
+  },
+  "native": {
+    "elf_path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-native-build-v1/strata-batched-branch-lazy-mirostat2-v6",
+    "elf_sha256": "b545e0f0c2c344ce7138dd9a8bd239668b2a03d81791c3b1e579a3b943f97a65",
+    "build_json_sha256": "2f313075d817d24a9444d60c91494ffecc62ad55cb015fc5caa820976bdea457"
+  },
+  "qualification": {
+    "path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/qualification-mirostat2-linear-v1.json",
+    "sha256": "610b089fbd72d2fd3bd2e900f7ab0c359b1d881cb629189394dc12dd60ba33a2",
+    "status": "FOCUSED-PASS",
+    "full_vector_comparisons": 458,
+    "native_mirostat2_calls": 1464,
+    "numerical_max_error": 0
+  },
+  "campaigns": [
+    {"name": "gpu-mirostat2-linear-q4-tiny-v2", "status": "PASS", "native_exit": 0, "raw_f32_count": 50, "raw_f32_bytes": 49664000, "command_wrapper": "0/0"},
+    {"name": "gpu-mirostat2-linear-q4-8k-timing-v2", "status": "PASS", "native_exit": 0, "raw_f32_count": 650, "raw_f32_bytes": 645632000, "command_wrapper": "0/0"},
+    {"name": "gpu-mirostat2-linear-q8-serving-v1", "status": "PASS", "native_exit": 0, "raw_f32_count": 70, "raw_f32_bytes": 69529600, "command_wrapper": "0/0"},
+    {"name": "gpu-mirostat2-q4-8k-timing-v1", "status": "PASS", "native_exit": 0, "raw_f32_count": 650, "raw_f32_bytes": 645632000, "command_wrapper": "0/0", "role": "matched pre-optimization Q4 baseline for timing comparison"}
+  ],
+  "matched_timing": {
+    "report_path": "/home/dflanag3/spatial-artifacts/mirostat-backup-v1/linear-timing-comparison-v2.json",
+    "report_sha256": "50aed31ee883b97646b2f4145bd1268ba8786ee605ac4c150b2dcbf7c1f59c39",
+    "executed_collector": "/home/dflanag3/spatial-artifacts/mirostat-backup-v1/tools/compare_mirostat_8k_timing_corrected.py",
+    "executed_collector_sha256": "3b9edbd1ad4e0ff25906db3e2ceb2fce690a52ceb40db2bfc6ec54c54ea4e278",
+    "command_wrapper": "0/0",
+    "baseline_collector_attempt1_sha256": "8cbbc85bd54e4f13c5e5d1b507c67d12aaa550a002cee01764971d10c5930761",
+    "baseline_vs_candidate_median_generation_tps": {"A": {"baseline": 32.14239, "candidate": 78.84077}, "B": {"baseline": 32.16427, "candidate": 78.68842}},
+    "median_host_sampler_ms_per_output": {"baseline": {"A": 21.4809, "B": 21.4719}, "candidate": {"A": 2.9113, "B": 2.9103}},
+    "timing_scope": "8K Q4 matched Mirostat2 policy and fixture; warmup excluded; 3 measured repetitions per branch. Host steady_clock sampler counter includes DRY/legal scan and native selection, not GPU time."
+  },
+  "preserved_failures": [
+    {"path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-tiny-v1", "description": "identical-suffix preflight attempt; compact metadata only"},
+    {"path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-linear-q4-8k-timing-v1", "description": "initial wrong-fixture-path attempt; compact metadata only"},
+    {"path": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-qualification-command-v1", "description": "older qualification runner assumed three receipts; preserved exact 1/1 runner outcome"},
+    {"path": "/home/dflanag3/spatial-artifacts/mirostat-backup-v1/runs/linear-timing-compare-v1", "description": "first matched collector attempt used the source fixture-file SHA instead of the selected fixture digest; preserved 1/1 attempt and argv"},
+    {"path": "/home/dflanag3/spatial-artifacts/mirostat-linear-backup-v1/runs/archive-preflight-v2", "description": "packager runner refused because its output leaf was inside the checkout; no command/wrapper receipt or run directory was created; corrected with tools as checkout and a sibling run leaf"}
+  ],
+  "exclusions": ["checkpoint .state files", "model weights", "object/archive/shared-library files", "caches and pycache", "old or superseded ELF binaries", "tar/zip/archive copies"],
+  "stream_and_readback": {
+    "stream_run": "/home/dflanag3/spatial-artifacts/mirostat-linear-backup-v1/runs/archive-stream-v1",
+    "stream_command_wrapper": "0/0",
+    "stream_transfer_json_sha256": "219d294aaa6f69e4944254781965ce421ce92c1e4b74685a344cbdf3ccef2f3f",
+    "readback_run": "/home/dflanag3/spatial-artifacts/mirostat-linear-backup-v1/runs/archive-readback-v1",
+    "readback_command_wrapper": "0/0",
+    "local_enriched_receiver_receipt_sha256": "61743ff7dd495dcd310fa4f06583ee3402fd14dbc08952140840b0996ad8919e",
+    "remote_receiver_receipt_sha256": "bb6b4467db45d4e9324d9447b117e862ce7a61ee1687bb1e1f67e5b355bf66e9"
+  },
+  "packaging_scripts": {
+    "archive_script_remote_sha256": "3daa1ab2ac4da005cc16bfb72aa5b47b84311e65c4138b77c2f275c829aa998d",
+    "receiver_verifier_remote_sha256": "0c46c1b02622dca28069dfeff09b6576b798f56838bbcd7638812cf37029bc81",
+    "receiver_verifier": "/home/dflanag3/spatial-artifacts/mirostat-linear-backup-v1/tools/verify_mirostat2_linear_archive_v1.py"
+  }
+}

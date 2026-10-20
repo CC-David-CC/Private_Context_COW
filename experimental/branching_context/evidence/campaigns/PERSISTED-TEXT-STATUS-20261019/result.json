@@ -1,0 +1,25 @@
+{
+  "status": "BOUNDED_CPU_INTEGRATION_PASS",
+  "new_methods": 5,
+  "focused_with_presentation": 10,
+  "http_text_regressions": 38,
+  "G0": {
+    "status": "PASS",
+    "tests": 51
+  },
+  "failures": 0,
+  "skips": 0,
+  "scope": "Coordinator reconstruction with actual Store and authenticated HTTP; no GPU/process-kill qualification",
+  "baseline": "Three contract failures and one fixture setup error; corrected unconfigured operation name and annotated the new fixture with production Store.move checkpoint metadata. Shared fixture and registered tests unchanged.",
+  "limitations": [
+    "Unknown operation remains unknown; no durable abort inference",
+    "Not deployed into frozen Q8 runtime",
+    "No numerical backend changes or fresh GPU oracle"
+  ],
+  "evidence": {
+    "persisted-operation-status-regressions.log": "fd6aa07a3c86578550b7ff37067b7ed4e03c6afb17666d7cc3e65e2d7be89cc3",
+    "persisted-operation-status-after.log": "0f4aac9982bd6ee10fdad14e2b52b251f18ba45309ea330e3b54b6197cdb77cc",
+    "persisted-operation-status-G0.log": "54fe0fd6388d24014b7a348c0c2a335d4552749666344bac90bd754972533274",
+    "persisted-operation-status-before.log": "3758f57b6789b89baaef346895fe9a5178cc4e73ba6cf6030e857097a0efb849"
+  }
+}

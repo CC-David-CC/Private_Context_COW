@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "pid": 1496126,
+  "phases": [
+    {
+      "phase": "native-smoke",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 159.53240274905693
+    },
+    {
+      "phase": "native-8k",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 696.8482684360351
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "native-8k",
+  "child_pid": 1497089,
+  "elapsed_seconds": 690.0244595949771,
+  "restored_server_pid": 1501305,
+  "server_http_status": 200
+}

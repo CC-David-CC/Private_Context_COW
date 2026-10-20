@@ -1,0 +1,270 @@
+{
+  "scope": "Entire runner including setup and final validation; nested wall times, not GPU events",
+  "measurements": {
+    "native.stats": {
+      "calls": 41,
+      "inclusive_ns": 645666914,
+      "exclusive_ns": 645666914
+    },
+    "context_time_travel.store._controller": {
+      "calls": 5,
+      "inclusive_ns": 51752057,
+      "exclusive_ns": 51752057
+    },
+    "Store.get_snapshot": {
+      "calls": 27,
+      "inclusive_ns": 53342527,
+      "exclusive_ns": 53342527
+    },
+    "context_time_travel.controller._validated_state": {
+      "calls": 129,
+      "inclusive_ns": 202126,
+      "exclusive_ns": 202126
+    },
+    "Store.lineage": {
+      "calls": 11,
+      "inclusive_ns": 29790087,
+      "exclusive_ns": 27969653
+    },
+    "BranchingModel.history": {
+      "calls": 11,
+      "inclusive_ns": 29831118,
+      "exclusive_ns": 41031
+    },
+    "BranchingModel._input_identity": {
+      "calls": 9,
+      "inclusive_ns": 445107,
+      "exclusive_ns": 445107
+    },
+    "native.load": {
+      "calls": 1,
+      "inclusive_ns": 120686105,
+      "exclusive_ns": 120686105
+    },
+    "native.capture": {
+      "calls": 3,
+      "inclusive_ns": 210207382,
+      "exclusive_ns": 210207382
+    },
+    "native.pages": {
+      "calls": 3,
+      "inclusive_ns": 3363213,
+      "exclusive_ns": 3363213
+    },
+    "StrataBackend.export": {
+      "calls": 3,
+      "inclusive_ns": 215262567,
+      "exclusive_ns": 305803
+    },
+    "StrataBackend.restore": {
+      "calls": 7,
+      "inclusive_ns": 612315411,
+      "exclusive_ns": 29635375
+    },
+    "native.logits": {
+      "calls": 3,
+      "inclusive_ns": 794182,
+      "exclusive_ns": 794182
+    },
+    "StrataBackend.logits": {
+      "calls": 3,
+      "inclusive_ns": 17083742,
+      "exclusive_ns": 16289560
+    },
+    "StrataBackend.position": {
+      "calls": 9,
+      "inclusive_ns": 1560340,
+      "exclusive_ns": 202053
+    },
+    "native.restore": {
+      "calls": 6,
+      "inclusive_ns": 369386767,
+      "exclusive_ns": 369386767
+    },
+    "context_time_travel.controller.consume": {
+      "calls": 128,
+      "inclusive_ns": 300001,
+      "exclusive_ns": 101071
+    },
+    "native.feed": {
+      "calls": 2,
+      "inclusive_ns": 301549297,
+      "exclusive_ns": 301549297
+    },
+    "StrataBackend.consume": {
+      "calls": 2,
+      "inclusive_ns": 302283075,
+      "exclusive_ns": 273631
+    },
+    "BranchingModel._completed_schedule": {
+      "calls": 2,
+      "inclusive_ns": 141539,
+      "exclusive_ns": 141539
+    },
+    "native.park": {
+      "calls": 2,
+      "inclusive_ns": 104959396,
+      "exclusive_ns": 104959396
+    },
+    "StrataBackend.park": {
+      "calls": 2,
+      "inclusive_ns": 104986539,
+      "exclusive_ns": 27143
+    },
+    "BranchingModel._save": {
+      "calls": 2,
+      "inclusive_ns": 246576108,
+      "exclusive_ns": 4489037
+    },
+    "Store.append": {
+      "calls": 4,
+      "inclusive_ns": 80824012,
+      "exclusive_ns": 28845783
+    },
+    "generation/Store.get_snapshot": {
+      "calls": 160,
+      "inclusive_ns": 847077009,
+      "exclusive_ns": 847077009
+    },
+    "generation/Store.lineage": {
+      "calls": 64,
+      "inclusive_ns": 387831880,
+      "exclusive_ns": 360601602
+    },
+    "generation/BranchingModel.history": {
+      "calls": 64,
+      "inclusive_ns": 388147521,
+      "exclusive_ns": 315641
+    },
+    "generation/BranchingModel._input_identity": {
+      "calls": 64,
+      "inclusive_ns": 3362660,
+      "exclusive_ns": 3362660
+    },
+    "generation/native.restore": {
+      "calls": 32,
+      "inclusive_ns": 1975607943,
+      "exclusive_ns": 1975607943
+    },
+    "generation/native.stats": {
+      "calls": 224,
+      "inclusive_ns": 46202194,
+      "exclusive_ns": 46202194
+    },
+    "generation/StrataBackend.restore": {
+      "calls": 32,
+      "inclusive_ns": 1987501347,
+      "exclusive_ns": 1825299
+    },
+    "generation/StrataBackend.position": {
+      "calls": 64,
+      "inclusive_ns": 11724216,
+      "exclusive_ns": 1662477
+    },
+    "generation/context_time_travel.controller._validated_state": {
+      "calls": 64,
+      "inclusive_ns": 301499060,
+      "exclusive_ns": 301499060
+    },
+    "generation/context_time_travel.controller.choose": {
+      "calls": 32,
+      "inclusive_ns": 509686547,
+      "exclusive_ns": 359048576
+    },
+    "generation/context_time_travel.controller.consume": {
+      "calls": 32,
+      "inclusive_ns": 151431933,
+      "exclusive_ns": 570844
+    },
+    "generation/native.feed": {
+      "calls": 32,
+      "inclusive_ns": 908201337,
+      "exclusive_ns": 908201337
+    },
+    "generation/StrataBackend.consume": {
+      "calls": 32,
+      "inclusive_ns": 926570774,
+      "exclusive_ns": 3379424
+    },
+    "generation/StrataBackend.consume_generated": {
+      "calls": 32,
+      "inclusive_ns": 926711193,
+      "exclusive_ns": 140419
+    },
+    "generation/BranchingModel._completed_schedule": {
+      "calls": 32,
+      "inclusive_ns": 3197065,
+      "exclusive_ns": 3197065
+    },
+    "generation/native.capture": {
+      "calls": 32,
+      "inclusive_ns": 1982114939,
+      "exclusive_ns": 1982114939
+    },
+    "generation/native.pages": {
+      "calls": 32,
+      "inclusive_ns": 95046092,
+      "exclusive_ns": 95046092
+    },
+    "generation/StrataBackend.export": {
+      "calls": 32,
+      "inclusive_ns": 2091140386,
+      "exclusive_ns": 2897018
+    },
+    "generation/native.logits": {
+      "calls": 32,
+      "inclusive_ns": 8577578,
+      "exclusive_ns": 8577578
+    },
+    "generation/StrataBackend.logits": {
+      "calls": 32,
+      "inclusive_ns": 178994395,
+      "exclusive_ns": 170416817
+    },
+    "generation/native.park": {
+      "calls": 32,
+      "inclusive_ns": 1683446187,
+      "exclusive_ns": 1683446187
+    },
+    "generation/StrataBackend.park": {
+      "calls": 32,
+      "inclusive_ns": 1683904871,
+      "exclusive_ns": 458684
+    },
+    "generation/BranchingModel._save": {
+      "calls": 32,
+      "inclusive_ns": 4040308013,
+      "exclusive_ns": 77177728
+    },
+    "generation/context_time_travel.store._controller": {
+      "calls": 32,
+      "inclusive_ns": 836154152,
+      "exclusive_ns": 836154152
+    },
+    "generation/Store.append": {
+      "calls": 32,
+      "inclusive_ns": 1276684560,
+      "exclusive_ns": 405173614
+    },
+    "generation/API.generation_step": {
+      "calls": 34,
+      "inclusive_ns": 11328033274,
+      "exclusive_ns": 1087513353
+    },
+    "generation/native.drop": {
+      "calls": 29,
+      "inclusive_ns": 166365562,
+      "exclusive_ns": 166365562
+    },
+    "native.drop": {
+      "calls": 3,
+      "inclusive_ns": 17064997,
+      "exclusive_ns": 17064997
+    },
+    "native.quit": {
+      "calls": 1,
+      "inclusive_ns": 35568,
+      "exclusive_ns": 35568
+    }
+  }
+}

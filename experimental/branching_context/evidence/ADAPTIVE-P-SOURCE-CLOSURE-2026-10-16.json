@@ -1,0 +1,17 @@
+{
+  "auxiliary_evidence_json": {
+    "experimental/branching_context/evidence/baseline-g0-records/20261016T112428754531Z-G0.json": "6cfd7d1318420f6c4a0681976af8ef880d780800047ad98e04663af882726ec0",
+    "experimental/branching_context/evidence/runs/20261016T172946764055Z-G0.json": "a09025174b36f9004b21813bd5cf25d2a17af5e1f7133c55b4cd33f5e522d2fd"
+  },
+  "cpu_manifest_digest_sha256": "c23b7af11429df51c2da1e1659e668260565f1053776eb830cee8e0ba1984523",
+  "cpu_record_sha256": "6a589a4ff9efb5e26c53e5d6fc4721396fa8018baee9e40d852babcaa0256ac4",
+  "diagnostic_v1": "Strict all-file equality failed because CPU hashes deliberately exclude evidence paths. Zero of the 995 code/test files differed. No production or test source was changed to reconcile the scopes.",
+  "full_regular_files": 997,
+  "git_overlay_proof_sha256": "bf0d002f45e298c477b7c2cf3bef536cc7965811c03683ceda5ce0a0a424f1d5",
+  "non_evidence_files_checked": 995,
+  "scope": "Frozen runtime source closure versus recorded before/after CPU manifest; committed overlay comparison is separate",
+  "source": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-preview-integrated-v1/source",
+  "status": "PASS",
+  "unchanged_non_evidence_files": true,
+  "verified_git_overlay_files": 58
+}

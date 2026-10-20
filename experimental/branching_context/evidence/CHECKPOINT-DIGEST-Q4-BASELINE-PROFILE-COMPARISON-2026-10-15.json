@@ -1,0 +1,20 @@
+{
+  "status": "IDENTITIES_COMPARED_NOT_PERFORMANCE_RESULT",
+  "baseline_profile": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "candidate_profile": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+  "all_fields_except_execution_profile_id_and_native_build_equal": true,
+  "native_build_changed_fields": [
+    "sha256"
+  ],
+  "changed_hash_basenames": [
+    "digest_attestation.py",
+    "pools.py",
+    "real.py"
+  ],
+  "unchanged_model_hardware_and_execution": true,
+  "source_profile_sha256": {
+    "baseline-q4-profile.json": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+    "candidate-q4-bound-profile.json": "a0ef7d70718ef06dfbfae7ec3e5a7dbff7f55ab252471804ba3cd5ee5cf655fb"
+  },
+  "limitation": "Source paths/profile identities differ; timing against previous executed arms is historical comparison, not a simultaneous randomized control."
+}

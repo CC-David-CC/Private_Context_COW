@@ -1,0 +1,26 @@
+{
+  "jobs": [
+    {"name":"native-prepare","argv":["/home/dflanag3/branching-g3/native-request-probe-20261014/regressions-digest-v1/branch_prepare_test"]},
+    {"name":"native-session","argv":["/home/dflanag3/branching-g3/native-request-probe-20261014/regressions-digest-v1/branch_session_test"]},
+    {"name":"native-integrity","argv":["/home/dflanag3/branching-g3/native-request-probe-20261014/regressions-digest-v1/branch_integrity_test"]},
+    {"name":"native-lifecycle","argv":["/home/dflanag3/branching-g3/native-request-probe-20261014/regressions-digest-v1/branch_lifecycle_test"]},
+    {"name":"g0","argv":["python3","scripts/verify.py","--gate","G0"]},
+    {"name":"mutants","argv":["python3","scripts/mutation_smoke.py"]},
+    {
+      "name":"q4-timing-tiny",
+      "argv":["python3","scripts/native_stage_probe.py","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q4-timing-tiny","--prefix","128","--suffix","4","--generated","8"]
+    },
+    {
+      "name":"q4-timing-64k",
+      "argv":["python3","scripts/native_stage_probe.py","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q4-96k-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q4-timing-64k","--fixture","/home/dflanag3/branching-g3/codebase-fixtures-20261014/q4-64k.json","--generated","2048"]
+    },
+    {
+      "name":"q8-timing-64k",
+      "argv":["python3","scripts/native_stage_probe.py","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q8-timing-64k","--fixture","/home/dflanag3/branching-g3/codebase-fixtures-20261014/q8-64k.json","--generated","2048"]
+    },
+    {
+      "name":"q8-real-64k-restart",
+      "argv":["python3","scripts/resident_resume.py","campaign","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q8-real-64k-restart","--fixture","/home/dflanag3/branching-g3/codebase-fixtures-20261014/q8-64k.json","--generated","2048"]
+    }
+  ]
+}

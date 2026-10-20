@@ -1,0 +1,64 @@
+{
+  "all_pids_absent": true,
+  "canonical_tokens_and_greedy_controller_progress_verified": true,
+  "command_exit": 0,
+  "error_events": 1,
+  "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+  "fault_outputs": 128,
+  "files": {
+    "1f24461069a617ad68883f4e8c524a5f176b52d5230109003e55c543bac6f24e": {
+      "canonical_sha256": "1f24461069a617ad68883f4e8c524a5f176b52d5230109003e55c543bac6f24e",
+      "manifest_sha256": "5f5fd22bcf9d56d54b123254e2040fef9169b7d9ff43e1f5cd1b405d226439c8",
+      "payload_bytes": 331537684,
+      "payload_sha256": "323749b42351aa15490e0978e5b7560cae0fa033fce799be6cd1043334ca3df1"
+    },
+    "63f141568109c9562111be7470e61dc2f88293794b623358e47b674bc803b90a": {
+      "canonical_sha256": "63f141568109c9562111be7470e61dc2f88293794b623358e47b674bc803b90a",
+      "manifest_sha256": "ce5bc913e611fb2701ae5a39f3e7d590ad41d3b78df3796a231af779687257e2",
+      "payload_bytes": 331328756,
+      "payload_sha256": "c64daccf71cd88a980942a4e0274972f55cb611e9016f39bfe3ee51c11a7b5c7"
+    },
+    "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85": {
+      "canonical_sha256": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+      "manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+      "payload_bytes": 327985908,
+      "payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810"
+    }
+  },
+  "following_outputs": 8,
+  "http_exit": 0,
+  "limits": [
+    "Only checkpoint volume is full; canonical metadata volume is not full",
+    "No fresh numerical oracle, sampler expansion, peak-memory or throughput qualification",
+    "No power-loss campaign; original cumulative G1-G5 remains unqualified"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "native_copied_bytes": 150994944,
+  "native_exit": 0,
+  "native_forward_tokens": 136,
+  "native_integrity_hashed_bytes": 22045261824,
+  "native_integrity_mismatches": 0,
+  "native_loaded_file_bytes": 657328104,
+  "native_prefill_tokens": 0,
+  "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "numerical_max_error": null,
+  "original_errno": 28,
+  "prepared_payload_identity_preserved": true,
+  "process_ids": [
+    2772280,
+    2772286
+  ],
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "raw_result_sha256": "e6095e3c6aa2de55590684cd48e071c4a26989c59a89fa3bb6b5cc7447d44c53",
+  "raw_trace_sha256": "c4a5c57675151e98bb68db50445440d00f8b1ec5583786093bf13df5a2704dd5",
+  "rejected_payload_bytes": 331328756,
+  "retry_native_work_unchanged": true,
+  "retry_trace_prefix_lines": 29,
+  "saved_prefix_tokens": 7999,
+  "schema": "q4-enospc-primary-v1",
+  "scope": "Actual Q4 HTTP checkpoint-volume ENOSPC and same-operation retry, not cumulative G2",
+  "single_retry_move": true,
+  "source_full_bytes_unchanged": true,
+  "status": "FOCUSED-PASS",
+  "wrapper_exit": 0
+}

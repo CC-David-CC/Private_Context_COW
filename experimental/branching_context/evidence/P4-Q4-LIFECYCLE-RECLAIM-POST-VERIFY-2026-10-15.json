@@ -1,0 +1,90 @@
+{
+  "all_nine_target_paths_absent": [
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+    "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0.state"
+  ],
+  "archive_sha256": "d01af0087b43f4c8f3558ae64d49377d8f927c0ec31420035134644cd347684f",
+  "command_exit": 0,
+  "command_exit_receipt_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "filesystem_free_bytes_after_precheck": 26499080192,
+  "filesystem_free_bytes_after_unlink": 44280717312,
+  "filesystem_free_bytes_before": 26499080192,
+  "filesystem_free_bytes_delta": 17781637120,
+  "map_sha256": "91ec8f54db1fc53fb1983dfc6722c86a898edbde79483f992fe86ff5ee462291",
+  "no_other_paths_removed": true,
+  "original_q4_roots_reverified": 3,
+  "precheck_receipt_sha256": "7b493b88e0ac9931ab9ccbc4300d41c5dea9a9adf1bc271aa8ebffe611fde273",
+  "protected_output_metadata_file_count": 88,
+  "protected_output_metadata_inventory_matches_before": true,
+  "protected_output_metadata_inventory_sha256_after": "31b4adbfa08156fd08b4b6a664032faf4f96fde22618556b2748fafb18550bf1",
+  "protected_output_metadata_inventory_sha256_before": "31b4adbfa08156fd08b4b6a664032faf4f96fde22618556b2748fafb18550bf1",
+  "protected_source_store_file_count": 115,
+  "protected_source_store_inventory_matches_before": true,
+  "protected_source_store_inventory_sha256_after": "c051e76ff0a2b41c27514e5fb96998f4950d5a89753334b90300946eef251e10",
+  "protected_source_store_inventory_sha256_before": "c051e76ff0a2b41c27514e5fb96998f4950d5a89753334b90300946eef251e10",
+  "receiver_receipt_sha256": "513126b097fec519c993aac095c28f237ea29aa82b56ea2b2f4d0bfa3edaf00c",
+  "removed": [
+    {
+      "bytes": 2051119588,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea.state",
+      "sha256": "0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea"
+    },
+    {
+      "bytes": 2048403516,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca.state",
+      "sha256": "3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+      "sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7"
+    },
+    {
+      "bytes": 2047782888,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd.state",
+      "sha256": "4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd"
+    },
+    {
+      "bytes": 2051230200,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db.state",
+      "sha256": "4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+      "sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7"
+    },
+    {
+      "bytes": 2047985660,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba.state",
+      "sha256": "a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+      "sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca"
+    },
+    {
+      "bytes": 2051648056,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store/checkpoints/e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0.state",
+      "sha256": "e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0"
+    }
+  ],
+  "removed_bytes": 17789976604,
+  "removed_count": 9,
+  "schema": 1,
+  "source_store_unmodified": true,
+  "status": "PASS_POST_UNLINK_EXACT_NINE_PROTECTED_BYTES_VERIFIED",
+  "unlink_directory_fsync_performed_after_each_path": true,
+  "unlink_receipt_sha256": "112c5d7cbca4417af83fad3a3667ce2f6fb8a596e86f25ed3a53fc0c3ce564d0",
+  "verification_receipt_sha256": "6b0e5f59311cbaa3d896706363601c264f0e9eea11993f664d52cdfff2c7c35e",
+  "wrapper_exit": 0,
+  "wrapper_exit_receipt_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+}

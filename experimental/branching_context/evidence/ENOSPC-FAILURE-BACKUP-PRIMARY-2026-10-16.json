@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 286720,
+  "archive_sha256": "a0141f7034e91f4516a2d332a89644f698476b6f867ea9866143f5c386dcf91f",
+  "extracted_files": 0,
+  "manifest_sha256": "716b79cbddc41dc1c957a6f8fd9202dca84ffc3ec7ce610c25f16bf0519ff2ec",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-enospc-harness-failures-compact-v2/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 233593,
+  "verified_regular_files": 42
+}

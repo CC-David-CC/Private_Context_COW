@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/usr/local/cuda/bin/compute-sanitizer",
+    "--tool",
+    "memcheck",
+    "--error-exitcode",
+    "86",
+    "--log-file",
+    "<measurement-home>/branching-g3/speed-isolation-20261013/batch-final-memcheck.log",
+    "<measurement-home>/branching-g3/speed-isolation-20261013/batch-test-green"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\":\"PASS\",\"failures\":0}\n",
+  "stderr": "",
+  "memcheck": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors\n"
+}

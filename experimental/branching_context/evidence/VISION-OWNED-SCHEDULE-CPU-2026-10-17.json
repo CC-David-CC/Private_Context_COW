@@ -1,0 +1,22 @@
+{
+  "status": "CPU_PASS_GPU_UNRUN",
+  "invariant": "Validate each new consumed native receipt under one thread-owned cursor; full unchanged schedule validation on entry and before capture/publication. No persisted representation, API flag, removed hash, changed native operator or tolerance.",
+  "base": "fb457d9ffd29286a9e645cddb62de75462d11825",
+  "red": "vision-owned-schedule-red-run-v1: missing new cursor import, command/wrapper1",
+  "tests": {
+    "focused": 22,
+    "focused_failures": 0,
+    "integration_union": 66,
+    "integration_failures": 0,
+    "g0": 51,
+    "g0_failures": 0,
+    "skips": 0
+  },
+  "source_files": [
+    "experimental/branching_context/src/context_time_travel/execution_receipt.py",
+    "experimental/branching_context/src/context_time_travel/real.py",
+    "experimental/branching_context/tests/implementation/test_vision_schedule_cursor.py"
+  ],
+  "gpu": "UNRUN",
+  "scope": "Matching execution-profile exactness remains required. Full G1-G5 qualification unchanged."
+}

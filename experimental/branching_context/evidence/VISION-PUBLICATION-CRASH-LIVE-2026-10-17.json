@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "RUNNING",
+  "host": "llm-60",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "branch": "work/vision-publication-crash-20261017",
+  "core_commit": "062a25124a37d76b957b20a050679ac6aa60bf82",
+  "profile": "cb244ccd1a1b2fee603f9eac92e1984be89b586ee71d99545e4d9dbbb19cdce1",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-stage-ownership-green-source-v2",
+  "profile_path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-stage-ownership-profile-v2/profile.json",
+  "tmux_session": "vc08-vision-publication-crash-v3",
+  "pane_pid": 168328,
+  "pane_live_verified_unix": 1792280382.3604796,
+  "wrapper_run": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-publication-crash-probe-gpu-run-v3",
+  "campaign_result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-publication-crash-cli-gpu-v3/result.json",
+  "passed_points": [
+    "payload_during_write",
+    "branch_committed_before_ack",
+    "payload_before_publish"
+  ],
+  "planned_points": [
+    "payload_during_write",
+    "branch_committed_before_ack",
+    "payload_before_publish",
+    "payload_durable",
+    "before_manifest_publish",
+    "manifest_during_write",
+    "manifest_before_publish",
+    "manifest_durable",
+    "before_branch_publish",
+    "after_refs_stage_fsync",
+    "after_refs_rename_before_dir_fsync"
+  ],
+  "source_manifest": {
+    "base": "ee0cd35a4957ff1f52ba9cc2bf43ef9009b7adb0",
+    "files": {
+      "scripts/run_vision_publication_crash_probe.py": "090770649cf0612587ed3cd28ef774d33f0bead5bc5bcfb082cf0cd97266f43f",
+      "tests/implementation/test_vision_publication_crash_probe.py": "7b3c36d63b607d13265fd874be39d017067649f7d31ba9ad725e66ecad2c2b34"
+    }
+  },
+  "cpu": {
+    "affected": 263,
+    "serving": 38,
+    "new_harness": 3,
+    "g0": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "limitations": "Partial process-crash campaign only; no power-loss, independent fresh numerical oracle, Q8 or full VC08/09/G1-G5 qualification",
+  "next_action": "Poll existing tmux/job/result; do not launch a duplicate. On terminal, inspect command.exit,wrapper.exit,all point results and exact lifecycle before backing up/retiring derived data or integrating feature ref."
+}

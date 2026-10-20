@@ -1,0 +1,778 @@
+{
+  "cli_commands": 25,
+  "construction_and_native_attribution": {
+    "construction": [
+      {
+        "engine_construction_seconds": 0.6527946148999035,
+        "engine_id": "490ba07057dada14b9e5e75f5311c1b5444e2eb7b15d613bf86f2ec8bbb51147",
+        "format": "GBNF",
+        "repetition": 0,
+        "session_construction_seconds": 0.05256532388739288,
+        "warmup": true
+      },
+      {
+        "engine_construction_seconds": 0.4888829740229994,
+        "engine_id": "726e93c5315c30cb7e8b6ace1efb76258fb33f86618a32db305b346dc4562694",
+        "format": "JSON",
+        "repetition": 0,
+        "session_construction_seconds": 0.06018572696484625,
+        "warmup": true
+      },
+      {
+        "engine_construction_seconds": 0.47751806396991014,
+        "engine_id": "726e93c5315c30cb7e8b6ace1efb76258fb33f86618a32db305b346dc4562694",
+        "format": "JSON",
+        "repetition": 1,
+        "session_construction_seconds": 0.05615789094008505,
+        "warmup": false
+      },
+      {
+        "engine_construction_seconds": 0.4755854969844222,
+        "engine_id": "490ba07057dada14b9e5e75f5311c1b5444e2eb7b15d613bf86f2ec8bbb51147",
+        "format": "GBNF",
+        "repetition": 1,
+        "session_construction_seconds": 0.05804932094179094,
+        "warmup": false
+      },
+      {
+        "engine_construction_seconds": 0.47619780199602246,
+        "engine_id": "490ba07057dada14b9e5e75f5311c1b5444e2eb7b15d613bf86f2ec8bbb51147",
+        "format": "GBNF",
+        "repetition": 2,
+        "session_construction_seconds": 0.05877541285008192,
+        "warmup": false
+      },
+      {
+        "engine_construction_seconds": 0.4692780419718474,
+        "engine_id": "726e93c5315c30cb7e8b6ace1efb76258fb33f86618a32db305b346dc4562694",
+        "format": "JSON",
+        "repetition": 2,
+        "session_construction_seconds": 0.05639120517298579,
+        "warmup": false
+      },
+      {
+        "engine_construction_seconds": 0.4726148028858006,
+        "engine_id": "726e93c5315c30cb7e8b6ace1efb76258fb33f86618a32db305b346dc4562694",
+        "format": "JSON",
+        "repetition": 3,
+        "session_construction_seconds": 0.05793461203575134,
+        "warmup": false
+      },
+      {
+        "engine_construction_seconds": 0.472349668154493,
+        "engine_id": "490ba07057dada14b9e5e75f5311c1b5444e2eb7b15d613bf86f2ec8bbb51147",
+        "format": "GBNF",
+        "repetition": 3,
+        "session_construction_seconds": 0.058056925190612674,
+        "warmup": false
+      }
+    ],
+    "construction_scope": "Includes real Q4 tokenizer adaptation/hash, source lowering, validation and initial matcher; not pure source conversion",
+    "measurements": [
+      {
+        "format": "GBNF",
+        "native_compute_only_consumed_tps": 132.84913819175935,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1482885043,
+          "decode_finish_ns": 12390434,
+          "decode_prepare_ns": 9972336,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 0,
+        "warmup": true,
+        "whole_cli_seconds": 6.61098009487614,
+        "whole_cli_text_tps": 29.647646368185313
+      },
+      {
+        "format": "JSON",
+        "native_compute_only_consumed_tps": 132.82451394989593,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483159954,
+          "decode_finish_ns": 12233942,
+          "decode_prepare_ns": 10020929,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 0,
+        "warmup": true,
+        "whole_cli_seconds": 6.62273536901921,
+        "whole_cli_text_tps": 29.595022159103195
+      },
+      {
+        "format": "JSON",
+        "native_compute_only_consumed_tps": 132.82575125445933,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483146138,
+          "decode_finish_ns": 12341257,
+          "decode_prepare_ns": 10156720,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 1,
+        "warmup": false,
+        "whole_cli_seconds": 6.569470789050683,
+        "whole_cli_text_tps": 29.834975494018877
+      },
+      {
+        "format": "GBNF",
+        "native_compute_only_consumed_tps": 132.812973004007,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483288835,
+          "decode_finish_ns": 12260327,
+          "decode_prepare_ns": 10347560,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 1,
+        "warmup": false,
+        "whole_cli_seconds": 6.608314977958798,
+        "whole_cli_text_tps": 29.65960318988022
+      },
+      {
+        "format": "GBNF",
+        "native_compute_only_consumed_tps": 132.83334583259156,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483061341,
+          "decode_finish_ns": 12587370,
+          "decode_prepare_ns": 9897845,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 2,
+        "warmup": false,
+        "whole_cli_seconds": 6.61815863288939,
+        "whole_cli_text_tps": 29.61548836650192
+      },
+      {
+        "format": "JSON",
+        "native_compute_only_consumed_tps": 132.83950044501537,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1482992629,
+          "decode_finish_ns": 12562067,
+          "decode_prepare_ns": 10006524,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 2,
+        "warmup": false,
+        "whole_cli_seconds": 6.610659651923925,
+        "whole_cli_text_tps": 29.64908349849132
+      },
+      {
+        "format": "JSON",
+        "native_compute_only_consumed_tps": 132.83682981132281,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483022444,
+          "decode_finish_ns": 12366863,
+          "decode_prepare_ns": 10237434,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 3,
+        "warmup": false,
+        "whole_cli_seconds": 6.661976035917178,
+        "whole_cli_text_tps": 29.42070024618694
+      },
+      {
+        "format": "GBNF",
+        "native_compute_only_consumed_tps": 132.8348966136256,
+        "native_counter_delta": {
+          "captures": 1,
+          "decode_compute_ns": 1483044027,
+          "decode_finish_ns": 12322549,
+          "decode_prepare_ns": 10078793,
+          "decode_timed_tokens": 197,
+          "forward_tokens": 197,
+          "integrity_device_hashed_bytes": 301989888,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 2,
+          "written_file_bytes": 128928884
+        },
+        "repetition": 3,
+        "warmup": false,
+        "whole_cli_seconds": 6.643274954985827,
+        "whole_cli_text_tps": 29.503520677388273
+      }
+    ],
+    "medians": {
+      "GBNF": {
+        "engine_construction_seconds": 0.4755854969844222,
+        "native_compute_only_consumed_tps": 132.83334583259156,
+        "session_construction_seconds": 0.058056925190612674
+      },
+      "JSON": {
+        "engine_construction_seconds": 0.4726148028858006,
+        "native_compute_only_consumed_tps": 132.83682981132281,
+        "session_construction_seconds": 0.05639120517298579
+      }
+    },
+    "source_result_sha256": "4a492d406891830015180aa2c6e239d000bea19a3c61ec2780f1eef582454b41",
+    "source_run": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2",
+    "status": "POSTRUN_ATTRIBUTION_PASS_NO_GPU_INFERENCE",
+    "tokenizer_load_seconds": 0.3081533049698919,
+    "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+  },
+  "executed_overlay_sha256": "dfc926a30f21011ab7fe9e6b0e4b05ac4b05585929ed69548917fb43ca9da7f8",
+  "executed_runs": [
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [
+        "test_json_schema_format_is_explicitly_unavailable_in_gbnf_first_delivery (tests.implementation.test_grammar_first.GrammarFirstTests.test_json_schema_format_is_explicitly_unavailable_in_gbnf_first_delivery)"
+      ],
+      "run": "json-schema-affected-run-v1",
+      "summaries": [
+        "Ran 40 tests in 0.161s",
+        "FAILED (failures=1, errors=10)"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [
+        "test_json_schema_format_is_explicitly_unavailable_in_gbnf_first_delivery (tests.implementation.test_grammar_first.GrammarFirstTests.test_json_schema_format_is_explicitly_unavailable_in_gbnf_first_delivery)"
+      ],
+      "run": "json-schema-affected-run-v2",
+      "summaries": [
+        "Ran 119 tests in 7.793s",
+        "FAILED (failures=1)"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-affected-run-v3",
+      "summaries": [
+        "Ran 119 tests in 7.730s",
+        "OK"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-affected-run-v5",
+      "summaries": [
+        "Ran 122 tests in 7.535s",
+        "OK"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [],
+      "run": "json-schema-base-g0-run-v1",
+      "summaries": [
+        "Ran 51 tests in 0.257s",
+        "OK",
+        "G0: PASS: 51 tests; 0 required real-backend cases"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-base-g0-run-v2",
+      "summaries": [
+        "Ran 51 tests in 0.263s",
+        "OK",
+        "G0: PASS: 51 tests; 0 required real-backend cases"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [],
+      "run": "json-schema-cli-gpu-run-v1",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-cli-gpu-run-v2",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-green-g0-run-v2",
+      "summaries": [
+        "Ran 51 tests in 0.265s",
+        "OK",
+        "G0: PASS: 51 tests; 0 required real-backend cases"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-green-g0-run-v3",
+      "summaries": [
+        "Ran 51 tests in 0.311s",
+        "OK",
+        "G0: PASS: 51 tests; 0 required real-backend cases"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [
+        "test_invalid_or_unsupported_schema_does_not_fall_back_to_unconstrained (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_invalid_or_unsupported_schema_does_not_fall_back_to_unconstrained) (schema={'type': 'object', 'unsupportedKeyword': True})"
+      ],
+      "run": "json-schema-green-run-v1",
+      "summaries": [
+        "Ran 8 tests in 0.080s",
+        "FAILED (failures=1)"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-green-run-v2",
+      "summaries": [
+        "Ran 8 tests in 0.079s",
+        "OK"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [
+        "test_boolean_null_array_and_unicode_string_types (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_boolean_null_array_and_unicode_string_types)",
+        "test_invalid_or_unsupported_schema_does_not_fall_back_to_unconstrained (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_invalid_or_unsupported_schema_does_not_fall_back_to_unconstrained) (schema={'type': 'not_a_type'})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'arguments': {'path': 'x', 'limit': 1}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file'})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'delete_everything', 'arguments': {'path': 'x', 'limit': 1}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 3, 'limit': 1}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': '1'}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': True}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': 0}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': 9}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x'}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': 1, 'shell': 'rm'}})",
+        "test_required_fields_tool_enum_and_typed_arguments (tests.implementation.test_json_schema_grammar.JsonSchemaGrammarTests.test_required_fields_tool_enum_and_typed_arguments) (value={'tool': 'read_file', 'arguments': {'path': 'x', 'limit': 1}, 'extra': 0})"
+      ],
+      "run": "json-schema-mutant-run-v1",
+      "summaries": [
+        "Ran 8 tests in 0.115s",
+        "FAILED (failures=13)"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-postrun-run-v1",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-profile-run-v1",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": [],
+      "run": "json-schema-profile-run-v2",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [],
+      "run": "json-schema-reader-red-run-v1",
+      "summaries": []
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [],
+      "run": "json-schema-red-run-v1",
+      "summaries": [
+        "Ran 8 tests in 0.014s",
+        "FAILED (errors=7)"
+      ]
+    },
+    {
+      "exit_codes": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "failures": [
+        "test_active_files_no_json_extension (test_catalogue.CatalogueTests.test_active_files_no_json_extension)",
+        "test_active_python_has_no_json_or_pickle (test_catalogue.CatalogueTests.test_active_python_has_no_json_or_pickle)"
+      ],
+      "run": "branchwrite-h00-json-cow-full-cpu-run-v1",
+      "summaries": [
+        "Ran 300 tests in 8.795s",
+        "FAILED (failures=2)"
+      ]
+    }
+  ],
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "native_executable": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow",
+  "native_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+  "numerical_max_error": null,
+  "numerical_qualification": "NOT_RUN: no full-logit oracle in this bounded schema campaign",
+  "performance": {
+    "exceeds_8_percent": false,
+    "identical_output_tokens_all_calls": true,
+    "limitation": "forced constant output, short prefix; no arbitrary-schema or long-context performance claim",
+    "median_whole_call_tps": {
+      "GBNF": 29.61548836650192,
+      "JSON": 29.64908349849132
+    },
+    "relative_json_slowdown": -0.001134377106115858
+  },
+  "profile_identity": {
+    "execution_profile_id": "a17fcb78a5dd1d239e51689952553eae8fde3f9d3a56c9c34425f36049a92ea4",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+  },
+  "profile_sha256": "864b170759fcc4d8a8dd0a5b41138a2574f02006d1f93039a936df400cb931e4",
+  "publication": "PRIVATE_LAN_ONLY",
+  "restart": {
+    "controller_scope": "listed continuation fields equal; distinct branch stream identities retained",
+    "new_process_forward_tokens": 40,
+    "recomputed_saved_prefix_tokens": 0,
+    "reference_text": "{\n  \"arguments\": {\n    \"limit\": 1,\n    \"path\":  \"tests/test_main.py\"\n  },\n  \"tool\": \"read_file\"\n}",
+    "restored_text": "{\n  \"arguments\": {\n    \"limit\": 1,\n    \"path\":  \"tests/test_main.py\"\n  },\n  \"tool\": \"read_file\"\n}",
+    "status": "PASS"
+  },
+  "restored_file_bytes": 119422656,
+  "runtime_source_closure": {
+    "files_sha256": {
+      "experimental/branching_context/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+      "experimental/branching_context/src/context_time_travel/adaptive_p.py": "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+      "experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py": "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb",
+      "experimental/branching_context/src/context_time_travel/checkpoint_cache.py": "84e32e9d2208a87fb41f5cc576c84d8e47fa6afc7c82f16c2ad8b78918aaac55",
+      "experimental/branching_context/src/context_time_travel/controller.py": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+      "experimental/branching_context/src/context_time_travel/coordinator.py": "5891fd32da6831825ffcfc4721b74bcf6c7e0f973f908aced62ad4e4e176c7eb",
+      "experimental/branching_context/src/context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+      "experimental/branching_context/src/context_time_travel/dry.py": "cdf0b57a8856cecf576484d6a9a042558e6f4e5c6c10e452f0d276f3a4cc14bf",
+      "experimental/branching_context/src/context_time_travel/dynatemp.py": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b",
+      "experimental/branching_context/src/context_time_travel/evaluation.py": "bb26837681e30fa510d6dd961126669e68f174ef940449a09ef3ebda3938097d",
+      "experimental/branching_context/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+      "experimental/branching_context/src/context_time_travel/execution_receipt.py": "19b272462bb0ef6209ce8053f4aea1152be556b3471c51684cb5966080d4145c",
+      "experimental/branching_context/src/context_time_travel/grammar_first.py": "264c67aa68dd2cf443cdb32c3d90e4a50757cb09c724bd94d5196544f313682c",
+      "experimental/branching_context/src/context_time_travel/input_spans.py": "9304236e4e8c81cc3dc8d1dc8059b99bc536af3c2a17abbfbe22f2e745eb6ec2",
+      "experimental/branching_context/src/context_time_travel/min_p.py": "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+      "experimental/branching_context/src/context_time_travel/mirostat2.py": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9",
+      "experimental/branching_context/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+      "experimental/branching_context/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+      "experimental/branching_context/src/context_time_travel/pools.py": "95a39407b18fa2047ce6a835d404c389406cbf3ec4b5aca32c834b45b6260c44",
+      "experimental/branching_context/src/context_time_travel/presentation_binding.py": "a911b28eafd87b75b7adeea0f1b7c7f110b71598bd730943b97983b0499e6f0d",
+      "experimental/branching_context/src/context_time_travel/presentation_request.py": "08f9e5b55e4850af8f3b7537453d6e859d869b6366afbd4a5f607e84e71cdcf7",
+      "experimental/branching_context/src/context_time_travel/real.py": "f793fa31a013af6edadf048b87bab6315386240fde67e2e9d04b585874bf57d8",
+      "experimental/branching_context/src/context_time_travel/sampled_controller.py": "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393",
+      "experimental/branching_context/src/context_time_travel/sampling_proposal.py": "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c",
+      "experimental/branching_context/src/context_time_travel/seed_controls.py": "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b",
+      "experimental/branching_context/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+      "experimental/branching_context/src/context_time_travel/store.py": "5b90557ab135aa73674ebc8de9e511cfe348d05d22d5aa913ccf4fb386fbb4b2",
+      "experimental/branching_context/src/context_time_travel/strata_backend.py": "892346fe4b41950b28b5b18839618300f0e2146397206fc849d99a47f518a9b6",
+      "experimental/branching_context/src/context_time_travel/text_stops.py": "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619",
+      "experimental/branching_context/src/context_time_travel/typical.py": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e",
+      "experimental/branching_context/src/context_time_travel/vision_artifacts.py": "c654c71ee0ed91db01ccd8cccf6ebca62a6734fa2a535734b0694bfec8138b9d",
+      "experimental/branching_context/src/context_time_travel/vision_controllers.py": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a",
+      "experimental/branching_context/src/context_time_travel/vision_dry.py": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10",
+      "experimental/branching_context/src/context_time_travel/vision_embeddings.py": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6",
+      "experimental/branching_context/src/context_time_travel/vision_execution.py": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+      "experimental/branching_context/src/context_time_travel/xtc_pipeline.py": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386",
+      "serve/cow_adapter.py": "ad36139a015bf3cb493b48f4bbb62391fd183c9b166b569dbfd4dac9d383eaad",
+      "serve/cow_browser_fixture.py": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183",
+      "serve/cow_grammar.py": "2abb244ecf7e7048d63269d3ede2e2de11010bf6d43e8a82246bcc072e6d1139",
+      "serve/cow_http.py": "9d7ee166a531a4019da0ca2a8ad8843a376494470df8466b26f05587cd35d2a3",
+      "serve/cow_prefix.py": "83a0feaa70b7d0305ba6a14de378b67b5da302c6df20ede57c9694671aef38db",
+      "serve/cow_prompt_encoder.py": "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8",
+      "serve/cow_renderer.py": "90c2b552559c0e88fedecf58cdc71c86344e757b645eff18378f5a9401496b06",
+      "serve/cow_text_adapter.py": "1e77b804e8cd8d7dc74f532f47247ae3c176f87602ff40f440901e047bed143e",
+      "serve/cow_vision.py": "fbf0bbb9196436d55a092c733505c300eff8f4dc4122b43e02a30269037aca86",
+      "serve/cow_vision_encoder.py": "9ce50dbcea21eff029473f206c0a758c15b063fe08ca63dedd387f49bb12a4b5",
+      "serve/cow_vision_preparer.py": "f9231af1d7258f161872c03149578ed078e1df9e25230507ec421845a81f5057",
+      "serve/cow_workspace.py": "3d223b38936d24b4fb7857101fdfd3fd429affb98ec86c9cb8b376a0e95e97af",
+      "tools/cow_cli.py": "c61b5e03152ef8d2e6ae85c4a5f909bc4d656da86142aa9d85fd83fdca54ef54"
+    },
+    "provenance": "Frozen JSON-enabled source-v5, base f79ef024 plus inventoried overlays; no invented source commit",
+    "source_commit": null,
+    "source_directory": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-green-source-v5"
+  },
+  "runtime_source_directory": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-green-source-v5",
+  "schema": "cow-json-schema-evidence-v1",
+  "scope": "Named host-owned JSON schemas beside GBNF; greedy Q4 CLI and matched-boundary restart only",
+  "separate_outstanding": [
+    "original G1-G5 qualification",
+    "full VC00-VC09 qualification",
+    "arbitrary JSON Schema standard coverage",
+    "sampled JSON GPU matrix",
+    "long-context timing",
+    "BranchWrite H01/H02/H05",
+    "two inherited BranchWrite blanket JSON-policy tests"
+  ],
+  "services": [
+    {
+      "pid": 2651,
+      "startup_seconds": 19.457565938821062,
+      "stop": {
+        "command": [
+          "/home/dflanag3/src/Strata/.venv/bin/python",
+          "-B",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/server_bootstrap-1.py",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-profile-v2/profile.json",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-green-source-v5",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/grammar-registry.json",
+          "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+          "--profile",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-profile-v2/profile.json",
+          "--store",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2-store",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "0",
+          "--text",
+          "--grammar-registry",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/grammar-registry.json",
+          "--api-key",
+          "<REDACTED>",
+          "--ram-gib",
+          "96",
+          "--disk-gib",
+          "128",
+          "--pool-trace-output",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/pool-1.json"
+        ],
+        "exit_code": 0,
+        "forced_process_group_cleanup": false,
+        "graceful": true,
+        "pid": 2651
+      },
+      "worker_shutdown": {
+        "close_succeeded": true,
+        "event_count": 13,
+        "native_exit_code": 0,
+        "native_pid": 2657,
+        "trace_sha256": "bd8893ffa097efb79e29f46e4d725bc907cedc8bcbf5a93e469af556773b43d2"
+      }
+    },
+    {
+      "pid": 2800,
+      "startup_seconds": 19.334223648998886,
+      "stop": {
+        "command": [
+          "/home/dflanag3/src/Strata/.venv/bin/python",
+          "-B",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/server_bootstrap-2.py",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-profile-v2/profile.json",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-green-source-v5",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/grammar-registry.json",
+          "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+          "--profile",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-profile-v2/profile.json",
+          "--store",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2-store",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "0",
+          "--text",
+          "--grammar-registry",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/grammar-registry.json",
+          "--api-key",
+          "<REDACTED>",
+          "--ram-gib",
+          "96",
+          "--disk-gib",
+          "128",
+          "--pool-trace-output",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/json-schema-cli-gpu-v2/pool-2.json"
+        ],
+        "exit_code": 0,
+        "forced_process_group_cleanup": false,
+        "graceful": true,
+        "pid": 2800
+      },
+      "worker_shutdown": {
+        "close_succeeded": true,
+        "event_count": 39,
+        "native_exit_code": 0,
+        "native_pid": 2806,
+        "trace_sha256": "31778e0604d37a5238ade9f1958745bd2eebf2ba5d64eba525e9a9d1e197cfd3"
+      }
+    }
+  ],
+  "source_base_commit": "f79ef024c68ab65c2e99060247af499719e2c982",
+  "status": "BOUNDED_JSON_SCHEMA_CLI_RESTART_PASS",
+  "supported_checks": [
+    "required fields",
+    "allowed tool names",
+    "nested argument types",
+    "integer bounds",
+    "extra field rejection",
+    "arrays/booleans/null/Unicode",
+    "independent parser progress",
+    "unknown schema keywords fail closed",
+    "no remote refs",
+    "new-process partial continuation"
+  ],
+  "timings": [
+    {
+      "elapsed_seconds": 6.61098009487614,
+      "exact_compact_text": true,
+      "format": "GBNF",
+      "repetition": 0,
+      "text_tokens": 196,
+      "warmup": true,
+      "whole_call_tps": 29.647646368185313
+    },
+    {
+      "elapsed_seconds": 6.62273536901921,
+      "exact_compact_text": true,
+      "format": "JSON",
+      "repetition": 0,
+      "text_tokens": 196,
+      "warmup": true,
+      "whole_call_tps": 29.595022159103195
+    },
+    {
+      "elapsed_seconds": 6.569470789050683,
+      "exact_compact_text": true,
+      "format": "JSON",
+      "repetition": 1,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.834975494018877
+    },
+    {
+      "elapsed_seconds": 6.608314977958798,
+      "exact_compact_text": true,
+      "format": "GBNF",
+      "repetition": 1,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.65960318988022
+    },
+    {
+      "elapsed_seconds": 6.61815863288939,
+      "exact_compact_text": true,
+      "format": "GBNF",
+      "repetition": 2,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.61548836650192
+    },
+    {
+      "elapsed_seconds": 6.610659651923925,
+      "exact_compact_text": true,
+      "format": "JSON",
+      "repetition": 2,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.64908349849132
+    },
+    {
+      "elapsed_seconds": 6.661976035917178,
+      "exact_compact_text": true,
+      "format": "JSON",
+      "repetition": 3,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.42070024618694
+    },
+    {
+      "elapsed_seconds": 6.643274954985827,
+      "exact_compact_text": true,
+      "format": "GBNF",
+      "repetition": 3,
+      "text_tokens": 196,
+      "warmup": false,
+      "whole_call_tps": 29.503520677388273
+    }
+  ]
+}

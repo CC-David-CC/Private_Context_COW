@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-binding-collected-v1/evidence.tar.gz",
+    "bytes": 136388,
+    "sha256": "66fb228b62fd0bfadf8eb6592a2b007d6f15c201beef6f9e2ca267789150b937"
+  },
+  "members": 149,
+  "verification": "Every regular member sequentially SHA-256 verified after compression",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-client-bindings-v1/evidence.tar.gz",
+  "destination_sha256": "66fb228b62fd0bfadf8eb6592a2b007d6f15c201beef6f9e2ca267789150b937",
+  "destination_bytes": 136388
+}

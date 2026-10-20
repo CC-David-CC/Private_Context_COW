@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "title": "Lost-ack durable receipt recovery across coordinator and HTTP server recreation",
+  "date": "2026-10-16",
+  "base_commit": "bb47abe5441af7b851028264fb4e0e9c720bdefe",
+  "changed_files": [
+    "serve/test_cow_postcommit_restart.py",
+    "experimental/branching_context/evidence/POSTCOMMIT-RESTART-2026-10-16.json"
+  ],
+  "production_source_changed": false,
+  "scope": "CPU-only real HTTP/Store + FlowModel. Test pauses after actual Store.move returns its durable receipt but before coordinator acknowledgement; drops the client connection; recreates coordinator and HTTP server over the same canonical store; then resubmits the exact answer POST.",
+  "focused_test": {
+    "id": "serve.test_cow_postcommit_restart.CowPostcommitRestartTests.test_lost_ack_replay_recovers_exact_durable_answer_after_restart",
+    "result": "PASS",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/restart-replay-v6",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "3312d7bb88bb399c877d9c80f963d0f699d1d1deb92ce017f43ccee891e7addc",
+    "source_test_sha256": "adcb15f49d74c8bdff0c38d2585b735cabfa604b643cc13f656d647cf6054b87"
+  },
+  "assertions": [
+    "Store.move has committed and its presentation receipt is visible while the original durable future is still pending.",
+    "The interrupted stream has no complete event.",
+    "After coordinator/server recreation, /cow/operation returns process-scoped 404, while the exact original answer POST returns the original durable receipt.",
+    "Replay performs no additional FlowModel work and leaves the current branch head/revision unchanged.",
+    "Changed arguments under the same operation ID are rejected with the existing HTTP 400 Operation ID reused for different input response; work and branch head remain unchanged."
+  ],
+  "broad_serving_regressions": {
+    "result": "PASS",
+    "tests": 141,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope_note": "The existing verify_cow_serving.py list does not execute the new postcommit test; that test ran separately above. Its result manifest records the final new-module source hash.",
+    "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/serving-v2",
+    "results_json_sha256": "fc3da98aa419df59bafd8e3e92af0e073a46f6a63b8da3976bb5a9f953d0497e",
+    "new_test_source_sha256_recorded_but_not_executed_by_broad_suite": "adcb15f49d74c8bdff0c38d2585b735cabfa604b643cc13f656d647cf6054b87",
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "formal_g0": {
+    "result": "PASS",
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/g0-v1",
+    "stdout_sha256": "f57117dbcdc7d023e0b63ed72c0d8d29dae45fdf860cbf5b074c3b9c8aa08d1f",
+    "api_coordinator_sha256": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "preserved_setup_attempts": [
+    {
+      "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/restart-replay-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "test harness setup error: fixture object lacked make_text"
+    },
+    {
+      "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/restart-replay-v2",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "test harness setup failure: patch targeted the coordinator Store instead of FlowModel's publication Store, so the durable-boundary gate was never reached"
+    },
+    {
+      "run_dir": "/home/dflanag3/spatial-artifacts/postcommit-restart-20261016-v1/runs/restart-replay-v3",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "test harness setup error: fixture helper new_coordinator was called on the wrong object"
+    }
+  ],
+  "limitations": [
+    "This recreates coordinator and HTTP server objects in one CPU test process; it does not exercise OS process-kill recovery or native child-process recovery.",
+    "FlowModel is synthetic. No GPU, model, or ordinary-chat qualification was performed.",
+    "Existing behavior already passed the deterministic replay test; no production fix was required, so prior setup failures are not behavioral RED evidence."
+  ]
+}

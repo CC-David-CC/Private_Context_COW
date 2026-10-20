@@ -1,0 +1,22 @@
+{
+  "status": "PASS_PRIVATE_RAW_BACKUP",
+  "scope": "Full resident output, launcher/preflight receipts and source closure references; not a standalone weights/build rerun bundle",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261015-p4-q4-resident-return/p4-q4-resident-return-20261015.tar",
+  "archive_bytes": 17814958080,
+  "archive_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "receipt_sha256": "a35dc82d155dc3598f87ee13f4b333b055ac0c189ce090b3e05047b18e05a235",
+  "manifest_sha256": "31787d8bc498ee35a4aeeab3756e1712d473ec99fe17227b7657722b005c7111",
+  "member_listing_sha256": "77dfa83047605f111c924243d1e7dba0ac5a9b93e04512f5bc0c332258693ced",
+  "members_verified": 165,
+  "receiver_verified_utc": "2026-10-15T08:22:37Z",
+  "source_partial_final_hashes_match": true,
+  "raw_result_sha256": "0c160914ed28406bd2cfee935726630e1cae974c0c8f5c4bb83f2e9baee2446e",
+  "stream_receipts": "/home/dflanag3/spatial-artifacts/p4-q4-resident-archive-20261015-01/stream-v2-run",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "root_independently_read_receiver_receipt_and_exits": true,
+  "root_observed_original_pids_absent": [2038804, 2038837, 2038838],
+  "receiver_verification": "Every regular tar member matches the embedded sorted input manifest; final archive independently hashed by receiver",
+  "reclaim_authorized": false,
+  "publication": "Private box-git only"
+}

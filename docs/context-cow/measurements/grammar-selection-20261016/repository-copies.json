@@ -1,0 +1,21 @@
+{
+    "schema":  "cow-repository-artifact-normalization-v1",
+    "raw_archive":  "/srv/data/git/private_context_cow.evidence/20261016-grammar-native-select-v1/evidence.tar",
+    "raw_artifacts_unchanged":  true,
+    "copies":  [
+                   {
+                       "file":  "grammar-selection-comparison.svg",
+                       "raw_sha256":  "efebf7305f329fc7a6877dcbe85ac311908e8edb631e18b0d293db3ce11cc792",
+                       "repository_sha256":  "d6e613a71f74f523cd71a251eb315f492e7968d271324d71b9f5f661003f8598",
+                       "change":  "LF text; trim generated SVG trailing whitespace only",
+                       "data_or_svg_attribute_tokens_unchanged":  true
+                   },
+                   {
+                       "file":  "grammar-selection-comparison.csv",
+                       "raw_sha256":  "27172bcdec1ce60a83a59599a1dc47c8fe942b3672a1bbefa8099ed08425a919",
+                       "repository_sha256":  "8e92789e358d63db0294a04cc3b42f3cee900fe44f42fa4671d7449f3841f09a",
+                       "change":  "LF text; trim generated SVG trailing whitespace only",
+                       "data_or_svg_attribute_tokens_unchanged":  true
+                   }
+               ]
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS_METADATA_ARCHIVE_EXTERNAL_PAYLOADS",
+  "target": "/srv/data/git/private_context_cow.evidence/20261015-checkpoint-digest-q4-p4-disk/disk.tar",
+  "stream": {
+    "bytes": 26593280,
+    "sha256": "0faff80456ccf29b59797b70773a1028024b2f908b75741baf9839690849d961"
+  },
+  "receiver": {
+    "archive_bytes": 26593280,
+    "archive_sha256": "0faff80456ccf29b59797b70773a1028024b2f908b75741baf9839690849d961",
+    "final_bytes": 26593280,
+    "final_sha256": "0faff80456ccf29b59797b70773a1028024b2f908b75741baf9839690849d961",
+    "manifest_sha256": "e658a0b300470c3f833d679ac36558da2005d5c4cdeec06205bc8749ffbb72c2",
+    "member_count": 126,
+    "member_listing_sha256": "cfb5b1e526861e1ef8dde0005bebdf31f75830c8dcaaf948bbbb2d8b93bf02b6",
+    "partial_sha256": "0faff80456ccf29b59797b70773a1028024b2f908b75741baf9839690849d961",
+    "status": "PASS",
+    "target": "/srv/data/git/private_context_cow.evidence/20261015-checkpoint-digest-q4-p4-disk/disk.tar",
+    "verification": "every regular tar member matches the embedded sorted input manifest",
+    "verified_utc": "2026-10-15T10:58:39Z"
+  },
+  "manifest_raw_sha256": "0f6f7f9008bb18acaafe214b42112c732b39a694a1079f619e877ec8357107aa",
+  "receiver_stdout_sha256": "44553e6fae06c2e6a0fbd9049e0686c2b826dcdd27797cc4bc92066e4ca44a55",
+  "files_deleted": 0,
+  "standalone": false
+}

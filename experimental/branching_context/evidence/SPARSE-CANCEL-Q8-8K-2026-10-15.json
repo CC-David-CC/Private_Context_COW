@@ -1,0 +1,48 @@
+{
+  "schema": "sparse-cancel-primary-audit-v1",
+  "status": "PASS",
+  "quant": "q8",
+  "run": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q8-v2",
+  "result_sha256": "200e51e5a60b042b3056765e675a06ed056f68512e6b220f5fda36736a30e043",
+  "harness_sha256": "c95807de21e0b2acd7db2b8650c9b7d14a2b68142135bd6a2cf86ffae3e5ec68",
+  "native_sut_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "execution_profile_id": "da13f5531567a73a7241d273ddc55a59ac77d53d329510769b5ab18d34efe7c6",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "checks": [
+    "SPARSE-CANCEL-001",
+    "SPARSE-CANCEL-002",
+    "SPARSE-CANCEL-003"
+  ],
+  "cancelled_consumed_tokens": 3,
+  "cancel_forward_tokens": 515,
+  "cancel_tokens_match_reference": true,
+  "no_cancelled_publication": true,
+  "root_payload_unchanged": true,
+  "recovery_comparisons": [
+    {
+      "branch": "A",
+      "outputs": 128,
+      "numerical_max_error": 0,
+      "final_frontier_sha256": "466bd415f8c53768c07d1f23d227c5bfa2c8e00e746909218d495c00cc345a81",
+      "forward_tokens": 640
+    },
+    {
+      "branch": "B",
+      "outputs": 128,
+      "numerical_max_error": 0,
+      "final_frontier_sha256": "f6ac7a54aeb6c62bcd2dd22cee5dd2379ddf26dae52ae547a48b429e8abf0a68",
+      "forward_tokens": 640
+    }
+  ],
+  "numerical_max_error": 0,
+  "exact_full_vector_pairs": 2,
+  "native_exit_codes": {
+    "0": 0
+  },
+  "elapsed_seconds": 103.457711155992,
+  "limitations": [
+    "Previously executed independent uncached reference reused after exact case/profile/file checks",
+    "Final recovery vectors checked; cancelled three tokens checked as IDs/receipts, not full vectors",
+    "Greedy single-GPU prototype; not crash/ENOSPC/soak or G1-G5 certification"
+  ]
+}

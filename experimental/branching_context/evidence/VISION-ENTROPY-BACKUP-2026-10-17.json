@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-entropy-collected-v2/evidence.tar.gz",
+    "bytes": 6483157528,
+    "sha256": "bad6cc803584dd2bcf50d430ce6a3c47c2db0aae8a6bcb0035823b7e2d9bd187"
+  },
+  "members": 2848,
+  "verification": "All regular archive members sequentially SHA256 verified",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-entropy-v1/evidence.tar.gz",
+  "destination_sha256": "bad6cc803584dd2bcf50d430ce6a3c47c2db0aae8a6bcb0035823b7e2d9bd187",
+  "destination_bytes": 6483157528
+}

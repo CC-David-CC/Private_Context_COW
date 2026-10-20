@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED_BYTES",
+  "source_host": "llm-60",
+  "source_archive": "/home/dflanag3/branching-g3/namespace-q8-full-v1.tar",
+  "destination_host": "box-git",
+  "destination_archive": "/srv/data/git/private_context_cow.evidence/20261014-namespace-q8/namespace-q8-full-v1.tar",
+  "bytes": 2855700480,
+  "sha256": "552cfbdfd8809650c6251fd22e3cb9595c5d71c01033cda981b1c7b7a8566184",
+  "source_and_destination_hashes_equal": true,
+  "destination_mode": "600",
+  "destination_directory_mode": "700",
+  "transfer_exit": 0,
+  "destination_tar_list_exit": 0,
+  "members_relative_to": "/home/dflanag3",
+  "included_roots": [
+    "spatial-artifacts/namespace-q8-http-luna-20261014",
+    "branching-g3/namespace-q8-http-luna-20261014"
+  ],
+  "scope": "Q8 tiny and 8K namespace HTTP raw results, Store/checkpoints, reference vectors, audits and frozen source/profile trees",
+  "limits": [
+    "No external model files, packs, system libraries or native binaries outside these roots.",
+    "Symlinks are stored as links rather than expanded.",
+    "Newer graph/browser tests are outside this archive.",
+    "Archive verification is not replay or restore qualification."
+  ]
+}

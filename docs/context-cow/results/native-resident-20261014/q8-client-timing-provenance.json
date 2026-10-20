@@ -1,0 +1,15 @@
+{
+  "scope": "8K synthetic prefix + 512 suffix + 128 actual outputs; same-host CLI",
+  "inputs": {
+    "resident": {
+      "client_sha256": "90b8efa661a64726d48837172cc5cce1cec40165501c57721515204f8d94b87e",
+      "worker_sha256": "dca3c9611c584bc5a25f1dfcfcc76ad99b13c230abc51026d97abda0ae314bd2",
+      "profile_id": "504e1cc29450af72f20ca3877c7da33d0d8a04b095502383fa5eb1321e217c7d"
+    },
+    "disk": {
+      "client_sha256": "2967d3279b5269cf5a5e9b12717b50cdc7832d275469208757a21cb2ef0d5fdd",
+      "worker_sha256": "e79eb6d4fde27caa7fa7aeea8910d6d287302e3321bf1bde767d1b01f57d3c05",
+      "profile_id": "504e1cc29450af72f20ca3877c7da33d0d8a04b095502383fa5eb1321e217c7d"
+    }
+  }
+}

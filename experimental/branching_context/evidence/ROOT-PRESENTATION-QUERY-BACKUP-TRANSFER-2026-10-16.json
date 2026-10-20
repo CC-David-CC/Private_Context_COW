@@ -1,0 +1,9 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-root-presentation-query-controller-v1/evidence.tar",
+  "archive_bytes": 9932800,
+  "archive_sha256": "2cae90ff96d857d85df4319043221345274ee54b161ed6f3b6428bf7464ca232",
+  "manifest_sha256": "da0753e6a9234ca069a05d216620f29478e3bc2f94203dd661242463627e90f8",
+  "member_count": 831,
+  "status": "TRANSFER-HASH-VERIFIED; MEMBER-READBACK-PENDING",
+  "total_member_bytes": 9091287
+}

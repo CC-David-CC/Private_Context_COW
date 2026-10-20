@@ -1,0 +1,49 @@
+{
+  "status": "FAIL_INSTALL_SOURCE_PINS_PENDING_FIX",
+  "scope": "Root read-only review of the prepared retry installation commands, before service launch",
+  "host": "llm-60",
+  "reviewed_commit": "82bec772fd22fb51c6a1f6c9b39fa1af58db6799",
+  "install_source_directory": "/home/dflanag3/spatial-artifacts/cow-ui-q8-8189-20261015-preflight/reviewed",
+  "checks": [
+    {
+      "file": "cow_http_keyfile.py",
+      "tested_sha256": "bfe7ec714485320762d84dc659dfad043356e226bd1116ace086019dd083b461",
+      "observed_install_source_sha256": "148501e03e01b86e6dc7528a4eabd209ebed7dd8a661b5ccd3c5550dccc279e8"
+    },
+    {
+      "file": "run-cow-http-pid.sh",
+      "tested_sha256": "6afc0ec9e8c8fa45e453e5818caa7d980f2d7338b90752549ddf0f070ef77a92",
+      "observed_install_source_sha256": "77f34236ff8bfcb50e58520d333becd9df37c2d3da86093c5909804faa1cd181"
+    },
+    {
+      "file": "start-cow-service.sh",
+      "tested_sha256": "a30ba2432c63ab0eed9e641e37946cb02ee3644467a20cf3af423ff10ca40a10",
+      "observed_install_source_sha256": "a12dd1a086ea93172b9455e17274beffd7f56b3298a478151cb67c7611687215"
+    },
+    {
+      "file": "cow_fresh_reference.py",
+      "tested_sha256": "aba2032715e9a333c5cdc308e997691a5b4d8b9c7ea9c21b06ba8ee6285d0408",
+      "observed_install_source_sha256": "67eb4e59c0d4c12a66d4d4b88b19435209c038c14da5140930a05d0bf7223b39"
+    },
+    {
+      "file": "run-cow-ui-smoke.sh",
+      "tested_sha256": "ceba1408d3de39351705d9ea03472f1a68317326a403d2430e3081f3050244eb",
+      "observed_install_source": "MISSING"
+    }
+  ],
+  "independently_read_cpu_receipts": {
+    "directory": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/run-command-final",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 11,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "duration_seconds": 0.263
+  },
+  "next_action": "Stage the tested helpers into a new pinned source directory; verify the actual installation commands before any GPU retry. Preserve the older directory and failure receipts.",
+  "gpu_launch_authorized_by_this_review": false,
+  "model_requests_executed": 0,
+  "numerical_max_error": null,
+  "publication": "Private only"
+}

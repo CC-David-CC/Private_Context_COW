@@ -1,0 +1,44 @@
+[
+  {
+    "label": "external-default-guards",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-R",
+      "^(branch_prepare_test|branch_integrity_test)$",
+      "--output-on-failure"
+    ],
+    "exit_code": 0,
+    "seconds": 0.6760442070662975
+  },
+  {
+    "label": "external-G0",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/verify.py",
+      "--gate",
+      "G0"
+    ],
+    "exit_code": 0,
+    "seconds": 0.30211391497869045
+  },
+  {
+    "label": "external-demo",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/examples/branching_demo.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.06668269995134324
+  },
+  {
+    "label": "external-mutations",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/mutation_smoke.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.04853617702610791
+  }
+]

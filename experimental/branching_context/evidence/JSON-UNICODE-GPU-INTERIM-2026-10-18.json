@@ -1,0 +1,369 @@
+{
+  "schema": 1,
+  "status": "INTERIM_GPU_UNICODE_SMOKE_PASS_MODEL_EXTRACTION_FAILURES_RETAINED",
+  "recorded_unix_time": 1792368987.0667078,
+  "profile_preflight": {
+    "status": "PREFLIGHT_PASS_GPU_UNRUN",
+    "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-json-unicode-profile-v2/profile.json",
+    "profile_sha256": "b36d9104215430e66d03106ab0e3c056b5c1b22da910b5b217d6b843286b09b9",
+    "old_execution_profile_id": "b8102d412bd1eb5957446832549ceda89277fd10dd6a7bddabd13eef041ca0a6",
+    "execution_profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+    "verified_source_files": 53,
+    "validator_stdout": "VALIDATOR_PASS\n",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "native_hashes": {
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow": "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow": "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+    },
+    "old_attempt_preserved": true
+  },
+  "completed_arms": {
+    "tiny-quote": {
+      "status": "PASS",
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "prefix_sha256": "1e6ab6346f5867852dff4938fd593f61e0dfd5d31e1691eddd5c5ca94de2cd5c",
+      "prefix_bytes": 39986,
+      "context_creation_seconds": 11.112765574944206,
+      "elapsed_seconds": 77.390873670578,
+      "thinking_tokens": [
+        1959
+      ],
+      "thinking_median": 1959,
+      "natural_closures": 1,
+      "budget_closures": 0,
+      "actual_output_tokens": 2063,
+      "case_seconds": [
+        65.94204663892742
+      ],
+      "case_request_counts": [
+        2
+      ],
+      "failures": [],
+      "source_report_sha256": "c1edb5d551ab05b0343ee1a7f4129ccef4b0ebead0b77a75b4c6ca22f1926bd5",
+      "execution_profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+      "settings": {
+        "temperature": 0.7,
+        "min_p": 0.05,
+        "top_k": 60,
+        "top_p": 0.95,
+        "dry_multiplier": 0,
+        "dry_base": 1.75,
+        "dry_allowed_length": 2,
+        "dry_penalty_last_n": 256
+      }
+    },
+    "existing-ten": {
+      "status": "FAIL",
+      "completed": 10,
+      "passed": 7,
+      "failed": 3,
+      "prefix_sha256": "1e6ab6346f5867852dff4938fd593f61e0dfd5d31e1691eddd5c5ca94de2cd5c",
+      "prefix_bytes": 39986,
+      "context_creation_seconds": 1.6151855640346184,
+      "elapsed_seconds": 507.6444945335388,
+      "thinking_tokens": [
+        4096,
+        1306,
+        2581,
+        1013,
+        1240,
+        1682,
+        1673,
+        1354,
+        251,
+        79
+      ],
+      "thinking_median": 1330.0,
+      "natural_closures": 9,
+      "budget_closures": 1,
+      "actual_output_tokens": 16179,
+      "case_seconds": [
+        137.81081859592814,
+        42.304594531073235,
+        83.60616784298327,
+        33.3494278480066,
+        39.14451416907832,
+        51.798652923083864,
+        52.86542287794873,
+        43.656742195016704,
+        11.443658023956232,
+        5.745393865043297
+      ],
+      "case_request_counts": [
+        3,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "failures": [
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step0",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step1",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step3",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0x5c",
+                "0x6e"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0x5c",
+                "0x6e"
+              ]
+            }
+          }
+        }
+      ],
+      "source_report_sha256": "6ae74f9ef616d4d295e7b98439bf9fd781bcee082e4b3e1c65d44e2384ac4978",
+      "execution_profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+      "settings": {
+        "temperature": 0.7,
+        "min_p": 0.05,
+        "top_k": 60,
+        "top_p": 0.95,
+        "dry_multiplier": 0,
+        "dry_base": 1.75,
+        "dry_allowed_length": 2,
+        "dry_penalty_last_n": 256
+      }
+    }
+  },
+  "expanded_arm": "RUNNING_AT_CHECKPOINT_NOT_A_PASS",
+  "live_handles": {
+    "server_host": "llm-60",
+    "server_session": "bw-json-unicode-q4-v3",
+    "server_pid": 536363,
+    "native_pid": 536369,
+    "client_host": "llm-49",
+    "client_session": "bw-json-unicode-model-v3",
+    "server_artifacts": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/bw-json-unicode-q4-v3",
+    "client_artifacts": "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/robust-prefill-components-v3"
+  },
+  "private_backup": {
+    "status": "PRIVATE_INTERIM_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-json-unicode-gpu-interim-v1/evidence.tar.gz",
+    "sha256": "385132ed181f71612eee51eb5b7663eb9cb663e416d8b05b8ef89a6fa7987314",
+    "bytes": 204962,
+    "verified_files": 11
+  },
+  "retirement": {
+    "derived_bytes": 8899115007,
+    "canonical_files_unchanged": 130,
+    "backup": {
+      "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+      "archive": "/srv/data/git/private_context_cow.evidence/20261018-old-crosshost-cache-retirement-v1/canonical.tar.gz",
+      "sha256": "91e5a5ffeb3467fa4d1219af49fb96dcca17c95cf5ab03c01ea02b99a607b19d",
+      "verified_files": 146,
+      "bytes": 8669383
+    },
+    "scope": "Housekeeping only; old own completed fixtures. Not an eviction acceptance test."
+  },
+  "lora_candidate": "/home/dflanag3/src/branchwrite-lora-examples/candidates/unicode-normalization-during-exact-terminal-copy-20261018",
+  "limitations": [
+    "No numerical or native-restart oracle in these interpretation checks; numerical_gate_qualified remains false.",
+    "One stochastic trajectory per case; tiny repeats one case; unpaired RNG and unequal contexts prevent causal or throughput claims.",
+    "Original restrictive-grammar model results are not model-training defects. New normalization cases are held-out diagnostic captures, export_eligible=false.",
+    "Initial profile-v1 fingerprint rejection and client missing-credentials launch error occurred before inference and remain preserved.",
+    "Full VC00-VC09 and G1-G5 qualification incomplete; L02 unrun, Q8 deferred, chat OFF, Windows steering, private LAN only."
+  ],
+  "grammar_patch_commit": "0c50aeb42c490740c90064e746edebd25d1f1f5b",
+  "runtime_base_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "runtime_overlay": "Only grammar_first.py replaced; complete53-file recorded runtime source closure verified. Do not claim the entire latest checkout executed."
+}

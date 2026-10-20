@@ -1,0 +1,24 @@
+{
+  "archive_bytes": 8110080,
+  "archive_sha256": "ebd323dd62dbcbd7bcc7ff0584939f6079d28d4ec15c9bbdc863afb621f8c5ef",
+  "backup_receipt_sha256": "3025f7766d8d056cdac6f5938003b1f82e2e2cce82cd5358833d543d2348d06a",
+  "critical_suffix_pins": {
+    "gpu-q4-v2/primary-audit.json": "e6d8d1b1f1438d260653b255991e0dfccc6b4deeb5e70d40040377bffb11b2b5",
+    "green-source-v2/experimental/branching_context/scripts/run_resident_questions.py": "5868d2239355b7808cf5c6f2eafe20698e40f96541c9751c7a1e741a7d0a59e0",
+    "green-source-v2/experimental/branching_context/tests/implementation/test_resident_questions.py": "89c2345d3454de4b5a07f46e37f339dce4954416daf333dae0230a3dac133cf5",
+    "qualification-summary.json": "4e75547ce104715cabf76d8c30f76edd36985076ddbb7c5235167965c19add4c"
+  },
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-resident-questions-q4-compact-v1",
+  "directory_mode": "0o700",
+  "independent_archive_member_reread": true,
+  "limits": [
+    "Full checkpoint states and vector payloads are excluded.",
+    "Compact result/source backup does not reconstruct resident GPU state."
+  ],
+  "manifest_sha256": "4e0a9abe6547ac991e14de31cd1ababb234e6b0e5cceb3e0b5f89556924e5591",
+  "receiver_receipt_sha256": "add47a8b0c14e92a1c3e67d66a38946f571f214268f8e1cdaa6801a55b7a60a4",
+  "schema": "resident-questions-private-backup-primary-v1",
+  "status": "PASS",
+  "verified_members": 187,
+  "verified_regular_bytes": 7764423
+}

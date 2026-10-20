@@ -1,0 +1,17 @@
+{
+    "archive_bytes":  86947840,
+    "archive_sha256":  "9ee31f352a332522b7510e07356d676be1032a5161777d9d487d967e0ccb7fd3",
+    "extracted_files":  0,
+    "manifest_sha256":  "e5dc2798692684f9411e0c2188d0fa114d2504feb021e1a9479939b0d9782923",
+    "remote_archive":  "/srv/data/git/private_context_cow.evidence/20261016-q4-cuda-recovery-qualified-v1/evidence.tar",
+    "schema":  "compact-receiver-primary-readback-v1",
+    "status":  "PASS",
+    "symlinks_or_hardlinks":  0,
+    "verified_member_bytes":  86138771,
+    "verified_regular_files":  765,
+    "transfer_command_exit":  0,
+    "transfer_wrapper_exit":  0,
+    "readback_command_exit":  0,
+    "readback_wrapper_exit":  0,
+    "scope":  "Includes raw tiny/target fresh logits, real OOM lifecycle and independent audits, exact profile/runtime source, harness and integrated CPU/G0/HTTP evidence. Excludes model files, numerical .state payloads and redundant integrated source trees; source commit and source manifests retained."
+}

@@ -1,0 +1,253 @@
+{
+  "status": "PASS",
+  "scope": "read-only existing 1K/4K chat histories; no new inference, no numerical qualification",
+  "host": "llm-60",
+  "server_pid": 1300778,
+  "configuration_unchanged": true,
+  "caches": {
+    "--prompt-cache": "6",
+    "--conversation-cache-mib": "8192",
+    "--conversation-cache-slots": "8",
+    "--prompt-cache-every": "1024"
+  },
+  "chats": [
+    {
+      "title": "Long context 4096 test",
+      "chat_id": "5a42793e31da4f46bc9e268ee22f53ff",
+      "archived": true,
+      "branch_count": 3,
+      "counts_match_sqlite": true,
+      "shared_prefix_messages": 2,
+      "branch_counts": {
+        "Main": 2,
+        "A": 4,
+        "B": 4
+      },
+      "graph": {
+        "chat_id": "5a42793e31da4f46bc9e268ee22f53ff",
+        "root_id": "b18c17dfe0d8143646f2f629785a8ee925901eb63bc15ec3e7131fd6f08c6ccc",
+        "branches": [
+          {
+            "id": "44bfe0d0b1ed4aa08ad2ca9b5f1e4b86",
+            "chat_id": "5a42793e31da4f46bc9e268ee22f53ff",
+            "name": "Main",
+            "created_at": 1791889988.8101976,
+            "tip": "d991d25f99b18c47227bd963f74b7cf4be6fdce085be7ca512260dfadb7bbf78",
+            "revision": 2,
+            "pending_request": null,
+            "saved_messages": 2
+          },
+          {
+            "id": "bb612af54c6d4d2686f536324c22a1e7",
+            "chat_id": "5a42793e31da4f46bc9e268ee22f53ff",
+            "name": "A",
+            "created_at": 1791889990.6325614,
+            "tip": "68ef0bf696cc004345e77a413b75eebc8e94e8233db9d6007b706622c5f8c49f",
+            "revision": 5,
+            "pending_request": null,
+            "saved_messages": 4
+          },
+          {
+            "id": "f8832f2def424e65967e20a0cf7b2882",
+            "chat_id": "5a42793e31da4f46bc9e268ee22f53ff",
+            "name": "B",
+            "created_at": 1791889995.46233,
+            "tip": "60087bfe18ca5b1081f51be96eb94ef859fdcabba864b7c6fcff3597c9def32c",
+            "revision": 2,
+            "pending_request": null,
+            "saved_messages": 4
+          }
+        ],
+        "nodes": [
+          {
+            "id": "b18c17dfe0d8143646f2f629785a8ee925901eb63bc15ec3e7131fd6f08c6ccc",
+            "parent_id": null,
+            "role": null,
+            "preview": null,
+            "current_branch_count": 3,
+            "depth": 0
+          },
+          {
+            "id": "3e0be8674581368612052b0db97f9a65c2a9af23e7f8d1bef640b1ffbd741cc8",
+            "parent_id": "b18c17dfe0d8143646f2f629785a8ee925901eb63bc15ec3e7131fd6f08c6ccc",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 3,
+            "depth": 1
+          },
+          {
+            "id": "d991d25f99b18c47227bd963f74b7cf4be6fdce085be7ca512260dfadb7bbf78",
+            "parent_id": "3e0be8674581368612052b0db97f9a65c2a9af23e7f8d1bef640b1ffbd741cc8",
+            "role": "assistant",
+            "preview": "READY",
+            "current_branch_count": 3,
+            "depth": 2
+          },
+          {
+            "id": "08dd83da2cea1967a6b98caa133663f4b2cf08479a352eed09820552ffeed2dc",
+            "parent_id": "d991d25f99b18c47227bd963f74b7cf4be6fdce085be7ca512260dfadb7bbf78",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 1,
+            "depth": 3
+          },
+          {
+            "id": "8ef84977b277f346587fae15a79b51f31660510c96f1e3c4718d9e5b7f01d151",
+            "parent_id": "d991d25f99b18c47227bd963f74b7cf4be6fdce085be7ca512260dfadb7bbf78",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 1,
+            "depth": 3
+          },
+          {
+            "id": "68ef0bf696cc004345e77a413b75eebc8e94e8233db9d6007b706622c5f8c49f",
+            "parent_id": "08dd83da2cea1967a6b98caa133663f4b2cf08479a352eed09820552ffeed2dc",
+            "role": "assistant",
+            "preview": "BRANCH_A\n1. The text consists of twenty distinct records.\n2. Each record is labeled with a five-digit number.\n3. The numbering sequence starts at 00000.\n4. The ",
+            "current_branch_count": 1,
+            "depth": 4
+          },
+          {
+            "id": "60087bfe18ca5b1081f51be96eb94ef859fdcabba864b7c6fcff3597c9def32c",
+            "parent_id": "8ef84977b277f346587fae15a79b51f31660510c96f1e3c4718d9e5b7f01d151",
+            "role": "assistant",
+            "preview": "BRANCH_B\n1. The text is repetitive.\n2. It lists orchard items.\n3. Apples are red.\n4. Pears are green.\n5. The gate is blue.\n6. Records are numbered.\n7. Numbering",
+            "current_branch_count": 1,
+            "depth": 4
+          }
+        ],
+        "shared_prefix_messages": 2,
+        "previous_tips": [],
+        "execution_mode": "ordinary-serving-history-replay",
+        "native_cow_connected": false
+      }
+    },
+    {
+      "title": "Long context 1024 test",
+      "chat_id": "c2cbb8d678994ad08a079d6f0061978f",
+      "archived": true,
+      "branch_count": 3,
+      "counts_match_sqlite": true,
+      "shared_prefix_messages": 2,
+      "branch_counts": {
+        "Main": 4,
+        "A": 4,
+        "B": 4
+      },
+      "graph": {
+        "chat_id": "c2cbb8d678994ad08a079d6f0061978f",
+        "root_id": "a07df8a1c8617c72f357b345a13db804f0168460e86ce862746321cab4cd6b3f",
+        "branches": [
+          {
+            "id": "819a69892d3a45b792a652285f4f03c4",
+            "chat_id": "c2cbb8d678994ad08a079d6f0061978f",
+            "name": "Main",
+            "created_at": 1791889978.5560787,
+            "tip": "7f697b32f57699c37c1d76f74a0431032e6117dc52ca7042819e1a817cd7ad97",
+            "revision": 4,
+            "pending_request": null,
+            "saved_messages": 4
+          },
+          {
+            "id": "0197297795894c40985829e9bc349ba4",
+            "chat_id": "c2cbb8d678994ad08a079d6f0061978f",
+            "name": "A",
+            "created_at": 1791889980.1599352,
+            "tip": "c2611b846d9b3113977ffafc61094aa00fa846839c4259b671c80d7328f90f8b",
+            "revision": 5,
+            "pending_request": null,
+            "saved_messages": 4
+          },
+          {
+            "id": "211fcde77a1b4ac5b00881b54cdd4fcd",
+            "chat_id": "c2cbb8d678994ad08a079d6f0061978f",
+            "name": "B",
+            "created_at": 1791889985.352758,
+            "tip": "fdf0a3b070d578bf27df527c245ff10128002739e8625000b34effcde7bbf81a",
+            "revision": 2,
+            "pending_request": null,
+            "saved_messages": 4
+          }
+        ],
+        "nodes": [
+          {
+            "id": "a07df8a1c8617c72f357b345a13db804f0168460e86ce862746321cab4cd6b3f",
+            "parent_id": null,
+            "role": null,
+            "preview": null,
+            "current_branch_count": 3,
+            "depth": 0
+          },
+          {
+            "id": "e4da982b124787994f74a2d349773c0ff9c133da59fe8b0e0d461d794adaf8d9",
+            "parent_id": "a07df8a1c8617c72f357b345a13db804f0168460e86ce862746321cab4cd6b3f",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 3,
+            "depth": 1
+          },
+          {
+            "id": "3df9064789db49d6f048954e568f26c01b99a845602017a8263b199ed8826509",
+            "parent_id": "e4da982b124787994f74a2d349773c0ff9c133da59fe8b0e0d461d794adaf8d9",
+            "role": "assistant",
+            "preview": "READY",
+            "current_branch_count": 3,
+            "depth": 2
+          },
+          {
+            "id": "4993f46244298e1038bc3176f2998793fffe5410574c69a7e6b6bb6bf71922ca",
+            "parent_id": "3df9064789db49d6f048954e568f26c01b99a845602017a8263b199ed8826509",
+            "role": "user",
+            "preview": "Reply only ARCHIVE_OK.",
+            "current_branch_count": 1,
+            "depth": 3
+          },
+          {
+            "id": "e089120e850ada4cff6f389a2a8c59b5fcb5ab8ded9cdf73f6d2eae10640ce87",
+            "parent_id": "3df9064789db49d6f048954e568f26c01b99a845602017a8263b199ed8826509",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 1,
+            "depth": 3
+          },
+          {
+            "id": "0336cd68485711bad047701b380fb1dac8ad0b54058ff3df3d62315570e0e550",
+            "parent_id": "3df9064789db49d6f048954e568f26c01b99a845602017a8263b199ed8826509",
+            "role": "user",
+            "preview": "Record 00000: The orchard has red apples, green pears, and a blue gate.\nRecord 00001: The orchard has red apples, green pears, and a blue gate.\nRecord 00002: Th",
+            "current_branch_count": 1,
+            "depth": 3
+          },
+          {
+            "id": "7f697b32f57699c37c1d76f74a0431032e6117dc52ca7042819e1a817cd7ad97",
+            "parent_id": "4993f46244298e1038bc3176f2998793fffe5410574c69a7e6b6bb6bf71922ca",
+            "role": "assistant",
+            "preview": "ARCHIVE_OK",
+            "current_branch_count": 1,
+            "depth": 4
+          },
+          {
+            "id": "c2611b846d9b3113977ffafc61094aa00fa846839c4259b671c80d7328f90f8b",
+            "parent_id": "e089120e850ada4cff6f389a2a8c59b5fcb5ab8ded9cdf73f6d2eae10640ce87",
+            "role": "assistant",
+            "preview": "BRANCH_A\n1. The text is repeated twenty times.\n2. Each record starts with a unique ID.\n3. The IDs range from 00000 to 00019.\n4. The content describes an orchard",
+            "current_branch_count": 1,
+            "depth": 4
+          },
+          {
+            "id": "fdf0a3b070d578bf27df527c245ff10128002739e8625000b34effcde7bbf81a",
+            "parent_id": "0336cd68485711bad047701b380fb1dac8ad0b54058ff3df3d62315570e0e550",
+            "role": "assistant",
+            "preview": "BRANCH_B\n1. The text is repeated identically.\n2. There are twenty records listed.\n3. The records are numbered sequentially.\n4. The numbering starts at zero.\n5. ",
+            "current_branch_count": 1,
+            "depth": 4
+          }
+        ],
+        "shared_prefix_messages": 2,
+        "previous_tips": [],
+        "execution_mode": "ordinary-serving-history-replay",
+        "native_cow_connected": false
+      }
+    }
+  ]
+}

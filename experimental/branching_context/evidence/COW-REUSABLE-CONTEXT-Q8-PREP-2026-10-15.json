@@ -1,0 +1,126 @@
+{
+  "schema": "cow-reusable-context-ui-preparation-v1",
+  "status": "PREPARED_PENDING_ROOT_REVIEW",
+  "source": {
+    "repo_head": "e3c9582a890ed9a91ea4ca22e824997017427e15",
+    "runtime_source_commit": "981aaeaaabba0b49897b1e4256e3d8ee2931583d",
+    "runtime_source_manifest_sha256": "b7de2843ba96ab2d0eecde3d253814d0843c29bf2aca44bdf09db0828e625066",
+    "runtime_file_manifest_sha256": "9bacb3d814e8622d58197b76e9729143510cfc35ccf1037d9ce94f803df65bd7",
+    "runtime_file_manifest_internal_sha256": "8772dedabbceda8867111f2c52c6a1564eb405426c263aa56bb1a0549df93225",
+    "runtime_file_count": 593,
+    "runtime_extracted_bytes": 7802674,
+    "source_archives": {
+      "branch_bytes": 2140160,
+      "branch_sha256": "01afe0c65be5360ecc8544a15f9c5a4b7c55c248037c4707c9f21f0611d1bf8f",
+      "serve_tools_bytes": 6154240,
+      "serve_tools_sha256": "ea8b41b484e59e3658ff231933be2c72a93f50ac623d95760e882a4bb57b0646",
+      "remote_hashes_match": true
+    },
+    "runtime_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/api",
+    "runtime_read_only": true,
+    "source_hash_mismatches": 0,
+    "preparation_handoff_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/preparation-handoff.json",
+    "preparation_handoff_sha256": "925c4d31a78a4714daff317150b4343d1caf126e6cf67f0fa93a9ed2d9222598"
+  },
+  "profile": {
+    "path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/derived-profile/profile.json",
+    "sha256": "11eeda86f34fa2b53b824f273a37ad743bbf6c0b88e668f3b9c03073b23a13b6",
+    "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+    "base_execution_profile_id": "b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "capacity_tokens": 98304,
+    "prefill_chunk_tokens": 8192,
+    "kv_dtype": "FP16",
+    "model_hash_receipt_sha256": "99dfc43d8b1cc1117f136bf1e1c22d2d7611f511e8d3642ea3be3502c43c1469",
+    "model_stat_files_checked": 11,
+    "model_weight_bytes_rehashed": 0,
+    "native_build_sha_entries": 283,
+    "runtime_python_sha_entries_verified": 110,
+    "profile_preflight_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/preflight-profile.json",
+    "profile_preflight_sha256": "fc36e123b1140c498dddba1c13f15af6ac3cebc173fc13868a98d80331c08672"
+  },
+  "fixture": {
+    "status": "PASS_CPU_TOKENIZER_TEMPLATE_ONLY",
+    "path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/fixtures/attempt-5/fixture.json",
+    "sha256": "384984f5ef1f30a22edc3a1a80ed2830e59b8a56331e8c397181f482f8ecd16b",
+    "attachment_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/fixtures/attempt-5/cow-code-context.txt",
+    "attachment_name": "cow-code-context.txt",
+    "attachment_bytes": 36264,
+    "attachment_sha256": "239869c177abc706a8e6a4141cb91b696e9fafe75d28d568fc2671304e37143b",
+    "root_role": "user",
+    "root_tokens": 8189,
+    "root_token_ids_sha256": "598fcc1764bd5ff99cacc60e27c25c8728db9b593ad939f7b2c11c3347edc1a6",
+    "renderer_id": "555ee456490815ec5703830a444b5cf1bc8a0ac1fed7cba23b027471e9c95837",
+    "template_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+    "question_suffix_tokens": {"A": 594, "B": 596},
+    "question_suffix_token_ids_sha256": {
+      "A": "fec1227d88f323f38c9cb04a438907fbed0ccc2d8e4d6b0da5e240dcfbfde79f",
+      "B": "48fb3e33ea2e6266c8ec19be76b51e01c1335cef68e2f75aea59ef09eba18bcc"
+    },
+    "exact_root_prefix": true,
+    "ordinary_service_ids_match": true,
+    "ui_source_hashes": {
+      "serve/web/app.js": "1eb0dd2bb23bbd72e40ae5be4cab67af0647c9c4ca84bc25c3eea992d7a382d7",
+      "serve/web/workspace.js": "a4f267d6a647e8d7164c07ca4c08262f6883a6db4e998117793d6865f6042fc5",
+      "serve/web/workspace-graph.js": "2f5931c21f1629835a847a7bd56c6f7ca774a83ff3df701d022cc37e090c370b"
+    },
+    "gpu_http_fixture_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/fixtures/gpu-http-text-fixture.json",
+    "gpu_http_fixture_sha256": "d586b05db57b728e6b17fe78e3335915eca7fbe2b950f72aa49af25b08ecbabe",
+    "gpu_http_fixture_preflight_sha256": "6cae027a538f4dc81c2f80036e1f9d31fc8e9dfa119428a0cb0ab5baef0253cf"
+  },
+  "javascript_framing_parity": {
+    "status": "PASS_HEADLESS_CHROMIUM_LOCAL_FILE_ONLY",
+    "result_path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/fixtures/browser-framing-verified/result.json",
+    "result_sha256": "0a994d1e37c9f33521f756e6db3fdf20c01f9c3a5427d008dba3b7cf536c5f2e",
+    "chromium_version": "155.0.8059.39 snap",
+    "actual_app_js_sha256": "1eb0dd2bb23bbd72e40ae5be4cab67af0647c9c4ca84bc25c3eea992d7a382d7",
+    "fileblock_helper_sha256": "0b12d46c750ab1574a87cda475e7bbc520ae3f46373dddbd65c098304aa93685",
+    "frame_sha256": [
+      "2e3b3a1cfd8fc71734facd28f42b7b3384955061767be2ea7e8da2ad21885179",
+      "5c532eaa5f645f42a7d87edbef5e36e94d2197227ec2ff810a3209e6108133be"
+    ],
+    "cases": ["full 8K source body", "Unicode/multiline/five-backtick adversarial"],
+    "gpu_disabled": true,
+    "http_server_launched": false
+  },
+  "g0": {
+    "status": "PASS",
+    "command": "python3 scripts/verify.py --gate G0 --no-write",
+    "host_interpreter": "Python 3.12.3",
+    "run_path": "/home/dflanag3/spatial-artifacts/cow-runtime-preflight-20261015/g0",
+    "runner_path": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xfails": 0,
+    "stdout_sha256": "36c9bdbcc7f9d284adf49106382f5a93ebde6d723f87c24dd8d64b25bca439df"
+  },
+  "host_dependency": {
+    "python": "3.12.3",
+    "regex_version": "2026.9.29",
+    "regex_path": "/home/dflanag3/issue-2026-20261012/deps/regex/__init__.py"
+  },
+  "q8_capacity_terminal": {
+    "status": "PASS",
+    "result_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/q8-64k-pressure/result.json",
+    "all_six_decode_files_complete": true,
+    "remaining_projected_decode_bytes": 0,
+    "filesystem_free_bytes_at_terminal": 13703184384,
+    "required_floor_bytes": 10737418240,
+    "margin_bytes": 2965766144
+  },
+  "scope": {
+    "inference_performed_during_preparation": false,
+    "gpu_jobs_launched_during_preparation": false,
+    "native_or_http_server_launched_during_preparation": false,
+    "actual_http_cdp_postdata_capture": "UNRUN",
+    "reusable_context_browser_gpu_qualification": "UNRUN",
+    "offline_durable_checkpoint_audit": "UNRUN",
+    "numerical_gate_qualified": false,
+    "ordinary_chat_server_started": false
+  }
+}

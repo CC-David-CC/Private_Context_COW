@@ -1,0 +1,76 @@
+test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries (test_native_request_protocol.NativeRequestProtocolTests.test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries) ... ERROR
+test_early_close_cancels_before_releasing_consumed_boundary (test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary) ... ok
+test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) ... 
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='position', value=5) ... FAIL
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='count', value=2) ... FAIL
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=[[4, 2]]) ... FAIL
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=None) ... FAIL
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=[[5, 1]]) ... FAIL
+  test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='position', value=True) ... FAIL
+test_foreign_next_and_close_fail_without_sending_acknowledgment (test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment) ... ok
+test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned) ... ok
+test_lease_cannot_be_released_while_request_is_waiting_for_ack (test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack) ... ok
+test_one_request_consumes_all_outputs_without_capture_commands (test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands) ... ok
+test_precreated_second_iterator_cannot_steal_active_request (test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request) ... ok
+
+======================================================================
+ERROR: test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries (test_native_request_protocol.NativeRequestProtocolTests.test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 43, in test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries
+    self.assertEqual(backend.last_execution_receipt, dict(operator='normal-verifier-decode',
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StrataBackend' object has no attribute 'last_execution_receipt'
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='position', value=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='count', value=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=[[4, 2]])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='chunks', value=[[5, 1]])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+======================================================================
+FAIL: test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) (field='position', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_request_protocol.py", line 53, in test_false_or_missing_native_boundaries_poison_connection
+    with self.assertRaises(IntegrityError):
+AssertionError: IntegrityError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+FAILED (failures=6, errors=1)

@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "task": "receiver-verified evidence archive for bounded Q4/Q8 pool-pressure probes",
+  "source_roots": [
+    "pool-pressure-q4-tiny-20261015-v1",
+    "pool-pressure-q4-tiny-20261015-v2",
+    "pool-pressure-q4-tiny-20261015-v3",
+    "pool-pressure-q4-tiny-20261015-v4",
+    "pool-pressure-q8-tiny-20261015-v1",
+    "pool-eviction-harness-20261015-v1",
+    "capacity-native-profiles-20261015-v1"
+  ],
+  "selection": {
+    "excluded_directory_names": [
+      "__pycache__",
+      ".git",
+      "build",
+      "builds",
+      "model",
+      "models",
+      "weights"
+    ],
+    "excluded_suffixes": [
+      ".pyc",
+      ".pyo"
+    ],
+    "follow_symlinks": false
+  },
+  "archive": {
+    "path": "/srv/data/git/private_context_cow.evidence/20261015-pool-pressure-tiny-v1/evidence.tar",
+    "bytes": 516925440,
+    "sha256": "03c0edab77e0ca5dfac2fb9db02e26ffc1ec3b2b3b28b8a3586257ade3cf6977",
+    "members": 300,
+    "payload_files": 299,
+    "payload_bytes": 516570210
+  },
+  "manifest": {
+    "path": "/srv/data/git/private_context_cow.evidence/20261015-pool-pressure-tiny-v1/manifest.json",
+    "sha256": "8495f562aa59b3cc167c6b296c66f5f387a5eec781108539c12f8ae3daaaa096"
+  },
+  "receiver": {
+    "status": "PASS",
+    "receipt_path": "/srv/data/git/private_context_cow.evidence/20261015-pool-pressure-tiny-v1/receiver.verify.json",
+    "receipt_sha256": "b0ee49b5b9316f1853bc46c4536c2cfc4db592a8ec0f2af232ae84580873bc04",
+    "verifier_sha256": "5b971f6947130227692dd5b766a3dd997fd1959d9aa4553dff5a453607560db7",
+    "all_manifest_members_verified": true,
+    "directory_mode": "0700",
+    "file_modes": "0600"
+  },
+  "audit_members": {
+    "q4_v3": {
+      "path": "pool-pressure-q4-tiny-20261015-v3/primary-audit.json",
+      "sha256": "32eef1e8ea6e927fa1f361e06bee966e25be9d5d58aab1f0f5a6a0f6fcf1410a",
+      "expected_prefix": "32eef",
+      "matched": true
+    },
+    "q4_v4": {
+      "path": "pool-pressure-q4-tiny-20261015-v4/primary-audit.json",
+      "sha256": "383663368c980e0feec486431ba3742cf283ff624bccf14d5e3a32ac86c7dc1f",
+      "expected_prefix": "383663",
+      "matched": true
+    },
+    "q8_v1": {
+      "path": "pool-pressure-q8-tiny-20261015-v1/primary-audit.json",
+      "sha256": "888b47437c3d956fba9225e575f3ec9676f7727d3fcfa64cd72fc65bb26fb892",
+      "expected_sha256": "888b47437c3d956fba9225e575f3ec9676f7727d3fcfa64cd72fc65bb26fb892",
+      "matched": true
+    }
+  },
+  "packaging_observations": [
+    {
+      "phase": "stream_wrapper",
+      "result": "exit 1 after tar stream; Python raised ValueError: flush of closed file in Popen.communicate after stream code closed stdin",
+      "disposition": "Preserved. Existing evidence.tar.part was independently verified against every frozen-manifest entry; receiver then atomically published evidence.tar with PASS."
+    },
+    {
+      "phase": "verification_launch_attempt",
+      "result": "One nested bash -lc command failed with shell syntax error",
+      "disposition": "No archive mutation; corrected invocation ran the receiver verifier successfully."
+    },
+    {
+      "phase": "receipt_metadata_inspection",
+      "result": "One stat -c remote invocation split a format string into arguments and returned nonzero",
+      "disposition": "No archive mutation; replaced by read-only ls -ldn and confirmed receiver modes."
+    }
+  ],
+  "execution": {
+    "gpu_or_inference": "NOT RUN",
+    "source_or_archive_modified_after_verification": false
+  },
+  "tool_script_hashes": [
+    {
+      "path": "prepare-pool-pressure-backup.py",
+      "sha256": "BD8122DC58EE6D2A23EE973A4FF4D16C1E6D24AC670D576F5BE04A84B49A583E"
+    },
+    {
+      "path": "verify-pool-pressure-archive.py",
+      "sha256": "5B971F6947130227692DD5B766A3DD997FD1959D9AA4553DFF5A453607560DB7"
+    },
+    {
+      "path": "stream-pool-pressure-archive.py",
+      "sha256": "F8F41BA50164BF8EE57E10CCE51BD7AAAB7037895A965EC29C0E45644AB0BF42"
+    },
+    {
+      "path": "finalize-pool-pressure-audit.py",
+      "sha256": "76FD896A5D39EC163A2A277D007CEB5AAA3830D010BEDE728FB4BB435A7EFA27"
+    },
+    {
+      "path": "inventory-pool-pressure.py",
+      "sha256": "7408F39DBC5F20262B72071020CA408CA348BE2D7D9ECF801DBF003E23223F41"
+    },
+    {
+      "path": "list-pool-pressure.py",
+      "sha256": "B6CFBC5E70DA13F11115BEF9C1D104A1021054D21ADD33EBE3E6C17ECB72DC72"
+    }
+  ],
+  "source_audit_record": {
+    "path": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-disk-lru-luna\\external-artifacts\\pool-pressure-tiny-backup-audit.json",
+    "sha256": "4108cbab1394cf5161aa0b9f7b92a6cf8030576f472252b944bc8daaa3a4d780",
+    "index_serialization": "Parsed JSON rendered as LF; original source audit and raw archives unchanged."
+  }
+}

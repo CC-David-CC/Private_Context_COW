@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "source_root": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-sparse-cancel-compact-v1",
+  "qualification": {
+    "q4_v2": {"status": "PASS", "result_sha256": "541cc52d94408fdf8e8cafb24ea3dfe9fe1ecc12fce20c12e6dd7d7b2f4c9acc"},
+    "q8_v2": {"status": "PASS", "result_sha256": "200e51e5a60b042b3056765e675a06ed056f68512e6b220f5fda36736a30e043"},
+    "cpu_final_v4": "10 tests passed",
+    "guard_mutations_v4": "both guard bypass mutations detected; baseline 10 controls retained",
+    "g0_v1": "51 checks passed",
+    "final_runner_sha256": "c95807de21e0b2acd7db2b8650c9b7d14a2b68142135bd6a2cf86ffae3e5ec68",
+    "final_test_sha256": "ae107c573993e30de72f535098e3d2821585ca0f5a34a604c5f6abcf296c8500",
+    "limitation": "gpu-q4-v1 retained as original failure; its harness did not capture a numeric native-process exit, so that exit is UNKNOWN. No native-exit-zero claim is made for v1."
+  },
+  "compact_selection": {
+    "manifest_sha256": "abbcb7c258695f71890e2000b549f5fbf77788b2bf60835797676213bba3f696",
+    "payload_members": 344,
+    "payload_bytes": 51423040,
+    "source_inventory_files": 393,
+    "source_inventory_bytes": 3149379108,
+    "excluded_state_files": 9,
+    "excluded_pycache_files": 19,
+    "excluded_lock_files": 22,
+    "derived_final_vectors": 0
+  },
+  "receiver": {
+    "archive": "evidence.tar.gz",
+    "archive_bytes": 15339074,
+    "archive_sha256": "9b7fe68e542ddd35dd047cb59c9b47b5ddff19aa994ebf889676500fed88237e",
+    "receiver_verify_sha256": "e993d2cf51b6946c289cf65543421b8a9200b17d7514c3771d2b86c34c358b5b",
+    "verifier_sha256": "9081d29fa06f50950d902e55d4cad042e6d8123c3139857c4c70d7b2b21136fb",
+    "verified_members_including_embedded_manifest": 345,
+    "all_manifest_members_verified": true,
+    "directory_mode_octal": "0700",
+    "files_mode_octal": "0600"
+  },
+  "scope_limit": "Compact run evidence only; checkpoint .state payloads are excluded."
+}

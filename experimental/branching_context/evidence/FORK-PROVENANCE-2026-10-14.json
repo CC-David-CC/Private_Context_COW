@@ -1,0 +1,55 @@
+{
+  "task": "persist optional source-branch provenance for namespace-bound forks",
+  "branch": "work/luna-fresh-multiturn-oracle",
+  "base": "c7fb9bf5",
+  "scope": "CPU-only Store and coordinator behavior; no GPU/native qualification",
+  "api": {
+    "source": {
+      "branch": "source branch name",
+      "revision": "captured source head revision",
+      "tip": "captured source head snapshot"
+    },
+    "store_arguments": ["source_branch", "source_revision", "source_tip"],
+    "legacy_compatibility": "When source is omitted, request digest and fork event retain their prior field shape."
+  },
+  "executed": {
+    "host": "llm-60",
+    "python": "python3 (remote host)",
+    "command": "bash /home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/runner.sh /home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/checkout /home/dflanag3/spatial-artifacts/context-cow-fork-provenance-luna-20261014/run-019 env PYTHONPATH=.:src:tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 -m unittest -v tests.implementation.test_store_fork_provenance",
+    "exit_code": 0,
+    "tests_run": 6,
+    "tests_failed": 0,
+    "executed_ids": [
+      "test_coordinator_binds_original_source_revision_and_retry",
+      "test_distinct_annotated_origins_are_bound_even_for_same_snapshot",
+      "test_exact_retry_uses_captured_source_after_it_moves_and_rejects_other_branch",
+      "test_first_fork_rejects_stale_source_and_wrong_namespace",
+      "test_source_less_namespace_fork_keeps_legacy_event_and_digest_shape",
+      "test_source_snapshot_remains_retained_after_source_rewinds"
+    ],
+    "receipt_directory": "/home/dflanag3/spatial-artifacts/context-cow-fork-provenance-luna-20261014/run-019",
+    "red_receipt_directory": "/home/dflanag3/spatial-artifacts/context-cow-fork-provenance-luna-20261014/run-001",
+    "red_observation": "Before Store API implementation, the four source-dependent tests errored with unexpected keyword argument source_branch; the source-less compatibility test passed."
+  },
+  "core_verification": {
+    "host": "llm-60",
+    "status": "PASS",
+    "tests": 186,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "CPU/filesystem controls only; not GPU qualification",
+    "receipt_directory": "/home/dflanag3/spatial-artifacts/context-cow-fork-provenance-luna-20261014/run-018",
+    "executed_ids_and_source_hashes": "FORK-PROVENANCE-G0-2026-10-14.json"
+  },
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "8edae18373e223f1ae671484579721642ddce310e5e32d8e10ec5647bf3127b5",
+    "experimental/branching_context/tests/implementation/test_store_fork_provenance.py": "c2dcbd7c8ad4c60916abc06bbe067f43f893b8d6eb3bacacdd20f65461804f7e"
+  },
+  "limitations": [
+    "The captured source is checked against the live source head atomically at first fork publication; exact retries use the original captured source after later source movement.",
+    "The coordinator enforces ancestor or published-savedpoint target policy; direct Store callers receive source binding and scope validation only.",
+    "Projection-side explicit-source regression is being added by the fixture agent and is not included in this six-test result."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "completed_result_identical": true,
+  "ledger_unchanged": true,
+  "proof": {
+    "schema": 1,
+    "layout": "trusted-host-cli-with-audit-and-isolated-tools",
+    "hostname": "r4090",
+    "python": "3.14.4",
+    "native_modules_loaded": [],
+    "native_file_and_process_audit": true,
+    "violations": [],
+    "branchwrite_modules": {
+      "branchwrite": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/__init__.py",
+      "branchwrite.language": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/language.py",
+      "branchwrite.records": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/records.py",
+      "branchwrite.kernel": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/kernel.py",
+      "branchwrite.execution": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/execution.py",
+      "branchwrite.text_file_codec": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/text_file_codec.py",
+      "branchwrite.tool_registry": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/tool_registry.py",
+      "branchwrite.tool_dispatch": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/tool_dispatch.py",
+      "branchwrite.cow_client": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_client.py",
+      "branchwrite.cow_actions": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_actions.py",
+      "branchwrite.model_inputs": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/model_inputs.py",
+      "branchwrite.thinking_ladder": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/thinking_ladder.py",
+      "branchwrite.model_dispatch": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/model_dispatch.py",
+      "branchwrite.cow_fork": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_fork.py",
+      "branchwrite.planning_retry": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/planning_retry.py",
+      "branchwrite.verification": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/verification.py",
+      "branchwrite.image_feedback": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/image_feedback.py",
+      "branchwrite.interpreter": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/interpreter.py",
+      "branchwrite.coding_defaults": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/coding_defaults.py",
+      "branchwrite.run_cli": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/run_cli.py",
+      "branchwrite.coding_cli": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/coding_cli.py",
+      "branchwrite.terminal": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/terminal.py",
+      "branchwrite.browser_assets": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/browser_assets.py",
+      "branchwrite.terminal_worker": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/terminal_worker.py"
+    },
+    "sys_path": [
+      "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages",
+      "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/output",
+      "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/output/guard",
+      "/usr/lib/python314.zip",
+      "/usr/lib/python3.14",
+      "/usr/lib/python3.14/lib-dynload",
+      "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages"
+    ],
+    "scope": "Python audit of trusted CLI; not an adversarial OS security proof. Browser/candidate execution retains its separate OS sandbox."
+  }
+}

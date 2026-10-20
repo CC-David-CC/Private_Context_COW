@@ -1,0 +1,93 @@
+{
+  "schema": "cow-primary-cpu-policy-audit-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "host": "llm-60",
+  "integration": "Isolated policy draft; not integrated or GPU-qualified; IPC reservations and publication admission follow-up required",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/branch-checkpoint-policy-20261015-v1",
+  "base_commit": "9dbb336513cf0e5ca50c22c74b212e455c0c728e",
+  "source_sha256": {
+    "store.py": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "test_branch_checkpoint_eviction.py": "0b2f2128a49c44d8582d3bad8d59dda91e4ab4ada0a157eb7f6f2ee757fbdd42",
+    "test_disk_lru.py": "4d2fd5905ec8123f997c0e04f778d55f65057a747e9204fc0395b26b6c366533",
+    "test_disk_pool.py": "1f54a64b508a58014d062e3fff899f0c876c176d4cc39228533b0e69a45ea334"
+  },
+  "suites": [
+    {
+      "name": "green-v1",
+      "tests": 54,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "288ac21e698cb0043350fbcade1526cc67c877f79e65fd9c37e665679e477dc7"
+      }
+    },
+    {
+      "name": "combined-v1",
+      "tests": 216,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "a2064f30650c711559e5c12f29d8154de8efb47c0d6b0c6781b4f27780281b1f"
+      }
+    },
+    {
+      "name": "serving-v1",
+      "tests": 141,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "0ebce8cc3d318ac7d59f9d5d8d8d3a32d1ef662a6529aca321db96404e67f9bc"
+      }
+    },
+    {
+      "name": "g0-candidate-v1",
+      "tests": 51,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "log_sha256": {
+        "stdout.log": "b1f6c1dafbe244ca8ee8688bbfa3ea11525dc5d8f70ad7d0be4146c950c1248f",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "new_test_ids": [
+    "test_all_branch_checkpoint_eviction_allows_fork_retry_and_reported_rebuild (test_branch_checkpoint_eviction.EvictedBranchContinuationTests.test_all_branch_checkpoint_eviction_allows_fork_retry_and_reported_rebuild)",
+    "test_live_root_and_tip_leases_still_bound_capacity (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_live_root_and_tip_leases_still_bound_capacity)",
+    "test_shared_payload_remains_until_last_live_manifest_is_released (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_shared_payload_remains_until_last_live_manifest_is_released)",
+    "test_unleased_branch_and_named_history_are_not_permanent_numerical_pins (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_unleased_branch_and_named_history_are_not_permanent_numerical_pins)",
+    "test_unleased_root_and_tip_are_lru_victims_without_canonical_changes (test_branch_checkpoint_eviction.BranchCheckpointEvictionTests.test_unleased_root_and_tip_are_lru_victims_without_canonical_changes)"
+  ],
+  "intentional_supplemental_policy_test_renames": {
+    "test_retention_is_exact_roots_tips_saved_and_fork_points": "test_history_roots_tips_and_saved_points_do_not_permanently_pin_numerical_copies",
+    "test_no_eligible_space_fails_boundedly_without_deleting_anchors": "test_no_eligible_space_fails_boundedly_without_deleting_leased_anchors"
+  },
+  "registered_tests_and_references_changed": false,
+  "red": {
+    "tests": 5,
+    "failures": 1,
+    "errors": 4,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "stderr_sha256": "12e928eeabb23fdbaa04d85dab2681086ce53abde3db805264904483e98c8f8e"
+  },
+  "g0_imports": {
+    "store": "/home/dflanag3/spatial-artifacts/branch-checkpoint-policy-20261015-v1/source-overlay-v1/context_time_travel/store.py",
+    "store_sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "verifier": "/home/dflanag3/spatial-artifacts/rebuild-combined-20261015-v1/source/experimental/branching_context/scripts/verify.py",
+    "verifier_sha256": "df7e8caf244ddeb529af106aca2b5629fb56296399cfd48c2706912318109a24"
+  },
+  "g0_baseline_attempt": "g0-v1 ran51 but used unmodified base Store; g0-candidate-v1 explicitly preloads candidate Store and runs unchanged full verifier/tests",
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "limits": [
+    "CPU filesystem/controller/synthetic HTTP tests only; no new native numerical claim.",
+    "Process-shared reservations and atomic existence/admission protection must be integrated before enabling eviction.",
+    "Startup recency remains mtime/name; in-process touch recency is transient."
+  ],
+  "primary_audit_sha256": "3173f44059fd407bed8fd82ed87481fd4940a767ee980fb5f9c9abdee4f6bf11"
+}

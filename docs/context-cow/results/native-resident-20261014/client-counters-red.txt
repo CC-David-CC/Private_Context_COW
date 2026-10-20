@@ -1,0 +1,19 @@
+test_client_stream_metrics (unittest.loader._FailedTest.test_client_stream_metrics) ... ERROR
+
+======================================================================
+ERROR: test_client_stream_metrics (unittest.loader._FailedTest.test_client_stream_metrics)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_client_stream_metrics
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_client_stream_metrics.py", line 6, in <module>
+    from client_stream_speed import RequestTimeline, counter_delta
+ImportError: cannot import name 'counter_delta' from 'client_stream_speed' (/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/scripts/client_stream_speed.py)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

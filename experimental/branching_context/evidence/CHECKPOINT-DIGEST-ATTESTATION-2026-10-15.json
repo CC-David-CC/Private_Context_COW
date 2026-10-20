@@ -1,0 +1,79 @@
+{
+    "schema":  1,
+    "scope":  "CPU-only checkpoint digest attestation candidate; no GPU, compiler, or latency qualification.",
+    "base":  {
+                 "branch":  "work/luna-checkpoint-digest-attestation",
+                 "commit":  "c00959b9e917c6f0d5401c3bde31bb15994d27c0"
+             },
+    "meaningful_red":  {
+                           "tests":  1,
+                           "expected":  "same immutable owner was rehashed three times",
+                           "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/base-red-002",
+                           "observed_same_blob_hash_input_lengths":  [
+                                                                         12,
+                                                                         12,
+                                                                         12
+                                                                     ],
+                           "wrapper_exit":  1,
+                           "command_exit":  1,
+                           "failures":  1
+                       },
+    "green_regression":  {
+                             "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/regression8",
+                             "failures":  0,
+                             "errors":  0,
+                             "command_exit":  0,
+                             "tests":  75,
+                             "wrapper_exit":  0,
+                             "elapsed_seconds":  0.922,
+                             "skipped":  0,
+                             "modules":  [
+                                             "test_checkpoint_digest_attestation",
+                                             "test_checkpoint_digest_attestation_red",
+                                             "test_prepared_checkpoint",
+                                             "test_shared_pools",
+                                             "test_durable_restore",
+                                             "test_pool_coordinator",
+                                             "test_pool_spill_reload_trace",
+                                             "test_pool_request_stop"
+                                         ]
+                         },
+    "formal_g0":  {
+                      "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/formal-g0",
+                      "failures":  0,
+                      "invocation":  "python3 scripts/verify.py --gate G0 --no-write",
+                      "errors":  0,
+                      "command_exit":  0,
+                      "tests":  51,
+                      "wrapper_exit":  0,
+                      "gate_status":  "PASS",
+                      "skipped":  0
+                  },
+    "changes":  [
+                    {
+                        "sha256":  "0481e5292b76997436438943bd1b78ed5202e7d7144ccc9b55d606aa71a5f114",
+                        "path":  "experimental/branching_context/src/context_time_travel/digest_attestation.py"
+                    },
+                    {
+                        "sha256":  "97f68c32151455d8a69203d0f8250d4f4d7eafada38d7ff313625098b786e774",
+                        "path":  "experimental/branching_context/src/context_time_travel/real.py"
+                    },
+                    {
+                        "sha256":  "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729",
+                        "path":  "experimental/branching_context/src/context_time_travel/pools.py"
+                    },
+                    {
+                        "sha256":  "1da67b897643c7e9c9284be99056115e14cc64822e78bda8398734de11b4f5c7",
+                        "path":  "experimental/branching_context/tests/implementation/test_checkpoint_digest_attestation.py"
+                    },
+                    {
+                        "sha256":  "d2d0e97679667aea21098561db328f8e916450e0c3e269a81996eaa8461c8cbf",
+                        "path":  "experimental/branching_context/tests/implementation/test_checkpoint_digest_attestation_red.py"
+                    }
+                ],
+    "limitations":  [
+                        "No GPU qualification or speed claim.",
+                        "The attestation memo is host-RAM-only; disk payload validation and native/GPU integrity checks still run.",
+                        "The cache retains bounded blob/frontier references only while its weakly-referenced owner remains alive; nonweakrefable owners are accepted and use full hashing."
+                    ]
+}

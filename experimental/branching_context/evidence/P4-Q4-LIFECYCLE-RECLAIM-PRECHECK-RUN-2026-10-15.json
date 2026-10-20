@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "status": "PASS_READ_ONLY_PRECHECK_NOT_UNLINKED",
+  "host": "llm60",
+  "remote_hostname_from_runner": "dflanag3-B650-GAMING-X-AX",
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "command": [
+      "bash",
+      "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+      "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-audit-20261015-01",
+      "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-precheck-20261015-02",
+      "python3",
+      "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-audit-20261015-01/reclaim_states.py",
+      "--receipt",
+      "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-audit-20261015-01/precheck_receipt-02.json"
+    ],
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "command_receipt_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-precheck-20261015-02/command-receipt.txt",
+    "command_receipt_sha256": "d44ca70154188ed2fa0001742b6fd23b62a1bb7432f3a57b0bfa2559c43f4cb0",
+    "argv_nul_sha256": "a07e0f2004217aae256d89f4b5462dd3a0958be7ff765ea9e75976883c90f67e",
+    "stdout_sha256": "6a33fcdf181c405324e6d5c70fd675f882f779e9cd991253259ae59cb19e7fc7",
+    "run_command_terminal": true,
+    "tmux_used": false
+  },
+  "precheck_receipt": {
+    "path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-map-audit-20261015-01/precheck_receipt-02.json",
+    "sha256": "7b493b88e0ac9931ab9ccbc4300d41c5dea9a9adf1bc271aa8ebffe611fde273",
+    "status": "PRECHECK_PASS_NOT_UNLINKED",
+    "candidate_count": 9,
+    "candidate_bytes": 17789976604,
+    "unlink_performed": false,
+    "filesystem_free_bytes_before": 26499080192,
+    "filesystem_free_bytes_after": 26499080192,
+    "protected_lifecycle_metadata_files": 88,
+    "protected_lifecycle_metadata_inventory_sha256": "31b4adbfa08156fd08b4b6a664032faf4f96fde22618556b2748fafb18550bf1",
+    "protected_q4_source_store_files": 115,
+    "protected_q4_source_store_inventory_sha256": "c051e76ff0a2b41c27514e5fb96998f4950d5a89753334b90300946eef251e10"
+  },
+  "preserved_prelaunch_failure": {
+    "command": ["ssh", "llm-60", "bash", "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh"],
+    "exit": 1,
+    "reason": "The attempted path was a directory, not the run-command.sh file. The error occurred before the runner, precheck, or receipt creation.",
+    "corrected_retry_used_fresh_run_directory": true
+  },
+  "scope": "Read-only inventory only. No unlink, restore, GPU work, or source checkpoint mutation was performed."
+}

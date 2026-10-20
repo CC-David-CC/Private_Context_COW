@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "scope": "greedy matching-schedule source correctness; not timing or durable-disk qualification",
+  "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "source_output": "/dev/shm/context-cow-digest-q4-64k-source-20261015-v1",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "generated_tokens_compared": 768,
+  "generated_restart_tokens": 744,
+  "sampled_generated_frontier_comparisons": 12,
+  "sampled_generated_boundaries": [
+    4,
+    128
+  ],
+  "root_frontier_comparisons": [
+    {
+      "root": 0,
+      "tree": 0,
+      "bytes": 993280,
+      "sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+      "max_absolute_error": 0
+    },
+    {
+      "root": 0,
+      "tree": 1,
+      "bytes": 993280,
+      "sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+      "max_absolute_error": 0
+    },
+    {
+      "root": 1,
+      "tree": 2,
+      "bytes": 993280,
+      "sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+      "max_absolute_error": 0
+    },
+    {
+      "root": 1,
+      "tree": 3,
+      "bytes": 993280,
+      "sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+      "max_absolute_error": 0
+    },
+    {
+      "root": 2,
+      "tree": 4,
+      "bytes": 993280,
+      "sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+      "max_absolute_error": 0
+    },
+    {
+      "root": 2,
+      "tree": 5,
+      "bytes": 993280,
+      "sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+      "max_absolute_error": 0
+    }
+  ],
+  "numerical_max_error": 0,
+  "resume_work": [
+    {
+      "operation": "client-0-tree-0-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2047416392,
+      "integrity_mismatches": 0
+    },
+    {
+      "operation": "client-0-tree-1-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2046783460,
+      "integrity_mismatches": 0
+    },
+    {
+      "operation": "client-1-tree-2-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2046998536,
+      "integrity_mismatches": 0
+    },
+    {
+      "operation": "client-1-tree-3-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2046783460,
+      "integrity_mismatches": 0
+    },
+    {
+      "operation": "client-2-tree-4-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2046887924,
+      "integrity_mismatches": 0
+    },
+    {
+      "operation": "client-2-tree-5-resume",
+      "outputs": 124,
+      "forward_tokens": 124,
+      "prefill_tokens": 0,
+      "import_bytes": 2046992384,
+      "integrity_mismatches": 0
+    }
+  ],
+  "native_process_phases": {
+    "prepare": {
+      "python_pid": 2121275,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 117.91632192092948,
+      "native_pids": {
+        "0": 2121281
+      },
+      "native_exit_codes": {
+        "0": 0
+      },
+      "native_exit_observed": true,
+      "native_exit_success": true
+    },
+    "resume": {
+      "python_pid": 2122325,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 88.5243140119128,
+      "native_pids": {
+        "0": 2122331
+      },
+      "native_exit_codes": {
+        "0": 0
+      },
+      "native_exit_observed": true,
+      "native_exit_success": true
+    }
+  },
+  "failures": [],
+  "skips": [],
+  "xfails": [],
+  "raw_sha256": {
+    "result.json": "d6378ca796ffdac1516add3705755312fecc8c65dbf94fdae4d1c1c9d1556221",
+    "prepare.json": "c59f69d9091925c9c99fb8db11c44b9bb86dee7fcfe1729cdbc08c3a54c806ed",
+    "resume.json": "ef7e85408c4d8731e63601234259ac9b70ddb4dd97e65e0678d8b847328569a8",
+    "profile.json": "a0ef7d70718ef06dfbfae7ec3e5a7dbff7f55ab252471804ba3cd5ee5cf655fb"
+  },
+  "limitation": "RAM-backed source checkpoints; non-greedy controllers and every-output frontier certification excluded"
+}

@@ -1,0 +1,46 @@
+{
+  "CPU": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "focused_unique": 13,
+    "new_harness_methods": 5,
+    "skips": 0
+  },
+  "base": "1cac35d86897378c9785644a361d1f35a2b462f5",
+  "branch": "work/vision-vc09-qualification-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "contract": "Unchanged pinned source/profile. Independent no-checkpoint raw driver, same native prefix/suffix batches, sampled exact frontiers, complete API controller equality through3 new-process prefix restores and generated-four restore.",
+  "fixtures": {
+    "medium": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-fixture-medium-v1/result.json",
+      "sha256": "336d939b49edc82d9ff9598482eda75fad48235ffa811376af6d5540c9191132"
+    },
+    "target": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-fixture-target-v1/result.json",
+      "sha256": "ecba36bdeb6bbc21faf843757b794ba5243d8515eb63d566b39bc03311ae5f23"
+    },
+    "tiny": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-fixture-tiny-v1/result.json",
+      "sha256": "23c3aaa9ec35bfa0647dbcd352751a229001369a1a4f1477e1b8e6b9d9da6ce3"
+    }
+  },
+  "host": "llm-60",
+  "manual_git_exception": "Installed Git helper pins unrelated Spatial repository; explicit paths/identity/private refs reviewed manually and full SHA verified.",
+  "medium_evidence": "VISION-VC09-MEDIUM-2026-10-17.json",
+  "owned_paths": [
+    "experimental/branching_context/scripts/run_vision_qualification.py",
+    "experimental/branching_context/scripts/prepare_vision_qualification_fixture.py",
+    "experimental/branching_context/tests/implementation/test_vision_qualification.py",
+    "experimental/branching_context/evidence/VISION-VC09-HARNESS-2026-10-17.json"
+  ],
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+  "publication": "Private LAN only",
+  "red": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-red-run-v1",
+  "reference": "vc05 separate fresh driver: no BranchSession/ConversationCache/restore/import path; external independent CPU rotary positions. Thirty shared computation build pins match current build; actual inputs rehashed at launch.",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+  "schema": 1,
+  "scope": "Numerical/restoration audit only. Retained real encoder bytes are supplied; cold live encoding/timing/current text and full supported matrix remain separate VC09 deliverables. No profile mutation, model-speed claim, public feature flag or registered-test/reference/tolerance edits.",
+  "status": "TINY_MEDIUM_NUMERICAL_PASS_TARGET_UNRUN",
+  "tiny_evidence": "VISION-VC09-TINY-2026-10-17.json"
+}

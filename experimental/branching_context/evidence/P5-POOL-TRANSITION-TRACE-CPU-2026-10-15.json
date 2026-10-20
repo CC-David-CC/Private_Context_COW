@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "status": "FOCUSED-PASS",
+  "scope": "CPU/filesystem controls only; no GPU, server, or inference execution",
+  "host": "llm-60",
+  "machine": "dflanag3-B650-GAMING-X-AX",
+  "python": "3.12.3",
+  "dependency": {
+    "name": "regex",
+    "version": "2026.9.29",
+    "path": "/home/dflanag3/issue-2026-20261012/deps/regex/__init__.py"
+  },
+  "frozen_staging": {
+    "path": "/home/dflanag3/branching-g3/p5-final-checkout-luna-20261015-v3",
+    "archive_sha256": "d7eff9b17fa1e96b62e84934ef0937cd45735604ba54143b77dd70e62aac922b",
+    "launcher": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+    "launcher_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "terminal_status": "COMPLETE"
+  },
+  "import_preflight": {
+    "status": "PASS",
+    "pool_control_modules": 34,
+    "serving_modules": 15,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "suites": {
+    "pool_control": {
+      "status": "PASS",
+      "tests": 221,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "xfails": 0,
+      "p5_trace_tests": 17,
+      "executed_ids_sha256": "4c9032404a046b477fa57397380ca90cd18404e395c154fc906549df7893ab82",
+      "json_path": "/home/dflanag3/spatial-artifacts/p5-spill-reload-luna-20261015/final-verified-v4/pool-control.json",
+      "json_sha256": "f4d1db51240308efd7b8a40113c0857486a03114e81b67579f9235ac230afc70"
+    },
+    "G0": {
+      "status": "PASS",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "xfails": 0,
+      "log_path": "/home/dflanag3/spatial-artifacts/p5-spill-reload-luna-20261015/final-verified-v4/G0.txt",
+      "log_sha256": "1299f1bebf5cd8c8fad5d4cf831605bffbf15af92795fa140579c1cc6b2d3b55"
+    },
+    "supplemental_serving": {
+      "status": "PASS",
+      "tests": 118,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "xfails": 0,
+      "json_path": "/home/dflanag3/spatial-artifacts/p5-spill-reload-luna-20261015/final-verified-v4/serving.json",
+      "json_sha256": "218ee18560204b8d61efc445284a7b3241789adefef6f54b5c3e2ed030b3b11a"
+    }
+  },
+  "source_sha256": {
+    "src/context_time_travel/pools.py": "7c90645bf87a414e1686543a0b099e5c9648616c391e74bee754496fd9b2a78f",
+    "src/context_time_travel/coordinator.py": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac",
+    "scripts/pool_campaign.py": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f",
+    "scripts/verify_pool_control.py": "a859c79502409a65fd5b31f8430d8f04ec2c8b2f45960b539646ca79fd8a19d0",
+    "tests/implementation/test_pool_spill_reload_trace.py": "bb9d46b8128ef6342c56f92e78200d8f085cf803cfc02ceb5a1eab588dd05f59"
+  },
+  "limitations": [
+    "No GPU qualification or full-size pressure campaign was run.",
+    "freed_bytes measures the pool's unique-payload accounting delta, not OS RSS or external/native references.",
+    "Earlier malformed launcher and missing-dependency-path attempts remain preserved as setup failures, not passes."
+  ]
+}

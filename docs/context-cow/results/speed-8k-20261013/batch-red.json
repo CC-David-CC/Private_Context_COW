@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/usr/bin/c++",
+    "-std=c++20",
+    "-O3",
+    "-I<measurement-home>/branching-g3/primary-queue-20261012T031643/include",
+    "-I/usr/local/cuda/include",
+    "<measurement-home>/branching-g3/speed-isolation-20261013/branch_page_batch_test.cpp",
+    "<measurement-home>/branching-g3/primary-queue-20261012T031643/build-primary/libstrata_engine.a",
+    "-L/usr/local/cuda/lib64",
+    "-Wl,-rpath,/usr/local/cuda/lib64",
+    "-lcudart",
+    "-lcuda",
+    "-o",
+    "<measurement-home>/branching-g3/speed-isolation-20261013/batch-test-red"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"status\":\"FAIL\",\"failures\":2}\n",
+  "stderr": "FAIL line 24: after.kernel_calls-before.kernel_calls == 1\nFAIL line 32: after.kernel_calls-before.kernel_calls == 2\n"
+}

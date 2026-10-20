@@ -1,0 +1,90 @@
+{
+  "constraint": "matplotlib==3.10.7",
+  "install_report": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/pip-install-report-v1.json",
+  "install_report_sha256": "f0927449f738d99988eb7b3b10c6b5fed310d48ebcb9a4f25ee046081aedbe55",
+  "install_scope": "--target chart-v1/deps; shared venv was not modified",
+  "installed_target_bytes": 159347406,
+  "packages": [
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/matplotlib-3.10.7.dist-info/METADATA",
+      "installed_metadata_sha256": "fd8befb2181fe3d11f6477c359d8f452b4fbc90f6969a6893e09046d935e1677",
+      "name": "matplotlib",
+      "version": "3.10.7",
+      "wheel_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/contourpy-1.4.0.dist-info/METADATA",
+      "installed_metadata_sha256": "40450acd747b288a5db999c435e1e921ffee0a38c7884a80cd46934c8004568f",
+      "name": "contourpy",
+      "version": "1.4.0",
+      "wheel_sha256": "875f42444c9cf48d56f724f2637e60d0f73b3b12c9041e1484580a233edf9591"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/cycler-0.12.1.dist-info/METADATA",
+      "installed_metadata_sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36",
+      "name": "cycler",
+      "version": "0.12.1",
+      "wheel_sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/fonttools-4.67.0.dist-info/METADATA",
+      "installed_metadata_sha256": "33dec14bec601b457a07a6550086cb6725b5aaedc3a881f9fa7a84d3841ddcfe",
+      "name": "fonttools",
+      "version": "4.67.0",
+      "wheel_sha256": "eb3c98cac93aac4b9f6e3ce2008325340b234cc9b0338ca6b513f31962a1e278"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/kiwisolver-1.5.1.dist-info/METADATA",
+      "installed_metadata_sha256": "f07b7b6c0c9c2a624c8a31f931e16712f2cf3490e7dfd51643d68e9d42d4b2c9",
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "wheel_sha256": "34633ecf50d16187ab8e5528b7a2530f2feb4e23f300db4672538b51cfc5cd38"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/numpy-2.5.4.dist-info/METADATA",
+      "installed_metadata_sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "name": "numpy",
+      "version": "2.5.4",
+      "wheel_sha256": "fbde6962867ee75b48b0ee29b2b9372ec5d617799dbaf38e82dc0596f2f7738a"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/packaging-26.3.dist-info/METADATA",
+      "installed_metadata_sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "name": "packaging",
+      "version": "26.3",
+      "wheel_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/pillow-12.3.0.dist-info/METADATA",
+      "installed_metadata_sha256": "8fc07146cab33ef7582361dab6eac596d340b03ec648f18217da7894f73838c8",
+      "name": "pillow",
+      "version": "12.3.0",
+      "wheel_sha256": "78cb2c6865a35ab8ff8b75fd122f6033b92a62c82801110e48ddd6c936a45d91"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/pyparsing-3.3.3.dist-info/METADATA",
+      "installed_metadata_sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497",
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "wheel_sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/python_dateutil-2.9.0.post0.dist-info/METADATA",
+      "installed_metadata_sha256": "a9d436da322be808332f98d88325998e87cb693a678a9969feb4cfad729a6e93",
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "wheel_sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+    },
+    {
+      "installed_metadata_path": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/deps/six-1.17.0.dist-info/METADATA",
+      "installed_metadata_sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "name": "six",
+      "version": "1.17.0",
+      "wheel_sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+    }
+  ],
+  "pip_log": "/home/dflanag3/spatial-artifacts/grammar-select-20261016-v1/chart-v1/pip-install-v1.log",
+  "pip_log_sha256": "428a6d8768332ecf4669e4206af34f0fc5dd6d56edbe3acde2c8952936f94af2",
+  "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+  "status": "PASS"
+}

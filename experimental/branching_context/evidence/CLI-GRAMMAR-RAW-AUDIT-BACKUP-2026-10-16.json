@@ -1,0 +1,67 @@
+{
+  "schema": "cli-grammar-raw-audit-evidence-backup-v1",
+  "status": "ROOT_LAUNCHED_V5_AUDIT_PASS",
+  "scope": "Tiny Q4 grammar CLI raw-prefill numerical audit for READ and TEST trajectories. This is not a general sampler, restart, seed, or stopping-semantics qualification.",
+  "successful_audit": {
+    "artifact": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v15/audit-results-v2/audit.json",
+    "sha256": "dcd12f28710ea7a1750d3bab954887c9904bf08087e5e18a8e5a89dde2760b61",
+    "full_frontier_comparisons": 38,
+    "maximum_error": 0,
+    "root_tokens": 22,
+    "read": {"generated_tokens_including_eos": 13, "segments": [1, 12]},
+    "test": {"generated_tokens_including_eos": 11, "segments": [11]},
+    "fresh_raw_processes": [
+      {"pid": 3593137, "exit_code": 0, "trajectory": "READ-1"},
+      {"pid": 3594323, "exit_code": 0, "trajectory": "READ-2"},
+      {"pid": 3594487, "exit_code": 0, "trajectory": "TEST-1"},
+      {"pid": 3594617, "exit_code": 0, "trajectory": "TEST-2"}
+    ],
+    "checkpoint_imports": 0,
+    "branch_sessions": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "retained_failed_attempts": [
+    {
+      "attempt": "green-v11",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v11/audit-results-v1",
+      "finding": "The raw audit stopped at the initial READ because the audit-side grammar mask width check rejected matcher padding. The progress file remained RUNNING; no final comparison was claimed."
+    },
+    {
+      "attempt": "green-v14",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v14/audit-results-v1",
+      "progress_sha256": "0e9dee87dc2bf008019cb32196b379af2b7f84aaa336aa00fa9150a64a5a99a9",
+      "finding": "Four raw processes exited 0, but the audit stopped after comparing a work record that included variable timing fields. Their vectors are retained; this attempt was not a PASS."
+    }
+  ],
+  "qualification_inputs": {
+    "profile_sha256": "3551eeb132aeb7642cd3868acb9c940210ec0e9be97018bebff82a907f88b32a",
+    "campaign_sha256": "8111ea6fccef702e80c4c537400f25f3d82e489295ba676e44c73330ca801230",
+    "grammar_registry_sha256": "8443070884f6e35347d9720d585bcbb67fc95d0725c11fa30bfd1b1c886dfee6",
+    "oracle_binary_sha256": "f1de0bd01afe7e695e663180c4e2dd5c9931dd8b6b5257e20d333910a9eafcc6",
+    "oracle_build_receipt_sha256": "d0fd5cc7981e29677f08c0bffadb1c951581d7e67cc8c3149562c83aab9f898f",
+    "llguidance_extension_sha256": "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a"
+  },
+  "auditor_source": {
+    "commit": "bef84d5c3f0e5b8cc19a89531958737dadec944e",
+    "runner_sha256": "7e7a0520f1d232f54d45985ff57bf338a5ac90e5835691b1caacd86381f7c475",
+    "tests_sha256": "4609fea879a144259c96a3b1cfc219e68c25dac04ba0184efdd87c63b3bb25e4",
+    "focused_tests": {"passed": 27, "failed": 0, "errors": 0, "skipped": 0}
+  },
+  "private_backup": {
+    "archive": "/srv/data/git/private_context_cow.evidence/20261016-cli-grammar-audit-v2/evidence.tar.gz",
+    "archive_sha256": "345a863d2e262cc720d41d6cc6874fbdf8f3d86fb05ff9df004cf49c3a7dc6c5",
+    "archive_bytes": 153316687,
+    "member_manifest_sha256": "00c850912ce7f0a2d75de12c37a13a56b8048b30e4d2e724d45556ac6f1c5fc2",
+    "manifest_entries": 229,
+    "extracted_files_including_manifest": 230,
+    "receiver_full_read_and_member_hash_check": "PASS",
+    "directory_mode": "0700",
+    "archive_mode": "0600",
+    "superseded_attempt": {
+      "path": "/srv/data/git/private_context_cow.evidence/20261016-cli-grammar-audit-v1/evidence.tar.gz",
+      "archive_sha256": "69b514fd4f155c08fa36019e03d5633253bee4b510dbaa8480283f3e58a3e1a1",
+      "note": "Superseded because its manifest used sender-absolute paths and failed receiver-side member verification; v2 has relative paths and all 229 entries verify."
+    }
+  }
+}

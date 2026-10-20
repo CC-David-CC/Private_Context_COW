@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "status": "PREPARED_NOT_NUMERICALLY_QUALIFIED",
+  "scope": "CPU-only canonical resume preflight; no fresh native inference launched",
+  "profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+  "fixture_set_sha256": "0c00821e71b2d6a736ae78397dd3d18a0708bb15341353ea4b81531be89c7090",
+  "browser_report_sha256": "7a6eafc63210169f7ea15d2439c5c0669e37c8d02cd15613b9ccee17387b54e1",
+  "context": "native_cow_engine",
+  "root_tokens": 7231,
+  "question_suffix_tokens": 512,
+  "first_answer_tokens": 128,
+  "resumed_tokens": 128,
+  "resume_operation_id": "op-20d4e50d-a03f-4914-a2fc-b4a3530d0acd",
+  "resume_counters": {
+    "prefill_tokens": 0,
+    "forward_tokens": 128,
+    "consumed_tokens": 128,
+    "loaded_file_bytes": 323649780,
+    "checkpoint_import_bytes": 323649780,
+    "integrity_mismatches": 0
+  },
+  "canonical_metadata_unchanged": true,
+  "complete_controller_exact": true,
+  "fresh_reference_count": 0,
+  "numerical_max_error": null
+}

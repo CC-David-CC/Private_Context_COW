@@ -1,0 +1,89 @@
+{
+  "schema": "q8-p5-running-update-v1",
+  "recorded_epoch": 1792043630.2569165,
+  "status": "RUNNING",
+  "phase": "prepare",
+  "prepare_request_count": 6,
+  "prepare_requests": [
+    {
+      "operation": "base-create-0",
+      "request_seconds": 19.11589732998982,
+      "output_count": 0,
+      "consumed_tokens": 65536,
+      "prefill_chunks": 8,
+      "checkpoint_export_bytes": 118063152,
+      "checkpoint_import_bytes": 0,
+      "pool_disk_file_bytes": 1830603216,
+      "pool_ram_peak_accounted_bytes": 8136181904
+    },
+    {
+      "operation": "base-create-1",
+      "request_seconds": 18.174023712053895,
+      "output_count": 0,
+      "consumed_tokens": 65536,
+      "prefill_chunks": 8,
+      "checkpoint_export_bytes": 118063152,
+      "checkpoint_import_bytes": 0,
+      "pool_disk_file_bytes": 3661206432,
+      "pool_ram_peak_accounted_bytes": 9966784136
+    },
+    {
+      "operation": "base-create-2",
+      "request_seconds": 18.1035461188294,
+      "output_count": 0,
+      "consumed_tokens": 65536,
+      "prefill_chunks": 8,
+      "checkpoint_export_bytes": 118063152,
+      "checkpoint_import_bytes": 0,
+      "pool_disk_file_bytes": 5491809648,
+      "pool_ram_peak_accounted_bytes": 11797386368
+    },
+    {
+      "operation": "client-0-tree-0-first",
+      "request_seconds": 6.3298469060100615,
+      "output_count": 4,
+      "consumed_tokens": 8340,
+      "prefill_chunks": 2,
+      "checkpoint_export_bytes": 236126304,
+      "checkpoint_import_bytes": 1829608952,
+      "pool_disk_file_bytes": 7540220683,
+      "pool_ram_peak_accounted_bytes": 13628088680
+    },
+    {
+      "operation": "client-1-tree-2-first",
+      "request_seconds": 6.744515354977921,
+      "output_count": 4,
+      "consumed_tokens": 8324,
+      "prefill_chunks": 2,
+      "checkpoint_export_bytes": 236126304,
+      "checkpoint_import_bytes": 1829608952,
+      "pool_disk_file_bytes": 9588213862,
+      "pool_ram_peak_accounted_bytes": 15676498160
+    },
+    {
+      "operation": "client-2-tree-4-first",
+      "request_seconds": 6.72890636511147,
+      "output_count": 4,
+      "consumed_tokens": 8319,
+      "prefill_chunks": 2,
+      "checkpoint_export_bytes": 236126304,
+      "checkpoint_import_bytes": 1829608952,
+      "pool_disk_file_bytes": 11636096429,
+      "pool_ram_peak_accounted_bytes": 16928645572
+    }
+  ],
+  "startup_seconds": 80.51574552198872,
+  "native_pids": {
+    "0": 1927712
+  },
+  "gpu_processes": "1927712, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 90008 MiB",
+  "current_disk_free_bytes": 41653022720,
+  "historical_whole_output_bytes_reference": 41659712189,
+  "estimated_remaining_bytes": 30023615760,
+  "projected_final_free_bytes": 11629406960,
+  "separate_floor_bytes": 10737418240,
+  "projection_only": true,
+  "heartbeat_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/telemetry/heartbeat.jsonl",
+  "prepare_result_sha256": "393091df429a2d78f9fbd1025e136c9caa64c7ee52e72e6105c54a0ec54b0959",
+  "campaign_result_sha256": "ee7df0fc14576a9b8b73a4dc4c5601edb595081619fe1e96cbdc00b57ea6c22b"
+}

@@ -1,0 +1,5 @@
+# Namespace fork source provenance
+
+Added opt-in, all-or-none `source:{branch,revision,tip}` provenance to namespace-bound forks. The request digest binds this object; the fork event retains it for catalog projection. First publication validates the source's current namespace, root, revision, and tip under the Store lock. Exact retries use the recorded source tuple even after that branch moves, while reusing the operation ID with a different source branch fails. Source-less fork request and event shapes are unchanged. The captured source tip is now a retention seed.
+
+The focused CPU suite passed 6/6 on `llm-60`, and the broader CPU/filesystem verifier passed 186/186 with no skips. IDs, hashes, exact runner invocation, and receipts are recorded in [FORK-PROVENANCE-2026-10-14.json](FORK-PROVENANCE-2026-10-14.json) and [FORK-PROVENANCE-CONTROL-2026-10-14.json](FORK-PROVENANCE-CONTROL-2026-10-14.json). No GPU or native inference ran. The fixture agent is adding the projection regression for distinct same-root annotations and explicitly sourced inheritance.

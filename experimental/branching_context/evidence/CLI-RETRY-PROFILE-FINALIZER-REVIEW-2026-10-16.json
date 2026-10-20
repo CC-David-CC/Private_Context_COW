@@ -1,0 +1,78 @@
+{
+  "ticket": "cli-retry-profile-finalizer-safety-fix",
+  "qualification": "CPU_REGRESSION_AND_G0_ONLY",
+  "host": "llm-60",
+  "branch": "work/cli-retry-native-probe-20261016",
+  "supersedes_commit": "895f2e030fe4de8dfc0cbb99acc8c5233173f983",
+  "red": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-existing-red-v1/source",
+    "run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-existing-red-v1/run",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "terminal": "COMPLETE",
+    "tests_run": 5,
+    "failure": "test_destination_must_be_new errored because the finalizer deleted the pre-existing profile after FileExistsError",
+    "existing_destination_preservation_assertion": "FAILED: destination missing after refusal; this reproduced the reported bug",
+    "old_helper_sha256": "77cdc51f8126b37f4c52cf1b4109fddfb09f7ecb507fd84723293326b99c3740",
+    "red_test_sha256": "baccf8343600e1aebc9fcb48664e81eab143c007fee18812a8cfdfc98bbd9311",
+    "stderr_sha256": "44dd47fd9e89344fe92dfbe9cf9fb067f54db6d40073a0d132f6c69a0aa36029"
+  },
+  "green": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-cpu-v3/source",
+    "run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-cpu-v3/run",
+    "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "terminal": "COMPLETE",
+    "tests_run": 6,
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "test_ids": [
+      "ExecutionProfileFinalizerTests.test_corrected_finalization_binds_the_final_status",
+      "ExecutionProfileFinalizerTests.test_destination_must_be_new",
+      "ExecutionProfileFinalizerTests.test_finalizer_removes_profile_if_serialized_validator_rejects",
+      "ExecutionProfileFinalizerTests.test_finalizer_validates_the_serialized_final_metadata",
+      "ExecutionProfileFinalizerTests.test_post_digest_fingerprinted_mutation_is_rejected",
+      "ExecutionProfileFinalizerTests.test_validator_cannot_mutate_the_written_profile_or_return_value"
+    ],
+    "helper_sha256": "1c7fa18c4b7cc1ad7ef122a4ca9e2d040d89aa82b09228b92d8496518fbdf776",
+    "test_sha256": "5b9aa7d341cc2f8e0c819de649712c770148e4ccc8e0fa943388fcb12bffa1fe"
+  },
+  "g0": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-g0-v1/source",
+    "run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-g0-v1/run",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "terminal": "COMPLETE",
+    "status": "PASS",
+    "tests_run": 51,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "stdout_sha256": "713cb751f9e32923be54fa2c45b4d832ccf14fc7a0b425dc04b9fa5fcb021802",
+    "source_basis": "fresh copy of frozen retry-gpu-stage-v3 source with only the finalizer utility and its tests overlaid"
+  },
+  "previous_profile_child_validation": {
+    "frozen_v3_rejected_expected": true,
+    "corrected_v4_profile_sha256": "540d4bb34ce6eb628318e80db0b59a5c2a4fa3b1da584c38332ebdfddb9357a0",
+    "corrected_v4_execution_profile_id": "0442929dd10e677dcdf742d9dac64eada0b56e524000b02a869772013b6002ff",
+    "child_bootstrap_pass": true,
+    "model_hash_receipts_reused": 15,
+    "model_bytes_hashed": 0
+  },
+  "source_files": [
+    {"path": "experimental/branching_context/scripts/execution_profile_finalizer.py", "sha256": "1c7fa18c4b7cc1ad7ef122a4ca9e2d040d89aa82b09228b92d8496518fbdf776"},
+    {"path": "experimental/branching_context/tests/implementation/test_execution_profile_finalizer.py", "sha256": "5b9aa7d341cc2f8e0c819de649712c770148e4ccc8e0fa943388fcb12bffa1fe"}
+  ],
+  "limitations": [
+    "This worker did not launch GPU or inference.",
+    "The child-bootstrap validator imports actual runtime modules and executes production profile validation, but deliberately does not call CowHTTP.main or instantiate StrataBackend."
+  ],
+  "setup_refusals_preserved": [
+    "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-cpu-v1/run: approved runner refused pre-existing run directory",
+    "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-g0-v1 initial copy: read-only copied source directories required writable permissions only on the two newly-overlaid directories"
+  ]
+}

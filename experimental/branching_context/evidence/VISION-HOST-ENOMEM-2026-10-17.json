@@ -1,0 +1,287 @@
+{
+  "GPU": [
+    0
+  ],
+  "actual_failed_allocation": {
+    "bytes": 91929640,
+    "child_RLIMIT_AS_bytes": 134217728,
+    "errno": "ENOMEM",
+    "operation": "mmap",
+    "phase": "dynamic loader mapping libcuda.so.1",
+    "uid": 1000
+  },
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "new_harness_methods": 6,
+    "related_unique": 51,
+    "skips": 0
+  },
+  "elapsed_seconds": 29.912,
+  "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+  "host": "llm-60",
+  "host_fault": {
+    "ENOMEM_lines": [
+      "206173 mmap(NULL, 91929640, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = -1 ENOMEM (Cannot allocate memory)"
+    ],
+    "ENOMEM_syscalls": 1,
+    "child_exit": 127,
+    "child_group_absent": true,
+    "cli_exit": 2,
+    "control_prefix_forward": 0,
+    "controller_exact": true,
+    "disk_reserved": 0,
+    "durable": false,
+    "encoder_exec_lines": [
+      "206173 execve(\"/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-encoder-build-v2/strata-vision\", [\"/home/dflanag3/spatial-artifacts\"..., \"--mmproj\", \"/home/dflanag3/models/qwen38-fla\"..., \"--model\", \"/home/dflanag3/models/qwen38-fla\"..., \"--gpu\", \"--threads\", \"32\", \"--max-tokens\", \"1024\", \"--flash-attn\", \"on\"], 0x7fff7229bd50 /* 26 vars */) = 0"
+    ],
+    "encoder_exec_observed": true,
+    "frontier_exact": true,
+    "limit_bytes": 134217728,
+    "max_abs_error": 0.0,
+    "native_forward": 0,
+    "new_branch_absent": true,
+    "parent_payload_unchanged": true,
+    "parent_unchanged": true,
+    "pins": 0,
+    "ram_reserved": 0,
+    "staging_empty": true,
+    "state": "failed",
+    "tokens_exact": true,
+    "uid": 1000,
+    "unbounded_retry_encoder_calls": 1,
+    "unbounded_retry_saved": true,
+    "worker_unchanged": true
+  },
+  "launch": {
+    "argv": [
+      "/usr/bin/prlimit",
+      "--as=134217728:134217728",
+      "--",
+      "/usr/bin/strace",
+      "-f",
+      "-qq",
+      "-e",
+      "trace=execve,mmap,mremap,brk,munmap",
+      "-o",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-host-enomem-cli-gpu-v1/encoder-host.trace",
+      "--",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-encoder-build-v2/strata-vision",
+      "--mmproj",
+      "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/mmproj-Qwen3.8-Flash-Next-BF16.gguf",
+      "--model",
+      "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+      "--gpu",
+      "--threads",
+      "32",
+      "--max-tokens",
+      "1024",
+      "--flash-attn",
+      "on"
+    ],
+    "ended_monotonic": 1333883.838577681,
+    "exit": 127,
+    "limit_bytes": 134217728,
+    "pid": 206170,
+    "started_monotonic": 1333883.831144033,
+    "uid": 1000
+  },
+  "limitations": [
+    "Kernel ENOMEM under child-only RLIMIT_AS, not physical RAM exhaustion or global host pressure",
+    "Successful exec then libcuda loader mapping failure before encoder main/GPU initialization; no claim of later encode-time or parent allocator failures",
+    "Main Q4 model resources untouched; one366-cell retained image prefix, greedy+512 thinking/fixed OK grammar, explicit seed11 control",
+    "36 tokens/full canonical snapshot/controller/248320 final FP32 logits exact before vs after failure, no independent fresh-full-history or every-token oracle",
+    "Faulted operation fails without durable receipt; recovery of initial preparation uses an explicitly new operation ID, not retry-publication of an uncaptured state",
+    "Parent payload/hash/head unchanged; source failure does0 native forwards; unlimited new-image prepare runs real encoder once and360 native prefix cells",
+    "No production/native/API/reference/tolerance/registered-test edit; no full VC08/VC09/G1-G5 qualification",
+    "Disposable numerical test payloads retired after verified backup; canonical histories/originals/vectors/logs remain, raw Store not strict-resume fixture",
+    "Q8 deferred/chat OFF/Linux/private LAN only; deeper cancellation, broader allocation/pressure and VC09 matrix remain"
+  ],
+  "metrics_after_fault": {
+    "GPU": [
+      0
+    ],
+    "active_per_gpu": {
+      "0": 0
+    },
+    "cancelled": 0,
+    "completed": 2,
+    "disk": {
+      "admission_waits": 0,
+      "byte_limit": 137438953472,
+      "file_bytes": 261368036,
+      "files_evicted": 0,
+      "idle_evictions": 0,
+      "local_reserved_bytes": 0,
+      "recency_entries": 3,
+      "reserved_bytes": 0
+    },
+    "failed": 1,
+    "failed_publications": 0,
+    "idle_expiry": {
+      "last_error": null,
+      "last_result": {
+        "disk": 0,
+        "ram": 0
+      },
+      "running": false,
+      "runs": 0,
+      "seconds": null
+    },
+    "max_active_per_gpu": {
+      "0": 1
+    },
+    "pending_branches": 0,
+    "physical_gpu_count": 1,
+    "preload_failures": 0,
+    "queued": 0,
+    "ram": {
+      "admission_waits": 0,
+      "byte_limit": 103079215104,
+      "clean_evictions": 0,
+      "dirty_bytes": 0,
+      "entries": 3,
+      "failed_bytes": 0,
+      "failed_entries": 0,
+      "failed_evictions": 0,
+      "idle_evictions": 0,
+      "loads_pending": 0,
+      "peak_accounted_bytes": 840470583,
+      "pins": 0,
+      "reserved_bytes": 0,
+      "resident_bytes": 261349412,
+      "unique_payloads": 3
+    },
+    "worker_count": 1,
+    "workers": {
+      "0": {
+        "active": 0,
+        "failure_reason": null,
+        "health": "healthy",
+        "max_active": 1,
+        "pid": 206075,
+        "restarts": 0
+      }
+    }
+  },
+  "metrics_after_recovery": {
+    "GPU": [
+      0
+    ],
+    "active_per_gpu": {
+      "0": 0
+    },
+    "cancelled": 0,
+    "completed": 4,
+    "disk": {
+      "admission_waits": 0,
+      "byte_limit": 137438953472,
+      "file_bytes": 392907250,
+      "files_evicted": 0,
+      "idle_evictions": 0,
+      "local_reserved_bytes": 0,
+      "recency_entries": 5,
+      "reserved_bytes": 0
+    },
+    "failed": 1,
+    "failed_publications": 0,
+    "idle_expiry": {
+      "last_error": null,
+      "last_result": {
+        "disk": 0,
+        "ram": 0
+      },
+      "running": false,
+      "runs": 0,
+      "seconds": null
+    },
+    "max_active_per_gpu": {
+      "0": 1
+    },
+    "pending_branches": 0,
+    "physical_gpu_count": 1,
+    "preload_failures": 0,
+    "queued": 0,
+    "ram": {
+      "admission_waits": 0,
+      "byte_limit": 103079215104,
+      "clean_evictions": 0,
+      "dirty_bytes": 0,
+      "entries": 5,
+      "failed_bytes": 0,
+      "failed_entries": 0,
+      "failed_evictions": 0,
+      "idle_evictions": 0,
+      "loads_pending": 0,
+      "peak_accounted_bytes": 978540360,
+      "pins": 0,
+      "reserved_bytes": 0,
+      "resident_bytes": 392887264,
+      "unique_payloads": 5
+    },
+    "worker_count": 1,
+    "workers": {
+      "0": {
+        "active": 0,
+        "failure_reason": null,
+        "health": "healthy",
+        "max_active": 1,
+        "pid": 206075,
+        "restarts": 0
+      }
+    }
+  },
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "native_audit": {
+    "ENOMEM": [
+      "206173 mmap(NULL, 91929640, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = -1 ENOMEM (Cannot allocate memory)"
+    ],
+    "actual_outputs": 36,
+    "audited_pids_absent": [
+      206069,
+      206075,
+      206170,
+      206173
+    ],
+    "child_exit": 127,
+    "encoder_exec": [
+      "206173 execve(\"/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-encoder-build-v2/strata-vision\", [\"/home/dflanag3/spatial-artifacts\"..., \"--mmproj\", \"/home/dflanag3/models/qwen38-fla\"..., \"--model\", \"/home/dflanag3/models/qwen38-fla\"..., \"--gpu\", \"--threads\", \"32\", \"--max-tokens\", \"1024\", \"--flash-attn\", \"on\"], 0x7fff7229bd50 /* 26 vars */) = 0"
+    ],
+    "kernel_ENOMEM_syscalls": 1,
+    "logits": 248320,
+    "max_abs_error": 0,
+    "native_forward_tokens": 798,
+    "result_sha256": "71a48ab4c35072f08eb034a6f369fbe345b038dc3bd2fb062971495d6b972846",
+    "scope": "Real child-only bounded address-space ENOMEM, not host physical RAM exhaustion; unchanged worker and exact retained-prefix continuation",
+    "status": "INDEPENDENT_TERMINAL_AUDIT_PASS"
+  },
+  "native_sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow": "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow": "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+  },
+  "private_backup": {
+    "archive_bytes": 33361373,
+    "archive_sha256": "b5720c6661876b6ecf4a108570efe333cb682465af0c89ea40f6e112897696c3",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-host-enomem-v1/evidence.tar.gz",
+    "individually_verified_data_files": 197,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 198,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "production_changes": false,
+  "production_core": "aa17edfe741ae096514a49d676713def5ec21b4d",
+  "profile_sha256": "79abf9b98d12561fb3ffecfdcdeea5c181716e5670d0cc28df6d18366c201756",
+  "raw_result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-host-enomem-cli-gpu-v1/result.json",
+  "raw_result_sha256": "71a48ab4c35072f08eb034a6f369fbe345b038dc3bd2fb062971495d6b972846",
+  "retirement": {
+    "logical_bytes": 386743224,
+    "physical_free_delta": 386760704,
+    "receipt": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-host-enomem-collected-v1/derived-retirement-receipt.json"
+  },
+  "schema": 1,
+  "source_commit": "7aea150a25fc051835711ebbf6a6237af4f9e827",
+  "status": "VC08_BOUNDED_Q4_ENCODER_HOST_ENOMEM_PASS"
+}

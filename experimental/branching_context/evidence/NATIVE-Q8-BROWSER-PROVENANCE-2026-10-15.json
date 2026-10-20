@@ -1,0 +1,146 @@
+{
+  "artifacts": {
+    "01-empty-namespace.png": {
+      "bytes": 83996,
+      "sha256": "0d5ed710ef805d5984c48230a1db662f0bbfd117ca8836a9c82869c3a7e824d6"
+    },
+    "02-first-answer.png": {
+      "bytes": 122396,
+      "sha256": "de5e9c2e88f0b3669d9e8fbd7abd579937729a733f1e110b72d38ade75829bfd"
+    },
+    "03-fork-and-settings.png": {
+      "bytes": 151166,
+      "sha256": "53395f9b5c956cb35d881afdaf692d68da414f049f2412cdda1f2f3d3386fb03"
+    },
+    "04-shared-branches.png": {
+      "bytes": 127961,
+      "sha256": "33a75e62038ba0996f7260fcf6f54409b9f5605c9bf5d6ed61e6ac0b2299c8e9"
+    },
+    "05-previous-tip.png": {
+      "bytes": 152470,
+      "sha256": "86f126d35be2da34962214dcae23e27f455d414e0e632bfc268543595778472c"
+    },
+    "browser-trace.json": {
+      "bytes": 1948733,
+      "sha256": "de33fa1b3ca30244ada1839814ebcd98a30a969e8b0aec1a7c05faedf1ae648a"
+    },
+    "chromium.stderr.log": {
+      "bytes": 2318,
+      "sha256": "1ed5ee2b023db72660a4836e2d91af56c3610e82408447caf7124c5d5cc52e11"
+    },
+    "chromium.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "report.json": {
+      "bytes": 3888,
+      "sha256": "bb4e026c64dbc7e8084473b63fcebedbca9e5b8a76e2c9effbfc33696f243165"
+    }
+  },
+  "runner": {
+    "command_exit": 0,
+    "launch_script_sha256": "bb230b1840c5667515db99ace455f6e507b121ba950a7973d09d9a43c627a962",
+    "run_command_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "terminal": "COMPLETE",
+    "wrapper_exit": 0
+  },
+  "schema": 1,
+  "scope": "Q8 real-browser smoke on frozen ac6 HTTP/UI source; numerical equivalence is unmeasured in this browser run",
+  "server_before_shutdown": {
+    "metrics": {
+      "GPU": [
+        0
+      ],
+      "active_per_gpu": {
+        "0": 0
+      },
+      "cancelled": 0,
+      "completed": 6,
+      "disk": {
+        "byte_limit": 137438953472,
+        "file_bytes": 1050826714,
+        "files_evicted": 0,
+        "reserved_bytes": 0
+      },
+      "failed": 0,
+      "failed_publications": 0,
+      "max_active_per_gpu": {
+        "0": 1
+      },
+      "pending_branches": 0,
+      "physical_gpu_count": 1,
+      "preload_failures": 0,
+      "queued": 0,
+      "ram": {
+        "admission_waits": 0,
+        "byte_limit": 103079215104,
+        "clean_evictions": 0,
+        "dirty_bytes": 0,
+        "entries": 5,
+        "loads_pending": 0,
+        "peak_accounted_bytes": 9186322784,
+        "pins": 0,
+        "reserved_bytes": 0,
+        "resident_bytes": 1050820824,
+        "unique_payloads": 3
+      },
+      "worker_count": 1
+    },
+    "native_pid": 1855826,
+    "server_pid": 1855813
+  },
+  "source": {
+    "commit": "ac6b8e6d465d866a0ae341d9d37a28400aea582f",
+    "historical_build_inputs": "13/13 matched at original full paths",
+    "manifest_sha256": "a490001319dd79e56e984d0ce1693adf25918a43dd5002789cdccdf60f3b61d7",
+    "native_source_and_executable_pins": "16/16 matched",
+    "profile_execution_id": "b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1",
+    "profile_path": "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-8k-512-128-v1/result/profile.json",
+    "profile_sha256": "14b3d16b9ba65e84e42c16352ffcd88304e4ff3ea2302a235d75ef1ecb164e59",
+    "runtime_module_fullpath_pin": "16/16 matched"
+  },
+  "v1": {
+    "check_groups": 8,
+    "command_exit_receipt": "literal $result; unknown",
+    "driver_exit": "unknown",
+    "report_status": "PASS"
+  },
+  "v2": {
+    "answer_max_logit_error": null,
+    "browser_gpu_disabled": true,
+    "canonical_store_branches": [
+      {
+        "accepted_in_scope": 2,
+        "branch": "b-opafdd44bcd89d49d0b094b4dd0fc0e51a",
+        "canonical_token_ids": 8842,
+        "controller_status": "stopped",
+        "output_pending_hex": "",
+        "revision": 2,
+        "root": "5f33fa3ce1e427edc3fb1bb3bd18e9c1ec76126fc333b8cf0066809d79fc339e",
+        "stop_tail": [],
+        "tip": "1da9406eab19f4802b0f2ea0e953cea6838e119bd0bba0bc54207c742c9be7fe"
+      },
+      {
+        "accepted_in_scope": 2,
+        "branch": "b-220b3581888c4598b3c619428334ff0a",
+        "canonical_token_ids": 8842,
+        "controller_status": "stopped",
+        "output_pending_hex": "",
+        "revision": 2,
+        "root": "5f33fa3ce1e427edc3fb1bb3bd18e9c1ec76126fc333b8cf0066809d79fc339e",
+        "stop_tail": [],
+        "tip": "1da9406eab19f4802b0f2ea0e953cea6838e119bd0bba0bc54207c742c9be7fe"
+      }
+    ],
+    "check_groups": 8,
+    "context_attachment": {
+      "bytes": 44027,
+      "sha256": "e744d8bff6bebbdc3d0fc0d0ad445083f4c0eb74c6c2e93424e69dcdf1cfd0b4"
+    },
+    "first_branch": "b-opafdd44bcd89d49d0b094b4dd0fc0e51a",
+    "fork_branch": "b-220b3581888c4598b3c619428334ff0a",
+    "report_path": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/browser-smoke-v2/output/report.json",
+    "report_sha256": "bb4e026c64dbc7e8084473b63fcebedbca9e5b8a76e2c9effbfc33696f243165",
+    "status": "PASS"
+  }
+}

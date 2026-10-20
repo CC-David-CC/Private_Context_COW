@@ -1,0 +1,71 @@
+{
+  "additional_paired_final_vectors_per_pair": 18,
+  "all_owned_pids_absent": true,
+  "distinct_physical_payloads": 12,
+  "full_vector_comparisons_per_arm_per_pair": 818,
+  "hashed_payload_bytes": 4037996648,
+  "new_oracle_processes_in_first_pair": 12,
+  "new_oracle_processes_in_second_pair": 0,
+  "numerical_max_error": 0,
+  "original_prefix_bytes_unchanged": true,
+  "original_prefix_work_repeated": 0,
+  "pair_results_sha256": [
+    "4443b0d486cc82dd5da32a4a35824b01e428edea1c87e17bcab784e16fcb6adc",
+    "ce84da8b4aeb049ac5956ef429551d3ed364bb7f04691aab1680e2911b4c89cd"
+  ],
+  "paired_payload_identity_checks": 36,
+  "physical_payloads": {
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b.state": {
+      "bytes": 339059084,
+      "sha256": "1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551.state": {
+      "bytes": 346162636,
+      "sha256": "22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e.state": {
+      "bytes": 324016276,
+      "sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020.state": {
+      "bytes": 324643060,
+      "sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73.state": {
+      "bytes": 345744788,
+      "sha256": "77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731.state": {
+      "bytes": 339372480,
+      "sha256": "ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b.state": {
+      "bytes": 339059084,
+      "sha256": "1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551.state": {
+      "bytes": 346162636,
+      "sha256": "22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e.state": {
+      "bytes": 324016276,
+      "sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020.state": {
+      "bytes": 324643060,
+      "sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73.state": {
+      "bytes": 345744788,
+      "sha256": "77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73"
+    },
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731.state": {
+      "bytes": 339372480,
+      "sha256": "ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731"
+    }
+  },
+  "reference_scope": "Control12 new independent oracle processes; candidate first pair reuses its prior12; second pair reuses each own profile references after full hash/schedule checks",
+  "schema": "cow-tree-policy-final-consistency-v1",
+  "source_producer_sha256": "0549cfdad9c39ff216faea5e4cdf5b2075bead2652f8ec0421f66c111f447b00",
+  "status": "PASS"
+}

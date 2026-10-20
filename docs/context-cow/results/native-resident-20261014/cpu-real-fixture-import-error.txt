@@ -1,0 +1,58 @@
+test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries) ... ok
+test_early_close_cancels_before_releasing_consumed_boundary (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary) ... ok
+test_false_or_missing_native_boundaries_poison_connection (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) ... ok
+test_foreign_next_and_close_fail_without_sending_acknowledgment (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment) ... ok
+test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned) ... ok
+test_lease_cannot_be_released_while_request_is_waiting_for_ack (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack) ... ok
+test_one_request_consumes_all_outputs_without_capture_commands (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands) ... ok
+test_precreated_second_iterator_cannot_steal_active_request (tests.implementation.test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request) ... ok
+test_changed_tokens_missing_work_and_unknown_operators_are_rejected (tests.implementation.test_native_operator_receipts.NativeOperatorReceiptTests.test_changed_tokens_missing_work_and_unknown_operators_are_rejected) ... ok
+test_mixed_receipt_covers_exact_history (tests.implementation.test_native_operator_receipts.NativeOperatorReceiptTests.test_mixed_receipt_covers_exact_history) ... ok
+test_native_generation_cannot_claim_an_unexecuted_multi_token_window (tests.implementation.test_native_operator_receipts.NativeOperatorReceiptTests.test_native_generation_cannot_claim_an_unexecuted_multi_token_window) ... ok
+test_original_batch_only_contract_still_rejects_normal_operator (tests.implementation.test_native_operator_receipts.NativeOperatorReceiptTests.test_original_batch_only_contract_still_rejects_normal_operator) ... ok
+test_exception_during_events_cannot_mutate_parent (tests.implementation.test_controller_bulk_consumption.BulkControllerTests.test_exception_during_events_cannot_mutate_parent) ... ok
+test_grammar_penalties_and_stop_sequences_match_ordered_consumption (tests.implementation.test_controller_bulk_consumption.BulkControllerTests.test_grammar_penalties_and_stop_sequences_match_ordered_consumption) ... ok
+test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption (tests.implementation.test_controller_bulk_consumption.BulkControllerTests.test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption) ... ok
+test_operator_bound_checkpoint (unittest.loader._FailedTest.test_operator_bound_checkpoint) ... ERROR
+test_resident_request_publication (unittest.loader._FailedTest.test_resident_request_publication) ... ERROR
+test_save_uses_valid_stable_identity_without_truncating_snapshot_identity (tests.implementation.test_resident_resume_harness.ResidentHarnessTests.test_save_uses_valid_stable_identity_without_truncating_snapshot_identity) ... ok
+test_absent_policy_preserves_previous_bound (tests.implementation.test_checkpoint_resource_policy.CheckpointResourceTests.test_absent_policy_preserves_previous_bound) ... ok
+test_explicit_reference_extent_budget_admits_and_evicts_without_unbounded_retention (tests.implementation.test_checkpoint_resource_policy.CheckpointResourceTests.test_explicit_reference_extent_budget_admits_and_evicts_without_unbounded_retention) ... ok
+test_unknown_incomplete_and_invalid_budgets_fail_before_model_execution (tests.implementation.test_checkpoint_resource_policy.CheckpointResourceTests.test_unknown_incomplete_and_invalid_budgets_fail_before_model_execution) ... ok
+test_context_budget_rejects_input_before_creating_native_process (tests.implementation.test_real_fixture_admission.RealFixtureAdmissionTests.test_context_budget_rejects_input_before_creating_native_process) ... ok
+test_different_suffix_lengths_are_preserved_as_real_native_requests (tests.implementation.test_real_fixture_admission.RealFixtureAdmissionTests.test_different_suffix_lengths_are_preserved_as_real_native_requests) ... ok
+test_wrong_model_empty_or_identical_branches_and_invalid_tokens_fail_admission (tests.implementation.test_real_fixture_admission.RealFixtureAdmissionTests.test_wrong_model_empty_or_identical_branches_and_invalid_tokens_fail_admission) ... ok
+test_missing_distinct_continuations_and_invalid_prefix_are_rejected (tests.implementation.test_codebase_fixture.CodebaseFixtureTests.test_missing_distinct_continuations_and_invalid_prefix_are_rejected) ... ok
+test_partition_reconstructs_both_complete_tokenized_requests (tests.implementation.test_codebase_fixture.CodebaseFixtureTests.test_partition_reconstructs_both_complete_tokenized_requests) ... ok
+test_text_similarity_cannot_override_different_token_prefixes (tests.implementation.test_codebase_fixture.CodebaseFixtureTests.test_text_similarity_cannot_override_different_token_prefixes) ... ok
+
+======================================================================
+ERROR: test_operator_bound_checkpoint (unittest.loader._FailedTest.test_operator_bound_checkpoint)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_operator_bound_checkpoint
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_operator_bound_checkpoint.py", line 5, in <module>
+    import test_durable_restore as fixtures
+ModuleNotFoundError: No module named 'test_durable_restore'
+
+
+======================================================================
+ERROR: test_resident_request_publication (unittest.loader._FailedTest.test_resident_request_publication)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_resident_request_publication
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 6, in <module>
+    import test_durable_restore as fixtures
+ModuleNotFoundError: No module named 'test_durable_restore'
+
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.004s
+
+FAILED (errors=2)

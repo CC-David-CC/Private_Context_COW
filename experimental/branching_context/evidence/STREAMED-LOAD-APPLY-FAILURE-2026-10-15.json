@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Real CUDA memory/copy failure regression; no model forward or gate certification",
+  "host": "llm-60",
+  "GPU": [0],
+  "source_base": "1c2fe112c89573267113ec5927455e2b1a46dab8",
+  "test": "branch_session_apply_failure_test",
+  "test_source_sha256": "c633e6528171414f5dcc4aa74f87ead391dad01ec329082c1e6956f05c88f6d2",
+  "cmake_sha256": "62ff0db70d58870e6db488ede9432a83c081ed06b51f3022dc597ce3a37fd34d",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/branch-session-apply-failure-fresh-20261015",
+  "build": {"configure_receipts": "run-configure", "build_receipts": "run-build", "command_exit": 0, "wrapper_exit": 0, "cuda": "13.2.86", "architecture": "120", "binary_sha256": "d83c5c591153e9869c4bb653bc42bcf81593275e93b56cdc779e3aecc68e8736", "binary_bytes": 30483400},
+  "run": {"receipts": "run-gpu-test", "command_exit": 0, "wrapper_exit": 0, "checks": 56, "apply_copy_successes": 1, "injected_apply_failures": 1, "stderr_empty": true},
+  "assertions": [
+    "Same checkpoint loads successfully with the test wrapper disarmed and restores expected IDs/logits.",
+    "First targeted real cudaMemcpyAsync succeeds and is synchronized before the second targeted copy returns a test-induced error.",
+    "Cold load reports the targeted copy failure; partially applied active session cannot freeze or begin another write.",
+    "Full exported native parent and sibling page/running-state bytes are unchanged.",
+    "Test-owned physical pages are released."
+  ],
+  "instrumentation": "Dedicated Linux CUDA target links --wrap=cudaMemcpyAsync, armed only around load and filtered to the session pool destination ranges. No production flag or injection seam added.",
+  "preflight_finding": "An initial stream-only build had old BranchPages source and was rejected before compiling/linking this test. Fresh source copied from the combined candidate was configured and built separately instead.",
+  "limits": ["Test fixture, not inference.", "Native audited running state does not include the external canonical sampler/RNG/grammar controller.", "No peak RAM/VRAM measurement or sanitizer run.", "CUDA/Linux target only; HIP/SYCL unrun."]
+}

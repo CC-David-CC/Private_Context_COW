@@ -1,0 +1,33 @@
+[
+  {
+    "label": "prepare-green-build",
+    "argv": [
+      "cmake",
+      "--build",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-j16",
+      "--target",
+      "branch_prepare_test",
+      "branch_page_batch_test",
+      "branch_pages_test",
+      "branch_session_test",
+      "branch_integrity_test",
+      "branch_lifecycle_test",
+      "branch_digest_gpu",
+      "branch_digest_host",
+      "strata",
+      "strata-branch",
+      "strata-fresh"
+    ],
+    "exit_code": 0,
+    "seconds": 10.659871669020504
+  },
+  {
+    "label": "prepare-green",
+    "argv": [
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_prepare_test"
+    ],
+    "exit_code": 0,
+    "seconds": 0.4076960670063272
+  }
+]

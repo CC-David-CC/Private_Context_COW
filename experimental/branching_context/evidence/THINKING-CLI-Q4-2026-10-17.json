@@ -1,0 +1,389 @@
+{
+    "schema":  1,
+    "status":  "BOUNDED_THINKING_CLI_Q4_PASS_QUALITY_REPORTED_SEPARATELY",
+    "host":  "llm-60",
+    "GPU":  [
+                0
+            ],
+    "cases":  [
+                  {
+                      "question":  "expanded",
+                      "question_sha256":  "644fc582b557a168510b10866048c9e69bd95f19ee5959584c806a70b9e444ee",
+                      "arms":  [
+                                   {
+                                       "budget":  0,
+                                       "results":  {
+                                                       "first":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  "budget",
+                                                                                      "closing_tokens":  1,
+                                                                                      "final_tokens":  1,
+                                                                                      "max_tokens":  0,
+                                                                                      "phase":  "final",
+                                                                                      "reasoning_tokens":  0,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  "LEFT",
+                                                                     "quality":  "PASS",
+                                                                     "status":  "stopped",
+                                                                     "next_draw":  0,
+                                                                     "controller_sha256":  "b2602dcc383501550431ea8982268371fa857e3c0a800bab7f2f12c767cce9fe",
+                                                                     "output_tokens":  3,
+                                                                     "forward_tokens":  3,
+                                                                     "snapshot":  "92c079326ddb1644cf46e07d9e9da30d22a1c03566bbce003def5829b7fbd8c3"
+                                                                 }
+                                                   },
+                                       "elapsed_seconds":  1.454379579052329,
+                                       "parent_bytes_unchanged":  true
+                                   },
+                                   {
+                                       "budget":  128,
+                                       "results":  {
+                                                       "first":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  null,
+                                                                                      "closing_tokens":  0,
+                                                                                      "final_tokens":  0,
+                                                                                      "max_tokens":  128,
+                                                                                      "phase":  "reasoning",
+                                                                                      "reasoning_tokens":  4,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  null,
+                                                                     "quality":  "UNFINISHED",
+                                                                     "status":  "active",
+                                                                     "next_draw":  0,
+                                                                     "controller_sha256":  "d53e78d2c2b0e5a9eec2866b3ccab7e78623f4eddace922a237a873f6cf9defe",
+                                                                     "output_tokens":  4,
+                                                                     "forward_tokens":  4,
+                                                                     "snapshot":  "d28d8e0272bb993a9f97271782e743f59373ce7133d0c08bd00baf50b6668f3d"
+                                                                 },
+                                                       "greedy":  {
+                                                                      "progress":  {
+                                                                                       "close_reason":  "natural",
+                                                                                       "closing_tokens":  1,
+                                                                                       "final_tokens":  1,
+                                                                                       "max_tokens":  128,
+                                                                                       "phase":  "final",
+                                                                                       "reasoning_tokens":  72,
+                                                                                       "schema":  1
+                                                                                   },
+                                                                      "final":  "LEFT",
+                                                                      "quality":  "PASS",
+                                                                      "status":  "stopped",
+                                                                      "next_draw":  0,
+                                                                      "controller_sha256":  "7447ac04a047b6507298f90aaac83b6706bc4abe811958a6b3fd7adbe50650a9",
+                                                                      "output_tokens":  71,
+                                                                      "forward_tokens":  71,
+                                                                      "snapshot":  "e13064d0b3d4d3976faca4a0445dfd479deb3f5484d0ab9e3c362fea8f85b478"
+                                                                  },
+                                                       "min_p":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  "natural",
+                                                                                      "closing_tokens":  1,
+                                                                                      "final_tokens":  1,
+                                                                                      "max_tokens":  128,
+                                                                                      "phase":  "final",
+                                                                                      "reasoning_tokens":  88,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  "LEFT",
+                                                                     "quality":  "PASS",
+                                                                     "status":  "stopped",
+                                                                     "next_draw":  87,
+                                                                     "controller_sha256":  "a3edc9e32dcbaad03527d21b403dc36f8fef9751c470e6d796e4ec44b90b9205",
+                                                                     "output_tokens":  87,
+                                                                     "forward_tokens":  87,
+                                                                     "snapshot":  "b8a7b8031033b525bd752c173223dae0f30d3a9942073194b5ed9971d29e2591"
+                                                                 }
+                                                   },
+                                       "elapsed_seconds":  6.693143451120704,
+                                       "parent_bytes_unchanged":  true
+                                   }
+                               ]
+                  },
+                  {
+                      "question":  "short",
+                      "question_sha256":  "3ca9794c459a9a936175398a3053bf630c4437565c082eddce1f2257ac05ea37",
+                      "arms":  [
+                                   {
+                                       "budget":  0,
+                                       "results":  {
+                                                       "first":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  "budget",
+                                                                                      "closing_tokens":  1,
+                                                                                      "final_tokens":  3,
+                                                                                      "max_tokens":  0,
+                                                                                      "phase":  "final",
+                                                                                      "reasoning_tokens":  0,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  "NOT_VISIBLE",
+                                                                     "quality":  "FAIL",
+                                                                     "status":  "active",
+                                                                     "next_draw":  0,
+                                                                     "controller_sha256":  "706245176f62b41c925d5f06f9fe120f61cd89d2db51da02b173e17b718a136c",
+                                                                     "output_tokens":  4,
+                                                                     "forward_tokens":  4,
+                                                                     "snapshot":  "67d8297a6d36c01cb75a5a6852751cfef31d35997cf7869a4a75472b533b78db"
+                                                                 },
+                                                       "greedy":  {
+                                                                      "progress":  {
+                                                                                       "close_reason":  "budget",
+                                                                                       "closing_tokens":  1,
+                                                                                       "final_tokens":  3,
+                                                                                       "max_tokens":  0,
+                                                                                       "phase":  "final",
+                                                                                       "reasoning_tokens":  0,
+                                                                                       "schema":  1
+                                                                                   },
+                                                                      "final":  "NOT_VISIBLE",
+                                                                      "quality":  "FAIL",
+                                                                      "status":  "stopped",
+                                                                      "next_draw":  0,
+                                                                      "controller_sha256":  "d12925895fa186ea825d88fef4398ef53bf0630e4d0f47f27ab4d22c6bc1c201",
+                                                                      "output_tokens":  1,
+                                                                      "forward_tokens":  1,
+                                                                      "snapshot":  "6691e61365e2aa1af93ef82e3d4586c9ccf6391dbeb5b92be96a82e2d30550ba"
+                                                                  },
+                                                       "min_p":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  "budget",
+                                                                                      "closing_tokens":  1,
+                                                                                      "final_tokens":  3,
+                                                                                      "max_tokens":  0,
+                                                                                      "phase":  "final",
+                                                                                      "reasoning_tokens":  0,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  "NOT_VISIBLE",
+                                                                     "quality":  "FAIL",
+                                                                     "status":  "stopped",
+                                                                     "next_draw":  1,
+                                                                     "controller_sha256":  "05bf14c0cf41a1947ccb23aaa887d89a96a07d097096cce40b13a2addf1a34d0",
+                                                                     "output_tokens":  1,
+                                                                     "forward_tokens":  1,
+                                                                     "snapshot":  "457ee8ad59d23699c4400b3f6d4abe55ecc2e2473b0ae8a3ae8f43aa3042feb6"
+                                                                 }
+                                                   },
+                                       "elapsed_seconds":  4.695209488039836,
+                                       "parent_bytes_unchanged":  true
+                                   },
+                                   {
+                                       "budget":  128,
+                                       "results":  {
+                                                       "first":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  null,
+                                                                                      "closing_tokens":  0,
+                                                                                      "final_tokens":  0,
+                                                                                      "max_tokens":  128,
+                                                                                      "phase":  "reasoning",
+                                                                                      "reasoning_tokens":  4,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  null,
+                                                                     "quality":  "UNFINISHED",
+                                                                     "status":  "active",
+                                                                     "next_draw":  0,
+                                                                     "controller_sha256":  "493cc1842ab2ebbac680fded29f681ca1948cebdc2aa4f78d0a62d7dfdf2666f",
+                                                                     "output_tokens":  4,
+                                                                     "forward_tokens":  4,
+                                                                     "snapshot":  "b5d4951bf4998b940297fb644e7a114f3fff83598a5edd857ca5d4d41a904ad3"
+                                                                 },
+                                                       "greedy":  {
+                                                                      "progress":  {
+                                                                                       "close_reason":  "budget",
+                                                                                       "closing_tokens":  1,
+                                                                                       "final_tokens":  3,
+                                                                                       "max_tokens":  128,
+                                                                                       "phase":  "final",
+                                                                                       "reasoning_tokens":  128,
+                                                                                       "schema":  1
+                                                                                   },
+                                                                      "final":  "NOT_VISIBLE",
+                                                                      "quality":  "FAIL",
+                                                                      "status":  "stopped",
+                                                                      "next_draw":  0,
+                                                                      "controller_sha256":  "1afae7af56f38bb43b6c07a2afb103f88e09338ec924e3047e628bc92c26b77e",
+                                                                      "output_tokens":  129,
+                                                                      "forward_tokens":  129,
+                                                                      "snapshot":  "fef629fa5b0056ff9911f152bd38857a46cf54f4644e5d16ab6039148076647b"
+                                                                  },
+                                                       "min_p":  {
+                                                                     "progress":  {
+                                                                                      "close_reason":  "budget",
+                                                                                      "closing_tokens":  1,
+                                                                                      "final_tokens":  3,
+                                                                                      "max_tokens":  128,
+                                                                                      "phase":  "final",
+                                                                                      "reasoning_tokens":  128,
+                                                                                      "schema":  1
+                                                                                  },
+                                                                     "final":  "LEFT",
+                                                                     "quality":  "PASS",
+                                                                     "status":  "stopped",
+                                                                     "next_draw":  129,
+                                                                     "controller_sha256":  "789ebe6041dc14c5169985bed0cf0c245534f6a72eec00b8968b196c9bc2ad4a",
+                                                                     "output_tokens":  129,
+                                                                     "forward_tokens":  129,
+                                                                     "snapshot":  "fd2e08935454274a7af4a97f43984fb59e124ef65a05c660e82652495480581d"
+                                                                 }
+                                                   },
+                                       "elapsed_seconds":  11.08325758506544,
+                                       "parent_bytes_unchanged":  true
+                                   }
+                               ]
+                  }
+              ],
+    "runs":  [
+                 {
+                     "run":  "cow-thinking-red-run-v1",
+                     "exits":  {
+                                   "command.exit":  1,
+                                   "wrapper.exit":  1
+                               },
+                     "test_summary":  [
+                                          "Ran 6 tests in 0.016s",
+                                          "FAILED (errors=7)"
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-green-run-v1",
+                     "exits":  {
+                                   "command.exit":  0,
+                                   "wrapper.exit":  0
+                               },
+                     "test_summary":  [
+                                          "Ran 25 tests in 0.113s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-prompt-red-run-v1",
+                     "exits":  {
+                                   "command.exit":  1,
+                                   "wrapper.exit":  1
+                               },
+                     "test_summary":  [
+                                          "Ran 1 test in 0.017s",
+                                          "FAILED (failures=1)"
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-green-run-v2",
+                     "exits":  {
+                                   "command.exit":  0,
+                                   "wrapper.exit":  0
+                               },
+                     "test_summary":  [
+                                          "Ran 69 tests in 7.094s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-g0-run-v1",
+                     "exits":  {
+                                   "command.exit":  0,
+                                   "wrapper.exit":  0
+                               },
+                     "test_summary":  [
+
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-gpu-run-v1",
+                     "exits":  {
+                                   "command.exit":  1,
+                                   "wrapper.exit":  1
+                               },
+                     "test_summary":  [
+
+                                      ]
+                 },
+                 {
+                     "run":  "cow-thinking-gpu-run-v2",
+                     "exits":  {
+                                   "command.exit":  0,
+                                   "wrapper.exit":  0
+                               },
+                     "test_summary":  [
+
+                                      ]
+                 },
+                 {
+                     "run":  "bw-client-regex-deps-v1",
+                     "exits":  {
+                                   "command.exit":  0,
+                                   "wrapper.exit":  0
+                               },
+                     "test_summary":  [
+
+                                      ]
+                 }
+             ],
+    "processes_absent":  [
+                             70759,
+                             70765
+                         ],
+    "numerical_max_error":  null,
+    "numerical_oracle":  "NOT_RUN",
+    "execution_profile_id":  "d53f030c9c0805a1e91d19b461d669c5f13cd6c4682dd6c276e1d5cffe2b520d",
+    "model_contract_id":  "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "native_sha256":  {
+                          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow":  "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+                          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference":  "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+                          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow":  "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+                          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow":  "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+                      },
+    "sources":  {
+                    "serve/cow_prompt_encoder.py":  "19b707234b55bfe93ec4ca85b60a629a541ea41351f399018e3d038f63cdf949",
+                    "serve/test_cow_thinking_prompt.py":  "3d2949169b6651bc49a120e6abf8d327482b0158e478fc6d51a6a1e2da6d8434",
+                    "experimental/branching_context/src/context_time_travel/grammar_first.py":  "91ba4fd8630ad315dc42798e940fba9849c2977d4dd890820e092df35d0e4c62",
+                    "experimental/branching_context/src/context_time_travel/thinking_grammar.py":  "5aad49e045e5e20635d0c6e7e8777fbcc40b826832a8fae5aeea3933a2aa2784",
+                    "experimental/branching_context/tests/implementation/test_thinking_grammar.py":  "c6070162a5a53916b47c6026d97a274372402083eb84f969a053683f0761d42b",
+                    "experimental/branching_context/scripts/run_thinking_cli_probe.py":  "4b5cd2eb216036134a65f5723ad3f152c5c7bc9199dd250a0ba3adf7d129489c"
+                },
+    "thinking_token":  {
+                           "bytes":  "\u003c/think\u003e",
+                           "gguf_type":  4,
+                           "id":  248069
+                       },
+    "startup_seconds":  19.90003705304116,
+    "q8":  "DEFERRED",
+    "limitations":  [
+                        "Fixed host registry budgets 0/128 only; no general thinking_length option yet.",
+                        "Greedy and Min-P only on GPU; advanced combinations not qualified.",
+                        "No server/native restart, cancellation or crash campaign for thinking yet.",
+                        "Short greedy image answer remains quality FAIL; Min-P success is one observed case.",
+                        "No independent full-vector oracle, peak memory or isolated TPS measurement.",
+                        "Initial prepared roots only; thinking new-user append remains rejected.",
+                        "No VC/G qualification."
+                    ],
+    "private_only":  true,
+    "chat_restarted":  false,
+    "base_archive":  {
+                         "path":  "/srv/data/git/private_context_cow.evidence/20261017-branchwrite-image-ack-v1/evidence.tar.gz",
+                         "sha256":  "238ad21598a8b786da8777e1a17d153c660f1b285ab9bc4c21b3478113969479"
+                     },
+    "excluded_state_bytes":  1429893636,
+    "archive":  {
+                    "host":  "box-git",
+                    "path":  "/srv/data/git/private_context_cow.evidence/20261017-cow-thinking-v1/evidence.tar.gz",
+                    "sha256":  "4fc412c5b47d09f724eeae7f934ddb8ad476d24c94a6f1830f5249334860b5aa",
+                    "size_bytes":  16057590,
+                    "members":  443,
+                    "receiver_verified":  true
+                },
+    "short_question_analysis":  {
+                                    "both_thoughts_describe_upper_left":  true,
+                                    "greedy_final_contradicts_its_text":  true,
+                                    "both_cut_mid_sentence_at_budget":  128,
+                                    "final_label_scores":  "NOT_CAPTURED",
+                                    "cause":  "UNRESOLVED",
+                                    "sampler_ablation":  "NOT_ISOLATED: temperature .7, Min-P .05, Top-K 60, Top-P .95",
+                                    "first_different_resumed_token_index":  19,
+                                    "next_experiment":  "Longer budgets and multiple seeds; record final legal-label scores"
+                                }
+}

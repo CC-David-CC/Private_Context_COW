@@ -1,0 +1,13 @@
+{
+  "schema": "private-evidence-backup-v1",
+  "status": "PASS",
+  "source_host": "llm-60",
+  "destination_host": "box-git",
+  "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-next-user/text-next-user-q8-full-v1.tgz",
+  "bytes": 7914436247,
+  "sha256": "83221804bce1e1d997f889fc926f51122407a29b2fa5057f5702bb4d16f2d2e2",
+  "file_mode": "0600",
+  "validated": ["streaming tar/gzip/ssh pipeline exited successfully", "destination gzip CRC validation", "destination full-file SHA-256", "BACKUP_COMPLETE logged and source process gone"],
+  "contents": ["text-next-user-q8-v1 canonical store and numerical checkpoints", "audited result and audit source", "frozen serving-v6", "pinned native source overlay and SUT binaries-digest-v1", "multi-turn oracle generated sources, compiled binaries, build/run receipts and raw frontier traces", "failed preflight/build candidates retained in oracle artifacts"],
+  "limitations": ["model weights are not included", "CUDA and system shared libraries are not included", "native source overlay includes a build symlink to the original external build tree; this is not a self-contained source rebuild package", "restore requires the recorded compatible model, runtime, hardware profile and operator arrangement"]
+}

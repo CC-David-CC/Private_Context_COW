@@ -1,0 +1,1 @@
+argv: python3 /home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-reclaim-readonly-20261015-01/reclaim-resident-v1.py --unlink --receipt /home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-reclaim-execution-20261015-01/reclaim-receipt.json

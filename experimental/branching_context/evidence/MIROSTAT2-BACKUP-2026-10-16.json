@@ -1,0 +1,126 @@
+{
+    "schema":  "private-evidence-backup-receipt-v1",
+    "status":  "PASS",
+    "scope":  "Mirostat2 correctness qualification only; later timing campaign excluded",
+    "source":  {
+                   "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-v1/source",
+                   "commit":  "781004f183bb6b53c3acb999d5cdbaca1a742e38",
+                   "proof_sha256":  "a54a9c55a83c48a8d14c219010b25417254a8c3957daa27ca3696c9d020d605c",
+                   "proof_files":  46,
+                   "stage_sha256":  "27841f01949daae01dd9a082ca5745fa3d7ddee9e0ad6c7f3774739024ac818f"
+               },
+    "cpu":  {
+                "report":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-v1.json",
+                "status":  "PASS",
+                "tests":  688,
+                "failures":  0,
+                "errors":  0,
+                "skips":  0,
+                "runner":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-command-v1",
+                "g0_runner":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-g0-command-v1",
+                "g0_tests":  51
+            },
+    "qualification":  {
+                          "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/qualification-mirostat2-v1.json",
+                          "sha256":  "08d5d29e67aa61031ee1f081712b56720f70f53e38fc00e151d309224a2a79d1",
+                          "status":  "PASS",
+                          "full_vector_comparisons":  106,
+                          "native_mirostat2_calls":  88,
+                          "strict_restores":  3
+                      },
+    "native":  {
+                   "binary":  "/home/dflanag3/spatial-artifacts/mirostat2-native-20261016-v1/native-build-v4/output/strata-batched-branch-lazy-mirostat2-v6",
+                   "sha256":  "d0689fea92962109e19d3a74e3f0c78ed9e422915f718d4c5502b1c15d0f581e",
+                   "build_json":  "/home/dflanag3/spatial-artifacts/mirostat2-native-20261016-v1/native-build-v4/output/build.json",
+                   "build_sha256":  "e809cf3f79e64a732bee15569ed6a5d029c734a08b1d4a64e5501f82804068d2"
+               },
+    "campaigns":  [
+                      {
+                          "name":  "gpu-mirostat2-q4-tiny-v1",
+                          "status":  "PASS",
+                          "vectors":  50,
+                          "each_vector_bytes":  993280
+                      },
+                      {
+                          "name":  "gpu-mirostat2-q4-serving-v1",
+                          "status":  "PASS",
+                          "vectors":  70,
+                          "each_vector_bytes":  993280
+                      },
+                      {
+                          "name":  "gpu-mirostat2-q8-serving-v1",
+                          "status":  "PASS",
+                          "vectors":  70,
+                          "each_vector_bytes":  993280
+                      }
+                  ],
+    "archive":  {
+                    "remote":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-mirostat2-qualified-v1/evidence.tar",
+                    "bytes":  534333440,
+                    "sha256":  "f3bdc747a9bb0386d38dba4aa87fc8a15f7b4554427bc8044013bbb4f2beb71e",
+                    "manifest_sha256":  "de9a10f2f6bc6c685e0b82a77fd6f7b9899750148a3daa580636f6e6767f9424",
+                    "members":  14520,
+                    "total_member_bytes":  509481507,
+                    "excluded_count":  1827,
+                    "excluded_bytes":  1618094160,
+                    "directory_mode":  "0700",
+                    "file_mode":  "0600",
+                    "local_tar_created":  false,
+                    "readback_status":  "PASS",
+                    "readback_json":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-mirostat2-qualified-v1/readback.json",
+                    "readback_json_sha256":  "b53f635edf4726819a12d5f4725280accecf305c7939d837d5a261623d513c11"
+                },
+    "runner_receipts":  [
+                            {
+                                "name":  "archive-preflight-v5",
+                                "command":  0,
+                                "wrapper":  0
+                            },
+                            {
+                                "name":  "archive-stream-v1",
+                                "command":  0,
+                                "wrapper":  0
+                            },
+                            {
+                                "name":  "archive-readback-v1",
+                                "command":  0,
+                                "wrapper":  0
+                            }
+                        ],
+    "preserved_preflight_failures":  [
+                                         {
+                                             "name":  "preflight-v1",
+                                             "command":  1,
+                                             "wrapper":  1,
+                                             "cause":  "qualification key assertion used strict_restores, absent from the qualification JSON",
+                                             "script_sha256":  "243d53778de2059037c784db4d4cabc42dd1b9140d2bb8363fdec4f5e3e4effa"
+                                         },
+                                         {
+                                             "name":  "preflight-v2",
+                                             "command":  1,
+                                             "wrapper":  1,
+                                             "cause":  "incorrectly expected file_count in stage.json rather than source proof",
+                                             "script_sha256":  "e084e8db918b37b06c2dfca6618ba460ebfedf1b38ce5d03e13ee9e5d34b9a1e"
+                                         },
+                                         {
+                                             "name":  "preflight-v3",
+                                             "command":  1,
+                                             "wrapper":  1,
+                                             "cause":  "incorrectly treated source proof count 46 as total files in full staged source tree",
+                                             "script_sha256":  "ee1b3e142cfe725eaf08457c9f274a8e26ff7a8106b5b07084da8e8f05a3911d"
+                                         },
+                                         {
+                                             "name":  "preflight-v4",
+                                             "command":  1,
+                                             "wrapper":  1,
+                                             "cause":  "proof document variable was shadowed by required-path loop",
+                                             "script_sha256":  "b82b1185d45dee4717dc5887ae154486dd4440fa6386944b1ffa41401e640756"
+                                         }
+                                     ],
+    "final_packager_sha256":  "f6af402f4687e35e3bc0ae6fb7048e56a909c870bed50a81413a15169050ad8f",
+    "limitations":  [
+                        "No model weights, checkpoint .state payloads, object/archive/cache files included.",
+                        "The archive preserves raw float32 frontier vectors but is not a restorable checkpoint/model package.",
+                        "The separate q4 8K timing campaign was excluded from this correctness archive."
+                    ]
+}

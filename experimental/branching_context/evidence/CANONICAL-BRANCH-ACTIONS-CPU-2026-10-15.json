@@ -1,0 +1,119 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "integration": "Isolated work/root-canonical-actions draft; not integrated into main",
+  "base_commit": "cac2512b2b37d30f6b263bb35bd76a5eb9f17b3e",
+  "host": "llm-60",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/canonical-actions-20261015-v1",
+  "primary_audit_sha256": "29e7e6104824e723bb166c0a855581574b88adda30e60b95ba7178a837d255c1",
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "6891e7258067332f214a6b7a9b560334914ef6f0b6fb55e2911e39b39f8f8d77",
+    "experimental/branching_context/tests/implementation/test_canonical_branch_actions.py": "1390d110da826eaccd18fa85a72594cedc26a2a6bad2ddcf10b406ed0afa06db"
+  },
+  "suites": [
+    {
+      "name": "green-v3",
+      "tests": 9,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "5b236e39eb18984914895ac4031004e456e19da205349b8f4a698e1df9aedf50"
+      }
+    },
+    {
+      "name": "combined-v2",
+      "tests": 211,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "cff2eeca87d14e26c73099ae6a28906ca0e3c5f600d587706237ae649db702e4"
+      }
+    },
+    {
+      "name": "serving-v2",
+      "tests": 141,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "22eaa4e075e3d34821b30594d49642daaea554efa50e6905568b7fe0867f9efa"
+      }
+    },
+    {
+      "name": "g0-v2",
+      "tests": 51,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "d526bb3117750d105a56214ce6b6e31ea56004b7b1ea5f67d1d85e9a1aed8d60",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "new_test_ids": [
+    "test_fork_missing_checkpoint_is_metadata_only_then_append_reports_rebuild (test_canonical_branch_actions.CanonicalBranchActionsTests.test_fork_missing_checkpoint_is_metadata_only_then_append_reports_rebuild)",
+    "test_intact_checkpoint_fork_does_not_nest_independent_store_locks (test_canonical_branch_actions.CanonicalBranchActionsTests.test_intact_checkpoint_fork_does_not_nest_independent_store_locks)",
+    "test_missing_checkpoint_does_not_remove_rewind_cas_guard (test_canonical_branch_actions.CanonicalBranchActionsTests.test_missing_checkpoint_does_not_remove_rewind_cas_guard)",
+    "test_namespace_fork_after_eviction_preserves_presentation_and_is_idempotent (test_canonical_branch_actions.PresentedCanonicalBranchActionsTests.test_namespace_fork_after_eviction_preserves_presentation_and_is_idempotent)",
+    "test_present_manifest_missing_payload_is_not_hidden_by_fork (test_canonical_branch_actions.PresentedCanonicalBranchActionsTests.test_present_manifest_missing_payload_is_not_hidden_by_fork)",
+    "test_present_manifest_missing_payload_is_not_hidden_by_typed_rewind (test_canonical_branch_actions.PresentedCanonicalBranchActionsTests.test_present_manifest_missing_payload_is_not_hidden_by_typed_rewind)",
+    "test_rewind_missing_checkpoint_is_metadata_only_and_retry_is_stable (test_canonical_branch_actions.CanonicalBranchActionsTests.test_rewind_missing_checkpoint_is_metadata_only_and_retry_is_stable)",
+    "test_typed_rewind_after_eviction_preserves_presentation_and_retry (test_canonical_branch_actions.PresentedCanonicalBranchActionsTests.test_typed_rewind_after_eviction_preserves_presentation_and_retry)",
+    "test_typed_rewind_retry_outlives_later_numerical_eviction (test_canonical_branch_actions.PresentedCanonicalBranchActionsTests.test_typed_rewind_retry_outlives_later_numerical_eviction)"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "red": [
+    {
+      "name": "red-v3",
+      "tests": 8,
+      "errors": 6,
+      "exits": {
+        "command.exit": "1",
+        "wrapper.exit": "1"
+      },
+      "log_sha256": "f56da6fa7944f18c4536613f8a68e0d2a44fb0768663fbb4c0749e6c69394144",
+      "marker": "Branch action requires an acknowledged numerical checkpoint"
+    },
+    {
+      "name": "lock-red-v1",
+      "tests": 1,
+      "errors": 1,
+      "exits": {
+        "command.exit": "1",
+        "wrapper.exit": "1"
+      },
+      "log_sha256": "bf0b15fdb2b32a35636d068914b6e0107acad67030ac207fe5fc4ae3d9663cd9",
+      "marker": "subprocess.TimeoutExpired"
+    }
+  ],
+  "retained_attempts": [
+    "green-v1 had7 passes and1 test fixture error: fork receipts are catalog events, not typed move presentation receipts; corrected fixture retained.",
+    "combined-v1 deadlocked on two independent Store handles nesting exclusive refs locks; primary observed WRITE/WRITE* flock, terminated only owned Python2580606, exits143/143; not a completed suite.",
+    "lock-red-v1 reproduces that lock bug in a CPU subprocess bounded by5s; corrected validation runs outside the exclusive refs lock and retains an active read lease."
+  ],
+  "behavior": [
+    "Fork and rewind references can select retained canonical history after optional numerical checkpoint eviction without evaluating tokens.",
+    "Existing numerical manifests are still validated and incomplete or corrupt payloads reject.",
+    "Typed namespace actions preserve their canonical catalog/projection and idempotent retries after numerical eviction.",
+    "Following append explicitly reports reconstructed prefix work; strict restore remains strict.",
+    "Read leases protect target history/checkpoint validation; model validation runs outside the coordinator Store exclusive refs lock."
+  ],
+  "limits": [
+    "CPU filesystem, scheduler and synthetic HTTP controls only; no GPU fork/rewind-after-eviction result.",
+    "Disk collector root/tip/explicit retention anchors remain protected; this draft does not yet enable finite-cache eviction of branch heads.",
+    "Original numerical/durability gates and power-loss qualification remain separate."
+  ]
+}

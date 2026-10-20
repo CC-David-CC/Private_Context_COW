@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 153600,
+  "archive_sha256": "aafe9c7e30f513149a98f47666669887663c8c20457b90ef7aa5317674b7bb9e",
+  "extracted_files": 0,
+  "manifest_sha256": "21297613ee102ab030b9dd8e83f2bf1ebbb0a3de45b11584e6791c4b1f713f68",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-repair-v4-order-mutant-supplement-v1/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 128019,
+  "verified_regular_files": 20
+}

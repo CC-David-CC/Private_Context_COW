@@ -1,0 +1,33 @@
+{
+  "schema": "cow-client-pressure-revisit-v1",
+  "status": "PASS_REQUEST_BOUND_SPILL_RELOAD",
+  "causal_chain": {
+    "key": [
+      "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+      "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+      "ae6d92c0dd4a206176e8cd248a88cbc12584602d244f7a1d24b2e1194e1d6972"
+    ],
+    "eviction_sequence": 17,
+    "freed_bytes": 324643060,
+    "load_id": 30,
+    "load_started_sequence": 30,
+    "load_succeeded_sequence": 31,
+    "loaded_bytes": 324643060,
+    "request_id": "op-20d4e50d-a03f-4914-a2fc-b4a3530d0acd",
+    "request_received_sequence": 28,
+    "request_acquired_sequence": 32,
+    "request_durable_sequence": 35,
+    "result_snapshot": "a5a9c30528b73ebd7d6c810dd6c006e912c85a797e82612185a77aead71f27d6",
+    "source_kind": "shared_pool"
+  },
+  "generated_tokens": 128,
+  "native_forward_tokens": 128,
+  "native_prefill_tokens": 0,
+  "prefix_forward_tokens": 0,
+  "numerical_audit": "SEPARATE_REQUIRED",
+  "restart_audit": "SEPARATE_REQUIRED",
+  "scope": "One browser revisit loaded its previously evicted source from disk, used it and acknowledged durable completion without prefix evaluation. Freed bytes are pool accounting, not measured process RSS.",
+  "browser_report_sha256": "7a6eafc63210169f7ea15d2439c5c0669e37c8d02cd15613b9ccee17387b54e1",
+  "pool_trace_sha256": "e8264759059c68ac6f046aa9f5ce85a392ecbcdd2c42123955b6ae7b7d1e8a4d",
+  "auditor_sha256": "8e070b4f9aa6815fecd255de74031a29717c34cd9b72c784638d66cb322e3dcf"
+}

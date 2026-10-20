@@ -1,0 +1,304 @@
+{
+  "all_owned_service_pids_absent": true,
+  "available_bytes_after": 3843264512,
+  "available_bytes_before": 1502601216,
+  "backup_archive": "/srv/data/git/private_context_cow.evidence/20261016-native-client-combined-v1/evidence.tar",
+  "backup_archive_sha256": "d70e93c1ca3fc665886dc3ee41f53bb82feff2364c6d7b0d60787f6ff83a8331",
+  "canonical_bytes_unchanged": true,
+  "canonical_files": 226,
+  "canonical_sha256": "2597466c67c161f20aac6c2bac7c10fffd52cb0388cd150a09da246bdc8502e1",
+  "original_prefix_bytes_unchanged": true,
+  "protected_original_prefixes": {
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/56adf31b45ad9c78181dfa1053a52285d7a51ffc34d7192d05877e238bb6477b.json": "f8452bc6774e2b353d38bd2c4b4f9f1fcb7e79faad31b243b7c9384ac5735fe3",
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json": "ad40891b73324cf06329e9486b9822ea1a4270893d10e94e0ed772cff785e9e7",
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "0f8f6db9549b81cfc7881719dd150884c4818e0e85e33501ed6211abb4731663",
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f.state": "bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f",
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2.state": "c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2",
+    "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6.state": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6"
+  },
+  "schema": "cow-native-combined-child-eviction-v1",
+  "selected": [
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399112,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/013851613a5a2d596613302e9dae205aeed0b517e9793e04bdc224ba9f6987b6.json",
+      "sha256": "3d7accbbca29666e859f574f7256429a689aebca6940069cb254d6f21a3d5ac9"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399245,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/1080a2dbc6f442a15bf9bf3712cc5df788d801df49e798fce60ee61607cb0077.json",
+      "sha256": "0ccb5c916edce25c5b1b5f65296c1b841461211b181e747f7be8b2916babc521"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398991,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/24ba2c8221d407c26e65563a81e9fee9bb9ef9a3a7c6e2281eed0199a38bfd67.json",
+      "sha256": "ee39922f653ce538a1c61e1af18f7e75ba812ccfdbdd7380ce1b52c2ca7dc866"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399052,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/2bacf979448a5ebce035c11f5bd021eabc1d5da9e08c5302c62d7830a372a866.json",
+      "sha256": "1478ff8819b9ee12b2a597c0bb0eff02a36ee13f7b0766fdaac53c931bb39f67"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398916,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/2e98d7c5ec1c4755460687163921b2d2a401bcf510cbffe356e9f917a3b8c0fd.json",
+      "sha256": "183f468f1ddfe94d8fdc99c974b228f8f0411427575fa0f4854a39845ea119fd"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398901,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/2f1fff6df8c26dbe3b0e4f7df30159453c3fb6cac4c328e8bad88c1eb75658e7.json",
+      "sha256": "0f04db083218076393a55711c565a89225cb082e55b0bea5b79658d90f901e50"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399037,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/370b3d8504ae711a0fe68cc12b55d67618fe7fb62c5116b2063f3807c3f8dfc0.json",
+      "sha256": "79f251218b783b5d541b1b397b4f19140b978c953229b998dc238c135b8ab184"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399067,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/3c1679fd97c289b451be13c684f3d3e63419d8c8b51d5b92a49a51eba4d71104.json",
+      "sha256": "0b3e524ca652c507056e2716f1a9f3c12a89bd864458256d921da8f090e8395d"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399082,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/3fe75f626129ba8b5f38b7293857fa53e975841db0a6b2fe9253e187c8e23e90.json",
+      "sha256": "ad4f687763ccf441e77921c3bd64218bb9a2472dd0c4ee8d57c101f4a5bb28c7"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399327,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/3ff4d6d52ab029bb17d83228455f149ff2559fe969763fa0f382289df1bae1bb.json",
+      "sha256": "6045d27439fd3d90ffd4badb3ef48356989f55361df413ec3029d55645c7a3fb"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399007,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/43e54d7d8b704b1366413a625723bad1c77a1057356adece1f39f6de4f4bf4ce.json",
+      "sha256": "65096b3722d4d150636c45d432a2249a48acc57e7451dc95757dc0eb866a3277"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399277,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/64e446d0b13b688832d8ed6b4bc655b17ae49840b007750c41342d6db3f0bf68.json",
+      "sha256": "87afd0540d34258dec720b59c3f58878d06e11d92edf296f6d48cf7cdc7df37f"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399022,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/67ad283d360e8d2bc1e2da5b8d687c078b6836ac85327deca3b0e8b96114a1e6.json",
+      "sha256": "849a3c9936a26c80b3d32dca31630ef95134d53825469d5b3220b3e1b6f04f70"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399097,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/875a6bbcf0a36b86693cd671301b487c14573f060b24344357acc0a5aa0bc44a.json",
+      "sha256": "71438c7c4dc44fca981e355ba0c3ded287acaea5c844e3fd4cc817635996f97c"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399127,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/89435573eb168483f57bec29168631b23b1300845e9fca94fa7dd2516058b981.json",
+      "sha256": "1ff5861004b6076bc4afcf868f04186799b5847e645bdf2a95527ee0a144bd5b"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399263,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/89b1e8d8d718b9397346ed523f28cb1c2c8faa8ee428a16acee5411fb3369ade.json",
+      "sha256": "ad8d70176eb6cdb054f5fab8130f1b50d066de5340fab4158fe8cfdb004d7e7b"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399172,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/8a1ce2e5a114bba5acfc23477dd12139363532b8595af75af15f9e908c14d8c8.json",
+      "sha256": "a1cf8358d8115a7d7353ee900255e630f74d462c97bc7ba819ae9d69af76e13c"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 1285,
+      "inode": 5398724,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/97380c886a043416d89904dfc6fc5b636d66e481deeac904b553baef384e7ddb.json",
+      "sha256": "3740c1c9866bb49abd118c3b5c39d62e7e02fda3e1988e14b6f996c6c55c1dcd"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398960,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/9a370ce4c499dd4dd5b69da1851f031aa337045c067de2406cda94e2f6c9b56b.json",
+      "sha256": "2af8c68a6d8ec53b84b587324ebf42a5953149e6168f385015298d667245e3a7"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399187,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/9bae40d36eb8abe619e2400ccafb006dc3759e60bfd3c6a8aa16a76f5de8d824.json",
+      "sha256": "4a0b5a587c48ad4e8acd5330bb5c70cbbbace5a26fd65e843905ee835d635756"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399231,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/a1ecc86fcfc814679762433ef24604826a61f6e37fe2fde265f3d6f68d4df6bb.json",
+      "sha256": "6655d5c6312d3d7527ae9c23ace104d43d4df7c34af28f60acaa4e05e939c9db"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399157,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/a4d9156324fe4b8d76f656129d005df3172dd5fb03e75d0546116cf1aff89d38.json",
+      "sha256": "4928653419d0c3e7f4478d18376b4c089acfb7acf5d5087d397ad97bb1c1e7d0"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398885,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/c6676ae9d5fdb0880e66554a09e8fe392139d3d8c8e72b48e4d93761aaa405b4.json",
+      "sha256": "46d4804d49460cd56a21e48c97d19183e03bec46a8a598510306586434411235"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398930,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/ca7c5eca6068b326d879c016564081fa469420202ead70c50ec17bbfc828cc25.json",
+      "sha256": "859f22391463615f1044e57b5d50ab31bdbac986bd87b69a2092aa032078bbe1"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399312,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/d3762e931b2dce203e18c11cfca3e25dc46a5d04d60a1616953ff2866484e693.json",
+      "sha256": "a0e4f9f34986f869eaf02a36d3761dff88a52ab4363325c468c61aa97c07f099"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398975,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/d51a290c1bff2516882e4ce17e30a7fd116a59a8e9b622628a1b0235a9775eba.json",
+      "sha256": "d92c920bcd13f2cb79f6ab050701acd01930fcff6c7be9637874d047fbe9fbaf"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399202,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/d6ef5b0ebad9f1be9c0374a268f9dd393c5bdc5c07399960be7c608c82e9c4eb.json",
+      "sha256": "b4d1eac6b0cbe1407c8c473ccbb7c27641cf33c4e623f43404b621f5584d27ce"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399216,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/d85356de5fc71878a80a52c014557c1f20d1b183caf43559b2c5a72468837fc7.json",
+      "sha256": "8891bb1da5ef6ed190ec68a64836d6f2cbf388ca6e50b262b5088e7257393d73"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398945,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/daf909c041439552f7297de5eedcf44050b9327e14ca05f5c66e60305e64a30e.json",
+      "sha256": "7d0ff1a89b8174c1774c0876b295e5f859903ff650017a5ab967a9f3de248447"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398868,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/e210c9657c94047c56f08ef13e68a927cf2a85ad6fcfe7f8ab6bb0d515339a8b.json",
+      "sha256": "53ec18427766960a98978443ca425428538ab57cfcb504a1fa67fa3700d7e260"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399142,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/e889b2014575f5352aa6940a1bc7364e033aafd24677749466d108cc27ab78dc.json",
+      "sha256": "cc0a94a8e2dbc29c754cdfa40d86453f82a4d88b2dc319072bcef456e3e57efd"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5398851,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/f4f967b955280576247a6b4c2cb190830c5b658c9e863278e588975a2e185e74.json",
+      "sha256": "bab955d74f0d890b4162f57bfcd59cf4ffa6ad5777ee9ae16d5abd311016d313"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5399297,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/fbdf33bad7da33b0fe8780892b811ee37ad2eeb136d718ccf78dc0c3670df9cd.json",
+      "sha256": "ded7243a04acadfb665237ec0243e0d756c196b8c7bcce406912e6345f3748a0"
+    },
+    {
+      "allocated_bytes": 339062784,
+      "bytes": 339059084,
+      "inode": 5398990,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b.state",
+      "sha256": "1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b"
+    },
+    {
+      "allocated_bytes": 346165248,
+      "bytes": 346162636,
+      "inode": 5398884,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551.state",
+      "sha256": "22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551"
+    },
+    {
+      "allocated_bytes": 324018176,
+      "bytes": 324016276,
+      "inode": 5398900,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e.state",
+      "sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e"
+    },
+    {
+      "allocated_bytes": 324644864,
+      "bytes": 324643060,
+      "inode": 5398850,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020.state",
+      "sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020"
+    },
+    {
+      "allocated_bytes": 321511424,
+      "bytes": 321509140,
+      "inode": 5398723,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/6a813ae63e585223c41aaaad3e0b3ae5189a8c3e3ac958bab0e77056020381ee.state",
+      "sha256": "6a813ae63e585223c41aaaad3e0b3ae5189a8c3e3ac958bab0e77056020381ee"
+    },
+    {
+      "allocated_bytes": 345747456,
+      "bytes": 345744788,
+      "inode": 5399006,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73.state",
+      "sha256": "77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73"
+    },
+    {
+      "allocated_bytes": 339374080,
+      "bytes": 339372480,
+      "inode": 5398867,
+      "path": "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/workspace-store-v1/checkpoints/ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731.state",
+      "sha256": "ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731"
+    }
+  ],
+  "selected_allocated_bytes": 2340659200,
+  "status": "PASS"
+}

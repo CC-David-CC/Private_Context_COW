@@ -1,0 +1,157 @@
+{
+  "status": "BUILD_AND_CPU_TESTS_PASS_RUNTIME_UNRUN",
+  "worktree": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-native-baseline-luna",
+  "branch": "work/luna-native-baseline",
+  "base": "622fded261455c74ba0eb09f1245e732efc33918",
+  "owned_source_hashes": {
+    "experimental/branching_context/scripts/build_normal_serving_baseline.py": "aec567c2d90394906c6de8b8add280f41230a0f55a7b672e4efcb8e0dcf6f5ac",
+    "experimental/branching_context/scripts/test_build_normal_serving_baseline.py": "42a279df71af2c03221ff3c6c9bf89646061593a4de742a3fb8efa161552493a",
+    "experimental/branching_context/scripts/native_serving_baseline.py": "9acdd215f0fbab6801264fe00b6775f6fc52fc42ca4f6348832db44372537700",
+    "experimental/branching_context/scripts/test_native_serving_baseline.py": "b8c8a9a481fae445a05c041e25380a3b24dcccb5f206b37f104227bd5f67547c"
+  },
+  "cpu_tests": {
+    "builder_green": {
+      "count": 7,
+      "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-builder-green-07",
+      "tests": [
+        "test_accepts_standard_strata_recipe_and_preserves_full_link_closure",
+        "test_rejects_private_branch_target_and_driver_definition",
+        "test_rejects_missing_standard_generate_object_and_missing_archive",
+        "test_plan_substitutes_only_new_generate_and_output_and_adds_current_overrides",
+        "test_rejects_existing_output_before_any_command",
+        "test_plan_only_is_read_only_and_rejects_existing_output",
+        "test_mocked_build_records_executable_hash_and_stops_after_compile_failure"
+      ]
+    },
+    "runner_green": {
+      "count": 8,
+      "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-oneengine-green-01",
+      "tests": [
+        "test_fixture_json_preserves_exact_token_arrays",
+        "test_fixture_json_rejects_missing_or_noninteger_token_ids",
+        "test_synthetic_fixture_remains_available_and_exit_details_are_numeric",
+        "test_main_uses_fixture_arrays_unchanged_and_requires_zero_native_exit",
+        "test_resident_prefix_pin_uses_fixture_length_not_cli_default",
+        "test_resident_mode_enables_and_observes_complete_prefix_reuse",
+        "test_resident_missing_reuse_on_b_or_return_a_fails",
+        "test_one_native_process_covers_warmup_and_all_resident_repetitions"
+      ]
+    },
+    "g0": {
+      "status": "PASS",
+      "tests": 51,
+      "required_real_backend_cases": 0,
+      "scope": "exact old frozen source 24b4fbbf85deec2b3c4beb8cc8af389c730ea32c; not current root integration",
+      "command": "python3 scripts/verify.py --gate G0 --quiet --no-write",
+      "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-g0-24b4-01"
+    },
+    "final_combined_15": {
+      "status": "PASS",
+      "test_count": 15,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-final-cpu-01",
+      "log": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-final-cpu-01/stderr.log"
+    },
+    "g0_candidate": {
+      "status": "PASS",
+      "tests": 51,
+      "required_real_backend_cases": 0,
+      "scope": "current frozen CAND source/experimental/branching_context; distinct from exact old 24b4 G0 run",
+      "command": "python3 scripts/verify.py --gate G0 --quiet --no-write",
+      "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-g0-candidate-01",
+      "command_exit": 0,
+      "wrapper_exit": 0
+    }
+  },
+  "build": {
+    "status": "BUILT_UNQUALIFIED",
+    "output": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/normal-strata-build-01/strata-normal-baseline",
+    "elf_sha256": "349f3fba7f9de0943137b0a2690f4ea88ffc28bdf149036fb238a66f6c0cf45b",
+    "build_json": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/normal-strata-build-01/build.json",
+    "build_json_sha256": "18ffa0089922e45c2d768fcffd9bdcc5c5c9cc6f0e7271ac0dab969839211254",
+    "runner": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/run-normal-build-01",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "plan_only_stdout_sha256": "2ed032577d62fee0454fd3a6e6d73ddf7780b0f501184de249b719212a1b6a3d"
+  },
+  "retained_red_and_setup_failures": [
+    {
+      "runner": "run-prev79-01",
+      "outcome": "expected RED",
+      "finding": "old builder used undefined executable hash variable and silently truncated mismatched override list"
+    },
+    {
+      "runner": "run-prefix-red-03",
+      "outcome": "expected RED",
+      "finding": "fixture prefix pinned to CLI default instead of supplied fixture length; false native exit code accepted"
+    },
+    {
+      "runner": "run-prefix-red-04",
+      "outcome": "expected RED",
+      "finding": "resident reuse loss on return-A was not rejected"
+    },
+    {
+      "runner": "run-oneengine-red-03",
+      "outcome": "expected RED",
+      "finding": "three native process startups across warmup and two repetitions"
+    },
+    {
+      "runner": "run-oneengine-red-01",
+      "outcome": "procedural setup failure preserved",
+      "finding": "intermediate test file indentation error; fixed before final green; not a product test failure"
+    }
+  ],
+  "normal_q8_config": {
+    "path": "artifacts/normal-q8-resident-config.json",
+    "sha256": "0da395230c06fe2990b911a0572655a2930bcb56c19f8c166815263822463396",
+    "profile_path": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/q8-profile-v3/profile.json",
+    "profile_sha256": "b784dd10bca6cd3765a7f5a05b7537b276db6aade8223cbb8995560c8bb678c7",
+    "derivation": "Q8 sut_command; executable replaced with ordinary-serving build; only --tokens 1 removed; runner upgrades --prompt-cache to >=3 for resident reuse; one active request"
+  },
+  "proposed_smoke": {
+    "status": "NOT_RUN_PENDING_REVIEW",
+    "executable": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/normal-strata-build-01/strata-normal-baseline",
+    "fixture": "/home/dflanag3/branching-g3/codebase-fixtures-20261014/q8-64k.json",
+    "argv": [
+      "python3",
+      "experimental/branching_context/scripts/native_serving_baseline.py",
+      "--serve-root",
+      "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/source",
+      "--config",
+      "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/final-source-v1/normal-q8-resident-config.json",
+      "--output",
+      "<fresh-output>",
+      "--fixture-json",
+      "/home/dflanag3/branching-g3/codebase-fixtures-20261014/q8-64k.json",
+      "--capacity",
+      "98304",
+      "--chunk",
+      "8192",
+      "--generated",
+      "8",
+      "--repetitions",
+      "1",
+      "--warmup",
+      "--modes",
+      "resident"
+    ],
+    "purpose": "bounded 64K real-code fixture smoke, one native startup; not full timing, numerical qualification, or matched schedule"
+  },
+  "archive_failure": {
+    "status": "PRESERVED_FAILED_ATTEMPT",
+    "finding": "archive attempt failed 1/1 on legitimate hardlinked-prefix tar validation; no retry or data deletion by this worker"
+  },
+  "runtime_scope": {
+    "gpu_tests": "UNRUN",
+    "normal_serving_smoke": "UNRUN",
+    "inference": "UNRUN",
+    "claim": "builder creates ordinary generate.cpp-serving target with COW/digest/stream core overrides; not an upstream-unpatched stock binary"
+  },
+  "staging": {
+    "path": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/final-source-v1",
+    "all_four_source_hashes_match": true,
+    "config_remote_path": "/home/dflanag3/spatial-artifacts/normal-serving-baseline-recipe-luna-20261015/final-source-v1/normal-q8-resident-config.json",
+    "config_sha256": "0da395230c06fe2990b911a0572655a2930bcb56c19f8c166815263822463396"
+  }
+}

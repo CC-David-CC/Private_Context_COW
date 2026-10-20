@@ -1,0 +1,11 @@
+# G4 CLI numerical audit (independent raw oracle)
+
+This audit compares a completed G4 CLI campaign with fresh raw Prefill+Verifier processes. It reads durable Store metadata and checkpoint payloads only to validate receipts and obtain saved frontier bytes. It never imports a SUT checkpoint into the oracle. The oracle is a separate audit-only executable built from `fresh_prefill_segmented.cpp`; it uses the ordinary Prefill and Verifier path, not `BranchSession`, Store, or COW state.
+
+For each of the two eight-token answers, the audit launches two independent fresh oracle processes with root-only prefill and one normal decode segment of eight tokens. For the selected answer continuation, it launches two more fresh processes, prefills only the original root, decodes the answer in one eight-token request segment, verifies that boundary frontier, then continues normal decode for the next eight tokens in the same Verifier process. The oracle receipt must report completed segments at the exact absolute native positions and `normal_forward_tokens == 16`; EOS/profile IDs must match the pinned raw driver. Early EOS that prevents the required continuation is a failure, not a shortened pass.
+
+The profile, campaign, oracle ELF, original build receipt, compile-only build receipt, and 53-file reused-input verification report are all pinned by digest in the runner and checked before any oracle process starts. A successful CPU validator or compile does not qualify a numerical run. The retained CPU preflight reached the first oracle-launch boundary using the actual Store, then stopped on a sentinel before launching an oracle. Root later ran the final audit: 47 exact full-frontier comparisons across three trajectories and six fresh oracle processes, with command and wrapper exits 0/0. The result file is separately pinned in the accompanying evidence JSON.
+
+The root-owned invocation is recorded in `launch_cli_numerics_segmented_v4.sh`; its two output leaves must be absent before launch. Use the approved `run-command.sh` wrapper and retain both runner receipts plus the auditor's `result.json`.
+
+This result is scoped to the bounded Q4 tiny workflow and its matching native operators; it does not qualify the full registered G4 gate or later retry integration.

@@ -1,0 +1,40 @@
+{
+  "all_five_gpu_attempts_retained": true,
+  "archive_bytes": 55511040,
+  "archive_sha256": "498ab5fbb87558f25b9252fd2ba9ef7d45d91b8aa73c7332756630866c8fa96c",
+  "critical_pins": {
+    "http-publication-errors-20261016-v1/source-green-v4/serve/cow_http.py": "5f4cb959d397d16f8b224bf2ba83a536af3369e4e5688c6183345256dd874cc1",
+    "http-publication-terminal-20261016-v1/source-green/serve/test_cow_http_publication_errors.py": "1fc7053e520f20610f387c1103ec9110966850bd19e5728de6f29649fdcf1d49",
+    "q4-publication-error-guard-20261016-v1/source-fork-v2/scripts/run_q4_publication_fault.py": "d4bb1469f4fb0ff58047ca88350faf95a80093a36c4ae499545d1ddab2232695",
+    "q4-publication-fault-20261015-v1/qualification-summary.json": "7941b07ab4c42b3cbadf275e3afa46f20be5b02155f126b8177483dbced41523",
+    "q4-publication-fault-20261015-v1/runtime-v4/serve/cow_http.py": "9f6839a359e05cbb47e0850046c6f32f00e7468265dff80fedc3d72d9f720f31",
+    "q4-publication-fault-20261015-v1/success-primary-audit.json": "1f2ad809585d5a18c17fff936b4bf0fcfac05012d2d699c49c624164199f8a4a"
+  },
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261016-publication-recovery-compact-v2",
+  "backup_receipt_sha256": "4edcaa2afe7cefa867d1fddb4d8bbc6e58a963279ba6010f72f06b635de14ddd",
+  "sender_command_exit": 0,
+  "sender_wrapper_exit": 0,
+  "failed_v1_preserved": "box-git:/srv/data/git/private_context_cow.evidence/20261016-publication-recovery-compact-v1",
+  "failed_v1_reason": "Archive root-path transform disagreed with the manifest; receiver refused it.",
+  "excluded": [
+    "Full checkpoint .state payloads",
+    "Full f32 vectors",
+    "Model files and compiled outputs"
+  ],
+  "independent_all_member_reread": true,
+  "manifest_sha256": "607ec5a51517259f11a96152a8fc153a40b4af300ad38754d6a45a87da2fa237",
+  "note": "Compact source/results/canonical metadata backup; not a restorable full numerical Store.",
+  "receiver_receipt_sha256": "f0655ffe6bc7a2293d45b48e8ac49b7435f7da4fad2cbba162e77dff796d1333",
+  "schema": "publication-recovery-private-backup-primary-v1",
+  "status": "PASS",
+  "verified_artifact_roots": [
+    "http-publication-errors-20261016-v1",
+    "http-publication-terminal-20261016-v1",
+    "presentation-revisit-20261015-v1",
+    "q4-publication-child-detection-20261015-v1",
+    "q4-publication-error-guard-20261016-v1",
+    "q4-publication-fault-20261015-v1"
+  ],
+  "verified_members": 3023,
+  "verified_regular_bytes": 50035606
+}

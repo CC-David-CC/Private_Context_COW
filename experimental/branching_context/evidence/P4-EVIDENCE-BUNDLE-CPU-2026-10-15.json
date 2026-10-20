@@ -1,0 +1,63 @@
+{
+  "schema": "p4-evidence-bundle-helper-cpu-v1",
+  "status": "PASS_CPU_HELPER_TESTS_UNQUALIFIED",
+  "host": "llm-60",
+  "gpu_used": false,
+  "live_run_paths_read": false,
+  "archive_streamed": false,
+  "payloads_hashed": false,
+  "files_deleted": false,
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "inputs": [
+    {
+      "path": "experimental/branching_context/scripts/p4_evidence_bundle.py",
+      "sha256": "5438a97aa384a036c2d184d2b2e61bc2824c76cdb72e306dcf4bf84536e5449d"
+    },
+    {
+      "path": "experimental/branching_context/scripts/test_p4_evidence_bundle.py",
+      "sha256": "778ffc7127bf9a6549efd23041fbf2eff9a6129118b7b706cdb1837ba960b7f5"
+    }
+  ],
+  "red": {
+    "command": "python3 /home/dflanag3/spatial-artifacts/p4-evidence-bundle-cpu-20261015-01/test_p4_evidence_bundle.py",
+    "exit_code": 1,
+    "observed": "ModuleNotFoundError: No module named 'p4_evidence_bundle'",
+    "meaning": "Expected import failure before implementing helper module."
+  },
+  "green": [
+    {
+      "command": "bash /home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh /home/dflanag3/spatial-artifacts/p4-evidence-bundle-cpu-20261015-01 /home/dflanag3/spatial-artifacts/p4-evidence-bundle-pycompile-v2-20261015-01 python3 -m py_compile p4_evidence_bundle.py test_p4_evidence_bundle.py",
+      "terminal_status": "COMPLETE",
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    {
+      "command": "bash /home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh /home/dflanag3/spatial-artifacts/p4-evidence-bundle-cpu-20261015-01 /home/dflanag3/spatial-artifacts/p4-evidence-bundle-test-v5-20261015-01 python3 test_p4_evidence_bundle.py",
+      "terminal_status": "COMPLETE",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "cases": [
+        "collects_parameterized_roots_and_files_without_path_aliases",
+        "builds_and_streams_receiver_compatible_tar_without_local_archive",
+        "rejects_duplicate_unsafe_and_symlinked_inputs",
+        "rejects_symlinked_ancestor_of_archive_root",
+        "state_map_derives_count_and_binds_exact_manifest_rows",
+        "state_map_rejects_duplicate_manifest_rows_and_symlinked_store",
+        "state_map_rejects_empty_checkpoint_directory",
+        "state_map_rejects_unarchived_changed_and_non_sha_named_states",
+        "stream_refuses_source_changed_after_manifest_creation"
+      ]
+    }
+  ],
+  "scope_limits": [
+    "No current-profile P4 arm archive was created.",
+    "No actual run output, checkpoint payload, model, or GPU was read.",
+    "No deletion or cleanup operation exists in the helper."
+  ]
+}

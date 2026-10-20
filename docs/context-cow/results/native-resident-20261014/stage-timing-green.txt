@@ -1,0 +1,7 @@
+test_missing_or_duplicate_generation_handler_and_changed_operator_are_rejected (test_native_stage_timing.NativeStageTimingTests.test_missing_or_duplicate_generation_handler_and_changed_operator_are_rejected) ... ok
+test_only_generation_is_instrumented_without_moving_the_consumed_event (test_native_stage_timing.NativeStageTimingTests.test_only_generation_is_instrumented_without_moving_the_consumed_event) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

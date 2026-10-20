@@ -1,0 +1,28 @@
+{
+  "G0": {
+    "errors": 0,
+    "failures": 0,
+    "skips": 0,
+    "tests": 51
+  },
+  "focused": {
+    "errors": 0,
+    "failures": 0,
+    "skips": 0,
+    "tests": 4
+  },
+  "frozen_source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-suffix-flow-source-v1",
+  "limitations": [
+    "Pure witness-validation CPU tests do not substitute for native inference. Real end-to-end run is next.",
+    "Final OK grammar isolates mechanics; numerical reference forces observed generated tokens."
+  ],
+  "new_harness_files": {
+    "experimental/branching_context/scripts/run_thinking_suffix_flow.py": "ef4b2c0c9a16191222cce734c20e0f78bf70d045d46927debfcaca4637cf240f",
+    "experimental/branching_context/tests/implementation/test_thinking_suffix_flow.py": "a2f670dcec2a6398bf6ef5114ef1c64587f7b9b235e17256c0c9582795f03fb3"
+  },
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-user-suffix-profile-v1/profile.json",
+  "red": "thinking-suffix-flow-red-run-v1: missing implementation module retained",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-user-suffix-source-v1",
+  "source_base": "e01aa26403654dab35c3557b5105bb5ddaf310dc",
+  "status": "CPU_PASS_GPU_UNRUN"
+}

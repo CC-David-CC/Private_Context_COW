@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "task": "POSIX cross-process DiskCheckpointPool reservations",
+  "qualification_scope": "CPU-only implementation and filesystem reservation controls; no GPU/model qualification",
+  "base_commit": "c58ba87e18a04bf48f9ccf94758bb73869033c81",
+  "branch": "work/luna-disk-ipc",
+  "source_files": {
+    "experimental/branching_context/src/context_time_travel/pools.py": "8c46ba71a660524071cad025b99c8be8b3c5f92f68d2f9e96f6e94db1e9dfce5",
+    "experimental/branching_context/tests/implementation/test_disk_pool_process_reservations.py": "f65b11aa22606fd1816b46c578168162ffc5837abcbd5e06350345ebc362bafc"
+  },
+  "remote_staging": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/green",
+  "remote_import_witness": {
+    "run": "g0-final-v3",
+    "module": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/green/src/context_time_travel/pools.py",
+    "sha256": "8c46ba71a660524071cad025b99c8be8b3c5f92f68d2f9e96f6e94db1e9dfce5"
+  },
+  "runs": {
+    "red": {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/red-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "tests": 5,
+      "failures": 5,
+      "classification": "expected feature RED against frozen baseline"
+    },
+    "focused_green": {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/focused-final-v3",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests": 53,
+      "failures": 0,
+      "skips": 0,
+      "modules": [
+        "test_disk_pool_process_reservations (7 tests)",
+        "test_disk_pool",
+        "test_disk_lru",
+        "test_shared_pools",
+        "test_pool_coordinator",
+        "test_pool_disk_lru_integration"
+      ],
+      "special_assertions": [
+        "parent observes a child process's reserved bytes",
+        "reservation directory/file permissions are 0700/0600",
+        "descriptor number reuse remains valid after both release and admission-failure cleanup"
+      ]
+    },
+    "g0": {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/g0-final-v3",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests": 51,
+      "failures": 0,
+      "skips": 0,
+      "gate_summary": "G0: PASS: 51 tests; 0 required real-backend cases"
+    }
+  },
+  "preserved_failed_attempts": [
+    {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/green-v1",
+      "command_exit": 127,
+      "wrapper_exit": 127,
+      "reason": "remote PATH did not contain python; no tests executed"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/g0-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "reason": "incomplete staging omitted docs/acceptance.json"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/g0-v2",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "reason": "incomplete staging omitted locked spec/reference inputs"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/g0-v3",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests": 9,
+      "classification": "limited toy-only G0 due sparse staging; superseded by full g0-final-v3"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/focused-final-v2",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "tests": 53,
+      "failures": 2,
+      "reason": "initial descriptor-reuse test did not force reuse of the exact descriptor number; corrected with dup2 and passed in focused-final-v3"
+    }
+  ],
+  "known_follow_up": "Coordinator still checks payload existence before creating its reservation; the existence-to-reserve race needs a follow-up grow-reservation API or equivalent atomic coordinator protocol. This ticket does not change coordinator.py."
+}

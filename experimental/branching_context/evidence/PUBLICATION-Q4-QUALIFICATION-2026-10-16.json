@@ -1,0 +1,122 @@
+{
+  "focused_cpu": {
+    "executions": 28,
+    "exits": {
+      "command.exit": 0,
+      "wrapper.exit": 0
+    },
+    "failures": 0,
+    "path": "/home/dflanag3/spatial-artifacts/http-publication-terminal-20261016-v1/green-v1",
+    "skips": 0
+  },
+  "g0": {
+    "executions": 51,
+    "exits": {
+      "command.exit": 0,
+      "wrapper.exit": 0
+    },
+    "path": "/home/dflanag3/spatial-artifacts/http-publication-terminal-20261016-v1/g0-v1"
+  },
+  "gpu_attempts": [
+    {
+      "attempt": 1,
+      "error": "RecoveryFailure: read canonical branch history returned HTTP 409: {'error': 'Ambiguous presentation provenance for canonical snapshot 808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85'}",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "phase": "before injection",
+      "result_sha256": "cccfe1560604bc075b07b8f9ccb99434b75a60484871965cdcfd679f71576089",
+      "status": "FAIL",
+      "writer_errors_bytes": 0
+    },
+    {
+      "attempt": 2,
+      "error": "PublicationFaultError: Expected one native child after service readiness, got []",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "phase": "before injection",
+      "result_sha256": "9ce69309331302b4d189009fdd3a583099fb386e65a4a0d0f37726df6e36ed6c",
+      "status": "FAIL",
+      "writer_errors_bytes": 0
+    },
+    {
+      "attempt": 3,
+      "error": "PublicationFaultError: Isolated warm branch receipt does not retain source snapshot",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "phase": "before injection",
+      "result_sha256": "ddd1685b4de505206d4a37886c9f711a93ddadc35cd5f651c90d7a5c3a565405",
+      "status": "FAIL",
+      "writer_errors_bytes": 0
+    },
+    {
+      "attempt": 4,
+      "error": "PublicationFaultError: Fault request stream has duplicate terminal errors",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "phase": "duplicate terminal error after real EFBIG",
+      "result_sha256": "5aed674c4197e4f6dc4b24198cfabacc318e915d93e327363282af3b3b535d79",
+      "status": "FAIL",
+      "writer_errors_bytes": 533
+    },
+    {
+      "attempt": 5,
+      "error": null,
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "phase": "PASS",
+      "result_sha256": "2cd92bc669048c20f0ee118b846094898ab5128da76abaf8b3ed13f092102e03",
+      "status": "PASS",
+      "writer_errors_bytes": 533
+    }
+  ],
+  "limits": [
+    "CPU suites overlap; do not add their counts as unique cases.",
+    "Q8 deferred. Real ENOSPC, crash stages and broader sampler/controller qualification remain open.",
+    "This real EFBIG recovery run has no independent numerical oracle; max error is unmeasured.",
+    "EOF cancellation policy retains unsupported valid half-close behavior.",
+    "No original cumulative gate qualification changed."
+  ],
+  "native_gpu": "llm-60 GPU0 RTX PRO 6000 Blackwell",
+  "primary_audit_sha256": "1f2ad809585d5a18c17fff936b4bf0fcfac05012d2d699c49c624164199f8a4a",
+  "quant": "q4",
+  "rejected_research": {
+    "branch": "work/luna-http-publication-errors",
+    "commit": "1da14c375929af0eb4e2bff734d9d8e5e251dc2d",
+    "executions": 30,
+    "failures": 1,
+    "passed": 29,
+    "reason": "Regresses existing full-disconnect cancellation; registered test remains unchanged.",
+    "scope": "half-close extension"
+  },
+  "retained_setup_failures": [
+    "serving-v1: missing verifier in compact source (no tests ran)",
+    "serving-v2: missing required --output argument (no tests ran)"
+  ],
+  "schema": "q4-publication-recovery-qualification-v1",
+  "serving_cpu": {
+    "executions": 141,
+    "failures": 0,
+    "result_sha256": "6f23227ea8628506a0982f8c5c18a9dc728aefbd63938611ebd178ca0ea9d1b3",
+    "skips": 0
+  },
+  "status": "FOCUSED-PASS",
+  "terminal_duplicate_red": {
+    "executions": 28,
+    "exits": {
+      "command.exit": 1,
+      "wrapper.exit": 1
+    },
+    "failures": 2,
+    "path": "/home/dflanag3/spatial-artifacts/http-publication-terminal-20261016-v1/red-v1"
+  }
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "command": [
+      "python3",
+      "tests/implementation/test_speed_profile.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"event\": \"hash\", \"file\": \"expert-profile.bin\", \"bytes\": 7}\n{\"event\": \"hash\", \"file\": \"model.gguf\", \"bytes\": 20}\n{\"event\": \"hash\", \"file\": \"conversions.json\", \"bytes\": 55}\n{\"event\": \"hash\", \"file\": \"dense.bin\", \"bytes\": 9}\n{\"event\": \"hash\", \"file\": \"index.txt\", \"bytes\": 9}\n{\"event\": \"hash\", \"file\": \"native_experts.txt\", \"bytes\": 18}\n{\"event\": \"hash\", \"file\": \"model.gguf\", \"bytes\": 25}\n{\"event\": \"hash\", \"file\": \"expert-profile.bin\", \"bytes\": 7}\n{\"event\": \"hash\", \"file\": \"model.gguf\", \"bytes\": 20}\n{\"event\": \"hash\", \"file\": \"conversions.json\", \"bytes\": 55}\n{\"event\": \"hash\", \"file\": \"dense.bin\", \"bytes\": 9}\n{\"event\": \"hash\", \"file\": \"index.txt\", \"bytes\": 9}\n{\"event\": \"hash\", \"file\": \"native_experts.txt\", \"bytes\": 18}\n{\"event\": \"hash\", \"file\": \"vocab.json\", \"bytes\": 11}\n",
+    "stderr": "test_changed_bytes_invalidate_reused_receipt (__main__.SpeedProfileInputs.test_changed_bytes_invalidate_reused_receipt) ... ok\ntest_every_weight_pack_and_tokenizer_file_is_bound (__main__.SpeedProfileInputs.test_every_weight_pack_and_tokenizer_file_is_bound) ... ok\ntest_missing_shard_or_wrong_size_is_rejected (__main__.SpeedProfileInputs.test_missing_shard_or_wrong_size_is_rejected) ... ok\ntest_shard_path_cannot_escape_manifest_directory (__main__.SpeedProfileInputs.test_shard_path_cannot_escape_manifest_directory) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.003s\n\nOK\n"
+  },
+  {
+    "command": [
+      "python3",
+      "examples/branching_demo.py"
+    ],
+    "exit_code": 0,
+    "stdout": "A: (1, 3, 5) -> exact toy attention 3\nB: (1, 3, 9) -> exact toy attention 13/3\nC: (1, 3, -1) -> exact toy attention 1\nRewind A -> D: old A still retained; D has exact history (1, 3, 7)\nIndependent toy evaluation scores: {'A': '-1', 'B': '-7/3', 'C': '-1', 'D': '-5/3'}\nWinner = A; main branch revision = 1\nCold reopen preserved winning exact token history: (1, 3, 5)\nTOY DEMO PASS (not a real-model, durability or COW certification)\n",
+    "stderr": ""
+  }
+]

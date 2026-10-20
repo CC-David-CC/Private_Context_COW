@@ -1,0 +1,11 @@
+# Seed and adoption CPU handoff
+
+The seed/reseed changes preserve omitted-seed behavior, bind explicit seeds in generation descriptor schema 7, and keep operation identity distinct from RNG stream identity. Namespaced evaluation adoption now binds the selected presentation source into the pending intent, move request digest, event, and receipt before the CAS move. Branch history follows that validated provenance to preserve assistant message identity when equal snapshots have different presentation IDs. Legacy source-less forks retain unique-only global fallback; ambiguity fails closed. A legacy adoption whose move committed before its old intent was acknowledged replays its exact source-less receipt without adding provenance.
+
+The final frozen CPU stage is `/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/source`. Its 14 changed source/test/plan files have matching local and remote SHA256 values listed in `CLI-SEED-ADOPTION-CPU-2026-10-16.json`. The final checks were 289/289 combined tests and G0 51/51, each with command and wrapper exits 0/0. The focused CLI/provenance set passed 4/4. No GPU or real model inference was run by this worker.
+
+The test-first failure for ancestor lookup showed that a namespaced fork from a later continuation snapshot could not resolve a valid presentation on an earlier canonical ancestor. The resolver now traverses the fork's recorded source branch only after verifying ancestry in canonical snapshot metadata. It does not fall back across unrelated roots. The adoption tests cover same-snapshot/different-message candidates, explicit CLI source selection, lost-ACK recovery, source mismatch rejection, legacy unique-only fallback, and exact replay of a pre-upgrade pending adoption move.
+
+For STOP integration, keep its text-stop list and the seed in the shared schema-7 `controls` descriptor: `schema: 1`, `seed: null | uint64`, `text_stops: list[str]`. Legacy generation schemas 1 and 2 remain unchanged. This branch changes shared coordinator/store/HTTP/CLI paths; integrate the seed branch before the STOP branch and resolve those overlapping files using the composed controls contract.
+
+CPU evidence does not qualify CUDA/model behavior. The receiver-side worker remains responsible for any later GPU launch and qualification.

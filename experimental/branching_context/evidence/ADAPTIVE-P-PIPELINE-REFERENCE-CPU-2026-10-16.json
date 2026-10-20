@@ -1,0 +1,81 @@
+{
+    "status":  "CPU_ONLY_PASS",
+    "scope":  "Independent Adaptive-P after DRY/Min-P/Top-K/Typical/DynaTemp/Top-P and observer/CLI dispatch; full native integration unrun",
+    "tests":  33,
+    "test_ids":  [
+                     "test_adaptive_p_pipeline_reference.AdaptivePPipelineReferenceTests.test_combined_filters_and_dry_do_not_mutate_inputs_or_feedback",
+                     "test_adaptive_p_pipeline_reference.AdaptivePPipelineReferenceTests.test_dynamic_zero_temperature_still_consumes_one_adaptive_draw",
+                     "test_adaptive_p_pipeline_reference.AdaptivePPipelineReferenceTests.test_equal_probabilities_keep_uniform_cdf_and_update_original_probability",
+                     "test_adaptive_p_pipeline_reference.AdaptivePPipelineReferenceTests.test_incompatible_terminal_filters_and_invalid_inputs_fail",
+                     "test_adaptive_p_pipeline_reference.AdaptivePPipelineReferenceTests.test_top_p_probabilities_are_normalized_before_adaptation",
+                     "test_adaptive_p_observer.AdaptivePReferenceDispatchTests.test_cli_observer_sends_only_changed_adaptive_settings",
+                     "test_adaptive_p_observer.AdaptivePReferenceDispatchTests.test_reference_applies_dry_before_adaptation_without_altering_logits",
+                     "test_adaptive_p_observer.AdaptivePReferenceDispatchTests.test_reference_returns_feedback_without_mutating_saved_controller",
+                     "test_adaptive_p_reference.AdaptivePInitializationTests.test_cold_start_ema_prior_equals_target",
+                     "test_adaptive_p_reference.AdaptivePInitializationTests.test_validates_target_decay_and_state_without_bool_coercion",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_accept_updates_from_original_probability_and_is_detached",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_adaptive_transform_selects_near_adapted_target_but_reports_original_p",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_disabled_target_is_ordinary_distribution_and_preserves_state",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_equal_scores_tie_selection_follows_lowest_id_order",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_invalid_logits_mask_draw_and_proposal_fail_closed",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_masked_scores_do_not_enter_softmax_or_adaptive_feedback",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_separate_branch_states_accept_independently",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_wrong_accepted_token_rejects_without_mutating_state_or_proposal",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_active_adaptive_rejects_zero_temperature_mirostat_and_active_xtc",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_active_target_requires_v7_but_allows_preceding_filters",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_any_adaptive_field_normalizes_the_complete_group",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_disabled_target_preserves_old_protocols_and_explicit_parameters",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_legacy_policy_shape_is_byte_compatible_and_v7_accepts_old_sampler",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_old_protocol_support_remains_for_mirostat2_and_v7_supports_it_too",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_target_and_decay_reject_bool_nonfinite_and_out_of_range",
+                     "test_mirostat2_observer.MirostatReferenceDispatchTests.test_cli_observer_preserves_mode_and_sends_only_changed_feedback_parameters",
+                     "test_mirostat2_observer.MirostatReferenceDispatchTests.test_reference_applies_dry_before_mirostat_without_altering_logits",
+                     "test_mirostat2_observer.MirostatReferenceDispatchTests.test_reference_returns_uncommitted_one_draw_feedback_proposal",
+                     "test_xtc_observer.XtcReferenceDispatchTests.test_cli_observer_emits_only_changed_xtc_settings",
+                     "test_xtc_observer.XtcReferenceDispatchTests.test_reference_commits_one_draw_when_grammar_support_is_singleton",
+                     "test_xtc_observer.XtcReferenceDispatchTests.test_reference_commits_two_draws_for_active_multisupport_xtc",
+                     "test_xtc_observer.XtcReferenceDispatchTests.test_reference_keeps_legacy_single_draw_dispatch",
+                     "test_xtc_observer.XtcReferenceDispatchTests.test_reference_preserves_zero_draw_greedy_after_schema4_restore"
+                 ],
+    "failures":  [
+
+                 ],
+    "errors":  [
+
+               ],
+    "skips":  [
+
+              ],
+    "source_unchanged":  true,
+    "source_sha256":  {
+                          "experimental/branching_context/scripts/run_min_p_probe.py":  "662954efeec955985bf70c4eb0b4ca51f37e615105e17e166842003caee3b8e6",
+                          "experimental/branching_context/scripts/run_sampler_serving_probe.py":  "fa1ba59396eb078b57e8e264fd140e17f9ace81328c7b0e33858d30add4e0cf2",
+                          "experimental/branching_context/src/context_time_travel/adaptive_p.py":  "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+                          "experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py":  "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb",
+                          "experimental/branching_context/src/context_time_travel/min_p.py":  "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+                          "experimental/branching_context/tests/implementation/test_adaptive_p_generation.py":  "83bce3998b34a4c63605af9782ec54b85d63f8f3da171866d127f72cb3e320ed",
+                          "experimental/branching_context/tests/implementation/test_adaptive_p_observer.py":  "1388f81850423779108e0f95cb91001a771acaea2ae9734de25e859074aabbc8",
+                          "experimental/branching_context/tests/implementation/test_adaptive_p_pipeline_reference.py":  "6cc91c74021b4470ae103f57db94731387882ccd5fb2dbd63fc8bd218d207962",
+                          "experimental/branching_context/tests/implementation/test_adaptive_p_reference.py":  "a5fa4ece3d80cbe3fbeddeee72bafa550221a686f4cb5f54646e305ae66c0170"
+                      },
+    "host":  "llm-60",
+    "result_sha256":  "03a9f11920353d08ab5d9cedf21f67172c3f9dceeed75659a811aa54121e8d5d",
+    "red":  {
+                "run":  "adaptive-p-pipeline-red-command-v1",
+                "errors":  7,
+                "tests":  8,
+                "reason":  "Missing composed reference module and missing CLI observer Adaptive-P flags",
+                "failures":  1
+            },
+    "G0":  {
+               "status":  "PASS",
+               "source":  "adaptive-p-pipeline-green-v1",
+               "tests":  51,
+               "note":  "v2 changes only the adversarial test to use an otherwise valid Mirostat policy; production bytes unchanged"
+           },
+    "limitations":  [
+                        "No native/GPU correctness or throughput claim",
+                        "Host controller/backend and V7 build are separate components awaiting combined integration",
+                        "Existing independent equations and tolerances unchanged"
+                    ]
+}

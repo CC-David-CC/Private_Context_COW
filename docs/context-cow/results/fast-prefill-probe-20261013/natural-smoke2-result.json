@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "gate_status": "NOT_QUALIFIED",
+  "scope": "fixed aligned prefix/chunk prototype; no full acceptance qualification",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11
+  },
+  "profile_sha256": "a4c5485940dbbbb4a88b5f85a241e5bc6991758730172c06b32ee0aa3d9645fb",
+  "model_contract_id": "50f15fcca3784a1c0c2b2c144a79f479696fa76b2029f09391e02951f0471704",
+  "execution_profile_id": "7792885984f648822ce234249592f36d92897541e121c8b5120d55b3e709d8c4",
+  "sampling": {
+    "temperature": 0,
+    "output_work_bound": 8,
+    "eos_tokens": [
+      248044,
+      248046
+    ],
+    "excluded_ids": []
+  },
+  "cases": [
+    {
+      "id": "LONG-128",
+      "prefix_tokens": 128,
+      "added_tokens": 128,
+      "requested_output_bound": 8,
+      "status": "PASS",
+      "paths": [
+        {
+          "lane": "recompute",
+          "request_index": 0,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "recompute prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 2.866272939951159,
+          "added_prefill_seconds": 2.4386232970282435,
+          "prompt_frontier_seconds": 5.304896236979403,
+          "prefill_counter_delta": 256,
+          "native_load_bytes": 0,
+          "decode_seconds": 0.93378089601174,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 6.57724759390112,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 258,
+            "prefill_tokens": 256,
+            "windows": 2,
+            "loaded_file_bytes": 0,
+            "cow_pages": 0,
+            "copied_bytes": 0
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 130924544,
+            "native_rss_bytes": 49621762048,
+            "gpu_used_mib": 9619
+          }
+        },
+        {
+          "lane": "resident",
+          "request_index": 1,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.03223992499988526,
+          "added_prefill_seconds": 2.255019727977924,
+          "prompt_frontier_seconds": 2.2872596529778093,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 0,
+          "decode_seconds": 0.9454282310325652,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 3.5886745100142434,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 130,
+            "prefill_tokens": 128,
+            "windows": 2,
+            "loaded_file_bytes": 0,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 138854400,
+            "native_rss_bytes": 49747464192,
+            "gpu_used_mib": 9691
+          }
+        },
+        {
+          "lane": "disk",
+          "request_index": 2,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "disk prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.4164222190156579,
+          "added_prefill_seconds": 2.233389536035247,
+          "prompt_frontier_seconds": 2.649811755050905,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 121413624,
+          "decode_seconds": 0.9446433889679611,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 3.9437179040396586,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 130,
+            "prefill_tokens": 128,
+            "windows": 2,
+            "loaded_file_bytes": 121413624,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 137846784,
+            "native_rss_bytes": 49747464192,
+            "gpu_used_mib": 9763
+          }
+        }
+      ],
+      "actual_generated_tokens": 2,
+      "oracle": {
+        "command": [
+          "<measurement-home>/branching-g3/long-prefill-natural-build-20261013/strata-batched-fresh",
+          "--pack",
+          "<measurement-home>/branching-g3/q8-pack",
+          "--native",
+          "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+          "--mmap-experts",
+          "--max-new",
+          "8",
+          "--max-context",
+          "4096",
+          "--pool-workers",
+          "2",
+          "--spec",
+          "2",
+          "--prefill",
+          "128",
+          "--suffix-draft",
+          "0",
+          "--expert-profile",
+          "<measurement-home>/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+          "--expert-cache",
+          "512",
+          "--pcie-frac",
+          "0.55",
+          "--tokens-file",
+          "<measurement-home>/branching-g3/long-prefill-natural-smoke2-20261013/prefix-128/prompt.tokens"
+        ],
+        "prompt_tokens": 256,
+        "outputs": [
+          271,
+          248046
+        ],
+        "counters": {
+          "consumed": 258,
+          "prompt_consumed": 256,
+          "decode_tokens": 2,
+          "stopping_reason": "eos",
+          "prefill_tokens": 256,
+          "prefill_chunks": 2,
+          "prefill_seconds": 6.64152,
+          "decode_seconds": 0.541738,
+          "generated": [
+            271,
+            248046
+          ]
+        },
+        "process_seconds": 12.048542883945629,
+        "frontier_sha256": "bbb4c10cc15dfbd208e1d2dfb8f3dd6c53d9977ecdb77a950bf84e3d7ea9d76d",
+        "trace_sha256": "9906701468b282c67420fcdf93265e983a7a34f2aefd355761f64b364ded6268"
+      },
+      "recompute_baseline": {
+        "measured_requests": 1,
+        "extrapolated_requests": 8,
+        "measured_prefill_seconds": 6.64152,
+        "measured_decode_seconds": 0.541738,
+        "extrapolated_prefill_seconds": 53.13216,
+        "extrapolated_decode_seconds": 4.333904,
+        "limitation": "Single uncached native run multiplied by eight; excludes loading, canonical publication and checkpoint capture."
+      },
+      "prepare_seconds": 4.310316264047287,
+      "save_seconds": 0.2783490759320557,
+      "checkpoint": {
+        "bytes": 122406904,
+        "sha256": "8c3b2e57586fd2eccb3dc13dd0bb65b825bbf0e3cb04921d1cc290cb72679e30",
+        "manifest_sha256": "d24f4eba71c422ff02773292728e60d21963108d3044fddacd0169a2992f10d8"
+      },
+      "measured_reuse_totals": {
+        "disk": {
+          "requests": 1,
+          "prompt_frontier_seconds": 2.649811755050905,
+          "decode_seconds": 0.9446433889679611,
+          "whole_request_seconds": 3.9437179040396586
+        },
+        "recompute": {
+          "requests": 1,
+          "prompt_frontier_seconds": 5.304896236979403,
+          "decode_seconds": 0.93378089601174,
+          "whole_request_seconds": 6.57724759390112
+        },
+        "resident": {
+          "requests": 1,
+          "prompt_frontier_seconds": 2.2872596529778093,
+          "decode_seconds": 0.9454282310325652,
+          "whole_request_seconds": 3.5886745100142434
+        }
+      }
+    }
+  ],
+  "phase": "complete",
+  "updated_utc": "2026-10-13T05:32:13Z",
+  "prefix_tokens": 128,
+  "request_index": 2,
+  "accepted_outputs": 0
+}

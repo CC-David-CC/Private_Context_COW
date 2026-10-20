@@ -1,0 +1,9 @@
+{
+  "status": "REAL_PARSER_PREFLIGHT_AND6_CPU_PASS_GPU_UNRUN",
+  "base": "b7b9c959ec7e0ec62ff6c054709f799edd87fabc",
+  "failure": "v1 server parser rejected fractional1.5GiB before model load; old PID241163 exited, native not started. Generic ready-timeout message was startup refusal.",
+  "fix": "Use existing integer2GiB disk budget;96GiB RAM/native profile unchanged. Startup-refusal cleanup no longer assumes a ready-service row.",
+  "preflight": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-latency-real-parser-preflight-v2.json",
+  "frozen_source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-latency-source-v2",
+  "source_sha256": "7b417bfb6860a23703eac1ff031635946bfbd1534caa205ecc7d961e27cd6a2d"
+}

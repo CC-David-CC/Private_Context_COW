@@ -1,0 +1,17 @@
+{
+  "status": "CPU_FIX_PASS_GPU_REQUALIFICATION_PENDING",
+  "cause": "Earlier crash-probe CPU tests enable caller subreaping. Encoder kills private group,but adopted grandchildren remained zombie children of caller.",
+  "change": "After killing and waiting encoder leader,reap only children in its private process group using waitpid(-pgid). No global waitpid(-1),no unrelated child consumption.",
+  "red": "Existing668-method suite fails one method in3 subcases;focused standalone passes;controlled subreaper subprocess new regression fails.",
+  "green": {
+    "new_and_existing_lifecycle_methods": 9,
+    "broad_methods": 669,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "g0": 51
+  },
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1",
+  "tests_preserved": true,
+  "native_unchanged": true
+}

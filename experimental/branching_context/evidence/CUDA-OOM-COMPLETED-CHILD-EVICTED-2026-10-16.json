@@ -1,0 +1,28 @@
+{
+  "backup_archive_sha256": "936220614c44346d4a9e5d168d206b4670e0dfce81913fe9d9aa20b52e8d31b1",
+  "canonical_files_verified": 15,
+  "canonical_unchanged": true,
+  "freed_allocated_bytes": 328204288,
+  "removed_files": [
+    {
+      "allocated_bytes": 4096,
+      "bytes": 3909,
+      "links": 1,
+      "path": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1/input-store-v1/checkpoints/d0096065cfd11b013441cd9833cddabc6118c28c38d22a2ec71a85cf71fcce0c.json",
+      "sha256": "5cd536febbca68df7275b4f3b52514553c1998fa762f858aa58657dfb61fe72a"
+    },
+    {
+      "allocated_bytes": 328200192,
+      "bytes": 328194836,
+      "links": 1,
+      "path": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1/input-store-v1/checkpoints/d6d5c666254d997b32bc09e52d45c026dcb424e42829ae831f56b27710029ea0.state",
+      "sha256": "d6d5c666254d997b32bc09e52d45c026dcb424e42829ae831f56b27710029ea0"
+    }
+  ],
+  "schema": "completed-oom-derived-cache-eviction-v1",
+  "script_sha256": "20ce5e76376b71e704ded13619aeed99f6b3491337893c7071b0fa774c7cb63a",
+  "semantics": "Only optional derived child checkpoint evicted; canonical history and original prefix checkpoint retained. Compact backup excludes full numerical payloads.",
+  "source_checkpoint_unchanged": true,
+  "source_payload_bytes": 327985908,
+  "status": "PASS"
+}

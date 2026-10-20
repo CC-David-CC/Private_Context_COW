@@ -1,0 +1,25 @@
+{
+  "base_profile_sha256": "a7d53c45ebd7a1aa841ee10a7f5ef55472d5c761be928551a176b94f7d3f1755",
+  "cache_after": {
+    "byte_limit": 8589934592,
+    "entry_limit": 8
+  },
+  "cache_before": {
+    "byte_limit": 8589934592,
+    "entry_limit": 3
+  },
+  "changed_production_file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/coordinator.py",
+  "changed_production_sha256": "7042b31f1f4bb23580cd21213052ad27e8ab861b011dca98a95ede9db2602f62",
+  "execution_profile_id": "cdbcda67787b591695d29481ca26fa844d442358fce5574caf5e972ed35374e8",
+  "fixtures_are_input_only": true,
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "old_numerical_checkpoints_imported": 0,
+  "prepare_sha256": "bbf16680b21919781fc95bea1e4aeeb7a4e6fee8f0203400d72cfcc70944edd2",
+  "profile_sha256": "107cab965436707d13db92271aa629e7829950030dbe60b884308076f8e31253",
+  "source_commit": "eff02e29af5556305a8acca75d41e01d3ca276c9",
+  "status": "PREPARED_NOT_GPU_QUALIFIED"
+}

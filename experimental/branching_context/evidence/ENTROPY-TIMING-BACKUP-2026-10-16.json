@@ -1,0 +1,11 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-entropy-timing-v1/evidence.tar",
+  "archive_bytes": 1353400320,
+  "archive_sha256": "1420806c81e665ee3b7af74132e0b5b56cef2517e8ed5e3b7b2637cefe36f1dd",
+  "extracted_files": 0,
+  "manifest_sha256": "1a270f7535a4a4fc1407f9e8bb54a216509d66967da0b7b4135609ae496a9732",
+  "member_count": 2432,
+  "status": "PASS",
+  "total_member_bytes": 1350571948,
+  "verification": "Full SSH-streamed readback, every regular member and complete archive byte stream verified"
+}

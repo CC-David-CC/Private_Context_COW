@@ -1,0 +1,119 @@
+{
+  "comparisons": 13,
+  "fixture_sha256": "3543a8d466a5b485e169b0e9a64a030604c6e39f65f7f9e04f5cf48e089f9064",
+  "fixture_sizes": {
+    "output_limit": 2048,
+    "prefix": 65536,
+    "suffixes": {
+      "A": 8335,
+      "B": 8335
+    }
+  },
+  "fresh_reference": {
+    "A_tokens_sha256": "9769cc812b8e320cca3ae4c183846c3b40ce4f919a68f158e72e7b60a931c8a4",
+    "B_tokens_sha256": "ee20747de4cfc2f9707667d54d185dd2fa65efc592c694ba4307d8112ad56082",
+    "consumed": 75919,
+    "normal_forward_tokens": 2048,
+    "prefill_tokens": 73871,
+    "stop_reason": "output_bound"
+  },
+  "harness_sha256": "41db6994001f1956fede236e606cd7674a0e213fb5748f3cad4a9eaeb329ac32",
+  "numerical_max_error": 0.0,
+  "paths": {
+    "case": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/case-q8-code64k8335-2048-shutdown-v1",
+    "monitor_dir": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code64k8335-2048-observer",
+    "run_receipts": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code64k8335-2048-shutdown-v1"
+  },
+  "prepare": {
+    "branches": {
+      "A": {
+        "accepted_in_scope": 2048,
+        "consumed": 75919,
+        "frontier_sha256": "75b120a3c0f9b723f8db470d39d2bc5b12ad60a7f26730df08e44e98a3f43954",
+        "next_draw": 0,
+        "output_pending_hex": "",
+        "output_tokens": 2048,
+        "status": "active",
+        "stream_key": "768cee6751d83cba1f200e54ee24d98df3d0b0483a0f1a8aa10cd9674f266394"
+      },
+      "B": {
+        "accepted_in_scope": 2048,
+        "consumed": 75919,
+        "frontier_sha256": "e7330aa9d52a42682e67cd2b42ff709270ea5fe279b05730e5ebf787f4725188",
+        "next_draw": 0,
+        "output_pending_hex": "",
+        "output_tokens": 2048,
+        "status": "active",
+        "stream_key": "2a99fc0bf3a47646d704645426a9c17474a95dfb0fcdd7a5c76b4c8a6428a999"
+      }
+    },
+    "native_exit_codes": {
+      "None": 0
+    },
+    "native_pids": {
+      "None": 2256393
+    },
+    "parent_payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15",
+    "python_exit": 0,
+    "python_pid": 2256390,
+    "root_consumed": 65536,
+    "root_frontier_sha256": "90f81a104d461d5fb97fbf0a4901e2522dab3b633e30f43a0f9ee73a393d2e9c"
+  },
+  "prepare_sha256": "40a84556b4de79c918816a73dc3c2dd5001a4816e2723e10b587442027a8bab1",
+  "profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+  "resource_monitor": {
+    "jsonl": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code64k8335-2048-observer/samples.jsonl",
+    "observed_window_utc": [
+      "2026-10-15T14:16:26Z",
+      "2026-10-15T14:19:56Z"
+    ],
+    "sampled_min_disk_free_bytes": 91489165312,
+    "sampled_min_memavailable_bytes": 49178624000,
+    "sampled_min_swap_free_bytes": 204800,
+    "sampled_peak_gpu_memory_mib": 87677,
+    "sampled_peak_gpu_utilization_pct": 100,
+    "sampled_peak_native_tree_rss_bytes": 91973509120,
+    "samples": 8,
+    "script": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code64k8335-2048-observer/observe.py",
+    "script_sha256": "2037c34a8666a4ac8f076cf0da36c45fd5ab56df86bd3623b077e8a8d54c0ef5"
+  },
+  "result_sha256": "d4b716350957b9c8cf024ca31d0fb1a1ca3ad3b38068fde3e96525d0fd722998",
+  "resume": {
+    "branches": {
+      "A": {
+        "accepted_in_scope": 2048,
+        "consumed": 75919,
+        "frontier_sha256": "75b120a3c0f9b723f8db470d39d2bc5b12ad60a7f26730df08e44e98a3f43954",
+        "next_draw": 0,
+        "output_pending_hex": "",
+        "output_tokens": 2048,
+        "status": "active",
+        "stream_key": "768cee6751d83cba1f200e54ee24d98df3d0b0483a0f1a8aa10cd9674f266394"
+      },
+      "B": {
+        "accepted_in_scope": 2048,
+        "consumed": 75919,
+        "frontier_sha256": "e7330aa9d52a42682e67cd2b42ff709270ea5fe279b05730e5ebf787f4725188",
+        "next_draw": 0,
+        "output_pending_hex": "",
+        "output_tokens": 2048,
+        "status": "active",
+        "stream_key": "2a99fc0bf3a47646d704645426a9c17474a95dfb0fcdd7a5c76b4c8a6428a999"
+      }
+    },
+    "native_exit_codes": {
+      "None": 0
+    },
+    "native_pids": {
+      "None": 2262211
+    },
+    "python_exit": 0,
+    "python_pid": 2262208,
+    "restore_consumed": 65536,
+    "restore_forward_tokens": 0,
+    "restore_seconds": 3.864263138966635
+  },
+  "resume_sha256": "1a82a25b2f5cf951dbcd0be8d268face235353dba83ea396ccdf4c15547473d8",
+  "scope": "compact terminal correctness audit; no latency claim",
+  "status": "PASS"
+}

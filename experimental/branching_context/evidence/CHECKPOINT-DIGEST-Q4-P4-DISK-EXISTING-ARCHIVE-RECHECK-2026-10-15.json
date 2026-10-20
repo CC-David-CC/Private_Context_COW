@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ACTUAL_ARCHIVE_AND_RECEIPT_REHASH",
+  "host": "box-git",
+  "observed_by": "root through exec session 8977; terminal exit 0",
+  "command": "ssh box-git sha256sum /srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar /srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar.receipt.json",
+  "archive_target": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar",
+  "archive_sha256": "d01af0087b43f4c8f3558ae64d49377d8f927c0ec31420035134644cd347684f",
+  "receiver_receipt_sha256": "513126b097fec519c993aac095c28f237ea29aa82b56ea2b2f4d0bfa3edaf00c",
+  "new_current_payload_proof_sha256": "f996c02cb99b8ec8fd633328435e86f528dfc2e17bee6021f271d188bbdd0db3",
+  "new_payload_count": 9,
+  "new_payload_bytes": 17789976604,
+  "current_payload_audit_command_exit": 0,
+  "current_payload_audit_wrapper_exit": 0,
+  "files_deleted": 0,
+  "scope": "Existing archive bytes and new payload bytes verified; new metadata archive still required before reclaim"
+}

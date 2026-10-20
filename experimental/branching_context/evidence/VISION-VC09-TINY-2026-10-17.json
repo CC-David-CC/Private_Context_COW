@@ -1,0 +1,478 @@
+{
+  "GPU": [
+    0
+  ],
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "focused_unique": 13,
+    "new_harness_methods": 5,
+    "skips": 0
+  },
+  "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+  "harness_source_commit": "7c9f927a6f022faf96b95ce94a32a004ae3f41b5",
+  "host": "llm-60",
+  "later_local_log_retirement": {
+    "archive": {
+      "archive_bytes": 126751303,
+      "archive_sha256": "0b6c2d7db33c57083bb90d94488773651737b4b7615fb77b62b22a53c219b14e",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-vc09-tiny-v1/evidence.tar.gz",
+      "individually_verified_data_files": 293,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 294,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "report": "VISION-ARCHIVED-NUMERICAL-LOG-RETIREMENT-2026-10-17.json",
+    "scope": "Old tiny full .f32 logs are archive-only after manifest/archive revalidation. Original pass result preserved."
+  },
+  "limitations": [
+    "Tiny128 text/control+49 image rows=177 cells; two32-token suffixes,8 actual outputs on both branches",
+    "Matching source/profile/native batch boundaries only; sampled prefix/suffix/generated1,4,8, not every generated frontier or cross-arrangement equivalence",
+    "Four independent checkpoint-free raw references (A/B twice),3 new-process prefix restores and generated-four restore; native work and exact controllers audited",
+    "Unchanged current profile79abf9b9/profileID2e5e0a02, no profile rewriting. Separate fresh driver uses independent CPU rotary positions;30 shared computational build inputs actually hashed",
+    "Producer reuses retained real encoder inputs; no live encoder or performance qualification in this numerical audit",
+    "Medium and target remain unrun; timing paths/current text regression/complete supported matrix and original G1-G5 qualification remain",
+    "Optional test numerical payloads retired after verified private backup; canonical/originals/embedding inputs/full sampled vectors retained; retired Store is not a strict-resume fixture",
+    "Q8 deferred/chat OFF/Linux/private LAN only"
+  ],
+  "native_audit": {
+    "actual_native_work": [
+      {
+        "forward_tokens": 257,
+        "prefix_forward_tokens": 177,
+        "stage": "prepare"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-A-0"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-A-1"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-B-0"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-B-1"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-0"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-1"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-2"
+      },
+      {
+        "forward_tokens": 4,
+        "prefix_forward_tokens": 0,
+        "stage": "generated-restart"
+      }
+    ],
+    "actual_outputs": {
+      "A": 8,
+      "B": 8
+    },
+    "audited_pids_absent": [
+      213170,
+      213173,
+      213365,
+      213366,
+      213419,
+      213420,
+      213538,
+      213539,
+      213716,
+      213717,
+      213773,
+      213776,
+      213951,
+      213954,
+      214065,
+      214068,
+      214183,
+      214186
+    ],
+    "comparisons": [
+      {
+        "label": "reference-A-0-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-0-suffix",
+        "max_abs_error": 0,
+        "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-0-1",
+        "max_abs_error": 0,
+        "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-0-4",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-0-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-1-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-1-suffix",
+        "max_abs_error": 0,
+        "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-1-1",
+        "max_abs_error": 0,
+        "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-1-4",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "reference-A-1-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-0-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-0-suffix",
+        "max_abs_error": 0,
+        "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-0-1",
+        "max_abs_error": 0,
+        "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-0-4",
+        "max_abs_error": 0,
+        "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-0-8",
+        "max_abs_error": 0,
+        "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-1-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-1-suffix",
+        "max_abs_error": 0,
+        "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-1-1",
+        "max_abs_error": 0,
+        "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-1-4",
+        "max_abs_error": 0,
+        "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+        "values": 248320
+      },
+      {
+        "label": "reference-B-1-8",
+        "max_abs_error": 0,
+        "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+        "values": 248320
+      },
+      {
+        "label": "resume-0-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "resume-0A-suffix",
+        "max_abs_error": 0,
+        "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+        "values": 248320
+      },
+      {
+        "label": "resume-0A-1",
+        "max_abs_error": 0,
+        "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+        "values": 248320
+      },
+      {
+        "label": "resume-0A-4",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "resume-0A-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      },
+      {
+        "label": "resume-0B-suffix",
+        "max_abs_error": 0,
+        "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+        "values": 248320
+      },
+      {
+        "label": "resume-0B-1",
+        "max_abs_error": 0,
+        "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+        "values": 248320
+      },
+      {
+        "label": "resume-0B-4",
+        "max_abs_error": 0,
+        "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+        "values": 248320
+      },
+      {
+        "label": "resume-0B-8",
+        "max_abs_error": 0,
+        "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+        "values": 248320
+      },
+      {
+        "label": "resume-1-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "resume-1A-suffix",
+        "max_abs_error": 0,
+        "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+        "values": 248320
+      },
+      {
+        "label": "resume-1A-1",
+        "max_abs_error": 0,
+        "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+        "values": 248320
+      },
+      {
+        "label": "resume-1A-4",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "resume-1A-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      },
+      {
+        "label": "resume-1B-suffix",
+        "max_abs_error": 0,
+        "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+        "values": 248320
+      },
+      {
+        "label": "resume-1B-1",
+        "max_abs_error": 0,
+        "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+        "values": 248320
+      },
+      {
+        "label": "resume-1B-4",
+        "max_abs_error": 0,
+        "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+        "values": 248320
+      },
+      {
+        "label": "resume-1B-8",
+        "max_abs_error": 0,
+        "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+        "values": 248320
+      },
+      {
+        "label": "resume-2-prefix",
+        "max_abs_error": 0,
+        "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+        "values": 248320
+      },
+      {
+        "label": "resume-2A-suffix",
+        "max_abs_error": 0,
+        "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+        "values": 248320
+      },
+      {
+        "label": "resume-2A-1",
+        "max_abs_error": 0,
+        "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+        "values": 248320
+      },
+      {
+        "label": "resume-2A-4",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "resume-2A-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      },
+      {
+        "label": "resume-2B-suffix",
+        "max_abs_error": 0,
+        "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+        "values": 248320
+      },
+      {
+        "label": "resume-2B-1",
+        "max_abs_error": 0,
+        "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+        "values": 248320
+      },
+      {
+        "label": "resume-2B-4",
+        "max_abs_error": 0,
+        "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+        "values": 248320
+      },
+      {
+        "label": "resume-2B-8",
+        "max_abs_error": 0,
+        "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+        "values": 248320
+      },
+      {
+        "label": "generated-four-frontier",
+        "max_abs_error": 0,
+        "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+        "values": 248320
+      },
+      {
+        "label": "generated-8",
+        "max_abs_error": 0,
+        "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+        "values": 248320
+      }
+    ],
+    "controller_comparisons": 7,
+    "full_vector_comparisons": 49,
+    "image_rows": 49,
+    "max_abs_error": 0,
+    "output_limit": 8,
+    "profile_sha256": "79abf9b98d12561fb3ffecfdcdeea5c181716e5670d0cc28df6d18366c201756",
+    "result_sha256": "8f5a59cbe3a32e27ac1d90f9d9eb7556c09fe79ea5f1ac124b80f70eb58f1915",
+    "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; sampled frontiers, not every generated token. Retained real embeddings used in producer; live encoder/timing/text matrix remains.",
+    "size": "tiny",
+    "status": "INDEPENDENT_VC09_NUMERICAL_RESTART_AUDIT_PASS",
+    "suffix_tokens": 32,
+    "text_control_tokens": 128,
+    "total_cells": 177
+  },
+  "private_backup": {
+    "archive_bytes": 126751303,
+    "archive_sha256": "0b6c2d7db33c57083bb90d94488773651737b4b7615fb77b62b22a53c219b14e",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-vc09-tiny-v1/evidence.tar.gz",
+    "individually_verified_data_files": 293,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 294,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "production_changes": false,
+  "production_core": "aa17edfe741ae096514a49d676713def5ec21b4d",
+  "profile_sha256": "79abf9b98d12561fb3ffecfdcdeea5c181716e5670d0cc28df6d18366c201756",
+  "raw_result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-vc09-tiny-gpu-v1/result.json",
+  "raw_result_sha256": "8f5a59cbe3a32e27ac1d90f9d9eb7556c09fe79ea5f1ac124b80f70eb58f1915",
+  "reference_binary": {
+    "bytes": 70581080,
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference",
+    "sha256": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081"
+  },
+  "retirement": {
+    "logical_bytes": 248457768,
+    "physical_free_delta": 248471552
+  },
+  "schema": 1,
+  "status": "VC09_TINY_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+  "verified_shared_computation_build_inputs": {
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/ggml/src/libggml-base.a": "99687a2ac594cab2b102fb3f3c702459ab1cfba3ec6af181c982b7627445a89f",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/ggml/src/libggml-cpu.a": "da0f47e57a1f4808bee485d472872913a2c0b05f702ee7d103531c1526634baf",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_core.a": "0ff52b4bb08cc9323bd241bdfb540f8d432d5563119f9392beb221306fdb4fed",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_engine.a": "1c0794f48d459da8d6427b409510676cf12699a430f15b24b2fa2ea45a95f225",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels.a": "f38d1f919396d14442246ec98e2bfc6d9f38fd491c449af48aeb5352c266cafb",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels_cpu.a": "71f52309643d863bde30bd10317eec01772dd41b561e88b7f2a2be44c632f3f6",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_mmq.a": "1556a2ae6736c0d9aedbc08f0b5259d72ffe8355af4124de5d8059324c2f50d5",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_prefill.a": "19ff00bd02344e072a0d06771b606e32b15f6e06b68221a07790fab0a6f8a9ad",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_spec.a": "5dcd4607589fd6377f7b4f31519abd560549d430ac6596afb1d122a118034452",
+    "/home/dflanag3/spatial-artifacts/branch-digest-native-candidate-20261015-v1/build-v1/branch_digest.o": "99dbbaadcdc40d0804ecb25a727d5fcd0c1971f31a29bc7ab82e548d047597f5",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3-core/expert_cache.o": "ef0d41377cdd2f77aa21ee91ead23aff80f3fc1b75d6755d1058b73fdba16457",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3-core/layer.o": "312b253469e80260e1f0b4f51d723fc7d3f1f2afc86ccbd9620fc31f4be9dadb",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3-core/vmm.o": "d52ff2fbf613fd3c44e9bf9c43f39489cd76a02f494b41a2035deb214450672d",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/branch_driver.cpp": "9370d129ee83399ad88cceee6b696c4f2e04655a9de0f362b610904f99a86d75",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/conversation_file.o": "54bbd2b3d61887af7e17e9f7a55880325cc716fcdc7c66a0d24b57728807b65e",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/conversation_snapshot.o": "42150ed9c5c71f1addc31c2cad72b867e7ef053164b6ba5a16fe2522ab392653",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/conversation_state.o": "56d26b6f429e5742674ac0a89a01456336ed603ebff62bb1331094823fcadafe",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/generate.o": "2caf7f3c32b0cf6d1add4a48e8827d4104a90d0851b8e28de98817f0b9637455",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_driver.o": "691502e8dd08f087b27eb3731126b6f2fe9393225afd61e215c6aa23553925b3",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_pages.o": "f3331e49249f436a2e1815c3781cadb54c4f5bf5a225b6e208e1f918c403cbd6",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/branch_session.o": "c7c51806233711e2b738aef683a1262490cc1e71d2f4131c2998f2df88c4c4a7",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/test.o": "80e90f656d9fa87c4f6b17487fce2a445525f94eed353f42b2f2716fecbc3e6f",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/source-green-v1/src/core/branch_pages.cpp": "ff3a99b3e08fc839c6f20ff9977227fcce38e28b36f1c64da0b2480dc3247d1f",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/source-green-v1/src/core/branch_session.cpp": "00b12a76e1173c4fefe799c866a0d82033e8b2ef6b2d473ca5b486dce9f83a8a",
+    "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/source-green-v1/tests/core/branch_lazy_prefix_test.cpp": "9e00012bac287d87b9aaa71bcfe37f7a3697bcbaed9434c64bac238eaef9788f",
+    "/usr/local/cuda/lib64/libcublas.so": "d089edf0a70ba75f0f422927da121f59018247f491741a3bf0b20637ed7c7b61",
+    "/usr/local/cuda/lib64/libcublasLt.so": "8d702c94d90bd4bd0c032fd4207ae655b4a2d036bd31920c1fbf4ecaf3547c59",
+    "/usr/local/cuda/lib64/libcudart.so": "862020da24ec4db58470c8dfad08e8753b417c459c115326edf15e9f574c92e3",
+    "/usr/local/cuda/lib64/libculibos.a": "fd507932fa9a782e5fa15540d82ea02ee572a2a749c04369b57e3b50f5d0b591",
+    "/usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so": "8c09597f3f160444964240539d15fc70dcff12dc92f913655f43bba39a9ed038"
+  }
+}

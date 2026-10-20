@@ -1,0 +1,68 @@
+[
+  {
+    "label": "external-build",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/build_external_integrity_probe.py",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "seconds": 12.41573954897467
+  },
+  {
+    "label": "external-red",
+    "argv": [
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external/external-contract-default-test"
+    ],
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "seconds": 0.36428188800346106
+  },
+  {
+    "label": "external-green",
+    "argv": [
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external/external-contract-test"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "seconds": 0.27447326097171754
+  },
+  {
+    "label": "external-prepared-build",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/build_external_integrity_probe.py",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external-prepared",
+      "--reuse-private-access"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "seconds": 12.31754684902262
+  },
+  {
+    "label": "external-prepared-green",
+    "argv": [
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external-prepared/external-contract-test"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "seconds": 0.37635192193556577
+  },
+  {
+    "label": "external-memcheck",
+    "argv": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "99",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external-prepared/external-contract-test"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "seconds": 1.145498211029917
+  }
+]

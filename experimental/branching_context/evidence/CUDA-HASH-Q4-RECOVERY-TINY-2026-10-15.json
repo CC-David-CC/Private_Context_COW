@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "result": "/home/dflanag3/spatial-artifacts/branch-digest-native-candidate-20261015-v1/runs/q4-hash-v1-f6-tiny-v1/runner/probe/result.json",
+  "result_sha256": "2379d13254a5903f5d8ee922deebe6257eabce3abac5c7f61bfdf003a5374a40",
+  "sizes": {
+    "generated_limit": 8,
+    "prefix": 128,
+    "suffix": 4
+  },
+  "comparisons": 3,
+  "numerical_max_error": 0,
+  "root_work": [
+    {
+      "operation": "root-A-process-1",
+      "coordinator_forward_tokens": 128,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 1.6562107938807458,
+      "capture_seconds": 0.635283068055287,
+      "durable_wait_seconds": 1.5402536671608686
+    },
+    {
+      "operation": "root-B-process-1",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 0.8845072849653661,
+      "capture_seconds": 0.6445730528794229,
+      "durable_wait_seconds": 0.7684212632011622
+    },
+    {
+      "operation": "root-A-process-2",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 121413624,
+      "request_wall_seconds": 1.3793573379516602,
+      "capture_seconds": 0.9348558150231838,
+      "durable_wait_seconds": 1.2633337979204953
+    }
+  ],
+  "actual_output_counts": {
+    "A": 8,
+    "B": 8
+  },
+  "runtime_source_sha256": {
+    "context_time_travel.coordinator": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+    "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel.pools": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "context_time_travel.real": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel.store": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+    "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+  },
+  "profile_sha256": "86c329cafce751f90f7389ae5154999a6f22fc2fbf6ccf42ac6e12906af90997",
+  "execution_profile_id": "7eb725b3176efbf12188c03e17c1b6bafd1b0b91c9c66f32dd411712e9cbe928",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "probe_sha256": "a7bb7877f5afcd60e107861167a94a7dfddcf17186dc4141ab69ac339cc2eb9d",
+  "process_ids": [
+    {
+      "python": 2600710,
+      "native": {
+        "0": 2600715
+      }
+    },
+    {
+      "python": 2600960,
+      "native": {
+        "0": 2600965
+      }
+    }
+  ],
+  "pool_peak_accounted_bytes": [
+    8380524352,
+    8257804056
+  ],
+  "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+  "schema": "cow-focused-native-qualification-v1",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "primary_audit_sha256": "7712fbaa6b9cc418f5f0eb8dc7f23eca85fe8db01ab908eaa5d7c64d99e9ea00",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "native_binary_sha256": "458287376736362176d5cd965777aa2cb5deef2695d76ad5c546b7026ac4d356",
+  "integrated_native_source_commit": "6aa93b851533881f942371893425323a5260b867",
+  "native_source_sha256": "4bd9f147eaf4963d21ae23c60267829d25f4a0a77550483639d4d0a90696213b",
+  "limitations": [
+    "Tiny Q4 greedy128/4/8, with normal-verifier-decode generation; not the earlier batches-only milestone.",
+    "Prefix/final vectors sampled; no suffix/intermediate generated-frontier comparisons.",
+    "No whole-request speed gain or Q8/new large-context qualification inferred.",
+    "The later canonical branch-action coordinator has a separate result; original G1-G5 remain unqualified."
+  ]
+}

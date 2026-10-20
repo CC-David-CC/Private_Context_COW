@@ -1,0 +1,174 @@
+{
+  "schema": "cow-readonly-timing-attribution-v1",
+  "status": "EXECUTED_MEASUREMENTS",
+  "host": "llm-60",
+  "artifact": "/home/dflanag3/spatial-artifacts/root-reuse-timing-audit-20261015-v1/timing-attribution.json",
+  "artifact_sha256": "1ac370b1a5daf30b4fbada87a69bed5ae3330882ad681613ede456338cfed8eb",
+  "source_sha256": {
+    "branch_digest.cu": "f9da0369fa54a7d7fe0cfba33af83abe2c1c6065fb335ac2a7708a3700fc1786",
+    "branch_driver.cpp": "9370d129ee83399ad88cceee6b696c4f2e04655a9de0f362b610904f99a86d75",
+    "branch_pages.cpp": "29b1591585a6d1271d0c233ecb316a677d89a59b3551e2d035a5736672a505d9",
+    "branch_session.cpp": "12c606ef5b7d196e55091008d09418c4268c5de5b15dd1fb308a5e5e6dbc43ed",
+    "build_fast_prefill_probe.py": "4f3f3dd5e67cb975de665d938e8858d69e15b48fb3be7cf5b875e99a962547f1",
+    "real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "native_timing_scopes": {
+    "cow_generation_seconds": "Python RealBranchingModel.run_greedy_request starts generation timer after suffix consume and immediately before backend.generate_request; timer ends after request iterator exits. Includes native generate loop and consumed-token protocol/ack traffic plus Python iterator work; excludes suffix consume/prefill and later save/capture/publication.",
+    "cow_request_seconds": "RealBranchingModel.run_greedy_request wall from before authorize/history/materialize through saved snapshot publication; it is not the audited durable-completion wall.",
+    "decode_compute_ns": "Generated branch_driver times forward.run + forward.commit + forward.copy_logits for each generated token. Does not include begin/finish or per-token pipe/ack round trips.",
+    "decode_finish_ns": "Generated branch_driver times BranchSession.finish for each generated token.",
+    "decode_prepare_ns": "Generated branch_driver normal-verifier `generate` loop times BranchSession.begin(position,1) only. BranchSession.begin calls prepare_writes; all-pool current-page seal verification occurs in this phase before COW tail detach.",
+    "integrity_seal_compare_ns": "Nested timer around device hash/compare kernel launch through cudaDeviceSynchronize in BranchDigestWorkspace.compare_pages_view. It is included inside decode_prepare_ns for this path; do not add it to prepare or compute.",
+    "overlap_warning": "Stage counters are nested: seal compare is inside prepare; stage totals and nested seal time must not be summed. The native fresh-oracle and COW generation timers have different work boundaries.",
+    "reference_decode_seconds": "Fresh oracle timer covers greedy argmax, normal Verifier.run/commit/copy_logits loop, writing each full frontier to reference .decode.f32 and closing that trace. It has no BranchSession COW seal validation or per-token Python consumed/ack protocol.",
+    "reference_trace_bytes_per_128": "128 * 248320 float32 logits * 4 = 127139840 bytes; retained .decode.f32 files are approximately 122 MiB and this trace write is inside reference decode_seconds."
+  },
+  "measurements": [
+    {
+      "quant": "Q4",
+      "operation": "answer-A-process-1",
+      "generation_seconds": 1.7195889179129153,
+      "capture_seconds": 0.9207608308643103,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 659991736,
+        "decode_compute_ns": 1015602371,
+        "decode_finish_ns": 8836854,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 651675146,
+        "integrity_plan_upload_ns": 1774070,
+        "integrity_seal_result_download_ns": 989260
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 3.763245876180008,
+        "durable_wait_seconds": 3.763243281049654,
+        "output_tokens": 128,
+        "request_wall_seconds": 4.131257355911657,
+        "whole_request_output_tokens_per_second": 30.983303380225717
+      }
+    },
+    {
+      "quant": "Q4",
+      "operation": "answer-B-process-1",
+      "generation_seconds": 1.7008544891141355,
+      "capture_seconds": 0.9061133260838687,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 663214412,
+        "decode_compute_ns": 996022694,
+        "decode_finish_ns": 8692283,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 655205379,
+        "integrity_plan_upload_ns": 1706052,
+        "integrity_seal_result_download_ns": 961376
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 3.805031567113474,
+        "durable_wait_seconds": 3.805029683979228,
+        "output_tokens": 128,
+        "request_wall_seconds": 4.1547964829951525,
+        "whole_request_output_tokens_per_second": 30.807766523313806
+      }
+    },
+    {
+      "quant": "Q4",
+      "operation": "answer-A-process-2",
+      "generation_seconds": 1.728422351181507,
+      "capture_seconds": 0.9031295131426305,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 658861598,
+        "decode_compute_ns": 1027534142,
+        "decode_finish_ns": 8921095,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 650549879,
+        "integrity_plan_upload_ns": 1716481,
+        "integrity_seal_result_download_ns": 998227
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 3.963039668975398,
+        "durable_wait_seconds": 3.9630363730248064,
+        "output_tokens": 128,
+        "request_wall_seconds": 4.32746616192162,
+        "whole_request_output_tokens_per_second": 29.57850973539706
+      }
+    },
+    {
+      "quant": "Q8",
+      "operation": "answer-A-process-1",
+      "generation_seconds": 4.01236059400253,
+      "capture_seconds": 0.924623052822426,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 671052865,
+        "decode_compute_ns": 3286295653,
+        "decode_finish_ns": 16295032,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 641669920,
+        "integrity_plan_upload_ns": 2211657,
+        "integrity_seal_result_download_ns": 2404069
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 7.369626872008666,
+        "durable_wait_seconds": 7.369625058956444,
+        "output_tokens": 128,
+        "request_wall_seconds": 7.730336277978495,
+        "whole_request_output_tokens_per_second": 16.558141249900757
+      }
+    },
+    {
+      "quant": "Q8",
+      "operation": "answer-B-process-1",
+      "generation_seconds": 4.077424259856343,
+      "capture_seconds": 0.9134082940872759,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 668966512,
+        "decode_compute_ns": 3360028954,
+        "decode_finish_ns": 13688421,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 641503756,
+        "integrity_plan_upload_ns": 2139665,
+        "integrity_seal_result_download_ns": 2381271
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 7.182987704873085,
+        "durable_wait_seconds": 7.18298549996689,
+        "output_tokens": 128,
+        "request_wall_seconds": 7.536686077015474,
+        "whole_request_output_tokens_per_second": 16.98359181900382
+      }
+    },
+    {
+      "quant": "Q8",
+      "operation": "answer-A-process-2",
+      "generation_seconds": 4.1048995410092175,
+      "capture_seconds": 0.9250428238883615,
+      "native_counter_deltas": {
+        "decode_prepare_ns": 666494637,
+        "decode_compute_ns": 3387850629,
+        "decode_finish_ns": 16561184,
+        "decode_timed_tokens": 128,
+        "integrity_device_hashed_bytes": 329898786816,
+        "integrity_seal_compare_ns": 641290686,
+        "integrity_plan_upload_ns": 2056350,
+        "integrity_seal_result_download_ns": 2260648
+      },
+      "audited_timing": {
+        "completion_wait_seconds": 8.045301946112886,
+        "durable_wait_seconds": 8.045297508127987,
+        "output_tokens": 128,
+        "request_wall_seconds": 8.397472710115835,
+        "whole_request_output_tokens_per_second": 15.242681270736082
+      }
+    }
+  ],
+  "limits": [
+    "Nested integrity comparisons must not be added to decode_prepare_ns",
+    "integrity counters are whole-request deltas; normalization by generation_seconds is approximate until non-generation contribution is separately bounded",
+    "Fresh oracle decode_seconds includes roughly122MiB frontier output and lacks COW guard/ack work; it is not a matched wall-time baseline",
+    "The user8percent overhead preference is informational; a matching-baseline regression percentage is not established",
+    "No validation disabled, source changed or new inference executed for this audit"
+  ]
+}

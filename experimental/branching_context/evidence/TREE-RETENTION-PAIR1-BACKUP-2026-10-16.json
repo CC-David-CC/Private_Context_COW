@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-tree-policy-pair-v1/evidence.tar",
+  "archive_bytes": 253071360,
+  "archive_sha256": "45e0632d675544c29ab72f918746e1006e564212548b935e792b130f300821c4",
+  "extracted_files": 0,
+  "manifest_sha256": "9cc109fd9590e5b32ace7087cdfb053c7f64fe03c345c7a5d4f92c3db39f2631",
+  "schema": "cow-tree-policy-pair-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 251474488,
+  "verified_members": 1540
+}

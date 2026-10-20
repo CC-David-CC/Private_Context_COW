@@ -1,0 +1,66 @@
+{
+  "schema": "strata-native-build-provenance-change-validation-v1",
+  "status": "FOCUSED-PASS",
+  "base_commit": "e3bc0dda4e4c8a5ad370e395e90bfa151aeb8c2d",
+  "host": "llm-60",
+  "scope": "CPU-only temporary-file provenance tests; no GPU, native build, model access, server, or inference",
+  "red": {
+    "command": "PYTHONPATH=experimental/branching_context/scripts python3 -m unittest experimental.branching_context.tests.implementation.test_native_build_provenance",
+    "result": "FAIL before command-record fix",
+    "observed": "5 errors: actual-shaped {argv, exit_code} records were skipped and collection raised ValueError: no final link command found in build receipt"
+  },
+  "green": {
+    "command": "PYTHONPATH=experimental/branching_context/scripts python3 -m unittest experimental.branching_context.tests.implementation.test_native_build_provenance",
+    "result": "PASS",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "stdout": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.057s\n\nOK"
+  },
+  "test_cases": [
+    "test_attach_failure_cannot_leave_successful_receipt",
+    "test_git_source_and_observed_inputs_are_pinned_but_not_hermetic",
+    "test_dirty_and_non_git_are_explicitly_not_reproducible",
+    "test_imported_generator_and_linked_archive_changes_change_hashes",
+    "test_relative_link_paths_and_response_files_resolve_from_link_cwd",
+    "test_missing_response_or_declared_archive_fails_closed",
+    "test_nonzero_or_malformed_command_record_fails_closed"
+  ],
+  "syntax_check": {
+    "command": "python3 -m py_compile experimental/branching_context/scripts/native_build_provenance.py experimental/branching_context/scripts/build_native_request_probe.py experimental/branching_context/scripts/build_digest_reuse_probe.py",
+    "result": "PASS"
+  },
+  "source_sha256": {
+    "experimental/branching_context/scripts/native_build_provenance.py": "8faf0ec80277641dd9537397ddaac5f3a9d643b765b2cc291a7ed9327d9d496d",
+    "experimental/branching_context/scripts/build_native_request_probe.py": "508ae75539fdcfd1e2acf98040055010622ed93cd98900019355d590d2a6aa18",
+    "experimental/branching_context/scripts/build_digest_reuse_probe.py": "b52a2b79f7ab59c0d164f31a5ad7dd532dc1cc516c8e257e064331f929e42986",
+    "experimental/branching_context/tests/implementation/test_native_build_provenance.py": "d9aefa45f1a84f838e0a24644f690288842e22bbe68bae69ab59d07c90f10df0"
+  },
+  "historical_receipt_smoke": {
+    "source": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/build.json",
+    "receipt_bytes": 16454,
+    "receipt_status": "BUILT_NOT_EXECUTED",
+    "command_records": 10,
+    "source_status": "non_git",
+    "observed_inputs_complete": true,
+    "provenance_complete": false,
+    "reproducible": false,
+    "generator_files": 4,
+    "linked_files": 14,
+    "response_files": 0,
+    "cmake_cache_sha256": "1186645f512248fb2246f6f46c562a6c27dec7560c61c165f3054ddc4f32ffcf",
+    "qualification": "Read-only receipt/path/archive hash inspection; no build, model, inference, or receipt modification"
+  },
+  "raw_evidence_scripts": {
+    "artifact_directory": "/home/dflanag3/spatial-artifacts/native-build-provenance-20261015-luna",
+    "files": {
+      "receipt_actual_smoke.py": "30cf6a217dc00465e9a331ac17dd1b492ef13018fc84d2993fc39fe389207762",
+      "receipt_check_paths.py": "612659acb4812fee2c36ca143919e914bada14471f9b45625c7b2815d72bf4a3",
+      "receipt_source_paths.py": "19e4e8c90527d25194c71b41eb17778c44b9661a0b490078cf353228ba91fdcf",
+      "receipt_stat_check.py": "1b11e30994db2f845ee7ed201a747dc0e9768c24783c61d7ec7a6ca6a119a584"
+    }
+  },
+  "qualification": "Receipt enhancement is not a clean-build or model-qualification claim. New build receipts remain reproducibility_unproven until external compiler, system-header, dynamic-library, and host-state closure is pinned.",
+  "unrun": ["native CMake build", "profile generation", "GPU execution", "server/browser integration", "numerical qualification"]
+}

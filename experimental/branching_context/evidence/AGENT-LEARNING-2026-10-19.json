@@ -1,0 +1,28 @@
+{
+  "status": "BOUNDED_AGENT_C01_REPAIR_PASS_WITH_NEW_PRECISION_FAILURES",
+  "client_commit": "9fe63fce3280a4f8708ab6d33e2f81ab2801c2f7",
+  "learning_commit": "da8809bf74bf51f68113b54cba80ee4374675631",
+  "profile": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775",
+  "sampler": "greedy",
+  "whole_cli_seconds": 170.6892868820578,
+  "model_calls": 7,
+  "output_tokens": 3558,
+  "project_tests": 9,
+  "heldout_methods": 3,
+  "heldout_generated_csv_cases": 64,
+  "logit_oracle": "NOT_RUN_IN_C01",
+  "expanded_precision_probes": {
+    "executed": 2,
+    "failures": 2,
+    "cause": "Python Decimal default28-digit context rounds larger sums"
+  },
+  "mtp": "OWNER_EXCLUDED",
+  "training": "NOT_RUN",
+  "native_adapter_loading": "NOT_IMPLEMENTED",
+  "harness_model_comparisons": "NOT_RUN",
+  "server_and_native_exit": 0,
+  "owned_key_revoked": true,
+  "original_authorized_keys_byte_exact": true,
+  "private_backups": "Six client/service/canonical-store archives verified under private_context_cow.evidence/20261018-vc-rerun-v1",
+  "original_G1_G5": "NOT_QUALIFIED"
+}

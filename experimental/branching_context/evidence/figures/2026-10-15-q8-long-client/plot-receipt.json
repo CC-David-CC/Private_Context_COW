@@ -1,0 +1,10 @@
+{
+  "scope": "artifact plotting only; no backend test or additional measurement",
+  "measurements_sha256": "8a8a26b45b072ba7d4c13347156dd3b6c661e59311e3a20502e36a1c24a4ca7c",
+  "plotter_sha256": "781c1c235e62f56c6c30080dca227aabcb09e8779120725831fb46afcebd097e",
+  "matplotlib": "3.11.2",
+  "outputs": {
+    "q8-long-client-comparison.png": "73c9e9a25a1758000eafc5537eccdf5d02da2355284527cc67911efc46a047e0",
+    "q8-long-client-comparison.svg": "66a16794a9434a628c3ca65d4bb96d2577cf372b83627a24dba1aece3ddf03b2"
+  }
+}

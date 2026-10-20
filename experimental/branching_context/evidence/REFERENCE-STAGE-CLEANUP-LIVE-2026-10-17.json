@@ -1,0 +1,29 @@
+{
+  "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+  "failures": [],
+  "new_assertion": "reference_stages_after must be empty for every case",
+  "next": "Poll exact existing tmux/process and both terminal receipts; do not start a duplicate. On terminal inspect all frontiers/work/process exits and empty reference/checkpoint stage assertions; archive raw evidence and then integrate private feature ref after review.",
+  "pane_pid": 176738,
+  "passed_points_at_checkpoint": [
+    "payload_during_write",
+    "branch_committed_before_ack",
+    "payload_before_publish",
+    "payload_durable",
+    "before_manifest_publish"
+  ],
+  "previous_terminal_campaign": {
+    "passed": 11,
+    "receipt": "VISION-PUBLICATION-CRASH-2026-10-17.json",
+    "source_commit": "062a25124a37d76b957b20a050679ac6aa60bf82"
+  },
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+  "profile_sha256": "79abf9b98d12561fb3ffecfdcdeea5c181716e5670d0cc28df6d18366c201756",
+  "qualification": "Fresh profile still running; previous eleven-case result not relabelled",
+  "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-publication-crash-cli-gpu-v4/result.json",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+  "schema": 1,
+  "source_commit": "aa17edfe741ae096514a49d676713def5ec21b4d",
+  "status": "RUNNING",
+  "tmux": "vc08-vision-publication-crash-v4",
+  "wrapper": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-publication-crash-probe-gpu-run-v4"
+}

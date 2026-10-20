@@ -1,0 +1,48 @@
+[
+  {
+    "label": "prepare-red-build",
+    "argv": [
+      "cmake",
+      "--build",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-j16",
+      "--target",
+      "branch_prepare_test"
+    ],
+    "exit_code": 2,
+    "seconds": 0.0245952729601413
+  },
+  {
+    "label": "prepare-red-configure",
+    "argv": [
+      "cmake",
+      "-S",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "-B",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5927472930634394
+  },
+  {
+    "label": "prepare-red-build-retry",
+    "argv": [
+      "cmake",
+      "--build",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-j16",
+      "--target",
+      "branch_prepare_test"
+    ],
+    "exit_code": 0,
+    "seconds": 1.2339514340274036
+  },
+  {
+    "label": "prepare-red",
+    "argv": [
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_prepare_test"
+    ],
+    "exit_code": 1,
+    "seconds": 0.4225953120039776
+  }
+]

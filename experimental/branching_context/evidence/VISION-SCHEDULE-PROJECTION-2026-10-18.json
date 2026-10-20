@@ -1,0 +1,386 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_CPU_AND_Q4_TINY_NUMERICAL_RESTART_PASS",
+  "base": "0ccbc7cadf6b4938e80e7ff1197468790fdf2e29",
+  "branch": "work/vision-schedule-validation-linear-20261018",
+  "host": "llm-60",
+  "python": "3.12.3",
+  "input_fixture": {
+    "snapshot": "7a17b23bf6e54175e8cc4d7d429759238b5774e710695623c8037ee22fe0aa49",
+    "history_cells": 17263,
+    "receipts": 4029,
+    "schedule_sha256": "a42b8f928bdf490d4bfce5290814f7ffbeac272974fe8366538a8d1f5de028f0"
+  },
+  "profiled": {
+    "baseline_seconds": 66.50466198916547,
+    "candidate_seconds": 0.48264665016904473,
+    "ratio": 137.79161621835047,
+    "baseline_function_calls": 408443147,
+    "candidate_function_calls": 407862,
+    "scope": "Same actual retained complete schedule; cProfile overhead included on both; not inference throughput"
+  },
+  "red": {
+    "tests": 10,
+    "passed": 8,
+    "failures": 1,
+    "errors": 1,
+    "skips": 0,
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/schedule-projection-red-run-v1"
+  },
+  "first_green": {
+    "tests": 10,
+    "passed": 5,
+    "errors": 5,
+    "reason": "Canonical encoding final newline was initially omitted; reference functions unchanged",
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/schedule-projection-green-run-v1"
+  },
+  "green": {
+    "tests": 10,
+    "passed": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/schedule-projection-green-run-v2"
+  },
+  "regressions": {
+    "tests": 47,
+    "passed": 47,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "executed_test_ids": [
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_complete_validation_does_not_reconstruct_prefix_histories_per_event",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_decode_cannot_swallow_images_but_prefill_chunks_can_split_rows",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_empty_and_unknown_receipt_layout_keep_existing_contract",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_every_binding_on_an_early_receipt_is_checked",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_image_provenance_embedding_geometry_and_placement_remain_distinct",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_native_token_and_chunk_validation_not_bypassed",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_projection_matches_unchanged_reference_at_every_text_boundary",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_removed_reordered_and_duplicate_receipts_are_rejected",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_request_boundaries_inside_or_at_end_of_image_are_rejected",
+      "test_vision_schedule_projection.ScheduleProjectionTests.test_seeded_mixed_schedules_match_independent_prefix_reference",
+      "test_vision_execution.VisionExecutionTests.test_append_and_prefix_keep_images_and_reject_partial_image_boundaries",
+      "test_vision_execution.VisionExecutionTests.test_decode_cannot_claim_to_consume_image_rows",
+      "test_vision_execution.VisionExecutionTests.test_detached_immutable_view_does_not_change_canonical_spans",
+      "test_vision_execution.VisionExecutionTests.test_grid_and_placement_changes_invalidate_receipts",
+      "test_vision_execution.VisionExecutionTests.test_history_has_explicit_native_projection_and_text_runs",
+      "test_vision_execution.VisionExecutionTests.test_identical_pad_tokens_cannot_alias_another_image",
+      "test_vision_execution.VisionExecutionTests.test_missing_altered_or_unknown_receipts_fail",
+      "test_vision_execution.VisionExecutionTests.test_native_identity_has_independently_encoded_payload_and_placement",
+      "test_vision_execution.VisionExecutionTests.test_positions_follow_grid_extent_and_not_image_row_count",
+      "test_vision_execution.VisionExecutionTests.test_provenance_is_bound_even_when_model_payload_is_identical",
+      "test_vision_execution.VisionExecutionTests.test_request_boundary_cannot_end_on_image_row_but_native_chunk_can",
+      "test_vision_execution.VisionExecutionTests.test_schedule_covers_each_consumed_prefix_and_generated_boundary",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_hashes_only_current_binding_full_audit_at_open_and_finish",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_matches_unchanged_full_validator_on_independent_branches",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_append_rejects_every_altered_binding_or_native_boundary",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_constructor_rejects_missing_altered_or_noncontiguous_root_schedule",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_decode_rejects_new_images_and_requests_ending_on_image_rows",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_foreign_thread_cannot_append_or_close_but_owner_can_continue",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_input_and_export_aliases_do_not_mutate_private_proof",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_invalid_append_poisoned_and_closed_cursor_cannot_be_reused",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_prefill_extension_can_add_a_complete_new_image",
+      "test_vision_schedule_cursor.InputScheduleCursorTests.test_same_length_tokens_cannot_rewrite_owned_ancestry",
+      "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_bad_native_extension_cannot_publish_and_original_owner_can_retry",
+      "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_failed_final_audit_cannot_publish_streamed_progress",
+      "test_vision_schedule_cursor.InputScheduleRequestIntegrationTests.test_generation_uses_incremental_receipts_and_full_validation_before_capture",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_branch_a_can_enter_test_while_b_retains_edit_progress",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_cancelled_progress_does_not_publish_and_parent_remains_usable",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_corrupted_repetition_progress_rejects_before_restore",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_grammar_masks_before_greedy_and_counts_text_not_image_rows",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_image_suffix_is_leased_and_does_not_enter_grammar_scope",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_missing_embedding_rejects_before_restore",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_partial_scope_restores_using_text_scope_not_native_cell_count",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_resume_cannot_change_state_or_add_an_image",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_saved_sampled_controller_cannot_enter_greedy_image_resume",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_unqualified_image_sampling_is_not_enabled_by_grammar_change",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_wrong_tokenizer_or_protocol_rejects_before_restore",
+      "test_vision_grammar_request.VisionGrammarRequestTests.test_wrong_tokenizer_rejects_before_native_restore"
+    ],
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/schedule-projection-regressions-run-v2"
+  },
+  "g0": {
+    "status": "PASS",
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "evidence_file": "20261018T113300783852Z-G0.json",
+    "sha256": "ccc7d5c7ba677be333776bd416a076c4f5108a4cb4be16b46d39a5a9683c5243"
+  },
+  "retained_setup_failure": "Regression v1 omitted tools/ from sys.path and had four import/setup errors; fixed launcher only, rerun v2 all pass",
+  "unchanged_contracts": [
+    "InputHistory encoding and identity including final newline",
+    "Native-input and mRoPE SHA256 equations",
+    "Every execution receipt and native token/chunk check",
+    "All snapshot/controller/publication semantics; no trusted-skip flag",
+    "No GPU/native numerical code or sampler change"
+  ],
+  "limitations": [
+    "Tiny real-GPU branch/restart and pure-CPU full-schedule equivalence do not certify all context sizes, layouts, samplers or full G1-G5/VC09",
+    "Current medium/8K-target/format/sampler matrix must be requalified for this new source-bound profile; old profiles/results remain historical",
+    "Hash equations and every receipt check remain unchanged; length-prefixed hash byte work is still proportional to summed prefix lengths",
+    "93.17x is a measured full-validator CPU component ratio, not decode TPS or a whole-workflow ratio",
+    "No existing checkpoint was silently converted across execution-profile identities"
+  ],
+  "raw_paths": [
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/h04-cpu-attribution-v1",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/schedule-projection-measurement-v1"
+  ],
+  "numerical_max_error": 0,
+  "q8": "DEFERRED",
+  "github_touched": false,
+  "executed_source_commit": "9fae1e2e749f77004343a5e230180407d788d372",
+  "unprofiled_benchmark": {
+    "schema": 1,
+    "status": "CPU_COMPONENT_MEASURED",
+    "baseline": {
+      "schema": 1,
+      "source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-image-route-source-v1",
+      "snapshot": "7a17b23bf6e54175e8cc4d7d429759238b5774e710695623c8037ee22fe0aa49",
+      "cells": 17263,
+      "receipts": 4029,
+      "schedule_sha256": "a42b8f928bdf490d4bfce5290814f7ffbeac272974fe8366538a8d1f5de028f0",
+      "warmup_seconds": 34.25984763796441,
+      "measured_seconds": [
+        34.45347838802263,
+        34.9203768291045,
+        34.70994273899123
+      ],
+      "peak_rss_kib": 152724,
+      "instrumentation": "wall clock, no cProfile",
+      "native_inference": false
+    },
+    "candidate": {
+      "schema": 1,
+      "source": "/home/dflanag3/src/context-cow-schedule-validation-20261018",
+      "snapshot": "7a17b23bf6e54175e8cc4d7d429759238b5774e710695623c8037ee22fe0aa49",
+      "cells": 17263,
+      "receipts": 4029,
+      "schedule_sha256": "a42b8f928bdf490d4bfce5290814f7ffbeac272974fe8366538a8d1f5de028f0",
+      "warmup_seconds": 0.37572592101059854,
+      "measured_seconds": [
+        0.37834848184138536,
+        0.37241719011217356,
+        0.37255587498657405
+      ],
+      "peak_rss_kib": 102424,
+      "instrumentation": "wall clock, no cProfile",
+      "native_inference": false
+    },
+    "median_baseline": 34.70994273899123,
+    "median_candidate": 0.37255587498657405,
+    "scope": "Actual retained history full schedule validator; not whole checkpoint or inference throughput",
+    "speedup": 93.16707927432921
+  },
+  "differential": {
+    "schema": 1,
+    "status": "PASS",
+    "seed": 410293,
+    "programs": 200,
+    "comparisons": 2600,
+    "accepted": 200,
+    "rejected": 2400,
+    "disagreements": [],
+    "case_digest": "07a28c23dbbc5f493dfe61d4e486e3f65a4012a5848a6c79e0318e0f9596d25c",
+    "reference_path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-thinking-image-route-source-v1/experimental/branching_context/src/context_time_travel/execution_receipt.py",
+    "reference_sha256": "8bfba241a7d649cc0e0fac8c86376ccd48c53226959b3decdbcb286241a2739c",
+    "candidate_source_commit": "9fae1e2e749f77004343a5e230180407d788d372",
+    "harness_sha256": "4cebe9aa2aa5c3583b6c81fdd3b2b910ef48b66733ffb552c4e87112afcc2c6e",
+    "scope": "CPU receipt acceptance/digest differential against frozen previous validator; not registered G5 mutant or GPU numerical certification"
+  },
+  "source_profile": {
+    "schema": 1,
+    "source_commit": "9fae1e2e749f77004343a5e230180407d788d372",
+    "source_directory": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-schedule-projection-runtime-v2",
+    "export_paths": [
+      "experimental/branching_context/src",
+      "experimental/branching_context/scripts",
+      "experimental/branching_context/tests",
+      "tools",
+      "serve",
+      "include",
+      "src",
+      "requirements.txt",
+      "CONTEXT_COW_VERSION",
+      "AGENTS.md",
+      "experimental/branching_context/AGENTS.md"
+    ],
+    "export_tar_bytes": 22917120,
+    "source_closure_files": 53,
+    "old_execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "new_execution_profile_id": "092f4c044df5365834addf220feb7464e13703239658c754513af9f557a0ce77",
+    "profile_sha256": "79550b1143656babc7db523db34b71b160ff289cdca3bf6f33bb57d75b788272",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "model_verification": {
+      "model_bytes_hashed_this_process": 0,
+      "model_file_hash_receipts_reused": 15
+    },
+    "native_numerical_binaries_unchanged": true
+  },
+  "real_gpu": {
+    "status": "INDEPENDENT_VC09_EVERY_GENERATED_FRONTIER_AUDIT_PASS",
+    "size": "tiny",
+    "text_tokens": 128,
+    "image_rows": 49,
+    "total_cells": 177,
+    "suffix_tokens": 32,
+    "output_counts": {
+      "A": 8,
+      "B": 8
+    },
+    "full_logit_comparisons": 102,
+    "values_per_vector": 248320,
+    "max_abs_error": 0,
+    "controller_comparisons": 7,
+    "actual_native_work": [
+      {
+        "forward_tokens": 257,
+        "prefix_forward_tokens": 177,
+        "stage": "prepare"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-A-0"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-A-1"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-B-0"
+      },
+      {
+        "forward_tokens": 217,
+        "prefix_forward_tokens": 177,
+        "stage": "reference-B-1"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-0"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-1"
+      },
+      {
+        "forward_tokens": 80,
+        "prefix_forward_tokens": 0,
+        "stage": "resume-2"
+      },
+      {
+        "forward_tokens": 4,
+        "prefix_forward_tokens": 0,
+        "stage": "generated-restart"
+      }
+    ],
+    "memory": [
+      {
+        "stage": "prepare",
+        "native_reported": {
+          "live_bytes": 528482304,
+          "copied_bytes": 452984832,
+          "cow_pages": 216,
+          "snapshot_peak_payload_capacity_bytes": 833401859,
+          "host_heap_allocated_bytes": 4069189696
+        },
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "reference-A-0",
+        "native_reported": {},
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "reference-A-1",
+        "native_reported": {},
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "reference-B-0",
+        "native_reported": {},
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "reference-B-1",
+        "native_reported": {},
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "resume-0",
+        "native_reported": {
+          "live_bytes": 528482304,
+          "copied_bytes": 452984832,
+          "cow_pages": 216,
+          "snapshot_peak_payload_capacity_bytes": 833401859,
+          "host_heap_allocated_bytes": 4066955616
+        },
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "resume-1",
+        "native_reported": {
+          "live_bytes": 528482304,
+          "copied_bytes": 452984832,
+          "cow_pages": 216,
+          "snapshot_peak_payload_capacity_bytes": 833401859,
+          "host_heap_allocated_bytes": 4066946288
+        },
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "resume-2",
+        "native_reported": {
+          "live_bytes": 528482304,
+          "copied_bytes": 452984832,
+          "cow_pages": 216,
+          "snapshot_peak_payload_capacity_bytes": 833401859,
+          "host_heap_allocated_bytes": 4066950848
+        },
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      },
+      {
+        "stage": "generated-restart",
+        "native_reported": {
+          "live_bytes": 150994944,
+          "copied_bytes": 75497472,
+          "cow_pages": 36,
+          "snapshot_peak_payload_capacity_bytes": 238114874,
+          "host_heap_allocated_bytes": 3194099584
+        },
+        "scope": "Actual native end-stage counters; not total process/GPU residency peaks"
+      }
+    ],
+    "audited_processes_absent": 18,
+    "raw_result": "/dev/shm/cow-schedule-projection-tiny-gpu-v1/result.json",
+    "result_sha256": "00b70be3c3804110b10f003f54b65bf180effa19ee2c644e8d5733e387779b8c",
+    "independent_auditor": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/audit-vision-full-frontiers-v1.py",
+    "independent_auditor_sha256": "c28dffb653ed9d18782c2395929a4ed95302ecd275d659b0a1109df3ea1020a8",
+    "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; every generated frontier checked for each independent fresh/restore path, including generated-four restart. Retained real embeddings used in producer; live encoder/timing/text matrix remains."
+  },
+  "native_fingerprints": {
+    "sut_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "fresh_oracle_sha256": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "kv": "FP16",
+    "model": "Qwen3.8-Flash-Next UD-Q4_K_XL",
+    "gpu": "RTX PRO 6000 Blackwell GPU0"
+  },
+  "consumer_followup": {
+    "status": "BOUNDED_AUTONOMOUS_H04_Q4_PASS",
+    "client_host": "llm-49",
+    "inference_host": "llm-60",
+    "client_commit": "c660854fb564ec6cac7bb22a5db218db02c7c407",
+    "whole_cli_seconds": 104.17745167692192,
+    "output_tokens": 2256,
+    "raw_evidence": "/home/dflanag3/spatial-artifacts/branchwrite-cross-host-20261018-v1/h04-driver-v3/result-summary.json",
+    "scope": "Fresh default-sampler task passed with no added examples/intervention. Earlier model failures retained; H04 has no separate full-logit oracle"
+  },
+  "private_evidence_destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-vision-schedule-projection-v1/evidence.tar.gz"
+}

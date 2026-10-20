@@ -1,0 +1,27 @@
+{
+  "schema": "completed-derived-payload-eviction-summary-v1",
+  "status": "COMPLETE",
+  "host": "llm-60",
+  "store": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/input-store-v1",
+  "raw_receipt": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/unused-baseline-derived-eviction-20261016.json",
+  "raw_receipt_sha256": "b4e868eee62b5cbcc9bc3626b61f8167ae7519c1244209ebb057434537884a74",
+  "removed_files": [
+    {"sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e", "bytes": 324016276},
+    {"sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020", "bytes": 324643060},
+    {"sha256": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6", "bytes": 307928820}
+  ],
+  "removed_bytes": 956588156,
+  "canonical_metadata_and_manifests_unchanged": true,
+  "retained_source_warm_retry_following_payloads_rehashed_unchanged": true,
+  "scope": "Three unused baseline numerical copies in a completed isolated test Store; not user history or a live serving Store",
+  "guards": ["Audited completed campaign and native exits", "Exact known primary audit SHA", "No live owned process names the Store", "Exclusive nonblocking pool lock", "Resolved exact paths and full payload SHA", "Canonical metadata hashes before/after", "Four retained payload hashes before/after"],
+  "exits": {"command.exit": 0, "wrapper.exit": 0},
+  "retained_failed_attempt": {
+    "path": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/unused-baseline-eviction-run-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "reason": "Cleanup helper incorrectly expected PASS instead of actual FOCUSED-PASS audit status; stopped before any deletion",
+    "correction": "Validate exact known primary audit SHA, actual FOCUSED-PASS status and all recorded process/runner exits"
+  },
+  "limitations": ["Evicted numerical copies require explicit reconstruction", "Canonical histories/controllers/references/manifests and verified compact campaign evidence remain", "The compact campaign backup excludes full checkpoint payloads"]
+}

@@ -1,0 +1,170 @@
+{
+  "model_files": {
+    "<measurement-home>/branching-g3/context-cow-public-20261013/data/expert-profile.bin": {
+      "bytes": 196632,
+      "mtime_ns": 1791875210087956484,
+      "ctime_ns": 1791875210087956484,
+      "sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf"
+    },
+    "<measurement-home>/branching-g3/q8-pack/compat-bf16.json": {
+      "bytes": 38972,
+      "mtime_ns": 1791730871985573745,
+      "ctime_ns": 1791730871985573745,
+      "sha256": "06f2524fbb9c5ced9a4d2ee00b02ef14d04d9030efec45ee2472e9f0cb06348a"
+    },
+    "<measurement-home>/branching-g3/q8-pack/compat-bf16.json.ranges.json": {
+      "bytes": 36,
+      "mtime_ns": 1791730872171579698,
+      "ctime_ns": 1791730872171579698,
+      "sha256": "beef46091a40263ae4e1c29e5d58efcc9ba5853100dad4988c051601951b2e20"
+    },
+    "<measurement-home>/branching-g3/q8-pack/conversions.json": {
+      "bytes": 168994,
+      "mtime_ns": 1791730872350585428,
+      "ctime_ns": 1791730872350585428,
+      "sha256": "4cecc89bd45374fed21bf4249ace0b7b921bfaafb998002ecfd37ef846b9c741"
+    },
+    "<measurement-home>/branching-g3/q8-pack/conversions.json.ranges.json": {
+      "bytes": 37,
+      "mtime_ns": 1791730872047575730,
+      "ctime_ns": 1791730872047575730,
+      "sha256": "cc74f986b7a7b221224882004e676beb8c26e99e8e61155f0a6115c0b82a7362"
+    },
+    "<measurement-home>/branching-g3/q8-pack/dense.bin": {
+      "bytes": 1485688320,
+      "mtime_ns": 1791730871926571857,
+      "ctime_ns": 1791730871926571857,
+      "sha256": "e9588a855a18984a01c4202eaa295fb7211b341d49c440b0f203b5c310048954"
+    },
+    "<measurement-home>/branching-g3/q8-pack/dense.bin.ranges.json": {
+      "bytes": 41,
+      "mtime_ns": 1791730592361620337,
+      "ctime_ns": 1791730592361620337,
+      "sha256": "c4dcb304c9d3d0f768661449eb1b5b61bb215820cebfea282cb9c56c2f52cde4"
+    },
+    "<measurement-home>/branching-g3/q8-pack/index.txt": {
+      "bytes": 93554,
+      "mtime_ns": 1791730872135578546,
+      "ctime_ns": 1791730872135578546,
+      "sha256": "d89936674a95d636fd216d958a52499e998fee92de3b7b3255e2ef71e230d87c"
+    },
+    "<measurement-home>/branching-g3/q8-pack/index.txt.ranges.json": {
+      "bytes": 36,
+      "mtime_ns": 1791730872018574801,
+      "ctime_ns": 1791730872018574801,
+      "sha256": "152ae11b04b41e6584f27348f77471a7eb762bff61206dc48e1b77c216074afc"
+    },
+    "<measurement-home>/branching-g3/q8-pack/native_experts.txt": {
+      "bytes": 5545,
+      "mtime_ns": 1791730595738728521,
+      "ctime_ns": 1791730595738728521,
+      "sha256": "6f5b9a71fee50852c8bf3d92ef246a3551eb12b246c8fba886ed5f9310ce06b0"
+    },
+    "<measurement-home>/branching-g3/q8-pack/native_experts.txt.ranges.json": {
+      "bytes": 35,
+      "mtime_ns": 1791730872204580755,
+      "ctime_ns": 1791730872204580755,
+      "sha256": "7ae1583e1d72dca54101b75ea985610ca1daf76cf947aecfd14cbc6d25583cef"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/chat_template.jinja": {
+      "bytes": 9993,
+      "mtime_ns": 1791730595693727079,
+      "ctime_ns": 1791730595693727079,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/chat_template.jinja.ranges.json": {
+      "bytes": 35,
+      "mtime_ns": 1791730594766697383,
+      "ctime_ns": 1791730594766697383,
+      "sha256": "7d1bfbc9de0c26804d1b6309fab99ff596cc2e8e78e2ba13e41d88613143a01e"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/merges.txt": {
+      "bytes": 3353258,
+      "mtime_ns": 1791730595571723171,
+      "ctime_ns": 1791730595571723171,
+      "sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/merges.txt.ranges.json": {
+      "bytes": 38,
+      "mtime_ns": 1791730595593723876,
+      "ctime_ns": 1791730595593723876,
+      "sha256": "40b6278cc60cf9c293821dc0d65020d401c43ca27b59c95e93ae9855a2d7fcdb"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/token_type.json": {
+      "bytes": 744960,
+      "mtime_ns": 1791730594927702540,
+      "ctime_ns": 1791730594927702540,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/token_type.json.ranges.json": {
+      "bytes": 37,
+      "mtime_ns": 1791730594955703437,
+      "ctime_ns": 1791730594955703437,
+      "sha256": "09eda1122734280e3c119110834c3617de9dac3d82a057d8ef6326c177079e27"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/tokenizer.json": {
+      "bytes": 541,
+      "mtime_ns": 1791730595620724741,
+      "ctime_ns": 1791730595620724741,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/tokenizer.json.ranges.json": {
+      "bytes": 34,
+      "mtime_ns": 1791730594984704366,
+      "ctime_ns": 1791730594984704366,
+      "sha256": "4f1d2469091952c88bd1380eacf10faff6bc11c5ded8f4214fe367188dab16c0"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/vocab.json": {
+      "bytes": 5737005,
+      "mtime_ns": 1791730594737696453,
+      "ctime_ns": 1791730594737696453,
+      "sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    },
+    "<measurement-home>/branching-g3/q8-pack/tokenizer/vocab.json.ranges.json": {
+      "bytes": 38,
+      "mtime_ns": 1791730595650725702,
+      "ctime_ns": 1791730595650725702,
+      "sha256": "44b088e183202f415bbbaf5592c6ccb51bda91dde476912e36ae04a46320c1be"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf": {
+      "bytes": 10946624,
+      "mtime_ns": 1790729589381418726,
+      "ctime_ns": 1790729589392419008,
+      "sha256": "2dabcbb53ca537a7947bc7d20414fd464eeaf4d66d43021b5b2556cc87544ad2"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00002-of-00006.gguf": {
+      "bytes": 682434912,
+      "mtime_ns": 1790729599307673074,
+      "ctime_ns": 1790729599645681742,
+      "sha256": "494ca4ed3dbf97bc28da88af3890b8877b9032f909812d00c0526a9ca5e91d2e"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00003-of-00006.gguf": {
+      "bytes": 54400261312,
+      "mtime_ns": 1790730317598697581,
+      "ctime_ns": 1790730345246444894,
+      "sha256": "34efd79a80a1ce540a517a5d56171924b66ce1c38b04c904f17ad6d8ef17cf20"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00004-of-00006.gguf": {
+      "bytes": 49446841216,
+      "mtime_ns": 1790731275566815044,
+      "ctime_ns": 1790731295972374122,
+      "sha256": "bfa634025fabbd2658bf7694bc80b90e571699c768723f844c934c7ef06c691a"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00005-of-00006.gguf": {
+      "bytes": 49668930400,
+      "mtime_ns": 1790732080147774654,
+      "ctime_ns": 1790732103090440103,
+      "sha256": "232a8f14cc0fa4262e7efe8593774b136fe40909e39c7a020342ddaa27259a97"
+    },
+    "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00006-of-00006.gguf": {
+      "bytes": 34015618784,
+      "mtime_ns": 1790732782539877339,
+      "ctime_ns": 1790732799161348712,
+      "sha256": "538a93bca918064983409a41187ad4c68640f9aced6f29564da8f551bf86d7a5"
+    }
+  },
+  "model_bytes_hashed": 0,
+  "model_file_hash_receipts_reused": 27,
+  "prior_receipt_sha256": "e63a9fed5c46ef1618d95bf9e4264706c80c5b4f174089ffc8681e3a307f5593",
+  "timestamp_utc": "2026-10-13T07:47:05Z"
+}

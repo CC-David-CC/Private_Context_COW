@@ -1,0 +1,63 @@
+{
+  "additional_fast_tiny": {
+    "archive": {
+      "archive_bytes": 183835277,
+      "archive_sha256": "98f910f7938ae090bc225ac602eef2eb2d084ed24865a4bd105023694731dce0",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-tiny-v1/evidence.tar.gz",
+      "individually_verified_data_files": 362,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 363,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "files": 142,
+    "logical_bytes": 141045760,
+    "manifest_sha256": "fde527dfb456fd42595aa04d9224e0efa02d9e7459a83b2dda82d2912f5ed97c",
+    "scope": "Same verified procedure on profile61 current-fast tiny logs; current92 new-image and8K timing vectors remain local."
+  },
+  "files": 221,
+  "logical_bytes": 219514880,
+  "retirements": [
+    {
+      "archive": {
+        "archive_bytes": 183834636,
+        "archive_sha256": "834fbb10186d260c562ef9496f6fefcace1cf05a7e8cb8c3663e1f55db170802",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-full-frontiers-tiny-v1/evidence.tar.gz",
+        "individually_verified_data_files": 362,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 363,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 141045760,
+      "manifest_sha256": "02970fa5d84317aecbaf89318419b064f635288c398282cd65068cb9ec60386a",
+      "physical_free_delta": 141336576,
+      "remote_reverification": {
+        "archive_sha256": "834fbb10186d260c562ef9496f6fefcace1cf05a7e8cb8c3663e1f55db170802",
+        "manifest_sha256": "02970fa5d84317aecbaf89318419b064f635288c398282cd65068cb9ec60386a"
+      },
+      "scope": "Only old derived .f32 measurement files; canonical histories, original images, embeddings, manifests, logs and current/old speed-comparison vectors remain. Original full vectors remain recoverable from verified private archive. Not a runtime eviction test.",
+      "status": "ARCHIVED_DERIVED_VECTORS_RETIRED"
+    },
+    {
+      "archive": {
+        "archive_bytes": 126751303,
+        "archive_sha256": "0b6c2d7db33c57083bb90d94488773651737b4b7615fb77b62b22a53c219b14e",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-vc09-tiny-v1/evidence.tar.gz",
+        "individually_verified_data_files": 293,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 294,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 78469120,
+      "manifest_sha256": "24edbb00fe4352556142ea7b43494e8f2797646ace0b98ddfc360448c6947b14",
+      "physical_free_delta": 78630912,
+      "remote_reverification": {
+        "archive_sha256": "0b6c2d7db33c57083bb90d94488773651737b4b7615fb77b62b22a53c219b14e",
+        "manifest_sha256": "24edbb00fe4352556142ea7b43494e8f2797646ace0b98ddfc360448c6947b14"
+      },
+      "scope": "Only old derived .f32 measurement files; canonical histories, original images, embeddings, manifests, logs and current/old speed-comparison vectors remain. Original full vectors remain recoverable from verified private archive. Not a runtime eviction test.",
+      "status": "ARCHIVED_DERIVED_VECTORS_RETIRED"
+    }
+  ],
+  "scope": "Only .f32 numerical measurement logs from two older tiny profiles. Exact receiver archive+manifest revalidated before local ownership/inode/size/hash checks and unlink. Full vectors recoverable from private box-git archive only; canonical histories/originals/embeddings/manifests/logs retained. No runtime eviction or pressure qualification implied. Windows unchanged.",
+  "status": "VERIFIED_PRIVATE_ARCHIVES_OLD_LOCAL_NUMERICAL_LOGS_RETIRED"
+}

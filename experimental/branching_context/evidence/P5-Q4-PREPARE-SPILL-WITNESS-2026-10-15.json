@@ -1,0 +1,52 @@
+{
+  "event_count": 13,
+  "matched_count": 3,
+  "matches": [
+    {
+      "eviction_sequence": 0,
+      "freed_bytes": 1830602232,
+      "key": [
+        "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+        "e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286"
+      ],
+      "load_id": 1,
+      "load_sequence": 4,
+      "load_start_sequence": 1,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "eviction_sequence": 3,
+      "freed_bytes": 1830602232,
+      "key": [
+        "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+        "c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316"
+      ],
+      "load_id": 5,
+      "load_sequence": 6,
+      "load_start_sequence": 5,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "eviction_sequence": 8,
+      "freed_bytes": 1830602232,
+      "key": [
+        "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+        "bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a"
+      ],
+      "load_id": 9,
+      "load_sequence": 12,
+      "load_start_sequence": 9,
+      "loaded_bytes": 1830602232
+    }
+  ],
+  "phase": "prepare",
+  "phase_id": "3ab92dbde3c74361b5d7716cb7f05826",
+  "process_id": 1879870,
+  "scope": "WITNESS_ONLY; prepare phase trace validation, not campaign pass",
+  "source": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/prepare-pool-transitions.json",
+  "source_sha256": "73fdfcd340fd390c82158690aefb81891ff8ea908503cdeb62ba012b5187f84b",
+  "validator_source": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/pool_campaign.py"
+}

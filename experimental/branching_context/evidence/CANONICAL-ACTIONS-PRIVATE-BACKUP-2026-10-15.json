@@ -1,0 +1,26 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "RECEIVER_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-canonical-native-actions-v1",
+  "archive": "evidence.tar",
+  "archive_bytes": 168386560,
+  "archive_sha256": "45d439d8a2e534bf93a864d3bf46145ff5c645359b73ca290463edeb7d2fb4e6",
+  "manifest_sha256": "0877b0dcdd6de9e3a991036e4ea8f535c86fd3455328019dc3b8ae21ab1e0324",
+  "members": 109,
+  "regular_files": 84,
+  "regular_file_bytes": 168285332,
+  "receiver_verification": {
+    "file": "receiver-verification.json",
+    "sha256": "7a1818ae947fe2b5d2658f137941a2e5fe3accec767fda2e5d53592b06cedcda",
+    "status": "PASS"
+  },
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "scope": "Coordinator fork/retry GPU tiny result, CPU harness tests/RED, derived profile, primary vector audit and three exact launch/profile source inputs",
+  "primary_check": "Primary reread receiver verification and independently rehashed archive and receipt.",
+  "limitations": [
+    "Raw evidence lives outside source Git; cloning the repository does not retrieve it.",
+    "Capacity policy/IPC/growth work is outside this archive.",
+    "Three earlier packaging setup failures remain separately retained on llm-60; all occurred before destination archive bytes were written."
+  ]
+}

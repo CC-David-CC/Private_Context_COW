@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "scope": "Subset of combined CPU/client/server suite; no GPU.",
+  "tests": [
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_input_is_detached_at_startup",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_missing_profile_is_explicitly_unavailable",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_reports_only_public_profile_fields_without_using_adapter",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_connection_info.ConnectionInfoTests.test_wrong_key_and_foreign_query_cannot_discover",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_append_user_route_passes_only_new_content_and_streams_text",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_auth_and_foreign_origin_reject_before_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_catalog_route_is_authenticated_read_only_and_root_scoped",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_disconnect_sets_transient_cancellation_before_publication",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_head_fork_and_rewind_use_adapter_authority",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_missing_request_fields_reject_before_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_nonstream_response_contains_acknowledged_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_public_bind_requires_key",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_publication_failure_never_emits_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_stream_separates_provisional_token_and_durable_success",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_text_routes_are_explicitly_disabled_without_text_adapter",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_text_stream_and_nonstream_decode_same_canonical_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http.CowHTTPTests.test_unknown_options_do_not_silently_change_the_contract",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_efbig_nonstream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_efbig_stream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_enospc_nonstream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_enospc_stream_reports_writer_cause_without_ack_and_retry_succeeds",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_publication_errors.CowHTTPPublicationErrorTests.test_nonstream_disconnect_cancels_waiting_model_and_handler_exits",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_chat_lifecycle_fork_retry_and_namespace_catalog",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_closed_user_context_is_forkable_and_independent_questions_use_only_suffixes",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_context_and_prepared_root_operations_are_not_interchangeable",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_synthetic_frontier_bytes_are_actually_validated",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_accepts_on_demand_disk_load_after_request_received",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_disk_load_that_succeeds_after_source_acquisition",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_intervening_eviction_wrong_key_and_overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_audit_rejects_missing_eviction_reload_or_request_success",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_causal_eviction_read_request_audit_accepts_matching_chain",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_graceful_ready_close_publishes_bounded_private_trace",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_http_trace_is_opt_in_and_binds_request_to_canonical_source",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_incomplete_or_failed_server_lifecycle_never_publishes_trace",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_overflowed_trace_is_not_published_as_complete_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_pool_acquisition_marker_is_opt_in_and_carries_operation_source",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_trace_target_preflight_requires_private_directory_and_new_path",
+      "status": "PASS"
+    },
+    {
+      "id": "serve.test_cow_http_pool_trace.CowHttpPoolTraceTests.test_worker_close_trace_records_actual_numeric_exit_and_preserves_errors",
+      "status": "PASS"
+    }
+  ],
+  "combined_test_count": 159,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "source_sha256": {
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/adaptive_p.py": "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py": "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/checkpoint_cache.py": "84e32e9d2208a87fb41f5cc576c84d8e47fa6afc7c82f16c2ad8b78918aaac55",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/controller.py": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/coordinator.py": "886ccfeb0a175e1afb5720dbe087d3b5844a486a613d8f6cd68d99f82ed19130",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/dry.py": "cdf0b57a8856cecf576484d6a9a042558e6f4e5c6c10e452f0d276f3a4cc14bf",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/dynatemp.py": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/evaluation.py": "bb26837681e30fa510d6dd961126669e68f174ef940449a09ef3ebda3938097d",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/execution_receipt.py": "f03740fb405254ad932b6acb28c732b5313cfd07fcbe44b9e44d2757f42f8930",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/grammar_first.py": "03e2a6560558f564cc893148bdc01f17989dd7a21721f5129cc9829754dea62d",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/input_schedule_projection.py": "578c6bdaf6f190f6903a7595647199a9b9187e18c84b0ae590f719728b925662",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/input_spans.py": "9304236e4e8c81cc3dc8d1dc8059b99bc536af3c2a17abbfbe22f2e745eb6ec2",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/min_p.py": "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/mirostat2.py": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/pools.py": "d36555a0a706308c1626fa22adb253738744331ed0948d26a0a1003c9f4d29aa",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/presentation_binding.py": "a911b28eafd87b75b7adeea0f1b7c7f110b71598bd730943b97983b0499e6f0d",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/presentation_request.py": "08f9e5b55e4850af8f3b7537453d6e859d869b6366afbd4a5f607e84e71cdcf7",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/real.py": "57791ff21a3c79e954a7546945f1f862b5e0d43bcbe4312264809edc56486fc4",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/sampled_controller.py": "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/sampling_proposal.py": "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/seed_controls.py": "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/store.py": "7bd6700966ccecea7c06cb85dfeb77a305f4519cf0c3a4b8f2b3b62050dd9bad",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/strata_backend.py": "c60ac110c337ab845c5231dd10efac92c34dc2f0a8a45027242bf2bf7e3bd6f8",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/text_stops.py": "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/thinking_grammar.py": "5aad49e045e5e20635d0c6e7e8777fbcc40b826832a8fae5aeea3933a2aa2784",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/typical.py": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/vision_artifacts.py": "c654c71ee0ed91db01ccd8cccf6ebca62a6734fa2a535734b0694bfec8138b9d",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/vision_controllers.py": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/vision_dry.py": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/vision_embeddings.py": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/vision_execution.py": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/experimental/branching_context/src/context_time_travel/xtc_pipeline.py": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_adapter.py": "9dfd1e4a1d0e2605539dbc1c9be39fa098447f054b48236bb60893e7a1a60074",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_browser_fixture.py": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_grammar.py": "169b9a58ec6bbf62e3826915e6a6a11761b9436c75f344eef6c2742c8341eada",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_grammar_catalog.py": "9d4c9712687ca2607321ab22b2e8ce0491cf3f60d9c87a0410a780e8e13d711d",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_grammar_disk.py": "7e65d5c3581672e399775b8e129fddb3b5cab9e14c5e5381458269e3cb0a1026",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_grammar_router.py": "e719332c2a5260a6498ae28c20318678a3286fbf9ce93dd76998ff75281f42fa",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_http.py": "3eb5d153eba2af51ea8bbb2859f5f0294f79a5ef495a8e509028bfa44a542220",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_prefix.py": "83a0feaa70b7d0305ba6a14de378b67b5da302c6df20ede57c9694671aef38db",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_prompt_encoder.py": "ccfdebd6114ff22aee39671325f57c0bbd40b5198c4db786cdc2ed43c84c06dc",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_renderer.py": "90c2b552559c0e88fedecf58cdc71c86344e757b645eff18378f5a9401496b06",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_text_adapter.py": "94e95b0807919d751c65748ec013bc36bfef8c82eefb48334437c96c3e7aba29",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_vision.py": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_vision_encoder.py": "54bf5ff283d46df81628a2992588ba138e44cf3004708e6e1ec159bd6a7b2445",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_vision_preparer.py": "d1de11d62a10e8cced55a93b2df618eaabc86643c28760c58cefa51a25ca1148",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/cow_workspace.py": "3d223b38936d24b4fb7857101fdfd3fd429affb98ec86c9cb8b376a0e95e97af",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py": "594c5a566dec750bcc5ab6ba3a3f7e9f4c10207d9941f3d47c08f4a6f2e6dbe7",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_http.py": "1f2044d35156d6c98f7174a5b8650e793bf908fddf2878a2c0d244c174675fca",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_http_pool_trace.py": "9d344d78458f61c293e4d7977e866c741a244fe17ca8079056b558a3073dc233",
+    "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_http_publication_errors.py": "1fc7053e520f20610f387c1103ec9110966850bd19e5728de6f29649fdcf1d49"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PRE_MODEL_ADMISSION_FAIL",
+  "model_calls": 0,
+  "native_forward_tokens": 0,
+  "reason": "CLI selected append-user for an idle context-only root; server correctly rejected",
+  "old_operations_retained": true,
+  "corrected_client": "dev4, BranchWrite4239de7",
+  "corrected_client_evidence": "158unit/CPU-HTTP/subprocess checks pass; installed controls pass; corrected Q8 trial pending",
+  "scope": "No backend code/profile/tolerance changed",
+  "archives": {
+    "client_sha256": "3840ad872da92bf2245ffea2d6a6c6adbc259f15cfe1f1d4f29e1de19b7b389f",
+    "server_sha256": "f9638c76794bf4fdc5499a69d71978567d66e4328dda35d4b1b6a4b96eb21341"
+  }
+}

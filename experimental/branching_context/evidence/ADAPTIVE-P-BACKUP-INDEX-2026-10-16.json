@@ -1,0 +1,75 @@
+{
+    "schema":  "private-adaptive-p-qualified-backup-index-v1",
+    "status":  "RECEIVER_VERIFIED_PASS",
+    "destination_directory":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-adaptive-p-qualified-v1",
+    "archive_path":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-adaptive-p-qualified-v1/evidence.tar",
+    "archive_sha256":  "c33abbc3e72088bbd17ad95b29a02e42d68d36557606fb07295e73732a4e9601",
+    "archive_bytes":  1150033920,
+    "manifest_sha256":  "0a6cc9f8b2f77032ce83024ed52a8e6e6e59d29357702f6ba7deabf35222bc5a",
+    "member_count":  2339,
+    "total_member_bytes":  1146996810,
+    "raw_f32_count":  912,
+    "raw_f32_bytes":  905871360,
+    "excluded_count":  39,
+    "excluded_bytes":  2473812384,
+    "receiver_readback":  {
+                              "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-adaptive-p-qualified-v1/readback.json",
+                              "sha256":  "302db013facd86e50fa97d056062ae5443124d6b8c1b7d882247cd257467fb70",
+                              "status":  "PASS",
+                              "archive_mode":  "600",
+                              "directory_mode":  "700",
+                              "extracted_files":  0
+                          },
+    "runner_receipts":  {
+                            "transfer":  "/home/dflanag3/spatial-artifacts/adaptive-p-backup-transfer-v1",
+                            "transfer_command_exit":  0,
+                            "transfer_wrapper_exit":  0,
+                            "readback":  "/home/dflanag3/spatial-artifacts/adaptive-p-backup-readback-v1",
+                            "readback_command_exit":  0,
+                            "readback_wrapper_exit":  0,
+                            "preflight":  "/home/dflanag3/spatial-artifacts/adaptive-p-backup-preflight-v3",
+                            "preflight_command_exit":  0,
+                            "preflight_wrapper_exit":  0
+                        },
+    "qualification":  {
+                          "source_commit":  "747d5d4b4ba7b10e99ca7312b918e5587e126385",
+                          "source_tree_files_archived":  997,
+                          "committed_overlay_files_pinned":  58,
+                          "cpu_tests":  745,
+                          "g0_tests":  51,
+                          "preview_qualification_sha256":  "4167acea93f6478034918f56b0f845faf20120fa09ba8d736070f61334ae4777",
+                          "expanded_qualification_sha256":  "63143233d19e31123b4eeaeeccd899fd9fa256d671c0ee7e883a18aa1d861868",
+                          "expanded_raw_vector_pairs":  420,
+                          "native_sha256":  "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+                          "cpu_code_closure_files":  995,
+                          "auxiliary_g0_evidence_json_files":  2,
+                          "source_file_scope_note":  "Frozen source tree contains 997 files: 995 code/test closure files plus two auxiliary G0 evidence JSONs; the separate 58-file committed-overlay proof was verified against stage.json."
+                      },
+    "scope":  "Q4/Q8 Adaptive-P previews, combined Q4 tiny, Q4 8K timing, qualification collectors, profiles/build/source proof and optional Adaptive-P Q4 plot assets; failed initial integrated Q4 and collector attempts retained.",
+    "limitations":  "All checkpoint .state files, model weights, objects/build objects, caches and Python bytecode were excluded. Raw logits and canonical JSON history metadata remain. Archive is evidence, not a restorable checkpoint package.",
+    "preserved_preflight_failures":  [
+                                         {
+                                             "run":  "/home/dflanag3/spatial-artifacts/adaptive-p-backup-preflight-v1",
+                                             "reason":  "runner refused output directory inside checkout; no wrapper receipt directory was created",
+                                             "invocation_exit":  65,
+                                             "receipt_directory_created":  false,
+                                             "command_exit":  null,
+                                             "wrapper_exit":  null,
+                                             "requested_output_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/runs/adaptive-p-backup-preflight-v1"
+                                         },
+                                         {
+                                             "run":  "/home/dflanag3/spatial-artifacts/adaptive-p-backup-preflight-v2",
+                                             "reason":  "obsolete assertion treated 58 pinned overlay files as full stage tree count; actual tree was 997 files",
+                                             "command_exit":  1,
+                                             "wrapper_exit":  1
+                                         }
+                                     ],
+    "packager":  {
+                     "source":  "C:/Users/dflanag3/Documents/fleet/context-cow-artifacts/adaptive-preview-backup-plan-v1/backup_adaptive_p_qualified_v1.py",
+                     "sha256":  "d9ffc79f1f358ee188db7c67d91cab69beffbaac17e977495847c832f6063677"
+                 },
+    "readback_script":  {
+                            "source":  "C:/Users/dflanag3/Documents/fleet/context-cow-artifacts/adaptive-preview-backup-plan-v1/readback_adaptive_p_qualified_v1.py",
+                            "sha256":  "0e7d8b1663f7998455140baee581f94baa2dca8e9ad61631fede8a0cd712f441"
+                        }
+}

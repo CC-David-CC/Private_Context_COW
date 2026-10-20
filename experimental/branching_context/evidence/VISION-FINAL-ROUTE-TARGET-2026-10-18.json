@@ -1,0 +1,118 @@
+{
+  "actual_native_work": [
+    {
+      "forward_tokens": 10545,
+      "prefix_forward_tokens": 9265,
+      "stage": "prepare"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-A-0"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-A-1"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-B-0"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-B-1"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-0"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-1"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-2"
+    },
+    {
+      "forward_tokens": 124,
+      "prefix_forward_tokens": 0,
+      "stage": "generated-restart"
+    }
+  ],
+  "actual_outputs": {
+    "A": 128,
+    "B": 128
+  },
+  "controller_comparisons": 7,
+  "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+  "fingerprints": {
+    "backend": "strata",
+    "backend_revision": "private-llm60-20261012T0818",
+    "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "fresh_oracle_executable_sha256": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "gpu": [
+      0
+    ],
+    "host": "llm-60",
+    "kv": "fp16",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "model_hash_receipt_sha256": "111fb6d1cedf28537c0d1787338da7dad923f637b384cd180cd122bc9ae15e34",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "production_source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+    "profile_file_sha256": "b4cc8d480cdd02a7ec08645fb2d1c68086db0eef0f26ba4ffc71bc02d9e1ec14",
+    "sut_executable_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e"
+  },
+  "full_vector_comparisons": 71,
+  "image_rows": 1073,
+  "limits": "Target samples prefix/suffix and generated1/16/64/final; not every generated frontier. Q4/current92 only, no Q8/split/fullVC09/G qualification. All vectors now archive-only after private receiver verification. Memory maxima are1Hz observations, not allocator-exact GPU peaks.",
+  "local_retirement": {
+    "logical_bytes": 839972296,
+    "physical_free_delta": 840196096,
+    "state_logical_bytes": 735677896,
+    "status": "OPTIONAL_NUMERICAL_PAYLOADS_RETIRED_AFTER_VERIFIED_BACKUP",
+    "vector_logical_bytes": 104294400,
+    "vector_policy": "Full numerical logs archived and receiver-verified; local .f32 now archive-only. Canonical/originals/embeddings/manifests/logs remain; not runtime eviction."
+  },
+  "max_abs_error": 0,
+  "memory_observations": {
+    "elapsed_seconds": 280.0601010660175,
+    "errors": [],
+    "job_exits": {
+      "command.exit": "0",
+      "wrapper.exit": "0"
+    },
+    "native_reported_hwm_kib_max": 80383848,
+    "observed_gpu_used_mib_max": 83367.0,
+    "observed_native_rss_kib_max": 80383848,
+    "samples": 281,
+    "sampling_interval_seconds": 1,
+    "scope": "Read-only GPU0 nvidia-smi and /proc owned-native observations. Sampled maximum, not continuous or allocator-exact GPU peak. RSS/HWM includes mapped/file-backed memory. No model inputs, checks or placement changed.",
+    "status": "OBSERVATION_COMPLETE_NOT_A_CORRECTNESS_PASS"
+  },
+  "output_limit": 128,
+  "private_archive": {
+    "archive_bytes": 160373200,
+    "archive_sha256": "c86698c0448d5e9de07450570e87e8724493ad567fa7188cc62f8fcc19a8f5d1",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-vision-final-route-target-v1/evidence.tar.gz",
+    "individually_verified_data_files": 328,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 329,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "production_source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+  "profile_sha256": "b4cc8d480cdd02a7ec08645fb2d1c68086db0eef0f26ba4ffc71bc02d9e1ec14",
+  "result_sha256": "66ba657a6d22019acace5a1da3711893ea74cee363c919fcdb096db4ce602e19",
+  "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; sampled frontiers, not every generated token. Retained real embeddings used in producer; live encoder/timing/text matrix remains.",
+  "size": "target",
+  "status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+  "suffix_tokens": 512,
+  "text_control_tokens": 8192,
+  "total_cells": 9265
+}

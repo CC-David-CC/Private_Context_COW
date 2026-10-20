@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED_BYTES",
+  "source_host": "llm-60",
+  "source_archive": "/home/dflanag3/branching-g3/namespace-q4-full-v1.tar",
+  "destination_host": "box-git",
+  "destination_archive": "/srv/data/git/private_context_cow.evidence/20261014-namespace-q4/namespace-q4-full-v1.tar",
+  "bytes": 2685798400,
+  "sha256": "3a6b3201097cb2aac66992ff0a9e9cb504c967ca0032b1b5656fc8117c9e87ef",
+  "destination_mode": "600",
+  "destination_directory_mode": "700",
+  "source_and_destination_hashes_equal": true,
+  "destination_tar_list_exit": 0,
+  "transfer_exit": 0,
+  "archive_format": "uncompressed tar",
+  "members_relative_to": "/home/dflanag3",
+  "included_roots": [
+    "spatial-artifacts/gpu-http-q4-namespace-luna-20261014",
+    "branching-g3/gpu-http-q4-namespace-luna-20261014"
+  ],
+  "scope": "Q4 raw namespace campaigns including retained pilots/failures, Store/checkpoints, fresh-reference dumps and frozen Python source trees",
+  "limits": [
+    "External model files, packs, system libraries and native binaries referenced outside these roots are not included.",
+    "Symbolic links are archived as links, not expanded.",
+    "Transfer and archive readability were checked; this is not a replay or restore qualification."
+  ]
+}

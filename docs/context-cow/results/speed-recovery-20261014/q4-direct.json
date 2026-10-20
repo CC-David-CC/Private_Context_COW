@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "layer": "direct",
+  "branches": {
+    "A": {
+      "native_work": {
+        "consumed": 1104,
+        "prompt_consumed": 1088,
+        "decode_tokens": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1088,
+        "total_prefill_tokens": 1104,
+        "continuation_operator": "batched-prefill",
+        "prefill_chunks": 25,
+        "prefill_seconds": 1.32662,
+        "decode_seconds": 0.355079,
+        "generated": [
+          117,
+          128,
+          116,
+          128,
+          119,
+          128,
+          121,
+          65121,
+          42254,
+          83975,
+          44382,
+          150003,
+          50467,
+          91914,
+          37769,
+          61222
+        ]
+      },
+      "process_seconds": 19.892961340025067,
+      "output_tokens": 16,
+      "tokens_per_second": 45.06039501068776,
+      "exact_validation": "PASS",
+      "scope": "Native compute-loop wall time includes frontier audit output"
+    },
+    "B": {
+      "native_work": {
+        "consumed": 1104,
+        "prompt_consumed": 1088,
+        "decode_tokens": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1088,
+        "total_prefill_tokens": 1104,
+        "continuation_operator": "batched-prefill",
+        "prefill_chunks": 25,
+        "prefill_seconds": 1.30338,
+        "decode_seconds": 0.354762,
+        "generated": [
+          248,
+          254,
+          157,
+          110,
+          97,
+          157,
+          116,
+          105,
+          6315,
+          112,
+          14504,
+          250,
+          14504,
+          97,
+          14504,
+          105
+        ]
+      },
+      "process_seconds": 19.731420646072365,
+      "output_tokens": 16,
+      "tokens_per_second": 45.100659033380126,
+      "exact_validation": "PASS",
+      "scope": "Native compute-loop wall time includes frontier audit output"
+    }
+  },
+  "execution_profile_id": "7ab5cd46b79051cc692894e353dd70e171103d5589480a36d9c8a1640364b667",
+  "controller_scope": "No controller continuity qualification at these diagnostic layers"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "context-cow-focused-regression-v1",
+  "status": "RED_CONFIRMED_UNQUALIFIED",
+  "scope": "Synthetic Linux CPU scheduler regression; no GPU numerical or performance claim",
+  "source_commit_before_new_test": "8271372ceb5b549ff584e286a4842ef17204d726",
+  "host": "llm-60",
+  "run": "/home/dflanag3/spatial-artifacts/cow-root-residency-20261015/red-v3",
+  "command": ["env", "PYTHONPATH=/home/dflanag3/spatial-artifacts/cow-root-residency-20261015/source/src", "python3", "-m", "unittest", "-v", "tests.implementation.test_pool_root_residency"],
+  "command_exit": 1,
+  "wrapper_exit": 1,
+  "executed": 3,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 0,
+  "tests": [
+    {"id": "RootResidencyTests.test_first_ask_keeps_just_prepared_root_without_release", "status": "FAIL", "expected_release_count_at_execution": 1, "actual_release_count_at_execution": 2},
+    {"id": "RootResidencyTests.test_returning_to_different_root_releases_previous_tree", "status": "PASS"},
+    {"id": "RootResidencyTests.test_switching_sibling_branches_does_not_release_same_root", "status": "PASS"}
+  ],
+  "source_sha256": {
+    "tests/implementation/test_pool_root_residency.py": "a277288a81f678e5404ff8c28deeb0da816f4b0e7a69168493873eba9886c5b8",
+    "src/context_time_travel/coordinator.py": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac"
+  },
+  "finding": "Root creation does not set worker.last_root; the first request clears its already prepared root and invokes release before execution. Routine end-of-job releases are deliberately excluded from this assertion.",
+  "production_changed": false,
+  "earlier_attempts": [
+    {"run": "red-v1", "status": "SETUP_FAILURE", "reason": "Copied frozen test directory was read-only; upload failed, so unittest could not import the new module", "command_exit": 1, "wrapper_exit": 1},
+    {"run": "red-v2", "status": "HARNESS_ASSERTION_FAILURE", "reason": "Initial assertions included routine post-request releases. Corrected tests inspect count at execution and wait separately for worker cleanup.", "command_exit": 1, "wrapper_exit": 1}
+  ],
+  "next": "Measure current real-client baseline, then test a minimal root-residency correction and rerun ownership, publication and branch-switch regressions. No gate qualified."
+}

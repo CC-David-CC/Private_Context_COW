@@ -1,0 +1,36 @@
+[
+  {
+    "label": "prepare-final-configure",
+    "argv": [
+      "cmake",
+      "-S",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "-B",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5885359720559791
+  },
+  {
+    "label": "prepare-page-probe-build",
+    "argv": [
+      "cmake",
+      "--build",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-j16",
+      "--target",
+      "branch_digest_pages_gpu"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5188362429616973
+  },
+  {
+    "label": "prepare-page-digests",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/tests/core/branch_digest_pages_test.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.8056002010125667
+  }
+]

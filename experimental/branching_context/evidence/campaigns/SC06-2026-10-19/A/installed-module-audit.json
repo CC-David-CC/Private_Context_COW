@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "wheel_sha256": "516a3629bdcb63f2d2f78ea27bc0a1c2cb759912dc2aa220257f7543f7f37e2a",
+  "modules": [
+    {
+      "module": "branchwrite",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/__init__.py",
+      "sha256": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c"
+    },
+    {
+      "module": "branchwrite.language",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/language.py",
+      "sha256": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985"
+    },
+    {
+      "module": "branchwrite.records",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/records.py",
+      "sha256": "cbc34ddb6b510217a2a1995e2c31ea092f1b0c211b2daa1039dca18a2093d09b"
+    },
+    {
+      "module": "branchwrite.kernel",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/kernel.py",
+      "sha256": "cb6a345521f496ead177c9cfbb908929af8c268ce50a440a78086a66d5343e10"
+    },
+    {
+      "module": "branchwrite.execution",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/execution.py",
+      "sha256": "31abda723bf8712c52189195cc3da4af132c930adc4ca2524523003082390ec2"
+    },
+    {
+      "module": "branchwrite.text_file_codec",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/text_file_codec.py",
+      "sha256": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8"
+    },
+    {
+      "module": "branchwrite.tool_registry",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/tool_registry.py",
+      "sha256": "54c5b6625f5b975523b8830332f027186077e7a724dc22a4748f67b7da414568"
+    },
+    {
+      "module": "branchwrite.tool_dispatch",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/tool_dispatch.py",
+      "sha256": "92b386ce99805dccb063d840af35f9d1a9efcc773705a8563a6eec861b5a8bd6"
+    },
+    {
+      "module": "branchwrite.cow_client",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_client.py",
+      "sha256": "a08bd70de75399583cfc19229dc6e0a6ff5447286d5b8856b5322e5eda2f86d7"
+    },
+    {
+      "module": "branchwrite.cow_actions",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_actions.py",
+      "sha256": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4"
+    },
+    {
+      "module": "branchwrite.model_inputs",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/model_inputs.py",
+      "sha256": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea"
+    },
+    {
+      "module": "branchwrite.thinking_ladder",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/thinking_ladder.py",
+      "sha256": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc"
+    },
+    {
+      "module": "branchwrite.model_dispatch",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/model_dispatch.py",
+      "sha256": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007"
+    },
+    {
+      "module": "branchwrite.cow_fork",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/cow_fork.py",
+      "sha256": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0"
+    },
+    {
+      "module": "branchwrite.planning_retry",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/planning_retry.py",
+      "sha256": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946"
+    },
+    {
+      "module": "branchwrite.verification",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/verification.py",
+      "sha256": "f2ca101512c0501639012f39c411d353421677a63790ea185e406917e7fea7e0"
+    },
+    {
+      "module": "branchwrite.image_feedback",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/image_feedback.py",
+      "sha256": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe"
+    },
+    {
+      "module": "branchwrite.interpreter",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/interpreter.py",
+      "sha256": "cbb7a20a1d9015968c2b81aa4c61ac2a17d9a4f33b8496199f586a7593852d94"
+    },
+    {
+      "module": "branchwrite.coding_defaults",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/coding_defaults.py",
+      "sha256": "e11f62a6b8c49c644afeeb154908137c5a415de55b67529cd39c0e0a97a0c34c"
+    },
+    {
+      "module": "branchwrite.run_cli",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/run_cli.py",
+      "sha256": "8cfbfdacb4729d725f80c0bbca8daa062b30a47e4b4fbe6530bdba554ea80f95"
+    },
+    {
+      "module": "branchwrite.coding_cli",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/coding_cli.py",
+      "sha256": "866ab705baef8aa00d04a4f5b6256100bf6bdcce6adbdf3d7ebf05587b333a3d"
+    },
+    {
+      "module": "branchwrite.__main__",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/__main__.py",
+      "sha256": "01b8450ef67c026f663d726ca17bcf8bf90a699650d18d6a22a509b68b3002bb"
+    },
+    {
+      "module": "branchwrite.terminal",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/terminal.py",
+      "sha256": "b7c711312c2076f423fef08f5d54a507d3822c73fbae616a1089b4f9b9358495"
+    },
+    {
+      "module": "branchwrite.browser_assets",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/browser_assets.py",
+      "sha256": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31"
+    },
+    {
+      "module": "branchwrite.command_outputs",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/command_outputs.py",
+      "sha256": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9"
+    },
+    {
+      "module": "branchwrite.browser_isolation",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/browser_isolation.py",
+      "sha256": "782fb456cc47fe0f8a4c92a9e0729814a9bf9676d76b28246d99b8751b5fad10"
+    },
+    {
+      "module": "branchwrite.terminal_worker",
+      "path": "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages/branchwrite/terminal_worker.py",
+      "sha256": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996"
+    }
+  ],
+  "sys_path": [
+    "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages",
+    "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/output",
+    "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/output/guard",
+    "/usr/lib/python314.zip",
+    "/usr/lib/python3.14",
+    "/usr/lib/python3.14/lib-dynload",
+    "/home/dflanag3/spatial-artifacts/branchwrite-shell-admission-package-20261019-v1/installed-check/venv/lib/python3.14/site-packages"
+  ]
+}

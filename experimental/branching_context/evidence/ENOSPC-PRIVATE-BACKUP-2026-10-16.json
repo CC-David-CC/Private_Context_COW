@@ -1,0 +1,67 @@
+{
+  "backup_runner_receipts": [
+    {
+      "command_exit": 0,
+      "path": "/home/dflanag3/spatial-artifacts/enospc-backup-runs-20261016-v1/recovery-v1",
+      "wrapper_exit": 0
+    },
+    {
+      "command_exit": 0,
+      "path": "/home/dflanag3/spatial-artifacts/enospc-backup-runs-20261016-v1/manifest-supplement-v1",
+      "wrapper_exit": 0
+    },
+    {
+      "command_exit": 0,
+      "path": "/home/dflanag3/spatial-artifacts/enospc-backup-runs-20261016-v1/repair-v4-supplement-v1",
+      "wrapper_exit": 0
+    }
+  ],
+  "manifest_export_supplement": {
+    "contents": "Three read-only debugfs-exported checkpoint manifests, export receipt and exporter script; no image mount or payload copy.",
+    "manifest_sha256": "8fd9104a1fae8b80b22f2b71fe228eac50ea1cc31d39b0a7f9d8065507a2d5ba",
+    "member_bytes": 18401,
+    "member_count": 6,
+    "path": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-recovery-manifests-supplement-v1/evidence.tar",
+    "receiver_receipt": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-recovery-manifests-supplement-v1/receiver.verify.json",
+    "receiver_receipt_sha256": "4f1c17366c02345641b89cb45f38f512679d7885574efb99dfe712e4cb9ae0d5",
+    "sha256": "eaa1b6fd0e825b47179fb8b5560fe037ed4bfcfdbae64896df0ba8f18faa5222",
+    "size_bytes": 30720
+  },
+  "primary_archive": {
+    "manifest_sha256": "c50f37f923fb8f158f62e1e60fd8193ce80a7a48db3d8828c1f73180043fffcd",
+    "member_bytes": 13786493,
+    "member_count": 139,
+    "path": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-recovery-compact-v1/evidence.tar",
+    "receiver_receipt": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-recovery-compact-v1/receiver.verify.json",
+    "receiver_receipt_sha256": "e43e5306869853837d902aea96480cc75c94e79323f0f809117328c0df182bd8",
+    "sha256": "465e8f01158d95d7f16f0ec362dba7c3825fc79ed740662b44ebae761943010b",
+    "size_bytes": 13977600
+  },
+  "primary_audit": {
+    "path": "/home/dflanag3/spatial-artifacts/q4-enospc-harness-20261016-v1/primary-audit-gpu-q4-enospc-v3.json",
+    "sha256": "84f52fa326cbf120794a52cd5838f63ef87650cf4900114549340d1013cdc449"
+  },
+  "repair_v4_order_mutant_supplement": {
+    "driver_sha256": "2a68537ec177f273fdaa5ce19838a2c6dd29285c8de3ae27fb770d003901da52",
+    "green_command_wrapper_exit": [
+      0,
+      0
+    ],
+    "manifest_sha256": "21297613ee102ab030b9dd8e83f2bf1ebbb0a3de45b11584e6791c4b1f713f68",
+    "member_bytes": 128019,
+    "member_count": 20,
+    "order_mutant_expected_failure_exit": [
+      1,
+      1
+    ],
+    "path": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-repair-v4-order-mutant-supplement-v1/evidence.tar",
+    "receiver_receipt": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-repair-v4-order-mutant-supplement-v1/receiver.verify.json",
+    "receiver_receipt_sha256": "058cb11743a7008eb72f2ca378b3b64358d1d869ff5b23ae4d5f4c13535e2fdd",
+    "repair_v4_test_sha256": "e48495b95a4edb85962e2f6b72d10870ce1b7017f27836090eb2406a2bc7c8bb",
+    "sha256": "aafe9c7e30f513149a98f47666669887663c8c20457b90ef7aa5317674b7bb9e",
+    "size_bytes": 153600
+  },
+  "schema": 1,
+  "scope": "Compact evidence for corrected Q4 ENOSPC checkpoint-volume recovery v3; not a full canonical volume backup, not an independent numerical oracle, and not a speed test.",
+  "verification": "Each receiver receipt is PASS with archive SHA and per-member sizes/SHA-256 verified; all report zero symlink/hardlink members. Archives were stored mode 0600 under private mode 0700 directories."
+}

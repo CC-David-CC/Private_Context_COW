@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "native_pid": 734976,
+  "previous_native_pid": 734361,
+  "server_pid": 734970,
+  "previous_server_pid": 734355,
+  "producer_exited": true,
+  "native_trace_byte_unchanged": true,
+  "forward_tokens": 0,
+  "prefill_tokens": 0,
+  "decode_timed_tokens": 0,
+  "loaded_file_bytes": 0,
+  "native_commands_during_reconciliation": 0,
+  "scope": "Canonical committed-output recovery, not loading computational state for new generation"
+}

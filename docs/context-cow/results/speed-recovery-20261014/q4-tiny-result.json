@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "gate_status": "NOT_QUALIFIED",
+  "phases": [
+    {
+      "phase": "calibrate",
+      "python_pid": 1472095,
+      "exit_code": 0,
+      "seconds": 107.48657422803808
+    },
+    {
+      "phase": "prepare",
+      "python_pid": 1472732,
+      "exit_code": 0,
+      "seconds": 40.95945187099278
+    },
+    {
+      "phase": "resume",
+      "python_pid": 1472917,
+      "exit_code": 0,
+      "seconds": 39.750867892988026
+    },
+    {
+      "phase": "boundary",
+      "python_pid": 1473040,
+      "exit_code": 0,
+      "seconds": 21.6662021150114
+    },
+    {
+      "phase": "compare",
+      "python_pid": 1473209,
+      "exit_code": 0,
+      "seconds": 39.9028308710549
+    }
+  ],
+  "profile_sha256": "ee3bece350c2134504f90a4f1544d6395195800b59de0cc6f24eb545d77a0e7d",
+  "source_sha256": "78f26419ff389e70f6b219aa2c6fe88e8829b30ae260a402fecaa875f07f102c",
+  "prefix": 128,
+  "suffix": 4,
+  "output_bound": 8,
+  "filesystem_cache": "uncontrolled warm OS cache; no cold-disk claim"
+}

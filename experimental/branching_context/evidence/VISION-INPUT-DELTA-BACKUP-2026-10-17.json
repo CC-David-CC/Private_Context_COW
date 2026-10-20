@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-delta-collected-v1/evidence.tar.gz",
+    "bytes": 450217721,
+    "sha256": "6cba22c6d26adf7ca154d2d261cc8bb6b40a3603d4ae5b38551e12865df103f0"
+  },
+  "members": 424,
+  "verification": "Every regular archive member sequentially SHA-256 checked after compression",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-input-delta-v1/evidence.tar.gz",
+  "destination_sha256": "6cba22c6d26adf7ca154d2d261cc8bb6b40a3603d4ae5b38551e12865df103f0",
+  "destination_bytes": 450217721
+}

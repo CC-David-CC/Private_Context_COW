@@ -1,0 +1,44 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar",
+  "archive_sha256": "649547d2a4a42b056959a570d728424f7c0a2e9f988775feee7368509fdbfb57",
+  "backup_plan_sha256": "da10d0d453f886f118ea95720e96731d146c0ae46c09bdafee45bb291b6c6212",
+  "backup_receipt_sha256": "c2a4f55bcd3e584c48f8bd16ef2e643854aa45f31ffdf2561d64b33c824333fa",
+  "deletion_authorized_by_root": true,
+  "finished_at_epoch": 1792042895.5899405,
+  "free_bytes_after": 55382269952,
+  "free_bytes_before": 51313795072,
+  "items": [
+    {
+      "absent_after_unlink": true,
+      "archive_member": "fresh-tree-0.f32.decode.f32",
+      "bytes": 2034237440,
+      "device": 66306,
+      "inode": 4459762,
+      "link_count": 1,
+      "mode": 384,
+      "mtime_ns": 1792013119672477760,
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/fresh-tree-0.f32.decode.f32",
+      "restore_from_archive": "/srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar member fresh-tree-0.f32.decode.f32",
+      "sha256": "590037eade203c4a4a258ac468c28536189d0e107999da439254b8bc96c8e2ee",
+      "status": "UNLINKED"
+    },
+    {
+      "absent_after_unlink": true,
+      "archive_member": "fresh-tree-2.f32.decode.f32",
+      "bytes": 2034237440,
+      "device": 66306,
+      "inode": 4459776,
+      "link_count": 1,
+      "mode": 384,
+      "mtime_ns": 1792013361324169220,
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/fresh-tree-2.f32.decode.f32",
+      "restore_from_archive": "/srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar member fresh-tree-2.f32.decode.f32",
+      "sha256": "9dbf37930db46b246817106faa08bfa5144c9862e79d2a923e5ffda119964df0",
+      "status": "UNLINKED"
+    }
+  ],
+  "schema": "q8-old-oracle-exact-raw-unlink-v1",
+  "scope": "Only fresh-tree-0.f32.decode.f32 and fresh-tree-2.f32.decode.f32.",
+  "started_at_epoch": 1792042893.8685572,
+  "status": "COMPLETE"
+}

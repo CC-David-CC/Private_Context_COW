@@ -1,0 +1,19 @@
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp: In function ‘int main()’:
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:45:40: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘plan_upload_ns’
+   45 |             (unsigned long long)(after.plan_upload_ns-before.plan_upload_ns),
+      |                                        ^~~~~~~~~~~~~~
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:45:62: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘plan_upload_ns’
+   45 |             (unsigned long long)(after.plan_upload_ns-before.plan_upload_ns),
+      |                                                              ^~~~~~~~~~~~~~
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:46:40: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘page_hash_ns’
+   46 |             (unsigned long long)(after.page_hash_ns-before.page_hash_ns),
+      |                                        ^~~~~~~~~~~~
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:46:60: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘page_hash_ns’
+   46 |             (unsigned long long)(after.page_hash_ns-before.page_hash_ns),
+      |                                                            ^~~~~~~~~~~~
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:47:40: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘page_digest_download_ns’
+   47 |             (unsigned long long)(after.page_digest_download_ns-before.page_digest_download_ns),
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~
+/home/dflanag3/branching-g3/digest-attribution-20261014/branch_digest_timing_gpu.cpp:47:71: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘page_digest_download_ns’
+   47 |             (unsigned long long)(after.page_digest_download_ns-before.page_digest_download_ns),
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~~~~

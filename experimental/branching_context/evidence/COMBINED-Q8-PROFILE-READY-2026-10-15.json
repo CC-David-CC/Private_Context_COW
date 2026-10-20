@@ -1,0 +1,21 @@
+{
+  "status": "READY_NOT_GPU_EXECUTED",
+  "scope": "CPU profile derivation and compatibility/rebind checks only",
+  "host": "llm-60",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "profile": "q8-profile-v3/profile.json",
+  "profile_sha256": "b784dd10bca6cd3765a7f5a05b7537b276db6aade8223cbb8995560c8bb678c7",
+  "execution_profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+  "build": "NATIVE-REQUEST-COUNTER-FIX-2026-10-15.json",
+  "profile_diff_and_rebind": "q8-profile-v3/profile-diff-and-rebind.json",
+  "profile_diff_sha256": "6e75748d07b787b708daa4e02fd9ecf73932c067dbb7fbb32fa757fc5fe58a86",
+  "derivation_receipts": "runs/q8-profile-v3-command",
+  "verification_receipts": "runs/q8-profile-verify-v3",
+  "both_commands_exit": 0, "both_wrappers_exit": 0,
+  "model_verification": {"model_file_hash_receipts_reused": 11, "model_bytes_hashed_this_process": 0},
+  "configuration": {"GPU": [0], "capacity": 98304, "prefill_chunk": 8192, "KV": "FP16", "ram_pool_gib": 96, "disk_pool_gib": 128},
+  "verified": ["Model contract and file identities unchanged from the previously successful Q8 baseline.", "Execution settings unchanged except new binary paths and native build/API pins.", "Actual pool config rebind exactly reproduces the direct bound profile.", "All 17 runtime API module files resolve under the frozen combined source and match pinned hashes."],
+  "limits": "No current-source Q8 inference or speed result. Model files will be revalidated at launch after the user's disk cleanup. Preserved earlier verifier setup failures are not model failures."
+}

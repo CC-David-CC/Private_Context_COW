@@ -1,0 +1,1 @@
+This is a DIFFERENT project, EnvLite, not the earlier ledger project. Inspect the CURRENT README, source and tests. Implement the library, creating envsyntax.py and updating envconfig.py only. Keep all tests unchanged, run the configured tests, and report actual outcomes.

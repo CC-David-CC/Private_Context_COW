@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_AUTONOMOUS_H05_Q4_PASS",
+  "task": "H05",
+  "client_commit": "4f62e16a32a7a7e9aa57abfd6ade824b280ad019",
+  "cow_source_commit": "9fae1e2e749f77004343a5e230180407d788d372",
+  "execution_profile_id": "092f4c044df5365834addf220feb7464e13703239658c754513af9f557a0ce77",
+  "client_host": "llm-49",
+  "inference_host": "llm-60",
+  "whole_cli_seconds": 105.77149522700347,
+  "offline_reopen_seconds": 0.4008315890096128,
+  "output_counts": [
+    549,
+    101,
+    179,
+    82,
+    89,
+    1136
+  ],
+  "tools": [
+    {
+      "tool": "read_file",
+      "disposition": "read"
+    },
+    {
+      "tool": "capture_page",
+      "disposition": "captured"
+    },
+    {
+      "tool": "replace",
+      "disposition": "applied"
+    },
+    {
+      "tool": "read_file",
+      "disposition": "read"
+    },
+    {
+      "tool": "capture_page",
+      "disposition": "captured"
+    },
+    {
+      "tool": "finish",
+      "disposition": "completion_requested"
+    }
+  ],
+  "one_applied_repair": true,
+  "only_layout_change": true,
+  "before_and_after_images_delivered_in_order": true,
+  "image_rows": 600,
+  "numerical_max_error": "NOT_MEASURED in H05; separate new-profile tiny GPU audit previously passed at zero error",
+  "sampler": "unchanged DRY+Min-P defaults",
+  "thinking_budget": 1024,
+  "model_interventions": 0,
+  "new_examples": false,
+  "original_source_unchanged": true,
+  "protected_dom_and_pixel_checks": "PASS",
+  "host_audit_harness_tests": {
+    "passed": 6,
+    "failed": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "initial_auditor_error": "v1 auditor read finished events only; external outcomes use returned. v2 reads both; original failure retained; no inference rerun",
+  "raw_summary_path": "/home/dflanag3/spatial-artifacts/branchwrite-cross-host-20261018-v1/h05-driver-v1/result-summary.json",
+  "raw_summary_sha256": "91443267c78fd05bfea2990ef32650c50e189fd708ce1f7e9a9adda678437c79",
+  "server_artifacts": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/bw-crosshost-h05-server-v1",
+  "client_cleanup": {
+    "schema": 1,
+    "tunnel_absent": true,
+    "positive_pid_absent": true,
+    "offline_pid_absent": true,
+    "temporary_credentials_and_keys_removed": true
+  },
+  "server_cleanup": {
+    "schema": 1,
+    "server_exit": 0,
+    "native_exit": 0,
+    "owned_processes_absent": true,
+    "api_credentials_removed": true,
+    "temporary_authorized_key_removed": true,
+    "prior_authorized_keys_hash_restored": true,
+    "chat_server_restarted": false
+  },
+  "autonomous_catalog": {
+    "passed": [
+      "H00",
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05"
+    ],
+    "unrun": [
+      "H06",
+      "H07",
+      "H08",
+      "H09",
+      "H10",
+      "H11",
+      "H12"
+    ]
+  },
+  "limits": [
+    "Single bounded default-sampler static page repair, not general model capability",
+    "No H05 fresh logit oracle or GPU restart; separate current-profile tiny numerical campaign supplies its own bounded evidence",
+    "General model-selected browser click/fill tools absent; H06 requires that integration",
+    "Original G/VC supported matrix, stress, soak and Q8 remain outstanding"
+  ],
+  "branchwrite_notes_commit": "be799b74f587e72c249bc606ebe7c659ac851042",
+  "cow_runtime_unchanged_since": "9fae1e2e749f77004343a5e230180407d788d372",
+  "backup_scope": "Raw bundle collected separately on private box-git; no public publication"
+}

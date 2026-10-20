@@ -1,0 +1,77 @@
+{
+  "scope": "Bounded Q4 immutable-RAM digest correctness; not G1-G5 certification or a speed result",
+  "host": "llm-60",
+  "gpu": [
+    0
+  ],
+  "source_commit_before_evidence": "48796dc6",
+  "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "configuration": {
+    "capacity": 98304,
+    "prefill_chunk": 8192,
+    "kv": "FP16",
+    "ram_pool_bytes": 103079215104,
+    "disk_pool_bytes": 137438953472
+  },
+  "target": {
+    "prefix": 8192,
+    "suffix_each": 512,
+    "output_limit": 128,
+    "branch_A_outputs": 128,
+    "branch_B_outputs": 1,
+    "B_early_EOS": true,
+    "generated_restart_A": true,
+    "generated_restart_B": false,
+    "comparison_scope": "matching-schedule independent references; prefix, suffix and generated-4/final sampled frontiers",
+    "numerical_max_error": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "medium_native_probe": {
+    "comparisons": 56,
+    "numerical_max_error": 0,
+    "native_exit_codes": {
+      "0": 0
+    },
+    "generated_frontiers": "every generated boundary",
+    "output_limit_each": 16
+  },
+  "cold_root_return": {
+    "status": "PASS",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "native_exit_codes": {
+      "0": 0
+    },
+    "parent_bytes_unchanged": true,
+    "matches_independent_B_tokens": true,
+    "forward_tokens": 513,
+    "suffix_prefill_tokens": 512,
+    "loaded_file_bytes": 332013048,
+    "integrity_mismatches": 0,
+    "outputs": 1,
+    "elapsed_seconds_including_startup_and_audit": 24.075456978054717,
+    "logit_comparison": {
+      "method": "exact SHA-256 and length of saved consumed frontier versus independent fresh B final frontier",
+      "bytes": 993280,
+      "sha256": "d420a07c7878aaf0e927af5a29e3e2fe57ef2b207fedbcf47e89822933334536",
+      "numerical_max_error": 0,
+      "observed_remote_sha256sum": true
+    }
+  },
+  "raw_local_artifacts": {
+    "target-result.json": "016d97da9cbbb286f307b15d57fd946e78f9d955676baa3a21b0fdcfd027e790",
+    "rewind.json": "4cbcf93c1efd021d889e3cb6d8acccbb4a8f3de815444e5af86f485522f1db1c",
+    "fresh-tree-1.stdout": "47c93f917b20b11fa7def65361bb9cdd48b084785afc3b2abcaa00270e9137df",
+    "medium-probe-v2-result.json": "370abfddbc6e2108e58582d0dfdd75af4f4bb5d27c395271359646a5b3db2ff4",
+    "root-prefix-audit.json": "d888bfba50fd4c3876e0131e82022f62a10b4c5066683bafa71a6ee884493005"
+  },
+  "remote_artifact_root": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015",
+  "limitations": [
+    "No candidate speedup measured yet",
+    "Q8 candidate validation outstanding",
+    "Tiny and original medium canonical runs observed process exit but did not record numeric native exit; v2 medium probe, target and cold return record zero",
+    "Non-greedy/controller/crash/full gate qualification remains separate"
+  ]
+}

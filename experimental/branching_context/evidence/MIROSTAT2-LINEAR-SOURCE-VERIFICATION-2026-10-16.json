@@ -1,0 +1,245 @@
+{
+  "archive_commit": "de26ad5acd4f334d635ca262577e6fd8ae40bc43",
+  "file_count": 47,
+  "files": [
+    {
+      "bytes": 4061,
+      "path": "experimental/branching_context/native/dynatemp_select.h",
+      "sha256": "049f1fca4f92b0c8eec7bb5645a9183a8aecf789ed0ba7062c31d61795cbb149"
+    },
+    {
+      "bytes": 31158,
+      "path": "experimental/branching_context/native/min_p_select.h",
+      "sha256": "f1d12e9543fde5d8a80aab606b1cb6874bc703ad51357b1c449f44c4ed927fec"
+    },
+    {
+      "bytes": 5916,
+      "path": "experimental/branching_context/native/mirostat2_select.h",
+      "sha256": "23e16ff0bcaf9b33d571a941a52c444b3b4c46c523353ba36084d8b8a5d7f898"
+    },
+    {
+      "bytes": 4342,
+      "path": "experimental/branching_context/native/typical_select.h",
+      "sha256": "f24f393e7c4608ebe432ee600e7d6a67a4bbd3af193b7bdbcfe7bacebd12754a"
+    },
+    {
+      "bytes": 8747,
+      "path": "experimental/branching_context/native/xtc_select.h",
+      "sha256": "312dcdec222fe25928910610d85cec1acdf93b59f4ebd7ec3d86f7d6f5c650c6"
+    },
+    {
+      "bytes": 75281,
+      "path": "experimental/branching_context/scripts/build_min_p_selector_probe.py",
+      "sha256": "f48037172edf843be18fba6350d634acc013f247112dc504c219b31d7031cf3e"
+    },
+    {
+      "bytes": 23714,
+      "path": "experimental/branching_context/scripts/run_entropy_selection_probe.py",
+      "sha256": "0c49eaafd35c18c904e38fa3677c00fb5b26dbf9c39414e13148bcaac78e85da"
+    },
+    {
+      "bytes": 26068,
+      "path": "experimental/branching_context/scripts/run_min_p_probe.py",
+      "sha256": "fecf067675d7687ae56570a4a0201b6e01a60d470202b8b5410077170e15ea80"
+    },
+    {
+      "bytes": 17579,
+      "path": "experimental/branching_context/scripts/run_sampler_serving_probe.py",
+      "sha256": "1d1b1395428512616adbe9b25d1397cf41362b6a4d68959bd73c3683c3ad7bb7"
+    },
+    {
+      "bytes": 7041,
+      "path": "experimental/branching_context/src/context_time_travel/controller.py",
+      "sha256": "86580af69929b4ef0c8cce0914936e8bc2811d8b72aad70b111e14b5eae87f2e"
+    },
+    {
+      "bytes": 93881,
+      "path": "experimental/branching_context/src/context_time_travel/coordinator.py",
+      "sha256": "fc3fe8a56b6e83034cd4afa6972c1d52a3bf3ca8c07a89f4fb18c50f461853fd"
+    },
+    {
+      "bytes": 4345,
+      "path": "experimental/branching_context/src/context_time_travel/dynatemp.py",
+      "sha256": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b"
+    },
+    {
+      "bytes": 34054,
+      "path": "experimental/branching_context/src/context_time_travel/grammar_first.py",
+      "sha256": "10ef5974b6f738b434c29ccce179701abe955a51bb5992ce9eb05fa59d13f5ac"
+    },
+    {
+      "bytes": 15224,
+      "path": "experimental/branching_context/src/context_time_travel/min_p.py",
+      "sha256": "7b7ae8bd369ede725365618bf5711d2c9385cc1ef96fb8315d9e3e4cd9ad4b27"
+    },
+    {
+      "bytes": 7756,
+      "path": "experimental/branching_context/src/context_time_travel/mirostat2.py",
+      "sha256": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9"
+    },
+    {
+      "bytes": 70021,
+      "path": "experimental/branching_context/src/context_time_travel/real.py",
+      "sha256": "006780608a60803758e8c19329ac6096c5b383cc08bdbb00d7680cb222731fa6"
+    },
+    {
+      "bytes": 27866,
+      "path": "experimental/branching_context/src/context_time_travel/sampled_controller.py",
+      "sha256": "3d2617e6835082f67dccc2422e147febf1f7b4cbb67fcec67c54be100ced871d"
+    },
+    {
+      "bytes": 10080,
+      "path": "experimental/branching_context/src/context_time_travel/sampling_proposal.py",
+      "sha256": "fede7952c5e9da04e2a7ebd33ae8de282b4ae3d1ba8c1807cfc42aebc10a6707"
+    },
+    {
+      "bytes": 75152,
+      "path": "experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "sha256": "dd09c48a2e189e3dba06fe0c0e35fc5f3f287b127aa8e58cb519481a823182d2"
+    },
+    {
+      "bytes": 4132,
+      "path": "experimental/branching_context/src/context_time_travel/typical.py",
+      "sha256": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e"
+    },
+    {
+      "bytes": 10097,
+      "path": "experimental/branching_context/src/context_time_travel/xtc_pipeline.py",
+      "sha256": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386"
+    },
+    {
+      "bytes": 9367,
+      "path": "experimental/branching_context/tests/implementation/test_entropy_controller_recovery.py",
+      "sha256": "eddf55272a44e35035bbaa33b03510db7ca90fa0aa011f008c6b2eb84d4d0c60"
+    },
+    {
+      "bytes": 8877,
+      "path": "experimental/branching_context/tests/implementation/test_entropy_selection_probe.py",
+      "sha256": "7570b6f6f8dbcea607e9747de2b73a681943f84f01aee25beb39cd23064c07fc"
+    },
+    {
+      "bytes": 7281,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_backend.py",
+      "sha256": "33ff06b8178f57e576144bf7848a2458d1eeb316c3c03ec9e841386abd06fd4d"
+    },
+    {
+      "bytes": 11632,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_controller.py",
+      "sha256": "909e792b95350489f67e51cc51f66d38f61e2d65dea2bf86bc53e98fe5bd2697"
+    },
+    {
+      "bytes": 11844,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_generation.py",
+      "sha256": "d803396715c54cd69203512d302b7019dc0c141ce9a6b07a0e243a5d6b1e6e72"
+    },
+    {
+      "bytes": 5039,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_linear.py",
+      "sha256": "706f10d37cd17b261ddc6f6c00fa89f3f4b09b42eb9543d12e182a2ec67bd801"
+    },
+    {
+      "bytes": 2876,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_observer.py",
+      "sha256": "0360ea79eff5bb0c88dabddc5814415fca411fddcfe78f9c4b555c77b39d693d"
+    },
+    {
+      "bytes": 11621,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_pipeline_native.py",
+      "sha256": "29eaa6e66521b92e5264c6ebb53e90c68b511706d63cd71c0b51f86bcd658a83"
+    },
+    {
+      "bytes": 1301,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_receipts.py",
+      "sha256": "f2eec0d40f0b5b1c4e474938add8671d2c4ef867e45d8573ea1c184e046ab597"
+    },
+    {
+      "bytes": 3265,
+      "path": "experimental/branching_context/tests/implementation/test_mirostat2_resume.py",
+      "sha256": "049ace500711f00466e0bfb8f1495ee46ac21c7975b1d6b1d4bcc74b871de7cb"
+    },
+    {
+      "bytes": 21486,
+      "path": "experimental/branching_context/tests/implementation/test_sampling_proposal.py",
+      "sha256": "535bf61f3bbedf1d9f528498534868ac64f494925f4321dabe563ad335653417"
+    },
+    {
+      "bytes": 4701,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_backend.py",
+      "sha256": "793c86ffbc6dd088a4c97b8823b4d91009ae9169de9a14dc8f4f5395cb4fc50d"
+    },
+    {
+      "bytes": 4913,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_generation.py",
+      "sha256": "d4e3b1bd585a2695b4041e8455f47f8d8fda71115ac9189e01497947682e9c40"
+    },
+    {
+      "bytes": 16848,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_native.py",
+      "sha256": "f8ddf2df37842c0af7754dddcde76b16519b9d4b2f152b975a36d5f9adf2e9a4"
+    },
+    {
+      "bytes": 2138,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_observer.py",
+      "sha256": "30f411ca0f3c066e67e1534864ff9e4ef5d85d245c6196b92850312f84498499"
+    },
+    {
+      "bytes": 12513,
+      "path": "experimental/branching_context/tests/implementation/test_xtc_backend.py",
+      "sha256": "0ad7c3e338069c6335be3550e2af3530f72d4848b2eaf9e1d05577957d4cb354"
+    },
+    {
+      "bytes": 5597,
+      "path": "experimental/branching_context/tests/implementation/test_xtc_controller.py",
+      "sha256": "cbf97b4ce232f36da43b444e7292a4783f974f26152b095b51ea41a114a37dcc"
+    },
+    {
+      "bytes": 11344,
+      "path": "experimental/branching_context/tests/implementation/test_xtc_generation.py",
+      "sha256": "b96012ea960a83116e56bf36ad0bb076543a269ac750502b3e5a1f74b77ae253"
+    },
+    {
+      "bytes": 3046,
+      "path": "experimental/branching_context/tests/implementation/test_xtc_observer.py",
+      "sha256": "eab1f714cc9bfb2c0d3bb691a94cfff6ea1a71c26dd33afe97e48a512fd36bf5"
+    },
+    {
+      "bytes": 13903,
+      "path": "experimental/branching_context/tests/implementation/test_xtc_pipeline_native.py",
+      "sha256": "556c809878c204888b47003ac848f49c3bc851c586217362dcb3f868c4528d9a"
+    },
+    {
+      "bytes": 10058,
+      "path": "serve/cow_adapter.py",
+      "sha256": "8ed54d94ae19c2c9feb49740241aa1d49ee5af1fe0d0214879e9678f4907ffb1"
+    },
+    {
+      "bytes": 20771,
+      "path": "serve/cow_text_adapter.py",
+      "sha256": "c569ce35ef1b246af18bf67648ff32c5a2e7f274063c03b75c4168424d5bc454"
+    },
+    {
+      "bytes": 5833,
+      "path": "serve/test_cow_mirostat2_settings.py",
+      "sha256": "06b3ceb887aac80289079c30a0a75048e158d7c4066b603604713f1e10987d85"
+    },
+    {
+      "bytes": 11168,
+      "path": "serve/test_cow_typical_dynatemp_settings.py",
+      "sha256": "498a7c61f8a124f30dc8999707edab87370424e308db3c83532700b3def6b91e"
+    },
+    {
+      "bytes": 4123,
+      "path": "serve/test_cow_xtc_settings.py",
+      "sha256": "c2ea4bbf89ebe33ccb2c48a26677c5e64ca976b2c15d823a731278196ddf2057"
+    },
+    {
+      "bytes": 46623,
+      "path": "tools/cow_cli.py",
+      "sha256": "191318d19668aae875dd5a4fa8d63739f92fede3f4a26169e9c58d4627f78c04"
+    }
+  ],
+  "source": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-green-v1/source",
+  "source_commit": "de26ad5acd4f334d635ca262577e6fd8ae40bc43",
+  "status": "PASS",
+  "verification": "Every frozen overlay byte equals the committed Git archive, including controller, adapter, native headers and observers"
+}

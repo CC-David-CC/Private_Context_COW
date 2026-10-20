@@ -1,0 +1,603 @@
+{
+    "commands":  [
+                     {
+                         "elapsed_seconds":  0.05742057994939387,
+                         "exit_code":  0,
+                         "label":  "namespace",
+                         "native_trace_bytes_after":  3388,
+                         "native_trace_bytes_before":  3388
+                     },
+                     {
+                         "elapsed_seconds":  0.648338153026998,
+                         "exit_code":  0,
+                         "label":  "prepare",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  3388
+                     },
+                     {
+                         "elapsed_seconds":  0.11770332511514425,
+                         "exit_code":  0,
+                         "label":  "fork-sampled",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  51126
+                     },
+                     {
+                         "elapsed_seconds":  0.11977956187911332,
+                         "exit_code":  0,
+                         "label":  "fork-grammar",
+                         "native_trace_bytes_after":  51126,
+                         "native_trace_bytes_before":  51126
+                     },
+                     {
+                         "elapsed_seconds":  1.1811868350487202,
+                         "exit_code":  0,
+                         "label":  "sampled-partial",
+                         "native_trace_bytes_after":  107753,
+                         "native_trace_bytes_before":  51126
+                     },
+                     {
+                         "elapsed_seconds":  0.7217309998814017,
+                         "exit_code":  0,
+                         "label":  "reseed",
+                         "native_trace_bytes_after":  136537,
+                         "native_trace_bytes_before":  107753
+                     },
+                     {
+                         "elapsed_seconds":  1.055392645066604,
+                         "exit_code":  0,
+                         "label":  "sampled-continue",
+                         "native_trace_bytes_after":  314573,
+                         "native_trace_bytes_before":  136537
+                     },
+                     {
+                         "elapsed_seconds":  0.07930273795500398,
+                         "exit_code":  0,
+                         "label":  "sampled-exact-retry",
+                         "native_trace_bytes_after":  314573,
+                         "native_trace_bytes_before":  314573
+                     },
+                     {
+                         "elapsed_seconds":  0.12539095315150917,
+                         "exit_code":  0,
+                         "label":  "restart-exact-retry",
+                         "native_trace_bytes_after":  3387,
+                         "native_trace_bytes_before":  3387
+                     },
+                     {
+                         "elapsed_seconds":  1.98557444405742,
+                         "exit_code":  0,
+                         "label":  "restart-continue",
+                         "native_trace_bytes_after":  141091,
+                         "native_trace_bytes_before":  3387
+                     },
+                     {
+                         "elapsed_seconds":  1.1993148678448051,
+                         "exit_code":  0,
+                         "label":  "read-stop",
+                         "native_trace_bytes_after":  239936,
+                         "native_trace_bytes_before":  141091
+                     },
+                     {
+                         "elapsed_seconds":  0.9906724710017443,
+                         "exit_code":  0,
+                         "label":  "append-test",
+                         "native_trace_bytes_after":  383333,
+                         "native_trace_bytes_before":  239936
+                     },
+                     {
+                         "elapsed_seconds":  0.10094440402463078,
+                         "exit_code":  0,
+                         "label":  "workspace-history",
+                         "native_trace_bytes_after":  383333,
+                         "native_trace_bytes_before":  383333
+                     }
+                 ],
+    "consumed_output_counts":  {
+                                   "append_test":  11,
+                                   "read_stop":  5,
+                                   "restart_continue":  10,
+                                   "sampled_continue":  16,
+                                   "sampled_partial":  1
+                               },
+    "host":  "llm-60",
+    "limitations":  [
+                        "Independent fresh numerical audit pending; this is CLI flow and measured work evidence.",
+                        "352 CPU tests include fixture backends; they are not 352 real-model tests.",
+                        "Q4 only, bounded greedy and sampled grammar fixture; Q8 and cumulative G1-G5 unqualified.",
+                        "No sustained performance or peak-memory conclusion from this tiny flow.",
+                        "Cross-arrangement equivalence remains outside the accepted prototype contract."
+                    ],
+    "native_executable":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-integrated-native-build-v1/strata-batched-branch-lazy-adaptive-p-v7",
+    "native_sha256":  "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+    "numerical_max_error":  null,
+    "prepare_receipt_sha256":  "3c36a3863dde5d5d09947c8ceb1300046d8738b45be5eaca0277e2847f88cce6",
+    "profile_identity":  {
+                             "execution_profile_id":  "efbe7aa44d8c4cbd9b712cad7490c6e8c29efc9fbd5cabc0bcac763e81ce3aaa",
+                             "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                             "model_weights_sha256":  "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+                         },
+    "profile_path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/profile-q4-v1/profile.json",
+    "profile_sha256":  "be10cdee843dd8fa6811d1cde525389ebd6b36225e8f03dc450d863f5bdfeb27",
+    "raw_result_path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/gpu-cli-results-v1/result.json",
+    "raw_result_sha256":  "8b919453d178c476d26d757096fda26f9ff9ab2ee76e7c013e99827a773c8226",
+    "restart_progress":  {
+                             "accepted_delta":  10,
+                             "consumed_tokens":  10,
+                             "draw_delta":  10,
+                             "grammar_complete":  true,
+                             "status":  "stopped",
+                             "terminal_eos":  true
+                         },
+    "rng_cursor_after_restart":  26,
+    "rng_cursor_before_restart":  16,
+    "root_tokens":  18,
+    "runs":  {
+                 "bw-client-v1":  {
+                                      "argv_sha256":  "edf8a02aef09476348ebbf45f31beb2a1739884500ecb9b3fdb7e371341d8448",
+                                      "errors":  0,
+                                      "exits":  {
+                                                    "command.exit":  0,
+                                                    "wrapper.exit":  0
+                                                },
+                                      "failures":  0,
+                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/runs/bw-client-v1",
+                                      "skips":  0,
+                                      "stderr_sha256":  "5349a910f6cc71a759bc04831c401464066570cd6bf8c75355af10748a4d34df",
+                                      "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                      "tests":  19
+                                  },
+                 "cpu-union-v1":  {
+                                      "argv_sha256":  "f2fbaa25fef70de71bb3849ae8cfcd1feabe98b9a1de32f73f68b32f7e3d0d0a",
+                                      "errors":  0,
+                                      "exits":  {
+                                                    "command.exit":  0,
+                                                    "wrapper.exit":  0
+                                                },
+                                      "failures":  0,
+                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/runs/cpu-union-v1",
+                                      "skips":  0,
+                                      "stderr_sha256":  "33bb89d80b3d82f0cd1fe33028724e139e9d9335ed3187f72cfbff37117114c8",
+                                      "stdout_sha256":  "c09b9dc8eb46bfb5ae5f1b8323b4ba708dcc5d4d66b3918f06f708ce61cccec9",
+                                      "tests":  352
+                                  },
+                 "g0-v1":  {
+                               "argv_sha256":  "4bec804d74e72705724bc0fce99627eaa447933cf6ae5adbedb9466303df120a",
+                               "errors":  0,
+                               "exits":  {
+                                             "command.exit":  0,
+                                             "wrapper.exit":  0
+                                         },
+                               "failures":  0,
+                               "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/runs/g0-v1",
+                               "skips":  0,
+                               "stderr_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                               "stdout_sha256":  "a3044372b15378e559cf046222407920e0b74ea30fb7fee7257e83d0a470c932",
+                               "tests":  51
+                           },
+                 "gpu-cli-v1":  {
+                                    "argv_sha256":  "67e1361dc6c0d2510cc3d517338bc1237e66081732dae833c624b085b6888997",
+                                    "errors":  0,
+                                    "exits":  {
+                                                  "command.exit":  0,
+                                                  "wrapper.exit":  0
+                                              },
+                                    "failures":  0,
+                                    "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/runs/gpu-cli-v1",
+                                    "skips":  0,
+                                    "stderr_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                    "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                    "tests":  null
+                                },
+                 "profile-prepare-v1":  {
+                                            "argv_sha256":  "75aa60cba643a86056d582693d3ed63c2dac7b853cf5de4b18ace76f04d20ccd",
+                                            "errors":  0,
+                                            "exits":  {
+                                                          "command.exit":  0,
+                                                          "wrapper.exit":  0
+                                                      },
+                                            "failures":  0,
+                                            "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/runs/profile-prepare-v1",
+                                            "skips":  0,
+                                            "stderr_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                            "stdout_sha256":  "b80ab7306d04c242e69b2b6a3306595267db38e28964e86bf060c758a788506b",
+                                            "tests":  null
+                                        }
+             },
+    "schema":  "cow-integrated-cli-q4-evidence-v1",
+    "services":  [
+                     {
+                         "actual_source_imports":  {
+                                                       "context_time_travel.coordinator":  {
+                                                                                               "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                                                               "sha256":  "0a7a31aadea3425fd8755d00949f523c93382d14ebd9b860543abe12ec40c11f"
+                                                                                           },
+                                                       "context_time_travel.grammar_first":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/grammar_first.py",
+                                                                                                 "sha256":  "131097cff80d001d17e6a23b2061f2eebde59336b4e1776a883c01588fa3c012"
+                                                                                             },
+                                                       "context_time_travel.presentation_binding":  {
+                                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+                                                                                                        "sha256":  "fcc33419bcfc2b0de1f049f5a82f8c55cb4fceb21fcb33aa2ad7c60b911ea98b"
+                                                                                                    },
+                                                       "context_time_travel.presentation_request":  {
+                                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                                                        "sha256":  "06653a2211fce6bb29a50225726daba815676fdf5b76d689b2a36a6937c69ec7"
+                                                                                                    },
+                                                       "context_time_travel.real":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                                                        "sha256":  "6d8d35f8056632977ade4ff8427ce4a2987c71fe0fa17e387df882e6d3f97a39"
+                                                                                    },
+                                                       "context_time_travel.sampled_controller":  {
+                                                                                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/sampled_controller.py",
+                                                                                                      "sha256":  "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393"
+                                                                                                  },
+                                                       "context_time_travel.seed_controls":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/seed_controls.py",
+                                                                                                 "sha256":  "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b"
+                                                                                             },
+                                                       "context_time_travel.store":  {
+                                                                                         "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                                                         "sha256":  "03a80e060c6c99eee3475501e891fbc1e8fd425d453773d43da6361c5e58a91f"
+                                                                                     },
+                                                       "context_time_travel.text_stops":  {
+                                                                                              "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/text_stops.py",
+                                                                                              "sha256":  "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+                                                                                          },
+                                                       "serve.cow_http":  {
+                                                                              "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_http.py",
+                                                                              "sha256":  "a972a56edd0a3619c730c09b9b43792d5c8cbab37ceaa3b3b519560b6f73ff0a"
+                                                                          },
+                                                       "serve.cow_prompt_encoder":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_prompt_encoder.py",
+                                                                                        "sha256":  "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8"
+                                                                                    },
+                                                       "serve.cow_text_adapter":  {
+                                                                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_text_adapter.py",
+                                                                                      "sha256":  "4a473f81ddac1aa7d3ce15ff86b43b08a9cb2d9867ee34f8f354fbf76f69e28f"
+                                                                                  },
+                                                       "serve.cow_workspace":  {
+                                                                                   "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_workspace.py",
+                                                                                   "sha256":  "ab8aec48846161efc94f5f4f7ff3a421e415e7e9374fdc9af38b38aa16c36ae4"
+                                                                               }
+                                                   },
+                         "both_pids_absent_at_primary_check":  true,
+                         "closed_native_counters":  {
+                                                        "address_releases":  72,
+                                                        "address_reservations":  144,
+                                                        "allocations":  108,
+                                                        "audit_read_bytes":  0,
+                                                        "binding_copy_bytes":  0,
+                                                        "captures":  3,
+                                                        "checkpoint_export_bytes":  828955100,
+                                                        "checkpoint_import_bytes":  708378912,
+                                                        "cold_restore_copy_bytes":  0,
+                                                        "cold_restore_copy_calls":  0,
+                                                        "consumed":  35,
+                                                        "consumed_tokens":  35,
+                                                        "contexts_created":  1,
+                                                        "contexts_freed":  1,
+                                                        "copied_bytes":  150994944,
+                                                        "cow_pages":  72,
+                                                        "cpu_expert_entries":  0,
+                                                        "decode_compute_ns":  131603598,
+                                                        "decode_finish_ns":  1659102,
+                                                        "decode_prepare_ns":  9197110,
+                                                        "decode_timed_tokens":  17,
+                                                        "dry_penalized_candidates":  0,
+                                                        "dry_penalized_candidates_v4":  0,
+                                                        "dry_penalized_candidates_v5":  0,
+                                                        "dynatemp_filter_calls":  0,
+                                                        "dynatemp_filter_calls_v5":  0,
+                                                        "forward_tokens":  35,
+                                                        "frontier_read_bytes":  2979840,
+                                                        "grammar_selection_calls":  0,
+                                                        "grammar_selection_logit_bytes":  0,
+                                                        "grammar_selection_mask_bytes":  0,
+                                                        "handle_allocations":  3,
+                                                        "handle_issued":  3,
+                                                        "handle_live_bytes":  120,
+                                                        "handle_live_entries":  3,
+                                                        "handle_lookup_steps":  6,
+                                                        "handle_peak_bytes":  120,
+                                                        "handle_releases":  0,
+                                                        "host_heap_allocated_bytes":  3588740608,
+                                                        "integrity_checked_pages":  288,
+                                                        "integrity_compare_flag_init_bytes":  16,
+                                                        "integrity_compare_result_copy_bytes":  16,
+                                                        "integrity_compare_workspace_live_bytes":  9896,
+                                                        "integrity_device_hashed_bytes":  830472192,
+                                                        "integrity_digest_copy_bytes":  5308416,
+                                                        "integrity_expected_seal_plan_copy_bytes":  576,
+                                                        "integrity_host_workspace_allocations":  1,
+                                                        "integrity_host_workspace_live_bytes":  20250624,
+                                                        "integrity_kernel_calls":  326,
+                                                        "integrity_last_mismatch_tile":  18446744073709551615,
+                                                        "integrity_mismatches":  0,
+                                                        "integrity_page_digest_download_ns":  0,
+                                                        "integrity_page_hash_ns":  0,
+                                                        "integrity_plan_copy_bytes":  576,
+                                                        "integrity_plan_upload_ns":  40827,
+                                                        "integrity_seal_allocations":  108,
+                                                        "integrity_seal_compare_ns":  471068,
+                                                        "integrity_seal_live_bytes":  1769472,
+                                                        "integrity_seal_releases":  0,
+                                                        "integrity_seal_result_download_ns":  57669,
+                                                        "integrity_seal_upload_bytes":  1769472,
+                                                        "integrity_workspace_allocations":  40,
+                                                        "integrity_workspace_live_bytes":  29707592,
+                                                        "integrity_workspace_releases":  0,
+                                                        "lease_acquires":  7,
+                                                        "lease_releases":  7,
+                                                        "live_bytes":  226492416,
+                                                        "loaded_file_bytes":  0,
+                                                        "mappings":  612,
+                                                        "model_bytes_hashed_this_process":  0,
+                                                        "model_file_hash_receipts_reused":  15,
+                                                        "pcie_expert_groups":  0,
+                                                        "prefill_chunks":  1,
+                                                        "prefill_tokens":  18,
+                                                        "releases":  0,
+                                                        "resident_expert_entries":  0,
+                                                        "restored_running_bytes":  708378912,
+                                                        "restores":  6,
+                                                        "sampling_adaptive_p_calls":  0,
+                                                        "sampling_adaptive_p_logit_bytes":  0,
+                                                        "sampling_adaptive_p_mask_bytes":  0,
+                                                        "sampling_adaptive_p_ns":  0,
+                                                        "sampling_calls":  17,
+                                                        "sampling_logit_bytes":  16885760,
+                                                        "sampling_mask_bytes":  527680,
+                                                        "sampling_mirostat2_calls":  0,
+                                                        "sampling_mirostat2_logit_bytes":  0,
+                                                        "sampling_mirostat2_mask_bytes":  0,
+                                                        "sampling_mirostat2_ns":  0,
+                                                        "sampling_ns":  3968507,
+                                                        "sampling_v2_calls":  17,
+                                                        "sampling_v2_logit_bytes":  16885760,
+                                                        "sampling_v2_mask_bytes":  527680,
+                                                        "sampling_v2_ns":  3968507,
+                                                        "sampling_v3_calls":  0,
+                                                        "sampling_v3_logit_bytes":  0,
+                                                        "sampling_v3_mask_bytes":  0,
+                                                        "sampling_v3_ns":  0,
+                                                        "sampling_v4_calls":  0,
+                                                        "sampling_v4_logit_bytes":  0,
+                                                        "sampling_v4_mask_bytes":  0,
+                                                        "sampling_v4_ns":  0,
+                                                        "sampling_v5_activated_calls":  0,
+                                                        "sampling_v5_activation_draws":  0,
+                                                        "sampling_v5_calls":  0,
+                                                        "sampling_v5_logit_bytes":  0,
+                                                        "sampling_v5_mask_bytes":  0,
+                                                        "sampling_v5_ns":  0,
+                                                        "sampling_v5_removed_candidates":  0,
+                                                        "saved_running_bytes":  354189456,
+                                                        "snapshot_allocations":  3,
+                                                        "snapshot_live_images":  3,
+                                                        "snapshot_payload_capacity_bytes":  357169584,
+                                                        "snapshot_peak_payload_capacity_bytes":  357169584,
+                                                        "snapshot_releases":  0,
+                                                        "typical_filter_calls":  0,
+                                                        "typical_filter_calls_v5":  0,
+                                                        "unmappings":  576,
+                                                        "vmm_driver_failures":  0,
+                                                        "vmm_last_driver_error":  0,
+                                                        "vmm_last_failed_operation":  "",
+                                                        "vmm_out_of_memory_failures":  0,
+                                                        "windows":  17,
+                                                        "written_file_bytes":  474765644
+                                                    },
+                         "native_exit_code":  0,
+                         "native_pid":  3735238,
+                         "native_trace_sha256":  "d236763bff3a03b68dea8fc93a1073fc3cb0624405a9d56e03f27b1cfc0ca8e0",
+                         "pid":  3735171,
+                         "server_exit_code":  0,
+                         "startup_seconds":  20.067969453986734
+                     },
+                     {
+                         "actual_source_imports":  {
+                                                       "context_time_travel.coordinator":  {
+                                                                                               "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                                                               "sha256":  "0a7a31aadea3425fd8755d00949f523c93382d14ebd9b860543abe12ec40c11f"
+                                                                                           },
+                                                       "context_time_travel.grammar_first":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/grammar_first.py",
+                                                                                                 "sha256":  "131097cff80d001d17e6a23b2061f2eebde59336b4e1776a883c01588fa3c012"
+                                                                                             },
+                                                       "context_time_travel.presentation_binding":  {
+                                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+                                                                                                        "sha256":  "fcc33419bcfc2b0de1f049f5a82f8c55cb4fceb21fcb33aa2ad7c60b911ea98b"
+                                                                                                    },
+                                                       "context_time_travel.presentation_request":  {
+                                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                                                        "sha256":  "06653a2211fce6bb29a50225726daba815676fdf5b76d689b2a36a6937c69ec7"
+                                                                                                    },
+                                                       "context_time_travel.real":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                                                        "sha256":  "6d8d35f8056632977ade4ff8427ce4a2987c71fe0fa17e387df882e6d3f97a39"
+                                                                                    },
+                                                       "context_time_travel.sampled_controller":  {
+                                                                                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/sampled_controller.py",
+                                                                                                      "sha256":  "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393"
+                                                                                                  },
+                                                       "context_time_travel.seed_controls":  {
+                                                                                                 "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/seed_controls.py",
+                                                                                                 "sha256":  "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b"
+                                                                                             },
+                                                       "context_time_travel.store":  {
+                                                                                         "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                                                         "sha256":  "03a80e060c6c99eee3475501e891fbc1e8fd425d453773d43da6361c5e58a91f"
+                                                                                     },
+                                                       "context_time_travel.text_stops":  {
+                                                                                              "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/experimental/branching_context/src/context_time_travel/text_stops.py",
+                                                                                              "sha256":  "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+                                                                                          },
+                                                       "serve.cow_http":  {
+                                                                              "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_http.py",
+                                                                              "sha256":  "a972a56edd0a3619c730c09b9b43792d5c8cbab37ceaa3b3b519560b6f73ff0a"
+                                                                          },
+                                                       "serve.cow_prompt_encoder":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_prompt_encoder.py",
+                                                                                        "sha256":  "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8"
+                                                                                    },
+                                                       "serve.cow_text_adapter":  {
+                                                                                      "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_text_adapter.py",
+                                                                                      "sha256":  "4a473f81ddac1aa7d3ce15ff86b43b08a9cb2d9867ee34f8f354fbf76f69e28f"
+                                                                                  },
+                                                       "serve.cow_workspace":  {
+                                                                                   "path":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source/serve/cow_workspace.py",
+                                                                                   "sha256":  "ab8aec48846161efc94f5f4f7ff3a421e415e7e9374fdc9af38b38aa16c36ae4"
+                                                                               }
+                                                   },
+                         "both_pids_absent_at_primary_check":  true,
+                         "closed_native_counters":  {
+                                                        "address_releases":  108,
+                                                        "address_reservations":  180,
+                                                        "allocations":  180,
+                                                        "audit_read_bytes":  0,
+                                                        "binding_copy_bytes":  0,
+                                                        "captures":  5,
+                                                        "checkpoint_export_bytes":  947754168,
+                                                        "checkpoint_import_bytes":  709844356,
+                                                        "cold_restore_copy_bytes":  1462272,
+                                                        "cold_restore_copy_calls":  72,
+                                                        "consumed":  52,
+                                                        "consumed_tokens":  44,
+                                                        "contexts_created":  1,
+                                                        "contexts_freed":  1,
+                                                        "copied_bytes":  226492416,
+                                                        "cow_pages":  108,
+                                                        "cpu_expert_entries":  0,
+                                                        "decode_compute_ns":  203355217,
+                                                        "decode_finish_ns":  2174721,
+                                                        "decode_prepare_ns":  8949046,
+                                                        "decode_timed_tokens":  26,
+                                                        "dry_penalized_candidates":  0,
+                                                        "dry_penalized_candidates_v4":  0,
+                                                        "dry_penalized_candidates_v5":  0,
+                                                        "dynatemp_filter_calls":  0,
+                                                        "dynatemp_filter_calls_v5":  0,
+                                                        "forward_tokens":  44,
+                                                        "frontier_read_bytes":  2979840,
+                                                        "grammar_selection_calls":  11,
+                                                        "grammar_selection_logit_bytes":  10926080,
+                                                        "grammar_selection_mask_bytes":  341440,
+                                                        "handle_allocations":  5,
+                                                        "handle_issued":  5,
+                                                        "handle_live_bytes":  200,
+                                                        "handle_live_entries":  5,
+                                                        "handle_lookup_steps":  4,
+                                                        "handle_peak_bytes":  200,
+                                                        "handle_releases":  0,
+                                                        "host_heap_allocated_bytes":  3828233888,
+                                                        "integrity_checked_pages":  252,
+                                                        "integrity_compare_flag_init_bytes":  24,
+                                                        "integrity_compare_result_copy_bytes":  24,
+                                                        "integrity_compare_workspace_live_bytes":  9896,
+                                                        "integrity_device_hashed_bytes":  905969664,
+                                                        "integrity_digest_copy_bytes":  5308416,
+                                                        "integrity_expected_seal_plan_copy_bytes":  864,
+                                                        "integrity_host_workspace_allocations":  1,
+                                                        "integrity_host_workspace_live_bytes":  20250624,
+                                                        "integrity_kernel_calls":  327,
+                                                        "integrity_last_mismatch_tile":  18446744073709551615,
+                                                        "integrity_mismatches":  0,
+                                                        "integrity_page_digest_download_ns":  0,
+                                                        "integrity_page_hash_ns":  0,
+                                                        "integrity_plan_copy_bytes":  864,
+                                                        "integrity_plan_upload_ns":  45136,
+                                                        "integrity_seal_allocations":  180,
+                                                        "integrity_seal_compare_ns":  691447,
+                                                        "integrity_seal_live_bytes":  2949120,
+                                                        "integrity_seal_releases":  0,
+                                                        "integrity_seal_result_download_ns":  40949,
+                                                        "integrity_seal_upload_bytes":  2949120,
+                                                        "integrity_workspace_allocations":  40,
+                                                        "integrity_workspace_live_bytes":  29707592,
+                                                        "integrity_workspace_releases":  0,
+                                                        "lease_acquires":  6,
+                                                        "lease_releases":  6,
+                                                        "live_bytes":  377487360,
+                                                        "loaded_file_bytes":  237591748,
+                                                        "mappings":  576,
+                                                        "model_bytes_hashed_this_process":  0,
+                                                        "model_file_hash_receipts_reused":  15,
+                                                        "pcie_expert_groups":  0,
+                                                        "prefill_chunks":  1,
+                                                        "prefill_tokens":  18,
+                                                        "releases":  0,
+                                                        "resident_expert_entries":  0,
+                                                        "restored_running_bytes":  472252608,
+                                                        "restores":  4,
+                                                        "sampling_adaptive_p_calls":  0,
+                                                        "sampling_adaptive_p_logit_bytes":  0,
+                                                        "sampling_adaptive_p_mask_bytes":  0,
+                                                        "sampling_adaptive_p_ns":  0,
+                                                        "sampling_calls":  15,
+                                                        "sampling_logit_bytes":  14899200,
+                                                        "sampling_mask_bytes":  465600,
+                                                        "sampling_mirostat2_calls":  0,
+                                                        "sampling_mirostat2_logit_bytes":  0,
+                                                        "sampling_mirostat2_mask_bytes":  0,
+                                                        "sampling_mirostat2_ns":  0,
+                                                        "sampling_ns":  3057939,
+                                                        "sampling_v2_calls":  15,
+                                                        "sampling_v2_logit_bytes":  14899200,
+                                                        "sampling_v2_mask_bytes":  465600,
+                                                        "sampling_v2_ns":  3057939,
+                                                        "sampling_v3_calls":  0,
+                                                        "sampling_v3_logit_bytes":  0,
+                                                        "sampling_v3_mask_bytes":  0,
+                                                        "sampling_v3_ns":  0,
+                                                        "sampling_v4_calls":  0,
+                                                        "sampling_v4_logit_bytes":  0,
+                                                        "sampling_v4_mask_bytes":  0,
+                                                        "sampling_v4_ns":  0,
+                                                        "sampling_v5_activated_calls":  0,
+                                                        "sampling_v5_activation_draws":  0,
+                                                        "sampling_v5_calls":  0,
+                                                        "sampling_v5_logit_bytes":  0,
+                                                        "sampling_v5_mask_bytes":  0,
+                                                        "sampling_v5_ns":  0,
+                                                        "sampling_v5_removed_candidates":  0,
+                                                        "saved_running_bytes":  590315760,
+                                                        "snapshot_allocations":  5,
+                                                        "snapshot_live_images":  5,
+                                                        "snapshot_payload_capacity_bytes":  595282852,
+                                                        "snapshot_peak_payload_capacity_bytes":  595282852,
+                                                        "snapshot_releases":  0,
+                                                        "typical_filter_calls":  0,
+                                                        "typical_filter_calls_v5":  0,
+                                                        "unmappings":  540,
+                                                        "vmm_driver_failures":  0,
+                                                        "vmm_last_driver_error":  0,
+                                                        "vmm_last_failed_operation":  "",
+                                                        "vmm_out_of_memory_failures":  0,
+                                                        "windows":  26,
+                                                        "written_file_bytes":  357438408
+                                                    },
+                         "native_exit_code":  0,
+                         "native_pid":  3736184,
+                         "native_trace_sha256":  "4a3a7e9ba421c06c1eecb2fe6f729dca4e2324fcba39bd7ecb41f0dca36645fa",
+                         "pid":  3736163,
+                         "server_exit_code":  0,
+                         "startup_seconds":  19.855579521972686
+                     }
+                 ],
+    "source_archive_sha256":  "5291d7af29c07cc5e683b8bc371601d764ef6d4fde67a82f78299e10c216131e",
+    "source_commit":  "1538b8b39baae38a781a8fbe0d9ab0a2cda892cb",
+    "source_manifest_sha256":  "2511191c1d2d6f4015d8c5f0482a70bc49b270194e5955f86e90b2705286cdff",
+    "source_root":  "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source",
+    "status":  "CLI_SEED_STOP_FLOW_PASS_NUMERICAL_AUDIT_PENDING",
+    "private_raw_backup":  {
+                               "path":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-cow-integrated-cli-q4-v1/evidence.tar.gz",
+                               "bytes":  8820570,
+                               "sha256":  "a651e34eacd02163256274825f63b5377916b2236aec4547f0a7e109b67b69b6",
+                               "source_receiver_hashes_match":  true,
+                               "excluded":  [
+                                                "native .state payloads",
+                                                "full COW source export"
+                                            ],
+                               "cow_source_available_at_private_git_commit":  "1538b8b39baae38a781a8fbe0d9ab0a2cda892cb"
+                           }
+}

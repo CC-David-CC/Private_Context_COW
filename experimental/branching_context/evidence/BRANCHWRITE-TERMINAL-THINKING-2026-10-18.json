@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "COMPONENT_PASS_CONNECTED_LOOP_AND_GPU_UNRUN",
+  "handoff": {
+    "schema": 1,
+    "status": "COMPONENT_PASS_CONNECTED_RETRY_AND_L00_UNRUN",
+    "active_goal": "VC00 baseline through VC09 qualification remains incomplete",
+    "terminal": {
+      "checkout": "/home/dflanag3/src/branchwrite-uab-terminal-20261018",
+      "branch": "work/branchwrite-uab-terminal-20261018",
+      "commit": "2520c39ba362a1a15ca4744f9c18b76de7a8236a",
+      "tests": 34,
+      "scope": "real isolated fixed-command primitive;no model CLI command yet"
+    },
+    "thinking": {
+      "checkout": "/home/dflanag3/src/branchwrite-thinking-ladder-20261018",
+      "branch": "work/branchwrite-thinking-ladder-20261018",
+      "commit": "46ec6f8914a9d98643e5ac58350f68b2d021ca35",
+      "tests": 26,
+      "scope": "new4K default and immutable ladder definitions;actual CPU grammar and synthetic HTTP/bootstrap regressions;no new GPU trial"
+    },
+    "owner_updates": [
+      "Default thinking4096,new admissions only",
+      "No1K final-answer target;observe model and continue partial output",
+      "Verified task failure drives escalation;no model budget decision",
+      "Lite256 live retest later",
+      "Retain failed tips and replan with goal,givens,assumptions and actual observed failure",
+      "A COW fork does not undo file/tool effects",
+      "Private LAN only;Windows steers;chat OFF;Q8 deferred"
+    ],
+    "next_work": [
+      "Implement journaled COW planning-fork FLOW on existing FrameKernel;test lost ack/restart/unknown effects before full retry loop",
+      "Connect host verified finish-failure to exactly one next rung;ordinary tool progress is not a failed task",
+      "Feed only public failure status/tool observations,never protected expected answers",
+      "Enforce escalating time allowances at settled generation boundaries;time definitions are not enforcement",
+      "Expose generic model command text through same terminal isolation and ledger,then actual L00",
+      "After connected CPU/CLI checks,run bounded Q4 default4K and one induced task failure/retry;Lite deferred"
+    ],
+    "jobs": "No owned live job;GPU idle;chat OFF",
+    "basic_loop": "H00-H12 bounded autonomous Q4 passes;separate from original VC/G qualification",
+    "protected_workload": "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/protected-pack"
+  },
+  "private_backup": {
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-thinking-v1/evidence.tar.gz",
+    "archive_bytes": 1535320,
+    "archive_sha256": "865df505337bae8ea5c3907b28ec0c2a9cb015bee5a32af0a4fed6bdcab4ce5c",
+    "regular_members": 594,
+    "individually_verified_data_files": 593,
+    "manifest_note": "Inventory itself covered by archive SHA256"
+  }
+}

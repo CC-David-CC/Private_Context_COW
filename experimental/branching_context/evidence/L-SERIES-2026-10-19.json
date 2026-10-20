@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-19",
+  "scope": "BranchWrite Lcatalog diagnostics toward standalone coding agent;not original G1\u2013G5 certification",
+  "roles": {
+    "client": "BranchWrite CLI/Interpreter/FrameKernel and owned OS tools on llm-49",
+    "server": "Context COW authenticated HTTP/canonical contexts/controllers/pools on llm-60",
+    "engine": "Pinned Strata native CUDA Q8_0 FP16KV on llm-60",
+    "harness": "Process/audit campaign and protected fixture checker;does not supply model tool actions"
+  },
+  "L03": {
+    "status": "BOUNDED_AUTONOMOUS_PASS",
+    "extra_examples": 0,
+    "model_calls": 9,
+    "output_tokens": 3547,
+    "whole_cli_seconds": 232.80178002105094,
+    "client": "config-l03-q8-v1",
+    "client_source": "9fe63fce3280a4f8708ab6d33e2f81ab2801c2f7"
+  },
+  "L04": {
+    "status": "BOUNDED_AUTONOMOUS_PASS",
+    "extra_examples": 0,
+    "model_calls": 7,
+    "output_tokens": 1309,
+    "whole_cli_seconds": 108.39200728398282,
+    "client": "owner-mode-l04-q8-v2",
+    "tested_source": "9fa9ca05d6af90b10903b3016c33068d221b6785",
+    "first_attempt": "Stopped after confirming harness strips projected modes to0400;retained;not a model failure;unknown intents not replayed"
+  },
+  "cpu": {
+    "selected_methods": 118,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "source_backup": {
+    "remote": "box-git:/srv/data/git/BranchWrite.git",
+    "branch": "fix/terminal-file-modes-20261019",
+    "head": "d21c71a1015934cb7c2eeae9a6613fbbfccfb8e8"
+  },
+  "L05": {
+    "status": "NOT_RUN",
+    "identified_gap": "Terminal projections have no bounded persistent command-output publication. Protected report program uses temporary-file+fsync+rename in output directory;single-file writable bind is insufficient."
+  },
+  "L06": {
+    "status": "NOT_RUN"
+  },
+  "cleanup": "Both completed workflows server/native exit0;owned scopedSSH keys revoked;chat OFF;no GitHub publication"
+}

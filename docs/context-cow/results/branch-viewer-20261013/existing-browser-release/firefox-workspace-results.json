@@ -1,0 +1,192 @@
+{
+  "browser": "firefox",
+  "status": "PASS",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "sleek_icons_are_default",
+    "icons_have_accessible_names",
+    "brief_hover_does_not_show_tooltip",
+    "held_hover_shows_tooltip",
+    "teaching_mode_shows_labels",
+    "math_in_saved_branch_renders",
+    "fork_does_not_open_confirmation",
+    "rename_and_clear_have_distinct_icons",
+    "fork_retains_prefix_messages",
+    "fork_has_its_own_suffix",
+    "parent_branch_is_unchanged",
+    "rewind_does_not_open_confirmation",
+    "clear_empties_only_selected_branch",
+    "restore_does_not_open_confirmation",
+    "clear_is_recoverable",
+    "reload_keeps_selected_branch_and_history",
+    "branch_can_be_named",
+    "archived_chat_is_recoverable",
+    "archiving_keeps_sqlite_history",
+    "mobile_has_no_page_overflow",
+    "no_browser_errors"
+  ],
+  "overflow_elements": [
+    {
+      "id": "graph-canvas",
+      "cls": "graph-canvas",
+      "right": 823
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 823
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 553
+    },
+    {
+      "id": "",
+      "cls": "graph-segment",
+      "right": 434.3000030517578
+    },
+    {
+      "id": "",
+      "cls": "graph-dot graph-selected",
+      "right": 561
+    },
+    {
+      "id": "",
+      "cls": "graph-tip",
+      "right": 532
+    },
+    {
+      "id": "",
+      "cls": "",
+      "right": 519
+    },
+    {
+      "id": "",
+      "cls": "graph-tip graph-selected",
+      "right": 782
+    },
+    {
+      "id": "",
+      "cls": "",
+      "right": 769
+    },
+    {
+      "id": "drawer",
+      "cls": "st-drawer",
+      "right": 750
+    }
+  ],
+  "mobile_layout": {
+    "width": 390,
+    "scroll": 390,
+    "teaching": "false",
+    "buttons": [
+      {
+        "id": "archive-chat-btn",
+        "x": 187.10000610351562,
+        "right": 215.10000610351562,
+        "tooltip": "98.2167px"
+      },
+      {
+        "id": "",
+        "x": 343,
+        "right": 371,
+        "tooltip": "84.8px"
+      },
+      {
+        "id": "new-btn",
+        "x": 8,
+        "right": 44,
+        "tooltip": "68.2167px"
+      },
+      {
+        "id": "export-btn",
+        "x": 52,
+        "right": 89,
+        "tooltip": "54.1333px"
+      },
+      {
+        "id": "rename-chat-btn",
+        "x": 285,
+        "right": 322,
+        "tooltip": "76.5333px"
+      },
+      {
+        "id": "rename-branch-btn",
+        "x": 97,
+        "right": 134,
+        "tooltip": "90.3333px"
+      },
+      {
+        "id": "clear-branch-btn",
+        "x": 142,
+        "right": 179,
+        "tooltip": "87.5px"
+      },
+      {
+        "id": "teaching-btn",
+        "x": 345,
+        "right": 382,
+        "tooltip": "120.283px"
+      },
+      {
+        "id": "restore-point-btn",
+        "x": 216,
+        "right": 253,
+        "tooltip": "88.75px"
+      },
+      {
+        "id": "",
+        "x": 292,
+        "right": 329,
+        "tooltip": "68.7333px"
+      },
+      {
+        "id": "",
+        "x": 337,
+        "right": 374,
+        "tooltip": "83.3167px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7333px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.3167px"
+      },
+      {
+        "id": "",
+        "x": 292,
+        "right": 329,
+        "tooltip": "68.7333px"
+      },
+      {
+        "id": "",
+        "x": 337,
+        "right": 374,
+        "tooltip": "83.3167px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7333px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.3167px"
+      }
+    ]
+  }
+}

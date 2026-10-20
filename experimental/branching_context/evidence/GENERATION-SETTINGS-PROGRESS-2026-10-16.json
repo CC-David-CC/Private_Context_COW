@@ -1,0 +1,22 @@
+{
+  "schema": "cow-generation-settings-progress-v1",
+  "status": "Q4-FOCUSED-PASS; Q8-IN-PROGRESS",
+  "source_base": "55cdfa9a2db1afcee40c340881b332656fb06d1e",
+  "host": "llm-60",
+  "GPU": [0],
+  "runtime": "/home/dflanag3/spatial-artifacts/sampler-serving-20261016-v1/generation-integrated-v4/source",
+  "cpu": {"tests": 477, "failures": 0, "skips": 0, "result": "generation-combined-cpu-v2.json"},
+  "focused_observers": {"tests": 10, "failures": 0, "skips": 0, "command": "generation-observers-command-v5"},
+  "G0": {"status": "PASS", "tests": 51, "failures": 0, "skips": 0},
+  "original_G1_through_G5": "NOT_QUALIFIED",
+  "native_executable_sha256": "8b96df82e47c7d1a367ec975ad3732b637856b34f0483ac521bd8149ca4ca681",
+  "q4": {
+    "profile_sha256": "98bf9e064e7554b3fc30ed4eab99051441244b7a0102b76787f7c6ff34d6d692",
+    "serving": {"status": "PASS", "campaign": "gpu-generation-q4-serving-v2", "frontier_comparisons": 38, "max_logit_error": 0},
+    "sweep": {"status": "PASS", "campaign": "gpu-generation-q4-sweep-v4", "policies": 7, "prefix": 1024, "suffix": 64, "output_limit": 8, "max_logit_error": 0, "settings_switch_restart": "PASS"},
+    "speed": {"status": "PASS", "campaign": "gpu-generation-q4-speed-v1", "temperatures": [0, 0.4, 1], "actual_outputs": [512, 512, 512], "generation_tps": [105.97287294943057, 105.63172966953067, 105.2427824251361], "captures_per_generation": 1, "prefix_forward_tokens": 0, "scope": "Leading audited tokens/frontier checked; later outputs performance smoke only"}
+  },
+  "q8": {"status": "IN_PROGRESS", "campaign": "gpu-generation-q8-serving-v1"},
+  "inactive_tmpfs_cleanup": {"status": "PASS", "retired_derived_payload_bytes": 30086880672, "canonical_history_unchanged": true, "raw_receipt": "inactive-tmpfs-reclaim-v1/result.json"},
+  "limitations": ["Same native execution profile and batch boundaries", "Native v2 CUDA/Linux only", "New grammar/filter combinations CPU-tested; earlier v1 real-GPU grammar evidence remains separate", "Short 1K fixtures, no long-context qualification", "Single speed trial per setting", "Chat stays off; no GitHub publication"]
+}

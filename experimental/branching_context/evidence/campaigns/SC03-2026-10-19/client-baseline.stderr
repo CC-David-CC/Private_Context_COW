@@ -1,0 +1,140 @@
+test_ascii_merge (test_casefold.Casefold.test_ascii_merge) ... ok
+test_default_preserves_names (test_casefold.Casefold.test_default_preserves_names) ... ok
+test_invalid_still_rejected (test_casefold.Casefold.test_invalid_still_rejected) ... ok
+test_iterator_and_comments (test_casefold.Casefold.test_iterator_and_comments) ... ok
+test_unicode_expansion (test_casefold.Casefold.test_unicode_expansion) ... ok
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ok
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... ok
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... ok
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... ok
+test_trim (test_ledger.LedgerTests.test_trim) ... ok
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... ok
+test_applies_after_aggregation (test_threshold.Threshold.test_applies_after_aggregation) ... ERROR
+test_default_keeps_zero (test_threshold.Threshold.test_default_keeps_zero) ... ok
+test_exact_boundary (test_threshold.Threshold.test_exact_boundary) ... ERROR
+test_filters_low_totals (test_threshold.Threshold.test_filters_low_totals) ... ERROR
+test_fold_before_threshold (test_threshold.Threshold.test_fold_before_threshold) ... ERROR
+test_iterator_single_pass (test_threshold.Threshold.test_iterator_single_pass) ... ERROR
+test_record_validation_not_bypassed (test_threshold.Threshold.test_record_validation_not_bypassed) ... ERROR
+test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) ... 
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=-1) ... ERROR
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=True) ... ERROR
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=False) ... ERROR
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=1.2) ... ERROR
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value='2') ... ERROR
+  test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=None) ... ERROR
+
+======================================================================
+ERROR: test_applies_after_aggregation (test_threshold.Threshold.test_applies_after_aggregation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 9, in test_applies_after_aggregation
+    self.assertEqual(summarize(["oak:2","oak:3"],min_count=4),{"oak":5})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_exact_boundary (test_threshold.Threshold.test_exact_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 11, in test_exact_boundary
+    self.assertEqual(summarize(["oak:4"],min_count=4),{"oak":4})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_filters_low_totals (test_threshold.Threshold.test_filters_low_totals)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 7, in test_filters_low_totals
+    self.assertEqual(summarize(["oak:2","elm:7"],min_count=4),{"elm":7})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_fold_before_threshold (test_threshold.Threshold.test_fold_before_threshold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 13, in test_fold_before_threshold
+    self.assertEqual(summarize(["Straße:2","STRASSE:3"],casefold=True,min_count=4),{"strasse":5})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_iterator_single_pass (test_threshold.Threshold.test_iterator_single_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 18, in test_iterator_single_pass
+    self.assertEqual(summarize(iter(["a:2","a:3","b:1"]),min_count=3),{"a":5})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_record_validation_not_bypassed (test_threshold.Threshold.test_record_validation_not_bypassed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 20, in test_record_validation_not_bypassed
+    with self.assertRaises(ValueError):summarize(["a:-1"],min_count=99)
+                                       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=1.2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value='2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+======================================================================
+ERROR: test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) (value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc03-q8-restored-v1/baseline-world/workspace/tests/test_threshold.py", line 16, in test_reject_invalid_thresholds_even_empty
+    with self.subTest(value=value),self.assertRaises(ValueError):summarize([],min_count=value)
+                                                                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'min_count'
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.002s
+
+FAILED (errors=12)

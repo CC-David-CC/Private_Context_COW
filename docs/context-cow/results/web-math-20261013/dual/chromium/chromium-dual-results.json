@@ -1,0 +1,20 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "actual browser UI; mock inference, no GPU",
+  "checks": [
+    "rendering_starts_disabled",
+    "no_vendor_load_when_disabled",
+    "renderer_selector_exists",
+    "katex_switch_keeps_streaming_element",
+    "katex_adapter_selected"
+  ],
+  "engines": {
+    "katex": [
+      {
+        "chat_ms": 1433.0991999886464
+      }
+    ]
+  },
+  "error": "Error(\"Page.evaluate: TypeError: Cannot read properties of undefined (reading 'content')\\n    at eval (eval at evaluate (:311:30), <anonymous>:1:17)\\n    at eval (<anonymous>)\\n    at UtilityScript.evaluate (<anonymous>:311:30)\\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\")"
+}

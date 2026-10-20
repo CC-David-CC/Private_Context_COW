@@ -1,0 +1,84 @@
+{
+  "schema": "strata-native-clean-build-plan-v1",
+  "status": "READ_ONLY_PLAN_NOT_EXECUTED",
+  "source": {
+    "integrated_commit": "52208d1a896a01585f9f86b354fe987820b4990a",
+    "worker_commit_supporting_equality_only": "a66e594a44e490ee59c2fc28d3ac1a66ae3bea70",
+    "equal_paths": ["CMakeLists.txt", "src/core/", "include/strata/core/"],
+    "required_checkout_state": "clean at integrated_commit"
+  },
+  "proposed_paths_not_created": {
+    "source": "/home/dflanag3/branching-g3/context-cow-clean-52208d1a",
+    "build": "/home/dflanag3/spatial-artifacts/cow-build-52208d1a-sm120-01",
+    "probe_output": "/home/dflanag3/spatial-artifacts/cow-probe-52208d1a-sm120-01"
+  },
+  "dependency": {
+    "repository": "https://github.com/ggml-org/llama.cpp.git",
+    "revision": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+    "source_pin": "third_party/ggml/VERSION.txt",
+    "llm60_clean_checkout_available": false,
+    "future_action": "FetchContent only after separately authorized build; no old _deps or dirty checkout reuse"
+  },
+  "observed_toolchain": {
+    "host": "llm-60",
+    "cmake": "3.28.3",
+    "gcc": "13.3.0",
+    "cuda_nvcc": "13.2.86 at /usr/local/cuda/bin/nvcc",
+    "logical_cpus": 32,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "compute_capability": "12.0",
+    "disk_available_bytes": 31032041472,
+    "disk_used_percent": 99,
+    "ram_available_kib": 126728288
+  },
+  "configuration": {
+    "build_type": "Release",
+    "cxx_standard": 20,
+    "cuda": true,
+    "cuda_architectures": "120",
+    "native_experts": true,
+    "build_tests": true,
+    "ggml_cuda_openmp_backend_dl_tests_examples": false,
+    "mmq_kquants_cache_option": false,
+    "prefill_mmq_cache_option": false,
+    "cuda_target_compile_definitions": ["STRATA_PREFILL_MMQ=1", "STRATA_PREFILL_FUSED=1"],
+    "prefill_fused_cache_option": "not a CMake option",
+    "mmq_setting_basis": "Both measured Q4/Q8 profiles reference same build receipt and binaries. Cache and strata_mmq flags.make show no STRATA_MMQ_KQUANTS define; branch flags contain STRATA_PREFILL_MMQ and STRATA_PREFILL_FUSED, which CMake enables for CUDA independently. The STRATA_PREFILL_MMQ configure option is HIP-only and must remain OFF with HIP disabled."
+  },
+  "configure_argv": [
+    "cmake", "-S", "$SRC", "-B", "$BUILD",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/g++",
+    "-DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc",
+    "-DCMAKE_CUDA_ARCHITECTURES=120",
+    "-DSTRATA_ENABLE_CUDA=ON",
+    "-DSTRATA_ENABLE_HIP=OFF",
+    "-DSTRATA_NATIVE_EXPERTS=ON",
+    "-DSTRATA_BUILD_TESTS=ON",
+    "-DSTRATA_MMQ_KQUANTS=OFF",
+    "-DSTRATA_PREFILL_MMQ=OFF"
+  ],
+  "measured_build_reference": {
+    "build_receipt_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "revision_label": "private-llm60-20261012T0818",
+    "branch_binary_sha256": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b",
+    "fresh_binary_sha256": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c",
+    "profiles": [
+      {"kind": "Q4 full", "execution_profile_id": "3ae422fa39915bcb666c9573c6d73a63d1fcee0574ba2ad81f4d1c9f0b8b3687"},
+      {"kind": "Q8 HTTP", "execution_profile_id": "b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1"}
+    ],
+    "effective_settings": {"STRATA_MMQ_KQUANTS": false, "STRATA_PREFILL_MMQ": true, "STRATA_PREFILL_FUSED": true}
+  },
+  "targets": {
+    "cmake": ["strata", "strata-branch", "strata-fresh"],
+    "generated_probe_executables": ["strata-batched-branch", "strata-batched-fresh"],
+    "explicit_fresh_objects": ["branch_digest.cu", "branch_pages.cpp", "branch_session.cpp", "conversation_snapshot.cpp", "conversation_state.cpp", "generated generate.cpp", "generated branch_driver.cpp", "generated fresh_prefill.cpp"]
+  },
+  "space_plan": {
+    "estimated_peak_gib": "3-5",
+    "minimum_free_before_build_gib": 10,
+    "admission_now": false
+  },
+  "excluded_qualification": ["HIP", "non-sm120 CUDA architectures", "GPU execution", "inference", "profile admission", "numerical qualification"],
+  "build_or_download_performed": false
+}

@@ -1,0 +1,66 @@
+{
+  "status": "FAIL",
+  "seconds": 3.385785099992063,
+  "executed_ids": [
+    "serve.test_workspace_graph.GraphTests.test_chat_boundaries_and_missing_chat",
+    "serve.test_workspace_graph.GraphTests.test_empty_and_single_branch_counts",
+    "serve.test_workspace_graph.GraphTests.test_equal_text_on_different_paths_is_not_shared",
+    "serve.test_workspace_graph.GraphTests.test_identical_tips_are_distinct_branches",
+    "serve.test_workspace_graph.GraphTests.test_nested_shared_cores_and_different_lengths",
+    "serve.test_workspace_graph.GraphTests.test_pending_answer_only_counts_durable_input",
+    "serve.test_workspace_graph.GraphTests.test_previews_are_bounded_and_do_not_load_attachments",
+    "serve.test_workspace_graph.GraphTests.test_reads_do_not_change_database",
+    "serve.test_workspace_graph.GraphTests.test_rewind_previous_tips_clear_and_restore",
+    "serve.test_workspace_graph.GraphTests.test_snapshot_remains_consistent_during_append",
+    "serve.test_workspace_graph.GraphTests.test_ten_thousand_messages_use_bounded_queries"
+  ],
+  "executed_methods": 11,
+  "failures": [],
+  "errors": [
+    [
+      "serve.test_workspace_graph.GraphTests.test_chat_boundaries_and_missing_chat",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 91, in test_chat_boundaries_and_missing_chat\n    graph = self.store.graph(other['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_empty_and_single_branch_counts",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 29, in test_empty_and_single_branch_counts\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_equal_text_on_different_paths_is_not_shared",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 69, in test_equal_text_on_different_paths_is_not_shared\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_identical_tips_are_distinct_branches",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 59, in test_identical_tips_are_distinct_branches\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_nested_shared_cores_and_different_lengths",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 48, in test_nested_shared_cores_and_different_lengths\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_pending_answer_only_counts_durable_input",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 98, in test_pending_answer_only_counts_durable_input\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_previews_are_bounded_and_do_not_load_attachments",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 112, in test_previews_are_bounded_and_do_not_load_attachments\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_reads_do_not_change_database",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 122, in test_reads_do_not_change_database\n    self.store.graph(self.chat['id']); self.store.list_chats()\n    ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_rewind_previous_tips_clear_and_restore",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 77, in test_rewind_previous_tips_clear_and_restore\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_snapshot_remains_consistent_during_append",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 147, in test_snapshot_remains_consistent_during_append\n    try: graph = self.store.graph(self.chat['id'])\n                 ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ],
+    [
+      "serve.test_workspace_graph.GraphTests.test_ten_thousand_messages_use_bounded_queries",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_workspace_graph.py\", line 174, in test_ten_thousand_messages_use_bounded_queries\n    graph = self.store.graph(self.chat['id'])\n            ^^^^^^^^^^^^^^^^\nAttributeError: 'ChatWorkspace' object has no attribute 'graph'\n"
+    ]
+  ],
+  "skips": []
+}

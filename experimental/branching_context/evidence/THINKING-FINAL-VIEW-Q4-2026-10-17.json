@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_Q4_CANONICAL_THINKING_FINAL_VIEW_PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "base": "6baf00225d5d82704f2a04d56f025cd89fdc87d8",
+  "sources": {
+    "serve/cow_http.py": "b9aec4146c6a2843e13e514a223ea0147184d3d3bb297fe118cfbaa36163a870",
+    "serve/cow_text_adapter.py": "83e1daf28204b32b1ff4603782ece2109a14adfd77d4ea9eac889b9f65f81938",
+    "serve/test_cow_thinking_result.py": "372953bacfdedc0b7356d79dbc2f13da5b0089cbba020e9cb497b754d0574f29",
+    "experimental/branching_context/scripts/run_thinking_cli_probe.py": "dad1924d3de6bf373b72aff4b62f4303880a7cc00dbf118899428faf65419649"
+  },
+  "execution_profile_id": "366521394e6570080b06fcf34d635a90331f069a52d8892a10d98e569e6e10c7",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "native_sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow": "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow": "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+  },
+  "image_sha256": "414bcbf649fc99734f5c7481cc33c84ce3031fc35443f4bdae470397efa532b8",
+  "budget": 512,
+  "thinking_progress": {
+    "close_reason": "natural",
+    "closing_tokens": 1,
+    "final_tokens": 3,
+    "max_tokens": 512,
+    "phase": "final",
+    "reasoning_tokens": 358,
+    "schema": 1
+  },
+  "final": "LEFT",
+  "quality": "PASS",
+  "first_partial_final": null,
+  "snapshot_binding_verified": true,
+  "parent_bytes_unchanged": true,
+  "runs": [
+    {
+      "run": "cow-thinking-result-red-run-v1",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "summary": [
+        "Ran 4 tests in 0.042s",
+        "FAILED (errors=4)"
+      ]
+    },
+    {
+      "run": "cow-thinking-result-green-run-v1",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "summary": [
+        "Ran 4 tests in 0.051s",
+        "FAILED (errors=1)"
+      ]
+    },
+    {
+      "run": "cow-thinking-result-green-run-v4",
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "summary": [
+        "Ran 5 tests in 0.070s",
+        "OK"
+      ]
+    },
+    {
+      "run": "cow-thinking-result-broad-run-v4",
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "summary": [
+        "Ran 102 tests in 19.629s",
+        "OK"
+      ]
+    },
+    {
+      "run": "cow-thinking-result-g0-run-v4",
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "summary": []
+    },
+    {
+      "run": "cow-thinking-result-gpu-run-v2",
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "summary": []
+    },
+    {
+      "run": "cow-thinking-result-text-stop-red-run-v1",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "summary": [
+        "Ran 1 test in 0.028s",
+        "FAILED (errors=2)"
+      ]
+    },
+    {
+      "run": "cow-thinking-result-text-stop-red-run-v2",
+      "exits": {
+        "command.exit": 1,
+        "wrapper.exit": 1
+      },
+      "summary": [
+        "Ran 1 test in 0.032s",
+        "FAILED (failures=1, errors=1)"
+      ]
+    }
+  ],
+  "processes_absent": [
+    119285,
+    119291
+  ],
+  "numerical_max_error": null,
+  "numerical_oracle": "NOT_RUN",
+  "q8": "DEFERRED",
+  "chat_server": "OFF",
+  "limits": [
+    "One retained image question; no accuracy guarantee.",
+    "No new normal/native operator, sampling equation, matcher or snapshot format.",
+    "No process-restart thinking qualification or independent full-vector oracle.",
+    "H04/H05 remain unexecuted; this is their productive-client thinking boundary.",
+    "First green fixture incorrectly fed ordinary byte tokens for a registered final literal closing tag; corrected to the actual legal token without changing output assertion. Text-stop RED detects false complete/missing-close error; fixed to require consumed EOS and accepting final grammar. Both before/after-closing stop cases return null final. New fixture uses real sampled selection before consumption."
+  ],
+  "operating_policy": "All source editing/build/test/evidence on Linux. Windows steering/transport only. New tasks start512 and extend only when budget exhausted AND task fails.",
+  "prior_runtime_archive": {
+    "path": "/srv/data/git/private_context_cow.evidence/20261017-cow-thinking-natural-v1/evidence.tar.gz",
+    "sha256": "781a93a2ebbac88d0cb62c7454281c213b1c267247b9ae990567eb823a80df93"
+  },
+  "excluded_state_bytes": 398074056,
+  "archive": {
+    "host": "box-git",
+    "path": "/srv/data/git/private_context_cow.evidence/20261017-cow-thinking-result-v2/evidence.tar.gz",
+    "sha256": "3fcc91ea049c64c65bd4b53910fe2695f9ec5170d84e803d9f9ac1c7bdbeaeac",
+    "bytes": 2757281,
+    "members": 154,
+    "receiver_verified": true
+  }
+}

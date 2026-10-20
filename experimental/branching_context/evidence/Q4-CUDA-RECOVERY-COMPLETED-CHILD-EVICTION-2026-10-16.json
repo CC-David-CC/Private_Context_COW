@@ -1,0 +1,42 @@
+{
+  "backup_archive_sha256": "9ee31f352a332522b7510e07356d676be1032a5161777d9d487d967e0ccb7fd3",
+  "freed_allocated_bytes": 450928640,
+  "limitation": "Completed child numerical payloads are intentionally absent after eviction; audits record executed pre-eviction state and raw final vectors. Canonical histories and original prefix payloads remain.",
+  "rows": [
+    {
+      "canonical_and_source_unchanged": true,
+      "canonical_files": 20,
+      "child_manifest": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/tiny-input-store-v1/checkpoints/3e5524ca5a89fefa5e0628d0dc6b1cd3e4859f1d49ca1932728a0d9ab7605713.json",
+      "child_manifest_sha256": "6ae40e837b7ec21f37b78378231c4707a8784501cc91f6b978698d89411cd8e2",
+      "child_payload": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/tiny-input-store-v1/checkpoints/231435c737d13bf463e43107a8379ad46ce60807a353083aacf43c49cfac26b7.state",
+      "child_payload_bytes": 122720296,
+      "child_payload_sha256": "231435c737d13bf463e43107a8379ad46ce60807a353083aacf43c49cfac26b7",
+      "fixture": "tiny",
+      "removed_allocated_bytes": 122728448,
+      "retained_source_manifest": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/tiny-input-store-v1/checkpoints/96e083885945e0cf0517aa1709a1d80db3029bf04bcc4028cc8cb55a4a74e0d8.json",
+      "retained_source_manifest_sha256": "8813d04cd0ac858648745a6752903c8b938cf3cedc2e9d5e16f9ba4f1008fbe8",
+      "retained_source_payload": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/tiny-input-store-v1/checkpoints/957308f2fa24bc1cb898e2228b52d8a974a26d0276227fc7de72d79eed9b6bc3.state",
+      "retained_source_payload_sha256": "957308f2fa24bc1cb898e2228b52d8a974a26d0276227fc7de72d79eed9b6bc3",
+      "store": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/tiny-input-store-v1"
+    },
+    {
+      "canonical_and_source_unchanged": true,
+      "canonical_files": 20,
+      "child_manifest": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/target-input-store-v1/checkpoints/d5e857e1552881034c7979ceee4fc0d5a144d8a33aa8cba147058adf50ec808c.json",
+      "child_manifest_sha256": "976c632c12017d48154ad917e5d7a08b89214f04e5bbd00b14417fbf608f5cf7",
+      "child_payload": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/target-input-store-v1/checkpoints/a3f289432a3a8b3148fc44b4b8fae1b5b5ef7cb4ade64e06a7872066172598e9.state",
+      "child_payload_bytes": 328194836,
+      "child_payload_sha256": "a3f289432a3a8b3148fc44b4b8fae1b5b5ef7cb4ade64e06a7872066172598e9",
+      "fixture": "target",
+      "removed_allocated_bytes": 328200192,
+      "retained_source_manifest": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/target-input-store-v1/checkpoints/73d77be2332aa5045e2c0339517da218164b19712cbaf9e47d2ab4d3f06dd854.json",
+      "retained_source_manifest_sha256": "091cf2c39dce057327b16be8214ccd169cf3e5a9600259893ec482907ff77765",
+      "retained_source_payload": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/target-input-store-v1/checkpoints/da40e559d9370e3f5d9217a65552e847862c013a1fe9add19cedf3802a5cfdff.state",
+      "retained_source_payload_sha256": "da40e559d9370e3f5d9217a65552e847862c013a1fe9add19cedf3802a5cfdff",
+      "store": "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/target-input-store-v1"
+    }
+  ],
+  "schema": "completed-q4-recovery-child-eviction-v1",
+  "script_sha256": "202a0e6775ccedf629e27499838d483432f090e5043fe5b715ae80ba59ff6d11",
+  "status": "PASS"
+}

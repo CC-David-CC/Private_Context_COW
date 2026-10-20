@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "seconds": 0.9336358999717049,
+  "executed_ids": [
+    "serve.test_sample_app.SampleApp.test_sample_is_labelled_and_works_with_thinking_on_and_off"
+  ],
+  "executed_methods": 1,
+  "failures": [],
+  "errors": [],
+  "skips": []
+}

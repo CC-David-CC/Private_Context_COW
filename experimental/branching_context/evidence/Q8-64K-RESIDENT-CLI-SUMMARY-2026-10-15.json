@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "scope": "same-host subprocess client; not HTTP or remote network speed",
+  "mode": "resident",
+  "profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+  "startup_seconds": 72.36758009507321,
+  "native_exit_observed": true,
+  "native_exit_codes": {
+    "worker": 0
+  },
+  "native_exit_success": true,
+  "branches": {
+    "A": {
+      "measured_requests": 3,
+      "medians": {
+        "time_to_first_token_seconds": 3.419459158089012,
+        "steady_received_tps": 57.4677268432107,
+        "median_tpot_seconds": 0.016309909988194704,
+        "p95_tpot_seconds": 0.02415193896740675,
+        "request_tps": 52.17653387925395,
+        "durable_request_tps": 48.43886826298365
+      }
+    },
+    "B": {
+      "measured_requests": 3,
+      "medians": {
+        "time_to_first_token_seconds": 3.2404833489563316,
+        "steady_received_tps": 45.05886510985876,
+        "median_tpot_seconds": 0.01799710188060999,
+        "p95_tpot_seconds": 0.03915188508108258,
+        "request_tps": 41.85141818817472,
+        "durable_request_tps": 39.37341428646981
+      }
+    }
+  },
+  "work": [
+    {
+      "request": "A-0",
+      "warmup": true,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 11.390776586951688
+    },
+    {
+      "request": "B-0",
+      "warmup": true,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 8.802317428868264
+    },
+    {
+      "request": "A-1",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.5204429768491536
+    },
+    {
+      "request": "B-1",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.852065810933709
+    },
+    {
+      "request": "A-2",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.571043472038582
+    },
+    {
+      "request": "B-2",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.551062128972262
+    },
+    {
+      "request": "A-3",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.5598292872309685
+    },
+    {
+      "request": "B-3",
+      "warmup": false,
+      "outputs": 2048,
+      "forward_tokens": 10383,
+      "loaded_file_bytes": 0,
+      "disk_restore": null,
+      "durable_save_seconds": 2.5628244469407946
+    }
+  ],
+  "client_sha256": "3a9f939b93339e877417bc83b4726edf3826bd5508cc9af7fad33db9854d6573",
+  "worker_sha256": "54d69b3d6de963e15757769f013cc0ce9511c275de79334265e4cb3340ed13d9",
+  "limitations": [
+    "Same-profile greedy reference; not cumulative certification",
+    "Repeated deterministic completions may reuse existing durable payloads",
+    "Warm filesystem cache; no cold-storage or HTTP/network qualification"
+  ]
+}

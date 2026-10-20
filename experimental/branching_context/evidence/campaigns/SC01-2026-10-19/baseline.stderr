@@ -1,0 +1,86 @@
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ERROR
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... FAIL
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... FAIL
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... FAIL
+test_trim (test_ledger.LedgerTests.test_trim) ... FAIL
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... FAIL
+
+======================================================================
+ERROR: test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 9, in test_comments_and_empty
+    self.assertEqual(summarize(["","  "," # note","ash:1"]),{"ash":1})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/ledger.py", line 4, in summarize
+    name, count = line.split(":")
+    ^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+
+======================================================================
+FAIL: test_empty_name (test_ledger.LedgerTests.test_empty_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 17, in test_empty_name
+    with self.assertRaises(ValueError):summarize([":1"])
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_negative_count (test_ledger.LedgerTests.test_negative_count)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 15, in test_negative_count
+    with self.assertRaises(ValueError):summarize(["oak:-1"])
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 5, in test_repeated_names_add
+    self.assertEqual(summarize(["oak:2","oak:3","ash:0"]),{"oak":5,"ash":0})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'oak': 3, 'ash': 0} != {'oak': 5, 'ash': 0}
+- {'ash': 0, 'oak': 3}
+?                   ^
+
++ {'ash': 0, 'oak': 5}
+?                   ^
+
+
+======================================================================
+FAIL: test_trim (test_ledger.LedgerTests.test_trim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 7, in test_trim
+    self.assertEqual(summarize(["  oak : 2  "]),{"oak":2})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'  oak ': 2} != {'oak': 2}
+- {'  oak ': 2}
+?   --   -
+
++ {'oak': 2}
+
+======================================================================
+FAIL: test_unicode_name (test_ledger.LedgerTests.test_unicode_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/baseline-world/workspace/tests/test_ledger.py", line 11, in test_unicode_name
+    self.assertEqual(summarize(["café:4","café:1"]),{"café":5})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'café': 1} != {'café': 5}
+- {'café': 1}
+?          ^
+
++ {'café': 5}
+?          ^
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+FAILED (failures=5, errors=1)

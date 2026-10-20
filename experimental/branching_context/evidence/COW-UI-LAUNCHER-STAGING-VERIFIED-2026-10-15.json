@@ -1,0 +1,28 @@
+{
+  "status": "PASS_PINNED_INSTALL_SUPPORT_ONLY",
+  "supersedes": "COW-UI-LAUNCHER-STAGING-REVIEW-2026-10-15.json",
+  "source_commit": "a946febda3f9c5ef3f558e486c79c5a8c699ede9",
+  "integrated_commit": "4b388c45e25152ab98d23b1c21955208557b3d92",
+  "host": "llm-60",
+  "new_install_source": "/home/dflanag3/spatial-artifacts/cow-ui-q8-8189-20261015-preflight-v2/reviewed",
+  "sha256sums_sha256": "10559c7fd1453b1fe6057a279c2459bb668572319ac4bc4bb910bd0e6eb86fce",
+  "install_test_receipts": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/install-receipt-v2",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "eight_source_and_destination_hashes_passed": true,
+  "shell_syntax_and_python_compile_passed": true,
+  "browser_output_remained_absent": true,
+  "root_independently_read_receipts_and_install_output": true,
+  "root_independently_checked_changed_helper_hashes": [
+    "cow_http_keyfile.py",
+    "run-cow-http-pid.sh",
+    "start-cow-service.sh",
+    "run-cow-ui-smoke.sh",
+    "cow_fresh_reference.py"
+  ],
+  "launcher_cpu_tests": 11,
+  "no_browser_or_model_requests_executed": true,
+  "gpu_qualification": "NOT_RUN",
+  "numerical_max_error": null,
+  "next_action": "Fresh live resource/lock checks, then scheduled real-Q8 browser run after Q4 profiling. Keep ordinary chat off."
+}

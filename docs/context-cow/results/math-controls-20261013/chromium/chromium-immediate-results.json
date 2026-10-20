@@ -1,0 +1,20 @@
+{
+  "browser": "chromium",
+  "status": "PASS",
+  "scope": "real browser, scripted fixture, no GPU",
+  "checks": [
+    "disable_updates_existing_answer_without_apply",
+    "disabled_source_is_original_markdown",
+    "disabled_setting_saved_immediately",
+    "viewer_choice_saved_while_disabled",
+    "changing_viewer_keeps_math_disabled",
+    "enable_uses_selected_viewer_without_apply",
+    "switch_viewer_updates_without_apply",
+    "streaming_element_is_preserved",
+    "raw_answer_is_preserved",
+    "reload_preserves_immediate_choices",
+    "reload_keeps_disabled_math_raw",
+    "no_model_request_for_viewer_changes",
+    "no_browser_errors"
+  ]
+}

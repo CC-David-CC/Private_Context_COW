@@ -1,0 +1,11 @@
+{
+  "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-native-ingest-v1.tar.gz",
+  "bytes": 156154518,
+  "sha256": "b1550f47f6ad30793c8514fedd59673ac510320c781bf9877136718a211ba524",
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-native-ingest-v1/evidence.tar.gz",
+  "files": 376,
+  "destination_readback_sha256": "b1550f47f6ad30793c8514fedd59673ac510320c781bf9877136718a211ba524",
+  "github_publication": false,
+  "verification": "All archive members reread; destination full SHA-256 reread"
+}

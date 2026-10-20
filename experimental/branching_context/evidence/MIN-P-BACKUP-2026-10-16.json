@@ -1,0 +1,13 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-min-p-v1/evidence.tar",
+  "archive_bytes": 618618880,
+  "archive_sha256": "590e79a65d6b17a52bd83125985c2cc688d5c9ec10ee82cc19aea212ad597bab",
+  "extracted_files": 0,
+  "manifest_sha256": "1622b3cde0940fdb67d4ad4a12a1cda7a5ef93d3d25f76686e07cd914a2da4c3",
+  "schema": "cow-min-p-private-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 611146248,
+  "verified_members": 4949
+}

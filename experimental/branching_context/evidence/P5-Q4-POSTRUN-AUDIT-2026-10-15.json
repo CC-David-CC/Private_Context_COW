@@ -1,0 +1,553 @@
+{
+  "campaign_output": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+  "checks": [
+    {
+      "details": {
+        "actual_tokens": 65536,
+        "controller": {
+          "status": "idle"
+        },
+        "expected_tokens": 65536
+      },
+      "id": "root_history_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "controller": {
+          "status": "idle"
+        }
+      },
+      "id": "root_controller_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual_tokens": 65536,
+        "controller": {
+          "status": "idle"
+        },
+        "expected_tokens": 65536
+      },
+      "id": "root_history_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "controller": {
+          "status": "idle"
+        }
+      },
+      "id": "root_controller_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual_tokens": 65536,
+        "controller": {
+          "status": "idle"
+        },
+        "expected_tokens": 65536
+      },
+      "id": "root_history_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "controller": {
+          "status": "idle"
+        }
+      },
+      "id": "root_controller_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73876,
+        "expected": 73876,
+        "outputs": 4
+      },
+      "id": "prepare_history_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73851,
+        "expected": 73851,
+        "outputs": 4
+      },
+      "id": "prepare_history_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73860,
+        "expected": 73860,
+        "outputs": 4
+      },
+      "id": "prepare_history_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73851,
+        "expected": 73851,
+        "outputs": 4
+      },
+      "id": "prepare_history_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73855,
+        "expected": 73855,
+        "outputs": 4
+      },
+      "id": "prepare_history_4",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_4",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 73858,
+        "expected": 73858,
+        "outputs": 4
+      },
+      "id": "prepare_history_5",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 4,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "prepare_controller_5",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75920,
+        "expected": 75920,
+        "outputs": 2044
+      },
+      "id": "resume_history_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 74354,
+        "expected": 74354,
+        "outputs": 503
+      },
+      "id": "resume_history_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 507,
+        "expected_status": "stopped",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "stopped",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75904,
+        "expected": 75904,
+        "outputs": 2044
+      },
+      "id": "resume_history_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75895,
+        "expected": 75895,
+        "outputs": 2044
+      },
+      "id": "resume_history_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75899,
+        "expected": 75899,
+        "outputs": 2044
+      },
+      "id": "resume_history_4",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_4",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75902,
+        "expected": 75902,
+        "outputs": 2044
+      },
+      "id": "resume_history_5",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "resume_controller_5",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 74354,
+        "expected": 74354,
+        "outputs": 507
+      },
+      "id": "rewind_history_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 507,
+        "expected_status": "stopped",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "stopped",
+        "stream_key_match": true
+      },
+      "id": "rewind_controller_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75895,
+        "expected": 75895,
+        "outputs": 2048
+      },
+      "id": "rewind_history_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "rewind_controller_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "actual": 75902,
+        "expected": 75902,
+        "outputs": 2048
+      },
+      "id": "rewind_history_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "accepted": 2048,
+        "expected_status": "active",
+        "next_draw": 0,
+        "pending_hex_match": true,
+        "seen_match": true,
+        "status": "active",
+        "stream_key_match": true
+      },
+      "id": "rewind_controller_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "canonical_root_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "reference_file_sha256": "0a80fdb2b4a6ff5669e791560319032a5741551d9b44a875129b4fb5237e2d5c",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-0.f32.requests.f32",
+        "reference_root_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "root": 0,
+        "suffix_frontier_available": true,
+        "tree": 0
+      },
+      "id": "root_prompt_frontier_tree_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "canonical_root_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "reference_file_sha256": "f618bcefa705ff4b259e88b85cd0ea8a2a1a1dbf75f212ee4857fa02af12aeb0",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-1.f32.requests.f32",
+        "reference_root_sha256": "466e32e0118e19f38d96ec657b77a6f0b08cff70b939853d2aa67316a1d5a87f",
+        "root": 0,
+        "suffix_frontier_available": true,
+        "tree": 1
+      },
+      "id": "root_prompt_frontier_tree_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "canonical_root_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "reference_file_sha256": "d4fbe53938738526a7309b467d84eae70c84a96a25774459d7d8b52c501c47a0",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-2.f32.requests.f32",
+        "reference_root_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "root": 1,
+        "suffix_frontier_available": true,
+        "tree": 2
+      },
+      "id": "root_prompt_frontier_tree_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "canonical_root_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "reference_file_sha256": "27fc9e2e615f8d06febe84b5b006df178d85b5d97f33087840cece3a6e1bd253",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-3.f32.requests.f32",
+        "reference_root_sha256": "a83e2535f1c0ea5b6a385a338651f73bd667c12860ff19376e6eeb87c1412ffa",
+        "root": 1,
+        "suffix_frontier_available": true,
+        "tree": 3
+      },
+      "id": "root_prompt_frontier_tree_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "canonical_root_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "reference_file_sha256": "d1946f445207cc5187e548dd1c4c8cfd3716ec195571fa9be8f1fbd9376ec377",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-4.f32.requests.f32",
+        "reference_root_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "root": 2,
+        "suffix_frontier_available": true,
+        "tree": 4
+      },
+      "id": "root_prompt_frontier_tree_4",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "bytes": 993280,
+        "canonical_frontier_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "canonical_root_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "reference_file_sha256": "5cdcd96658d219e6333e3bd40a0e56d223b5bd3a17fa2a2314b0944434e9c7d2",
+        "reference_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-5.f32.requests.f32",
+        "reference_root_sha256": "49366ad92b0fc947891cb1bc6fdf5a130e6d79904b8d233b13e7e627b1bc38d5",
+        "root": 2,
+        "suffix_frontier_available": true,
+        "tree": 5
+      },
+      "id": "root_prompt_frontier_tree_5",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "campaign_status": "PASS",
+        "comparison_count": 6
+      },
+      "id": "campaign_terminal_pass",
+      "status": "PASS"
+    }
+  ],
+  "conclusion": "Histories and reconstructed controllers match all retained prepare/resume/rewind states. Root-boundary prompt frontiers match references where available.",
+  "controller_source_sha256": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+  "fixture_sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+  "model_metadata_only": true,
+  "model_metadata_source": "/home/dflanag3/branching-g3/private-queue-20261012T0818/tools/gguf_reader.py",
+  "profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "profile_sha256": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+  "prompt_frontier_checks": [
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 0,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 0
+    },
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 0,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 1
+    },
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 1,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 2
+    },
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 1,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 3
+    },
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 2,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 4
+    },
+    {
+      "reference_request_frontiers": 2,
+      "root_frontier_equal": true,
+      "root_index": 2,
+      "suffix_frontier_retained_only_in_reference": true,
+      "tree": 5
+    }
+  ],
+  "result_sha256": "40965f747ebda3fc87eb61cd274c96e2847d46dba65d346eef99e6d25c3d1cfa",
+  "scope": "Read-only post-run audit of retained canonical histories/controllers and prompt frontiers; no GPU/native worker created. Controller reconstructed from deterministic greedy controller.py plus recorded consumed token IDs and pinned GGUF token pieces.",
+  "scope_limits": [
+    "Campaign fresh references provide no independently generated controller object; controllers were reconstructed from pinned controller rules and recorded token IDs.",
+    "Root prompt frontier was compared at the first request boundary for each tree against saved fresh-reference request frontier.",
+    "Reference suffix-boundary frontier is retained in the oracle request dump, but no corresponding canonical pre-generation snapshot was saved; direct suffix-boundary native-vs-oracle frontier comparison is therefore unavailable.",
+    "Campaign numerical comparisons still cover saved output frontier after first four tokens and the final frontier for each tree; all-output-frontier checks are not claimed."
+  ],
+  "status": "PASS"
+}

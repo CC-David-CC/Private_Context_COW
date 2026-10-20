@@ -1,0 +1,134 @@
+{
+  "schema": "cow-primary-gpu-audit-v1",
+  "status": "PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "scope": "Bounded Q4 coordinator fork/retry after numerical eviction, followed by reported reconstruction; new CUDA hash build; not cumulative G1-G5",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/canonical-actions-hash-gpu-20261015-v1",
+  "result_sha256": "c555b26875f3f9a18b59cacf5bfaad35de0ade80b1d1b2eef2a95284df398ab0",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "source_history_tokens": 140,
+  "suffix_tokens": 4,
+  "producer_output_tokens": 8,
+  "output_tokens": 8,
+  "source_recomputation": {
+    "controller_sha256": "207dc7b8d35b939bc8f24e6ec9ef0f7884e92fc591904579cbe1f65b2a83dbf6",
+    "durable": false,
+    "prefix_consumed_tokens": 140,
+    "prefix_forward_tokens": 140,
+    "prefix_history_tokens": 140,
+    "prior_computation_preserved": false,
+    "schedule_sha256": "b14f724230f889b32d44d8f3bc067d8f0fa150c19f859fdde97561ca4a16716c",
+    "seconds": 0.8300876198336482,
+    "snapshot": "78a8a9e9ba9d83bef718c91587414dd3ddb9867b84b743f6669cce5bdfb72df0",
+    "source_kind": "recomputed-history"
+  },
+  "work_split": {
+    "output_tokens": 8,
+    "prefix_consumed_tokens": 140,
+    "prefix_forward_tokens": 140,
+    "prefix_history_tokens": 140,
+    "suffix_and_output_forward_tokens": 12,
+    "suffix_tokens": 4,
+    "total_forward_tokens": 152
+  },
+  "exact_full_vector_comparisons": 2,
+  "logits_per_vector": 248320,
+  "numerical_max_error": 0,
+  "tokens_exact": true,
+  "tested_greedy_controller_exact": true,
+  "source_history_controller_and_receipt_preserved": true,
+  "strict_restore_rejected_without_forward": true,
+  "incomplete_checkpoint_rejected_without_native_work": true,
+  "removed_checkpoint_files": 4,
+  "removed_checkpoint_bytes": 245129355,
+  "process_ids": {
+    "producer": {
+      "python": 2609621,
+      "native": {
+        "0": 2609628
+      }
+    },
+    "consumer": {
+      "python": 2610325,
+      "native": {
+        "0": 2610332
+      }
+    }
+  },
+  "oracle_pid": 2610620,
+  "profile_sha256": "c18c71adad83df1cf66a4c1ccbe2f286259287631dc40f953f4a77ec998dcbb3",
+  "execution_profile_id": "6704e4c6b7860393802793e27aad24cd5b0a676483978d8e01eb14b9f56ce63c",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_binary_sha256": {
+    "strata-batched-branch-hash-v1": "458287376736362176d5cd965777aa2cb5deef2695d76ad5c546b7026ac4d356",
+    "strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+  },
+  "runtime_source_sha256": {
+    "context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "context_time_travel/coordinator.py": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+    "context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "context_time_travel/pools.py": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "context_time_travel/real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "context_time_travel/store.py": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "harness_sha256": "3132a89d02fd21373aa7908a582a4434e3855141b7649cbdb644122e9c7b6e81",
+  "coordinator_overlay_sha256": "6891e7258067332f214a6b7a9b560334914ef6f0b6fb55e2911e39b39f8f8d77",
+  "branch_actions": {
+    "fork": {
+      "branch": "answer-B",
+      "revision": 0,
+      "snapshot": "78a8a9e9ba9d83bef718c91587414dd3ddb9867b84b743f6669cce5bdfb72df0"
+    },
+    "native_stats_unchanged": true,
+    "numerical_checkpoints_absent": true,
+    "producer_receipt_unchanged": true,
+    "rewinds": [
+      {
+        "expected_revision": 0,
+        "idempotent_retry_equal": true,
+        "operation_id": "op-rewind-root",
+        "revision": 1,
+        "snapshot": "2fbd73a668c930d90ab60bbbbc6f4246901ef769f9489f28ca31d0cbf9ccbab4"
+      },
+      {
+        "expected_revision": 1,
+        "idempotent_retry_equal": true,
+        "operation_id": "op-rewind-source",
+        "revision": 2,
+        "snapshot": "78a8a9e9ba9d83bef718c91587414dd3ddb9867b84b743f6669cce5bdfb72df0"
+      }
+    ],
+    "source_and_root_history_unchanged": true,
+    "source_head_unchanged": true
+  },
+  "limitations": [
+    "Prefix/final vector sampling only, not every generated frontier.",
+    "Production coordinator fork and two idempotent branch moves are checked; namespace/presentation actions remain CPU-only.",
+    "Reconstruction computes the whole saved history under a new batch arrangement; old numerical computation is intentionally lost.",
+    "Greedy tiny Q4 fixture only; no Q8, larger-context, true ENOSPC/crash/power-loss or broad sampler qualification."
+  ],
+  "primary_audit_sha256": "6460a975f1f30ad16dae280786d04f6980b5466ed1bde29d15d792566623a3ad",
+  "integrated_coordinator_commit": "c58ba87e18a04bf48f9ccf94758bb73869033c81",
+  "integrated_native_source_commit": "6aa93b851533881f942371893425323a5260b867",
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "runtime_fingerprint_note": "api_src_sha256 describes the frozen base; coordinator_overlay_sha256 identifies the actual explicitly loaded coordinator."
+}

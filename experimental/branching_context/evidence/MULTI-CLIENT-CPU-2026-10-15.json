@@ -1,0 +1,51 @@
+{
+  "schema": "cow-focused-evidence-v1",
+  "status": "FOCUSED_CPU_PASS",
+  "host": "llm-60",
+  "inference_kind": "synthetic_real_HTTP_Store_coordinator",
+  "gpu_qualification": "UNRUN",
+  "source": {
+    "scripts/run_cow_multi_client.py": "cfa84301b04a68e2ac61f7fe67dbdebd7b24b56a77e24197658363230676ea60",
+    "tests/implementation/test_cow_multi_client.py": "d13ba8b09307d8005fe464c84ccebcb26985a711b5d9b8b7e3bee39c4bd40feb"
+  },
+  "focused_run": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/integrated-multi-cpu-v2",
+    "command": "python3 -m unittest test_cow_client_recovery test_cow_multi_client -v",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 3.149,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "new_test_ids": [
+    "test_cow_multi_client.CowMultiClientTests.test_three_real_http_clients_queue_on_one_worker_and_preserve_sources",
+    "test_cow_multi_client.CowMultiClientTests.test_canonical_store_rejects_wrong_parent_and_output_ids_with_same_root",
+    "test_cow_multi_client.CowMultiClientTests.test_concurrency_guard_rejects_negative_and_over_one_maxima",
+    "test_cow_multi_client.CowMultiClientTests.test_requires_three_or_four_distinct_source_branches"
+  ],
+  "g0": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/g0-multi-v1",
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "retained_failed_attempt": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/integrated-multi-cpu-v1",
+    "cause": "Existing test_cow_client_recovery.py had not been transferred into this artifact checkout; unittest discovery error. Four new tests passed, one import error. Staging corrected before v2."
+  },
+  "assertions": [
+    "Three distinct context roots forked and resumed over actual HTTP with observed active plus queued overlap and max_active_per_gpu exactly one.",
+    "Authoritative source branch/history and source checkpoint bytes remain unchanged.",
+    "Final canonical snapshot has exact source parent, root and model contract, and lineage equals source plus acknowledged output IDs.",
+    "Full controller reconstructed with the fixture tokenizer; no numerical or real-tokenizer inference claim."
+  ],
+  "limitations": [
+    "Synthetic computation supplies no GPU, model, logits or throughput evidence.",
+    "Real run requires a disposable Store copy and pinned tokenizer/profile; none executed for this profile yet.",
+    "Does not qualify original G1-G5 gates."
+  ]
+}

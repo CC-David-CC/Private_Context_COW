@@ -1,0 +1,77 @@
+{
+  "operations": [
+    {
+      "revision": 0,
+      "path": "/cow/text/append-user",
+      "output_tokens": 43,
+      "request_seconds": 6.903694476932287,
+      "generation_seconds": 2.5210222948808223,
+      "capture_seconds": 2.027902574976906
+    },
+    {
+      "revision": 1,
+      "path": "/cow/text/append-user",
+      "output_tokens": 25,
+      "request_seconds": 4.824382290011272,
+      "generation_seconds": 1.5346817439422011,
+      "capture_seconds": 1.6899338141083717
+    },
+    {
+      "revision": 2,
+      "path": "/cow/text/append-user",
+      "output_tokens": 28,
+      "request_seconds": 5.208519938169047,
+      "generation_seconds": 1.6397237977944314,
+      "capture_seconds": 1.7378914100117981
+    },
+    {
+      "revision": 3,
+      "path": "/cow/text/append-user",
+      "output_tokens": 558,
+      "request_seconds": 37.77517244988121,
+      "generation_seconds": 34.074663260020316,
+      "capture_seconds": 2.002028780989349
+    },
+    {
+      "revision": 4,
+      "path": "/cow/text/append-user",
+      "output_tokens": 30,
+      "request_seconds": 6.407581015955657,
+      "generation_seconds": 2.006711341906339,
+      "capture_seconds": 2.0375239469576627
+    },
+    {
+      "revision": 5,
+      "path": "/cow/text/append-user",
+      "output_tokens": 520,
+      "request_seconds": 42.264549523824826,
+      "generation_seconds": 37.853107585106045,
+      "capture_seconds": 2.3110944929067045
+    },
+    {
+      "revision": 6,
+      "path": "/cow/text/append-user",
+      "output_tokens": 24,
+      "request_seconds": 5.422650610096753,
+      "generation_seconds": 1.7502845211420208,
+      "capture_seconds": 2.3423471429850906
+    },
+    {
+      "revision": 7,
+      "path": "/cow/text/append-user",
+      "output_tokens": 32,
+      "request_seconds": 7.3212076250929385,
+      "generation_seconds": 2.4304878229741007,
+      "capture_seconds": 2.3854022880550474
+    },
+    {
+      "revision": 8,
+      "path": "/cow/text/append-user",
+      "output_tokens": 199,
+      "request_seconds": 18.878183485008776,
+      "generation_seconds": 14.3019872631412,
+      "capture_seconds": 2.527607827913016
+    }
+  ],
+  "scope": "Reported server timings overlap and must not be summed as disjoint costs"
+}

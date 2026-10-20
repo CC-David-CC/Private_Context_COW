@@ -1,0 +1,44 @@
+{
+  "schema": "cow-publication-kernel-preflight-v1",
+  "status": "PASS_CPU_KERNEL_FAULT_ONLY",
+  "ticket": "PUB-001-preflight",
+  "source_commit": "c4e97f294888b540e3feca6e3a54255d1c3f1603",
+  "host": "llm-60",
+  "interpreter": "python3 (3.12.3)",
+  "execution": "Python stdin script invoking the existing production BranchingModel._publish_checkpoint_parts; no backend initialized",
+  "production_source": {
+    "path": "experimental/branching_context/src/context_time_travel/real.py",
+    "sha256": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f",
+    "local_and_runtime_source_hashes_match": true
+  },
+  "fault": {
+    "mechanism": "RLIMIT_FSIZE soft limit; SIGXFSZ ignored in the disposable probe process",
+    "limit_bytes": 1048576,
+    "attempted_payload_bytes": 3145728,
+    "errno": 27,
+    "errno_name": "EFBIG",
+    "message": "[Errno 27] File too large"
+  },
+  "observations": {
+    "existing_destination_bytes_unchanged": true,
+    "remaining_staging_files": 0,
+    "original_process_limit_and_signal_handler_restored": true,
+    "command_exit": 0
+  },
+  "raw_result": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-publication-recovery-20261015-v1/kernel-preflight/result.json",
+    "sha256": "6198c006466cf737b6d2e41df17c75885e2af769667198c240e873aa8ac4f32c"
+  },
+  "scope": {
+    "experiments": 1,
+    "unittest_methods": 0,
+    "real_gpu_cases": 0,
+    "numerical_comparisons": 0,
+    "gate_qualification": "NONE",
+    "limitations": [
+      "This is a real kernel file-size rejection, not ENOSPC or filesystem exhaustion.",
+      "No HTTP retry, process restart, process crash or power-loss behavior was tested.",
+      "The real-GPU publication-failure campaign has not run."
+    ]
+  }
+}

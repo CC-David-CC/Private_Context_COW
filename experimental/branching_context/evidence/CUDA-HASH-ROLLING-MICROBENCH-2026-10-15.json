@@ -1,0 +1,222 @@
+{
+  "schema": "cow-primary-native-microbenchmark-audit-v1",
+  "status": "PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "scope": "Real CUDA SHA-256 kernel/allocator tests and generated-memory microbenchmark; no model TPS measurement",
+  "source_commit": "96d70a459af124bc7fc1b86722aba579c311e6a3",
+  "source_sha256": "4bd9f147eaf4963d21ae23c60267829d25f4a0a77550483639d4d0a90696213b",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1",
+  "fixture_sha256": "420b45ab2c9f591874cd9a81f99ce2fb25f244ce09f15d2b6d1b5a8479a3d6fb",
+  "expected_seals_sha256": "3fa036f76629e3a62d8afed7b039881b603deef4446a3bd2fb8afed0d6d4951c",
+  "harness_sha256": "decea094b2df17328cfa161af80ba8edd1c4a5a68c59c9fa4bbe688be49398bc",
+  "bytes_per_comparison": 2684354560,
+  "tiles_per_comparison": 655360,
+  "medians": {
+    "baseline": {
+      "event_kernel_ms": 5.3178719999999995,
+      "event_total_ms": 5.396432000000001,
+      "host_wall_ns": 5400224.5
+    },
+    "rolling": {
+      "event_kernel_ms": 5.259168,
+      "event_total_ms": 5.331823999999999,
+      "host_wall_ns": 5337032.5
+    },
+    "fixed_tile": {
+      "event_kernel_ms": 5.350304,
+      "event_total_ms": 5.430816,
+      "host_wall_ns": 5434486
+    }
+  },
+  "measurements": {
+    "baseline": [
+      {
+        "run": "compare-baseline-2560m-v1",
+        "result_sha256": "7b0d52ac6cf8bf5efbd1964d317db5a7115bc0b4f4632a7570781df10f2e9870",
+        "binary": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1/build/baseline-v1/compare/branch_digest_compare_bench",
+        "binary_sha256": "bd068a1babda0f748a2182dafbc0bd5586ecc2ca5bedf114ac2473428f1f42a1",
+        "measurement": {
+          "status": "PASS",
+          "bytes_per_compare": 2684354560,
+          "tiles_per_compare": 655360,
+          "warmup_compares": 1,
+          "measured_compares": 3,
+          "mismatch": null,
+          "fresh_hash_bytes": 8053063680,
+          "kernel_launches": 3,
+          "event_total_ms": [
+            5.397184,
+            5.39168,
+            5.396416
+          ],
+          "event_kernel_ms": [
+            5.31136,
+            5.310048,
+            5.319552
+          ],
+          "host_wall_ns": [
+            5404674,
+            5395337,
+            5400336
+          ],
+          "process_wall_seconds": 2.28042315505445
+        }
+      },
+      {
+        "run": "compare-baseline-2560m-v2",
+        "result_sha256": "f42df9f53dc1b38586d1a61c3f12bdfb072f0611edd4cbc5126f81961a95bd37",
+        "binary": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1/build/baseline-v1/compare/branch_digest_compare_bench",
+        "binary_sha256": "bd068a1babda0f748a2182dafbc0bd5586ecc2ca5bedf114ac2473428f1f42a1",
+        "measurement": {
+          "status": "PASS",
+          "bytes_per_compare": 2684354560,
+          "tiles_per_compare": 655360,
+          "warmup_compares": 1,
+          "measured_compares": 3,
+          "mismatch": null,
+          "fresh_hash_bytes": 8053063680,
+          "kernel_launches": 3,
+          "event_total_ms": [
+            5.40912,
+            5.396448,
+            5.39424
+          ],
+          "event_kernel_ms": [
+            5.327744,
+            5.317504,
+            5.31824
+          ],
+          "host_wall_ns": [
+            5415962,
+            5400113,
+            5398028
+          ],
+          "process_wall_seconds": 2.313441874925047
+        }
+      }
+    ],
+    "rolling": [
+      {
+        "run": "compare-candidate-2560m-v1",
+        "result_sha256": "b4e1b3e49855229246d1e76c6c8b6bf035c477ee5dd8d345b913793541f9facd",
+        "binary": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1/build/candidate-v1-fulltests/branch_digest_compare_bench",
+        "binary_sha256": "95f59eed47b104397e3ae866ceaa8ca98403be27a880bd502210682936c48a05",
+        "measurement": {
+          "status": "PASS",
+          "bytes_per_compare": 2684354560,
+          "tiles_per_compare": 655360,
+          "warmup_compares": 1,
+          "measured_compares": 3,
+          "mismatch": null,
+          "fresh_hash_bytes": 8053063680,
+          "kernel_launches": 3,
+          "event_total_ms": [
+            5.332736,
+            5.326912,
+            5.340928
+          ],
+          "event_kernel_ms": [
+            5.256064,
+            5.258176,
+            5.274496
+          ],
+          "host_wall_ns": [
+            5339508,
+            5330581,
+            5344968
+          ],
+          "process_wall_seconds": 2.333843295928091
+        }
+      },
+      {
+        "run": "compare-candidate-2560m-v3",
+        "result_sha256": "33fbd83c118bb30b2598d580e540890a0edd8ac8b796674d7266bd6ad26b0717",
+        "binary": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1/build/candidate-v1-fulltests/branch_digest_compare_bench",
+        "binary_sha256": "95f59eed47b104397e3ae866ceaa8ca98403be27a880bd502210682936c48a05",
+        "measurement": {
+          "status": "PASS",
+          "bytes_per_compare": 2684354560,
+          "tiles_per_compare": 655360,
+          "warmup_compares": 1,
+          "measured_compares": 3,
+          "mismatch": null,
+          "fresh_hash_bytes": 8053063680,
+          "kernel_launches": 3,
+          "event_total_ms": [
+            5.353344,
+            5.330912,
+            5.322272
+          ],
+          "event_kernel_ms": [
+            5.268352,
+            5.26016,
+            5.256064
+          ],
+          "host_wall_ns": [
+            5360035,
+            5334557,
+            5326081
+          ],
+          "process_wall_seconds": 2.3018713740166277
+        }
+      }
+    ],
+    "fixed_tile": [
+      {
+        "run": "compare-fixed-tile-2560m-v1",
+        "result_sha256": "e463ac7e4c17f46ee39d549ae9423c8ceaf36704e152284d8c86d245474e0baa",
+        "binary": "/home/dflanag3/spatial-artifacts/branch-digest-cuda-20261015-v1/build/candidate-v2/branch_digest_compare_bench",
+        "binary_sha256": "7f46718a711757bb689ac778a0ca879c5908a71cc16e2e7a89301fdb58be6d69",
+        "measurement": {
+          "status": "PASS",
+          "bytes_per_compare": 2684354560,
+          "tiles_per_compare": 655360,
+          "warmup_compares": 1,
+          "measured_compares": 3,
+          "mismatch": null,
+          "fresh_hash_bytes": 8053063680,
+          "kernel_launches": 3,
+          "event_total_ms": [
+            5.430816,
+            5.416832,
+            5.431584
+          ],
+          "event_kernel_ms": [
+            5.348224,
+            5.350304,
+            5.356416
+          ],
+          "host_wall_ns": [
+            5437552,
+            5420459,
+            5434486
+          ],
+          "process_wall_seconds": 2.329690439859405
+        }
+      }
+    ]
+  },
+  "rolling_improvement_percent": {
+    "event_kernel_ms": 1.1039002066992154,
+    "event_total_ms": 1.197235506720029,
+    "host_wall_ns": 1.1701735733394059
+  },
+  "python_gpu_methods": 6,
+  "native_prepare_checks": 546,
+  "native_device_seal_checks": 4440,
+  "correctness_stdout_sha256": "7d63d54ca9b72ce8512ffcb8f919ec761bb963680385bbd853a3954d3f981ad4",
+  "correctness_stderr_sha256": "84ede7fa962fa11f2803d33ab8f9112177df9f62ab7ad78f3507ee22211b661b",
+  "device": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "limits": [
+    "Kernel measurements retain full-byte SHA and per-step comparison; fixed-tile follow-up is slower and unmerged.",
+    "Measured byte counts derive from the executed three-call kernel plan, not native model work counters.",
+    "Six timing samples per baseline/rolling configuration across two processes; no whole-request performance claim.",
+    "CUDA13.2/SM120 only; HIP declared but uncompiled; SYCL engine does not include the COW digest implementation.",
+    "Full native hash-v1 executable is separately built but has not executed a model."
+  ],
+  "primary_audit_sha256": "fb694fbc47cf377ea687641583e4e0bcb855470059102183d2bfaaf5b50f2388",
+  "original_gates_qualified": false
+}

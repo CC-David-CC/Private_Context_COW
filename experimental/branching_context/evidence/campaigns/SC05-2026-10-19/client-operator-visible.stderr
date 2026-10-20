@@ -1,0 +1,26 @@
+test_case_sensitive (test_duplicates.Duplicates.test_case_sensitive) ... ok
+test_comments_and_iterator (test_duplicates.Duplicates.test_comments_and_iterator) ... ok
+test_default_last_wins (test_duplicates.Duplicates.test_default_last_wins) ... ok
+test_reject_changed_value (test_duplicates.Duplicates.test_reject_changed_value) ... ok
+test_reject_same_or_empty_value (test_duplicates.Duplicates.test_reject_same_or_empty_value) ... ok
+test_comments (test_envconfig.Loading.test_comments) ... ok
+test_duplicates (test_envconfig.Loading.test_duplicates) ... ok
+test_empty (test_envconfig.Loading.test_empty) ... ok
+test_empty_value (test_envconfig.Loading.test_empty_value) ... ok
+test_invalid (test_envconfig.Loading.test_invalid) ... ok
+test_mixed_records (test_envconfig.Loading.test_mixed_records) ... ok
+test_no_expansion (test_envconfig.Loading.test_no_expansion) ... ok
+test_one_pass (test_envconfig.Loading.test_one_pass) ... ok
+test_bad_keys (test_envsyntax.Entries.test_bad_keys) ... ok
+test_blank (test_envsyntax.Entries.test_blank) ... ok
+test_comment (test_envsyntax.Entries.test_comment) ... ok
+test_first_equals (test_envsyntax.Entries.test_first_equals) ... ok
+test_literals (test_envsyntax.Entries.test_literals) ... ok
+test_missing_equals (test_envsyntax.Entries.test_missing_equals) ... ok
+test_normal (test_envsyntax.Entries.test_normal) ... ok
+test_unicode_value (test_envsyntax.Entries.test_unicode_value) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.000s
+
+OK

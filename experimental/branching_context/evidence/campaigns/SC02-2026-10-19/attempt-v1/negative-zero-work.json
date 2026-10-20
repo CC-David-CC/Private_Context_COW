@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "forward_tokens": 0,
+  "native_commands": [
+    "stats",
+    "vision_info"
+  ]
+}

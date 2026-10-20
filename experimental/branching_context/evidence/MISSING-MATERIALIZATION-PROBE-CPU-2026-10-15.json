@@ -1,0 +1,35 @@
+{
+  "schema": "missing-materialization-probe-cpu-evidence-v1",
+  "qualification": "FOCUSED-PASS",
+  "scope": "CPU helper and orchestration tests only; no native-model or GPU qualification",
+  "checkout": "C:/Users/dflanag3/Documents/fleet/context-cow-missing-materialization-luna",
+  "branch": "work/luna-missing-materialization",
+  "base_commit": "117bc49158104564099ecff330b5aa4f7909ebff",
+  "implementation_commit": "5159f5cd2f87ab27729ed54dbc4bee3ec7fc55a0",
+  "owned_files": {
+    "experimental/branching_context/scripts/run_missing_materialization_probe.py": "f9cf9e72c8bc8fdfe57ddab350d137e6d628e04d6039506c500cb53c0b24d121",
+    "experimental/branching_context/tests/implementation/test_missing_materialization_probe.py": "b546d77895d56ff31b2f0ddda731fd57bbb8450b7982d12c21d36d7177894f13"
+  },
+  "execution": {
+    "host": "llm-60",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "command": "python -m unittest -v experimental.branching_context.tests.implementation.test_missing_materialization_probe",
+    "run_command_runner": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-cpu-v1/run-command.sh",
+    "run_command_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "run_directory": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-cpu-v1/runs/helper-tests-v13",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "stderr_log": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-cpu-v1/runs/helper-tests-v13/stderr.log"
+  },
+  "preserved_failure": {
+    "run_directory": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-cpu-v1/runs/helper-tests-v12",
+    "cause": "The process-group test injected a launch-receipt failure before the child wrote its readiness PID file; synchronization was corrected before v13.",
+    "classification": "test-fixture synchronization failure, not a native or product failure"
+  },
+  "g0": "UNRUN",
+  "real_gpu_probe": "UNRUN_PENDING_THIS_TASKS_AUTHORIZED_Q4_TINY_RUN"
+}

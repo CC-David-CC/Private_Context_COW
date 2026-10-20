@@ -1,0 +1,72 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "math_in_saved_branch_renders",
+    "fork_retains_prefix_messages",
+    "fork_has_its_own_suffix",
+    "parent_branch_is_unchanged",
+    "clear_empties_only_selected_branch",
+    "clear_is_recoverable",
+    "reload_keeps_selected_branch_and_history",
+    "branch_can_be_named",
+    "archived_chat_is_recoverable"
+  ],
+  "overflow_elements": [
+    {
+      "id": "drawer",
+      "cls": "st-drawer",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "st-drawer__head",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "card-title",
+      "right": 480.140625
+    },
+    {
+      "id": "drawer-close",
+      "cls": "st-btn st-btn--icon",
+      "right": 730
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 722
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 714.5
+    },
+    {
+      "id": "",
+      "cls": "st-drawer__body",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "st-field",
+      "right": 730
+    },
+    {
+      "id": "",
+      "cls": "st-label",
+      "right": 730
+    },
+    {
+      "id": "o-thinking",
+      "cls": "",
+      "right": 730
+    }
+  ],
+  "error": "AssertionError('mobile_has_no_page_overflow')"
+}

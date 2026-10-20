@@ -1,0 +1,9 @@
+{
+  "seed": 7416,
+  "auditor_sha256": "f2a0b0ac59b739fc5aaee89d2953516054760758567bee0e9c9e166c819ff4e1",
+  "generator_sha256": "755993d5eef28a5bbc65fbd81560f6626c4cb792e934f87f48f94c2e3c2e0ed8",
+  "visible_methods": 26,
+  "generated_cases": 64,
+  "editable": "ledger.py",
+  "parent_snapshot": "301ad0ddbac8d58364e9d1a78f93efbcb02cf99777162b7b2e4aeae88823f3bc"
+}

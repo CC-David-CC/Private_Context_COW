@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "host": "llm-60",
+  "browser": "Chrome on Windows",
+  "beforeFix": {
+    "switchOffWithoutApply": {
+      "renderedEquations": 9
+    },
+    "afterApply": {
+      "renderedEquations": 0
+    }
+  },
+  "afterFix": {
+    "mathjax": {
+      "renderedEquations": 9,
+      "katexEquations": 0
+    },
+    "katex": {
+      "renderedEquations": 9,
+      "mathjaxEquations": 0
+    },
+    "disabled": {
+      "renderedEquations": 0,
+      "originalSourceVisible": true
+    }
+  },
+  "finalSetting": {
+    "math": false,
+    "viewer": "mathjax"
+  },
+  "newModelPromptSent": false
+}

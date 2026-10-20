@@ -1,0 +1,28 @@
+{
+    "schema":  "cow-private-audit-resident-backup-v1",
+    "status":  "SOURCE_RECEIVER_HASH_MATCH",
+    "archive":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-cow-independent-cli-audit-resident-v1/evidence.tar.gz",
+    "bytes":  173244689,
+    "sha256":  "576737686c2431b9dd48379640f84f01b89eac4ba45cfd295f5d7ee27a7762a5",
+    "includes":  [
+                     "Independent native audit build/source/receipts and all earlier failed attempts",
+                     "Four fresh-process raw full-vocabulary arrays",
+                     "Six SUT checkpoint frontiers extracted and verified against complete payload hashes",
+                     "Integrated1538 resident CLI run, canonical records, manifests and exact profile"
+                 ],
+    "sut_frontiers":  {
+                          "index_sha256":  "94f2ffc704947bf6fc59e90d3dafa7bd8f61f7e7a46af88496b6e12860614600",
+                          "extraction_command_exit":  0,
+                          "bytes":  5959680,
+                          "count":  6,
+                          "extraction_wrapper_exit":  0
+                      },
+    "numerical_result_sha256":  "9c876f06abbed316528b5ebc9412deaeb133539233b4fcdc0d43b4504bab4fbb",
+    "resident_summary_sha256":  "8ffe33fc6f7962d67e88a841ad2748b6c89371621c175e517417c47e9e9e1e10",
+    "excludes":  [
+                     "Native .state payloads",
+                     "Model weights and packs"
+                 ],
+    "payloads_still_retained_on":  "llm-60",
+    "independently_reread_all_archive_members":  false
+}

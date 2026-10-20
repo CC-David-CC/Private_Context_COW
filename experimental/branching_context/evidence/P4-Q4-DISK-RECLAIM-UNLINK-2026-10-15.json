@@ -1,0 +1,26 @@
+{
+  "archive_sha256": "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+  "candidate_bytes": 17789976604,
+  "candidate_count": 9,
+  "candidate_map_sha256": "6fdfdbd3e6ee8eae2926d0fb316bfa7eb047eb9d15f34bf974c491ac838f2a56",
+  "completed_utc": "2026-10-15T07:48:10Z",
+  "output_tree": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/disk-parent/output",
+  "protected_metadata_fingerprint_after": "5ee8f5859e02ff3366de427744a272cd6f3c78cbd61da9dbe579cc54a17ebbe8",
+  "protected_metadata_fingerprint_before": "5ee8f5859e02ff3366de427744a272cd6f3c78cbd61da9dbe579cc54a17ebbe8",
+  "remaining": [],
+  "removed": [
+    "store/checkpoints/0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea.state",
+    "store/checkpoints/3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca.state",
+    "store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+    "store/checkpoints/4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd.state",
+    "store/checkpoints/4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db.state",
+    "store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+    "store/checkpoints/a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba.state",
+    "store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+    "store/checkpoints/e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0.state"
+  ],
+  "schema": 1,
+  "started_utc": "2026-10-15T07:47:55Z",
+  "status": "PASS",
+  "unlink_performed": true
+}

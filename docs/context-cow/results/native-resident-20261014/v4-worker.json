@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "pid": 1526378,
+  "phases": [
+    {
+      "phase": "q4-tiny",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 151.82045614696108
+    },
+    {
+      "phase": "q3-tiny",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 140.60974239301868
+    },
+    {
+      "phase": "q4-medium",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 208.43395593599416
+    },
+    {
+      "phase": "q4-8k",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 146.7716015900951
+    },
+    {
+      "phase": "q4-64k",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 639.8388603240019
+    },
+    {
+      "phase": "q8-tiny",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 442.8854457120178
+    },
+    {
+      "phase": "q8-medium",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 522.0452329340624
+    },
+    {
+      "phase": "q8-8k",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 471.36188974103425
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "q8-8k",
+  "child_pid": 1535600,
+  "elapsed_seconds": 450.0152598799905,
+  "restored_server_pid": 1537231,
+  "server_http_status": 200
+}

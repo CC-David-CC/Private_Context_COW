@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-collected-v1/evidence.tar.gz",
+    "bytes": 4841872461,
+    "sha256": "42ee7ab81dd6f7a47a50e0a891fea7e76a4cffb2927bf0e1714fb4c4d305b5a2"
+  },
+  "members": 2436,
+  "verification": "All regular archive members sequentially SHA256 verified",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-xtc-v1/evidence.tar.gz",
+  "destination_sha256": "42ee7ab81dd6f7a47a50e0a891fea7e76a4cffb2927bf0e1714fb4c4d305b5a2",
+  "destination_bytes": 4841872461
+}

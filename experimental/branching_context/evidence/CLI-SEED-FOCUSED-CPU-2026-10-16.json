@@ -1,0 +1,23 @@
+{
+  "schema": "cli-seed-focused-cpu-checkpoint-v1",
+  "status": "FOCUSED_PASS_NOT_INTEGRATED",
+  "host": "llm-60",
+  "worker_branch": "work/cli-seed-stop-20261016",
+  "base_commit": "df02950584575762c5c98eec4f881cd62917f358",
+  "source_stage": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/green-cpu-v11/source",
+  "run": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/green-cpu-v11/run-full",
+  "command": ["/home/dflanag3/src/Strata/.venv/bin/python", "-B", "-m", "unittest", "-v", "experimental.branching_context.tests.implementation.test_seed_controls", "experimental.branching_context.tests.implementation.test_seed_presentation_flow"],
+  "counts": {"executed": 11, "passed": 11, "failures": 0, "errors": 0, "skips": 0},
+  "elapsed_seconds": 1.537,
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "stderr_sha256": "4d36a2c572fe49cdf402f143e8ef27d5b2938606f84b00c404fe391cdd409d73",
+  "presentation_flow_test_sha256": "c28094dbc651404fdb4f714804b3592e6398128a11cb12ff050d1d03e2653ce6",
+  "cli_scope": "One of the eleven methods launches the standalone CLI as subprocesses over authenticated loopback HTTP: prepare, answer with seed zero, reseed, continue and history. Its separate 1/1 repetition is not an additional unique test.",
+  "backend": "Synthetic CPU FlowModel; no real model inference or GPU execution",
+  "numerical_max_error": null,
+  "verified_behaviors": ["Unsigned seed validation including seed zero", "Controller-only RNG changes preserve non-RNG payloads", "Stopped scope remains stopped after reseed", "Assistant identity survives reseed and continuation", "Identical canonical snapshots support branch-specific assistant identities", "Historical answer replay preserves complete durable receipt and does not move head, change catalog or execute model work"],
+  "pending": ["Composable execution descriptor schema 7", "Cold disk reseed with zero forward computation and truthful load counters", "Changed-policy continuation retry after restart/eviction", "Actual nonzero RNG cursor and grammar-progress CLI coverage", "Seed plus text-stop integration", "Broader merged regressions and current G0", "Real Q4 GPU workflow and independent numerical qualification"],
+  "gate_effect": "None; original cumulative G1-G5 remain unqualified",
+  "publication": "Private PC and private box-git only"
+}

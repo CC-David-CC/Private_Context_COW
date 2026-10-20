@@ -1,0 +1,24 @@
+{
+  "status": "BOUNDED_CPU_STORE_HTTP_PASS",
+  "new_root_methods": 3,
+  "status_and_presentation_tests": 13,
+  "server_regressions": 41,
+  "G0": {
+    "status": "PASS",
+    "tests": 51
+  },
+  "failures": 0,
+  "skips": 0,
+  "scope": "Modern root publication proof from existing intent/checkpoint/presentation receipts; no native payload or GPU execution",
+  "limits": [
+    "Legacy roots without durable checkpoint receipt metadata remain unsupported",
+    "Seeded/other root intent schemas not qualified",
+    "No process-crash/power-loss or full G1-G5 qualification"
+  ],
+  "logs_sha256": {
+    "persisted-root-status-before.log": "2847b70a939207a88432f974c661f269787a8ccde5fcac66a0f4ad72b0d1bd47",
+    "persisted-root-status-G0.log": "a755aadb79efd3a48ab567d125d9b250a24fcb61f9e99326bf4c6a799b8b50cf",
+    "persisted-root-status-after.log": "b0e135c5b139400fa3c0b97cd0e8320478213df390de89c64e1052d4e826e6c2",
+    "persisted-root-status-regressions.log": "25ad58077bb9e3d653b4d6ee74c4ddf0e5a5b8e6c8d968338d1a59b8e04a0ec9"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-hot-branches-v1.tar.gz",
+  "bytes": 453765108,
+  "sha256": "337c1f89967d158141735ec14746797f2efd556c8dcf9063d9254b168c6a9746",
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-hot-branches-v1/evidence.tar.gz",
+  "files": 596,
+  "destination_readback_sha256": "337c1f89967d158141735ec14746797f2efd556c8dcf9063d9254b168c6a9746",
+  "github_publication": false,
+  "audit_storage": "Identical audit payloads deduplicated as tar hard links; all original paths and SHA-256 values retained",
+  "verification": "All archive members reread; destination full SHA-256 reread"
+}

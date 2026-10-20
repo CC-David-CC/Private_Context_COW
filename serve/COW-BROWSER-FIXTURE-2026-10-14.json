@@ -1,0 +1,57 @@
+{
+  "scope": "loopback synthetic COW browser/server fixture",
+  "base_commit": "953e4817f6727955ede4efd829c4fac8ed70b547",
+  "host": "llm-60",
+  "python": "Python 3.12.3",
+  "remote_checkout": "/home/dflanag3/branching-g3/store-presentation-pub-20261014/repo",
+  "command": "PYTHONPATH=experimental/branching_context/src:. python3 -m unittest -v serve.test_cow_browser_fixture",
+  "result": "PASS",
+  "tests_run": 4,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "test_ids": [
+    "serve.test_cow_browser_fixture.CowBrowserFixtureTests.test_cli_ready_json_and_sigterm_clean_exit",
+    "serve.test_cow_browser_fixture.CowBrowserFixtureTests.test_fixture_refuses_non_loopback_bind",
+    "serve.test_cow_browser_fixture.CowBrowserFixtureTests.test_persistent_store_can_be_reopened_without_sqlite_or_gpu_work",
+    "serve.test_cow_browser_fixture.CowBrowserFixtureTests.test_real_http_flow_projects_durable_history_and_shuts_down"
+  ],
+  "source_sha256": {
+    "serve/cow_browser_fixture.py": "7d88a26f8539a4b3fac5530ed82b34b1a68ec2e710e860776080d316f00d4c0b",
+    "serve/test_cow_browser_fixture.py": "256f6efb8d3d1446cc35d709ad1b313d0c27d2404c4ae1d0bc5844398c981776",
+    "experimental/branching_context/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "8edae18373e223f1ae671484579721642ddce310e5e32d8e10ec5647bf3127b5"
+  },
+  "red_setup_observation": "Test-first run before adding serve/cow_browser_fixture.py failed to import that module; retained at /home/dflanag3/branching-g3/store-presentation-pub-20261014/browser-fixture-red.log.",
+  "green_log": "/home/dflanag3/branching-g3/store-presentation-pub-20261014/browser-fixture-green.log",
+  "launch": "PYTHONPATH=experimental/branching_context/src:. python3 -m serve.cow_browser_fixture [--port 0] [--store PATH] [--api-key KEY]",
+  "ready_record": {
+    "event": "ready",
+    "address": "http://127.0.0.1:<ephemeral-port>",
+    "pid": "process ID",
+    "synthetic": true,
+    "api_key_required": "boolean",
+    "store_path": "temporary unless --store is provided"
+  },
+  "synthetic_model_plan": {
+    "first_request": [257],
+    "later_requests": [258, 299],
+    "token_bytes": {"257": "hi", "258": "!", "299": "empty; controller EOG"},
+    "purpose": "First request is a durable active assistant; subsequent request appends ! and consumes actual EOG 299."
+  },
+  "exercised_routes": [
+    "GET /health",
+    "GET / and /web/app.js",
+    "POST /cow/namespace",
+    "POST /cow/text/prepare",
+    "POST /cow/text/answer",
+    "POST /cow/fork",
+    "POST /cow/text/resume",
+    "POST /cow/rewind",
+    "GET /cow/workspace/history"
+  ],
+  "limitations": [
+    "Uses the existing synthetic FlowModel, controller and checkpoint serializer; it does not run a pretrained model or GPU backend.",
+    "The fixture is for browser/endpoint integration and persistence checks, not model correctness, GPU, throughput, or qualification claims.",
+    "All networking binds to 127.0.0.1 only."
+  ]
+}

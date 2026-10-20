@@ -1,0 +1,85 @@
+{
+    "schema":  1,
+    "status":  "PASS",
+    "archive":  "/srv/data/git/private_context_cow.evidence/20261016-checkpoint-receipt-cpu-evidence-v1/evidence.tar",
+    "archive_bytes":  1187840,
+    "archive_sha256":  "63f36972a9c5da73ad605b58b766025d2a77c7c182c2ae8188a461b9e9a053e1",
+    "member_manifest_sha256_raw_bytes":  "ecbcd0f2f7665da917ed727a86e0f1bd55b4c9134ee61d3711d51b13597f6c2a",
+    "member_count":  84,
+    "total_member_bytes":  1096238,
+    "sender_archive_sha256":  "63f36972a9c5da73ad605b58b766025d2a77c7c182c2ae8188a461b9e9a053e1",
+    "receiver_archive_sha256":  "63f36972a9c5da73ad605b58b766025d2a77c7c182c2ae8188a461b9e9a053e1",
+    "receiver_receipt_path":  "/srv/data/git/private_context_cow.evidence/20261016-checkpoint-receipt-cpu-evidence-v1/receiver-receipt.json",
+    "receiver_receipt_sha256":  "01d7e1c6e49c7dce08d4227b23829b06bd4be22bf214e8d3d962588646038fc3",
+    "archive_permissions":  "0600",
+    "destination_directory_permissions":  "0700",
+    "receiver_verified_member_names_sizes_hashes_before_publish":  true,
+    "receiver_independent_full_archive_readback":  true,
+    "extracted_files":  0,
+    "input_roots":  [
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-merged-cpu-20261016-v1/union-253-v1",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-merged-cpu-20261016-v1/union-253-v2",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-merged-cpu-20261016-v1/g0-v2",
+                        "/home/dflanag3/spatial-artifacts/state-gbnf-main-union-20261016-v1/regressions-v1",
+                        "/home/dflanag3/spatial-artifacts/state-gbnf-main-union-20261016-v1/g0-v1",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-contract-20261016-v1/green-focused-v2",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-contract-20261016-v1/red-mutant-v1",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-contract-20261016-v1/g0-v1",
+                        "/home/dflanag3/spatial-artifacts/checkpoint-receipt-contract-20261016-v1/legacy-baseline-v1"
+                    ],
+    "source_material":  [
+                            {
+                                "path":  "/home/dflanag3/spatial-artifacts/state-gbnf-main-union-20261016-v1/source-tree.sha256",
+                                "sha256":  "337149727ccf928f2022f5b9e1b2431f1d203a6e266d9246525b2017d0960743"
+                            },
+                            {
+                                "path":  "/home/dflanag3/spatial-artifacts/state-gbnf-main-union-20261016-v1/main-delta.tar",
+                                "sha256":  "b64bbf2a86c24b347389f508c5b231b00bf88c26f0cd1b41bcb278c914d96101"
+                            },
+                            {
+                                "path":  "/home/dflanag3/spatial-artifacts/checkpoint-receipt-current-df029505-code.tar",
+                                "sha256":  "b8a7d72f73f6fb7d2048b054efac8d88f4f8dd4d5d272e14347a183ee4a28715"
+                            },
+                            {
+                                "path":  "/home/dflanag3/spatial-artifacts/checkpoint-receipt-contract-20261016-v1/source-green-v2/experimental/branching_context/evidence/source-manifest.json",
+                                "sha256":  "5c25865d1e8c8182a956421606c16d1170f9a4dc430a4e463e5caa4a70d580bf"
+                            }
+                        ],
+    "source_file_hashes":  [
+                               {
+                                   "path":  "experimental/branching_context/tests/implementation/test_prepared_presentation.py",
+                                   "sha256":  "22122952e65693aa4be0fdf2667f3fb187789837890889ad767b29228ab7280d"
+                               },
+                               {
+                                   "path":  "experimental/branching_context/tests/implementation/test_checkpoint_receipt_contract.py",
+                                   "sha256":  "2fd977cccef215234b8682f6d8bfe51cb96c5ccd0ea7349c395e62d0866d9200"
+                               },
+                               {
+                                   "path":  "experimental/branching_context/scripts/execution_profile_finalizer.py",
+                                   "sha256":  "1c7fa18c4b7cc1ad7ef122a4ca9e2d040d89aa82b09228b92d8496518fbdf776"
+                               },
+                               {
+                                   "path":  "experimental/branching_context/tests/implementation/test_execution_profile_finalizer.py",
+                                   "sha256":  "5b9aa7d341cc2f8e0c819de649712c770148e4ccc8e0fa943388fcb12bffa1fe"
+                               }
+                           ],
+    "archive_scope":  "Terminal CPU logs/command receipts, base/source manifests, main-delta and current four-file overlay tars, and named source/test files. Excludes full 61 MiB checkout snapshots, model weights, checkpoint/state payloads, and native binaries.",
+    "retained_setup_failure":  {
+                                   "path":  "/home/dflanag3/spatial-artifacts/checkpoint-receipt-merged-cpu-20261016-v1/union-253-v1",
+                                   "command_exit":  1,
+                                   "wrapper_exit":  1,
+                                   "classification":  "PYTHONPATH omitted experimental/branching_context/scripts; four ModuleNotFoundError import errors; preserved as setup failure."
+                               },
+    "retained_archive_attempt":  {
+                                     "local_artifact":  "context-cow-artifacts/checkpoint-receipt-backup-v1/attempt-v1.json",
+                                     "classification":  "First packaging invocation stopped before transfer because the local output directory already existed; no remote archive created. Corrected output path and completed v2."
+                                 },
+    "backup_tool":  {
+                        "path":  "context-cow-artifacts/checkpoint-receipt-backup-v1/archive_checkpoint_receipt_evidence.py",
+                        "sha256":  "4d59ef9fe90d00adaa1328e5c950ef46db349c33772b3a6b64102984911004b2"
+                    },
+    "transfer_summary":  {
+                             "path":  "context-cow-artifacts/checkpoint-receipt-backup-v1/transfer-and-readback.json",
+                             "sha256":  "0a355ef2951abc7056671b06cfc0bfcfc7f3091572dd15cceb50b329dbfa1b3f"
+                         }
+}

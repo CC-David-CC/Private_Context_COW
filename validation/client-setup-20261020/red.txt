@@ -1,0 +1,118 @@
+test_input_is_detached_at_startup (serve.test_cow_connection_info.ConnectionInfoTests.test_input_is_detached_at_startup) ... ERROR
+test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) ... 
+  test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'model_path': '/private/weights'}) ... ERROR
+  test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'model_contract_id': 'x'}) ... ERROR
+  test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': [True]}) ... ERROR
+  test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': []}) ... ERROR
+  test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': [10, 10]}) ... ERROR
+test_missing_profile_is_explicitly_unavailable (serve.test_cow_connection_info.ConnectionInfoTests.test_missing_profile_is_explicitly_unavailable) ... ERROR
+test_reports_only_public_profile_fields_without_using_adapter (serve.test_cow_connection_info.ConnectionInfoTests.test_reports_only_public_profile_fields_without_using_adapter) ... ERROR
+test_wrong_key_and_foreign_query_cannot_discover (serve.test_cow_connection_info.ConnectionInfoTests.test_wrong_key_and_foreign_query_cannot_discover) ... ERROR
+
+======================================================================
+ERROR: test_input_is_detached_at_startup (serve.test_cow_connection_info.ConnectionInfoTests.test_input_is_detached_at_startup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 55, in test_input_is_detached_at_startup
+    base = self.start(info)
+           ^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'model_path': '/private/weights'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 65, in test_invalid_profile_rejected_before_listening
+    self.start(dict(self.info(), **change))
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'model_contract_id': 'x'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 65, in test_invalid_profile_rejected_before_listening
+    self.start(dict(self.info(), **change))
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': [True]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 65, in test_invalid_profile_rejected_before_listening
+    self.start(dict(self.info(), **change))
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 65, in test_invalid_profile_rejected_before_listening
+    self.start(dict(self.info(), **change))
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_invalid_profile_rejected_before_listening (serve.test_cow_connection_info.ConnectionInfoTests.test_invalid_profile_rejected_before_listening) (change={'eos_tokens': [10, 10]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 65, in test_invalid_profile_rejected_before_listening
+    self.start(dict(self.info(), **change))
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_missing_profile_is_explicitly_unavailable (serve.test_cow_connection_info.ConnectionInfoTests.test_missing_profile_is_explicitly_unavailable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 51, in test_missing_profile_is_explicitly_unavailable
+    self.assertEqual(self.get(self.start())[0], 503)
+                              ^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_reports_only_public_profile_fields_without_using_adapter (serve.test_cow_connection_info.ConnectionInfoTests.test_reports_only_public_profile_fields_without_using_adapter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 39, in test_reports_only_public_profile_fields_without_using_adapter
+    base = self.start(self.info(), text_adapter=object())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+======================================================================
+ERROR: test_wrong_key_and_foreign_query_cannot_discover (serve.test_cow_connection_info.ConnectionInfoTests.test_wrong_key_and_foreign_query_cannot_discover)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 46, in test_wrong_key_and_foreign_query_cannot_discover
+    base = self.start(self.info())
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/src/context-cow-client-setup-20261020/serve/test_cow_connection_info.py", line 17, in start
+    server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_server() got an unexpected keyword argument 'connection_info'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (errors=9)

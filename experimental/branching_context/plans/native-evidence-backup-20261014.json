@@ -1,0 +1,25 @@
+{
+  "probe":"/home/dflanag3/branching-g3/native-request-probe-20261014",
+  "output":"/home/dflanag3/branching-g3/native-resident-post-v3-evidence-20261014.zip",
+  "remote_directory":"/srv/data/git/private_context_cow.evidence/20261014-post-v3",
+  "campaigns":[
+    "/home/dflanag3/branching-g3/resident-resume-v4-20261014",
+    "/home/dflanag3/branching-g3/resident-real-v1-20261014",
+    "/home/dflanag3/branching-g3/client-stream-v1-20261014",
+    "/home/dflanag3/branching-g3/host-context-v1-20261014",
+    "/home/dflanag3/branching-g3/host-context-v2-20261014",
+    "/home/dflanag3/branching-g3/native-stage-v1-20261014",
+    "/home/dflanag3/branching-g3/digest-reuse-v1-20261014",
+    "/home/dflanag3/branching-g3/digest-client-v1-20261014"
+  ],
+  "probe_parts":[
+    "binaries-v3","binaries-timing-v1","binaries-digest-v1","binaries-digest-v1-core",
+    "regressions-digest-v1","source-digest-v1",
+    "q3-profile-v4","q4-profile-v4","q4-96k-profile-v4","q8-profile-v4","q8-96k-profile-v4",
+    "q4-profile-host-v1","q8-profile-host-v1",
+    "q4-profile-timing-v1","q4-96k-profile-timing-v1","q8-96k-profile-timing-v1",
+    "q4-profile-digest-v1","q4-96k-profile-digest-v1","q8-96k-profile-digest-v1",
+    "digest-client-tools"
+  ],
+  "api_versions":["api-v4","api-client-v1","api-host-v1","api-host-v2","api-timing-v1","api-digest-v1"]
+}

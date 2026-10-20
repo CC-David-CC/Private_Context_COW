@@ -1,0 +1,10 @@
+test_counter_delta_excludes_error_labels_without_hiding_native_work (test_client_stream_metrics.ClientStreamMetricsTests.test_counter_delta_excludes_error_labels_without_hiding_native_work) ... ok
+test_one_output_has_no_fabricated_steady_rate_and_clock_must_increase (test_client_stream_metrics.ClientStreamMetricsTests.test_one_output_has_no_fabricated_steady_rate_and_clock_must_increase) ... ok
+test_out_of_order_duplicate_and_premature_publication_fail (test_client_stream_metrics.ClientStreamMetricsTests.test_out_of_order_duplicate_and_premature_publication_fail) ... ok
+test_received_tokens_and_durable_ack_are_separate (test_client_stream_metrics.ClientStreamMetricsTests.test_received_tokens_and_durable_ack_are_separate) ... ok
+test_token_gap_distribution_excludes_first_token_wait (test_client_stream_metrics.ClientStreamMetricsTests.test_token_gap_distribution_excludes_first_token_wait) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

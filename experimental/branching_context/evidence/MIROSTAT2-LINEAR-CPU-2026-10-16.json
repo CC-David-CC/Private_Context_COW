@@ -1,0 +1,41 @@
+{
+    "status":  "CPU_PASS_GPU_UNRUN",
+    "date":  "2026-10-16",
+    "source_base":  "781004f183bb6b53c3acb999d5cdbaca1a742e38",
+    "branch":  "work/mirostat2-linear-20261016",
+    "host":  "llm-60",
+    "contract":  "Same Mirostat equations, accumulation order, exact tokens and feedback; remove full-vocabulary score sort",
+    "combined_cpu":  {
+                         "run":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-full-command-v1",
+                         "skips":  0,
+                         "errors":  0,
+                         "tests":  690,
+                         "failures":  0
+                     },
+    "G0":  {
+               "run":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-g0-command-v1",
+               "tests":  51,
+               "failures":  0
+           },
+    "red":  {
+                "prior_setup_refusal":  "red-command-v1 wrapper checkout contained output directory; corrected checkout only, no test executed",
+                "run":  "mirostat-linear-red-command-v3",
+                "result":  "Compile error: retention_candidate_visits absent before optimization",
+                "tests_completed":  0
+            },
+    "native_build":  {
+                         "status":  "BUILT_NOT_EXECUTED",
+                         "binary_sha256":  "b545e0f0c2c344ce7138dd9a8bd239668b2a03d81791c3b1e579a3b943f97a65",
+                         "receipt_sha256":  "2f313075d817d24a9444d60c91494ffecc62ad55cb015fc5caa820976bdea457"
+                     },
+    "limitations":  [
+                        "Helper CPU timings are not GPU or end-to-end inference timings",
+                        "Original G1-G5 remains unqualified",
+                        "Cross-arrangement equivalence remains outside supported prototype",
+                        "Independent Python reference and existing tolerances unchanged"
+                    ],
+    "test_ids":  [
+                     "test_mirostat2_linear.Mirostat2LinearTests.test_full_vocabulary_retention_visits_each_candidate_once",
+                     "test_mirostat2_linear.Mirostat2LinearTests.test_seeded_masked_tied_and_extreme_logits_match_independent_reference"
+                 ]
+}

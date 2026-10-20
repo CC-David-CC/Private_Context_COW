@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "Bounded Q4 resident exactness and clean process-separated disk restart; greedy, matching execution profile",
+  "execution_profile_id": "f94ff12f7da0ef492c6aa05cafe3c755295af55be6a835c8f12d45d4f4c31f12",
+  "fingerprints": "NATIVE-REQUEST-COUNTER-FIX-2026-10-15.json",
+  "host": "llm-60", "GPU": [0],
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "fixture": {"prefix": 1024, "suffix_per_branch": 64, "output_limit": 16, "branches": 2},
+  "resident_probe": {
+    "result": "probe-1k-v3/result.json", "result_sha256": "b2fa9f76c7927ef3411d293403dd1482f414ea71d6c3e3f9271d16029f68a4f7",
+    "receipts": "runs/native-probe-1k-v3", "command_exit": 0, "wrapper_exit": 0,
+    "comparisons": 56, "numerical_max_error": 0.0, "generated_tokens_per_branch": 16,
+    "checked_generated_boundaries": "every, 1 through 16 per branch", "parent_byte_audit": "PASS",
+    "cancellation_consumed": 1089, "native_exit": 0
+  },
+  "restart_campaign": {
+    "result": "pool-1k-v3/result.json", "result_sha256": "ceb1010325ccba27b8780cb8d641a4e9a4be6f6c41198de2b63f1be6263deeec",
+    "resume_sha256": "e001d77db923ab8393b6024af12421c5112edddabc728c28669d65e27a8b419b",
+    "receipts": "runs/pool-campaign-1k-v3", "command_exit": 0, "wrapper_exit": 0,
+    "prepare": {"python_pid": 2196295, "python_exit": 0, "native_pid": 2196301, "native_exit": 0},
+    "resume": {"python_pid": 2196703, "python_exit": 0, "native_pid": 2196711, "native_exit": 0},
+    "generated_tokens_per_branch": 16, "resumed_tokens_per_branch": 12,
+    "resumed_forward_tokens_per_branch": 12, "resumed_prefill_tokens_per_branch": 0,
+    "loaded_file_bytes_per_branch": 146589448, "cold_copy_bytes_per_branch": 28520448, "cold_copy_calls_per_branch": 36,
+    "checked_generated_boundaries_per_branch": [4, 16], "full_generated_frontier_checks": 4,
+    "numerical_max_error": 0.0, "parent_bytes_unchanged": true,
+    "ram_pool_limit_gib": 96, "disk_pool_limit_gib": 128
+  },
+  "failures": [], "skips": [], "xfails": [],
+  "limits": "Clean restart only; no new crash, RNG/grammar, cross-schedule or cumulative G1-G5 qualification. This is not a throughput comparison."
+}

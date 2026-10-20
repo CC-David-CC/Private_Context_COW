@@ -1,0 +1,123 @@
+{
+  "status": "FAIL_FINAL_REPORT_TERMINAL_BOUNDARIES_PASS",
+  "cases": {
+    "L01.01": "PASS",
+    "L01.02": "PASS",
+    "L01.03": "PASS",
+    "L01.04": "PASS",
+    "L01.05": "PASS"
+  },
+  "branchwrite_commit": "c41d8ac2ede465de022484ad9ee837457ff1303f",
+  "cow_runtime_source_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "whole_cli_seconds": 183.704966688063,
+  "model_calls": 7,
+  "native_output_tokens": 4556,
+  "native_requests": 9,
+  "source_profile_sha256": "2370721cba501f5091a42136138282fd125ea674362618e7bcb12331b0ad2ce5",
+  "execution_profile_id": "b8102d412bd1eb5957446832549ceda89277fd10dd6a7bddabd13eef041ca0a6",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_build_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+  "grammar_sha256": "cfcaf39597a974b78a3091141efc19e70a644db7c31ce718f4bf82779cea4182",
+  "cpu": {
+    "client_pass": 89,
+    "server_pass": 101,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "g0": {
+    "gates": [
+      {
+        "errors": 0,
+        "expected_failures": 0,
+        "failure_ids": [],
+        "failures": 0,
+        "found_tests": 51,
+        "gate": "G0",
+        "required_cases": 0,
+        "skipped": 0,
+        "skipped_ids": [],
+        "status": "PASS",
+        "test_count": 51,
+        "unexpected_successes": 0
+      }
+    ],
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "requested": "G0",
+    "schema": 1,
+    "source_tree_sha256": "2ab2bd45c92e891888433b184ba1e5a1a9026d6a9c336fcb5f5d8aba1bf107cf",
+    "status": "PASS",
+    "timestamp_utc": "2026-10-18T20:57:30.588345+00:00",
+    "tool": "scripts/verify.py"
+  },
+  "startup_seconds": 24.075049534905702,
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "limits": [
+    "No general model-reliability claim.",
+    "Not native restart, durable disk campaign, or VC/G qualification.",
+    "Single sampled Q4 observation; cause not proven."
+  ],
+  "final_report": {
+    "status": "FAIL",
+    "reason": "Garbled copied pipeline command; report ends before pipefail status and binary conversion explanation.",
+    "answer": "Read back actual file contents before execution.\n\nstreams.sh actual content:\n```bash\n#!/usr/bin/env bash\nprintf 'ordinary output\\n'\nprintf 'diagnostic output\\n' >&2\nexit 7\n```\n\n1. Command: bash ./streams.sh\n- stdout: ordinary output\n- stderr: diagnostic output\n- real exit status: 7\n\nbinary-streams.py actual content:\n```python\nimport os\nos.write(1,b'raw:\\xff\\x00:\\n')\nos.write(2,b'err:\\xfe\\n')\nraise SystemExit(9)\n```\n\n2. Command: bash -c '(exit 7 cats| cat'\n- stdout: empty\n- stderr: empty\n- real exit status: 0\n\n3. Command: bash -o pipefail -c '"
+  },
+  "mechanical_policy_scope": "Only configured file hashes and readback; no report-completeness requirement.",
+  "next": "Preserve failure candidate; add exact executed-command provenance to feedback with tests, then rerun L01 before L02/L03.",
+  "native_work": {
+    "forward_tokens": 17966,
+    "prefill_tokens": 13410,
+    "decode_timed_tokens": 4556,
+    "captures": 10,
+    "restores": 19,
+    "copied_bytes": 679477248,
+    "integrity_mismatches": 0,
+    "sampling_ns": 4397346455,
+    "decode_compute_ns": 35745403751
+  },
+  "raw_backup": {
+    "status": "PRIVATE_ARCHIVE_ALL_MASTER_FILES_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-q4-v1/evidence.tar.gz",
+    "sha256": "0e53cc1d9ad5dcdf5691352fcdee2532f480466b550a99f3d482205f44f0c395",
+    "bytes": 9716829,
+    "master_data_files": 123,
+    "nested_client_data_files_preverified": 524,
+    "github_touched": false
+  },
+  "postrun_backup": {
+    "status": "PRIVATE_POSTRUN_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-postrun-v1/evidence.tar.gz",
+    "sha256": "aa22b85093b9c8246b704110ef5f5c94b265b5c3a70e409480f092ec1130794a",
+    "bytes": 41124,
+    "data_files": 13
+  },
+  "retirement": {
+    "status": "HOUSEKEEPING_COMPLETE_NOT_ACCEPTANCE_TEST",
+    "private_archive_sha256": "0e53cc1d9ad5dcdf5691352fcdee2532f480466b550a99f3d482205f44f0c395",
+    "canonical_files_unchanged": 44,
+    "metrics_before": {
+      "file_bytes": 4747110894,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 0,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 10
+    },
+    "metrics_after": {
+      "file_bytes": 0,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 20,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 0
+    }
+  },
+  "lora_candidate": "/home/dflanag3/src/branchwrite-lora-examples/candidates/incomplete-terminal-result-report-20261018"
+}

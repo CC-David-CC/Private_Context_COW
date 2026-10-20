@@ -1,0 +1,7 @@
+{
+  "scope": "CPU build-recipe unit tests with mock compiler; no GPU or actual native compilation claimed",
+  "red": {"tests": 8, "failures": 2, "errors": 0, "command_exit": 1, "wrapper_exit": 1, "receipts": "/home/dflanag3/spatial-artifacts/probe-build-closure-20261015-v1/red-run", "failed_ids": ["test_cold_restore_reader_is_rebuilt_before_both_probe_links", "test_digest_cuda_compilation_uses_selected_cmake_compiler"]},
+  "green": {"tests": 8, "failures": 0, "errors": 0, "command_exit": 0, "wrapper_exit": 0, "receipts": "/home/dflanag3/spatial-artifacts/probe-build-closure-20261015-v1/green-run"},
+  "changes": ["Recompile conversation_file.cpp and place its object before engine archives in both isolated probe links", "Read and resolve CUDA compiler from selected CMake build cache", "Describe integrity implementation by pinned source instead of retaining stale host-view label"],
+  "remaining": "Build combined real native probes, derive new execution profiles, and execute matching-schedule Q4/Q8 comparisons before performance claims"
+}

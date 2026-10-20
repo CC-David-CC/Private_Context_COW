@@ -1,0 +1,221 @@
+{
+    "schema":  "cli-retry-q4-pipeline-v1",
+    "qualification":  "PASS_PIPELINE_NO_INDEPENDENT_NUMERICAL_ORACLE",
+    "host":  "llm-60",
+    "source_base":  "eff2d2b9d379cd1e6237d6dbdb44ea4d59ab879e",
+    "harness_commit":  "a194185f76b98ec5bc74d1732c31c0e24ec2281f",
+    "run":  "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/runs/retry-q4-tiny-v2",
+    "result_sha256":  "2b1ca5fd6aacbb7a714be8011c86d13d55f75f9625b8c601a169620fed089484",
+    "profile_sha256":  "540d4bb34ce6eb628318e80db0b59a5c2a4fa3b1da584c38332ebdfddb9357a0",
+    "execution_profile_id":  "0442929dd10e677dcdf742d9dac64eada0b56e524000b02a869772013b6002ff",
+    "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+    "native_sha256":  "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+    "prefix_tokens":  181,
+    "outputs_per_generation":  8,
+    "first_process_total_forward_tokens":  213,
+    "first_process_total_prefill_tokens":  181,
+    "command_exit":  0,
+    "wrapper_exit":  0,
+    "stale_revision_http_status": 409,
+    "all_recorded_service_and_native_pids_absent": true,
+    "raw_backup": {
+        "receiver": "box-git:/srv/data/git/private_context_cow.evidence/20261016-cli-retry-q4-v2/evidence.tar",
+        "bytes": 37181440,
+        "sha256": "5b4d65ee935ac5288373478593dbbcd39ca4fc01aaa3a97b2e5d87aba67fa24a",
+        "sender_receiver_verified": true,
+        "members": 202,
+        "receiver_full_archive_payload_read_exit": 0,
+        "checkpoint_state_payloads_included": false
+    },
+    "cli_commands":  [
+                         {
+                             "id":  "namespace",
+                             "exit_code":  0,
+                             "seconds":  0.05579297919757664
+                         },
+                         {
+                             "id":  "prepare-root",
+                             "exit_code":  0,
+                             "seconds":  0.8302865708246827
+                         },
+                         {
+                             "id":  "fork-chat",
+                             "exit_code":  0,
+                             "seconds":  0.1169153128284961
+                         },
+                         {
+                             "id":  "fork-sibling",
+                             "exit_code":  0,
+                             "seconds":  0.12132622813805938
+                         },
+                         {
+                             "id":  "answer-eight",
+                             "exit_code":  0,
+                             "seconds":  0.705712130991742
+                         },
+                         {
+                             "id":  "exact-answer-replay",
+                             "exit_code":  0,
+                             "seconds":  0.0794476019218564
+                         },
+                         {
+                             "id":  "explicit-t0-answer-replay",
+                             "exit_code":  0,
+                             "seconds":  0.0767836410086602
+                         },
+                         {
+                             "id":  "fork-retry-answer",
+                             "exit_code":  0,
+                             "seconds":  0.13778814999386668
+                         },
+                         {
+                             "id":  "changed-answer-retry",
+                             "exit_code":  0,
+                             "seconds":  0.8510146429762244
+                         },
+                         {
+                             "id":  "continue-eight",
+                             "exit_code":  0,
+                             "seconds":  0.777713310206309
+                         },
+                         {
+                             "id":  "exact-continue-replay",
+                             "exit_code":  0,
+                             "seconds":  0.11942770495079458
+                         },
+                         {
+                             "id":  "fork-retry-continue",
+                             "exit_code":  0,
+                             "seconds":  0.14602155098691583
+                         },
+                         {
+                             "id":  "changed-continue-retry",
+                             "exit_code":  0,
+                             "seconds":  0.9931453890167177
+                         },
+                         {
+                             "id":  "restart-exact-answer-replay",
+                             "exit_code":  0,
+                             "seconds":  0.12848805007524788
+                         }
+                     ],
+    "observations":  [
+                         {
+                             "kind":  "exact_replay",
+                             "source_operation":  "retry-probe-answer-67e12c84ce67",
+                             "stdout_sha256":  "c4a510d2123bd37e59cf968d4a6da5d34de1f7eee8abb9d20532fbf056998c5d",
+                             "stdout_bytes":  38,
+                             "forward_before":  189,
+                             "forward_after":  189,
+                             "prefill_before":  181,
+                             "prefill_after":  181,
+                             "native_rpc_trace_bytes_before":  103817,
+                             "native_rpc_trace_bytes_after":  103817,
+                             "branch_and_sibling_unchanged":  true,
+                             "original_receipt_and_tokens_exact":  true
+                         },
+                         {
+                             "kind":  "exact_replay",
+                             "source_operation":  "retry-probe-answer-67e12c84ce67",
+                             "stdout_sha256":  "c4a510d2123bd37e59cf968d4a6da5d34de1f7eee8abb9d20532fbf056998c5d",
+                             "stdout_bytes":  38,
+                             "forward_before":  189,
+                             "forward_after":  189,
+                             "prefill_before":  181,
+                             "prefill_after":  181,
+                             "native_rpc_trace_bytes_before":  103817,
+                             "native_rpc_trace_bytes_after":  103817,
+                             "branch_and_sibling_unchanged":  true,
+                             "original_receipt_and_tokens_exact":  true
+                         },
+                         {
+                             "kind":  "changed_settings",
+                             "source_operation":  "retry-probe-answer-67e12c84ce67",
+                             "destination":  "chat-changed-answer",
+                             "output_tokens":  8,
+                             "source_accepted":  0,
+                             "final_accepted":  8,
+                             "stream_preserved":  true,
+                             "forward_before":  189,
+                             "forward_after":  197,
+                             "prefill_before":  181,
+                             "prefill_after":  181,
+                             "journal_body_sha256":  "dd0f0b93f2fbb9c0e2d5d34bbe09dc122fc1d4359636c8a72276241636526fb8",
+                             "journal_revision":  0,
+                             "idempotent_confirmation_zero_additional_work":  true
+                         },
+                         {
+                             "kind":  "exact_replay",
+                             "source_operation":  "retry-probe-continue-67e12c84ce67",
+                             "stdout_sha256":  "1c95d25952bd413828f12225d24fb18f543fad1082ae76bb85d5c82480b56620",
+                             "stdout_bytes":  52,
+                             "forward_before":  205,
+                             "forward_after":  205,
+                             "prefill_before":  181,
+                             "prefill_after":  181,
+                             "native_rpc_trace_bytes_before":  270248,
+                             "native_rpc_trace_bytes_after":  270248,
+                             "branch_and_sibling_unchanged":  true,
+                             "original_receipt_and_tokens_exact":  true
+                         },
+                         {
+                             "kind":  "changed_settings",
+                             "source_operation":  "retry-probe-continue-67e12c84ce67",
+                             "destination":  "chat-changed-continue",
+                             "output_tokens":  8,
+                             "source_accepted":  8,
+                             "final_accepted":  16,
+                             "stream_preserved":  true,
+                             "forward_before":  205,
+                             "forward_after":  213,
+                             "prefill_before":  181,
+                             "prefill_after":  181,
+                             "journal_body_sha256":  "7315bccdded5080c752baf2a92df82f2e5e2ac4af62e952a490fa07ac77a4694",
+                             "journal_revision":  0,
+                             "idempotent_confirmation_zero_additional_work":  true
+                         },
+                         {
+                             "kind":  "restart_replay",
+                             "source_operation":  "retry-probe-answer-67e12c84ce67",
+                             "stdout_sha256":  "c4a510d2123bd37e59cf968d4a6da5d34de1f7eee8abb9d20532fbf056998c5d",
+                             "stdout_bytes":  38,
+                             "forward_before":  0,
+                             "forward_after":  0,
+                             "prefill_before":  0,
+                             "prefill_after":  0,
+                             "native_rpc_trace_bytes_before":  3388,
+                             "native_rpc_trace_bytes_after":  3388,
+                             "branch_and_sibling_unchanged":  true,
+                             "original_receipt_and_tokens_exact":  true
+                         }
+                     ],
+    "services":  [
+                     {
+                         "python_pid":  3478000,
+                         "native_pid":  3478006,
+                         "python_exit":  0,
+                         "native_exit":  0,
+                         "startup_seconds":  19.06365467212163,
+                         "native_trace_sha256":  "b706215e3223b83a8407cae75342e13364f61fc8bfb7cb780002d018c8dfc195"
+                     },
+                     {
+                         "python_pid":  3478512,
+                         "native_pid":  3478582,
+                         "python_exit":  0,
+                         "native_exit":  0,
+                         "startup_seconds":  18.871002027997747,
+                         "native_trace_sha256":  "c06a82492a60e6bce31e491b226dd1ca37b734096d83840d3c699d14dd0080b6"
+                     }
+                 ],
+    "max_abs_logit_error":  null,
+    "limitations":  [
+                        "No independent full-logit oracle in this retry campaign. Separate G4 audit belongs to its own source/profile.",
+                        "Source precedes named-grammar integration; no native grammar claim.",
+                        "Changed settings use temperature0.7/Min-P0.05/Top-K1, so deterministic token equality is expected while sampler draw state advances.",
+                        "Restart replays a saved answer without inference; this is not a new native-checkpoint continuation test.",
+                        "Same serialized changed-retry request is reposted after CLI acknowledgment, testing idempotent receipt recovery with the original stale revision; not packet-loss or power-loss injection.",
+                        "Eight-token acceptance timings include CLI and durable publication overhead, not a representative throughput benchmark.",
+                     "Both changed retries consumed eight RNG draws from a zero-draw source. A native retry from a source with an already nonzero draw cursor was not exercised here; the separate CPU retry suite covers that case and adaptive feedback.",
+                     "Original cumulative G1-G5 remain unqualified."
+                    ]
+}

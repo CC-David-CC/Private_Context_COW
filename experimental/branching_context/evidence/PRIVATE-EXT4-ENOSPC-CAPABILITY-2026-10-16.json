@@ -1,0 +1,59 @@
+{
+  "schema": "private-ext4-enospc-capability-qualification-v1",
+  "status": "INFRASTRUCTURE-FOCUSED-PASS",
+  "host": "llm-60",
+  "source_base": "bb47abe5441af7b851028264fb4e0e9c720bdefe",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/private-enospc-capability-20261016-v1",
+  "result": {
+    "relative_path": "run-v1/result.json",
+    "sha256": "2ade373e216d02741d78c400fb9639a9cbbc90235dc7b053ca129387bde0e4ea",
+    "status": "PASS",
+    "errno": 28,
+    "message": "No space left on device",
+    "uid": 1000,
+    "capacity_bytes": 58675200,
+    "staged_bytes_before_enospc": 56623104,
+    "recovery_write_bytes": 1048576,
+    "recovery_sha256": "6eccecdfd542490e136222fb405579a83a0f3ecfb1a3d4ca606915483bf0a8fe",
+    "retained_canary_sha256": "aa1a3e2ddefae9d7848ebb36e796ebbf3674e82db2c3c89c1f26c8c501b06ae1",
+    "elapsed_seconds": 0.0910184383392334
+  },
+  "isolation": {
+    "filesystem": "ext4",
+    "backing_file_bytes": 67108864,
+    "backing_file_sha256_after_test": "c5899be04668c17c1c3b0c71dc0e678d68a641acbfbc70c1466346803d2e04ae",
+    "mount_namespace": "mnt:[4026532956]",
+    "loop_device": "/dev/loop11",
+    "mount_options": ["nosuid", "nodev", "noexec"],
+    "setup": "sudo -n unshare --mount --propagation private",
+    "write_probe_runs_as_root": false,
+    "mount_removed": true,
+    "loop_detached": true,
+    "primary_readback": "losetup -j returned no device; findmnt for former mountpoint resolved to main filesystem",
+    "main_available_bytes_after": 19305193472,
+    "backing_file_retained": true
+  },
+  "sources": {
+    "source-v1/probe_bounded_enospc_20261016.py": "d04321e4aee6a00a1ae34daa00beda77f2c0732ba16b8081f98f678268015843",
+    "source-v1/run_bounded_enospc_20261016.sh": "0c36a2a70f84ce3c865601d3a682d7c5508fb0fbae7bda852a2c3cbeae298c84",
+    "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "exits": {"command.exit": 0, "wrapper.exit": 0, "probe_exit": 0},
+  "private_backup": {
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261016-private-ext4-enospc-capability-v1/evidence.tar.gz",
+    "bytes": 3282,
+    "sha256": "1b29c7257985537f3b1eee9257ac07387c08dae521bce194667ee3a965adbaef",
+    "verification": "Source, Windows controller and receiver archive hashes match; receiver lists all 14 entries",
+    "includes": ["both probe sources", "result", "commands and exits", "logs", "cleanup receipt"],
+    "excludes": ["disposable ext4 backing image"],
+    "destination_directory_mode": "0700",
+    "archive_mode": "0600"
+  },
+  "limitations": [
+    "This proves a bounded real-kernel ENOSPC test mechanism, not Context COW checkpoint recovery.",
+    "No inference, GPU, controller, numerical comparison or COW serializer ran.",
+    "It does not establish power-loss, physical disk failure, or cumulative G2 qualification.",
+    "The 64 MiB image remains as a disposable external artifact; no mount or loop device remains attached.",
+    "No production source changed; existing G0 result remains 51/51 and was not rerun for this infrastructure-only probe."
+  ]
+}

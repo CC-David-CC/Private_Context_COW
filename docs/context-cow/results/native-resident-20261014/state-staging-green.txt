@@ -1,0 +1,7 @@
+test_mount_escape_and_missing_directory (test_state_staging.StateStagingTests.test_mount_escape_and_missing_directory) ... ok
+test_only_exact_tmpfs_mount_is_accepted (test_state_staging.StateStagingTests.test_only_exact_tmpfs_mount_is_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

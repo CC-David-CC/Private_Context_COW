@@ -1,0 +1,175 @@
+{
+  "status": "PASS_MEASURED_REQUEST_ATTRIBUTION_SUMMARY",
+  "scope": "Nine original Q4 resident requests; observational timing, not a speed improvement claim",
+  "result_sha256": "fa1f7b856f1808c8f8a109e248d5a5191f4fb0ab0b213a1ef4547c407976345c",
+  "diagnostics_sha256": "4c5b67145a62b4eb9b62521719bb9e549427f86881b05d8c01476ba375e6de4f",
+  "profile": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "warmups_excluded": 3,
+  "measured_requests": 9,
+  "output_tokens": 1152,
+  "native_exit_codes": [
+    0
+  ],
+  "events": 267,
+  "dropped_events": 0,
+  "instrumentation_errors": 0,
+  "timing_semantics": "Host wall intervals; inclusive contains nested calls. Exclusive subtracts observed same-thread children only. Do not sum across threads as a critical path.",
+  "observer_overhead_measured": false,
+  "new_full_logit_comparisons": 0,
+  "numerical_max_error": null,
+  "stages": [
+    {
+      "stage": "backend_serialize",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18453054012,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 1.641697315,
+      "median_same_thread_exclusive_seconds": 0.180255696
+    },
+    {
+      "stage": "checkpoint_digest",
+      "calls": 54,
+      "median_calls_per_request": 6,
+      "observed_bytes_total": 53426226576,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 2.187611749,
+      "median_same_thread_exclusive_seconds": 2.187611749
+    },
+    {
+      "stage": "export_state_readback",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18453054012,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.688419345,
+      "median_same_thread_exclusive_seconds": 0.688419345
+    },
+    {
+      "stage": "manifest_directory_fsync",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 0,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.000266848,
+      "median_same_thread_exclusive_seconds": 0.000266848
+    },
+    {
+      "stage": "manifest_file_fsync",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 0,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.000427393,
+      "median_same_thread_exclusive_seconds": 0.000427393
+    },
+    {
+      "stage": "manifest_publish",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 23445,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.000885636,
+      "median_same_thread_exclusive_seconds": 0.000201745
+    },
+    {
+      "stage": "native_request_load",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 1134,
+      "byte_scope": "UTF-8 command text, not payload transfer",
+      "median_inclusive_seconds": 1.200622599,
+      "median_same_thread_exclusive_seconds": 1.200622599
+    },
+    {
+      "stage": "native_request_write",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 441,
+      "byte_scope": "UTF-8 command text, not payload transfer",
+      "median_inclusive_seconds": 0.769258359,
+      "median_same_thread_exclusive_seconds": 0.769258359
+    },
+    {
+      "stage": "payload_directory_fsync",
+      "calls": 3,
+      "median_calls_per_request": 0,
+      "observed_bytes_total": 0,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.0,
+      "median_same_thread_exclusive_seconds": 0.0
+    },
+    {
+      "stage": "payload_file_fsync",
+      "calls": 3,
+      "median_calls_per_request": 0,
+      "observed_bytes_total": 0,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.0,
+      "median_same_thread_exclusive_seconds": 0.0
+    },
+    {
+      "stage": "payload_publish",
+      "calls": 3,
+      "median_calls_per_request": 0,
+      "observed_bytes_total": 6153997844,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.0,
+      "median_same_thread_exclusive_seconds": 0.0
+    },
+    {
+      "stage": "pool_checkpoint_digest",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18461993532,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.752737664,
+      "median_same_thread_exclusive_seconds": 0.752737664
+    },
+    {
+      "stage": "prepare_checkpoint",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18461993532,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 2.869914715,
+      "median_same_thread_exclusive_seconds": 0.463470009
+    },
+    {
+      "stage": "prepared_checkpoint",
+      "calls": 18,
+      "median_calls_per_request": 2,
+      "observed_bytes_total": 36923987064,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 1.521064329,
+      "median_same_thread_exclusive_seconds": 0.016415766
+    },
+    {
+      "stage": "publish_prepared_checkpoint",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 0,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 2.556566207,
+      "median_same_thread_exclusive_seconds": 0.876631033
+    },
+    {
+      "stage": "shared_pool_internal_admit",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18461993532,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.75467409,
+      "median_same_thread_exclusive_seconds": 0.001884246
+    },
+    {
+      "stage": "validate_checkpoint",
+      "calls": 9,
+      "median_calls_per_request": 1,
+      "observed_bytes_total": 18461993532,
+      "byte_scope": "Argument/result extents where observable; zero does not prove no traffic",
+      "median_inclusive_seconds": 0.895834404,
+      "median_same_thread_exclusive_seconds": 0.895834404
+    }
+  ]
+}

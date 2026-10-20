@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "immediate math UI, no native inference/gate change",
+  "base_commit": "0e25efc2eb13e3298643433b4cf3854b3d50d5a2",
+  "reports": [
+    {
+      "report": "final-chromium/chromium-immediate-results.json",
+      "checks": 16,
+      "status": "PASS"
+    },
+    {
+      "report": "dual-chromium/chromium-dual-results.json",
+      "checks": 25,
+      "status": "PASS"
+    },
+    {
+      "report": "final-firefox/firefox-immediate-results.json",
+      "checks": 16,
+      "status": "PASS"
+    },
+    {
+      "report": "dual-firefox/firefox-dual-results.json",
+      "checks": 25,
+      "status": "PASS"
+    },
+    {
+      "report": "final-webkit/webkit-immediate-results.json",
+      "checks": 16,
+      "status": "PASS"
+    },
+    {
+      "report": "dual-webkit/webkit-dual-results.json",
+      "checks": 25,
+      "status": "PASS"
+    }
+  ],
+  "final_check_observations": 123,
+  "failures": 0,
+  "skips": 0,
+  "red_report": "red/chromium-immediate-results.json",
+  "live_report": "live-results.json",
+  "source_sha256": {
+    "serve/web/app.js": "5d88be6d2bde2f152e3e8d2790b59f577a2d6572e959db897f8bdecc76393490",
+    "serve/web/index.html": "05b547da67d095ea079516ecd3ad29c0825e53674b3c667e42bbed3a1fef25d9",
+    "tools/test_web_math_immediate.py": "5318674518f6fb80c1b7f10eb4bae400f6a9736a88667fbda1126296e36c1674"
+  }
+}

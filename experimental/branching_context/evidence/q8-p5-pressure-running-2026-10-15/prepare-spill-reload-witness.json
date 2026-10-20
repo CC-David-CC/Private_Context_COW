@@ -1,0 +1,54 @@
+{
+  "schema": "q8-p5-prepare-spill-reload-witness-v1",
+  "recorded_epoch": 1792043691.1158605,
+  "scope": "read-only prepare-phase trace witness; not terminal campaign or numerical gate",
+  "trace_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/q8-64k-pressure/prepare-pool-transitions.json",
+  "trace_sha256": "6410e951b42eef66f2909239b6b0917387f3896fc7c5537a4ca50be396f469e4",
+  "phase": "prepare",
+  "process_id": 1927706,
+  "phase_id": "bfed806af85145cc831d1679daf3de94",
+  "event_count": 13,
+  "overflowed": false,
+  "matched_chains": [
+    {
+      "key": [
+        "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+        "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+        "982c5164a2000e804e67a9dd8534860c51822494e70bbe27e8f3a86c0f4281ec"
+      ],
+      "eviction_sequence": 0,
+      "load_start_sequence": 1,
+      "load_sequence": 4,
+      "load_id": 1,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "key": [
+        "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+        "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+        "8d7c53db7bfafc1a1faa83f145418467968442cdbbb9d4514f4706c22e3f1141"
+      ],
+      "eviction_sequence": 3,
+      "load_start_sequence": 5,
+      "load_sequence": 6,
+      "load_id": 5,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "key": [
+        "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+        "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+        "fa2f24bd7dbf3be9e212ef13d7eb96dccbb0ec7cb3470c114d02db5de67aa8a1"
+      ],
+      "eviction_sequence": 8,
+      "load_start_sequence": 9,
+      "load_sequence": 12,
+      "load_id": 9,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    }
+  ],
+  "validator": "pool_campaign.validate_spill_reload_trace from frozen source; exact same key/order/process/phase/load-id/positive bytes"
+}

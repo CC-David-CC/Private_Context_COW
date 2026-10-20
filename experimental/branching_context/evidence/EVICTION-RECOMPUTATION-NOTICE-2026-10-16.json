@@ -1,0 +1,117 @@
+{
+    "schema":  "cow-eviction-recomputation-notice-evidence-v1",
+    "status":  "CPU_QUALIFIED_FOR_REVIEW",
+    "date":  "2026-10-16",
+    "worktree":  {
+                     "path":  "C:/Users/dflanag3/Documents/fleet/context-cow-eviction-notice",
+                     "branch":  "work/eviction-notice-20261016",
+                     "base_commit":  "97bab1a24ee53df036a3ac5bd083e18ec7f5cc71",
+                     "commit_created":  false
+                 },
+    "changed_files":  {
+                          "tools/cow_cli.py":  "d8c5e652184a54af0509f8fb82674def06505dc234495496219574bd446f677a",
+                          "tools/test_cow_cli_recomputation_notice.py":  "e0048414c9ad07cbb3e019cb24f50d37b109c8a6df41d7a972779a972ef04acd",
+                          "experimental/branching_context/tests/implementation/test_pool_branch_actions.py":  "66cc1505a27c4c9ed88231cafb4a31415b33350b7c9974eed0413d54b6bda914"
+                      },
+    "behavior":  [
+                     "On source_recomputation_started, emit one fixed user-facing notice to stderr; keep model text on stdout.",
+                     "Validate source snapshot and exact nonnegative history token count before printing the notice; reject malformed values without echoing control bytes.",
+                     "Require source_recomputed to bind the started source and exact history/forward/consumed counts.",
+                     "Treat a valid source_recomputation_failed event as terminal failure even if a later complete event arrives; do not echo its untrusted error text or claim a durable receipt.",
+                     "Retry-request uses the same stream handling; ordinary restore progress stays quiet.",
+                     "Update missing-manifest fork/rewind expectations to metadata success and idempotency with no model work; retain fork/rewind corruption rejection assertions."
+                 ],
+    "remote_environment":  {
+                               "host":  "llm-60",
+                               "python":  "/home/dflanag3/src/Strata/.venv/bin/python -B",
+                               "runner":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+                               "runner_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+                               "source_base":  "/home/dflanag3/spatial-artifacts/native-client-combined-20261016-v1/source-v1",
+                               "final_staged_source":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/checkouts/combined-green-v4"
+                           },
+    "red_green":  [
+                      {
+                          "name":  "cli_recomputation_notice_red",
+                          "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/cli-red-v1",
+                          "test_sha256":  "30735562072e867d19e4694728764ae0d78553139784a4edb3c9625ffbe38730",
+                          "stderr_sha256":  "e0b51bc7eecd4251dc67bb34cc1b1b771f2c92cb26ac747f6897766d2a41500e",
+                          "command_exit":  1,
+                          "wrapper_exit":  1,
+                          "result":  "5 tests, 5 assertion failures; no notice was emitted and malformed recomputation progress was accepted."
+                      },
+                      {
+                          "name":  "legacy_branch_action_policy_baseline",
+                          "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/branch-actions-old-expectation-v1",
+                          "stderr_sha256":  "b705fb28cd3b5639a0c28e5eb06cc61bbc16d0e69245cb47cdde2da7a0590f2f",
+                          "command_exit":  1,
+                          "wrapper_exit":  1,
+                          "result":  "7 tests, 1 failure: old test expected a missing checkpoint manifest to reject fork/rewind. This is the explicitly authorized policy correction; corruption rejection remains tested."
+                      },
+                      {
+                          "name":  "cli_existing_tests_first_attempt_setup_collision",
+                          "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/focused-green-v1",
+                          "stderr_sha256":  "d1578f5d59a01af853c043f4584fa36453aa06688222c5455ffddbb0ff958846",
+                          "command_exit":  1,
+                          "wrapper_exit":  1,
+                          "result":  "The persistent CLI operation journal was reused across attempts; existing tests received duplicate-operation-ID rejection. Rerun isolated COW_CLI_STATE_DIR per run."
+                      },
+                      {
+                          "name":  "focused_green_final",
+                          "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/focused-green-v5",
+                          "stderr_sha256":  "dfb550ff3375d6ec693046d37c471584a1bf771829ce9cec3161541faef90445",
+                          "stdout_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                          "command_exit":  0,
+                          "wrapper_exit":  0,
+                          "tests_passed":  38,
+                          "tests_failed":  0,
+                          "groups":  {
+                                         "cli_recomputation_notice":  7,
+                                         "existing_cow_cli":  9,
+                                         "existing_cow_cli_retry":  10,
+                                         "branch_actions":  7,
+                                         "canonical_checkpoint_eviction":  5
+                                     }
+                      },
+                      {
+                          "name":  "terminal_recomputation_failure_must_stop_red",
+                          "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/recompute-failure-red-v1",
+                          "test_sha256":  "e0048414c9ad07cbb3e019cb24f50d37b109c8a6df41d7a972779a972ef04acd",
+                          "pre_fix_cli_sha256":  "14fd001f7f569db36fb0bd86a0fab69217500bfdaa8e1874720153af08df37b9",
+                          "stderr_sha256":  "4d61f6682f69cc89d8472a0f34111721642cbeb91760c7d6d17c33ce6f1c4b27",
+                          "launcher_sha256":  "42018f311621922571a591e481855e308bbfa4111dfb8401e26fc28ddc7bf6cc",
+                          "command_exit":  1,
+                          "wrapper_exit":  1,
+                          "tests_run":  1,
+                          "tests_failed":  1,
+                          "tests_skipped":  0,
+                          "result":  "Expected fail-closed result=2 but old CLI returned success=0 after source_recomputation_failed was followed by otherwise-valid source_recomputed/text/complete events."
+                      }
+                  ],
+    "g0":  {
+               "run":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/runs/g0-v3",
+               "evidence_json":  "/home/dflanag3/spatial-artifacts/eviction-recomputation-notice-20261016-v1/g0-evidence-v3/20261016T111918802777Z-G0.json",
+               "evidence_sha256":  "0a15a86bc21e5ce65873d5288fb454dd395ab8fa3815972e2981ad7f61844b30",
+               "stdout_sha256":  "fa4f6ec21a18055d2e4785c4d7f5863dc5541fcdc8412d04c64054a9baeafe7a",
+               "command_exit":  0,
+               "wrapper_exit":  0,
+               "tests_passed":  51,
+               "tests_failed":  0,
+               "required_real_backend_cases":  0,
+               "launcher_sha256":  "1c4c2f29abc71ba81a7bab61a2eedf55c9b0b01f6ac167717c75a2e3820aa667"
+           },
+    "setup_failures_preserved":  [
+                                     "Initial SCP to derived stage failed because copied source directory permissions were read-only; corrected only the derived stage permissions.",
+                                     "An early remote launcher was UTF-8 with BOM, so bash rejected the shebang; corrected with UTF-8 without BOM and retained the failed attempt.",
+                                     "An initial G0 setup tried to create an evidence directory already present in the copied source; retained the failed setup and used a fresh G0 source stage with its existing runs symlink replaced to the external evidence directory."
+                                 ],
+    "limitations":  [
+                        "CPU-only; no native GPU execution or model inference performed for this ticket.",
+                        "G0 is 51 reference tests with zero required real-backend cases.",
+                        "No production runtime API, canonical format, numerical behavior, or checkpoint corruption policy was changed."
+                    ],
+    "final_hashes_unchanged_by_targeted_red_run":  {
+                                                       "cow_cli_sha256":  "d8c5e652184a54af0509f8fb82674def06505dc234495496219574bd446f677a",
+                                                       "test_sha256":  "e0048414c9ad07cbb3e019cb24f50d37b109c8a6df41d7a972779a972ef04acd",
+                                                       "branch_action_test_sha256":  "66cc1505a27c4c9ed88231cafb4a31415b33350b7c9974eed0413d54b6bda914"
+                                                   }
+}

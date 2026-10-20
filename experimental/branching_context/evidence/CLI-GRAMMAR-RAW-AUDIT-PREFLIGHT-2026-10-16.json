@@ -1,0 +1,57 @@
+{
+  "schema": "cli-grammar-raw-audit-preflight-evidence-v1",
+  "qualification": "FOCUSED-PASS",
+  "status": "READY_FOR_PRIMARY_REVIEW",
+  "scope": "CPU-only validator suite and read-only real Store/tokenizer/GrammarRegistry preflight. The raw Prefill+Verifier numerical oracle has not been run.",
+  "source_stage": {
+    "path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v11/source",
+    "runner_sha256": "ce947919c5b679c0a07eed14164dbd2e1f534f76bda79c2b3a411d31f2f12405",
+    "tests_sha256": "77f3d316b3b5ea7df4b5f6c58109ada2e33fe95116c19e81ff30e4c2e7975bf2",
+    "launcher_local_path": "C:/Users/dflanag3/Documents/fleet/context-cow-artifacts/cli-grammar-numerical-audit-20261016-v1/launch_cli_grammar_numerical_audit-v2.sh",
+    "launcher_sha256": "e7db8b3a779f348588f29e23571f2092d76fa38fdd78607612ad174bd607f795"
+  },
+  "cpu_tests": {
+    "run_path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v11/tests-run-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 23,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "stderr_sha256": "830d7767ca9af0a981bc999df78a35a243cb5773c928a8f136a4932c6a878c25"
+  },
+  "store_registry_preflight": {
+    "run_path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v11/store-preflight-command-v2",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "status": "PREFLIGHT_PASS",
+    "stdout_sha256": "3b4ac619a874e6834a669c0b8bf7f37c715a715bc4651e4aa729b9205e4e5aea",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "store_lineage_root": "f4253f99410b818b7016ae8277dc5ea0c1e46cd359503da6296488417ca4f464",
+    "history_token_counts": {
+      "root": 22,
+      "read_partial": 23,
+      "read_final": 35,
+      "test_final": 33
+    },
+    "model_oracle_executed": false,
+    "gpu_launched": false
+  },
+  "inputs": {
+    "campaign_sha256": "8111ea6fccef702e80c4c537400f25f3d82e489295ba676e44c73330ca801230",
+    "sut_profile_sha256": "3551eeb132aeb7642cd3868acb9c940210ec0e9be97018bebff82a907f88b32a",
+    "registry_sha256": "8443070884f6e35347d9720d585bcbb67fc95d0725c11fa30bfd1b1c886dfee6",
+    "llguidance_version": "1.9.1",
+    "llguidance_native_sha256": "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a",
+    "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd",
+    "forced_oracle_binary_sha256": "f1de0bd01afe7e695e663180c4e2dd5c9931dd8b6b5257e20d333910a9eafcc6",
+    "forced_oracle_build_receipt_sha256": "d0fd5cc7981e29677f08c0bffadb1c951581d7e67cc8c3149562c83aab9f898f",
+    "forced_oracle_build_status": "BUILT_NOT_EXECUTED",
+    "verified_compile_link_inputs": 53,
+    "verified_compile_link_input_report_sha256": "9ec1bb03b22e8b18449dc62775c57b84658b84181adb9f8c2787ef75ce8af6e1"
+  },
+  "oracle_run": {
+    "status": "UNRUN",
+    "reason": "Awaiting primary review and root-owned GPU launch."
+  }
+}

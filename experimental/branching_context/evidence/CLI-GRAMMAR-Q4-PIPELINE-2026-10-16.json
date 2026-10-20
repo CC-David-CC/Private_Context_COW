@@ -1,0 +1,190 @@
+{
+    "schema":  "cow-cli-grammar-pipeline-evidence-v1",
+    "date":  "2026-10-16",
+    "status":  "CLI_GRAMMAR_FLOW_PASS_NUMERICAL_AUDIT_PENDING",
+    "host":  "llm-60",
+    "scope":  "Bounded actual CLI-to-authenticated-HTTP-to-native-Q4 workflow; independent numerical audit pending",
+    "source_stage":  "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6",
+    "source_manifest_sha256":  "7c4682d66e2cf73c3324e18bc4a8918918ebd0b36c767fd9309dfae97198c2f1",
+    "profile":  "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/profile-v2/profile.json",
+    "profile_sha256":  "3551eeb132aeb7642cd3868acb9c940210ec0e9be97018bebff82a907f88b32a",
+    "identities":  {
+                       "execution_profile_id":  "a14f65bfd953e59b9433e7b00d8ed919fa29aade55f637f0197555346701f37a",
+                       "model_contract_id":  "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+                       "model_weights_sha256":  "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+                   },
+    "native_binary_sha256":  "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+    "model_configuration":  "Qwen3.8-Flash-Next UD-Q4_K_XL; FP16 KV; capacity 98304; Prefill chunk 8192; normal-verifier-decode generation",
+    "grammar_dependency":  {
+                               "name":  "llguidance",
+                               "version":  "1.9.1",
+                               "shared_object_sha256":  "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a"
+                           },
+    "campaign_result":  "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/runs/cli-grammar-q4-tiny-v2/campaign/result.json",
+    "campaign_result_sha256":  "8111ea6fccef702e80c4c537400f25f3d82e489295ba676e44c73330ca801230",
+    "command_exit":  0,
+    "wrapper_exit":  0,
+    "executed_commands":  [
+                              {
+                                  "id":  "namespace",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.05648603499867022,
+                                  "native_trace_bytes_before":  3388,
+                                  "native_trace_bytes_after":  3388
+                              },
+                              {
+                                  "id":  "prepare",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.6639226789120585,
+                                  "native_trace_bytes_before":  3388,
+                                  "native_trace_bytes_after":  51141
+                              },
+                              {
+                                  "id":  "fork-read",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.1182872240897268,
+                                  "native_trace_bytes_before":  51141,
+                                  "native_trace_bytes_after":  51141
+                              },
+                              {
+                                  "id":  "fork-test",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.11659659701399505,
+                                  "native_trace_bytes_before":  51141,
+                                  "native_trace_bytes_after":  51141
+                              },
+                              {
+                                  "id":  "read-partial",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  1.1235736240632832,
+                                  "native_trace_bytes_before":  51141,
+                                  "native_trace_bytes_after":  107272
+                              },
+                              {
+                                  "id":  "reject-state-switch",
+                                  "exit":  2,
+                                  "expected_exit":  2,
+                                  "elapsed_seconds":  0.06284564593806863,
+                                  "native_trace_bytes_before":  107272,
+                                  "native_trace_bytes_after":  107272
+                              },
+                              {
+                                  "id":  "read-finish",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.8260312539059669,
+                                  "native_trace_bytes_before":  107272,
+                                  "native_trace_bytes_after":  248842
+                              },
+                              {
+                                  "id":  "test-answer",
+                                  "exit":  0,
+                                  "expected_exit":  0,
+                                  "elapsed_seconds":  0.7691463800147176,
+                                  "native_trace_bytes_before":  248842,
+                                  "native_trace_bytes_after":  383036
+                              }
+                          ],
+    "failures":  [
+
+                 ],
+    "skipped":  0,
+    "numerical_max_absolute_error":  null,
+    "numerical_status":  "PENDING_INDEPENDENT_REFERENCE",
+    "outputs":  {
+                    "prefix_tokens":  22,
+                    "read":  {
+                                 "text":  "{\"tool\":\"read_file\",\"path\":\"src/main.py\"}",
+                                 "output_tokens":  13,
+                                 "native_generation_request_counts":  [
+                                                                          1,
+                                                                          12
+                                                                      ],
+                                 "controller_schema":  2,
+                                 "accepted_in_scope":  13,
+                                 "next_draw":  0,
+                                 "status":  "stopped",
+                                 "eos_token":  248046
+                             },
+                    "test":  {
+                                 "text":  "{\"tool\":\"run_tests\",\"suite\":\"unit\"}",
+                                 "output_tokens":  11,
+                                 "native_generation_request_counts":  [
+                                                                          11
+                                                                      ],
+                                 "controller_schema":  2,
+                                 "accepted_in_scope":  11,
+                                 "next_draw":  0,
+                                 "status":  "stopped",
+                                 "eos_token":  248046
+                             }
+                },
+    "native_final_counters":  {
+                                  "forward_tokens":  46,
+                                  "prefill_tokens":  22,
+                                  "prefill_chunks":  1,
+                                  "grammar_selection_calls":  24,
+                                  "decode_timed_tokens":  24,
+                                  "decode_prepare_ns":  13739812,
+                                  "decode_compute_ns":  186035730,
+                                  "decode_finish_ns":  2306209,
+                                  "captures":  4,
+                                  "restores":  7,
+                                  "copied_bytes":  226492416,
+                                  "live_bytes":  301989888,
+                                  "handle_peak_bytes":  160,
+                                  "snapshot_peak_payload_capacity_bytes":  476226180,
+                                  "integrity_device_hashed_bytes":  1056964608,
+                                  "integrity_mismatches":  0,
+                                  "saved_running_bytes":  472252608,
+                                  "restored_running_bytes":  826442064,
+                                  "written_file_bytes":  475392420,
+                                  "loaded_file_bytes":  0
+                              },
+    "native_trace_sha256":  "6d2411f87181cf8ea66509677308a87f43252409cf18df9ab76d911799e86365",
+    "lifetimes":  {
+                      "python_pid":  3503572,
+                      "native_pid":  3503578,
+                      "python_exit":  0,
+                      "native_exit":  0,
+                      "forced_cleanup":  false,
+                      "root_observed_both_pids_absent":  true,
+                      "startup_seconds":  19.991859467932954
+                  },
+    "resources":  {
+                      "observed_vram_mib":  81866,
+                      "observed_vram_is_peak":  false,
+                      "measured_peak_ram_bytes":  null
+                  },
+    "assertions":  [
+                       "READ partial stores one parser step and active state",
+                       "Changing active READ to TEST rejects with CLI exit 2 and zero native trace delta",
+                       "Omitted grammar on continue preserves READ parser progress",
+                       "READ and TEST emit exact fixed JSON and consume configured EOS",
+                       "Canonical parent/main and completed sibling heads remain unchanged",
+                       "Native forward count equals prefix plus outputs; prefix prefilled only once"
+                   ],
+    "raw_backup":  {
+                       "destination":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-cli-grammar-q4-v2/evidence.tar",
+                       "bytes":  19312640,
+                       "members":  134,
+                       "sender_receiver_sha256":  "b5cd983e94367962042b87a30f80a8d270febf2257784545f3f9545e30fa9ea5",
+                       "sender_receiver_full_tar_payload_read_exit":  0,
+                       "checkpoint_state_payloads_included":  false,
+                       "model_weights_included":  false
+                   },
+    "limitations":  [
+                        "Tiny 22-token prefix and deterministic fixed-literal grammars only",
+                        "No independent fresh numerical oracle executed for this grammar workflow yet",
+                        "No process restart with partial parser state in this GPU campaign",
+                        "No unconstrained stochastic generation, dynamic unregistered grammar, or long-context coverage",
+                        "Timing is an audit/CLI whole-path measurement, not a representative TPS benchmark",
+                        "Snapshot payload memory counters are not measured whole-system RAM or VRAM peak",
+                        "No cumulative G1-G5 qualification"
+                    ]
+}

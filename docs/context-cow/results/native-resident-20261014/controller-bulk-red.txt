@@ -1,0 +1,39 @@
+test_exception_during_events_cannot_mutate_parent (test_controller_bulk_consumption.BulkControllerTests.test_exception_during_events_cannot_mutate_parent) ... ERROR
+test_grammar_penalties_and_stop_sequences_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_grammar_penalties_and_stop_sequences_match_ordered_consumption) ... ERROR
+test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption) ... ERROR
+
+======================================================================
+ERROR: test_exception_during_events_cannot_mutate_parent (test_controller_bulk_consumption.BulkControllerTests.test_exception_during_events_cannot_mutate_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api/tests/implementation/test_controller_bulk_consumption.py", line 40, in test_exception_during_events_cannot_mutate_parent
+    controller.consume_many(state, events())
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.controller' has no attribute 'consume_many'
+
+======================================================================
+ERROR: test_grammar_penalties_and_stop_sequences_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_grammar_penalties_and_stop_sequences_match_ordered_consumption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api/tests/implementation/test_controller_bulk_consumption.py", line 29, in test_grammar_penalties_and_stop_sequences_match_ordered_consumption
+    self.assert_same(self.state(grammar={'start':'s','transitions':{'s':{'3':'t'},'t':{'4':'s'}}},
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api/tests/implementation/test_controller_bulk_consumption.py", line 19, in assert_same
+    actual = controller.consume_many(state, iter(events))
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.controller' has no attribute 'consume_many'
+
+======================================================================
+ERROR: test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api/tests/implementation/test_controller_bulk_consumption.py", line 26, in test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption
+    self.assert_same(self.state(), [(3,b'\xf0\x9f',False),(4,b'\x90\x84',False),(5,b'\xe2',False)])
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api/tests/implementation/test_controller_bulk_consumption.py", line 19, in assert_same
+    actual = controller.consume_many(state, iter(events))
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.controller' has no attribute 'consume_many'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=3)

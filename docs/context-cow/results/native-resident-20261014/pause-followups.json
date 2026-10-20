@@ -1,0 +1,24 @@
+{
+  "status": "PAUSED_BY_USER",
+  "processes": [
+    {
+      "pid": 1584797,
+      "status": "INTERRUPTED_CLIENT_MEASUREMENT_BY_USER"
+    },
+    {
+      "pid": 1580633,
+      "marker": "queue_speed_followup.py",
+      "status": "STOPPED_IDLE_FOLLOWUP"
+    },
+    {
+      "pid": 1581825,
+      "marker": "sample_gpu_campaign.py",
+      "status": "STOPPED_IDLE_FOLLOWUP"
+    },
+    {
+      "pid": 1583635,
+      "marker": "queue_evidence_backup.py",
+      "status": "STOPPED_IDLE_FOLLOWUP"
+    }
+  ]
+}

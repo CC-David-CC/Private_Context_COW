@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "transport_unavailable": true,
+  "api_key_unusable": true,
+  "ledger_unchanged": true,
+  "stdout_identical": true
+}

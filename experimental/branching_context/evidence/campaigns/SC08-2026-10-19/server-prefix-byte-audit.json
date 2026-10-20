@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "snapshot": "6fd3acbb21f430a0477e9af66682d2ee95cabde9cf754a4f400297b5965cc360",
+  "consumed": 16442,
+  "native_blob_bytes": 547516128,
+  "frontier_bytes": 993280,
+  "actual_payload_bytes": 548509408,
+  "payload_sha256": "c95bbe22076a121082e137a5517410d8a3f804fccec829fe05692cb3f0180df0",
+  "frontier_sha256": "5f58adff8fa4441a49bdb58d9253702061acb49d3518b502100e53a56983ff56",
+  "finite_logits": 248320,
+  "manifest_checksum": "b48d37e73f6031fd4a05cb1cde7a88258ad1c4cc29ca118419d594511266da6f",
+  "meaning": "Actual checkpoint bytes verified; state_bytes excludes appended float32 logits. Not fresh-logit numerical equivalence."
+}

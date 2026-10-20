@@ -1,0 +1,44 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "source_commit": "352a55ba",
+  "host": "llm-60",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/publication-lru-integrated-20261015-v1",
+  "source_tar_bytes": 57200640,
+  "source_tar_sha256": "a5daa582ec99309ba91f1a3c8ee8575007a925d03215e8b9c4267c75bf7755cd",
+  "primary_audit": "primary-audit.json",
+  "primary_audit_sha256": "860184c496fb899bf2144705795aa59ddea7cf55b1242256b2ed6fa45e90f53c",
+  "source_sha256": {
+    "coordinator.py": "494b42897be82bfce9cf064d714fa3016ad68638b3520a0646524bc45a53cd4c",
+    "pools.py": "d515f39c951d0f34e5e6d6d8bb797380e8cb7799b594a225df52a2435dbde734"
+  },
+  "executed": {
+    "core-v2": {"tests": 154, "command_exit": 0, "wrapper_exit": 0},
+    "serving": {"tests": 141, "command_exit": 0, "wrapper_exit": 0},
+    "g0": {"tests": 51, "command_exit": 0, "wrapper_exit": 0}
+  },
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "primary_review": "Independently checked exact verbose test IDs, terminal counts, OK status, no failure/skip diagnostics and all numeric exit receipts. Serving machine result also reports no errors/failures/skips/expected failures/unexpected successes.",
+  "behavior": [
+    "Failed publication releases pin/read lease/branch reservation and does not retain a PreparedCheckpoint through retry metadata or writer traceback.",
+    "Failed unpinned RAM bytes are eligible LRU data; same-process publication retry uses retained bytes without native work, otherwise returns an explicit unavailable/stale error.",
+    "Already acknowledged durability is preserved on identical re-admission; manifest visibility alone cannot upgrade a failed save to durable.",
+    "OSError errno27 and errno28 survive detached futures and failure events.",
+    "Status still displays retryable failure without reserving the branch; newer work supersedes it.",
+    "Collected uncommitted canonical ancestry withdraws retryability without recomputation."
+  ],
+  "retained_failure_scope": {
+    "first_combined_run": "runs/core:138 entries,5 failures,1 import error. Reused default CLI journal rejected fixture operation IDs; scripts path omitted pool_campaign import. Corrected invocation uses a fresh private client journal and complete PYTHONPATH; no tests or production source were changed for this rerun.",
+    "worker_red_evidence": "/home/dflanag3/spatial-artifacts/failed-publication-lru-20261015/runs; includes lifecycle, durability/errno and collected-history counterexamples, plus setup failures and the fixed serving status conflict."
+  },
+  "limits": [
+    "Synthetic computation; no real GPU/model/numerical/throughput measurement",
+    "Injected OSError is not a measured ENOSPC/EFBIG filesystem campaign",
+    "No crash/power-loss or broad sampler/controller qualification",
+    "Numerical checkpoint eviction still requires separate cache-miss rebuild integration",
+    "Original G1-G5 statuses unchanged"
+  ]
+}

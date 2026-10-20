@@ -1,0 +1,11 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-generation-settings-v1/evidence.tar",
+  "archive_bytes": 1323898880,
+  "archive_sha256": "45c92bbbf45cd48c831573625d544296e36c1de584fca7e90d26acd92c9e0274",
+  "extracted_files": 0,
+  "manifest_sha256": "6387639ea5fb39cf8420461fb5aee8484a80ec08f2be8ed17ab09f004e942b7f",
+  "member_count": 24656,
+  "status": "PASS",
+  "total_member_bytes": 1281837619,
+  "verification": "Full SSH-streamed readback, every regular member and complete archive byte stream verified"
+}

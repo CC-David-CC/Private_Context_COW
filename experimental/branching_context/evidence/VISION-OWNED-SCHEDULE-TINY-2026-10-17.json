@@ -1,0 +1,121 @@
+{
+  "actual_work": [
+    {
+      "forward_tokens": 257,
+      "prefix_forward_tokens": 177,
+      "stage": "prepare"
+    },
+    {
+      "forward_tokens": 217,
+      "prefix_forward_tokens": 177,
+      "stage": "reference-A-0"
+    },
+    {
+      "forward_tokens": 217,
+      "prefix_forward_tokens": 177,
+      "stage": "reference-A-1"
+    },
+    {
+      "forward_tokens": 217,
+      "prefix_forward_tokens": 177,
+      "stage": "reference-B-0"
+    },
+    {
+      "forward_tokens": 217,
+      "prefix_forward_tokens": 177,
+      "stage": "reference-B-1"
+    },
+    {
+      "forward_tokens": 80,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-0"
+    },
+    {
+      "forward_tokens": 80,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-1"
+    },
+    {
+      "forward_tokens": 80,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-2"
+    },
+    {
+      "forward_tokens": 4,
+      "prefix_forward_tokens": 0,
+      "stage": "generated-restart"
+    }
+  ],
+  "all_generated_frontiers": true,
+  "archive": {
+    "archive_bytes": 183835277,
+    "archive_sha256": "98f910f7938ae090bc225ac602eef2eb2d084ed24865a4bd105023694731dce0",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-tiny-v1/evidence.tar.gz",
+    "individually_verified_data_files": 362,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 363,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "controller_comparisons": 7,
+  "cpu_regression_union": 98,
+  "fixture": {
+    "image_rows": 49,
+    "outputs_each": 8,
+    "suffixes_each": 32,
+    "text_control_tokens": 128,
+    "total_cells": 177
+  },
+  "full_vector_comparisons": 102,
+  "g0": 51,
+  "independent_audit_status": "INDEPENDENT_VC09_EVERY_GENERATED_FRONTIER_AUDIT_PASS",
+  "later_local_log_retirement": {
+    "archive": {
+      "archive_bytes": 183835277,
+      "archive_sha256": "98f910f7938ae090bc225ac602eef2eb2d084ed24865a4bd105023694731dce0",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-tiny-v1/evidence.tar.gz",
+      "individually_verified_data_files": 362,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 363,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "files": 142,
+    "logical_bytes": 141045760,
+    "manifest_sha256": "fde527dfb456fd42595aa04d9224e0efa02d9e7459a83b2dda82d2912f5ed97c",
+    "scope": "Full .f32 logs are now archive-only after remote archive+manifest re-verification, exact local owner/inode/hash checks and deletion. Canonical/originals/embeddings/manifests/logs remain; not a runtime eviction test."
+  },
+  "limitations": [
+    "Tiny bounded case only, not current-profile medium/8K numerical campaign",
+    "Q4 only; Q8 deferred",
+    "Timing campaign in progress",
+    "Thinking new-image suffix remains separate CPU-only branch",
+    "Original G1-G5 and full VC09 unqualified"
+  ],
+  "numerical_max_abs_error": 0,
+  "optional_retirement": 248457768,
+  "pids_absent": [
+    251716,
+    251719,
+    251905,
+    251906,
+    252167,
+    252168,
+    252442,
+    252443,
+    252628,
+    252629,
+    252850,
+    252853,
+    253035,
+    253038,
+    253277,
+    253280,
+    253521,
+    253524
+  ],
+  "profile_id": "61d56afbbb79519633ff937aa335bc81991c6d4de692587d5458ceb71346e341",
+  "skips": 0,
+  "source_commit": "c2af920f1ad63651f05c9befda9e62a3faa2e1fd",
+  "status": "OWNED_SCHEDULE_TINY_REAL_Q4_EVERY_FRONTIER_RESTART_PASS",
+  "vocab": 248320,
+  "zero_prefix_forwards_on_each_restore": true
+}

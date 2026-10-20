@@ -1,0 +1,464 @@
+{
+  "status": "PASS",
+  "scope": "native request primitive only; canonical publication not qualified",
+  "profile_id": "118f45383fce97d06f0d67e45762c22faacc9006f79601dbcfe097486cd8e8eb",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "comparisons": 56,
+  "numerical_max_error": 0.0,
+  "branches": {
+    "A": {
+      "outputs": [
+        117,
+        12620,
+        25229,
+        29197,
+        42254,
+        18224,
+        169111,
+        44382,
+        25933,
+        127,
+        233,
+        50467,
+        127,
+        237,
+        68933,
+        37769
+      ],
+      "seconds": 0.15412921702954918,
+      "tokens_per_second": 103.80900070966122,
+      "consumed": 1104,
+      "request_receipt": {
+        "status": "ok",
+        "operator": "normal-verifier-decode",
+        "position": 1088,
+        "count": 16,
+        "generated": 16,
+        "consumed": 1104,
+        "forward_tokens": 1104,
+        "chunks": [
+          [
+            1088,
+            1
+          ],
+          [
+            1089,
+            1
+          ],
+          [
+            1090,
+            1
+          ],
+          [
+            1091,
+            1
+          ],
+          [
+            1092,
+            1
+          ],
+          [
+            1093,
+            1
+          ],
+          [
+            1094,
+            1
+          ],
+          [
+            1095,
+            1
+          ],
+          [
+            1096,
+            1
+          ],
+          [
+            1097,
+            1
+          ],
+          [
+            1098,
+            1
+          ],
+          [
+            1099,
+            1
+          ],
+          [
+            1100,
+            1
+          ],
+          [
+            1101,
+            1
+          ],
+          [
+            1102,
+            1
+          ],
+          [
+            1103,
+            1
+          ]
+        ]
+      },
+      "work_delta": {
+        "consumed_tokens": 16,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 0,
+        "contexts_created": 0,
+        "contexts_freed": 0,
+        "lease_acquires": 0,
+        "lease_releases": 0,
+        "frontier_read_bytes": 0,
+        "model_bytes_hashed_this_process": 0,
+        "model_file_hash_receipts_reused": 0,
+        "consumed": 16,
+        "forward_tokens": 16,
+        "prefill_tokens": 0,
+        "prefill_chunks": 0,
+        "decode_prepare_ns": 0,
+        "decode_compute_ns": 0,
+        "decode_finish_ns": 0,
+        "decode_timed_tokens": 0,
+        "windows": 16,
+        "resident_expert_entries": 0,
+        "cpu_expert_entries": 0,
+        "pcie_expert_groups": 0,
+        "allocations": 0,
+        "releases": 0,
+        "live_bytes": 0,
+        "cow_pages": 0,
+        "copied_bytes": 0,
+        "mappings": 0,
+        "unmappings": 0,
+        "address_reservations": 0,
+        "address_releases": 0,
+        "vmm_driver_failures": 0,
+        "vmm_out_of_memory_failures": 0,
+        "vmm_last_driver_error": 0,
+        "audit_read_bytes": 0,
+        "integrity_checked_pages": 1920,
+        "integrity_mismatches": 0,
+        "integrity_device_hashed_bytes": 4026531840,
+        "integrity_digest_copy_bytes": 31457280,
+        "integrity_plan_copy_bytes": 15360,
+        "integrity_kernel_calls": 16,
+        "integrity_workspace_allocations": 0,
+        "integrity_workspace_releases": 0,
+        "integrity_workspace_live_bytes": 0,
+        "binding_copy_bytes": 0,
+        "saved_running_bytes": 0,
+        "restored_running_bytes": 0,
+        "written_file_bytes": 0,
+        "loaded_file_bytes": 0,
+        "cold_restore_copy_bytes": 0,
+        "cold_restore_copy_calls": 0,
+        "captures": 0,
+        "restores": 0,
+        "handle_allocations": 0,
+        "handle_releases": 0,
+        "handle_live_entries": 0,
+        "handle_live_bytes": 0,
+        "handle_peak_bytes": 0,
+        "handle_issued": 0,
+        "handle_lookup_steps": 0,
+        "snapshot_allocations": 0,
+        "snapshot_releases": 0,
+        "snapshot_live_images": 0,
+        "snapshot_payload_capacity_bytes": 0,
+        "snapshot_peak_payload_capacity_bytes": 0,
+        "host_heap_allocated_bytes": 14264208
+      },
+      "boundary_state_bytes": 446216560,
+      "checked_generated_boundaries": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "B": {
+      "outputs": [
+        250,
+        116,
+        198,
+        71093,
+        271,
+        6820,
+        1042,
+        579,
+        1228,
+        9191,
+        440,
+        264,
+        2526,
+        869,
+        321,
+        1716
+      ],
+      "seconds": 0.14663451293017715,
+      "tokens_per_second": 109.11483033751207,
+      "consumed": 1104,
+      "request_receipt": {
+        "status": "ok",
+        "operator": "normal-verifier-decode",
+        "position": 1088,
+        "count": 16,
+        "generated": 16,
+        "consumed": 1104,
+        "forward_tokens": 2344,
+        "chunks": [
+          [
+            1088,
+            1
+          ],
+          [
+            1089,
+            1
+          ],
+          [
+            1090,
+            1
+          ],
+          [
+            1091,
+            1
+          ],
+          [
+            1092,
+            1
+          ],
+          [
+            1093,
+            1
+          ],
+          [
+            1094,
+            1
+          ],
+          [
+            1095,
+            1
+          ],
+          [
+            1096,
+            1
+          ],
+          [
+            1097,
+            1
+          ],
+          [
+            1098,
+            1
+          ],
+          [
+            1099,
+            1
+          ],
+          [
+            1100,
+            1
+          ],
+          [
+            1101,
+            1
+          ],
+          [
+            1102,
+            1
+          ],
+          [
+            1103,
+            1
+          ]
+        ]
+      },
+      "work_delta": {
+        "consumed_tokens": 16,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 0,
+        "contexts_created": 0,
+        "contexts_freed": 0,
+        "lease_acquires": 0,
+        "lease_releases": 0,
+        "frontier_read_bytes": 0,
+        "model_bytes_hashed_this_process": 0,
+        "model_file_hash_receipts_reused": 0,
+        "consumed": 16,
+        "forward_tokens": 16,
+        "prefill_tokens": 0,
+        "prefill_chunks": 0,
+        "decode_prepare_ns": 0,
+        "decode_compute_ns": 0,
+        "decode_finish_ns": 0,
+        "decode_timed_tokens": 0,
+        "windows": 16,
+        "resident_expert_entries": 0,
+        "cpu_expert_entries": 0,
+        "pcie_expert_groups": 0,
+        "allocations": 0,
+        "releases": 0,
+        "live_bytes": 0,
+        "cow_pages": 0,
+        "copied_bytes": 0,
+        "mappings": 0,
+        "unmappings": 0,
+        "address_reservations": 0,
+        "address_releases": 0,
+        "vmm_driver_failures": 0,
+        "vmm_out_of_memory_failures": 0,
+        "vmm_last_driver_error": 0,
+        "audit_read_bytes": 0,
+        "integrity_checked_pages": 1920,
+        "integrity_mismatches": 0,
+        "integrity_device_hashed_bytes": 4026531840,
+        "integrity_digest_copy_bytes": 31457280,
+        "integrity_plan_copy_bytes": 15360,
+        "integrity_kernel_calls": 16,
+        "integrity_workspace_allocations": 0,
+        "integrity_workspace_releases": 0,
+        "integrity_workspace_live_bytes": 0,
+        "binding_copy_bytes": 0,
+        "saved_running_bytes": 0,
+        "restored_running_bytes": 0,
+        "written_file_bytes": 0,
+        "loaded_file_bytes": 0,
+        "cold_restore_copy_bytes": 0,
+        "cold_restore_copy_calls": 0,
+        "captures": 0,
+        "restores": 0,
+        "handle_allocations": 0,
+        "handle_releases": 0,
+        "handle_live_entries": 0,
+        "handle_live_bytes": 0,
+        "handle_peak_bytes": 0,
+        "handle_issued": 0,
+        "handle_lookup_steps": 0,
+        "snapshot_allocations": 0,
+        "snapshot_releases": 0,
+        "snapshot_live_images": 0,
+        "snapshot_payload_capacity_bytes": 0,
+        "snapshot_peak_payload_capacity_bytes": 0,
+        "host_heap_allocated_bytes": -4864
+      },
+      "boundary_state_bytes": 446216560,
+      "checked_generated_boundaries": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
+  "harness_sha256": "94e6935cddac17acca6c1d75e511ac241d394bba81707313d7fdec2e1b35968f",
+  "checked_boundaries": "every",
+  "fixture_sizes": {
+    "prefix": 1024,
+    "suffix": 64,
+    "output_limit": 16
+  },
+  "startup_seconds": 16.996206198004074,
+  "cancellation_consumed": 1089,
+  "parent_byte_audit": "PASS",
+  "final_counters": {
+    "consumed_tokens": 3569,
+    "checkpoint_export_bytes": 643816576,
+    "checkpoint_import_bytes": 4250273472,
+    "contexts_created": 1,
+    "contexts_freed": 0,
+    "lease_acquires": 36,
+    "lease_releases": 36,
+    "frontier_read_bytes": 37744640,
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15,
+    "consumed": 1024,
+    "forward_tokens": 3569,
+    "prefill_tokens": 3264,
+    "prefill_chunks": 36,
+    "decode_prepare_ns": 0,
+    "decode_compute_ns": 0,
+    "decode_finish_ns": 0,
+    "decode_timed_tokens": 0,
+    "windows": 305,
+    "resident_expert_entries": 0,
+    "cpu_expert_entries": 0,
+    "pcie_expert_groups": 0,
+    "allocations": 1572,
+    "releases": 1380,
+    "live_bytes": 402653184,
+    "cow_pages": 1260,
+    "copied_bytes": 2642411520,
+    "mappings": 14064,
+    "unmappings": 13908,
+    "address_reservations": 1332,
+    "address_releases": 1260,
+    "vmm_driver_failures": 0,
+    "vmm_out_of_memory_failures": 0,
+    "vmm_last_driver_error": 0,
+    "vmm_last_failed_operation": "",
+    "audit_read_bytes": 0,
+    "integrity_checked_pages": 47916,
+    "integrity_mismatches": 0,
+    "integrity_device_hashed_bytes": 100965285888,
+    "integrity_digest_copy_bytes": 788791296,
+    "integrity_plan_copy_bytes": 336480,
+    "integrity_kernel_calls": 6232,
+    "integrity_workspace_allocations": 38,
+    "integrity_workspace_releases": 0,
+    "integrity_workspace_live_bytes": 11994336,
+    "binding_copy_bytes": 320876544,
+    "saved_running_bytes": 354189456,
+    "restored_running_bytes": 4250273472,
+    "written_file_bytes": 289627120,
+    "loaded_file_bytes": 0,
+    "cold_restore_copy_bytes": 0,
+    "cold_restore_copy_calls": 0,
+    "captures": 3,
+    "restores": 36,
+    "handle_allocations": 3,
+    "handle_releases": 1,
+    "handle_live_entries": 2,
+    "handle_live_bytes": 80,
+    "handle_peak_bytes": 120,
+    "handle_issued": 3,
+    "handle_lookup_steps": 73,
+    "snapshot_allocations": 3,
+    "snapshot_releases": 1,
+    "snapshot_live_images": 2,
+    "snapshot_payload_capacity_bytes": 238121376,
+    "snapshot_peak_payload_capacity_bytes": 357182224,
+    "host_heap_allocated_bytes": 3457612224
+  },
+  "native_exit_observed": true
+}

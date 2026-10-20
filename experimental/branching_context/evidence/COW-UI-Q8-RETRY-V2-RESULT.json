@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "status": "PASS_CORRECTNESS_ONLY",
+  "scope": "one fresh Q8 browser reusable-context workflow with independent A/B questions, post-shutdown fresh references, root checkpoint audit, and key scan; no latency claim",
+  "host": "llm-60",
+  "run_directory": "/home/dflanag3/spatial-artifacts/cow-ui-q8-8189-retry-20261015-v2",
+  "profile": {
+    "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "profile_sha256": "11eeda86f34fa2b53b824f273a37ad743bbf6c0b88e668f3b9c03073b23a13b6",
+    "fixture_sha256": "384984f5ef1f30a22edc3a1a80ed2830e59b8a56331e8c397181f482f8ecd16b",
+    "driver_sha256": "45bf00c4ed8ec95d414664e00c112ab510699c13d5147141d79da724c83e82b3",
+    "capacity": 98304,
+    "root_tokens": 8189,
+    "output_limit": 128,
+    "max_resumes": 0
+  },
+  "service": {
+    "python_pid": 2064187,
+    "native_pid": 2064201,
+    "python_exit": 0,
+    "native_exit": 0,
+    "shutdown": "verified exact-PID SIGINT",
+    "browser_exit": 0,
+    "pids_absent_after_shutdown": true
+  },
+  "browser": {
+    "report_path": "browser/report.json",
+    "report_sha256": "6671fa088bb42f257b9eaf971289522a8c5fd7390f5825bb3f9ddadd4c8ba679",
+    "context": {
+      "path": "/cow/text/context",
+      "branch": "b-op4660cdd9c6184d94968ebc93daf2a49f",
+      "snapshot": "d42beffbfea7e79282248f72ab130928a09a0eecf26b21b4f9863db664491d04",
+      "revision": 1,
+      "http_status": 200,
+      "eof_consumed": true,
+      "client_stream_sha256": "34fdb965f61d223f5d7aad60be7d29945bb271d6bc5a3b6786486c763415d5f8",
+      "request_sha256": "32e1b63f3fb4b790964ad6b3971b2753fd6e60932f555d7915f11da2bacc3826"
+    },
+    "branch_a": {
+      "branch": "b-op4660cdd9c6184d94968ebc93daf2a49f",
+      "snapshot": "be8f4739d18875adb8a00f7407ea5ac47483cff245017ffcf43e2aba74ec650c",
+      "revision": 2,
+      "http_status": 200,
+      "eof_consumed": true,
+      "request_sha256": "2b22c57f8b6c4b50b3f0e01549caaccf3c6ab7a25c000202c81750bb3101e2fb",
+      "client_stream_sha256": "2b83d11ee5c33e07e6c8d34d2e8a65657be6ccfcddaad7e5dc55381c02a21501"
+    },
+    "branch_b": {
+      "branch": "b-46a8b2d93f3645f986520976ccfb964f",
+      "snapshot": "d527451f88b27aa7529d0b42b9aa4fbe88b4c432c903bd0f65564eec761b1497",
+      "revision": 1,
+      "http_status": 200,
+      "eof_consumed": true,
+      "request_sha256": "061bb9e3526385ea271ca446856503e04e7e31f04b6867fe2263d1430f3fcc47",
+      "client_stream_sha256": "0f024fa5fee1424281581ac2ac2b04a206fa0c9408b8dfd81075bf85d279e837"
+    },
+    "screenshot": {
+      "path": "browser/03-independent-A-B-branches.png",
+      "sha256": "d5e8629dbd6a2cc8606ff9a75ac66f3f0b38d750345507f4ad965d3854878666"
+    }
+  },
+  "fresh_reference": {
+    "path": "fresh-reference-comparison.json",
+    "sha256": "0de2d1cedfccd099681f19ed324d93a71bb52d90fa0926637db8e35d3be6f100",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "status": "PASS_FRESH_REFERENCE_COMPARISONS",
+    "root_frontier_equals_branch_a_prompt_frontier": true,
+    "branch_a": {
+      "status": "PASS_EXACT_TOKEN_IDS_AND_FINAL_FRONTIER",
+      "tokens": 128,
+      "token_ids_sha256": "035f9231abf5dc7ae351f597d7c720a355146b39a0fdb864794a02cd171379b6",
+      "saved_final_frontier_sha256": "7a43e457e90d654f0e2c0566e24f0f39076ce13924ebb2ab1912f6703fd73cd7"
+    },
+    "branch_b": {
+      "status": "PASS_EXACT_TOKEN_IDS_AND_FINAL_FRONTIER",
+      "tokens": 128,
+      "token_ids_sha256": "d0e34d94d8b711a6dcb94d93768424e42db3bcad863ed547870a14289080a2b3",
+      "saved_final_frontier_sha256": "ba5d61b9e58e66e3768b8634c14d3b2cd52b610f04b9630a6e7f386c60b1e7fe"
+    },
+    "model_hash_validation": "11 model file receipts reused; model bytes hashed by this process: 0"
+  },
+  "canonical_root_audit": {
+    "path": "canonical-audit.json",
+    "sha256": "8a5f29a97fe2776d394d16fb29a6567a223dda7554fe0285b8518c9c915a7997",
+    "corrected_auditor_sha256": "fa65309df600042f5ee0005c20d2eb0c513f8ca0d17b33eaf5f215eb5c651013",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "status": "PASS_READ_ONLY_DURABLE_ROOT_AUDIT",
+    "scope": "root lineage and token IDs, idle root controller, profile/schedule manifest, complete root payload SHA/length, finite frontier, and unchanged canonical authority fingerprint; does not audit A/B full canonical histories or controllers",
+    "root_tokens": 8189,
+    "checkpoint_file_bytes": 333000172,
+    "checkpoint_sha256": "9ec2baebd27a134e16bcd57dd56cd3dc382cf8fed3f7303221bff60cb9ef2701",
+    "native_forward_work": 0
+  },
+  "key_scan": {
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "scanned_file_count": 37,
+    "key_matches": 0,
+    "stdout_sha256": "b157cb5e764f16f974bd74d644483aa8a87fe4f392444ad4de8ecb326cafc8e8"
+  },
+  "audit_reader_tests": {
+    "red": {
+      "receipt_path": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/audit-compat-red2",
+      "tests": 8,
+      "errors": 1,
+      "failures": 1,
+      "reason": "nested driver identity rejected; conflicting nested identity not rejected"
+    },
+    "green": {
+      "receipt_path": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/audit-compat-green",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "test_module_sha256": "3cd6d6b7912c2a5c9eeefbf751837878f65b7f3c4afd21a19ad1466308ffb235"
+  },
+  "preserved_audit_failure": {
+    "receipt_path": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/canonical-audit-v2",
+    "command_exit": 1,
+    "reason": "old audit reader looked only for server_receipt_identity at report top level"
+  },
+  "limitations": [
+    "Correctness workflow only; no performance claim.",
+    "Browser streaming does not expose logits; independent fresh native references compared exact generated token IDs and final saved frontier bytes.",
+    "Fresh references each stopped at 128-token output bound; they did not reach EOS."
+  ]
+}

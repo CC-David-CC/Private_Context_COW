@@ -1,0 +1,16 @@
+[
+    {
+        "path":  "experimental/branching_context/evidence/PUBLICATION-HANDOFF-OWNERSHIP-CPU-2026-10-16.json",
+        "original_worker_sha256":  "483dc6879a03a452c3ae9e661755c0bc76ac53454dc79eda13b1539bce84223c",
+        "repository_sha256":  "d78610301779736a7b07708f17ea5db5d7c4db4d05adf7993c3bd9fbbc3c872d",
+        "change":  "UTF-8 without BOM and LF line endings; no data or claims changed",
+        "original_bytes_archive_sha256":  "809abde072cd8a866d01b722141f526d528506f771fdd02a06e90416a1e2ce84"
+    },
+    {
+        "path":  "experimental/branching_context/evidence/PUBLICATION-HANDOFF-OWNERSHIP-2026-10-16.md",
+        "original_worker_sha256":  "210ba35cbdbc9e9e85d8ebdf857c42c1256279cd47d9a32256193e5791eff584",
+        "repository_sha256":  "7c52aca0fea2878891c93cc965c4dbc1a5552066c976f4ebdd4cc2ec98741523",
+        "change":  "UTF-8 without BOM and LF line endings; no data or claims changed",
+        "original_bytes_archive_sha256":  "809abde072cd8a866d01b722141f526d528506f771fdd02a06e90416a1e2ce84"
+    }
+]

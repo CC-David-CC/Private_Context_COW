@@ -1,0 +1,32 @@
+{
+  "scope": "SQLite presentation history and ordinary-serving replay; no native COW numerical qualification",
+  "status": "LIVE_UI_VALIDATED",
+  "live_host": "llm-60",
+  "live_gpu": "RTX PRO 6000 Blackwell",
+  "model": "Qwen3.8-Flash-Next Q8_0",
+  "native_backend": "existing context-cow-public-20261013 build/strata",
+  "numerical_max_error": null,
+  "numerical_oracle_executed": false,
+  "live_checks": [
+    "legacy_browser_chat_imported_with_four_messages_and_tool_record",
+    "real_main_answer_completed_26_tokens",
+    "fork_shared_two_messages",
+    "real_pizza_answer_completed_32_tokens",
+    "main_retained_two_messages_and_no_pizza_question",
+    "clear_pizza_zero_messages",
+    "restore_pizza_four_messages",
+    "browser_reload_retained_selected_pizza_branch",
+    "real_server_process_restart_retained_four_pizza_messages"
+  ],
+  "source_sha256": {
+    "serve/server.py": "97e6bbccb83f31a075ff88af9c6c6a274415e17a8dccbdb8d369733b52490760",
+    "serve/chat_workspace.py": "84cbe3547a75da6d4411a41e7bb36668c4c5c4e4d7b683b86701f34da55557fd",
+    "serve/workspace_messages.py": "8ba99360ac021f80810d7303c1f2f91d091727d12218461b42ce1554fe971198",
+    "serve/web/index.html": "777c8f336c0024474e3d9abaed3575f5011d5b67453ed7116f9350a2b73987ba",
+    "serve/web/app.js": "5b7295e13ada89d2da6da11ed16673db08bf70b44a42a2bde54284b318bb19ca",
+    "serve/web/app.css": "58362de06f695da3a2a076250431820b1c91bf209cbed3be8223bc7d1c37012a",
+    "serve/web/workspace.js": "1c5bb6baa8717c17b4f5a56db0b14ae968664fcdabc951242f76856493024c15",
+    "tools/web_demo.py": "229464627cd4c3b04248f5f925531e91b472ca5a48b21cc1ee280dce2840d7a5"
+  },
+  "live_server_pid": 1287427
+}

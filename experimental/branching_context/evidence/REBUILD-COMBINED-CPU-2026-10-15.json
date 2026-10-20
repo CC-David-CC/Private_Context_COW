@@ -1,0 +1,102 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "host": "llm-60",
+  "integrated_source_commit": "92ba9cc2f71f055778ee6be14a8a828e61546a7e",
+  "candidate_commit": "15b0b1ebaf9a580f6338baa49c45b403596f0831",
+  "base_commit": "9eafc96e018a56491151985feec4478003319439",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/rebuild-combined-20261015-v1",
+  "primary_audit_sha256": "39859eff0cfd07746291a1649f8af952af016862106e9b2e3a54ba2244ca3b4f",
+  "suites": [
+    {
+      "name": "combined-v1",
+      "tests": 202,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "665853a56a17c69c72bd727522b93739e3b0f2a031201d0292a5a14691395f3f"
+      }
+    },
+    {
+      "name": "serving-v1",
+      "tests": 141,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "f4d56b6de26acb869ccd4a289f3d8c200fec539cc37b72cc6112a025c061ed50"
+      }
+    },
+    {
+      "name": "g0-v1",
+      "tests": 51,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "38360b603acb2af9f7e3b41cbe2e43e365ed80e1ae2d8b57a9e3afffa70fffc1",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "new_test_ids": [
+    "test_absent_source_rebuild_reports_prefix_separately_then_appends (test_missing_source_rebuild.MissingSourceRebuildTests.test_absent_source_rebuild_reports_prefix_separately_then_appends)",
+    "test_actual_branching_model_rebuilds_after_ram_eviction_races_preload (test_missing_source_rebuild.ActualBranchingModelRebuildTests.test_actual_branching_model_rebuilds_after_ram_eviction_races_preload)",
+    "test_actual_strict_restore_still_rejects_missing_manifest (test_missing_source_rebuild.ActualBranchingModelRebuildTests.test_actual_strict_restore_still_rejects_missing_manifest)",
+    "test_cancellation_after_rebuild_keeps_source_and_old_receipt (test_missing_source_rebuild.MissingSourceRebuildTests.test_cancellation_after_rebuild_keeps_source_and_old_receipt)",
+    "test_capture_failure_after_new_tip_reclaims_only_job_created_images (test_missing_source_rebuild.MissingSourceRebuildTests.test_capture_failure_after_new_tip_reclaims_only_job_created_images)",
+    "test_cas_conflict_after_gated_rebuild_keeps_external_head_and_receipt (test_missing_source_rebuild.MissingSourceRebuildTests.test_cas_conflict_after_gated_rebuild_keeps_external_head_and_receipt)",
+    "test_dangling_manifest_binding_fails_without_rebuild (test_missing_source_rebuild.MissingSourceRebuildTests.test_dangling_manifest_binding_fails_without_rebuild)",
+    "test_failed_rebuild_does_not_execute_suffix_or_move_branch (test_missing_source_rebuild.MissingSourceRebuildTests.test_failed_rebuild_does_not_execute_suffix_or_move_branch)",
+    "test_hot_native_source_remains_reusable_without_disk_manifest (test_missing_source_rebuild.MissingSourceRebuildTests.test_hot_native_source_remains_reusable_without_disk_manifest)",
+    "test_intact_disk_or_shared_pool_source_is_reused_without_recompute (test_missing_source_rebuild.MissingSourceRebuildTests.test_intact_disk_or_shared_pool_source_is_reused_without_recompute)",
+    "test_malformed_present_manifest_fails_without_rebuild (test_missing_source_rebuild.MissingSourceRebuildTests.test_malformed_present_manifest_fails_without_rebuild)",
+    "test_nonboolean_rebuild_durability_evidence_rejects_and_releases_image (test_missing_source_rebuild.MissingSourceRebuildTests.test_nonboolean_rebuild_durability_evidence_rejects_and_releases_image)",
+    "test_present_manifest_with_corrupt_payload_fails_without_rebuild (test_missing_source_rebuild.MissingSourceRebuildTests.test_present_manifest_with_corrupt_payload_fails_without_rebuild)",
+    "test_present_manifest_with_missing_payload_fails_without_rebuild (test_missing_source_rebuild.MissingSourceRebuildTests.test_present_manifest_with_missing_payload_fails_without_rebuild)",
+    "test_rebuild_happens_only_on_worker_owner_thread (test_missing_source_rebuild.MissingSourceRebuildTests.test_rebuild_happens_only_on_worker_owner_thread)",
+    "test_shared_ram_source_is_reused_without_disk_manifest (test_missing_source_rebuild.MissingSourceRebuildTests.test_shared_ram_source_is_reused_without_disk_manifest)",
+    "test_source_evicted_between_route_and_preload_rebuilds_only_if_now_absent (test_missing_source_rebuild.MissingSourceRebuildTests.test_source_evicted_between_route_and_preload_rebuilds_only_if_now_absent)",
+    "test_suffix_failure_after_new_tip_reclaims_only_job_created_images (test_missing_source_rebuild.MissingSourceRebuildTests.test_suffix_failure_after_new_tip_reclaims_only_job_created_images)",
+    "test_unaccounted_serialized_cache_alias_is_dropped_then_rebuilt (test_missing_source_rebuild.MissingSourceRebuildTests.test_unaccounted_serialized_cache_alias_is_dropped_then_rebuilt)",
+    "test_unread_failed_request_does_not_retain_rebuilt_checkpoint_traceback (test_missing_source_rebuild.MissingSourceRebuildTests.test_unread_failed_request_does_not_retain_rebuilt_checkpoint_traceback)"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+    "experimental/branching_context/tests/implementation/test_missing_source_rebuild.py": "f66a7c8b588d2e64a7d5af79ea96a802299151f9ed5cffc1b7ba7548e33b62d7"
+  },
+  "red": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-rebuild-missing-luna-20261015/runs/red-v11",
+    "tests": 1,
+    "failures": 1,
+    "xfails": 0,
+    "log_sha256": "64746a9d01eb0486fc81dc78c3aef53ff9335a961dd000fac2c8e8bc76d806f5",
+    "command_exit": 1,
+    "wrapper_exit": 1
+  },
+  "behavior": [
+    "Queued append explicitly reconstructs genuinely absent optional numerical state from retained canonical history on the owned worker.",
+    "Answer/event evidence separates full prefix recomputation from suffix and generated-token work; prior_computation_preserved is false.",
+    "Present missing/corrupt payloads or malformed/dangling manifests reject rather than silently rebuilding.",
+    "Strict checkpoint restore remains strict; reconstructed computation does not replace old operation receipts.",
+    "Cancellation, stale CAS and suffix/capture failures reclaim job-created cache images while preserving preexisting ones.",
+    "Detached worker errors prevent unread request Futures from retaining reconstructed checkpoints through tracebacks."
+  ],
+  "limits": [
+    "CPU/synthetic backend, filesystem and HTTP fixtures only; real-GPU reconstruction remains unexecuted.",
+    "Earlier real Q4/Q8 root-reuse results remain pinned to9eaf and do not qualify this new coordinator.",
+    "Branch root/tip disk anchors remain protected; canonical-only fork/rewind and bounded multi-tree pressure remain outstanding.",
+    "No real-GPU memory/speed claim, model/backend fingerprint or numerical max error applies to these CPU tests.",
+    "Original cumulative G1-G5, broad samplers, actual ENOSPC/crash/power-loss and long-soak qualification remain separate."
+  ]
+}

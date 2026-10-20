@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "profile_id": "cb976ff8ba6f432f07c3d360a1ccca50f3f2056be8fb64e377e393d73d07eabb",
+  "harness_sha256": "6d7d647f1bf14734bd191d3b5af0b3e7da19f99251a0c8fab75a56a5edc461ff",
+  "scope": "prepare/compute/finish blocking native wall time; not GPU-event durations; one run per branch",
+  "branches": {
+    "A": {
+      "outputs": 8,
+      "tokens": [
+        487,
+        198,
+        406,
+        328,
+        1272,
+        763,
+        328,
+        248045
+      ],
+      "timings": {
+        "decode_prepare_ns": 6557003,
+        "decode_compute_ns": 68610349,
+        "decode_finish_ns": 804932,
+        "decode_timed_tokens": 8
+      },
+      "integrity_request_counters": {
+        "integrity_plan_upload_ns": 34738,
+        "integrity_page_hash_ns": 5462449,
+        "integrity_page_digest_download_ns": 1379847,
+        "integrity_host_workspace_allocations": 0
+      },
+      "ms_per_output": {
+        "decode_prepare_ns": 0.819625375,
+        "decode_compute_ns": 8.576293625,
+        "decode_finish_ns": 0.1006165
+      },
+      "unassigned_generation_seconds": 0.0022832559928241958,
+      "generation_seconds": 0.0782555399928242,
+      "request_seconds": 0.3122392219956964,
+      "frontier_sha256": "18d50b06db25f1232f92270db79d6946d0542be1e76b375da6999485195d1e3c",
+      "hashed_bytes": 2994733056,
+      "digest_copy_bytes": 23396352
+    },
+    "B": {
+      "outputs": 8,
+      "tokens": [
+        235,
+        128,
+        251,
+        131,
+        250,
+        133,
+        251,
+        150
+      ],
+      "timings": {
+        "decode_prepare_ns": 6482850,
+        "decode_compute_ns": 61579044,
+        "decode_finish_ns": 506956,
+        "decode_timed_tokens": 8
+      },
+      "integrity_request_counters": {
+        "integrity_plan_upload_ns": 32761,
+        "integrity_page_hash_ns": 5471945,
+        "integrity_page_digest_download_ns": 1371312,
+        "integrity_host_workspace_allocations": 0
+      },
+      "ms_per_output": {
+        "decode_prepare_ns": 0.81035625,
+        "decode_compute_ns": 7.6973805,
+        "decode_finish_ns": 0.0633695
+      },
+      "unassigned_generation_seconds": 0.002239882998557388,
+      "generation_seconds": 0.07080873299855739,
+      "request_seconds": 0.30563988792710006,
+      "frontier_sha256": "bdb12f4a0db5c552d5a08c5409ab62a362d1a80c980f444f64e5f674031f76c3",
+      "hashed_bytes": 2994733056,
+      "digest_copy_bytes": 23396352
+    }
+  },
+  "numerical_max_error": 0.0,
+  "checks": [
+    {
+      "reference": "A",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.290236,
+        "decode_seconds": 0.0708987,
+        "generated": [
+          487,
+          198,
+          406,
+          328,
+          1272,
+          763,
+          328,
+          248045
+        ]
+      }
+    },
+    {
+      "reference": "B",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.270763,
+        "decode_seconds": 0.0716389,
+        "generated": [
+          235,
+          128,
+          251,
+          131,
+          250,
+          133,
+          251,
+          150
+        ]
+      }
+    },
+    {
+      "reference": "A-repeat",
+      "status": "PASS",
+      "native_work": {
+        "consumed": 140,
+        "prompt_consumed": 132,
+        "decode_tokens": 8,
+        "normal_forward_tokens": 8,
+        "normal_decode_windows": 8,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.267089,
+        "decode_seconds": 0.0717518,
+        "generated": [
+          487,
+          198,
+          406,
+          328,
+          1272,
+          763,
+          328,
+          248045
+        ]
+      }
+    }
+  ],
+  "startup_seconds": 30.71147449093405,
+  "native_exit_observed": true
+}

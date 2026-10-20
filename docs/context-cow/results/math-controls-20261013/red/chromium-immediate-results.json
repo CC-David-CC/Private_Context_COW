@@ -1,0 +1,7 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real browser, scripted fixture, no GPU",
+  "checks": [],
+  "error": "AssertionError('disable_updates_existing_answer_without_apply')"
+}

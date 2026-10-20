@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-bounded-tree-retention-v1/evidence.tar",
+  "archive_bytes": 113920000,
+  "archive_sha256": "b944c6f5fb671c9268ee3d38bc0cad7ff26d3608e84c8ce81b51536239fad803",
+  "extracted_files": 0,
+  "manifest_sha256": "73241fcc402d574e594139ecf0e2a1f9a6b85ab9850ea53c0ce748ae38cc2193",
+  "schema": "cow-bounded-tree-retention-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 111076617,
+  "verified_members": 2251
+}

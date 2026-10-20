@@ -1,0 +1,50 @@
+{
+  "ticket": "durable-presentation-publication",
+  "date": "2026-10-14",
+  "host": "llm-60",
+  "os": "Linux 7.0.0-34-generic x86_64",
+  "python": "3.12.3",
+  "remote_scratch": "/home/dflanag3/branching-g3/store-presentation-pub-20261014",
+  "red": {
+    "command": "PYTHONPATH=.:tests/implementation python3 -m unittest -v test_store_presentation",
+    "tests": 10,
+    "errors": 9,
+    "expected": "Store.fork rejected namespace_id before implementation"
+  },
+  "green": [
+    {
+      "suite": "focused presentation publication",
+      "command": "PYTHONPATH=.:tests/implementation python3 -m unittest -v test_store_presentation",
+      "tests": 14,
+      "status": "PASS",
+      "log": "green focused run in remote_scratch"
+    },
+    {
+      "suite": "Store, branch catalog, namespaces, binding",
+      "command": "PYTHONPATH=src:tests/implementation python3 -m unittest -v test_store_presentation test_store_branch_catalog test_store_namespaces test_presentation_binding",
+      "tests": 44,
+      "status": "PASS",
+      "log": "final-store-tests.log",
+      "sha256": "6d5bf10dbe21736a4e2699d363f3280b96ca96d630b0a9c312f6b0c80f3c7203"
+    },
+    {
+      "suite": "pool controls",
+      "command": "PYTHONPATH=src:tests/implementation:scripts python3 -m unittest -v test_pool_coordinator test_pool_campaign test_pool_source_trace test_shared_pools test_disk_pool",
+      "tests": 33,
+      "status": "PASS",
+      "log": "final-pool-controls.log",
+      "sha256": "06678efa38490a7589c1290796a38edefc9ef1dce7f228cc969f688f620cc46f"
+    },
+    {
+      "suite": "G0 baseline",
+      "tests": 51,
+      "status": "PASS",
+      "log": "green-G0.log",
+      "sha256": "bbcd06029137e4039d0738c2476133fe6f73e74ea8db2f5404f347af8a82f12a",
+      "note": "G0 is the existing 51-test harness; no tests/G0 directory exists in this repository copy."
+    }
+  ],
+  "implementation_sha256": "d89500013df2ff4a929b57ead0e8a437010976de9c4c12bbe7eaf55e72fb3f46",
+  "focused_test_sha256": "4569986a5336c57ed76ee16d19c34726b74352ba12558dcffc4f1276e6f15466",
+  "scope": "CPU-only Store publication. No GPU, inference, native backend or serving process was run."
+}

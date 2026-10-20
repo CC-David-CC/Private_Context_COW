@@ -1,0 +1,76 @@
+{
+  "schema": "cli-grammar-raw-audit-deterministic-work-fix-v1",
+  "status": "CPU_QUALIFIED_GPU_RERUN_PENDING",
+  "scope": "Compare deterministic native work receipts exactly across repeated raw trajectories while retaining timing measurements per run, not as equality fields.",
+  "changed_source": {
+    "runner": "experimental/branching_context/scripts/run_cli_grammar_numerical_audit.py",
+    "sha256": "7e7a0520f1d232f54d45985ff57bf338a5ac90e5835691b1caacd86381f7c475",
+    "tests": "experimental/branching_context/tests/implementation/test_cli_grammar_numerical_audit.py",
+    "tests_sha256": "4609fea879a144259c96a3b1cfc219e68c25dac04ba0184efdd87c63b3bb25e4"
+  },
+  "invariants": {
+    "deterministic_fields": [
+      "consumed", "prompt_consumed", "decode_tokens", "normal_forward_tokens",
+      "normal_decode_windows", "stopping_reason", "prefill_tokens", "prefill_chunks",
+      "generated"
+    ],
+    "timing_fields_validated_and_retained_separately": ["prefill_seconds", "decode_seconds"],
+    "timings_compared_for_equality": false,
+    "schedule_compared_exactly": true,
+    "frontiers_compared_exactly": true
+  },
+  "red": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/red-v7",
+    "runner_sha256": "f4ca73a8dd6c01f805232a3fd1b6d27bafddf4961e2ad4bec254290b2ff7350a",
+    "test_sha256": "4609fea879a144259c96a3b1cfc219e68c25dac04ba0184efdd87c63b3bb25e4",
+    "run": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/red-v7/tests-run-v1",
+    "tests": 2,
+    "failures": 1,
+    "errors": 1,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "stderr_sha256": "22f279afa69bfa131224d18b28110639139bbd8d8c23a790eced38b6a7add887",
+    "cause": "Timing-only differences were treated as unequal work; deterministic receipt validator was absent."
+  },
+  "green": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v15",
+    "run": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v15/tests-run-v1",
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "2d821d4af06b62d0e93e56c7db70bee00f9710684a21fb2c53ad737f96c82c15",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "prior_real_audit_attempt": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v14",
+    "audit_run": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v14/audit-command-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "failure": "READ repeated fresh trajectory native work receipt differs between fresh runs",
+    "progress_sha256": "0e9dee87dc2bf008019cb32196b379af2b7f84aaa336aa00fa9150a64a5a99a9",
+    "raw_processes": [
+      {"name": "read-1", "pid": 3581752, "exit_code": 0, "forced_tokens": 13, "segments": [1, 12]},
+      {"name": "read-2", "pid": 3582047, "exit_code": 0, "forced_tokens": 13, "segments": [1, 12]},
+      {"name": "test-1", "pid": 3582709, "exit_code": 0, "forced_tokens": 11, "segments": [11]},
+      {"name": "test-2", "pid": 3583562, "exit_code": 0, "forced_tokens": 11, "segments": [11]}
+    ],
+    "note": "All four fresh raw processes exited 0 and their vectors remain retained; this run did not reach final audit PASS."
+  },
+  "model_free_preflight": {
+    "run": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v15/store-preflight-check-v1",
+    "status": "PREFLIGHT_PASS",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "3b4ac619a874e6834a669c0b8bf7f37c715a715bc4651e4aa729b9205e4e5aea",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "prepared_gpu_launcher_not_run_by_this_worker": {
+    "path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/launch_cli_grammar_numerical_audit-v5.sh",
+    "sha256": "a601151d5d10d3278e35e9a23d61440d5b325f2d07c6d1503cf6b5fbec2113aa",
+    "syntax_check": "bash -n passed",
+    "gpu_or_model_execution": false
+  }
+}

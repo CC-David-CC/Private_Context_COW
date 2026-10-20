@@ -1,0 +1,76 @@
+{
+  "schema": "cli-workflow-numerics-evidence-v1",
+  "status": "GPU_NUMERICAL_AUDIT_PASS",
+  "branch": "work/cli-workflow-harness-20261016",
+  "base_commit": "84646a26a4c5f03af76a4a581a62a467cc044423",
+  "scope": "Independent raw Prefill+Verifier numerical audit for the bounded G4 CLI Q4 tiny answer and selected-continuation workflow. This does not qualify the full registered G4 gate or the later retry integration.",
+  "source_files": {
+    "fresh_prefill_segmented.cpp": "85f9c1942f697ede539f977674db4ffe9af9f0800a30ace4dfe7baf718223b5c",
+    "verify_cli_workflow_numerics.py": "d8bf1906b9237d475b1022ac414ffb3e8aa7e99b4db6ce6f170d21ac44564007",
+    "test_cli_workflow_numerics.py": "04ebd2b33260377cf9069d29a242afa2f5345a8a92820efd56916404025935be",
+    "README_cli_workflow_numerics.md": "d562165e9dac7036625afeabda54864398991d446a128ce5d5de59d3ba8f5508",
+    "launch_cli_numerics_segmented_v4.sh": "c0accb9ac0220232dcf5ce36f906070ce234c8e066e56d0025275aa4ed9197bf"
+  },
+  "cpu_validation": {
+    "stage": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/audit-root-preflight-v3/source",
+    "run": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/audit-root-preflight-v3/runs/cpu-v1",
+    "tests_passed": 11,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "5ebfe7ad617d85fb87ec9dd20c63499a68d3769f4c91f4c19f34f9bb7b886764"
+  },
+  "actual_store_preflight": {
+    "run": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/audit-root-preflight-v3/runs/preflight-sentinel-v1",
+    "auditor_result_sha256": "143c03b7d8ebd66bd6f2eca948fceeb53b535a465ea495e70702315ead333f63",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "reached_oracle_boundary": true,
+    "oracle_processes_launched": 0,
+    "root_prefix_tokens": 181,
+    "root_prefill_chunks": [[0, 181]],
+    "answer_decode_segments": [8],
+    "status_note": "Intentional sentinel termination before oracle launch; not a numerical pass."
+  },
+  "compile_only_oracle": {
+    "source_sha256": "85f9c1942f697ede539f977674db4ffe9af9f0800a30ace4dfe7baf718223b5c",
+    "elf_sha256": "130866087ea5c19e1a6b2c556e77a9537ffa4854d19bb637696af8c612ffad5a",
+    "build_receipt_sha256": "7b26945aef71ed8ad46e3c8c030b9eebe3381a0b5fe6dab9f152667c6ac6aa30",
+    "input_verification_sha256": "9ec1bb03b22e8b18449dc62775c57b84658b84181adb9f8c2787ef75ce8af6e1",
+    "verified_reused_inputs": 53,
+    "input_mismatches": 0,
+    "compile_exit": 0,
+    "link_exit": 0,
+    "runtime_executed": false,
+    "gpu_launched": false
+  },
+  "preserved_failures_and_controls": [
+    {
+      "run": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/runs/audit-prefill-chunk-red-v1",
+      "classification": "intentional RED control",
+      "outcome": "1 intended failure; old validator did not enforce exact prefill chunk schedule"
+    },
+    {
+      "run": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/runs/g4-cli-q4-tiny-redaction-v1-numerics-command-v2",
+      "classification": "auditor integration failure",
+      "outcome": "1/1; attempted presentation_receipt lookup for a prepare move operation; corrected to root_presentations plus checkpoint_receipt"
+    },
+    {
+      "classification": "invalid early wrapper artifact",
+      "outcome": "Malformed literal 0n receipt bytes were not accepted as numeric exit status; later CPU-v2 and CPU-v3 command/wrapper receipts are valid numeric 0/0."
+    }
+  ],
+  "gpu_audit": {
+    "launcher": "launch_cli_numerics_segmented_v4.sh",
+    "run": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/runs/g4-cli-q4-tiny-redaction-v1-numerics-segmented-v3",
+    "command_receipt": "/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/runs/g4-cli-q4-tiny-redaction-v1-numerics-command-v3",
+    "launched_by": "root",
+    "state_at_checkpoint": "terminal PASS; command and wrapper exited 0/0",
+    "result_json_sha256": "d688c88b61d4b7b7744a68a5cd7f8b9fabe0b318ae982c736168c602da793039",
+    "exact_frontier_comparisons": 47,
+    "trajectories": 3,
+    "fresh_oracle_processes": 6,
+    "all_reference_processes_absent_at_exit": true,
+    "maximum_frontier_error": 0,
+    "result": "PASS"
+  }
+}

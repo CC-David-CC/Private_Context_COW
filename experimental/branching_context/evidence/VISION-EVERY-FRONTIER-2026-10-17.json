@@ -1,0 +1,2008 @@
+{
+  "GPU": [
+    0
+  ],
+  "cases": [
+    {
+      "audit": {
+        "actual_native_work": [
+          {
+            "forward_tokens": 257,
+            "prefix_forward_tokens": 177,
+            "stage": "prepare"
+          },
+          {
+            "forward_tokens": 217,
+            "prefix_forward_tokens": 177,
+            "stage": "reference-A-0"
+          },
+          {
+            "forward_tokens": 217,
+            "prefix_forward_tokens": 177,
+            "stage": "reference-A-1"
+          },
+          {
+            "forward_tokens": 217,
+            "prefix_forward_tokens": 177,
+            "stage": "reference-B-0"
+          },
+          {
+            "forward_tokens": 217,
+            "prefix_forward_tokens": 177,
+            "stage": "reference-B-1"
+          },
+          {
+            "forward_tokens": 80,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-0"
+          },
+          {
+            "forward_tokens": 80,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-1"
+          },
+          {
+            "forward_tokens": 80,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-2"
+          },
+          {
+            "forward_tokens": 4,
+            "prefix_forward_tokens": 0,
+            "stage": "generated-restart"
+          }
+        ],
+        "actual_outputs": {
+          "A": 8,
+          "B": 8
+        },
+        "audited_pids_absent": [
+          234063,
+          234066,
+          234316,
+          234317,
+          234641,
+          234642,
+          234815,
+          234816,
+          235105,
+          235106,
+          235232,
+          235235,
+          235350,
+          235353,
+          235691,
+          235694,
+          236035,
+          236038
+        ],
+        "comparisons": [
+          {
+            "label": "reference-A-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-suffix",
+            "max_abs_error": 0,
+            "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-1",
+            "max_abs_error": 0,
+            "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-2",
+            "max_abs_error": 0,
+            "sha256": "9fb3bbda6461b64d024329e08ce249be51ef47aba685a2aed4da70442fc948dc",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-3",
+            "max_abs_error": 0,
+            "sha256": "d9514a9fc4f2f77a9345270cccb915bb8b79e089ae101c643860018a2daf06f3",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-4",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-suffix",
+            "max_abs_error": 0,
+            "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-1",
+            "max_abs_error": 0,
+            "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-2",
+            "max_abs_error": 0,
+            "sha256": "9fb3bbda6461b64d024329e08ce249be51ef47aba685a2aed4da70442fc948dc",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-3",
+            "max_abs_error": 0,
+            "sha256": "d9514a9fc4f2f77a9345270cccb915bb8b79e089ae101c643860018a2daf06f3",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-4",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-suffix",
+            "max_abs_error": 0,
+            "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-1",
+            "max_abs_error": 0,
+            "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-2",
+            "max_abs_error": 0,
+            "sha256": "8800cd529e488cf9aa2885f62bb081fd3c4fd67dcb00977691d2049ecdb108a9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-3",
+            "max_abs_error": 0,
+            "sha256": "48840f64abc42d341f7a150df504eb0dc5d1810dc4898a0348561b7ef104f499",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-4",
+            "max_abs_error": 0,
+            "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-5",
+            "max_abs_error": 0,
+            "sha256": "2cc7a531ee68411f81f08643c676cbe071bc2d1cb600e2ee00da3dc431b39e3a",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-6",
+            "max_abs_error": 0,
+            "sha256": "37c0446c977d73d1dc0bf9cbd2a6aad995d392036127aa1085f331d051e2ac06",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-7",
+            "max_abs_error": 0,
+            "sha256": "e56d7aeaa9864529a79e89091eb57626c1bd6b30b4eee912e8527de9102729a5",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-8",
+            "max_abs_error": 0,
+            "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-suffix",
+            "max_abs_error": 0,
+            "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-1",
+            "max_abs_error": 0,
+            "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-2",
+            "max_abs_error": 0,
+            "sha256": "8800cd529e488cf9aa2885f62bb081fd3c4fd67dcb00977691d2049ecdb108a9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-3",
+            "max_abs_error": 0,
+            "sha256": "48840f64abc42d341f7a150df504eb0dc5d1810dc4898a0348561b7ef104f499",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-4",
+            "max_abs_error": 0,
+            "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-5",
+            "max_abs_error": 0,
+            "sha256": "2cc7a531ee68411f81f08643c676cbe071bc2d1cb600e2ee00da3dc431b39e3a",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-6",
+            "max_abs_error": 0,
+            "sha256": "37c0446c977d73d1dc0bf9cbd2a6aad995d392036127aa1085f331d051e2ac06",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-7",
+            "max_abs_error": 0,
+            "sha256": "e56d7aeaa9864529a79e89091eb57626c1bd6b30b4eee912e8527de9102729a5",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-8",
+            "max_abs_error": 0,
+            "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+            "values": 248320
+          },
+          {
+            "label": "resume-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-suffix",
+            "max_abs_error": 0,
+            "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-1",
+            "max_abs_error": 0,
+            "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-2",
+            "max_abs_error": 0,
+            "sha256": "9fb3bbda6461b64d024329e08ce249be51ef47aba685a2aed4da70442fc948dc",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-3",
+            "max_abs_error": 0,
+            "sha256": "d9514a9fc4f2f77a9345270cccb915bb8b79e089ae101c643860018a2daf06f3",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-4",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-suffix",
+            "max_abs_error": 0,
+            "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-1",
+            "max_abs_error": 0,
+            "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-2",
+            "max_abs_error": 0,
+            "sha256": "8800cd529e488cf9aa2885f62bb081fd3c4fd67dcb00977691d2049ecdb108a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-3",
+            "max_abs_error": 0,
+            "sha256": "48840f64abc42d341f7a150df504eb0dc5d1810dc4898a0348561b7ef104f499",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-4",
+            "max_abs_error": 0,
+            "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-5",
+            "max_abs_error": 0,
+            "sha256": "2cc7a531ee68411f81f08643c676cbe071bc2d1cb600e2ee00da3dc431b39e3a",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-6",
+            "max_abs_error": 0,
+            "sha256": "37c0446c977d73d1dc0bf9cbd2a6aad995d392036127aa1085f331d051e2ac06",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-7",
+            "max_abs_error": 0,
+            "sha256": "e56d7aeaa9864529a79e89091eb57626c1bd6b30b4eee912e8527de9102729a5",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-8",
+            "max_abs_error": 0,
+            "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+            "values": 248320
+          },
+          {
+            "label": "resume-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-suffix",
+            "max_abs_error": 0,
+            "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-1",
+            "max_abs_error": 0,
+            "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-2",
+            "max_abs_error": 0,
+            "sha256": "9fb3bbda6461b64d024329e08ce249be51ef47aba685a2aed4da70442fc948dc",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-3",
+            "max_abs_error": 0,
+            "sha256": "d9514a9fc4f2f77a9345270cccb915bb8b79e089ae101c643860018a2daf06f3",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-4",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-suffix",
+            "max_abs_error": 0,
+            "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-1",
+            "max_abs_error": 0,
+            "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-2",
+            "max_abs_error": 0,
+            "sha256": "8800cd529e488cf9aa2885f62bb081fd3c4fd67dcb00977691d2049ecdb108a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-3",
+            "max_abs_error": 0,
+            "sha256": "48840f64abc42d341f7a150df504eb0dc5d1810dc4898a0348561b7ef104f499",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-4",
+            "max_abs_error": 0,
+            "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-5",
+            "max_abs_error": 0,
+            "sha256": "2cc7a531ee68411f81f08643c676cbe071bc2d1cb600e2ee00da3dc431b39e3a",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-6",
+            "max_abs_error": 0,
+            "sha256": "37c0446c977d73d1dc0bf9cbd2a6aad995d392036127aa1085f331d051e2ac06",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-7",
+            "max_abs_error": 0,
+            "sha256": "e56d7aeaa9864529a79e89091eb57626c1bd6b30b4eee912e8527de9102729a5",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-8",
+            "max_abs_error": 0,
+            "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+            "values": 248320
+          },
+          {
+            "label": "resume-2-prefix",
+            "max_abs_error": 0,
+            "sha256": "842667fc68a01a777be789cb80aec0d35a02dcb76ab461ac4e2d2007fc7f88d1",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-suffix",
+            "max_abs_error": 0,
+            "sha256": "6adaee4133b1f88882a0839e927cb20cdba98cb29beb5d6b0d845d5f92a821d2",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-1",
+            "max_abs_error": 0,
+            "sha256": "e2cbe72059d21de66bc0b0963ceec16ebdbe83e752bb5c6f417a30c7ff1c5198",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-2",
+            "max_abs_error": 0,
+            "sha256": "9fb3bbda6461b64d024329e08ce249be51ef47aba685a2aed4da70442fc948dc",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-3",
+            "max_abs_error": 0,
+            "sha256": "d9514a9fc4f2f77a9345270cccb915bb8b79e089ae101c643860018a2daf06f3",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-4",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-suffix",
+            "max_abs_error": 0,
+            "sha256": "2127aa90eef1a960eb9517fa3f4c0938087984912839e66bee1a9b3165bdc4a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-1",
+            "max_abs_error": 0,
+            "sha256": "700f231633ce59cabc913ec7a53d6a3c0bace54ec3db60188aaec832bc86656f",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-2",
+            "max_abs_error": 0,
+            "sha256": "8800cd529e488cf9aa2885f62bb081fd3c4fd67dcb00977691d2049ecdb108a9",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-3",
+            "max_abs_error": 0,
+            "sha256": "48840f64abc42d341f7a150df504eb0dc5d1810dc4898a0348561b7ef104f499",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-4",
+            "max_abs_error": 0,
+            "sha256": "70deb171217ce036836c11abbbedc362b495d8b43a6790368e92bae3864e1bda",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-5",
+            "max_abs_error": 0,
+            "sha256": "2cc7a531ee68411f81f08643c676cbe071bc2d1cb600e2ee00da3dc431b39e3a",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-6",
+            "max_abs_error": 0,
+            "sha256": "37c0446c977d73d1dc0bf9cbd2a6aad995d392036127aa1085f331d051e2ac06",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-7",
+            "max_abs_error": 0,
+            "sha256": "e56d7aeaa9864529a79e89091eb57626c1bd6b30b4eee912e8527de9102729a5",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-8",
+            "max_abs_error": 0,
+            "sha256": "fbb4452a34ad9233ef1691662b7371a27e4f7e504229bd415f943cfa6ad1ff78",
+            "values": 248320
+          },
+          {
+            "label": "generated-four-frontier",
+            "max_abs_error": 0,
+            "sha256": "f6c172dec48786fbf9a2c9e15a5ec75c80a92d23fb9d1cf7d5caaa71bfd9d071",
+            "values": 248320
+          },
+          {
+            "label": "generated-5",
+            "max_abs_error": 0,
+            "sha256": "5d6c97b8c916e4497ab986512a0cebf10174f194c08b25a7de7dacef19bc9fdb",
+            "values": 248320
+          },
+          {
+            "label": "generated-6",
+            "max_abs_error": 0,
+            "sha256": "8ff96244d9eb13b18525a3a5de937ded8c8d872ccc1104ca7fdd8298d3eef1c4",
+            "values": 248320
+          },
+          {
+            "label": "generated-7",
+            "max_abs_error": 0,
+            "sha256": "5bc82929b6e0b8569917cfc9aa4da7456bf08a1a58b41b15e5f8ba2753e45657",
+            "values": 248320
+          },
+          {
+            "label": "generated-8",
+            "max_abs_error": 0,
+            "sha256": "2c1baddaf5c71d63be72dfc725a95f0b1a6214c7a24d4639445ab68fc73c28e0",
+            "values": 248320
+          }
+        ],
+        "controller_comparisons": 7,
+        "full_vector_comparisons": 102,
+        "image_rows": 49,
+        "max_abs_error": 0,
+        "output_limit": 8,
+        "profile_sha256": "b360a671c07b22acca074298ad62d294ba3ac5ce9882c4a82092bb5e7faabebf",
+        "result_sha256": "4df602a95e2f37b8e3a1ec87c0c9b5f792a39568c6ec9b4180983deff540a6f2",
+        "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; every generated frontier checked for each independent fresh/restore path, including generated-four restart. Retained real embeddings used in producer; live encoder/timing/text matrix remains.",
+        "size": "tiny",
+        "status": "INDEPENDENT_VC09_EVERY_GENERATED_FRONTIER_AUDIT_PASS",
+        "suffix_tokens": 32,
+        "text_control_tokens": 128,
+        "total_cells": 177
+      },
+      "private_backup": {
+        "archive_bytes": 183834636,
+        "archive_sha256": "834fbb10186d260c562ef9496f6fefcace1cf05a7e8cb8c3663e1f55db170802",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-full-frontiers-tiny-v1/evidence.tar.gz",
+        "individually_verified_data_files": 362,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 363,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-full-frontiers-tiny-gpu-v1/result.json",
+      "result_sha256": "4df602a95e2f37b8e3a1ec87c0c9b5f792a39568c6ec9b4180983deff540a6f2",
+      "retirement": {
+        "logical_bytes": 248457768,
+        "physical_free_delta": 248471552
+      },
+      "size": "tiny",
+      "status": "CURRENT_PROFILE_EVERY_GENERATED_FRONTIER_RESTART_PASS"
+    },
+    {
+      "audit": {
+        "actual_native_work": [
+          {
+            "forward_tokens": 2257,
+            "prefix_forward_tokens": 2097,
+            "stage": "prepare"
+          },
+          {
+            "forward_tokens": 2177,
+            "prefix_forward_tokens": 2097,
+            "stage": "reference-A-0"
+          },
+          {
+            "forward_tokens": 2177,
+            "prefix_forward_tokens": 2097,
+            "stage": "reference-A-1"
+          },
+          {
+            "forward_tokens": 2177,
+            "prefix_forward_tokens": 2097,
+            "stage": "reference-B-0"
+          },
+          {
+            "forward_tokens": 2177,
+            "prefix_forward_tokens": 2097,
+            "stage": "reference-B-1"
+          },
+          {
+            "forward_tokens": 160,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-0"
+          },
+          {
+            "forward_tokens": 160,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-1"
+          },
+          {
+            "forward_tokens": 160,
+            "prefix_forward_tokens": 0,
+            "stage": "resume-2"
+          },
+          {
+            "forward_tokens": 12,
+            "prefix_forward_tokens": 0,
+            "stage": "generated-restart"
+          }
+        ],
+        "actual_outputs": {
+          "A": 16,
+          "B": 16
+        },
+        "audited_pids_absent": [
+          236833,
+          236836,
+          237055,
+          237056,
+          237184,
+          237185,
+          237374,
+          237375,
+          237614,
+          237615,
+          237874,
+          237877,
+          238067,
+          238070,
+          238122,
+          238127,
+          238246,
+          238249
+        ],
+        "comparisons": [
+          {
+            "label": "reference-A-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-suffix",
+            "max_abs_error": 0,
+            "sha256": "96a117b7e712092472a27636955445b9076f22bd452e1c01581e2f8af8fe5349",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-1",
+            "max_abs_error": 0,
+            "sha256": "154079e8064e01efd3fc795af038dcdd833d5c6e62a6653b97f0619becfc2758",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-2",
+            "max_abs_error": 0,
+            "sha256": "34d9b20568725e755f4fde8b4e4cb23cc74ca0ea1c2cd2f0950644a571a4221c",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-3",
+            "max_abs_error": 0,
+            "sha256": "3b54d65fb4ab7c44c7621e2125120d6c5438bc1454979f1014edbc521f4c2828",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-4",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-0-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-suffix",
+            "max_abs_error": 0,
+            "sha256": "96a117b7e712092472a27636955445b9076f22bd452e1c01581e2f8af8fe5349",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-1",
+            "max_abs_error": 0,
+            "sha256": "154079e8064e01efd3fc795af038dcdd833d5c6e62a6653b97f0619becfc2758",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-2",
+            "max_abs_error": 0,
+            "sha256": "34d9b20568725e755f4fde8b4e4cb23cc74ca0ea1c2cd2f0950644a571a4221c",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-3",
+            "max_abs_error": 0,
+            "sha256": "3b54d65fb4ab7c44c7621e2125120d6c5438bc1454979f1014edbc521f4c2828",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-4",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "reference-A-1-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-suffix",
+            "max_abs_error": 0,
+            "sha256": "e868ac05de49f5bf5e4fa547027a2985e129577678e83adb77faeeb0e2159912",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-1",
+            "max_abs_error": 0,
+            "sha256": "2f8568d86078bba2da06e697c0cbe1ec4ef95eeb167b50962564cfa56dcb0d40",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-2",
+            "max_abs_error": 0,
+            "sha256": "e8d6a99339994e6bc005e916878f7489608097b9173198fb6f0aa1c0b2e32678",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-3",
+            "max_abs_error": 0,
+            "sha256": "ea88f9e2ebb0232798a78746e3b6828d18efd7d9464b5fd9fc5f85d6c3c2e7e9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-4",
+            "max_abs_error": 0,
+            "sha256": "16a521f1ecbd7dfa8df9e9046ae5eebd34989f2ee8566d828c5b7145c34dff6c",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-5",
+            "max_abs_error": 0,
+            "sha256": "49044680e0fdd8262dc8932edae01ad03b3a6d9c0aa0c4ed11e74e54a234caf2",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-6",
+            "max_abs_error": 0,
+            "sha256": "b944255a201e043ee2ffab6db00d4214db49f08a2d4c4695a6056e7073fdc4d5",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-7",
+            "max_abs_error": 0,
+            "sha256": "2e219bc68bd254422a2ab9bb302e9ce00772b6943f9215a31be92fc210dc05d9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-8",
+            "max_abs_error": 0,
+            "sha256": "7405da622642598f469a4aee442b8aedf9c60aabe6c93ede16ee55633673e9cf",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-9",
+            "max_abs_error": 0,
+            "sha256": "abda321e37317006e13413c045b1af210e816b12145c039c82c301f5fd2119f7",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-10",
+            "max_abs_error": 0,
+            "sha256": "28aca9d94742b84552caa64f5f4f2982f08d4c6a4250b1efe8eccfc536e6edd7",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-11",
+            "max_abs_error": 0,
+            "sha256": "ea472ec20e787d8d157f34ddf69d9cc1671b0fdd63c2f5ef291986e5bd1ff02a",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-12",
+            "max_abs_error": 0,
+            "sha256": "104b9c232cdb3074e254899f9912284c55271808b151d667b502d10b43d74f24",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-13",
+            "max_abs_error": 0,
+            "sha256": "8f1e108e45e0c57759351fce287b516233af62ed3cf35eade6473f5828cc6462",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-14",
+            "max_abs_error": 0,
+            "sha256": "40e96dc25bf901198637d06a0f2a3ac830b8c22e616baffdf9ac938ca61ffaae",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-15",
+            "max_abs_error": 0,
+            "sha256": "3cc3eef3d60aa9983ae983cf1753eae6d5b197985f0b283084bf3b61736e2be1",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-0-16",
+            "max_abs_error": 0,
+            "sha256": "38c8080c050192b14d8d75d46ff2046b0fea2ad411d1c8dafc7b41a62080a575",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-suffix",
+            "max_abs_error": 0,
+            "sha256": "e868ac05de49f5bf5e4fa547027a2985e129577678e83adb77faeeb0e2159912",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-1",
+            "max_abs_error": 0,
+            "sha256": "2f8568d86078bba2da06e697c0cbe1ec4ef95eeb167b50962564cfa56dcb0d40",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-2",
+            "max_abs_error": 0,
+            "sha256": "e8d6a99339994e6bc005e916878f7489608097b9173198fb6f0aa1c0b2e32678",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-3",
+            "max_abs_error": 0,
+            "sha256": "ea88f9e2ebb0232798a78746e3b6828d18efd7d9464b5fd9fc5f85d6c3c2e7e9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-4",
+            "max_abs_error": 0,
+            "sha256": "16a521f1ecbd7dfa8df9e9046ae5eebd34989f2ee8566d828c5b7145c34dff6c",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-5",
+            "max_abs_error": 0,
+            "sha256": "49044680e0fdd8262dc8932edae01ad03b3a6d9c0aa0c4ed11e74e54a234caf2",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-6",
+            "max_abs_error": 0,
+            "sha256": "b944255a201e043ee2ffab6db00d4214db49f08a2d4c4695a6056e7073fdc4d5",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-7",
+            "max_abs_error": 0,
+            "sha256": "2e219bc68bd254422a2ab9bb302e9ce00772b6943f9215a31be92fc210dc05d9",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-8",
+            "max_abs_error": 0,
+            "sha256": "7405da622642598f469a4aee442b8aedf9c60aabe6c93ede16ee55633673e9cf",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-9",
+            "max_abs_error": 0,
+            "sha256": "abda321e37317006e13413c045b1af210e816b12145c039c82c301f5fd2119f7",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-10",
+            "max_abs_error": 0,
+            "sha256": "28aca9d94742b84552caa64f5f4f2982f08d4c6a4250b1efe8eccfc536e6edd7",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-11",
+            "max_abs_error": 0,
+            "sha256": "ea472ec20e787d8d157f34ddf69d9cc1671b0fdd63c2f5ef291986e5bd1ff02a",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-12",
+            "max_abs_error": 0,
+            "sha256": "104b9c232cdb3074e254899f9912284c55271808b151d667b502d10b43d74f24",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-13",
+            "max_abs_error": 0,
+            "sha256": "8f1e108e45e0c57759351fce287b516233af62ed3cf35eade6473f5828cc6462",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-14",
+            "max_abs_error": 0,
+            "sha256": "40e96dc25bf901198637d06a0f2a3ac830b8c22e616baffdf9ac938ca61ffaae",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-15",
+            "max_abs_error": 0,
+            "sha256": "3cc3eef3d60aa9983ae983cf1753eae6d5b197985f0b283084bf3b61736e2be1",
+            "values": 248320
+          },
+          {
+            "label": "reference-B-1-16",
+            "max_abs_error": 0,
+            "sha256": "38c8080c050192b14d8d75d46ff2046b0fea2ad411d1c8dafc7b41a62080a575",
+            "values": 248320
+          },
+          {
+            "label": "resume-0-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-suffix",
+            "max_abs_error": 0,
+            "sha256": "96a117b7e712092472a27636955445b9076f22bd452e1c01581e2f8af8fe5349",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-1",
+            "max_abs_error": 0,
+            "sha256": "154079e8064e01efd3fc795af038dcdd833d5c6e62a6653b97f0619becfc2758",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-2",
+            "max_abs_error": 0,
+            "sha256": "34d9b20568725e755f4fde8b4e4cb23cc74ca0ea1c2cd2f0950644a571a4221c",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-3",
+            "max_abs_error": 0,
+            "sha256": "3b54d65fb4ab7c44c7621e2125120d6c5438bc1454979f1014edbc521f4c2828",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-4",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "resume-0A-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-suffix",
+            "max_abs_error": 0,
+            "sha256": "e868ac05de49f5bf5e4fa547027a2985e129577678e83adb77faeeb0e2159912",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-1",
+            "max_abs_error": 0,
+            "sha256": "2f8568d86078bba2da06e697c0cbe1ec4ef95eeb167b50962564cfa56dcb0d40",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-2",
+            "max_abs_error": 0,
+            "sha256": "e8d6a99339994e6bc005e916878f7489608097b9173198fb6f0aa1c0b2e32678",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-3",
+            "max_abs_error": 0,
+            "sha256": "ea88f9e2ebb0232798a78746e3b6828d18efd7d9464b5fd9fc5f85d6c3c2e7e9",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-4",
+            "max_abs_error": 0,
+            "sha256": "16a521f1ecbd7dfa8df9e9046ae5eebd34989f2ee8566d828c5b7145c34dff6c",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-5",
+            "max_abs_error": 0,
+            "sha256": "49044680e0fdd8262dc8932edae01ad03b3a6d9c0aa0c4ed11e74e54a234caf2",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-6",
+            "max_abs_error": 0,
+            "sha256": "b944255a201e043ee2ffab6db00d4214db49f08a2d4c4695a6056e7073fdc4d5",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-7",
+            "max_abs_error": 0,
+            "sha256": "2e219bc68bd254422a2ab9bb302e9ce00772b6943f9215a31be92fc210dc05d9",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-8",
+            "max_abs_error": 0,
+            "sha256": "7405da622642598f469a4aee442b8aedf9c60aabe6c93ede16ee55633673e9cf",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-9",
+            "max_abs_error": 0,
+            "sha256": "abda321e37317006e13413c045b1af210e816b12145c039c82c301f5fd2119f7",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-10",
+            "max_abs_error": 0,
+            "sha256": "28aca9d94742b84552caa64f5f4f2982f08d4c6a4250b1efe8eccfc536e6edd7",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-11",
+            "max_abs_error": 0,
+            "sha256": "ea472ec20e787d8d157f34ddf69d9cc1671b0fdd63c2f5ef291986e5bd1ff02a",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-12",
+            "max_abs_error": 0,
+            "sha256": "104b9c232cdb3074e254899f9912284c55271808b151d667b502d10b43d74f24",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-13",
+            "max_abs_error": 0,
+            "sha256": "8f1e108e45e0c57759351fce287b516233af62ed3cf35eade6473f5828cc6462",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-14",
+            "max_abs_error": 0,
+            "sha256": "40e96dc25bf901198637d06a0f2a3ac830b8c22e616baffdf9ac938ca61ffaae",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-15",
+            "max_abs_error": 0,
+            "sha256": "3cc3eef3d60aa9983ae983cf1753eae6d5b197985f0b283084bf3b61736e2be1",
+            "values": 248320
+          },
+          {
+            "label": "resume-0B-16",
+            "max_abs_error": 0,
+            "sha256": "38c8080c050192b14d8d75d46ff2046b0fea2ad411d1c8dafc7b41a62080a575",
+            "values": 248320
+          },
+          {
+            "label": "resume-1-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-suffix",
+            "max_abs_error": 0,
+            "sha256": "96a117b7e712092472a27636955445b9076f22bd452e1c01581e2f8af8fe5349",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-1",
+            "max_abs_error": 0,
+            "sha256": "154079e8064e01efd3fc795af038dcdd833d5c6e62a6653b97f0619becfc2758",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-2",
+            "max_abs_error": 0,
+            "sha256": "34d9b20568725e755f4fde8b4e4cb23cc74ca0ea1c2cd2f0950644a571a4221c",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-3",
+            "max_abs_error": 0,
+            "sha256": "3b54d65fb4ab7c44c7621e2125120d6c5438bc1454979f1014edbc521f4c2828",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-4",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "resume-1A-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-suffix",
+            "max_abs_error": 0,
+            "sha256": "e868ac05de49f5bf5e4fa547027a2985e129577678e83adb77faeeb0e2159912",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-1",
+            "max_abs_error": 0,
+            "sha256": "2f8568d86078bba2da06e697c0cbe1ec4ef95eeb167b50962564cfa56dcb0d40",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-2",
+            "max_abs_error": 0,
+            "sha256": "e8d6a99339994e6bc005e916878f7489608097b9173198fb6f0aa1c0b2e32678",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-3",
+            "max_abs_error": 0,
+            "sha256": "ea88f9e2ebb0232798a78746e3b6828d18efd7d9464b5fd9fc5f85d6c3c2e7e9",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-4",
+            "max_abs_error": 0,
+            "sha256": "16a521f1ecbd7dfa8df9e9046ae5eebd34989f2ee8566d828c5b7145c34dff6c",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-5",
+            "max_abs_error": 0,
+            "sha256": "49044680e0fdd8262dc8932edae01ad03b3a6d9c0aa0c4ed11e74e54a234caf2",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-6",
+            "max_abs_error": 0,
+            "sha256": "b944255a201e043ee2ffab6db00d4214db49f08a2d4c4695a6056e7073fdc4d5",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-7",
+            "max_abs_error": 0,
+            "sha256": "2e219bc68bd254422a2ab9bb302e9ce00772b6943f9215a31be92fc210dc05d9",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-8",
+            "max_abs_error": 0,
+            "sha256": "7405da622642598f469a4aee442b8aedf9c60aabe6c93ede16ee55633673e9cf",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-9",
+            "max_abs_error": 0,
+            "sha256": "abda321e37317006e13413c045b1af210e816b12145c039c82c301f5fd2119f7",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-10",
+            "max_abs_error": 0,
+            "sha256": "28aca9d94742b84552caa64f5f4f2982f08d4c6a4250b1efe8eccfc536e6edd7",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-11",
+            "max_abs_error": 0,
+            "sha256": "ea472ec20e787d8d157f34ddf69d9cc1671b0fdd63c2f5ef291986e5bd1ff02a",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-12",
+            "max_abs_error": 0,
+            "sha256": "104b9c232cdb3074e254899f9912284c55271808b151d667b502d10b43d74f24",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-13",
+            "max_abs_error": 0,
+            "sha256": "8f1e108e45e0c57759351fce287b516233af62ed3cf35eade6473f5828cc6462",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-14",
+            "max_abs_error": 0,
+            "sha256": "40e96dc25bf901198637d06a0f2a3ac830b8c22e616baffdf9ac938ca61ffaae",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-15",
+            "max_abs_error": 0,
+            "sha256": "3cc3eef3d60aa9983ae983cf1753eae6d5b197985f0b283084bf3b61736e2be1",
+            "values": 248320
+          },
+          {
+            "label": "resume-1B-16",
+            "max_abs_error": 0,
+            "sha256": "38c8080c050192b14d8d75d46ff2046b0fea2ad411d1c8dafc7b41a62080a575",
+            "values": 248320
+          },
+          {
+            "label": "resume-2-prefix",
+            "max_abs_error": 0,
+            "sha256": "58795294330141b55c60d4977dae1011e10ab9f58b98c65925a4d99c2331e704",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-suffix",
+            "max_abs_error": 0,
+            "sha256": "96a117b7e712092472a27636955445b9076f22bd452e1c01581e2f8af8fe5349",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-1",
+            "max_abs_error": 0,
+            "sha256": "154079e8064e01efd3fc795af038dcdd833d5c6e62a6653b97f0619becfc2758",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-2",
+            "max_abs_error": 0,
+            "sha256": "34d9b20568725e755f4fde8b4e4cb23cc74ca0ea1c2cd2f0950644a571a4221c",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-3",
+            "max_abs_error": 0,
+            "sha256": "3b54d65fb4ab7c44c7621e2125120d6c5438bc1454979f1014edbc521f4c2828",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-4",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "resume-2A-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-suffix",
+            "max_abs_error": 0,
+            "sha256": "e868ac05de49f5bf5e4fa547027a2985e129577678e83adb77faeeb0e2159912",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-1",
+            "max_abs_error": 0,
+            "sha256": "2f8568d86078bba2da06e697c0cbe1ec4ef95eeb167b50962564cfa56dcb0d40",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-2",
+            "max_abs_error": 0,
+            "sha256": "e8d6a99339994e6bc005e916878f7489608097b9173198fb6f0aa1c0b2e32678",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-3",
+            "max_abs_error": 0,
+            "sha256": "ea88f9e2ebb0232798a78746e3b6828d18efd7d9464b5fd9fc5f85d6c3c2e7e9",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-4",
+            "max_abs_error": 0,
+            "sha256": "16a521f1ecbd7dfa8df9e9046ae5eebd34989f2ee8566d828c5b7145c34dff6c",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-5",
+            "max_abs_error": 0,
+            "sha256": "49044680e0fdd8262dc8932edae01ad03b3a6d9c0aa0c4ed11e74e54a234caf2",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-6",
+            "max_abs_error": 0,
+            "sha256": "b944255a201e043ee2ffab6db00d4214db49f08a2d4c4695a6056e7073fdc4d5",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-7",
+            "max_abs_error": 0,
+            "sha256": "2e219bc68bd254422a2ab9bb302e9ce00772b6943f9215a31be92fc210dc05d9",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-8",
+            "max_abs_error": 0,
+            "sha256": "7405da622642598f469a4aee442b8aedf9c60aabe6c93ede16ee55633673e9cf",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-9",
+            "max_abs_error": 0,
+            "sha256": "abda321e37317006e13413c045b1af210e816b12145c039c82c301f5fd2119f7",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-10",
+            "max_abs_error": 0,
+            "sha256": "28aca9d94742b84552caa64f5f4f2982f08d4c6a4250b1efe8eccfc536e6edd7",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-11",
+            "max_abs_error": 0,
+            "sha256": "ea472ec20e787d8d157f34ddf69d9cc1671b0fdd63c2f5ef291986e5bd1ff02a",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-12",
+            "max_abs_error": 0,
+            "sha256": "104b9c232cdb3074e254899f9912284c55271808b151d667b502d10b43d74f24",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-13",
+            "max_abs_error": 0,
+            "sha256": "8f1e108e45e0c57759351fce287b516233af62ed3cf35eade6473f5828cc6462",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-14",
+            "max_abs_error": 0,
+            "sha256": "40e96dc25bf901198637d06a0f2a3ac830b8c22e616baffdf9ac938ca61ffaae",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-15",
+            "max_abs_error": 0,
+            "sha256": "3cc3eef3d60aa9983ae983cf1753eae6d5b197985f0b283084bf3b61736e2be1",
+            "values": 248320
+          },
+          {
+            "label": "resume-2B-16",
+            "max_abs_error": 0,
+            "sha256": "38c8080c050192b14d8d75d46ff2046b0fea2ad411d1c8dafc7b41a62080a575",
+            "values": 248320
+          },
+          {
+            "label": "generated-four-frontier",
+            "max_abs_error": 0,
+            "sha256": "291af50423f1d36eb158caf481c6d0996671d572e9f5cb502bbac5fd7325290a",
+            "values": 248320
+          },
+          {
+            "label": "generated-5",
+            "max_abs_error": 0,
+            "sha256": "440b38162f5c4b21c7eb8ffd26bfe955cd8988e78c9c973ae853cab4b00a5d37",
+            "values": 248320
+          },
+          {
+            "label": "generated-6",
+            "max_abs_error": 0,
+            "sha256": "f4b8f0d85d2f20cc386617fa7bd980db1ab36be9bee83bf75140f2116a1b43fe",
+            "values": 248320
+          },
+          {
+            "label": "generated-7",
+            "max_abs_error": 0,
+            "sha256": "83b7d9e82f9a3f96aab4f174cf94fe09ad1da2ee76ba7fec6882dd3b2072c94a",
+            "values": 248320
+          },
+          {
+            "label": "generated-8",
+            "max_abs_error": 0,
+            "sha256": "3d53fe1423926e476e939abaa46e7fa77825f2be29356f3901aec3c2caef64a7",
+            "values": 248320
+          },
+          {
+            "label": "generated-9",
+            "max_abs_error": 0,
+            "sha256": "80500a22c1202efd86659caa470344d85e0973c996aa1230ec91bb8dacf480bc",
+            "values": 248320
+          },
+          {
+            "label": "generated-10",
+            "max_abs_error": 0,
+            "sha256": "ca5d6b263f965a542920bac00746596b111e032784ebd7a036d6e3b8a8f1bf24",
+            "values": 248320
+          },
+          {
+            "label": "generated-11",
+            "max_abs_error": 0,
+            "sha256": "8096c50c3827f9f754fae77cb2ac4812deb3d21817066678fc33a49a30ef480b",
+            "values": 248320
+          },
+          {
+            "label": "generated-12",
+            "max_abs_error": 0,
+            "sha256": "6c9697a8762e0e0b98a68d2b5877542450b1be4d98233a6cd2c0db55fbfa1262",
+            "values": 248320
+          },
+          {
+            "label": "generated-13",
+            "max_abs_error": 0,
+            "sha256": "1ff06b388055e0600ddad74f26bc685ccd4bf6507641582ecfb364bbad508ab2",
+            "values": 248320
+          },
+          {
+            "label": "generated-14",
+            "max_abs_error": 0,
+            "sha256": "bb9569865514e2c77298ddd80e183e67d68fb116af5d984a0f622377bab92b74",
+            "values": 248320
+          },
+          {
+            "label": "generated-15",
+            "max_abs_error": 0,
+            "sha256": "89435a29106d2baba88ee9bf09d91692751e3ca18fe7caad443952164a185f18",
+            "values": 248320
+          },
+          {
+            "label": "generated-16",
+            "max_abs_error": 0,
+            "sha256": "4871e4ed81bab87ef682d77d2edcc03a30008904da79ca76d65e1ebdf1c3cc2d",
+            "values": 248320
+          }
+        ],
+        "controller_comparisons": 7,
+        "full_vector_comparisons": 190,
+        "image_rows": 1073,
+        "max_abs_error": 0,
+        "output_limit": 16,
+        "profile_sha256": "b360a671c07b22acca074298ad62d294ba3ac5ce9882c4a82092bb5e7faabebf",
+        "result_sha256": "ff9fdc96ed5d321893ec56d1c741412b4bdd9dd54bf0ccd16d605306102e52b2",
+        "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; every generated frontier checked for each independent fresh/restore path, including generated-four restart. Retained real embeddings used in producer; live encoder/timing/text matrix remains.",
+        "size": "medium",
+        "status": "INDEPENDENT_VC09_EVERY_GENERATED_FRONTIER_AUDIT_PASS",
+        "suffix_tokens": 64,
+        "text_control_tokens": 1024,
+        "total_cells": 2097
+      },
+      "private_backup": {
+        "archive_bytes": 287047453,
+        "archive_sha256": "261036a0afc15501d5fd8c2fbc0de95a9b7d47858e04f402508249abd6267a76",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-full-frontiers-medium-v1/evidence.tar.gz",
+        "individually_verified_data_files": 472,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 473,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-full-frontiers-medium-gpu-v1/result.json",
+      "result_sha256": "ff9fdc96ed5d321893ec56d1c741412b4bdd9dd54bf0ccd16d605306102e52b2",
+      "retirement": {
+        "logical_bytes": 349578952,
+        "physical_free_delta": 349589504
+      },
+      "size": "medium",
+      "status": "CURRENT_PROFILE_EVERY_GENERATED_FRONTIER_RESTART_PASS"
+    }
+  ],
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "focused_unique": 17,
+    "skips": 0
+  },
+  "execution_profile_id": "0c0bc5464f45a3850ecb32b5d39d9538b5337f093e460e2d26bd9aa3480089d8",
+  "harness_source": "d076c8553a665ea1326f3cc96c504e921dd97c91",
+  "host": "llm-60",
+  "later_local_log_retirement": {
+    "archive": {
+      "archive_bytes": 183834636,
+      "archive_sha256": "834fbb10186d260c562ef9496f6fefcace1cf05a7e8cb8c3663e1f55db170802",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-full-frontiers-tiny-v1/evidence.tar.gz",
+      "individually_verified_data_files": 362,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 363,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "report": "VISION-ARCHIVED-NUMERICAL-LOG-RETIREMENT-2026-10-17.json",
+    "scope": "Old tiny full .f32 logs are archive-only after manifest/archive revalidation. Original pass result preserved."
+  },
+  "limitations": [
+    "Every generated frontier on both tiny/medium branches, all four raw references and three cold prefix restores plus consumed-four restart. Same ordered native batches only.",
+    "Retained real embedding bytes, no live encoder/performance claim. This closes the earlier sampled tiny/medium coverage gap under current renderer profile; original records retained.",
+    "Target8K current renderer live measurement/fresh reference, larger supported matrix and all original G1-G5 remain unqualified. Q8 deferred/chat OFF/private LAN only.",
+    "Optional native state files retired only after verified backup; canonical originals/embeddings/full vectors/receipts/source preserved."
+  ],
+  "max_abs_error": 0,
+  "production_source": "e01aa26403654dab35c3557b5105bb5ddaf310dc",
+  "schema": 1,
+  "status": "VC09_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+  "total_controller_comparisons": 14,
+  "total_full_vector_comparisons": 292
+}

@@ -1,0 +1,479 @@
+{
+  "status": "PASS",
+  "scope": "real model pool campaign; matching native operators, greedy only",
+  "sizes": {
+    "prefix": 1024,
+    "suffix": 583,
+    "output_limit": 16,
+    "trees": 6,
+    "roots": 3
+  },
+  "phases": {
+    "prepare": {
+      "python_pid": 1660503,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 31.422601425088942,
+      "native_pids": {
+        "0": 1660510
+      }
+    },
+    "resume": {
+      "python_pid": 1660643,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 27.680687592132017,
+      "native_pids": {
+        "0": 1660649
+      }
+    },
+    "rewind": {
+      "python_pid": 1660828,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 26.25891362107359,
+      "native_pids": {
+        "0": 1660834
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "tree": 0,
+      "client": 0,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1623,
+        "prompt_consumed": 1607,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1607,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.961797,
+        "decode_seconds": 0.136286,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          3425,
+          27718,
+          3431,
+          5152,
+          30211,
+          21629,
+          15622,
+          6251,
+          63,
+          321,
+          1510
+        ]
+      }
+    },
+    {
+      "tree": 1,
+      "client": 0,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1621,
+        "prompt_consumed": 1605,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1605,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.967428,
+        "decode_seconds": 0.135142,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          3425,
+          11,
+          424,
+          369,
+          2972,
+          1856,
+          3102,
+          332,
+          310,
+          7995,
+          279
+        ]
+      }
+    },
+    {
+      "tree": 2,
+      "client": 1,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1621,
+        "prompt_consumed": 1605,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1605,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.966995,
+        "decode_seconds": 0.135885,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          1970,
+          11,
+          424,
+          369,
+          2972,
+          1856,
+          3102,
+          332,
+          310,
+          10033,
+          1204
+        ]
+      }
+    },
+    {
+      "tree": 3,
+      "client": 1,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1618,
+        "prompt_consumed": 1602,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1602,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.975641,
+        "decode_seconds": 0.135433,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          1970,
+          11,
+          279,
+          1510,
+          5903,
+          63,
+          523,
+          5004,
+          264,
+          16456,
+          310
+        ]
+      }
+    },
+    {
+      "tree": 4,
+      "client": 2,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1616,
+        "prompt_consumed": 1600,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1600,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.936344,
+        "decode_seconds": 0.136126,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          1970,
+          364,
+          1510,
+          3431,
+          75108,
+          2914,
+          88174,
+          62746,
+          16926,
+          6971,
+          7561
+        ]
+      }
+    },
+    {
+      "tree": 5,
+      "client": 2,
+      "status": "PASS",
+      "outputs": 16,
+      "resumed_outputs": 12,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        16
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0,
+      "oracle_work": {
+        "consumed": 1620,
+        "prompt_consumed": 1604,
+        "decode_tokens": 16,
+        "normal_forward_tokens": 16,
+        "normal_decode_windows": 16,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 1604,
+        "prefill_chunks": 2,
+        "prefill_seconds": 0.929012,
+        "decode_seconds": 0.136129,
+        "generated": [
+          27775,
+          383,
+          279,
+          3766,
+          2450,
+          1970,
+          364,
+          1510,
+          1905,
+          62133,
+          7561,
+          1532,
+          369,
+          264,
+          1228,
+          3019
+        ]
+      }
+    }
+  ],
+  "numerical_max_error": 0.0,
+  "harness_sha256": "170a86744e0b9468017b1ef21a8dd16f655c850d99f0bc13ce7e77d756e4bc42",
+  "actual_token_counts": {
+    "prefixes": [
+      1024,
+      1024,
+      1024
+    ],
+    "suffixes": [
+      583,
+      581,
+      581,
+      578,
+      576,
+      580
+    ]
+  },
+  "rewind_comparisons": [
+    {
+      "tree": 1,
+      "status": "PASS",
+      "outputs": 16,
+      "max_absolute_error": 0.0,
+      "full_frontier_checks": 1
+    },
+    {
+      "tree": 3,
+      "status": "PASS",
+      "outputs": 16,
+      "max_absolute_error": 0.0,
+      "full_frontier_checks": 1
+    },
+    {
+      "tree": 5,
+      "status": "PASS",
+      "outputs": 16,
+      "max_absolute_error": 0.0,
+      "full_frontier_checks": 1
+    }
+  ],
+  "phase_pools": {
+    "prepare": {
+      "GPU": [
+        0
+      ],
+      "worker_count": 1,
+      "physical_gpu_count": 1,
+      "active_per_gpu": {
+        "0": 0
+      },
+      "max_active_per_gpu": {
+        "0": 1
+      },
+      "queued": 0,
+      "pending_branches": 0,
+      "failed_publications": 0,
+      "completed": 9,
+      "failed": 0,
+      "preload_failures": 0,
+      "ram": {
+        "resident_bytes": 935835708,
+        "reserved_bytes": 0,
+        "dirty_bytes": 0,
+        "entries": 6,
+        "unique_payloads": 6,
+        "pins": 0,
+        "peak_accounted_bytes": 2115726628,
+        "byte_limit": 2147483648,
+        "clean_evictions": 4,
+        "admission_waits": 0,
+        "loads_pending": 0
+      },
+      "disk": {
+        "file_bytes": 1403966507,
+        "reserved_bytes": 0,
+        "byte_limit": 34359738368,
+        "files_evicted": 0
+      }
+    },
+    "resume": {
+      "GPU": [
+        0
+      ],
+      "worker_count": 1,
+      "physical_gpu_count": 1,
+      "active_per_gpu": {
+        "0": 0
+      },
+      "max_active_per_gpu": {
+        "0": 1
+      },
+      "queued": 0,
+      "pending_branches": 0,
+      "failed_publications": 0,
+      "completed": 6,
+      "failed": 0,
+      "preload_failures": 0,
+      "ram": {
+        "resident_bytes": 967070448,
+        "reserved_bytes": 0,
+        "dirty_bytes": 0,
+        "entries": 6,
+        "unique_payloads": 6,
+        "pins": 0,
+        "peak_accounted_bytes": 2146949236,
+        "byte_limit": 2147483648,
+        "clean_evictions": 6,
+        "admission_waits": 0,
+        "loads_pending": 0
+      },
+      "disk": {
+        "file_bytes": 2372391775,
+        "reserved_bytes": 0,
+        "byte_limit": 34359738368,
+        "files_evicted": 0
+      }
+    },
+    "rewind": {
+      "GPU": [
+        0
+      ],
+      "worker_count": 1,
+      "physical_gpu_count": 1,
+      "active_per_gpu": {
+        "0": 0
+      },
+      "max_active_per_gpu": {
+        "0": 1
+      },
+      "queued": 0,
+      "pending_branches": 0,
+      "failed_publications": 0,
+      "completed": 3,
+      "failed": 0,
+      "preload_failures": 0,
+      "ram": {
+        "resident_bytes": 921628604,
+        "reserved_bytes": 0,
+        "dirty_bytes": 0,
+        "entries": 6,
+        "unique_payloads": 6,
+        "pins": 0,
+        "peak_accounted_bytes": 2100899060,
+        "byte_limit": 2147483648,
+        "clean_evictions": 0,
+        "admission_waits": 0,
+        "loads_pending": 0
+      },
+      "disk": {
+        "file_bytes": 2372395849,
+        "reserved_bytes": 0,
+        "byte_limit": 34359738368,
+        "files_evicted": 0
+      }
+    }
+  },
+  "clean_evictions": 10,
+  "profile_id": "651f2360a04b2de05017fb9cc1042c0b865ceb8854879413e3d0c765de6b34df",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "executed_test_ids": [
+    "POOL-REAL-ROOTS",
+    "POOL-REAL-SOURCE-TREES",
+    "POOL-REAL-RESTART",
+    "POOL-REAL-ZERO-PREFIX-WORK",
+    "POOL-REAL-PARENT-BYTES",
+    "POOL-REAL-MATCHING-REFERENCES",
+    "POOL-REAL-REWIND-CHANGED-QUESTION"
+  ],
+  "failures": [],
+  "skips": [],
+  "xfails": []
+}

@@ -1,0 +1,2 @@
+# Optional dependency for the opt-in grammar-first prototype.
+llguidance==1.9.1

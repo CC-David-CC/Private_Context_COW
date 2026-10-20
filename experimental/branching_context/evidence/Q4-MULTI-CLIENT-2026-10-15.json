@@ -1,0 +1,149 @@
+{
+  "status": "BOUNDED_REAL_HTTP_MULTI_CLIENT_PASS",
+  "host": "llm-60",
+  "gpu": [
+    0
+  ],
+  "source_path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-multi-client-v1/output/result.json",
+  "source_sha256": "71846ea518e3fb968b15c3a4aa1bb05a9b69e3a6a4a6f0c8b004ff812061cc18",
+  "source_bytes": 260611,
+  "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/q4-multi-client-v1",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+  "clients": [
+    {
+      "source_branch": "b-opc6ca3c185c7c42b296eef1557e125c63",
+      "branch": "COWMulti021091bf4f85740088e",
+      "snapshot": "0dcbfd7857802c44472c2b9aee0ac2225a0d8fd1d21ae5fdbaf53d1fb48e4c88",
+      "output_tokens": 128,
+      "latency_seconds": 5.248780444962904,
+      "counters": {
+        "forward_tokens": 128,
+        "prefill_tokens": 0,
+        "loaded_file_bytes": 326992628,
+        "integrity_mismatches": 0
+      },
+      "canonical_validation": {
+        "controller_validation": "passed_full_state_reconstruction",
+        "final_input_tokens": 8127,
+        "final_lineage_sha256": "d974b98cec84a0976400465c595c1b1a5297fdc5d70bb45597764976c5912f07",
+        "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "output_tokens": 128,
+        "parent": "a5a9c30528b73ebd7d6c810dd6c006e912c85a797e82612185a77aead71f27d6",
+        "source_input_tokens": 7999,
+        "source_lineage_sha256": "0d9e99419471c42d5c3d0819755c4ebf2481821bc2fa3c8fc2a0265e7b775c46",
+        "source_root": "5678974213eb09e8d49c9c42f6f72364845a20d6fd53de3c1a9320a234d2d5f4"
+      }
+    },
+    {
+      "source_branch": "b-op5f82327d5e3a4057b90ef010e0b51ead",
+      "branch": "COWMulti121091bf4f85740088e",
+      "snapshot": "ea67cd74f2f15db6a7b279a0b8dc0d8743f3681be7f96722847c690de32a7b56",
+      "output_tokens": 128,
+      "latency_seconds": 12.76540149608627,
+      "counters": {
+        "forward_tokens": 128,
+        "prefill_tokens": 0,
+        "loaded_file_bytes": 338379200,
+        "integrity_mismatches": 0
+      },
+      "canonical_validation": {
+        "controller_validation": "passed_full_state_reconstruction",
+        "final_input_tokens": 8562,
+        "final_lineage_sha256": "37ea2cb7498ab29d92691b1cf878ee435808f78f20795d5e5b2cc45a9fa0f558",
+        "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "output_tokens": 128,
+        "parent": "e843e743f9ce39747751f04d9be605b32c08ec0df96b53b4c96287e2f02877d1",
+        "source_input_tokens": 8434,
+        "source_lineage_sha256": "80fbb39e488e2df7d93be9a34e0b95314b03fb32c58865d4c7f02fab1fc5ee4d",
+        "source_root": "4f8c49836a076e22cb82b0741a2fb4625f27674da1d6022de23daafc4eeb52a3"
+      }
+    },
+    {
+      "source_branch": "b-op9331a4714e1c465398f3605b26f8cc34",
+      "branch": "COWMulti221091bf4f85740088e",
+      "snapshot": "292cd24f12795852d1a3405abdb865a147db494836ceecd47bb13c2911ed9a1b",
+      "output_tokens": 128,
+      "latency_seconds": 8.994604479055852,
+      "counters": {
+        "forward_tokens": 128,
+        "prefill_tokens": 0,
+        "loaded_file_bytes": 345169356,
+        "integrity_mismatches": 0
+      },
+      "canonical_validation": {
+        "controller_validation": "passed_full_state_reconstruction",
+        "final_input_tokens": 8821,
+        "final_lineage_sha256": "c6d55ff312b42966517429d643799c84ec579c2b822862ad746c588626642a34",
+        "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "output_tokens": 128,
+        "parent": "1d080239c88ca2c124ae3ec65442c7655a0c90194b8b97dd7abf551c2c1feba1",
+        "source_input_tokens": 8693,
+        "source_lineage_sha256": "8c6f5c3e08e6cffca0bd37c2322d07370a83dd9d181831c55d3560c70eeeb910",
+        "source_root": "97b708ab5043038f9d743201b48794e9db421a546cf7e095bc732eefd6f59da1"
+      }
+    }
+  ],
+  "status_sample_count": 446,
+  "positive_queue_overlap_samples": 281,
+  "observed_max_active_per_gpu": {
+    "0": 1
+  },
+  "source_branch_and_checkpoint_audit": "All three authoritative source heads/histories and checkpoint files unchanged",
+  "service": {
+    "native_trace_path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-multi-client-v1/output/native-trace-1.jsonl",
+    "native_trace_sha256": "ab808c902812db85bff6a1cc5c6b9c992f6a899e84b29e10804a069349374fa4",
+    "pool_trace_path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-multi-client-v1/output/pool-trace-1.json",
+    "pool_trace_sha256": "0165ca09d0d5796a68ddf6898372900dc4b5d9ee6838997d9002acb1e90b0510",
+    "ready": {
+      "address": [
+        "127.0.0.1",
+        41141
+      ],
+      "event": "ready",
+      "execution_profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1"
+    },
+    "stop": {
+      "command": [
+        "/home/dflanag3/src/Strata/.venv/bin/python",
+        "-m",
+        "serve.cow_http",
+        "--profile",
+        "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/profile-q4-cold-cache-v1/profile.json",
+        "--store",
+        "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-multi-client-v1/store",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "0",
+        "--text",
+        "--ram-gib",
+        "96",
+        "--disk-gib",
+        "128",
+        "--pool-trace-output",
+        "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/q4-multi-client-v1/output/pool-trace-1.json"
+      ],
+      "exit_code": 0,
+      "graceful": true,
+      "pid": 2418427
+    },
+    "worker": {
+      "close_succeeded": true,
+      "event_count": 19,
+      "native_exit_code": 0,
+      "native_pid": 2418433,
+      "trace_sha256": "0165ca09d0d5796a68ddf6898372900dc4b5d9ee6838997d9002acb1e90b0510"
+    }
+  },
+  "numerical_qualification": {
+    "reason": "Work counters and durable branch receipts are checked; logits are not compared.",
+    "status": "NOT_PERFORMED"
+  },
+  "limitations": [
+    "No new logits/oracle comparisons in this concurrency test.",
+    "Client-side start timestamps do not establish FIFO arrival order.",
+    "Three real clients on one GPU, not real multi-GPU qualification."
+  ]
+}

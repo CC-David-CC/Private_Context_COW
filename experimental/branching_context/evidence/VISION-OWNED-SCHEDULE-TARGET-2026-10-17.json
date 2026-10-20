@@ -1,0 +1,110 @@
+{
+  "actual_native_work": [
+    {
+      "forward_tokens": 10545,
+      "prefix_forward_tokens": 9265,
+      "stage": "prepare"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-A-0"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-A-1"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-B-0"
+    },
+    {
+      "forward_tokens": 9905,
+      "prefix_forward_tokens": 9265,
+      "stage": "reference-B-1"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-0"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-1"
+    },
+    {
+      "forward_tokens": 1280,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-2"
+    },
+    {
+      "forward_tokens": 124,
+      "prefix_forward_tokens": 0,
+      "stage": "generated-restart"
+    }
+  ],
+  "actual_outputs": {
+    "A": 128,
+    "B": 128
+  },
+  "all_generated_frontiers": false,
+  "audited_pids_absent": [
+    263601,
+    263604,
+    263864,
+    263865,
+    264006,
+    264007,
+    264143,
+    264144,
+    264272,
+    264273,
+    264461,
+    264464,
+    264694,
+    264697,
+    265011,
+    265014,
+    265196,
+    265199
+  ],
+  "controller_comparisons": 7,
+  "fixture": {
+    "image_rows": 1073,
+    "output_limit": 128,
+    "suffix_tokens": 512,
+    "text_control_tokens": 8192,
+    "total_cells": 9265
+  },
+  "full_vector_comparisons": 71,
+  "limits": "Q4 exact matching-profile numerical/restart evidence, not speed measurement. Native source profile61 differs from new-image admission fix profile92df; no transferred qualification. All full vectors archive-only after receiver verification. No fullVC09/original G1-G5/Q8 pass.",
+  "local_retirement": {
+    "state_logical_bytes": 735677896,
+    "status": "OPTIONAL_STATE_AND_ARCHIVED_LOCAL_VECTORS_RETIRED_AFTER_VERIFIED_BACKUP",
+    "vector_logical_bytes": 104294400
+  },
+  "max_abs_error": 0,
+  "private_archive": {
+    "archive_bytes": 160358519,
+    "archive_sha256": "9b2ae901fd2024ba0addc6d448842262dc27fefac014b760bbde8765c84c3765",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-target-v1/evidence.tar.gz",
+    "individually_verified_data_files": 324,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 325,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "profile_id": "61d56afbbb79519633ff937aa335bc81991c6d4de692587d5458ceb71346e341",
+  "result_sha256": "1e16785add1d464ba0d8af75a4d788b064214e9092ccfbbfeaae24e5d7aa03ea",
+  "sampled_generated_counts": [
+    1,
+    16,
+    64,
+    128
+  ],
+  "scope": "Four raw fresh references,3 prefix restarts and generated-four restart. Matching native batches; sampled frontiers, not every generated token. Retained real embeddings used in producer; live encoder/timing/text matrix remains.",
+  "source_commit": "c2af920f1ad63651f05c9befda9e62a3faa2e1fd",
+  "status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS"
+}

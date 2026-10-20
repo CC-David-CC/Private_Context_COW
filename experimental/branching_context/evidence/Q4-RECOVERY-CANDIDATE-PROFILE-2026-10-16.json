@@ -1,0 +1,33 @@
+{
+  "base_profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "candidate_git_commit": "11cf9976578ca853bf78b67a308f9c544ea6f0db",
+  "checkpoint_compatibility": "new execution_profile_id; regenerate the 7,999-token root under this profile; never relabel/reuse old-profile checkpoint",
+  "coordinator_sha256": "bb6a1f8d9582c35dfaec69391658a033320e25d717b61ebfb9b0bec1f6c6c32b",
+  "created_at_utc": "2026-10-16T07:21:48Z",
+  "execution_settings_unchanged": true,
+  "import_origin_witness_path": "/home/dflanag3/spatial-artifacts/q4-terminal-error-profile-20261016-v3/runtime-import-witness.json",
+  "inference_performed": false,
+  "model_contract_id_unchanged": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_stat_precheck": "PASS",
+  "model_validation_after": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "model_validation_before": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "native_binary": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/strata-batched-branch-lazy",
+  "native_binary_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "new_execution_profile_id": "fed7e7d5e4b2405fc75e6d300deef7576fe4a0a8ddec88841331144568ada450",
+  "new_profile_sha256": "a7d53c45ebd7a1aa841ee10a7f5ef55472d5c761be928551a176b94f7d3f1755",
+  "profile_derivation": "actual coherent runtime source closure selected; execution ID recomputed with candidate strata_backend._digest; _runtime_closure, _validate_execution, and _validate_model passed",
+  "runtime_file_count": 248,
+  "runtime_root": "/home/dflanag3/spatial-artifacts/q4-terminal-error-profile-20261016-v3/runtime",
+  "selected_runtime_source_closure_verified_by_actual_helper": true,
+  "status": "PREPARED_NOT_NUMERICALLY_QUALIFIED",
+  "strata_backend_sha256": "d692e00310984dcea2332d86862fde0010ff06f50b7f62b35a97d25110443de1",
+  "support_runtime_source": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/runtime-v4",
+  "v1_profile_sha256": "e272e975b1e171507ac4426a7f334645f50b3fbf22a1b6d143b9065d32582dc5",
+  "v1_selected_closure_defect": "candidate module hashes were not selected; old coordinator/backend remained selected"
+}

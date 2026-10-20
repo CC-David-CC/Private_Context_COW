@@ -1,0 +1,23 @@
+{
+  "assertion": "Exact kwargs keys namespace_id,cancelled; exact namespace; cancellation value must be callable. Previously expected namespace alone and rejected the required existing callback.",
+  "baseline": {
+    "core": "aa17edfe741ae096514a49d676713def5ec21b4d",
+    "errors": 0,
+    "failures": 1,
+    "run": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-suffix-namespace-baseline-run-v1",
+    "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+    "tests": 5
+  },
+  "green": {
+    "errors": 0,
+    "failures": 0,
+    "run": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-suffix-namespace-green-run-v1",
+    "skips": 0,
+    "tests": 5
+  },
+  "math": "No numerical tolerance/reference/backend/registered gate changes",
+  "publication": "Private LAN only",
+  "schema": 1,
+  "scope": "Correct stale namespace root expectation from the existing root-disconnect fix; no production edit in this commit",
+  "status": "CPU_FOCUSED_PASS"
+}

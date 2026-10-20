@@ -1,0 +1,99 @@
+{
+  "schema": "context-cow-focused-evidence-v1",
+  "status": "FOCUSED-PASS",
+  "scope": "Q4 process-crash lost-ack replay after a real HTTP branch CAS; not power-loss recovery or a general G0-G5 qualification",
+  "host": "llm-60",
+  "branch": "work/luna-q4-postcommit-restart",
+  "base_commit": "bb47abe5441af7b851028264fb4e0e9c720bdefe",
+  "source": {
+    "runner": {
+      "path": "experimental/branching_context/scripts/run_q4_postcommit_restart.py",
+      "sha256": "a36e035b704cf523ca30f390c875377cc6918fbdf7839c6f84659fe557f17369"
+    },
+    "tests": {
+      "path": "experimental/branching_context/tests/implementation/test_q4_postcommit_restart.py",
+      "sha256": "75f553e53ca14468fb37626855f67ded926875e037a0f0d1704759d236c04855"
+    },
+    "helpers": {
+      "run_cow_client_recovery.py": "4752c3b62c65a4811f6ab0661dbcdbd8f8b700f5d64c9ae4fc4d59d8f20ec960",
+      "run_q4_publication_fault.py": "d4bb1469f4fb0ff58047ca88350faf95a80093a36c4ae499545d1ddab2232695"
+    }
+  },
+  "cpu": {
+    "tests": {
+      "run_dir": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/green-cpu-v6",
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "helper_runtime_closure_preflight": {
+      "run_dir": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/helper-import-preflight-v6",
+      "status": "PASS",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "pycache_created": false,
+      "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c"
+    },
+    "retained_red": [
+      {
+        "run_dir": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/red-ack-v1",
+        "command_exit": 1,
+        "wrapper_exit": 1,
+        "failure": "The new durable/complete acknowledgment guard was absent; test import failed before behavioral methods ran."
+      },
+      {
+        "run_dir": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/red-main-exit-v1",
+        "command_exit": 1,
+        "wrapper_exit": 1,
+        "failure": "A non-PASS run_probe result incorrectly mapped to process exit 0; the regression failed as expected."
+      }
+    ]
+  },
+  "real_q4_process_crash": {
+    "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+    "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+    "source_branch": "CliA",
+    "source_tip": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+    "source_checkpoint_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+    "artifact_directory": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v2",
+    "raw_result_sha256": "8e90b7e5dc47397c8577cf833661e916ab9a570644dd1599342f7f26a9e96c86",
+    "primary_audit": {
+      "path": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/primary-audit-gpu-q4-v2.json",
+      "sha256": "4a08b129024b6df582905e3197b41d3c02c8fb0b6efe83dac852ba2c7a2e32cb"
+    },
+    "result": {
+      "status": "PASS",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "warmup_generated_tokens": 1,
+      "source_prefix_tokens": 8000,
+      "faulted_request_outputs": 16,
+      "following_request_outputs": 4,
+      "native_forward_tokens_before_restart": 17,
+      "native_forward_tokens_after_restart": 4,
+      "prefill_tokens_for_all_requests": 0,
+      "same_id_replay_native_trace_unchanged": true,
+      "same_id_changed_arguments_http_status": 400,
+      "replay_added_no_second_store_move": true,
+      "restart_http_exit": 0,
+      "restart_native_exit": 0,
+      "following_request_native_file_load_bytes": 327416632,
+      "following_request_prefix_work": 0,
+      "source_checkpoint_unchanged": true,
+      "committed_target_checkpoint_sha256": "fb5370aba6d7c7466801714e6976308b94e797e01556e90f81a38e90e589b665"
+    },
+    "limitations": [
+      "This is a process SIGKILL after durable CAS, not a power-loss test.",
+      "The original HTTP process exit was -9; the original native child was observed as a zombie and later all original PIDs were absent, but its exact wait status was unavailable.",
+      "No independent numerical oracle comparison, peak-memory measurement, or performance benchmark was run in this ticket.",
+      "The evidence covers this Q4 profile and request sequence only; it is not full G0-G5 or broad recovery qualification."
+    ]
+  },
+  "preserved_failed_attempt": {
+    "artifact_directory": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v1/campaign",
+    "raw_result_sha256": "5f3c28c657fa5bc73c322d49c0e6ec55ef034c11369c04be82243154d432284d",
+    "classification": "Harness setup failure after one warmup output, before the target request; not a model or backend failure."
+  }
+}

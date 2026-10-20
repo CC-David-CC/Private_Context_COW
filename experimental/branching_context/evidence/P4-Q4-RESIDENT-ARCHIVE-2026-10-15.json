@@ -1,0 +1,90 @@
+{
+    "schema":  "p4-q4-resident-archive-terminal-v1",
+    "status":  "PASS_PRIVATE_ARCHIVE_VERIFIED",
+    "scope":  "Completed Q4 resident-return evidence archive only; no experiment inputs modified or payloads reclaimed",
+    "host":  "llm-60; receiver box-git",
+    "sender":  {
+                   "reviewed_v1_sha256":  "c5aabc48851d8f75345b63016ba4d792aadbd04149f87bcc0d325c9438613ca6",
+                   "corrected_v2_sha256":  "c12e0c1ef8d0749edd7ed6c14b3f62158bbc29c182e50399c196419ca882bf22",
+                   "receiver_sha256":  "a3012c68b9010412a84b309b539c608fe18710d962c02cd8800ef68efcf0156e",
+                   "source":  "experimental/branching_context/scripts/archive_p4_q4_resident_arm_v2.py"
+               },
+    "preflights":  [
+                       {
+                           "attempt":  "v1",
+                           "path":  "/home/dflanag3/spatial-artifacts/p4-q4-resident-archive-20261015-01/preflight-run",
+                           "command_exit":  2,
+                           "wrapper_exit":  2,
+                           "terminal":  "COMPLETE",
+                           "failure":  "sender expected obsolete source-closure count field names; no transfer was started"
+                       },
+                       {
+                           "attempt":  "v2",
+                           "path":  "/home/dflanag3/spatial-artifacts/p4-q4-resident-archive-20261015-01/preflight-v2-run",
+                           "command_exit":  0,
+                           "wrapper_exit":  0,
+                           "terminal":  "COMPLETE",
+                           "status":  "read-only preflight pass",
+                           "members":  165,
+                           "payload_bytes":  17814730577,
+                           "target_absent_before_stream":  true
+                       }
+                   ],
+    "stream":  {
+                   "tmux_session":  "p4-q4-resident-archive-stream-v2-20261015",
+                   "command_exit":  0,
+                   "wrapper_exit":  0,
+                   "terminal":  "COMPLETE",
+                   "sender_pid":  2038838,
+                   "wrapper_pid":  2038804,
+                   "flock_pid":  2038837,
+                   "all_processes_exited":  true,
+                   "stderr_empty":  true,
+                   "member_count":  165,
+                   "source_stream_bytes":  17814958080,
+                   "source_stream_sha256":  "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60"
+               },
+    "archive":  {
+                    "path":  "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-resident-return/p4-q4-resident-return-20261015.tar",
+                    "bytes":  17814958080,
+                    "mode":  "0600",
+                    "nlink":  1,
+                    "sha256":  "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+                    "receipt_path":  "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-resident-return/p4-q4-resident-return-20261015.tar.receipt.json",
+                    "receipt_bytes":  809,
+                    "receipt_mode":  "0600",
+                    "receipt_nlink":  1,
+                    "receipt_sha256":  "a35dc82d155dc3598f87ee13f4b333b055ac0c189ce090b3e05047b18e05a235",
+                    "receiver_status":  "PASS",
+                    "manifest_sha256":  "31787d8bc498ee35a4aeeab3756e1712d473ec99fe17227b7657722b005c7111",
+                    "member_listing_sha256":  "77dfa83047605f111c924243d1e7dba0ac5a9b93e04512f5bc0c332258693ced",
+                    "verification":  "every regular tar member matches sorted embedded input manifest",
+                    "verified_utc":  "2026-10-15T08:22:37Z"
+                },
+    "resident_result":  {
+                            "path":  "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/result.json",
+                            "status":  "PASS",
+                            "sha256":  "0c160914ed28406bd2cfee935726630e1cae974c0c8f5c4bb83f2e9baee2446e",
+                            "measured_requests":  9,
+                            "warmups":  3,
+                            "output_tokens_each":  128,
+                            "eos_completed":  0,
+                            "source_checkpoints_unchanged":  true
+                        },
+    "unchanged_closure_references":  {
+                                         "disk_arm_result_sha256":  "76438074db2af7117f79764de759cb71363d08185bf24353225783ccc5ccd9f0",
+                                         "disk_archive_path":  "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar",
+                                         "disk_archive_sha256":  "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+                                         "q4_campaign_archive_path":  "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+                                         "q4_campaign_archive_sha256":  "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+                                         "q4_campaign_archive_bytes":  41838049280,
+                                         "source_commit":  "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+                                         "source_manifest_sha256":  "5414ce7de30f5e2cc6c51133b3e07dcee4672253dca67ee6fdf9b6b13a31d500",
+                                         "source_closure_sha256":  "fc8b5d43d31349d517850e41515604d79e5dc032b836776e5768d5c9c3dddadb"
+                                     },
+    "q8_restore_map":  {
+                           "path":  "experimental/branching_context/evidence/P5-Q8-ROOT-RESTORE-INPUTS-2026-10-15.json",
+                           "sha256":  "967eeddd32917941d2a77675cd4811f76c4e7072f3a1eb260d0b1c02013a8d7c",
+                           "status":  "PREPARED_READ_ONLY_NOT_RESTORED"
+                       }
+}

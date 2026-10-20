@@ -1,0 +1,293 @@
+{
+  "base_profile": {
+    "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/derived-profile/profile.json",
+    "sha256": "11eeda86f34fa2b53b824f273a37ad743bbf6c0b88e668f3b9c03073b23a13b6"
+  },
+  "candidate_profile": {
+    "execution_profile_id": "608bae645dd91c04f01d4cb42acccf8ff8cd6d0bf4da16d5dbecef8371661da3",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/derived-profile-candidate-v1/profile.json",
+    "profile_builder_status": "PREPARED_NOT_EXECUTED",
+    "sha256": "03393e0d0a155d7f0ef517d04441366e212189d403c9555ef614a2fee9501ec3"
+  },
+  "created_unix_seconds": 1792060232.4814422,
+  "model_and_tokenizer": {
+    "basis": "recorded model hash receipt plus exact size/mtime/ctime stat match; no weight-byte hashing",
+    "gguf_reader_path": "/home/dflanag3/branching-g3/private-queue-20261012T0818/tools/gguf_reader.py",
+    "gguf_reader_sha256": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e",
+    "model_file_count": 11,
+    "model_file_hashes_reused": 11,
+    "model_weight_bytes_hashed_by_profile_helper": 0,
+    "model_weight_bytes_hashed_by_this_script": 0,
+    "q8_gguf_shard_count": 6,
+    "receipt_path": "/home/dflanag3/branching-g3/llm60-model-hashes.json",
+    "receipt_sha256": "99dfc43d8b1cc1117f136bf1e1c22d2d7611f511e8d3642ea3be3502c43c1469",
+    "separate_tokenizer_sha256_field": false,
+    "tokenizer_identity": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f"
+  },
+  "native_build": {
+    "binaries": {
+      "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-branch": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b",
+      "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-fresh": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c"
+    },
+    "binary_execution_evidence_note": "build.json alone is not execution evidence; prior Q8 browser profile f39df09d execution and receipts are separate historical evidence.",
+    "build_receipt_path": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/build.json",
+    "build_receipt_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "build_receipt_status": "BUILT_NOT_EXECUTED",
+    "native_request_protocol": "consumed-greedy-ack-v1",
+    "resume_contract": "identical-native-operators-v1"
+  },
+  "operator_config": {
+    "GPU": [
+      0
+    ],
+    "capacity": 98304,
+    "configuration_identical_to_q8_base": true,
+    "execution_json_sha256": "cfbe49d7eb226aea00b51613adf3f55d9627b36b5075a683671a7b63105cc00a",
+    "generated_operator": "normal-verifier-decode",
+    "gpu_cli_binding": {
+      "oracle_command": "explicit --gpu 0",
+      "sut_command": "omitted; execution.GPU=[0] and hardware is pinned to one GPU"
+    },
+    "kv_dtype": "FP16",
+    "native_request_protocol": "consumed-greedy-ack-v1",
+    "operator": "batched-input/native-greedy-request/per-write-sha256",
+    "prefill_chunk": 8192,
+    "resume_contract": "identical-native-operators-v1"
+  },
+  "profile_builder": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/g0stage/scripts/prepare_native_request_profile.py",
+      "--base",
+      "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/derived-profile/profile.json",
+      "--binaries",
+      "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1",
+      "--api",
+      "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red",
+      "--output",
+      "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/derived-profile-candidate-v1",
+      "--capacity",
+      "98304",
+      "--chunk",
+      "8192"
+    ],
+    "did_not_execute_sut_oracle": true,
+    "did_not_hash_model_weight_bytes": true,
+    "returncode": 0,
+    "script_path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/prepare_checkpoint_digest_q8_profile.py",
+    "script_sha256": "ab3943d35622125efc59e849ae1411d99fd3170d89ea1cc0025ba6bc44c4c695",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "{\"status\": \"PREPARED_NOT_EXECUTED\", \"execution_profile_id\": \"608bae645dd91c04f01d4cb42acccf8ff8cd6d0bf4da16d5dbecef8371661da3\", \"profile\": \"/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/derived-profile-candidate-v1/profile.json\"}"
+  },
+  "qualification_boundary": [
+    "This profile has not been used for a candidate GPU/native test.",
+    "The pinned Q8 SUT/oracle have prior execution evidence under the older Q8 profile; that does not qualify these candidate module hashes.",
+    "The binary build receipt is BUILT_NOT_EXECUTED; binary execution status comes only from separate historical Q8 run evidence.",
+    "No timing, performance, or candidate hash-optimization result is claimed."
+  ],
+  "schema": 1,
+  "scope": "CPU-only Q8 candidate profile derivation; no native command execution, inference, build, server, or GPU workload",
+  "source": {
+    "actual_import_origins": [
+      {
+        "module": "context_time_travel",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/__init__.py",
+        "sha256": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+      },
+      {
+        "module": "context_time_travel.checkpoint_cache",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/checkpoint_cache.py",
+        "sha256": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a"
+      },
+      {
+        "module": "context_time_travel.controller",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/controller.py",
+        "sha256": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"
+      },
+      {
+        "module": "context_time_travel.coordinator",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/coordinator.py",
+        "sha256": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac"
+      },
+      {
+        "module": "context_time_travel.digest_attestation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/digest_attestation.py",
+        "sha256": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+      },
+      {
+        "module": "context_time_travel.evaluation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation.py",
+        "sha256": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8"
+      },
+      {
+        "module": "context_time_travel.evaluation_worker",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation_worker.py",
+        "sha256": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688"
+      },
+      {
+        "module": "context_time_travel.execution_receipt",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/execution_receipt.py",
+        "sha256": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215"
+      },
+      {
+        "module": "context_time_travel.numerics",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/numerics.py",
+        "sha256": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"
+      },
+      {
+        "module": "context_time_travel.oracle",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/oracle.py",
+        "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+      },
+      {
+        "module": "context_time_travel.pools",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/pools.py",
+        "sha256": "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729"
+      },
+      {
+        "module": "context_time_travel.presentation_binding",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_binding.py",
+        "sha256": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813"
+      },
+      {
+        "module": "context_time_travel.presentation_request",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_request.py",
+        "sha256": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"
+      },
+      {
+        "module": "context_time_travel.real",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/real.py",
+        "sha256": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f"
+      },
+      {
+        "module": "context_time_travel.slots",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/slots.py",
+        "sha256": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5"
+      },
+      {
+        "module": "context_time_travel.store",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/store.py",
+        "sha256": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c"
+      },
+      {
+        "module": "context_time_travel.strata_backend",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/strata_backend.py",
+        "sha256": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+      }
+    ],
+    "api_root": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red",
+    "campaign_helpers": [
+      {
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/pool_campaign.py",
+        "sha256": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f"
+      },
+      {
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/native_request_probe.py",
+        "sha256": "94e6935cddac17acca6c1d75e511ac241d394bba81707313d7fdec2e1b35968f"
+      },
+      {
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/durable_resume.py",
+        "sha256": "78f26419ff389e70f6b219aa2c6fe88e8829b30ae260a402fecaa875f07f102c"
+      }
+    ],
+    "import_witness_path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/source-import-witness.json",
+    "import_witness_sha256": "282dbf2af31ea60ba5bfa68d10022b19ae75f387b65ddf9f47063f145270f6a8",
+    "module_count": 17,
+    "module_manifest_sha256": "c45076a06dda4d318abfab26252b916908a4f2b584b89f6ba415175f0b54774c",
+    "modules": [
+      {
+        "name": "__init__",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/__init__.py",
+        "sha256": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+      },
+      {
+        "name": "checkpoint_cache",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/checkpoint_cache.py",
+        "sha256": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a"
+      },
+      {
+        "name": "controller",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/controller.py",
+        "sha256": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"
+      },
+      {
+        "name": "coordinator",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/coordinator.py",
+        "sha256": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac"
+      },
+      {
+        "name": "digest_attestation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/digest_attestation.py",
+        "sha256": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+      },
+      {
+        "name": "evaluation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation.py",
+        "sha256": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8"
+      },
+      {
+        "name": "evaluation_worker",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation_worker.py",
+        "sha256": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688"
+      },
+      {
+        "name": "execution_receipt",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/execution_receipt.py",
+        "sha256": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215"
+      },
+      {
+        "name": "numerics",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/numerics.py",
+        "sha256": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"
+      },
+      {
+        "name": "oracle",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/oracle.py",
+        "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+      },
+      {
+        "name": "pools",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/pools.py",
+        "sha256": "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729"
+      },
+      {
+        "name": "presentation_binding",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_binding.py",
+        "sha256": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813"
+      },
+      {
+        "name": "presentation_request",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_request.py",
+        "sha256": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"
+      },
+      {
+        "name": "real",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/real.py",
+        "sha256": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f"
+      },
+      {
+        "name": "slots",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/slots.py",
+        "sha256": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5"
+      },
+      {
+        "name": "store",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/store.py",
+        "sha256": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c"
+      },
+      {
+        "name": "strata_backend",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/strata_backend.py",
+        "sha256": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+      }
+    ],
+    "profile_helper_path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/g0stage/scripts/prepare_native_request_profile.py",
+    "profile_helper_sha256": "1550dcac8db5bea22445f022922720bffd1de77e9ce025b0f8c0c79db01e172e"
+  },
+  "status": "PREPARED_NOT_GPU_QUALIFIED"
+}

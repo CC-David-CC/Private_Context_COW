@@ -1,0 +1,60 @@
+{
+  "status": "EXTENTS_CHECKED_NOT_HASHED_OR_LOADER_QUALIFIED",
+  "shards": [
+    {
+      "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00001-of-00003.gguf",
+      "bytes": 10946624,
+      "header_bytes": 10946624,
+      "tensors": 0,
+      "types": {},
+      "minimum_payload_extent": 10946624,
+      "unknown_extents": [],
+      "truncated_tensors": [],
+      "split_no": 0,
+      "split_count": 3
+    },
+    {
+      "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00002-of-00003.gguf",
+      "bytes": 49988981792,
+      "header_bytes": 36000,
+      "tensors": 568,
+      "types": {
+        "F32": 259,
+        "Q8_0": 114,
+        "Q5_K": 95,
+        "IQ1_M": 28,
+        "IQ4_NL": 23,
+        "Q6_K": 21,
+        "IQ2_XXS": 16,
+        "BF16": 10,
+        "Q4_K": 2
+      },
+      "minimum_payload_extent": 49988981792,
+      "unknown_extents": [],
+      "truncated_tensors": [],
+      "split_no": 1,
+      "split_count": 3
+    },
+    {
+      "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00003-of-00003.gguf",
+      "bytes": 24538827360,
+      "header_bytes": 41952,
+      "tensors": 656,
+      "types": {
+        "F32": 298,
+        "Q8_0": 130,
+        "Q5_K": 117,
+        "IQ2_XXS": 32,
+        "IQ4_NL": 26,
+        "IQ1_M": 20,
+        "Q6_K": 19,
+        "BF16": 14
+      },
+      "minimum_payload_extent": 24538827360,
+      "unknown_extents": [],
+      "truncated_tensors": [],
+      "split_no": 2,
+      "split_count": 3
+    }
+  ]
+}

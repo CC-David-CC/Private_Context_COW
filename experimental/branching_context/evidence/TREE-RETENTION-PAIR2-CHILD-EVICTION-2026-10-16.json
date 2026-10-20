@@ -1,0 +1,567 @@
+{
+  "available_bytes_after": 5080805376,
+  "available_bytes_before": 1042513920,
+  "backup_archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-tree-policy-pair-v2/evidence.tar",
+  "backup_archive_sha256": "eb197dec541536ec745a5f7057f9e8f656f6daf1469ab7a1a3747d999bdcbaac",
+  "canonical_bytes_unchanged": true,
+  "canonical_files": {
+    "candidate": 514,
+    "control": 412
+  },
+  "canonical_sha256": {
+    "candidate": "e9d5daffc353208c0992bd4048148b945eda0bbe6fcd9cdbf8c31d03f13713aa",
+    "control": "f3e565f73832caa41db21cb463db0b6b8e23c03b363d9545bf40aac39c42da5e"
+  },
+  "original_prefix_bytes_unchanged": true,
+  "protected_original_roots": {
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/56adf31b45ad9c78181dfa1053a52285d7a51ffc34d7192d05877e238bb6477b.json": "0acdfe2fba47781091411cec5cdceca202cf7d70abaa6fb784516d372534792f",
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json": "4f3b95bc2a18319a1c330f2a58a6d5d46d34c3fa5fcc9b0096462378734e03be",
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "6d76dd1f20964aca53979859a71e2f61052e30823c533ca6cbe25ee70caa9a29",
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f.state": "bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f",
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2.state": "c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2",
+    "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6.state": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/56adf31b45ad9c78181dfa1053a52285d7a51ffc34d7192d05877e238bb6477b.json": "012f81d9a5fdb15231d374b498ca9d37f4160bf2d21f17db2707a93560037ff4",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json": "75eebbb4667275fc5fba83c54955aef170cca22c0987e66708a4720151d971bd",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "696be674f61549f45435a89fc1d92833f6f98d3ddb840d13187cdbe61e578175",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f.state": "bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2.state": "c381b71f76b4d5f5fed224005226411789fc5aad31c8ebc0a35f2333a67f68e2",
+    "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6.state": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6"
+  },
+  "schema": "cow-policy-pair-child-eviction-v1",
+  "selected": [
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381234,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/0312f98b007511435b12b412ea03460ceaf53e33ef10ec793f42b4c4f83dd0e7.json",
+      "sha256": "6de916120694a548c084e7d37edd3bd508221095f62aa2f235a266b83e539ca7"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381250,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/08d0ae84d0405b054b608c7d7a2fac61a30b1d50bba2d94a690b5fddcdaf5193.json",
+      "sha256": "d73ae7004cd373dbb75d86e27e2f87583114e69ae6d18283e7599b2ebd770629"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381128,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/1830433e78f94c4f575ba367a9ee0b0b9babe6b23240b55819e1ba0eb244f7b7.json",
+      "sha256": "ee0163670ea436ffdbb9086e4f384ddb22b3717ba6c9ae2cfc8da614800c5775"
+    },
+    {
+      "allocated_bytes": 339062784,
+      "bytes": 339059084,
+      "inode": 5381233,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b.state",
+      "sha256": "1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b"
+    },
+    {
+      "allocated_bytes": 346165248,
+      "bytes": 346162636,
+      "inode": 5381127,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551.state",
+      "sha256": "22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551"
+    },
+    {
+      "allocated_bytes": 324018176,
+      "bytes": 324016276,
+      "inode": 5381143,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e.state",
+      "sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381092,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/37e7174ba9355f5d4eaee5bbe875226be6501ee4774e1c87172d06d983187fcc.json",
+      "sha256": "321427d545d011de3f3300b236922817d1178be08ab7918eed05f8fe404b5f4b"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381280,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/408c4e4342e841892caea7d9770caae01de2f0abc97abadbc2af5de3769e6e81.json",
+      "sha256": "bd2b2efb2fcff73cd948fe372f4cce95ce184573b1ba2ab75e03658be348395e"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381325,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/40e4d3acb5495e44f73a88af26077e893ba956cdf43ac56a1504ff5d6854bfba.json",
+      "sha256": "0088a61fa80e0289a73064f82e89b43aab93efe51c970771425c7e4b5e829d80"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381144,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/560686b7e90ff0015d01ef1bb28d3930cd857ea12e2b32d5a7be87e3d5559b58.json",
+      "sha256": "4f4fd06795377bb5ef833299652e0219790d976c54c20cfb98981bb165e92fb0"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381552,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/565767155aeb936a4787d8913e033515e642b1a881701939e6c793b92b6ceef2.json",
+      "sha256": "708ee7f1a36c130fbcb7484d92041aa2ca5f98c7afc1e9220da7eda40386b5d5"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381173,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/5c65d69c13130d96b4c05f01882457b6fce795cd24c70460e13559b98d798f48.json",
+      "sha256": "e9aa081c08f303330ea12baa24f3f80ca2f8ee038070ab0b82876f01e85a51ea"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381385,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/5ec4fb7621fc65732b5589711cc5680c15ace3a4dc898ffb39bf5c9a33ec9022.json",
+      "sha256": "bd9ae07d21d8ff23c6272e8378f0cab7aa8d9d648ec888ad1f7339cf9d2cfb97"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381445,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/60e930b16858b7f54fdfeabd20b651cfbe5d0802196e971666a8c097135f0d67.json",
+      "sha256": "1c4c5e6f7b3bc938f2c11536f9b1c17cc0280f254863f80422d9cbfa07f21505"
+    },
+    {
+      "allocated_bytes": 324644864,
+      "bytes": 324643060,
+      "inode": 5381091,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020.state",
+      "sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381567,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/71cb48184c8faf87670ed1765990f487dc3b278b1f04f2ee9b3be72562a1ce44.json",
+      "sha256": "b6755730aeaa78d92a49e85ef99c02196ae83521513b38037fea5d9f9b9653bd"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381400,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/747570fc01c5260509540bc4cfa3223e5c2caf98570a84563a56f4ef4f7efede.json",
+      "sha256": "e55969ad9fb606783cb0e9a3151ade8bddc02a22b520ef14c2b9ecd2a701b290"
+    },
+    {
+      "allocated_bytes": 345747456,
+      "bytes": 345744788,
+      "inode": 5381249,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73.state",
+      "sha256": "77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381110,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/7aaad7eca0940a751cfa47376ed3f50b6dd75f0a51f49c8bf17a075fc8b0492b.json",
+      "sha256": "9deab4bfd1b6cf9bc363a3944fb3e33abac7cd4704f63d5bc3ac0dfebed6c53a"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381310,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/8dc17bf6e2ae6bca55b3deeaedacf8b2667685a8db9243fff8aecfbe1672600d.json",
+      "sha256": "0130b13dae5f26d89ac8b3740355d1d453a0ac0e7686ba0fb6c4d143e75f6376"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381265,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/937a5fe4ad7c9246c4ce9d9a05dd17438ec8cbc17db30bcb0769e673e7d95f9c.json",
+      "sha256": "d364b3ca334fb38c23e2581fa7458d013a7e65e4062332c93781d3182ffd438e"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381503,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/96870e5a2d7f64bbafe90035a5b2f8ee556d4fe211ca3f1c05f67d0b93fc38ca.json",
+      "sha256": "cd9ec2b32aa390a9908d36ff51b4fcb74d246bb7d2f4a6bf130aabb9309686cc"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381159,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/9fc4eb0b8c7ad50266e67ed2d5988e587895cf50c8fa8615dffa38a922788957.json",
+      "sha256": "10ae691f2a85d4fe5e5e6f25c984197c0b55aa34d6f4f7da76713993baea7c66"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381488,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/a17437f6d8b5ab633b21ae09d2d5b5a06e3fd528b0599013c4746715215658f4.json",
+      "sha256": "db4cb1c43a74f270d26b5892a293eb2cc1c767209e9a5557c88293a9143fa11e"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381517,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/ab49b81f6645d6b4b9b6dbc9d0aa5597e136eab1a2ec3ab06b30b5c3870297ff.json",
+      "sha256": "f6182659141c6f133b8680f997feb4161439163292b5885a49bfa1fb5f0c7555"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381537,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/b1062bab0d0315bfb12d1f857fd5e42fcd8bab3e591659c5d76b5683c3b1bf60.json",
+      "sha256": "73389ce2707827a1e19d18d612c72afa47c60eee5867dadc710e16271ca96e3b"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381430,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/b3ae46645392e6ed2c74fe16489e93b08dca2204e9e8baa0a0c5efd595ec4181.json",
+      "sha256": "ffc145199dd11160f867ee9e65cd8e104098e7465e7842cf51e1cd68b002bcc6"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381459,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/c188d9e6aee8cfab717515402b7544e4fd836c735d08c74146884bcd24d295f5.json",
+      "sha256": "b793be11e9c5d7e7a7728b88d3ca45d396a28959ff071ee85431124816729a79"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381474,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/cb27428c78ec1bcb5174ab0f3e51b84a3828aa2b2bcd284743a1fc1226a249bc.json",
+      "sha256": "a3c292ea37d38fa4c25562ae7295a71948d5755d945dd3a79aa1653a61d91647"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381295,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/cff690910591be1a687295168cb9fb0e33e44c96300dff13ccff5ee2605955a3.json",
+      "sha256": "65fc0476fe7cf8e619ea96930e4440dc303298ec8e6367c494802d5929570e63"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381355,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/e09038cef3c7e6e0b7e33d77c9788cd321d1fd929954b0f052590911bc706405.json",
+      "sha256": "75852ac22d57dad6debf357f19aa76c7f52258d4d57ff8c144470e9e44ca6d6a"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381370,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/e1cf0e1514b05734809bc16cce99bf09333b8e1cc6b50518001bd8ca88cfb13d.json",
+      "sha256": "b6b0e8f00f87dd197f43dc4929e2ac67db800edfbf00e6a2a5d07055b6fc186a"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381415,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/e3b7c08830b975a96f908c50e8a005831ce9269eac0f9eb8fccbf4194cba06cb.json",
+      "sha256": "fc80961f5a6281b92e3c00ce88f74fa9a388e5fbeccf03d38d99b9d8135bb5db"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381188,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/e7dfbfa709be95647e9c26605d577a669bf8391dce277d94ba1baa865f1acf6b.json",
+      "sha256": "65995fd4f547d02f54cd8a1c39b43214642575d8e969fea7fc86aed1b9edebd6"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381203,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/f7a0c771afdd58a938d3f366369ba7009a83c5479b6f961f7ae1b3122ca31a26.json",
+      "sha256": "22739e36b523980422f962ac57c2585b7a01b10c28b49a4e1c88f836034efc72"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381218,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/fa1ccf0cc6aa029029fd16c093a3a4f107a192bef34941433212d1e928bb7a21.json",
+      "sha256": "72806c2c1e67e331ad3e629a6f0b8c33c3bc7a2a3c7d8a1aec01a3eb5a1b4d63"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381340,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/fd140bb1a3d07365707435c1dab1626aeac1655ac64127027bdcef6901e1fbd7.json",
+      "sha256": "d10817054823284a668241d5d7454c362ba8fbf568b2679ea84492e4cbe3bbfa"
+    },
+    {
+      "allocated_bytes": 339374080,
+      "bytes": 339372480,
+      "inode": 5381109,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-policy-control-20261016-v1/store-v1/checkpoints/ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731.state",
+      "sha256": "ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380677,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/06f5b8f7d8236dd265968c5e474ac7197a201dbbfc5bff54976526ab86766c4e.json",
+      "sha256": "74f85b43a775ecd4da74477422a1faa9048f0a9533197742084888873846539a"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5377546,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/085339795d30ce8e08740314c25d2c2c4b685b46f4c8887e439dbc74a7916896.json",
+      "sha256": "2cd6b39adb234eeb9f4fded92657fbf588d490796ff9c744e96deb7ba6a3a67d"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380814,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/13360829c5dcb6032fbe7e4dbd27452ae8ed04ef2b6cb23162ef2f04fab9a321.json",
+      "sha256": "a3e75ea388d8a03e1bf9a5fa57bfdd7f0497e206190ba72d82d312a366c18563"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380633,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/18acaeb739ed7d54477e8ce93bc99bb092f887edab4f86b1e005e4a55d8ad650.json",
+      "sha256": "307130c5d88b8a6a463ba4c188b05402c31d72af39e909bbae5231da8c3b457b"
+    },
+    {
+      "allocated_bytes": 339062784,
+      "bytes": 339059084,
+      "inode": 5380707,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b.state",
+      "sha256": "1f38624984110e11d2027fb6949010f74b4e0eb9541007d1da1a52fa65ec1b4b"
+    },
+    {
+      "allocated_bytes": 346165248,
+      "bytes": 346162636,
+      "inode": 5379147,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551.state",
+      "sha256": "22522d54470330f07687777440dd3cb18ecba3bf48c391f6d5f9ce2087981551"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380844,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/260069d38513b7e1a2b8cb030a014c678bf656849cc2a0180fe547259064e337.json",
+      "sha256": "ae0d284bcdb5870a0af9ecb16cd778576a8cada41b1c4820051cc07ca78ca3e3"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380618,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/26666aa349ab7afd7604ccca93925193bcee0207f9538614fc80b8905ae82c80.json",
+      "sha256": "15f8bf7654d54389737899d1ee20d7aa452044a3aefaf5f606a9364c0f18c8f2"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380692,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/28bb0ad6bf8fb15fcf920d852838b998d3e4b3f928ba7383c84301f1404e09d8.json",
+      "sha256": "32a4f27a79b1c79c1f1c6261b9350f6a302501c945af410242649331ebb16746"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380754,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/2b9fb6562593ee6bd9bed1da47c9650e58d656fbc757b4048ae5554618a15e14.json",
+      "sha256": "1726a93f8664219c56c6bdb0fed74bdaa5c1807a00e8fe93492babd8111eba0e"
+    },
+    {
+      "allocated_bytes": 324018176,
+      "bytes": 324016276,
+      "inode": 5380617,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e.state",
+      "sha256": "31c62ccee9e317e972c5229bc9d115e9357badad3d1132ea13b96ab039ef271e"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380874,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/3f21498e6ddbdb304d387064e83b45e0553ac787e3a384751b5e4636c555b753.json",
+      "sha256": "d989bbaa0e0e734f5c07a1e4ed614a4c964fe83681330ab4fe565c4f034ff106"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5375847,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/420856912d5094359158e0683b94cca51aebb2c8f16ff84f4fa12533beca761f.json",
+      "sha256": "85ba0c7b4b01485b34d19c4bbd9774a52d1f75293400a86f37bd2faf8e984343"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380784,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/54724136727096a809505974e438f871d9a15c6d6fc602907565be56b87da978.json",
+      "sha256": "2fa5481d7a934385255310a0877236ae29297dbf29aa0915db4c60d85d4f3f6a"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380739,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/5b06d55a4bc52db99c806e49ffc2b6085c349ec3d5553908f4ff8803b58b026f.json",
+      "sha256": "3349111de3444603f5102cab65a21c4f29244b63972481646c4ed6b933a5c7ff"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380904,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/601304521a8710af75277c6517140bcb0f6c75250364ac84e872fefc4319b486.json",
+      "sha256": "ba03c041b660cb596867f9ad1541a9896cf2712652db00ac5ceac37d732f1920"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380859,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/64fceeffa928efbb94c29d03df3a94710ea938e0bc93ccc8008b155c2c7bcaaf.json",
+      "sha256": "270dd85c1bef591be3e7f3f34936b251ab07ee7ae00ce1bd63a637c3d768d295"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380829,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/66b5a6b530aa1e8c97ba7a3d8ad788bb7baf75151bf0a9e818ca56affe12c183.json",
+      "sha256": "0f5051e98825cf00b4c36abd1737b4c897956e2b42f187c711ac7c6c08c046ab"
+    },
+    {
+      "allocated_bytes": 324648960,
+      "bytes": 324643060,
+      "inode": 5375833,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020.state",
+      "sha256": "682d1e9d34ffa4bd245692400bce9260286b29d3aa96983237600516f4334020"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380708,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/69441a2764ca628283caa12d0f99a22f7fc8a9ae2d20c1fa6d914996b92dcd82.json",
+      "sha256": "abd0b307bc965f292732414fa027a8d3e967f94409da8507108fb2963fed9fdf"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380948,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/739cea9ccfae41211a6868377fe84784e40726e1181703b49d5d77cb3a066cb1.json",
+      "sha256": "04b9fb2958049f31ef57e3e2744235a938749117d8a8b1d8b879ea4ac2247f2f"
+    },
+    {
+      "allocated_bytes": 345747456,
+      "bytes": 345744788,
+      "inode": 5380723,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73.state",
+      "sha256": "77bf9331c27a2738c12eb43e1e88e88cf30b9a77a957cff987d74d05035d3c73"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380799,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/786b2acabe0497c9f327dd761251d1483ae55671d48cb07320a826c6c8eb90b2.json",
+      "sha256": "023d4242dfe13a3712819be5f35a67b602a9e30c324b1a823e1174ddc0cc5bd6"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380889,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/7e930df791d5f0edf4d993e7e35cd8b2baf04707ff5187f983ee3100f4860725.json",
+      "sha256": "11747e4e5f665dcba8720132a7d19983b7f1c1e1881465165946c49829685048"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381011,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/82b79ebba5af247a7935758746354ac5829177c4d57d9444645eeb780b936838.json",
+      "sha256": "cc82d297b6c0937a339a41a7897d8b244a923d59a5858998de29cf4c9bf78241"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5379161,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/8c4bbf81dce9569f1816518db57fc0b530ab610c316fc4ccac0b2ac9e3719ba8.json",
+      "sha256": "c74966be5d9a35d22189f66a14645503063cd6129f7081c26ef2bd7bf8236cc7"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380919,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/8d304b67b8b73b11304aa2a5035b801610e4b431e8a16c202d4ff4105320ed60.json",
+      "sha256": "1c20443b08b944954904ce6b323e83e7769ca1f5b506bfd4b8cd5072f4a1b4dd"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380962,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/90b3fd00ebd4d5a957386678b1a5473468fc36787ed18fab93e4f578e8af1b90.json",
+      "sha256": "0d00b6a27e3191a4893c537e65884e5834056a34a13fbfe2f1cf1ec3947fcca8"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380769,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/92cd461412f8a63225ec42309dc7ebbba2a46854f5d52696006ee5c28fb50d47.json",
+      "sha256": "4351ec43aa0f5ae07df903ecde4c340701569df73984aee3c8b251f59463820c"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380724,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/ab4ed61c72f5a5a237d6220c5491ae707fbb615b6fe7309fddddd0e335f994c0.json",
+      "sha256": "6822d50bae99a511229a2d1cf062887ec67880468fcc7ff6ad4ab1c5221b72ce"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381026,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/ac8a53dea0eb951af81e14ae79c402a1743731c26c0cf7135edd53425dc46d4f.json",
+      "sha256": "006b0c425a9806742e60ae4e4ae6c29019b167fb4559eb93673966b345a02f31"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5381041,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/b0ebea7268091f327ff4e750bdf5ee3c715ceb96a805355fdeda1ec33e2ed0a0.json",
+      "sha256": "8bb8fe0d61d9473069176c593f492a85c446feb21c870a796c1040826de5d349"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380662,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/b4ff6f9f8e8830bf36544875d746a2582a1aadcd9eef6875450060d9016a2cd3.json",
+      "sha256": "1ea1869fae3fdc70a3ab3e62cb1367651da56356b4591b9ab5cf994e2568b7e8"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380933,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/d175ec89f6ba898f7c075a463eb6ec5df2e7ee664df3f7b2383cfe2f23e939b6.json",
+      "sha256": "716da58ccb1ecb11f1d9a3e5ec5a7da3309fbd7eb091ac9ba307dc76d55d499d"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380991,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/db57f27232f3835236fb20f3b77717ad864bb31caf807be8b03415b9fb5d250e.json",
+      "sha256": "05a2f6af2499cba5b8ce18ddca3054194a1f43158c0ec0675d767194dcbc3904"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380647,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/e0dfa6170fc61070ddb4261ff85658e0da2a5840b3a661dfe3b59b9f78986b47.json",
+      "sha256": "010e85a40620f1284c5f66fcbdfb49786a28db1edf8c20a9c4db186b85f898b1"
+    },
+    {
+      "allocated_bytes": 4096,
+      "bytes": 2367,
+      "inode": 5380977,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/f1bbe96e0911bdf66e62c968f1507dc07d307707a0c1d2db9b1de1a4c04fd8aa.json",
+      "sha256": "2867eaf7745f9882903f7fdb7cc8e613181636aa69aa7895d385da510f7e670a"
+    },
+    {
+      "allocated_bytes": 339374080,
+      "bytes": 339372480,
+      "inode": 5377531,
+      "path": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/workspace-store-v1/checkpoints/ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731.state",
+      "sha256": "ff8f8c68852b63fb00162482cc76452a06418cf67347edeb722662cf39cf0731"
+    }
+  ],
+  "selected_allocated_bytes": 4038291456,
+  "status": "PASS"
+}

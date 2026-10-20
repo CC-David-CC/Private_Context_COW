@@ -1,0 +1,16 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "math_in_saved_branch_renders",
+    "fork_retains_prefix_messages",
+    "fork_has_its_own_suffix",
+    "parent_branch_is_unchanged",
+    "clear_empties_only_selected_branch"
+  ],
+  "error": "TimeoutError('Page.wait_for_function: Timeout 30000ms exceeded.')"
+}

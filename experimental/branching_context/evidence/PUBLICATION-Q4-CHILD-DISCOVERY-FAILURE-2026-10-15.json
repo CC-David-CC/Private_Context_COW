@@ -1,0 +1,36 @@
+{
+  "audit_status": "PASS",
+  "campaign_status": "FAIL",
+  "command_exit": 1,
+  "failure": "PublicationFaultError: Expected one native child after service readiness, got []",
+  "fault_injection_executed": false,
+  "files": {
+    "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2/campaign/native-trace.jsonl": "d9b973a46d8bbf2f4365e11bc0d54422b4325a40cdd9aed7b52ea25810cb2c18",
+    "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2/campaign/pool-trace.json": "0fc4069e638ae7b8e1ef68bfb1bd652f61a2e25ded512481c121b07e9698d4c5",
+    "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2/campaign/progress.json": "0d54645143109e60a403a81b1980dd2ec555368339a104a6db9539cbb89c59b7",
+    "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2/campaign/result.json": "9ce69309331302b4d189009fdd3a583099fb386e65a4a0d0f37726df6e36ed6c",
+    "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2/campaign/writer-errors.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "forward_tokens": 0,
+  "gpu": 0,
+  "historical_pids_absent": true,
+  "history_read_succeeded": true,
+  "host": "llm-60",
+  "limitations": [
+    "Native worker existed; harness only inspected main-thread child list.",
+    "No real writer-fault or retry qualification from this attempt.",
+    "Thread-child detection requires an executed Linux regression before rerun."
+  ],
+  "loaded_file_bytes": 0,
+  "native_exit": 0,
+  "native_pid": 2710051,
+  "numerical_max_error": null,
+  "quant": "q4",
+  "retry_executed": false,
+  "run_directory": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/gpu-q4-v2",
+  "schema": "publication-child-discovery-failure-primary-v1",
+  "service_exit": 0,
+  "service_pid": 2710045,
+  "workspace_sha256": "ed1a3e693fa0be423cd5e1413f59dc08c5fccfe6052483ded62298c2dbec9c72",
+  "wrapper_exit": 1
+}

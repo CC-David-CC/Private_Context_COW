@@ -1,0 +1,132 @@
+{
+  "scope": "identical HTTP payload, first request after server restart versus warm repeats; caches remain enabled; no full-logit oracle",
+  "payload_sha256": "3e74f9728f3be5e4defe9acd50270c8674002a7c0d5ba8b94041ed7ccfec7f1b",
+  "runs": [
+    {
+      "index": 0,
+      "response": {
+        "id": "chatcmpl-6a4a8c2d612548439f758570",
+        "object": "chat.completion",
+        "created": 1791890289,
+        "model": "Context COW Qwen3.8 Q8 (GPU review)",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "BRANCH_A\n1. The text consists of twenty distinct records.\n2. Each record is labeled with a five-digit number.\n3. The numbering sequence starts at 00000.\n4. The numbering sequence ends at 00019.\n5. Every record contains identical descriptive text.\n6. The described location is an orchard.\n7. Red apples are mentioned in every record.\n8. Green pears are mentioned in every record.\n9. A blue gate is mentioned in every record.\n10. The sentence structure is repetitive across all entries.\n1"
+            },
+            "finish_reason": "length"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4660,
+          "completion_tokens": 128,
+          "total_tokens": 4788,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 4660,
+          "prompt_ms": 2447.6,
+          "prompt_per_token_ms": 0.525,
+          "prompt_per_second": 1903.9,
+          "predicted_n": 128,
+          "predicted_ms": 1721.3,
+          "predicted_per_token_ms": 13.448,
+          "predicted_per_second": 74.4,
+          "draft_n": 0,
+          "draft_n_accepted": 0
+        }
+      },
+      "wall_s": 4.17282321897801
+    },
+    {
+      "index": 1,
+      "response": {
+        "id": "chatcmpl-3c2734f505a74d0d882f3c93",
+        "object": "chat.completion",
+        "created": 1791890293,
+        "model": "Context COW Qwen3.8 Q8 (GPU review)",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "BRANCH_A\n1. The text consists of twenty distinct records.\n2. Each record is labeled with a five-digit number.\n3. The numbering sequence starts at 00000.\n4. The numbering sequence ends at 00019.\n5. Every record contains identical descriptive text.\n6. The described location is an orchard.\n7. Red apples are mentioned in every record.\n8. Green pears are mentioned in every record.\n9. A blue gate is mentioned in every record.\n10. The sentence structure is consistent across all entries.\n1"
+            },
+            "finish_reason": "length"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4660,
+          "completion_tokens": 128,
+          "total_tokens": 4788,
+          "prompt_tokens_details": {
+            "cached_tokens": 4653
+          }
+        },
+        "timings": {
+          "cache_n": 4653,
+          "prompt_n": 7,
+          "prompt_ms": 256.2,
+          "prompt_per_token_ms": 36.6,
+          "prompt_per_second": 27.3,
+          "predicted_n": 128,
+          "predicted_ms": 1227.4,
+          "predicted_per_token_ms": 9.589,
+          "predicted_per_second": 104.3,
+          "draft_n": 0,
+          "draft_n_accepted": 0
+        }
+      },
+      "wall_s": 1.4866732290247455
+    },
+    {
+      "index": 2,
+      "response": {
+        "id": "chatcmpl-ad12f500f6f64f8cbd3272fa",
+        "object": "chat.completion",
+        "created": 1791890295,
+        "model": "Context COW Qwen3.8 Q8 (GPU review)",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "BRANCH_A\n1. The text consists of twenty distinct records.\n2. Each record is labeled with a five-digit number.\n3. The numbering sequence starts at 00000.\n4. The numbering sequence ends at 00019.\n5. Every record contains identical descriptive text.\n6. The described location is an orchard.\n7. Red apples are mentioned in every record.\n8. Green pears are mentioned in every record.\n9. A blue gate is mentioned in every record.\n10. The sentence structure is consistent across all entries.\n1"
+            },
+            "finish_reason": "length"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4660,
+          "completion_tokens": 128,
+          "total_tokens": 4788,
+          "prompt_tokens_details": {
+            "cached_tokens": 4653
+          }
+        },
+        "timings": {
+          "cache_n": 4653,
+          "prompt_n": 7,
+          "prompt_ms": 284.1,
+          "prompt_per_token_ms": 40.586,
+          "prompt_per_second": 24.6,
+          "predicted_n": 128,
+          "predicted_ms": 1214.4,
+          "predicted_per_token_ms": 9.488,
+          "predicted_per_second": 105.4,
+          "draft_n": 0,
+          "draft_n_accepted": 0
+        }
+      },
+      "wall_s": 1.501445071073249
+    }
+  ],
+  "cold_vs_warm_match": false,
+  "warm_vs_warm_match": true,
+  "first_run_cached_tokens": 0
+}

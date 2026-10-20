@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/strict-SC01-restart-q8-v1/run.py", line 26, in <module>
+    t=time.monotonic();backend=StrataBackend(profile)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/strata_backend.py", line 415, in __init__
+    self.validate_execution_profile()
+  File "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/strata_backend.py", line 488, in validate_execution_profile
+    _validate_execution(self.profile,environment=self._process_environment)
+  File "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/strata_backend.py", line 80, in _validate_execution
+    raise IntegrityError('Execution environment differs from pinned Strata profile')
+context_time_travel.store.IntegrityError: Execution environment differs from pinned Strata profile

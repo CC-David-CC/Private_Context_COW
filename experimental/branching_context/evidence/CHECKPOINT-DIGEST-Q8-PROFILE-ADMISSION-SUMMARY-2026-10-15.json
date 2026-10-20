@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "status": "PREPARED_NOT_GPU_QUALIFIED",
+  "scope": "CPU-only preparation and command-construction audit for the Q8 checkpoint-digest candidate. No native process was launched, no inference/build/server was run, and no model weight bytes were hashed.",
+  "candidate_source": {
+    "api_root": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red",
+    "import_witness_path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/source-import-witness.json",
+    "import_witness_sha256": "282dbf2af31ea60ba5bfa68d10022b19ae75f387b65ddf9f47063f145270f6a8",
+    "runtime_module_count": 17,
+    "runtime_module_manifest_sha256": "c45076a06dda4d318abfab26252b916908a4f2b584b89f6ba415175f0b54774c",
+    "all_candidate_module_hashes_match_import_witness": true
+  },
+  "base_profile": {
+    "path": "/home/dflanag3/branching-g3/cow-reusable-context-runtime-20261015/derived-profile/profile.json",
+    "sha256": "11eeda86f34fa2b53b824f273a37ad743bbf6c0b88e668f3b9c03073b23a13b6",
+    "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7"
+  },
+  "candidate_profile": {
+    "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/derived-profile-candidate-v1/profile.json",
+    "sha256": "03393e0d0a155d7f0ef517d04441366e212189d403c9555ef614a2fee9501ec3",
+    "execution_profile_id": "608bae645dd91c04f01d4cb42acccf8ff8cd6d0bf4da16d5dbecef8371661da3",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "hardware_gpu_ids": [0],
+    "capacity_tokens": 98304,
+    "prefill_chunk_tokens": 8192,
+    "kv_dtype": "FP16",
+    "operator": "batched-input/native-greedy-request/per-write-sha256",
+    "generated_operator": "normal-verifier-decode",
+    "resume_contract": "identical-native-operators-v1",
+    "configuration_matches_q8_base": true
+  },
+  "model_assets": {
+    "hash_receipt_path": "/home/dflanag3/branching-g3/llm60-model-hashes.json",
+    "hash_receipt_sha256": "99dfc43d8b1cc1117f136bf1e1c22d2d7611f511e8d3642ea3be3502c43c1469",
+    "files_stat_checked": 11,
+    "q8_gguf_shards": 6,
+    "recorded_hashes_reused": 11,
+    "weight_bytes_hashed_during_admission": 0,
+    "tokenizer_identity": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "separate_tokenizer_sha256_receipt": false
+  },
+  "native_artifacts": {
+    "build_receipt_path": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/build.json",
+    "build_receipt_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "build_receipt_status": "BUILT_NOT_EXECUTED",
+    "sut": {
+      "path": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-branch",
+      "sha256": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b"
+    },
+    "oracle": {
+      "path": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-fresh",
+      "sha256": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c"
+    },
+    "execution_status_for_this_candidate": "UNRUN"
+  },
+  "effective_gpu_binding_audit": {
+    "status": "PASS_CPU_COMMAND_BINDING_ONLY",
+    "raw_evidence_path": "CHECKPOINT-DIGEST-Q8-WORKER-COMMAND-BINDING-RAW-V2-2026-10-15.json",
+    "raw_evidence_sha256": "23ad7ace35ee1f40dfb6fa18a43bc30770e0d4a36b4b1d7d9932f4425b69cb41",
+    "audit_script_path": "../scripts/audit_checkpoint_digest_q8_command_binding.py",
+    "audit_script_sha256": "c90da78a76785c6db5bd78dff8a2cd2d580c7797d2dad93d4e4afff29a90941d",
+    "candidate_strata_backend_sha256": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "pool_campaign_factory_sha256": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f",
+    "standalone_probe_source_sha256": "94e6935cddac17acca6c1d75e511ac241d394bba81707313d7fdec2e1b35968f",
+    "pool_campaign_factory": "StrataBackend(profile, gpu_id=gpu)",
+    "effective_pool_sut_appends": ["--gpu", "0"],
+    "standalone_probe_factory": "StrataBackend(profile)",
+    "standalone_probe_gpu_id_none_appends_flag": false,
+    "command_audit_receipt_directory": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-profile-audit-20261015/command-run-v3",
+    "command_audit_exit": 0,
+    "command_audit_wrapper_exit": 0,
+    "command_audit_argv_sha256": "69c5bd488e03aecab2a20a882eedfb94757ffcc961c2937c131ca765b4f9c233",
+    "scope_limit": "The audit evaluates the imported command builder only. It proves no native execution or GPU workload."
+  },
+  "profile_preparation": {
+    "script_path": "../scripts/prepare_checkpoint_digest_q8_profile.py",
+    "script_sha256": "ab3943d35622125efc59e849ae1411d99fd3170d89ea1cc0025ba6bc44c4c695",
+    "existing_profile_helper_path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/g0stage/scripts/prepare_native_request_profile.py",
+    "existing_profile_helper_sha256": "1550dcac8db5bea22445f022922720bffd1de77e9ce025b0f8c0c79db01e172e",
+    "profile_builder_command_receipt_directory": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-profile-command-20261015-v2",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "terminal_status": "COMPLETE",
+    "runner_path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "preserved_setup_failure": {
+    "attempt": "profile-command-20261015-v1",
+    "command_exit": 2,
+    "wrapper_exit": 2,
+    "terminal_status": "COMPLETE",
+    "reason": "The first script version incorrectly required --gpu 0 in the stored SUT command template; the profile intentionally leaves that flag to the pool factory's gpu_id argument.",
+    "stderr_path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-profile-command-20261015-v1/stderr.log",
+    "stderr_sha256": "91516c9893b188d371b9b040ec679e9a5f9b1527a07f6b6d8f09d8e0ab1771a9",
+    "stderr_bytes": 961,
+    "profile_helper_was_reached": false
+  },
+  "preserved_wrapper_prelaunch_refusal": {
+    "attempt": "command-audit-run-v1",
+    "reason": "The run-command wrapper correctly rejected a run directory nested under its declared checkout.",
+    "command_started": false,
+    "correction": "The successful v2 receipt uses the candidate red source directory as checkout and an external artifact directory for the run receipt."
+  },
+  "raw_admission_evidence": {
+    "path": "CHECKPOINT-DIGEST-Q8-PROFILE-ADMISSION-RAW-2026-10-15.json",
+    "sha256": "056b05ed5a965c9dc9e78db33eb65d7193a9ffe5d6f98f375f95874b627b662e",
+    "status": "PREPARED_NOT_GPU_QUALIFIED"
+  },
+  "qualification_boundary": [
+    "The candidate source has not been exercised on a GPU under the new execution profile.",
+    "The earlier Q8 browser result belongs to the base profile and older source; it is historical provenance only.",
+    "The native build receipt is marked BUILT_NOT_EXECUTED; no native binary was launched in this admission work.",
+    "No checkpoint digest-caching performance or correctness result is claimed."
+  ]
+}

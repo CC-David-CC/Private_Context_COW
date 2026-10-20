@@ -1,0 +1,22 @@
+{
+  "baseline-and-failures.zip": {
+    "bytes": 52282051,
+    "sha256": "5ab11f941f3d6ae5ccd648cb773b493d4455422bf69e0ce1b1de56ddf5c70656"
+  },
+  "frozen-runtime-sources.zip": {
+    "bytes": 609003,
+    "sha256": "79947adeea87b6bdd1c30b85612f66f3105dbf5019fa9fdacd1df01156ae68eb"
+  },
+  "raw-evidence-01.zip": {
+    "bytes": 34170454,
+    "sha256": "6b8875ccd1de7dc2c6c99ee16f9449dc34d9d442e86437e6bc44c2133bf56db9"
+  },
+  "raw-evidence-02.zip": {
+    "bytes": 33908828,
+    "sha256": "8073aed22bb6dee8aa09f83e0f070d90affe9a632c5d70235f8ea9e239de7d60"
+  },
+  "raw-evidence-03.zip": {
+    "bytes": 21307112,
+    "sha256": "c282a1bb73e3c04568c19733e25d1b16ac8b055084d5a68a04a730a5eba7aa34"
+  }
+}

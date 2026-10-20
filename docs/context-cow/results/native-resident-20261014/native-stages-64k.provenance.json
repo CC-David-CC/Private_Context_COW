@@ -1,0 +1,9 @@
+{
+  "sources": {
+    "docs\\context-cow\\results\\native-resident-20261014\\q4-timing-64k.json": "c6bcb86cf8920e0ccf85a12d08b3ced8b055b72efcb1052c4b9daf1b41b9ba2f",
+    "docs\\context-cow\\results\\native-resident-20261014\\q8-timing-64k.json": "be19b2624ca555bffbb9e22ed37c5019dbb8fc1aeb26887a873d145ea33cc70b"
+  },
+  "script_sha256": "414387af31f3b1bff4d6327ebb92b1b78ff0e46947bae0925fb027d487f5008b",
+  "matplotlib": "3.11.2",
+  "scope": "one measurement per branch, no error bars or extrapolated throughput"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "missing-materialization-classifier-fix-cpu-evidence-v1",
+  "scope": "Focused CPU regression validation for detached incomplete-checkpoint classification; GPU qualification is handled separately by the parent",
+  "branch": "work/luna-missing-materialization",
+  "prior_commit": "bd077a1dfa5912f820f15d0bd51394d906787079",
+  "files": {
+    "experimental/branching_context/scripts/run_missing_materialization_probe.py": "3364563e242ac9ef656e9eeb7491dd860cbc3c257d20877bc195c1948eca060f",
+    "experimental/branching_context/tests/implementation/test_missing_materialization_probe.py": "98b8154d5ed272617221639f0457c3dee6f1c36a8768755d4e4f61a11f396e96"
+  },
+  "cpu_validation": {
+    "host": "llm-60",
+    "command": "python -m unittest -v experimental.branching_context.tests.implementation.test_missing_materialization_probe",
+    "run_directory": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-cpu-v2/green-v1",
+    "tests_run": 22,
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "preserved_native_failure": {
+    "run": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-gpu-v2/run/probe",
+    "classification": "Pre-fix harness classifier rejected the coordinator's detached IntegrityError before source rebuild; producer passed, consumer negative-control check failed, native exits were 0.",
+    "scope": "Harness classification failure, not a native-model or product failure"
+  },
+  "current_native_run": "Root-owned v3 rerun is in progress; this evidence does not claim a GPU result."
+}

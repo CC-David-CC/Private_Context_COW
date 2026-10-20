@@ -1,0 +1,6 @@
+test_save_uses_valid_stable_identity_without_truncating_snapshot_identity (test_resident_resume_harness.ResidentHarnessTests.test_save_uses_valid_stable_identity_without_truncating_snapshot_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

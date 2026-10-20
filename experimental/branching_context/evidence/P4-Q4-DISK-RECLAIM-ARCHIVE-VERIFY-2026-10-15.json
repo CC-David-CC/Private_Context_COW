@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "execution": {
+    "host": "box-git",
+    "command": "python3 /srv/data/git/private_context_cow.evidence/verify_p4_q4_reclaim_archive_20261015.py --map /srv/data/git/private_context_cow.evidence/p4-q4-disk-reclaim-map-20261015-01.json --archive /srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar --receipt /srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar.receipt.json",
+    "exit_code": 0,
+    "scope": "read-only exact candidate-to-archive-manifest comparison; no deletion"
+  },
+  "inputs": {
+    "map_path_llm60": "/home/dflanag3/spatial-artifacts/p4-q4-disk-reclaim-map-20261015-01.json",
+    "map_path_box_git": "/srv/data/git/private_context_cow.evidence/p4-q4-disk-reclaim-map-20261015-01.json",
+    "map_bytes": 64608,
+    "map_sha256": "6fdfdbd3e6ee8eae2926d0fb316bfa7eb047eb9d15f34bf974c491ac838f2a56",
+    "verifier_sha256": "85c41dab2f7f2395d84cb4dee74083f2718b78b16dace90e05474cff04d47d98",
+    "archive_target": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar",
+    "archive_bytes": 17866475520,
+    "archive_sha256": "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+    "archive_mode": "0600",
+    "archive_nlink": 1,
+    "receiver_receipt_sha256": "fccfac724e5305dddbe19c51b4daec001ad943c632d9d4f7bb1771fbadabe52e",
+    "manifest_sha256": "dd5ddccc63d72aa976a8e4f4f6da536ccc058aedc59ac8dd81cf5b1020652e44",
+    "member_listing_sha256": "06419cf44a4a546295690addcb35776377e594f45156424a522db82a652fa361"
+  },
+  "result": {
+    "candidate_count": 9,
+    "candidate_bytes": 17789976604,
+    "largest_candidate_bytes": 2051648056,
+    "protected_metadata_file_count": 90,
+    "protected_metadata_fingerprint_sha256": "5ee8f5859e02ff3366de427744a272cd6f3c78cbd61da9dbe579cc54a17ebbe8",
+    "archive_manifest_exact_candidate_match": true,
+    "archive_manifest_exact_output_member_coverage": true,
+    "deletion_performed": false
+  }
+}

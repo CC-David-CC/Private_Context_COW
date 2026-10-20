@@ -1,0 +1,359 @@
+{
+  "schema": "cow-resolved-test-kv-discard-v1",
+  "status": "COMPLETE",
+  "authorization": "User requested old test KV cleanup and compact result retention after resolved features work.",
+  "plan_sha256": "e3da5b5e690cb41cd68c711dfb7f0444974343c6a0ba6d7b452eeb73ea5c6d4c",
+  "free_bytes_before": 4238254080,
+  "retained_reports": {
+    "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/result.json": {
+      "sha256": "60004496fcef931ea05fc31ec481feb2ee8eaa2eb548ef79690d912e7f7c223c",
+      "status": "FAIL"
+    },
+    "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/result.json": {
+      "sha256": "7366da310766ed556ed35dc009171b03e6c36428019fe17fadeb7d579f6c4107",
+      "status": "PASS"
+    },
+    "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/result.json": {
+      "sha256": "9fc4be34441e77bf990df656e729d25e8339d683382fb1a43758b5e8cc9ac199",
+      "status": "PASS"
+    }
+  },
+  "diagnosis": {
+    "failed_run": "gpu-full-v1 failed with AttributeError(\"StrataBackend object has no attribute _protocol_failed\"); checks were empty. This is a harness/backend-close error, not a numerical mismatch.",
+    "followup": "gpu-full-v2 reran GPU-STOP-001/002, PASS, native_exit=0, numerical_max_error=0.",
+    "preserve": "Keep result.json, profiles, run logs, schedules, canonical manifests/refs, and compact reports in all three roots. Only the listed .state payload pathnames are candidates.",
+    "sibling": "multi-code-contexts q8-64k-full-v1 reports PASS and numerical_max_error=0."
+  },
+  "removed": [
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/0b00ae2bca2ba858fedf698711630b7d18afb9f348e460e68e87bac584a7f3c8.state",
+      "device": 66306,
+      "inode": 4459622,
+      "bytes": 1830602232,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/0b00ae2bca2ba858fedf698711630b7d18afb9f348e460e68e87bac584a7f3c8.state",
+      "device": 66306,
+      "inode": 4459622,
+      "bytes": 1830602232,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/0b00ae2bca2ba858fedf698711630b7d18afb9f348e460e68e87bac584a7f3c8.state",
+      "device": 66306,
+      "inode": 4459622,
+      "bytes": 1830602232,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/0e93be1db413510016509ca8aaa90eade2ccb994b2eef1b0d9a15628eb520459.state",
+      "device": 66306,
+      "inode": 4459697,
+      "bytes": 2101790776,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/0e93be1db413510016509ca8aaa90eade2ccb994b2eef1b0d9a15628eb520459.state",
+      "device": 66306,
+      "inode": 4459697,
+      "bytes": 2101790776,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/0e93be1db413510016509ca8aaa90eade2ccb994b2eef1b0d9a15628eb520459.state",
+      "device": 66306,
+      "inode": 4459697,
+      "bytes": 2101790776,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/50c877f7efe6798a75b0e13ea88383a37db6cc2a649ef75f20bb2bd91212d4df.state",
+      "device": 66306,
+      "inode": 4459676,
+      "bytes": 2047881204,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/50c877f7efe6798a75b0e13ea88383a37db6cc2a649ef75f20bb2bd91212d4df.state",
+      "device": 66306,
+      "inode": 4459676,
+      "bytes": 2047881204,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/50c877f7efe6798a75b0e13ea88383a37db6cc2a649ef75f20bb2bd91212d4df.state",
+      "device": 66306,
+      "inode": 4459676,
+      "bytes": 2047881204,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/51713606d48c6684645c2814ea74cef4bf43fe7d1931f01a358c9574d22fbee8.state",
+      "device": 66306,
+      "inode": 4459709,
+      "bytes": 2101372920,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/51713606d48c6684645c2814ea74cef4bf43fe7d1931f01a358c9574d22fbee8.state",
+      "device": 66306,
+      "inode": 4459709,
+      "bytes": 2101372920,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/51713606d48c6684645c2814ea74cef4bf43fe7d1931f01a358c9574d22fbee8.state",
+      "device": 66306,
+      "inode": 4459709,
+      "bytes": 2101372920,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/69e16080533e146e4763f95e5a6e65d838d4f3706b2c73cefd44ba7a9705489e.state",
+      "device": 66306,
+      "inode": 4459721,
+      "bytes": 2101262308,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/69e16080533e146e4763f95e5a6e65d838d4f3706b2c73cefd44ba7a9705489e.state",
+      "device": 66306,
+      "inode": 4459721,
+      "bytes": 2101262308,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/69e16080533e146e4763f95e5a6e65d838d4f3706b2c73cefd44ba7a9705489e.state",
+      "device": 66306,
+      "inode": 4459721,
+      "bytes": 2101262308,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/69ff2d46c4f379fba2b15c535a0e4b4283c9d94e8bb2c89fa1b1383b62b95a4f.state",
+      "device": 66306,
+      "inode": 4459664,
+      "bytes": 2047991816,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/69ff2d46c4f379fba2b15c535a0e4b4283c9d94e8bb2c89fa1b1383b62b95a4f.state",
+      "device": 66306,
+      "inode": 4459664,
+      "bytes": 2047991816,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/69ff2d46c4f379fba2b15c535a0e4b4283c9d94e8bb2c89fa1b1383b62b95a4f.state",
+      "device": 66306,
+      "inode": 4459664,
+      "bytes": 2047991816,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/6d0a07f65ff31bcdc20fb8a722eb895332c7dc364819ba7d69f64687ae301b9f.state",
+      "device": 66306,
+      "inode": 4459673,
+      "bytes": 2047985664,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/6d0a07f65ff31bcdc20fb8a722eb895332c7dc364819ba7d69f64687ae301b9f.state",
+      "device": 66306,
+      "inode": 4459673,
+      "bytes": 2047985664,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/6d0a07f65ff31bcdc20fb8a722eb895332c7dc364819ba7d69f64687ae301b9f.state",
+      "device": 66306,
+      "inode": 4459673,
+      "bytes": 2047985664,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/7f0eecb4b80723fe37548bd4c7c6b2e35633a66621a8eb5a19ce88a1c8c7f2ce.state",
+      "device": 66306,
+      "inode": 4459633,
+      "bytes": 2047776740,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/7f0eecb4b80723fe37548bd4c7c6b2e35633a66621a8eb5a19ce88a1c8c7f2ce.state",
+      "device": 66306,
+      "inode": 4459633,
+      "bytes": 2047776740,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/7f0eecb4b80723fe37548bd4c7c6b2e35633a66621a8eb5a19ce88a1c8c7f2ce.state",
+      "device": 66306,
+      "inode": 4459633,
+      "bytes": 2047776740,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/982ca887021300460b1ae6e889e4df8eb8a51adaed21c802122f247592a06b19.state",
+      "device": 66306,
+      "inode": 4460059,
+      "bytes": 2049140920,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/a864d1f47207a3d1ad4f81182646370f60c02d654dd836bb7b4ef63789574b42.state",
+      "device": 66306,
+      "inode": 4459703,
+      "bytes": 2073683812,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/a864d1f47207a3d1ad4f81182646370f60c02d654dd836bb7b4ef63789574b42.state",
+      "device": 66306,
+      "inode": 4459703,
+      "bytes": 2073683812,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/a864d1f47207a3d1ad4f81182646370f60c02d654dd836bb7b4ef63789574b42.state",
+      "device": 66306,
+      "inode": 4459703,
+      "bytes": 2073683812,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/a938bf6c66ef4ae974c3139849cfe0c256fee8c5af395c946f4c7e17b28e91ac.state",
+      "device": 66306,
+      "inode": 4459661,
+      "bytes": 2047776740,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/a938bf6c66ef4ae974c3139849cfe0c256fee8c5af395c946f4c7e17b28e91ac.state",
+      "device": 66306,
+      "inode": 4459661,
+      "bytes": 2047776740,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/a938bf6c66ef4ae974c3139849cfe0c256fee8c5af395c946f4c7e17b28e91ac.state",
+      "device": 66306,
+      "inode": 4459661,
+      "bytes": 2047776740,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/ba1080ea4d6847234584df31f414ded5466c26ca50436dde8dd11ba084c8fec6.state",
+      "device": 66306,
+      "inode": 4459630,
+      "bytes": 1830602232,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/ba1080ea4d6847234584df31f414ded5466c26ca50436dde8dd11ba084c8fec6.state",
+      "device": 66306,
+      "inode": 4459630,
+      "bytes": 1830602232,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/ba1080ea4d6847234584df31f414ded5466c26ca50436dde8dd11ba084c8fec6.state",
+      "device": 66306,
+      "inode": 4459630,
+      "bytes": 1830602232,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/bc50f4d7e6e1eaaa9a76adb8e0a13069a3121b0f6c5eda5ec48a2f91568ab602.state",
+      "device": 66306,
+      "inode": 4459613,
+      "bytes": 1830602232,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/bc50f4d7e6e1eaaa9a76adb8e0a13069a3121b0f6c5eda5ec48a2f91568ab602.state",
+      "device": 66306,
+      "inode": 4459613,
+      "bytes": 1830602232,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/bc50f4d7e6e1eaaa9a76adb8e0a13069a3121b0f6c5eda5ec48a2f91568ab602.state",
+      "device": 66306,
+      "inode": 4459613,
+      "bytes": 1830602232,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/ca3c49f312fb7efcfdc917b3207e1e933ad1113ae9f18d895f672e4bba6a6d4b.state",
+      "device": 66306,
+      "inode": 4459715,
+      "bytes": 2101157844,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/ca3c49f312fb7efcfdc917b3207e1e933ad1113ae9f18d895f672e4bba6a6d4b.state",
+      "device": 66306,
+      "inode": 4459715,
+      "bytes": 2101157844,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/ca3c49f312fb7efcfdc917b3207e1e933ad1113ae9f18d895f672e4bba6a6d4b.state",
+      "device": 66306,
+      "inode": 4459715,
+      "bytes": 2101157844,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/f0612eadde7f5ad4871504e49ab5f500af0fcfae14ba702c74475b8abcbc6126.state",
+      "device": 66306,
+      "inode": 4459652,
+      "bytes": 2048409672,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/f0612eadde7f5ad4871504e49ab5f500af0fcfae14ba702c74475b8abcbc6126.state",
+      "device": 66306,
+      "inode": 4459652,
+      "bytes": 2048409672,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/f0612eadde7f5ad4871504e49ab5f500af0fcfae14ba702c74475b8abcbc6126.state",
+      "device": 66306,
+      "inode": 4459652,
+      "bytes": 2048409672,
+      "remaining_links": 0
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v1/store/checkpoints/fb2ed79bb75ea19985f2b510eaddf7984246343f78683cf331a57435690fe8eb.state",
+      "device": 66306,
+      "inode": 4459727,
+      "bytes": 2100426588,
+      "remaining_links": 2
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/gpu-full-v2/store/checkpoints/fb2ed79bb75ea19985f2b510eaddf7984246343f78683cf331a57435690fe8eb.state",
+      "device": 66306,
+      "inode": 4459727,
+      "bytes": 2100426588,
+      "remaining_links": 1
+    },
+    {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/store/checkpoints/fb2ed79bb75ea19985f2b510eaddf7984246343f78683cf331a57435690fe8eb.state",
+      "device": 66306,
+      "inode": 4459727,
+      "bytes": 2100426588,
+      "remaining_links": 0
+    }
+  ],
+  "expected_reclaimable_allocated_bytes": 32408563712,
+  "raw_payload_backup_claimed": false,
+  "payload_contents_hashed_for_cleanup": false,
+  "preserved": "All reports/profiles/logs, canonical history/refs/manifests, models, builds, source and current test stores.",
+  "retention_scope": "Only the exact 46 old KV payload paths; failed harness report and successful follow-up remain.",
+  "free_bytes_after": 36646801408,
+  "observed_filesystem_free_delta": 32408547328,
+  "removed_paths": 46
+}

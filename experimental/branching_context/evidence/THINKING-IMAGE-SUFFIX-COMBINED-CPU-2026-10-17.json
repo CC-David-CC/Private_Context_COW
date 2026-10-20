@@ -1,0 +1,42 @@
+{
+  "status": "COMBINED_CPU_AND_REAL_TOKENIZER_PASS_GPU_UNRUN",
+  "merge_commit": "26aeaaf38f68eb1e2cbfd44d2b738ef03acb9f37",
+  "parents": [
+    "7f7715c85f5342deb9cdd32e10aa80cffdce422d",
+    "2653a411dd8972f3bc41e958e0039cf204933a42"
+  ],
+  "profile_id": "8e7fa4f7a25a97c03adc8b2e28dd8adc203d2a8d7c8b05409a9209fe18660682",
+  "profile_sha256": "63c905b7432424e25c441d6a1acede89da4487ffc8cd232e150f354a3bd076aa",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-combined-image-suffix-source-v1",
+  "cpu": {
+    "serving_unique": 421,
+    "serving_raw_discovery": 441,
+    "api_regression_union": 101,
+    "real_model_tokenizer_cases": 16,
+    "g0": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "Counts from separate suites, not summed as disjoint"
+  },
+  "source_files_sha256": {
+    "serve/cow_vision.py": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af",
+    "serve/cow_vision_preparer.py": "27add74991d5eb0fccb3e8efb081084e622572aed0575d3ca548562d044aafc3",
+    "experimental/branching_context/src/context_time_travel/real.py": "a35f46c3a6d6106656d682086068f882d94d2365b2c90d69b54a0b9200e84263",
+    "experimental/branching_context/src/context_time_travel/execution_receipt.py": "8bfba241a7d649cc0e0fac8c86376ccd48c53226959b3decdbcb286241a2739c"
+  },
+  "gpu_status": "New image suffix on combined profile UNRUN. Old fast profile61d56af medium numerical campaign live in frozen runtime, unaffected by checkout merge.",
+  "preflight_failure": {
+    "run": "vision-owned-schedule-medium-gpu-run-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "reason": "2500MiB required headroom not met, no native process started",
+    "retry": "vision-owned-schedule-medium-gpu-run-v2 uses identical fixture/profile after verified old-vector cleanup"
+  },
+  "derived_cleanup": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-archived-medium-vectors-retirement-v1.json",
+    "status": "244346880 old derived vector bytes retired after complete private archive and manifest SHA revalidation; canonical/originals/embeddings retained",
+    "qualification": "Not a runtime eviction test"
+  },
+  "remaining": "Real combined-profile new-image CLI/HTTP/GPU flow and numerical references; no qualification promotion from CPU-only merge"
+}

@@ -1,0 +1,187 @@
+{
+  "archive_bytes": 18339840,
+  "archive_path": "/srv/data/git/private_context_cow.evidence/20261015-capacity-cpu-v1/evidence.tar",
+  "archive_sha256": "d9ee4013705eb878cd3147be4f1b043c371899c01097e02e1318d77c1ac4dfae",
+  "embedded_member_count": 2235,
+  "manifest_sha256": "57b7ecf18d40b4fc916b5e73236a9b5de23c07ac4a80a72c876646518c8ce545",
+  "payload_member_count": 2234,
+  "receiver_receipt": {
+    "archive_bytes": 18339840,
+    "manifest_sha256": "57b7ecf18d40b4fc916b5e73236a9b5de23c07ac4a80a72c876646518c8ce545",
+    "member_count": 2235,
+    "payload_member_count": 2234,
+    "status": "PASS"
+  },
+  "receiver_receipt_sha256": "e4dde542df2defb7fa19d33004065ce4ee2aead11a4fe607441e55b8eec02648",
+  "requested_source_hashes": {
+    "coordinator.py": {
+      "candidates": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v1/context_time_travel/coordinator.py",
+          "sha256": "6891e7258067332f214a6b7a9b560334914ef6f0b6fb55e2911e39b39f8f8d77"
+        },
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/coordinator.py",
+          "sha256": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/green/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v1/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v2/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-red-v1/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-green-v2/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-red-v2/src/context_time_travel/coordinator.py",
+          "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+        }
+      ],
+      "expected_prefix_or_hash": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+      "matches": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/coordinator.py",
+          "sha256": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad"
+        }
+      ],
+      "present": true
+    },
+    "pools.py": {
+      "candidates": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v1/context_time_travel/pools.py",
+          "sha256": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d"
+        },
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/pools.py",
+          "sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/green/src/context_time_travel/pools.py",
+          "sha256": "8c46ba71a660524071cad025b99c8be8b3c5f92f68d2f9e96f6e94db1e9dfce5"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v1/src/context_time_travel/pools.py",
+          "sha256": "e5b90ab1707e13ea6e7d5762fa09ef7ecc11a11f4be0e185a7f42963ab793fe1"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v2/src/context_time_travel/pools.py",
+          "sha256": "e5b90ab1707e13ea6e7d5762fa09ef7ecc11a11f4be0e185a7f42963ab793fe1"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-red-v1/src/context_time_travel/pools.py",
+          "sha256": "8c46ba71a660524071cad025b99c8be8b3c5f92f68d2f9e96f6e94db1e9dfce5"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-green-v2/src/context_time_travel/pools.py",
+          "sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-red-v2/src/context_time_travel/pools.py",
+          "sha256": "e5b90ab1707e13ea6e7d5762fa09ef7ecc11a11f4be0e185a7f42963ab793fe1"
+        }
+      ],
+      "expected_prefix_or_hash": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+      "matches": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/pools.py",
+          "sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-green-v2/src/context_time_travel/pools.py",
+          "sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+        }
+      ],
+      "present": true
+    },
+    "primary-audit.json": {
+      "candidates": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/primary-audit.json",
+          "sha256": "3173f44059fd407bed8fd82ed87481fd4940a767ee980fb5f9c9abdee4f6bf11"
+        }
+      ],
+      "expected_prefix_or_hash": "d1ca",
+      "matches": [],
+      "present": false
+    },
+    "store.py": {
+      "candidates": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v1/context_time_travel/store.py",
+          "sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+        },
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/store.py",
+          "sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/green/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v1/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-green-v2/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-red-v1/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-green-v2/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        },
+        {
+          "path": "disk-pool-ipc-20261015/growth-storage-red-v2/src/context_time_travel/store.py",
+          "sha256": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518"
+        }
+      ],
+      "expected_prefix_or_hash": "e595",
+      "matches": [
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v1/context_time_travel/store.py",
+          "sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+        },
+        {
+          "path": "branch-checkpoint-policy-20261015-v1/source-overlay-v2/context_time_travel/store.py",
+          "sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+        }
+      ],
+      "present": true
+    }
+  },
+  "status": "PASS",
+  "audit_command_exit": 0,
+  "audit_scope": "Independent archive, embedded/external manifest, receiver receipt, and requested source hash audit; no source or archive mutation.",
+  "primary_audit_expected_sha256_prefix": "d1ca",
+  "primary_audit_finding": "Initial lookup checked primary-audit.json (hash 3173f440...) by the wrong filename. Correct requested member primary-capacity-audit.json is present and its SHA256 matches d1ca.",
+  "primary_capacity_audit": {
+    "archive_path": "branch-checkpoint-policy-20261015-v1/primary-capacity-audit.json",
+    "sha256": "d1ca32dcb0b1479d4fb71540cdc8fb45cd5323768a8d4987bbbdcfdd3604f197",
+    "size": 96368,
+    "expected_prefix": "d1ca",
+    "prefix_matches": true,
+    "manifest_verified": true
+  },
+  "source_audit_record": {
+    "path": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-disk-lru-luna\\external-artifacts\\capacity-cpu-backup-audit.json",
+    "sha256": "298f50b3ef483576df8c8f1cdbb892d792f0953ee4e60f4a736c607bb577b022",
+    "index_serialization": "Parsed JSON rendered as LF; original source audit and raw archives unchanged."
+  }
+}

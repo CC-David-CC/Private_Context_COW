@@ -1,0 +1,17 @@
+{
+  "artifact_root": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1",
+  "available_disk_bytes": 19267665920,
+  "campaign_absent": true,
+  "execution": "No native helper or model was executed.",
+  "helper_sha256": "a3d2690d104f192ca0a25ee224db4b3f7fcef45d0cad4de4a491c755937cd61b",
+  "manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+  "metadata_files_rechecked": 53,
+  "minimum_available_bytes": 18253611008,
+  "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "payload_same_inode": true,
+  "payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+  "preparation_json_sha256": "27529dfecf6ccf044661b63c46086d2d58a3d705be618ee5e162ba2d75ca09e9",
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "schema": 1,
+  "status": "PASS"
+}

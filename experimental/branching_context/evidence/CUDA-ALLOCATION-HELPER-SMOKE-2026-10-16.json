@@ -1,0 +1,32 @@
+{
+  "elapsed_seconds": 1.7638140809722245,
+  "exit_code": 0,
+  "full": {
+    "driver_failures": 1,
+    "free_after": 2686976,
+    "free_before": 101372723200,
+    "held_bytes": 101370036224,
+    "last_error": 2,
+    "last_operation": "cuMemCreate",
+    "out_of_memory_failures": 1,
+    "physical_allocations": 48337,
+    "status": "full",
+    "total_bytes": 101973491712
+  },
+  "helper_sha256": "a3d2690d104f192ca0a25ee224db4b3f7fcef45d0cad4de4a491c755937cd61b",
+  "model_loaded": false,
+  "pid": 2804622,
+  "pid_absent": true,
+  "ready": {
+    "granularity": 2097152,
+    "status": "ready"
+  },
+  "released": {
+    "free_after": 101372723200,
+    "released_bytes": 101370036224,
+    "status": "released"
+  },
+  "schema": "real-cuda-pressure-helper-smoke-v1",
+  "status": "PASS",
+  "system_under_test_oom": false
+}

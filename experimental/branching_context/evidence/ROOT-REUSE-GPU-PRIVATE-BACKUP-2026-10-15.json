@@ -1,0 +1,28 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "BOX_GIT_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-root-reuse-gpu-receipts-v1/evidence.tar",
+  "archive_bytes": 5042851840,
+  "archive_sha256": "21e7649ebd0649aa9769a9ed6f4d356c6ce0d20f67a6039d2dfc99ff4b45e57a",
+  "receiver_receipt_sha256": "8bd867a08cb5760d3c8863e267e0e368e40e1abf87fe262641a7ba945cba91f9",
+  "member_count": 15801,
+  "source_bytes": 5017096924,
+  "raw_manifest_sha256": "0457e4a9ff865b2d05b33d4ea76ed67b9dda6150e9af8b176ffb38d61cfb3c89",
+  "canonical_manifest_sha256": "934bf9bd8c50e596fb08abe24f4a07b71355a8f3ed2844a2b06c731533fda956",
+  "member_listing_sha256": "4aecdccd859b0fb5e8f8176a0a0fad3508d2ffcb65f6a9759350a60d1faea78b",
+  "included": [
+    "Completed Q4 tiny, medium and combined-source 8K root reuse campaigns",
+    "Completed Q8 tiny and combined-source 8K root reuse campaigns",
+    "Receipt-eviction recovery and checkpoint-operation receipt source/tests/runs, including retained RED/setup failures",
+    "Frozen combined9eaf source and CPU/HTTP/G0 qualification",
+    "Three independent root-reuse primary audit JSON files"
+  ],
+  "excluded": ["Later read-only timing attribution", "Active missing-source rebuild work"],
+  "verification": "Receiver validated every regular tar member against embedded manifest; primary independently rehashed final archive and receiver receipt on box-git",
+  "stream_command_exit": 0,
+  "stream_wrapper_exit": 0,
+  "permissions": {"directory": "0700", "archive": "0600", "receipt": "0600"},
+  "originals_retained": true,
+  "local_archive_spool": false,
+  "publication": "Private box-git only; no GitHub or Windows large-archive transfer"
+}

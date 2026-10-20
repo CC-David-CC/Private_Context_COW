@@ -1,0 +1,14 @@
+{
+  "archive_bytes": 17814958080,
+  "archive_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "final_bytes": 17814958080,
+  "final_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "manifest_sha256": "31787d8bc498ee35a4aeeab3756e1712d473ec99fe17227b7657722b005c7111",
+  "member_count": 165,
+  "member_listing_sha256": "77dfa83047605f111c924243d1e7dba0ac5a9b93e04512f5bc0c332258693ced",
+  "partial_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "status": "PASS",
+  "target": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-resident-return/p4-q4-resident-return-20261015.tar",
+  "verification": "every regular tar member matches the embedded sorted input manifest",
+  "verified_utc": "2026-10-15T08:22:37Z"
+}

@@ -1,0 +1,11 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_ZN6strata4core49_GLOBAL__N__21170e38_16_branch_digest_cu_cbfcef5510hash_pagesEPKPKhmmPNS0_12BranchDigestE' for 'sm_120'
+ptxas info    : Function properties for _ZN6strata4core49_GLOBAL__N__21170e38_16_branch_digest_cu_cbfcef5510hash_pagesEPKPKhmmPNS0_12BranchDigestE
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 48 registers, used 0 barriers
+ptxas info    : Compile time = 53.194 ms
+ptxas info    : Compiling entry function '_ZN6strata4core49_GLOBAL__N__21170e38_16_branch_digest_cu_cbfcef5510hash_tilesEPKhmmPNS0_12BranchDigestE' for 'sm_120'
+ptxas info    : Function properties for _ZN6strata4core49_GLOBAL__N__21170e38_16_branch_digest_cu_cbfcef5510hash_tilesEPKhmmPNS0_12BranchDigestE
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 0 barriers
+ptxas info    : Compile time = 47.831 ms

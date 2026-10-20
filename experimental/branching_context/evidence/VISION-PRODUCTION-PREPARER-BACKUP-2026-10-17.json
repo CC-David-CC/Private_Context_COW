@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-production-preparer-collected-v1/evidence.tar.gz",
+    "bytes": 463094309,
+    "sha256": "30b1c18e1ff7144ee44602b2ca1d890f84d25d1dc77e4508f31af9c1d6d979d2"
+  },
+  "members": 310,
+  "verification": "Every regular archive member sequentially SHA-256 checked after compression",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-production-preparer-v1/evidence.tar.gz",
+  "destination_sha256": "30b1c18e1ff7144ee44602b2ca1d890f84d25d1dc77e4508f31af9c1d6d979d2",
+  "destination_bytes": 463094309
+}

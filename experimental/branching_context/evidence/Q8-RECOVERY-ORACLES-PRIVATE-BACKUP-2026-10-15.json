@@ -1,0 +1,24 @@
+{
+  "status": "BOX_GIT_RECEIVER_VERIFIED",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-q8-pressure-q4-revisit-oracle-v1/",
+  "archive_bytes": 5085143040,
+  "archive_sha256": "29ea6b1d0a74269b4dafe3f4b90c8facdaab2d8158c5ae3a57eaee58569e24dd",
+  "manifest_sha256": "9589948010d3c09de39cb68bdac7f53d305bf13ca99de2ed4e8e2b2832c16c35",
+  "verified_regular_files": 246,
+  "verified_source_bytes": 5084643395,
+  "tar_members_including_manifest": 247,
+  "receiver_receipt_raw_sha256": "56534e3faf758cb20f42fa71fffbbd0b1756b860981ad755ec96189149d264b1",
+  "sender_receipt_raw_sha256": "bba690f2641333825c4743785e773ea4213ab126ad8e10a3758377f39986bab7",
+  "scope": [
+    "Terminal Q8 pressure numerical audit, nine fresh references, raw vectors and command/wrapper receipts",
+    "Terminal Q4 restored-revisit numerical audit, independent fresh frontiers and receipts",
+    "Q4/Q8 profile and fixture identities, selected audit scripts and tests",
+    "Q8 HTTP recovery Store, outputs and receipts, added only after PASS and all recorded service/native processes exited"
+  ],
+  "excluded": ["Live jobs", "CLI work", "Unrelated artifacts"],
+  "verification": "Receiver checked every manifested member. Primary independently read receiver receipt, verified its raw SHA and archive byte size.",
+  "permissions": {"directory": "0700", "files": "0600"},
+  "transfer": "Direct llm-60 to box-git; no local archive on Windows or llm-60",
+  "cleanup": "No files removed",
+  "publication": "Private box-git only"
+}

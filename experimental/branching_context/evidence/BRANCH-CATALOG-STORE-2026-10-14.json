@@ -1,0 +1,28 @@
+{
+  "host": "dflanag3-B650-GAMING-X-AX",
+  "python": "Python 3.12.3",
+  "gpu_or_inference": "not used",
+  "red": {
+    "command": "PYTHONPATH=red python3 -m unittest -v tests.implementation.test_store_branch_catalog.StoreBranchCatalogTests.test_shared_ancestry_is_hash_validated_once_per_catalog_query",
+    "result": "FAIL as expected: actual snapshot_reads delta 128 versus expected 4 for 32 branches sharing 4 unique ancestry nodes",
+    "log": "red-scale.log"
+  },
+  "green": {
+    "command": "PYTHONPATH=src python3 -m unittest discover -s tests/implementation -p test_store_branch_catalog.py -v",
+    "result": "9 passed",
+    "log": "/home/dflanag3/branching-g3/store-branch-catalog-opt-20261014/green-supplemental.log"
+  },
+  "store_regression": {
+    "command": "PYTHONPATH=src python3 -m unittest discover -s tests -p test_logical_store.py -v",
+    "result": "32 passed",
+    "log": "/home/dflanag3/branching-g3/store-branch-catalog-opt-20261014/green-store32.log"
+  },
+  "g0": {
+    "command": "python3 scripts/verify.py --gate G0 --no-write",
+    "result": "PASS 51, failures 0, skips 0",
+    "log": "/home/dflanag3/branching-g3/store-branch-catalog-opt-20261014/green-G0.log"
+  },
+  "red_source_commit": "7bad2c3fd59afb2910fd1118c01b627c6890d43a",
+  "green_store_blob": "c852d905dc30fc98ff99d4a16129560f3f835e50",
+  "green_test_blob": "add6c9f722865911e83209592a37f75c9beb077b"
+}

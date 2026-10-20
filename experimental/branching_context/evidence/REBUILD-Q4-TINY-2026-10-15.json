@@ -1,0 +1,99 @@
+{
+  "schema": "cow-primary-gpu-audit-v1",
+  "status": "PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "scope": "Bounded Q4 canonical-history reconstruction after deliberate numerical eviction; not exact restore or cumulative G1-G5",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/missing-materialization-probe-20261015-gpu-v3",
+  "result_sha256": "68c1f2331279c7793dc3dc61c9cc4ef6e168b2858d5d0badb11af0232f1fe97e",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "source_history_tokens": 140,
+  "suffix_tokens": 4,
+  "producer_output_tokens": 8,
+  "output_tokens": 8,
+  "source_recomputation": {
+    "controller_sha256": "207dc7b8d35b939bc8f24e6ec9ef0f7884e92fc591904579cbe1f65b2a83dbf6",
+    "durable": false,
+    "prefix_consumed_tokens": 140,
+    "prefix_forward_tokens": 140,
+    "prefix_history_tokens": 140,
+    "prior_computation_preserved": false,
+    "schedule_sha256": "b14f724230f889b32d44d8f3bc067d8f0fa150c19f859fdde97561ca4a16716c",
+    "seconds": 0.8445377540774643,
+    "snapshot": "78a8a9e9ba9d83bef718c91587414dd3ddb9867b84b743f6669cce5bdfb72df0",
+    "source_kind": "recomputed-history"
+  },
+  "work_split": {
+    "output_tokens": 8,
+    "prefix_consumed_tokens": 140,
+    "prefix_forward_tokens": 140,
+    "prefix_history_tokens": 140,
+    "suffix_and_output_forward_tokens": 12,
+    "suffix_tokens": 4,
+    "total_forward_tokens": 152
+  },
+  "exact_full_vector_comparisons": 2,
+  "logits_per_vector": 248320,
+  "numerical_max_error": 0,
+  "tokens_exact": true,
+  "tested_greedy_controller_exact": true,
+  "source_history_controller_and_receipt_preserved": true,
+  "strict_restore_rejected_without_forward": true,
+  "incomplete_checkpoint_rejected_without_native_work": true,
+  "removed_checkpoint_files": 4,
+  "removed_checkpoint_bytes": 245129355,
+  "process_ids": {
+    "producer": {
+      "python": 2590404,
+      "native": {
+        "0": 2590411
+      }
+    },
+    "consumer": {
+      "python": 2591003,
+      "native": {
+        "0": 2591010
+      }
+    }
+  },
+  "oracle_pid": 2591261,
+  "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+  "execution_profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_binary_sha256": {
+    "strata-batched-branch": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+    "strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+  },
+  "runtime_source_sha256": {
+    "context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "context_time_travel/coordinator.py": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af",
+    "context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "context_time_travel/pools.py": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "context_time_travel/real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "context_time_travel/store.py": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "harness_sha256": "3364563e242ac9ef656e9eeb7491dd860cbc3c257d20877bc195c1948eca060f",
+  "limitations": [
+    "Prefix/final vector sampling only, not every generated frontier.",
+    "Harness uses canonical Store.fork for branch setup; it does not qualify coordinator fork/rewind after eviction.",
+    "Reconstruction computes the whole saved history under a new batch arrangement; old numerical computation is intentionally lost.",
+    "Greedy tiny Q4 fixture only; no Q8, larger-context, true ENOSPC/crash/power-loss or broad sampler qualification."
+  ],
+  "primary_audit_sha256": "e450d5a4709a102cdf0e83aea019517c54ed846234a5bfa38681f0597fa49dc1",
+  "original_gates_qualified": false
+}

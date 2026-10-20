@@ -1,0 +1,66 @@
+{
+  "all_four_pids_absent": true,
+  "branch": "Q4Crash418ce81f8ef34358",
+  "canonical_tokens_and_greedy_controller_progress_readback": true,
+  "checkpoint_payload_sha256": "fb5370aba6d7c7466801714e6976308b94e797e01556e90f81a38e90e589b665",
+  "checkpoint_snapshot": "51258eeaaf02f33aa11e8c4d8aae93f7976200bd08449cdd293e17c25690baaf",
+  "command_exit": 0,
+  "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+  "files": {
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v2/campaign/commit-witness.json": "c159826ff9e7817a77b156e93e50cd6016913b11eeb063ab697201bc30352210",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v2/campaign/native-trace-crash.jsonl": "218e48fecefeb52c0ec5348a6686f1163f9746736efbbcf2d7e42bfef8abc16b",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v2/campaign/native-trace-restart.jsonl": "5fd1bf8df3fe911b1f0fc152cbe37579c0e407fda6784f5ef0cf3281c220a5fc",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v2/campaign/result.json": "8e90b7e5dc47397c8577cf833661e916ab9a570644dd1599342f7f26a9e96c86",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1.json": "41aebe32970045edecd9cadee90ebd51433448fea96a6d3c1bcc6a9f3335d8e9",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/380299b7f0153725b8c024d87e908afa1d89eefbaa1789c7f196fd5e55159f0c.state": "380299b7f0153725b8c024d87e908afa1d89eefbaa1789c7f196fd5e55159f0c",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810.state": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/51258eeaaf02f33aa11e8c4d8aae93f7976200bd08449cdd293e17c25690baaf.json": "9d75e01ce821e10a32384e9a5dc3d6785cfd8ef44c49224414ee5079e819d74e",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.json": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/b99b603d0212a257c80d0d2dca1e46a862193454c825c818c3e473ef2c6f21cb.json": "c659af329e59a80e6838e0eb160bf3b134cc096ff9d1288152381c9f050fb98f",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/bcf65b9b898243bd9a36e3a96479d042fb0fbd892fb1f9630ec774ea2bdc82e7.state": "bcf65b9b898243bd9a36e3a96479d042fb0fbd892fb1f9630ec774ea2bdc82e7",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/checkpoints/fb5370aba6d7c7466801714e6976308b94e797e01556e90f81a38e90e589b665.state": "fb5370aba6d7c7466801714e6976308b94e797e01556e90f81a38e90e589b665",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/objects/226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1.json": "226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/objects/51258eeaaf02f33aa11e8c4d8aae93f7976200bd08449cdd293e17c25690baaf.json": "51258eeaaf02f33aa11e8c4d8aae93f7976200bd08449cdd293e17c25690baaf",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/objects/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.json": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+    "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/input-store-v1/objects/b99b603d0212a257c80d0d2dca1e46a862193454c825c818c3e473ef2c6f21cb.json": "b99b603d0212a257c80d0d2dca1e46a862193454c825c818c3e473ef2c6f21cb"
+  },
+  "fixture": {
+    "following_outputs": 4,
+    "lost_ack_outputs": 16,
+    "saved_prefix_tokens": 8000
+  },
+  "following_native_state_load_bytes": 327416632,
+  "initial_http_exit": -9,
+  "initial_native_exit": null,
+  "initial_native_state_at_first_observation": "zombie",
+  "limits": [
+    "No fresh numerical oracle or every-frontier comparison in this lifecycle experiment",
+    "Process kill, not power loss; one postcommit crash point, greedy controller only",
+    "Initial native child was observed exited/zombie; its exact wait status was not retained, later all PIDs are absent",
+    "No peak RAM/VRAM measurement or isolated speed benchmark",
+    "Cumulative G1-G5 remains unqualified"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "native_forward_tokens": {
+    "after_restart": 4,
+    "before_crash": 17
+  },
+  "native_prefill_tokens": 0,
+  "numerical_max_error": null,
+  "operation_id": "op-q4-crash-418ce81f8ef34358b4d52120a5e0ac8f",
+  "original_source_full_bytes_unchanged": true,
+  "process_ids": [
+    2752221,
+    2752227,
+    2752747,
+    2752753
+  ],
+  "raw_native_trace_replay_prefix_line_count": 1,
+  "replay_native_trace_unchanged": true,
+  "replay_same_receipt_no_second_move": true,
+  "restarted_http_exit": 0,
+  "restarted_native_exit": 0,
+  "schema": "q4-postcommit-restart-primary-v1",
+  "status": "FOCUSED-PASS",
+  "wrapper_exit": 0
+}

@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_L00_PASS_HOST_ADMISSION_NEGATIVE",
+  "cases": {
+    "L00.01": "PASS",
+    "L00.02": "PASS",
+    "L00.03": "PASS",
+    "L00.04": "PASS"
+  },
+  "branchwrite_commit": "be89e1b4f5274f68e2e3bac4e7aaad8a66f2a8a4",
+  "cow_runtime_source_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "hosts": {
+    "client": "llm-49",
+    "inference": "llm-60",
+    "observed_tool_host": {
+      "hostname": "r4090",
+      "uid": 1000,
+      "euid": 1000,
+      "gid": 1000
+    }
+  },
+  "whole_cli_seconds": 49.48180784203578,
+  "model_calls": 4,
+  "native_output_tokens": 980,
+  "native_requests": 4,
+  "native_stats": {
+    "forward_tokens": 12890,
+    "prefill_tokens": 11910,
+    "prefill_chunks": 26,
+    "sampling_calls": 980,
+    "decode_timed_tokens": 980,
+    "captures": 5,
+    "restores": 9,
+    "integrity_mismatches": 0,
+    "written_file_bytes": 2140894584,
+    "loaded_file_bytes": 0,
+    "copied_bytes": 301989888,
+    "live_bytes": 679477248,
+    "snapshot_peak_payload_capacity_bytes": 595519632,
+    "host_heap_allocated_bytes": 3838208384
+  },
+  "native_command_counts": {
+    "stats": 2044,
+    "vision_info": 1005,
+    "reset": 1,
+    "feed": 5,
+    "capture": 5,
+    "pages": 5,
+    "logits": 5,
+    "<event>": 986,
+    "restore": 9,
+    "write": 5,
+    "ram_clear": 5,
+    "sample_mask_image_dry_v1": 980,
+    "decode": 980,
+    "quit": 1
+  },
+  "source_profile_sha256": "2370721cba501f5091a42136138282fd125ea674362618e7bcb12331b0ad2ce5",
+  "execution_profile_id": "b8102d412bd1eb5957446832549ceda89277fd10dd6a7bddabd13eef041ca0a6",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_build_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+  "grammar_sha256": "b0cc56aac79905f43802d723e7f0a27efe2e15a25fd029e7d48a9c35cf1c40c7",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "cpu": {
+    "client_pass": 84,
+    "server_pass": 80,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "g0": {
+    "gates": [
+      {
+        "errors": 0,
+        "expected_failures": 0,
+        "failure_ids": [],
+        "failures": 0,
+        "found_tests": 51,
+        "gate": "G0",
+        "required_cases": 0,
+        "skipped": 0,
+        "skipped_ids": [],
+        "status": "PASS",
+        "test_count": 51,
+        "unexpected_successes": 0
+      }
+    ],
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "requested": "G0",
+    "schema": 1,
+    "source_tree_sha256": "2ab2bd45c92e891888433b184ba1e5a1a9026d6a9c336fcb5f5d8aba1bf107cf",
+    "status": "PASS",
+    "timestamp_utc": "2026-10-18T20:33:29.257116+00:00",
+    "tool": "scripts/verify.py"
+  },
+  "startup_seconds": 22.442383866058663,
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "limits": [
+    "Mismatch is a real CLI admission rejection before inference, not model recovery on a wrong machine.",
+    "One host/account and tiny task; no VC/G certification, numerical oracle or native restart.",
+    "Initial audit incorrectly required full os-release rather than requested release fields; original error retained; no model rerun."
+  ],
+  "native_checkpoint_payloads_inventoried_not_archived": [
+    {
+      "path": "checkpoints/2be43036ad9c48516efdae6468d9e8b5210519b33262cffe256939b4ccd07498.state",
+      "bytes": 455745376,
+      "sha256": "2be43036ad9c48516efdae6468d9e8b5210519b33262cffe256939b4ccd07498"
+    },
+    {
+      "path": "checkpoints/44805aecd7e8ea739633bebe9685212af218ed8103a872660cf72eb8fe55e292.state",
+      "bytes": 442896308,
+      "sha256": "44805aecd7e8ea739633bebe9685212af218ed8103a872660cf72eb8fe55e292"
+    },
+    {
+      "path": "checkpoints/718fea72162dc653263ebd36bd2790751b0ed6933dece9d3aabb3497e90a7070.state",
+      "bytes": 428375812,
+      "sha256": "718fea72162dc653263ebd36bd2790751b0ed6933dece9d3aabb3497e90a7070"
+    },
+    {
+      "path": "checkpoints/6af64b46d690b36abb78f6356cd85868386ef5fd5fa5e8e4273eb4eb9f00056b.state",
+      "bytes": 415741816,
+      "sha256": "6af64b46d690b36abb78f6356cd85868386ef5fd5fa5e8e4273eb4eb9f00056b"
+    },
+    {
+      "path": "checkpoints/38dced9d5348e67320628dddfa8838ae500c9ec3d3a5c58f60515d7604f5a700.state",
+      "bytes": 403101672,
+      "sha256": "38dced9d5348e67320628dddfa8838ae500c9ec3d3a5c58f60515d7604f5a700"
+    }
+  ],
+  "next": "Run L01 streams/pipelines and binary feedback, then L02/L03. No L01 run yet.",
+  "backup": {
+    "status": "PRIVATE_ARCHIVE_ALL_MASTER_FILES_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-host-bound-l00-q4-v1/evidence.tar.gz",
+    "sha256": "4f641ac96c12a27fcb1cffa0015c6a170e96aca2192b29fca3da2dba45f11723",
+    "bytes": 4527996,
+    "master_data_files": 71,
+    "nested_client_data_files_preverified": 204,
+    "github_touched": false
+  },
+  "cleanup": {
+    "status": "EPHEMERAL_AUTHORIZATION_REVOKED",
+    "original_sha256": "7257012db0db303a38b1462cbb6ff16fc0f1ed3cf114575bb07dca34cf713e29",
+    "restored_sha256": "7257012db0db303a38b1462cbb6ff16fc0f1ed3cf114575bb07dca34cf713e29",
+    "server_pid_absent": true,
+    "native_pid_absent": true,
+    "credentials_removed": true
+  },
+  "retirement": {
+    "status": "DERIVED_CHECKPOINTS_RETIRED_CANONICAL_UNCHANGED",
+    "before": {
+      "file_bytes": 2146900270,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 0,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 5
+    },
+    "after": {
+      "file_bytes": 0,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 10,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 0
+    },
+    "canonical_files": 24,
+    "canonical_unchanged": true,
+    "verified_private_sha256": "4f641ac96c12a27fcb1cffa0015c6a170e96aca2192b29fca3da2dba45f11723",
+    "qualification": "HOUSEKEEPING_NOT_ACCEPTANCE_TEST"
+  },
+  "mismatch_scope": "CLI admission rejects before HTTP/model work; not a model reasoning attempt on a wrong host."
+}

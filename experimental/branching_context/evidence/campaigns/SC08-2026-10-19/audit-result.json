@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "changed": [
+    "branchwrite/coding_cli.py"
+  ],
+  "tests": [
+    {
+      "pattern": "test_connection_admission.py",
+      "returncode": 0
+    },
+    {
+      "pattern": "test_coding_launcher.py",
+      "returncode": 0
+    }
+  ],
+  "seed": 7417,
+  "generated_cases": 64,
+  "scope": "Functional code audit, not a model numerical gate."
+}

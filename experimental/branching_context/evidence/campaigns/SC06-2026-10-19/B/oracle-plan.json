@@ -1,0 +1,9 @@
+{
+  "seed": 7426,
+  "auditor_sha256": "ef50d82377f3aeda937d87733c8fd88f3e47a15853a41c4f04eefcb322233c3b",
+  "generator_sha256": "8ba90bd2ea225d8f0ba971aa1d4a4b0bc22d8fcffafa8ccd73805f56909caae5",
+  "visible_methods": 26,
+  "generated_cases": 64,
+  "editable": "envconfig.py",
+  "parent_snapshot": "cd1e7de2908264a8dfc2913d5e0a5d12a38d4fc0c6f8a9188d201b6fe6ca5dec"
+}

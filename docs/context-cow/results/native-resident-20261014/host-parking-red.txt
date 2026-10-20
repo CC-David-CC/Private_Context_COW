@@ -1,0 +1,35 @@
+test_host_parking_preserves_history_controller_reference_and_frontier (test_host_checkpoint_parking.HostCheckpointParkingTests.test_host_parking_preserves_history_controller_reference_and_frontier) ... ERROR
+test_failed_serialization_or_admission_leaves_hot_image_and_reference (test_host_checkpoint_parking.HostCheckpointParkingTests.test_failed_serialization_or_admission_leaves_hot_image_and_reference) ... ERROR
+test_missing_work_witness_and_replay_are_rejected (test_host_checkpoint_parking.HostCheckpointParkingTests.test_missing_work_witness_and_replay_are_rejected) ... ERROR
+
+======================================================================
+ERROR: test_host_parking_preserves_history_controller_reference_and_frontier (test_host_checkpoint_parking.HostCheckpointParkingTests.test_host_parking_preserves_history_controller_reference_and_frontier)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_host_checkpoint_parking.py", line 34, in test_host_parking_preserves_history_controller_reference_and_frontier
+    receipt = self.model.park_checkpoint(self.sid)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'park_checkpoint'. Did you mean: '_load_checkpoint'?
+
+======================================================================
+ERROR: test_failed_serialization_or_admission_leaves_hot_image_and_reference (test_host_checkpoint_parking.HostCheckpointParkingTests.test_failed_serialization_or_admission_leaves_hot_image_and_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_host_checkpoint_parking.py", line 49, in test_failed_serialization_or_admission_leaves_hot_image_and_reference
+    with self.assertRaises(OSError): self.model.park_checkpoint(self.sid)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'park_checkpoint'. Did you mean: '_load_checkpoint'?
+
+======================================================================
+ERROR: test_missing_work_witness_and_replay_are_rejected (test_host_checkpoint_parking.HostCheckpointParkingTests.test_missing_work_witness_and_replay_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_host_checkpoint_parking.py", line 59, in test_missing_work_witness_and_replay_are_rejected
+    with self.assertRaises(IntegrityError): self.model.park_checkpoint(self.sid)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'park_checkpoint'. Did you mean: '_load_checkpoint'?
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.027s
+
+FAILED (errors=3)

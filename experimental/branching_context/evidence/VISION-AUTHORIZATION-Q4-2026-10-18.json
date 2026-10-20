@@ -1,0 +1,147 @@
+{
+  "G0": {
+    "executed": 51,
+    "failed": 0,
+    "passed": 51,
+    "skipped": 0
+  },
+  "audit": {
+    "comparisons": [
+      {
+        "actual": {
+          "bytes": 993280,
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/reference/prefix.f32",
+          "sha256": "b368b290e3329729b255f7eb5c259124578eb964bb5879c45047feefd8c23803"
+        },
+        "bytes_identical": true,
+        "expected": {
+          "bytes": 993280,
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/11c3155be0f2fa48b14b2bf61c247fde9804e951fdfc1b29256cc63f83c6ed2d.f32",
+          "sha256": "b368b290e3329729b255f7eb5c259124578eb964bb5879c45047feefd8c23803"
+        },
+        "label": "authorized-prefix",
+        "max_abs_error": 0.0,
+        "values": 248320
+      },
+      {
+        "actual": {
+          "bytes": 993280,
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/reference/final.f32",
+          "sha256": "f201a54316032a6cbc4433ce8488697090f6c05010a52ce00782219840193aa0"
+        },
+        "bytes_identical": true,
+        "expected": {
+          "bytes": 993280,
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/36d6edf9cc532bbc9348a0392570de5baeff916e849d91feee310da70f3d713b.f32",
+          "sha256": "f201a54316032a6cbc4433ce8488697090f6c05010a52ce00782219840193aa0"
+        },
+        "label": "post-denial-final",
+        "max_abs_error": 0.0,
+        "values": 248320
+      }
+    ],
+    "controller": "Exact retained canonical record equality; not an independent controller replay.",
+    "denial_ids": [
+      "VA-001-wrong-key-before-body",
+      "VA-002-foreign-origin-before-body",
+      "VA-003-unknown-namespace-before-body",
+      "VA-004-digest-mismatch",
+      "VA-005-truncated-image",
+      "VA-006-image-not-granted-to-namespace",
+      "VA-007-nine-placements"
+    ],
+    "duplicate_forward_tokens": 0,
+    "encoder_calls": 1,
+    "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "generated_tokens": 45,
+    "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+    "limits": [
+      "Per-denial inventory assertions executed live; intermediate inventories not separately retained, so this audit cannot independently re-prove them.",
+      "Reference full tokens are forced: not independent greedy token-choice/grammar/RNG replay.",
+      "Not multi-tenant isolation, process restart, every-token oracle, Q8, full VC09 or original G1-G5 certification."
+    ],
+    "live_result": {
+      "bytes": 4926949,
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/result.json",
+      "sha256": "dd4711e33067b7ed2814f0e693ea3c691e52cfaf7382a7d1cb20a7b10487fb09"
+    },
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "native_forward_tokens": 424,
+    "parent_payload": {
+      "bytes": 128465832,
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-authorization-gpu-v2/store/checkpoints/a68bfa693967913491b5c9b1cc357178a5afaf5d60e43b0455db3f54ee04c2d8.state",
+      "sha256": "a68bfa693967913491b5c9b1cc357178a5afaf5d60e43b0455db3f54ee04c2d8"
+    },
+    "pids_absent": [
+      295776,
+      295833,
+      295938
+    ],
+    "prefix_cells": 360,
+    "schema": 1,
+    "scope": "Existing Q4 single-key authorized namespaces; forced-token fresh prefix/final reference, no new inference.",
+    "status": "OFFLINE_AUTHORIZATION_AUDIT_PASS",
+    "suffix_tokens": 19,
+    "weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+  },
+  "cpu": {
+    "executed": 18,
+    "failed": 0,
+    "passed": 18,
+    "skipped": 0,
+    "test_ids": [
+      "test_effects_cannot_be_hidden_by_an_expected_http_error (test_vision_authorization_probe.VisionAuthorizationProbeTests.test_effects_cannot_be_hidden_by_an_expected_http_error)",
+      "test_exact_status_and_expected_guard_reason_are_required (test_vision_authorization_probe.VisionAuthorizationProbeTests.test_exact_status_and_expected_guard_reason_are_required)",
+      "test_real_http_exchange_sends_body_only_when_requested (test_vision_authorization_probe.VisionAuthorizationProbeTests.test_real_http_exchange_sends_body_only_when_requested)",
+      "test_denial_requires_guard_reason_and_no_effect_claim (test_vision_authorization_audit.VisionAuthorizationAuditTests.test_denial_requires_guard_reason_and_no_effect_claim)",
+      "test_exact_finite_vectors_are_required (test_vision_authorization_audit.VisionAuthorizationAuditTests.test_exact_finite_vectors_are_required)",
+      "test_successful_positioned_receipts_must_cover_every_consumed_token (test_vision_authorization_audit.VisionAuthorizationAuditTests.test_successful_positioned_receipts_must_cover_every_consumed_token)",
+      "test_authentication_and_origin_reject_before_reading_body (serve.test_cow_vision_http.CowVisionHTTPTests.test_authentication_and_origin_reject_before_reading_body)",
+      "test_capacity_refusal_happens_before_body_read (serve.test_cow_vision_http.CowVisionHTTPTests.test_capacity_refusal_happens_before_body_read)",
+      "test_conflicting_duplicate_headers_reject_before_reading (serve.test_cow_vision_http.CowVisionHTTPTests.test_conflicting_duplicate_headers_reject_before_reading)",
+      "test_digest_mismatch_and_invalid_image_publish_nothing (serve.test_cow_vision_http.CowVisionHTTPTests.test_digest_mismatch_and_invalid_image_publish_nothing)",
+      "test_disconnect_during_initial_encoding_never_publishes_a_root (serve.test_cow_vision_http.CowVisionHTTPTests.test_disconnect_during_initial_encoding_never_publishes_a_root)",
+      "test_invalid_headers_and_query_reject_before_reading_body (serve.test_cow_vision_http.CowVisionHTTPTests.test_invalid_headers_and_query_reject_before_reading_body)",
+      "test_restore_only_server_has_no_upload_endpoint (serve.test_cow_vision_http.CowVisionHTTPTests.test_restore_only_server_has_no_upload_endpoint)",
+      "test_truncated_body_releases_reservation_and_keeps_store_unchanged (serve.test_cow_vision_http.CowVisionHTTPTests.test_truncated_body_releases_reservation_and_keeps_store_unchanged)",
+      "test_unknown_namespace_rejects_before_reading_body (serve.test_cow_vision_http.CowVisionHTTPTests.test_unknown_namespace_rejects_before_reading_body)",
+      "test_upload_is_content_addressed_and_does_not_encode_or_forward (serve.test_cow_vision_http.CowVisionHTTPTests.test_upload_is_content_addressed_and_does_not_encode_or_forward)",
+      "test_upload_requires_explicit_server_key_even_on_loopback (serve.test_cow_vision_http.CowVisionHTTPTests.test_upload_requires_explicit_server_key_even_on_loopback)",
+      "test_upload_then_context_fork_and_question_uses_existing_routes (serve.test_cow_vision_http.CowVisionHTTPTests.test_upload_then_context_fork_and_question_uses_existing_routes)"
+    ]
+  },
+  "gpu": {
+    "comparisons": 2,
+    "controller": "Stored canonical/result equality; no independent sampler/controller replay",
+    "executed_denials": 7,
+    "independent_reference": "fresh-no-checkpoints, forced observed continuation tokens",
+    "logit_values_each": 248320,
+    "max_abs_error": 0,
+    "new_runs_this_turn": 0
+  },
+  "limits": [
+    "Per-denial inventory assertions executed live; intermediate inventories not separately retained, so this audit cannot independently re-prove them.",
+    "Reference full tokens are forced: not independent greedy token-choice/grammar/RNG replay.",
+    "Not multi-tenant isolation, process restart, every-token oracle, Q8, full VC09 or original G1-G5 certification.",
+    "No image answer-quality result: final OK is constrained.",
+    "Existing512-thinking-token registry is frozen prior success, not a new admission default.",
+    "Only Linux/llm-60 GPU0 Q4 FP16 KV matching execution profile. Q8 deferred; normal chat stays OFF.",
+    "Original cumulative G1-G5 and complete VC09 remain unqualified."
+  ],
+  "private_backup_destination": "/srv/data/git/private_context_cow.evidence/20261018-vision-authorization-v1/evidence.tar.gz",
+  "retained_failures": [
+    "Original GPU v1 failed in harness before denial execution: local http function shadowed imported module. No native fix inferred.",
+    "New audit v1 misread reference envelope tip; v2 confused pool shutdown trace digest with native command trace digest. Both corrected against actual source and retained raw failures.",
+    "Auditor negative tests RED before module existed, then3/3PASS. No registered assertions/tolerances/reference equations changed."
+  ],
+  "schema": 1,
+  "source_hashes": {
+    "experimental/branching_context/scripts/audit_vision_authorization.py": "37bbe45a01ffefacc81e80407c5884e122ecf72c10098d316e1480d7a0ce3622",
+    "experimental/branching_context/scripts/run_vision_authorization_probe.py": "61f453275b130b4d7158ee9ccca0e318398752377f79c6c14b135fdd5cddc9bd",
+    "experimental/branching_context/tests/implementation/test_vision_authorization_audit.py": "201d55549e3998790502551f72a6fa9013a0ee9c0efd3eca840ad1240838f754",
+    "experimental/branching_context/tests/implementation/test_vision_authorization_probe.py": "1c2b04bc3d285d0d807e13354bfe520467a560d0480f4948c9c4ba26b7c1cb63",
+    "serve/cow_http.py": "14fa5b2a25ae6514b480daf1fb9ec1b5a127e6d1723cdb3a4fa1752a5da65b28",
+    "serve/test_cow_vision_http.py": "adb274942061c3912ff4aa2ce39780f9b41335913fb53d16db7441a79e1e522c"
+  },
+  "status": "BOUNDED_AUTHORIZATION_Q4_FOCUSED_PASS"
+}

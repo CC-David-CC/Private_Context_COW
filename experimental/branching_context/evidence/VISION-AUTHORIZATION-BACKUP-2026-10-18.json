@@ -1,0 +1,9 @@
+{
+  "status": "RECEIVER_VERIFIED",
+  "path": "/srv/data/git/private_context_cow.evidence/20261018-vision-authorization-v1/evidence.tar.gz",
+  "bytes": 261461992,
+  "sha256": "c09f0326a8ad2113e1878de12ace767f370566097bc486b1cdc481ad3416d4bd",
+  "members": 328,
+  "data_bytes": 286110326,
+  "extracted_files": 0
+}

@@ -1,0 +1,1134 @@
+{
+  "arms": {
+    "candidate": {
+      "canonical_file_metadata_unchanged": true,
+      "contexts": [
+        {
+          "context": 0,
+          "events": 56,
+          "heads": 25,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 64,
+                "ancestry_metadata_misses": 28,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 65,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.8302840960677713
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 92,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 38,
+                "snapshot_parse_misses": 27,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.755725126946345
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 92,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 38,
+                "snapshot_parse_misses": 27,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 1.3425397740211338
+            }
+          ],
+          "median_unprofiled_seconds": 0.7930046115070581,
+          "namespace": "3f0727eb23f70b3155f83f2e0a7dcd3a",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 63,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 1.34239075,
+              "line": 190,
+              "self_seconds": 0.000193524
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 1.342299487,
+              "line": 1690,
+              "self_seconds": 0.00068703
+            },
+            {
+              "calls": 31,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 1.279789287,
+              "line": 384,
+              "self_seconds": 0.000145484
+            },
+            {
+              "calls": 31,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 1.276287607,
+              "line": 285,
+              "self_seconds": 0.005298962
+            },
+            {
+              "calls": 31,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 1.268873449,
+              "line": 21,
+              "self_seconds": 0.036468396
+            },
+            {
+              "calls": 65,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 1.200208398,
+              "line": 1266,
+              "self_seconds": 0.0005695510000000001
+            },
+            {
+              "calls": 27,
+              "file": "~",
+              "function": "<built-in method builtins.all>",
+              "inclusive_seconds": 0.661589799,
+              "line": 0,
+              "self_seconds": 0.24782235200000002
+            },
+            {
+              "calls": 542,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_decode",
+              "inclusive_seconds": 0.459879307,
+              "line": 97,
+              "self_seconds": 0.001294879
+            },
+            {
+              "calls": 6704667,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "<genexpr>",
+              "inclusive_seconds": 0.413767447,
+              "line": 1303,
+              "self_seconds": 0.413767447
+            },
+            {
+              "calls": 1734,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_json_bytes",
+              "inclusive_seconds": 0.24925385300000003,
+              "line": 87,
+              "self_seconds": 0.001504118
+            },
+            {
+              "calls": 1734,
+              "file": "/usr/lib/python3.12/json/__init__.py",
+              "function": "dumps",
+              "inclusive_seconds": 0.246104029,
+              "line": 183,
+              "self_seconds": 0.001308518
+            },
+            {
+              "calls": 1734,
+              "file": "/usr/lib/python3.12/json/encoder.py",
+              "function": "encode",
+              "inclusive_seconds": 0.24453903600000002,
+              "line": 183,
+              "self_seconds": 0.001077533
+            }
+          ]
+        },
+        {
+          "context": 1,
+          "events": 42,
+          "heads": 21,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 41,
+                "ancestry_metadata_misses": 21,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 21,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.5445810020901263
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 62,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.09684837213717401
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 62,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 0.13912128703668714
+            }
+          ],
+          "median_unprofiled_seconds": 0.32071468711365014,
+          "namespace": "69456112894b631d72a5d08e62ae6243",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 43,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 0.139000427,
+              "line": 190,
+              "self_seconds": 0.00011570200000000001
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 0.138924281,
+              "line": 1690,
+              "self_seconds": 0.000525356
+            },
+            {
+              "calls": 21,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 0.09356710300000001,
+              "line": 384,
+              "self_seconds": 8.259800000000001e-05
+            },
+            {
+              "calls": 21,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 0.09123394500000001,
+              "line": 285,
+              "self_seconds": 0.003932742
+            },
+            {
+              "calls": 21,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 0.085923497,
+              "line": 21,
+              "self_seconds": 0.001002449
+            },
+            {
+              "calls": 42,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 0.064025355,
+              "line": 1266,
+              "self_seconds": 0.00013693
+            },
+            {
+              "calls": 42,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_copy_snapshot_record",
+              "inclusive_seconds": 0.048328251,
+              "line": 1317,
+              "self_seconds": 6.0276000000000004e-05
+            },
+            {
+              "calls": 63316,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "deepcopy",
+              "inclusive_seconds": 0.042029681,
+              "line": 118,
+              "self_seconds": 0.022583076
+            },
+            {
+              "calls": 562,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "_deepcopy_dict",
+              "inclusive_seconds": 0.041668679,
+              "line": 217,
+              "self_seconds": 0.0065282230000000005
+            },
+            {
+              "calls": 159,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_read_branch",
+              "inclusive_seconds": 0.039397639000000005,
+              "line": 890,
+              "self_seconds": 0.0033948880000000004
+            },
+            {
+              "calls": 104,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_verified_object_bytes",
+              "inclusive_seconds": 0.030879664,
+              "line": 1235,
+              "self_seconds": 0.000119011
+            },
+            {
+              "calls": 1436,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_hash",
+              "inclusive_seconds": 0.026231846000000003,
+              "line": 112,
+              "self_seconds": 0.00046131300000000003
+            }
+          ]
+        },
+        {
+          "context": 2,
+          "events": 70,
+          "heads": 35,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 69,
+                "ancestry_metadata_misses": 35,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 70,
+                "snapshot_parse_misses": 35,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.9059355349745601
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 104,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 36,
+                "snapshot_parse_misses": 34,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.8714250042103231
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 104,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 36,
+                "snapshot_parse_misses": 34,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 1.6058092070743442
+            }
+          ],
+          "median_unprofiled_seconds": 0.8886802695924416,
+          "namespace": "faf04e3a2215dee85a2bb70d8f70ce3f",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 71,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 1.6055940670000002,
+              "line": 190,
+              "self_seconds": 0.000256515
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 1.6054842980000001,
+              "line": 1690,
+              "self_seconds": 0.00081983
+            },
+            {
+              "calls": 35,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 1.539065946,
+              "line": 384,
+              "self_seconds": 0.000184004
+            },
+            {
+              "calls": 35,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 1.5350325,
+              "line": 285,
+              "self_seconds": 0.006851223
+            },
+            {
+              "calls": 35,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 1.5258529630000002,
+              "line": 21,
+              "self_seconds": 0.033823232
+            },
+            {
+              "calls": 70,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 1.454062004,
+              "line": 1266,
+              "self_seconds": 0.000716688
+            },
+            {
+              "calls": 34,
+              "file": "~",
+              "function": "<built-in method builtins.all>",
+              "inclusive_seconds": 0.828616046,
+              "line": 0,
+              "self_seconds": 0.312114408
+            },
+            {
+              "calls": 571,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_decode",
+              "inclusive_seconds": 0.542663886,
+              "line": 97,
+              "self_seconds": 0.0016421130000000002
+            },
+            {
+              "calls": 8442914,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "<genexpr>",
+              "inclusive_seconds": 0.516501638,
+              "line": 1303,
+              "self_seconds": 0.516501638
+            },
+            {
+              "calls": 1792,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_json_bytes",
+              "inclusive_seconds": 0.30647103000000003,
+              "line": 87,
+              "self_seconds": 0.0018230560000000002
+            },
+            {
+              "calls": 1792,
+              "file": "/usr/lib/python3.12/json/__init__.py",
+              "function": "dumps",
+              "inclusive_seconds": 0.301978214,
+              "line": 183,
+              "self_seconds": 0.0014364970000000001
+            },
+            {
+              "calls": 1792,
+              "file": "/usr/lib/python3.12/json/encoder.py",
+              "function": "encode",
+              "inclusive_seconds": 0.30026625,
+              "line": 183,
+              "self_seconds": 0.0011478200000000001
+            }
+          ]
+        }
+      ]
+    },
+    "control": {
+      "canonical_file_metadata_unchanged": true,
+      "contexts": [
+        {
+          "context": 0,
+          "events": 42,
+          "heads": 19,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 47,
+                "ancestry_metadata_misses": 21,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 21,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.521554941078648
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 68,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.08664392284117639
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 68,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 0.13801383902318776
+            }
+          ],
+          "median_unprofiled_seconds": 0.3040994319599122,
+          "namespace": "e59293c206feeb72ab6e0ce2643fe6f4",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 47,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 0.137869675,
+              "line": 190,
+              "self_seconds": 0.000127334
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 0.137791656,
+              "line": 1690,
+              "self_seconds": 0.00046234600000000004
+            },
+            {
+              "calls": 23,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 0.100485846,
+              "line": 384,
+              "self_seconds": 9.582500000000001e-05
+            },
+            {
+              "calls": 23,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 0.097912913,
+              "line": 285,
+              "self_seconds": 0.0043431500000000005
+            },
+            {
+              "calls": 23,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 0.09201466500000001,
+              "line": 21,
+              "self_seconds": 0.00125062
+            },
+            {
+              "calls": 48,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 0.06811566000000001,
+              "line": 1266,
+              "self_seconds": 0.00015061
+            },
+            {
+              "calls": 48,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_copy_snapshot_record",
+              "inclusive_seconds": 0.049469462000000006,
+              "line": 1317,
+              "self_seconds": 7.0358e-05
+            },
+            {
+              "calls": 63996,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "deepcopy",
+              "inclusive_seconds": 0.042604896,
+              "line": 118,
+              "self_seconds": 0.022895993
+            },
+            {
+              "calls": 590,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "_deepcopy_dict",
+              "inclusive_seconds": 0.042238082,
+              "line": 217,
+              "self_seconds": 0.006634855
+            },
+            {
+              "calls": 116,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_verified_object_bytes",
+              "inclusive_seconds": 0.035360132,
+              "line": 1235,
+              "self_seconds": 0.00013360300000000001
+            },
+            {
+              "calls": 127,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_read_branch",
+              "inclusive_seconds": 0.031688399,
+              "line": 890,
+              "self_seconds": 0.002720731
+            },
+            {
+              "calls": 1210,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_hash",
+              "inclusive_seconds": 0.029775299,
+              "line": 112,
+              "self_seconds": 0.000395058
+            }
+          ]
+        },
+        {
+          "context": 1,
+          "events": 34,
+          "heads": 17,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 33,
+                "ancestry_metadata_misses": 17,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 17,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.4428732329979539
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 50,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.06344075105153024
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 50,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 0.11228665709495544
+            }
+          ],
+          "median_unprofiled_seconds": 0.25315699202474207,
+          "namespace": "233271eb3e6a9074812abc58e1a400fb",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 35,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 0.112173122,
+              "line": 190,
+              "self_seconds": 9.671300000000001e-05
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 0.112104401,
+              "line": 1690,
+              "self_seconds": 0.000433011
+            },
+            {
+              "calls": 17,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 0.075551159,
+              "line": 384,
+              "self_seconds": 6.8312e-05
+            },
+            {
+              "calls": 17,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 0.073611281,
+              "line": 285,
+              "self_seconds": 0.003336668
+            },
+            {
+              "calls": 17,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 0.06913019000000001,
+              "line": 21,
+              "self_seconds": 0.0008070060000000001
+            },
+            {
+              "calls": 34,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 0.051633325,
+              "line": 1266,
+              "self_seconds": 0.00010879900000000001
+            },
+            {
+              "calls": 34,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_copy_snapshot_record",
+              "inclusive_seconds": 0.039082667,
+              "line": 1317,
+              "self_seconds": 4.9159e-05
+            },
+            {
+              "calls": 50698,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "deepcopy",
+              "inclusive_seconds": 0.034016527000000005,
+              "line": 118,
+              "self_seconds": 0.018220577
+            },
+            {
+              "calls": 454,
+              "file": "/usr/lib/python3.12/copy.py",
+              "function": "_deepcopy_dict",
+              "inclusive_seconds": 0.033723921000000004,
+              "line": 217,
+              "self_seconds": 0.005387935
+            },
+            {
+              "calls": 127,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_read_branch",
+              "inclusive_seconds": 0.03165404,
+              "line": 890,
+              "self_seconds": 0.002738283
+            },
+            {
+              "calls": 84,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_verified_object_bytes",
+              "inclusive_seconds": 0.024659798,
+              "line": 1235,
+              "self_seconds": 9.4831e-05
+            },
+            {
+              "calls": 1148,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_hash",
+              "inclusive_seconds": 0.02102309,
+              "line": 112,
+              "self_seconds": 0.000378182
+            }
+          ]
+        },
+        {
+          "context": 2,
+          "events": 58,
+          "heads": 29,
+          "measurements": [
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 57,
+                "ancestry_metadata_misses": 29,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 58,
+                "snapshot_parse_misses": 29,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 0,
+              "seconds": 0.7514517488889396
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 86,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 30,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": false,
+              "repetition": 1,
+              "seconds": 0.7194685190916061
+            },
+            {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 86,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 30,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "profiled": true,
+              "repetition": 2,
+              "seconds": 1.3405868981499225
+            }
+          ],
+          "median_unprofiled_seconds": 0.7354601339902729,
+          "namespace": "ca8019af25b5402ca2f5afc97cf17c1b",
+          "top_profiled_inclusive_calls": [
+            {
+              "calls": 59,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "run",
+              "inclusive_seconds": 1.3403953830000002,
+              "line": 190,
+              "self_seconds": 0.00020627900000000002
+            },
+            {
+              "calls": 1,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "presentation_catalog",
+              "inclusive_seconds": 1.340299291,
+              "line": 1690,
+              "self_seconds": 0.0006924990000000001
+            },
+            {
+              "calls": 29,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_stored_presentation",
+              "inclusive_seconds": 1.298585375,
+              "line": 384,
+              "self_seconds": 0.00015959
+            },
+            {
+              "calls": 29,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_validate_presentation",
+              "inclusive_seconds": 1.27935171,
+              "line": 285,
+              "self_seconds": 0.006064023
+            },
+            {
+              "calls": 29,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+              "function": "validate_binding",
+              "inclusive_seconds": 1.2712675420000001,
+              "line": 21,
+              "self_seconds": 0.029290949
+            },
+            {
+              "calls": 58,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "get_snapshot",
+              "inclusive_seconds": 1.210372465,
+              "line": 1266,
+              "self_seconds": 0.000592602
+            },
+            {
+              "calls": 28,
+              "file": "~",
+              "function": "<built-in method builtins.all>",
+              "inclusive_seconds": 0.687117818,
+              "line": 0,
+              "self_seconds": 0.257721507
+            },
+            {
+              "calls": 461,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_decode",
+              "inclusive_seconds": 0.44182447100000005,
+              "line": 97,
+              "self_seconds": 0.0013989710000000002
+            },
+            {
+              "calls": 6952988,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "<genexpr>",
+              "inclusive_seconds": 0.42939631100000003,
+              "line": 1303,
+              "self_seconds": 0.42939631100000003
+            },
+            {
+              "calls": 1440,
+              "file": "/home/dflanag3/spatial-artifacts/q4-tree-retention-20261016-v1/gpu-candidate-v1/runtime/experimental/branching_context/src/context_time_travel/store.py",
+              "function": "_json_bytes",
+              "inclusive_seconds": 0.25340513600000003,
+              "line": 87,
+              "self_seconds": 0.001897053
+            },
+            {
+              "calls": 1440,
+              "file": "/usr/lib/python3.12/json/__init__.py",
+              "function": "dumps",
+              "inclusive_seconds": 0.250389794,
+              "line": 183,
+              "self_seconds": 0.001163109
+            },
+            {
+              "calls": 1440,
+              "file": "/usr/lib/python3.12/json/encoder.py",
+              "function": "encode",
+              "inclusive_seconds": 0.24901149600000003,
+              "line": 183,
+              "self_seconds": 0.000934729
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "CPU-only canonical query measurements, not inference or GPU qualification",
+    "Two unprofiled repetitions plus one cProfile repetition per namespace; no isolated machine benchmark",
+    "Final stores contain different amounts of earlier history; results do not isolate the retention patch",
+    "Guard excludes OS lock files: Store initialization touches refs.lock; v1 incorrectly counted its mtime as canonical mutation"
+  ],
+  "schema": "cow-readonly-catalog-attribution-v1",
+  "selected_store_source_sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+  "source_producer_sha256": "c5cb88f541e0b6ee3402a72d5a700ff3c74237becff82b34525aa6181bb56aac",
+  "status": "PASS"
+}

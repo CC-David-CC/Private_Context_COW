@@ -1,0 +1,38 @@
+{
+  "cli_sha256": "c8f517a63217801cec97881e653055319f53175b915ede40cd95246e69ab757a",
+  "command": [
+    "C:\\Program Files\\Python313\\python.exe",
+    "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+    "--url",
+    "http://127.0.0.1:18234",
+    "history",
+    "--branch",
+    "WindowsA"
+  ],
+  "command_exit_code": 2,
+  "default_locale_encoding": "cp1252",
+  "default_locale_preferred_encoding": "cp1252",
+  "python_executable": "C:\\Program Files\\Python313\\python.exe",
+  "python_version": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "redirected_child_encoding_probe": {
+    "argv": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "-c",
+      "import sys,locale; print(sys.stdout.encoding); print(sys.stderr.encoding); print(locale.getpreferredencoding(False))"
+    ],
+    "exit_code": 0,
+    "stderr_ascii": "",
+    "stdout_ascii": "cp1252\r\ncp1252\r\ncp1252\r\n"
+  },
+  "schema": "cow-cli-windows-default-unicode-diagnosis-v1",
+  "status": "REPRODUCED_DEFAULT_STDOUT_ENCODING_FAILURE",
+  "stderr_ascii": "cow-cli: 'charmap' codec can't encode characters in position 396-397: character maps to <undefined>\r\n",
+  "stderr_bytes": 101,
+  "stderr_sha256": "d67320014b630a8303091f757f223b15e56206cba3b0618c9981083a65b7d5c2",
+  "stdout_bytes": 0,
+  "stdout_redirected_to": "subprocess.PIPE (captured as raw bytes)",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tunnel_exit_code": 1,
+  "tunnel_pid": 13228,
+  "tunnel_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

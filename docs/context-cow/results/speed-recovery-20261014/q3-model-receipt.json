@@ -1,0 +1,78 @@
+{
+  "model_files": {
+    "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin": {
+      "bytes": 196632,
+      "mtime_ns": 1791725436000000000,
+      "ctime_ns": 1791730607613639165,
+      "sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/conversions.json": {
+      "bytes": 310,
+      "mtime_ns": 1791418477200144979,
+      "ctime_ns": 1791418477200144979,
+      "sha256": "68beec784ea64aeecace591b33debb8ba331a9ad257a3e1b68c5c701dd22b267"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/dense.bin": {
+      "bytes": 1538035200,
+      "mtime_ns": 1791418477197890256,
+      "ctime_ns": 1791418477200144979,
+      "sha256": "d2af3d8331e5c7a1985d1d589747230f9d56719a6d33c7cddc9ee6b81cde6b13"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/index.txt": {
+      "bytes": 93687,
+      "mtime_ns": 1791418477199759415,
+      "ctime_ns": 1791418477200144979,
+      "sha256": "1afe12b36cd2d13bf122b741fa0e81e1f751319cc3c451e54ba75524d825f148"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/native_experts.txt": {
+      "bytes": 3296,
+      "mtime_ns": 1791418477749878717,
+      "ctime_ns": 1791418477749878717,
+      "sha256": "ae28cf7a2a1c9063c4b55d6c8cf86d4d079dcddcf597f9e8697c9157d462c0ee"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/tokenizer/chat_template.jinja": {
+      "bytes": 9993,
+      "mtime_ns": 1791418477727747827,
+      "ctime_ns": 1791418477727747827,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/tokenizer/merges.txt": {
+      "bytes": 3353258,
+      "mtime_ns": 1791418477604903905,
+      "ctime_ns": 1791418477604903905,
+      "sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/tokenizer/token_type.json": {
+      "bytes": 744960,
+      "mtime_ns": 1791418477613904207,
+      "ctime_ns": 1791418477613904207,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/tokenizer/tokenizer.json": {
+      "bytes": 541,
+      "mtime_ns": 1791418477614508884,
+      "ctime_ns": 1791418477614508884,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf"
+    },
+    "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/tokenizer/vocab.json": {
+      "bytes": 5737005,
+      "mtime_ns": 1791418477545901926,
+      "ctime_ns": 1791418477545901926,
+      "sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    },
+    "/home/dflanag3/models/ISTA-IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf": {
+      "bytes": 47039860096,
+      "mtime_ns": 1791410833915015313,
+      "ctime_ns": 1791453247393841304,
+      "sha256": "219ea929900dfa9ef091f3aa473fdba6874b65fcb36526d7d851ac9e95856d15"
+    },
+    "/home/dflanag3/models/ISTA-IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf": {
+      "bytes": 28800138432,
+      "mtime_ns": 1791410737556424173,
+      "ctime_ns": 1791453504654731517,
+      "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113"
+    }
+  },
+  "model_bytes_hashed": 77388173410,
+  "model_file_hash_receipts_reused": 0
+}

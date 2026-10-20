@@ -1,0 +1,9 @@
+test_altered_tokens_and_native_boundaries_rejected_before_import (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_altered_tokens_and_native_boundaries_rejected_before_import) ... ok
+test_batch_only_version_is_not_interchangeable (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_batch_only_version_is_not_interchangeable) ... ok
+test_exact_mixed_schedule_restores_and_roundtrips_version_three (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_exact_mixed_schedule_restores_and_roundtrips_version_three) ... ok
+test_missing_receipts_rejected_before_native_import (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_missing_receipts_rejected_before_native_import) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.022s
+
+OK

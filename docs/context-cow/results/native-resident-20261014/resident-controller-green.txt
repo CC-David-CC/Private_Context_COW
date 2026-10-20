@@ -1,0 +1,10 @@
+test_consumed_progress_is_published_once_at_request_boundary (test_resident_request_publication.ResidentRequestPublicationTests.test_consumed_progress_is_published_once_at_request_boundary) ... ok
+test_empty_suffix_continues_controller_instead_of_resetting_scope (test_resident_request_publication.ResidentRequestPublicationTests.test_empty_suffix_continues_controller_instead_of_resetting_scope) ... ok
+test_invalid_bound_and_incompatible_contract_fail_before_execution (test_resident_request_publication.ResidentRequestPublicationTests.test_invalid_bound_and_incompatible_contract_fail_before_execution) ... ok
+test_progress_exception_preserves_canonical_parent_and_publishes_nothing (test_resident_request_publication.ResidentRequestPublicationTests.test_progress_exception_preserves_canonical_parent_and_publishes_nothing) ... ok
+test_unsupported_existing_sampler_is_rejected_before_native_restore (test_resident_request_publication.ResidentRequestPublicationTests.test_unsupported_existing_sampler_is_rejected_before_native_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.077s
+
+OK

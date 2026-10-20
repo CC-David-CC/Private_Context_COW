@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "archive": {
+        "archive_bytes": 104272700,
+        "archive_sha256": "b6a8e29cb4518baf6f0945700ccad0d5953c734eedd01cb4ee57eeb59ea424e0",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-latency-v2/evidence.tar.gz",
+        "individually_verified_data_files": 683,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 684,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 39731200,
+      "manifest_sha256": "63f9b6c21c14d9e66341e52069f56e9180c0233fb3d2aff095b5ad1fa3c45791",
+      "physical_free_delta": 39813120,
+      "reverification": {
+        "archive_sha256": "b6a8e29cb4518baf6f0945700ccad0d5953c734eedd01cb4ee57eeb59ea424e0",
+        "manifest_sha256": "63f9b6c21c14d9e66341e52069f56e9180c0233fb3d2aff095b5ad1fa3c45791"
+      },
+      "scope": "Only archived optional .f32 numerical logs, now archive-only; canonical/originals/embeddings/manifests/controllers/non-numerical logs remain. No runtime eviction test implied.",
+      "status": "ARCHIVED_LOCAL_FRONTIER_LOGS_RETIRED"
+    },
+    {
+      "archive": {
+        "archive_bytes": 87684597,
+        "archive_sha256": "307e6dbbb33210469220ee7a0bfa37a3ac7cd2e9d7f5ea01034476f81de06638",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-latency-partial-v2/evidence.tar.gz",
+        "individually_verified_data_files": 652,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 653,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 26818560,
+      "manifest_sha256": "b613c93a398ed840b70ed033e91cd7646cf6fce37b6c55cc2fc54c1e3dd6bb65",
+      "physical_free_delta": 26873856,
+      "reverification": {
+        "archive_sha256": "307e6dbbb33210469220ee7a0bfa37a3ac7cd2e9d7f5ea01034476f81de06638",
+        "manifest_sha256": "b613c93a398ed840b70ed033e91cd7646cf6fce37b6c55cc2fc54c1e3dd6bb65"
+      },
+      "scope": "Only archived optional .f32 numerical logs, now archive-only; canonical/originals/embeddings/manifests/controllers/non-numerical logs remain. No runtime eviction test implied.",
+      "status": "ARCHIVED_LOCAL_FRONTIER_LOGS_RETIRED"
+    },
+    {
+      "archive": {
+        "archive_bytes": 81159652,
+        "archive_sha256": "9f68c7f65259f9bacbac0b2382b55981101b7880e4759222e32104220f7f4211",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-final-route-latency-8k-v1/evidence.tar.gz",
+        "individually_verified_data_files": 606,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 607,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 39731200,
+      "manifest_sha256": "087e9699ce899e92f7ca0b4a60650f933ce0623549e27dc1ae5f8e87c953a284",
+      "physical_free_delta": 39813120,
+      "reverification": {
+        "archive_sha256": "9f68c7f65259f9bacbac0b2382b55981101b7880e4759222e32104220f7f4211",
+        "manifest_sha256": "087e9699ce899e92f7ca0b4a60650f933ce0623549e27dc1ae5f8e87c953a284"
+      },
+      "scope": "Only archived optional .f32 numerical logs, now archive-only; canonical/originals/embeddings/manifests/controllers/non-numerical logs remain. No runtime eviction test implied.",
+      "status": "ARCHIVED_LOCAL_FRONTIER_LOGS_RETIRED"
+    },
+    {
+      "archive": {
+        "archive_bytes": 56596661,
+        "archive_sha256": "829aa8fb60744aa7cf0ab037a8bd556cf744ce25f3249ecfad4cba973dfb2ca9",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-thinking-new-image-flow-v1/evidence.tar.gz",
+        "individually_verified_data_files": 275,
+        "manifest_note": "Inventory itself covered by archive SHA256",
+        "regular_members": 276,
+        "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+      },
+      "logical_bytes": 22845440,
+      "manifest_sha256": "cd8669d9c232f2a786f516513416df6de72cccedd64fbc02219e31e51b698b6f",
+      "physical_free_delta": 22892544,
+      "reverification": {
+        "archive_sha256": "829aa8fb60744aa7cf0ab037a8bd556cf744ce25f3249ecfad4cba973dfb2ca9",
+        "manifest_sha256": "cd8669d9c232f2a786f516513416df6de72cccedd64fbc02219e31e51b698b6f"
+      },
+      "scope": "Only archived optional .f32 numerical logs, now archive-only; canonical/originals/embeddings/manifests/controllers/non-numerical logs remain. No runtime eviction test implied.",
+      "status": "ARCHIVED_LOCAL_FRONTIER_LOGS_RETIRED"
+    }
+  ],
+  "logical_bytes": 129126400,
+  "status": "FOUR_VERIFIED_ARCHIVE_GROUPS_LOCAL_FRONTIERS_RETIRED"
+}

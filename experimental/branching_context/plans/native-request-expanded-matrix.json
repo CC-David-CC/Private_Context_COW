@@ -1,0 +1,61 @@
+{
+  "jobs": [
+    {
+      "name": "q4-medium",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api/scripts/native_request_probe.py",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v2/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/native-request-expanded-20261014/q4-medium",
+        "--prefix",
+        "1024",
+        "--suffix",
+        "64",
+        "--generated",
+        "16",
+        "--check-boundaries",
+        "every"
+      ]
+    },
+    {
+      "name": "q4-8k",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api/scripts/native_request_probe.py",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v2/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/native-request-expanded-20261014/q4-8k",
+        "--prefix",
+        "8192",
+        "--suffix",
+        "512",
+        "--generated",
+        "128",
+        "--check-boundaries",
+        "sample"
+      ]
+    },
+    {
+      "name": "q8-tiny",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api/scripts/native_request_probe.py",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v2/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/native-request-expanded-20261014/q8-tiny",
+        "--prefix",
+        "128",
+        "--suffix",
+        "4",
+        "--generated",
+        "8",
+        "--check-boundaries",
+        "every"
+      ]
+    }
+  ]
+}

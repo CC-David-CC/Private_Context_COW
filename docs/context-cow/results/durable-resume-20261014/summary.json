@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "status": "BLOCKED_EXECUTION_EQUIVALENCE",
+  "real_audit": {
+    "executed": 5,
+    "passed": 4,
+    "failed": 1,
+    "errors": 0,
+    "skips": 0,
+    "log_sha256": "1fd2909c8fb9d6f00b16d1c9625efca36057c0e49a7e98671cc64e4ee1e08c3f"
+  },
+  "supplemental_tests": {
+    "control_plane": {
+      "executed": 11,
+      "passed": 11,
+      "failed": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "1e70ede8d9ed956420ca2cf1632fc35597a33602577dd235222bf5450cea2c26"
+    },
+    "evidence_serialization": {
+      "executed": 2,
+      "passed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "a089947023dc91ac5bf8dc5434a6a3e8a75b53143175b97a7521282bdffd5eca"
+    }
+  },
+  "g0": {
+    "status": "PASS",
+    "executed": 51,
+    "passed": 51,
+    "failed": 0,
+    "errors": 0,
+    "skips": 0,
+    "log_sha256": "5971dcd94001185005503fcc713837e6b214fde983951bb7aadc7d78642ce2c3"
+  },
+  "cumulative": {
+    "g1": {
+      "status": "FAIL",
+      "reason": "missing CTT_PROFILE",
+      "executed": 0,
+      "passed": 0,
+      "failed": 0,
+      "errors": 4,
+      "skips": 0,
+      "log_sha256": "d8c84546ad6bd407bf61f1e76eb01c6eddc12eb0255e49fbcfb36f50451404a5"
+    },
+    "g2": "NOT RUN"
+  },
+  "scope": {
+    "prefix_tokens": 128,
+    "suffix_tokens": {
+      "A": 4,
+      "B": 4
+    },
+    "output_tokens_per_branch": {
+      "A": 8,
+      "B": 8
+    },
+    "larger_runs": "1K and 8K NOT RUN after tiny numerical failure"
+  },
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+  "execution_profile_id": "857132d83d1c860b02a7938d285e327318f672ab1924d84ce630186478169161",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "sut_sha256": "5cf5bfa56510442e62a6723549cfc3e5f60b95df103cea77bca14c2a5315f2cb",
+  "oracle_sha256": "669528ba136a7df8a88ced3bb1082215945e316dbc3f2dcf279d6037b45447e5",
+  "atol": 0.0,
+  "rtol": 0,
+  "max_full_batched_logit_error": 1.9153637886047363,
+  "max_normal_decode_logit_error": 0.0,
+  "root_snapshot": "690cefb3445d9a1e91701172aba0ba010b98553a25436cd911e9c283e342b6dc",
+  "checkpoint_manifest_sha256": "5b12d488aceaeb47c509e492849803a5ec56a88fd194212e83d6b7b95d3fc1bb",
+  "checkpoint_payload_sha256": "237e2143d28d999a9246ba72bdd5f082ca5240f26f6a186c6d40c6101bffe880",
+  "checkpoint_payload_bytes": 122406904,
+  "native_state_bytes": 121413624,
+  "frontier_bytes": 993280,
+  "timings": {
+    "prefix_api_seconds": 0.5376713660079986,
+    "save_seconds": 0.49912794306874275,
+    "startup_seconds": [
+      67.77133607293945,
+      67.29288795799948,
+      67.25762544805184
+    ]
+  },
+  "processes": {
+    "prepare": 1423299,
+    "resume": 1423547,
+    "boundary": 1423755,
+    "all_exits_observed": true
+  },
+  "restores": [
+    {
+      "consumed": 128,
+      "forward_tokens": 0,
+      "seconds": 0.3850262169726193,
+      "loaded_file_bytes": 121413624,
+      "completed_cuda_copy_bytes": 121417776,
+      "completed_cuda_copy_calls": 86
+    },
+    {
+      "consumed": 128,
+      "forward_tokens": 0,
+      "seconds": 0.3519505530130118,
+      "loaded_file_bytes": 121413624,
+      "completed_cuda_copy_bytes": 121417776,
+      "completed_cuda_copy_calls": 86
+    }
+  ],
+  "branches": {
+    "A": {
+      "generated_tokens": 8,
+      "suffix_forward_tokens": 4,
+      "suffix_seconds": 0.2279452399816364,
+      "decode_seconds": 10.422035143012181,
+      "audit_inclusive_tps": 0.7676043968594637
+    },
+    "B": {
+      "generated_tokens": 8,
+      "suffix_forward_tokens": 4,
+      "suffix_seconds": 0.23145732493139803,
+      "decode_seconds": 10.531020209891722,
+      "audit_inclusive_tps": 0.759660492578454
+    }
+  },
+  "native_counters": {
+    "consumed_tokens": 36,
+    "checkpoint_export_bytes": 3069641952,
+    "checkpoint_import_bytes": 11104637232,
+    "contexts_created": 1,
+    "contexts_freed": 1,
+    "lease_acquires": 94,
+    "lease_releases": 94,
+    "frontier_read_bytes": 25825280,
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11,
+    "consumed": 140,
+    "forward_tokens": 36,
+    "prefill_tokens": 20,
+    "prefill_chunks": 8,
+    "decode_prepare_ns": 95359086,
+    "decode_compute_ns": 235425949,
+    "decode_finish_ns": 1839449,
+    "decode_timed_tokens": 16,
+    "windows": 16,
+    "resident_expert_entries": 6908,
+    "cpu_expert_entries": 507,
+    "pcie_expert_groups": 265,
+    "allocations": 1332,
+    "releases": 1140,
+    "live_bytes": 402653184,
+    "cow_pages": 864,
+    "copied_bytes": 1811939328,
+    "mappings": 30900,
+    "unmappings": 30744,
+    "address_reservations": 936,
+    "address_releases": 864,
+    "vmm_driver_failures": 0,
+    "vmm_out_of_memory_failures": 0,
+    "vmm_last_driver_error": 0,
+    "vmm_last_failed_operation": "",
+    "audit_read_bytes": 0,
+    "integrity_checked_pages": 20976,
+    "integrity_mismatches": 0,
+    "integrity_device_hashed_bytes": 46456111104,
+    "integrity_digest_copy_bytes": 362938368,
+    "integrity_plan_copy_bytes": 29952,
+    "integrity_kernel_calls": 16128,
+    "integrity_workspace_allocations": 38,
+    "integrity_workspace_releases": 0,
+    "integrity_workspace_live_bytes": 11994336,
+    "binding_copy_bytes": 320876544,
+    "saved_running_bytes": 3069641952,
+    "restored_running_bytes": 10861809984,
+    "written_file_bytes": 0,
+    "loaded_file_bytes": 242827248,
+    "cold_restore_copy_bytes": 242835552,
+    "cold_restore_copy_calls": 172,
+    "captures": 26,
+    "restores": 92,
+    "handle_allocations": 26,
+    "handle_releases": 24,
+    "handle_live_entries": 2,
+    "handle_live_bytes": 80,
+    "handle_peak_bytes": 120,
+    "handle_issued": 26,
+    "handle_lookup_steps": 164,
+    "snapshot_allocations": 26,
+    "snapshot_releases": 24,
+    "snapshot_live_images": 2,
+    "snapshot_payload_capacity_bytes": 238113980,
+    "snapshot_peak_payload_capacity_bytes": 357170964,
+    "host_heap_allocated_bytes": 4834315072
+  },
+  "limits": [
+    "Not a G1/G2/G3 certification",
+    "No nonzero RNG/grammar/pending UTF8 real-resume campaign",
+    "Process-kill publication tests use synthetic native bytes; power loss untested",
+    "Whole-process RAM/VRAM peaks uninstrumented",
+    "GPU evidence predates final controller-rejection/reporting guards",
+    "Audit-heavy Python timings are not a serving throughput benchmark",
+    "Native checkpoint payloads remain on llm-60; archive carries checksums and manifests"
+  ]
+}

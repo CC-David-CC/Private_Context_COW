@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "scope": "Q4 checkpoint-volume ENOSPC harness attempts; not backend ENOSPC recovery qualification",
+  "host": "llm-60",
+  "attempts": [
+    {
+      "attempt": "gpu-q4-enospc-v1",
+      "wrapper": "/home/dflanag3/spatial-artifacts/q4-enospc-full-launch-v3/gpu-command-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "failure": "FileNotFoundError resolving nonexistent output parent before inference",
+      "inference_started": false,
+      "correction": "Launcher v4 creates the output parent before strict path validation; engine and driver unchanged"
+    },
+    {
+      "attempt": "gpu-q4-enospc-v2",
+      "wrapper": "/home/dflanag3/spatial-artifacts/q4-enospc-full-launch-v4/gpu-command-v2",
+      "artifacts": "/home/dflanag3/spatial-artifacts/q4-enospc-harness-20261016-v1/gpu-q4-enospc-v2/probe-result",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "failure": "NameError: name '_atomic_json' is not defined",
+      "failure_location": "Filler callback after filling the private filesystem and before releasing the checkpoint writer; failure-result serialization calls the same undefined helper",
+      "result_json_present": false,
+      "progress_status": "FAIL",
+      "elapsed_seconds_from_progress": 27.28,
+      "server_pid": 2767473,
+      "native_pid": 2767479,
+      "native_forward_tokens": 128,
+      "native_prefill_tokens": 0,
+      "native_integrity_mismatches": 0,
+      "writer_requested_payload_bytes": 331328756,
+      "writer_error_rows": 0,
+      "numerical_max_absolute_error": null,
+      "server_wait_exit_code": null,
+      "native_wait_exit_code": null,
+      "process_observation": "Both exact PIDs absent at independent readback; native trace contains quit/closed. Do not infer unretained wait statuses.",
+      "mount_cleanup": {
+        "receipt": "/home/dflanag3/spatial-artifacts/q4-enospc-harness-20261016-v1/private-mount-run-v4/terminal-receipt.json",
+        "cleanup_exit": 0,
+        "mount_removed": true,
+        "loop_detached": true,
+        "image_inode": 5252779,
+        "image_sha256_after": "a32d86371637926c1818db53fe21862f3ee7a420590a63e1019760b8359d58f8"
+      },
+      "independent_readonly_audit": {
+        "directory": "/home/dflanag3/spatial-artifacts/q4-enospc-harness-20261016-v1/readonly-audit-v2",
+        "status": "PASS",
+        "source_payload_bytes": 327985908,
+        "source_payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+        "source_manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+        "source_object_sha256": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+        "filler_absent": true,
+        "stage_absent": true,
+        "only_source_pair_and_lost_found_remain": true,
+        "capacity_bytes": 1547051008,
+        "available_bytes": 1202257920,
+        "read_only_mount_cleanup_exit": 0,
+        "image_unchanged_by_readonly_audit": true
+      }
+    }
+  ],
+  "backend_or_profile_changed": false,
+  "remaining": [
+    "Fix and execute orchestration regression covering fault-result persistence and writer release",
+    "Run the corrected real Q4 ENOSPC publication and same-operation retry campaign",
+    "Independently audit complete results and checkpoint bytes",
+    "Canonical-volume ENOSPC remains separate"
+  ]
+}

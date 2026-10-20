@@ -1,0 +1,29 @@
+{
+  "base": "8ce1e8a5c8b8564145fa07b466179ccdf5af6256",
+  "bottleneck": {
+    "historical_prefix_bindings": 17765,
+    "native_decode_compute_seconds": 1.406197557,
+    "original_generation_seconds": 15.467646218137816,
+    "profiled_python_calls": 169959816,
+    "unprofiled_full_schedule_revalidation_seconds": 13.691672801040113
+  },
+  "correction": "Count actual CowNativeVisionEncoder.encode entries on the serialized worker, cross-check image receipts when present. Never invent encoder0 from a missing image-only field.",
+  "failure": "Completed24 real measurements, then text-only root metadata extractor wrongly required image encoding receipts. Native text root itself succeeded and all worker processes exited0. Overall campaign remains FAIL.",
+  "image_suffix_fix": "Private task2653a411:421 CPU/16 real-tokenizer cases pass; GPU unrun, not integrated. Separate from this source/profile.",
+  "next": "Keep the24 measurements/failure and independent fresh reference. Implement proof-owned incremental mixed-schedule validation, retaining full checks at load/save. Then rerun corrected timing/text flow; no8K expansion before tiny exact regression.",
+  "partial_reference": {
+    "max_abs_error": 0,
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-latency-partial-reference-v1/result.json",
+    "status": "PARTIAL_24_MEASUREMENTS_AND_FRESH_IMAGE_REFERENCE_PASS_NOT_COMPLETE_CAMPAIGN"
+  },
+  "profile_unchanged": true,
+  "schema": 1,
+  "source_sha256": "3acffcc3e40f4bed2f7a017a6fb940d4b1dc5c5ca7d8eb2ae59e516d4e3d0869",
+  "status": "PARTIAL24_TIMINGS_PRESERVED_FIXTURE_COUNTER_CORRECTION_GPU_UNRUN",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "new_focused": 6,
+    "skips": 0
+  }
+}

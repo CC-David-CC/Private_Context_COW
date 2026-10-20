@@ -1,0 +1,104 @@
+test_comments (test_envconfig.Loading.test_comments) ... FAIL
+test_duplicates (test_envconfig.Loading.test_duplicates) ... FAIL
+test_empty (test_envconfig.Loading.test_empty) ... ok
+test_empty_value (test_envconfig.Loading.test_empty_value) ... FAIL
+test_invalid (test_envconfig.Loading.test_invalid) ... FAIL
+test_mixed_records (test_envconfig.Loading.test_mixed_records) ... FAIL
+test_no_expansion (test_envconfig.Loading.test_no_expansion) ... FAIL
+test_one_pass (test_envconfig.Loading.test_one_pass) ... FAIL
+test_envsyntax (unittest.loader._FailedTest.test_envsyntax) ... ERROR
+
+======================================================================
+ERROR: test_envsyntax (unittest.loader._FailedTest.test_envsyntax)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_envsyntax
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.14/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envsyntax.py", line 2, in <module>
+    from envsyntax import parse_entry
+ModuleNotFoundError: No module named 'envsyntax'
+
+
+======================================================================
+FAIL: test_comments (test_envconfig.Loading.test_comments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 7, in test_comments
+    def test_comments(self):self.assertEqual(load([""," # comment","A=one"]),{"A":"one"})
+                            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'A': 'one'}
+- {}
++ {'A': 'one'}
+
+======================================================================
+FAIL: test_duplicates (test_envconfig.Loading.test_duplicates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 5, in test_duplicates
+    def test_duplicates(self):self.assertEqual(load(["A=one","A=two"]),{"A":"two"})
+                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'A': 'two'}
+- {}
++ {'A': 'two'}
+
+======================================================================
+FAIL: test_empty_value (test_envconfig.Loading.test_empty_value)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 8, in test_empty_value
+    def test_empty_value(self):self.assertEqual(load(["A= "]),{"A":""})
+                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'A': ''}
+- {}
++ {'A': ''}
+
+======================================================================
+FAIL: test_invalid (test_envconfig.Loading.test_invalid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 10, in test_invalid
+    with self.assertRaises(ValueError):load(["A=one","invalid"])
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_mixed_records (test_envconfig.Loading.test_mixed_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 12, in test_mixed_records
+    def test_mixed_records(self):self.assertEqual(load(["_A9 = 雪","B=a=b","_A9=café"]),{"_A9":"café","B":"a=b"})
+                                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'_A9': 'café', 'B': 'a=b'}
+- {}
++ {'B': 'a=b', '_A9': 'café'}
+
+======================================================================
+FAIL: test_no_expansion (test_envconfig.Loading.test_no_expansion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 11, in test_no_expansion
+    def test_no_expansion(self):self.assertEqual(load(["A=$HOME"]),{"A":"$HOME"})
+                                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'A': '$HOME'}
+- {}
++ {'A': '$HOME'}
+
+======================================================================
+FAIL: test_one_pass (test_envconfig.Loading.test_one_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc04-q8-launcher-v1/baseline-world/workspace/tests/test_envconfig.py", line 6, in test_one_pass
+    def test_one_pass(self):self.assertEqual(load(iter(["A=one","B=two"])),{"A":"one","B":"two"})
+                            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {} != {'A': 'one', 'B': 'two'}
+- {}
++ {'A': 'one', 'B': 'two'}
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+FAILED (failures=7, errors=1)

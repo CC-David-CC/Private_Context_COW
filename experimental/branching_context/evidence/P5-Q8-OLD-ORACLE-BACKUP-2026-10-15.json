@@ -1,0 +1,85 @@
+{
+  "archive_mode": "0600",
+  "deletion_authorized": false,
+  "destination_archive_sha256": "649547d2a4a42b056959a570d728424f7c0a2e9f988775feee7368509fdbfb57",
+  "destination_directory_mode": "0700",
+  "destination_final": "/srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar",
+  "destination_final_stat": "600 4068761600 33834182 /srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar\n700 /srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1",
+  "destination_partial": "/srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar.partial",
+  "final_archive_bytes": 4068761600,
+  "final_archive_sha256": "649547d2a4a42b056959a570d728424f7c0a2e9f988775feee7368509fdbfb57",
+  "finished_at_epoch": 1792042675.3494163,
+  "member_verification": {
+    "member_count": 9,
+    "members": {
+      "fresh-tree-0.f32.decode.f32": {
+        "bytes": 2034237440,
+        "sha256": "590037eade203c4a4a258ac468c28536189d0e107999da439254b8bc96c8e2ee"
+      },
+      "fresh-tree-0.f32.schedule.json": {
+        "bytes": 199,
+        "sha256": "f00617384145e752143c7acb3c6e11c2a786b9f9db8ffcf0a17665fbdd90cddc"
+      },
+      "fresh-tree-0.stdout": {
+        "bytes": 9658,
+        "sha256": "e196ccdc7a743c8e054a943a66d376b86596c1c4442db9401918f8ecc7f85c15"
+      },
+      "fresh-tree-2.f32.decode.f32": {
+        "bytes": 2034237440,
+        "sha256": "9dbf37930db46b246817106faa08bfa5144c9862e79d2a923e5ffda119964df0"
+      },
+      "fresh-tree-2.f32.schedule.json": {
+        "bytes": 199,
+        "sha256": "1c54909490f8268378ee0c7b283b2485e5efdefb08e6df302c334acfca1e127e"
+      },
+      "fresh-tree-2.stdout": {
+        "bytes": 9625,
+        "sha256": "48259b087c6699a0bad77afafed7aa339af0463e35f89af82822bcbfa2b8ae9f"
+      },
+      "profile.json": {
+        "bytes": 38522,
+        "sha256": "9dae2fc8967fd98e3b61a93e9a9f0d3a16bae84f266b44729a8f591b77fafd43"
+      },
+      "q8-old-oracle-excerpt-backup-plan.json": {
+        "bytes": 4569,
+        "sha256": "da10d0d453f886f118ea95720e96731d146c0ae46c09bdafee45bb291b6c6212"
+      },
+      "result.json": {
+        "bytes": 210653,
+        "sha256": "9fc4be34441e77bf990df656e729d25e8339d683382fb1a43758b5e8cc9ac199"
+      }
+    },
+    "status": "PASS"
+  },
+  "persistent_run_dir": "/home/dflanag3/spatial-artifacts/q8-old-oracle-backup-20261015-v1",
+  "plan_path": "/home/dflanag3/spatial-artifacts/q8-capacity-review-20261015/q8-old-oracle-excerpt-backup-plan.json",
+  "plan_sha256": "da10d0d453f886f118ea95720e96731d146c0ae46c09bdafee45bb291b6c6212",
+  "receiver_exit": 0,
+  "receiver_partial_stat": "600 4068761600 /srv/data/git/private_context_cow.evidence/20261015-q8-old-oracle-excerpt-v1/q8-old-oracle-excerpt-20261015.tar.partial",
+  "schema": "q8-old-oracle-excerpt-backup-run-v1",
+  "source_archive_bytes": 4068761600,
+  "source_archive_sha256": "649547d2a4a42b056959a570d728424f7c0a2e9f988775feee7368509fdbfb57",
+  "source_files_preflight": "all eight files stat/hash revalidated against pinned plan; plan copy also included",
+  "source_tar_command": [
+    "tar",
+    "--format=gnu",
+    "-C",
+    "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1",
+    "-cf",
+    "-",
+    "fresh-tree-0.f32.decode.f32",
+    "fresh-tree-2.f32.decode.f32",
+    "profile.json",
+    "result.json",
+    "fresh-tree-0.f32.schedule.json",
+    "fresh-tree-2.f32.schedule.json",
+    "fresh-tree-0.stdout",
+    "fresh-tree-2.stdout",
+    "-C",
+    "/home/dflanag3/spatial-artifacts/q8-capacity-review-20261015",
+    "q8-old-oracle-excerpt-backup-plan.json"
+  ],
+  "started_at_epoch": 1792042606.4398642,
+  "status": "COMPLETE",
+  "tar_exit": 0
+}

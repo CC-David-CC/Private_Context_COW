@@ -1,0 +1,32 @@
+{
+    "ticket":  "CLI text-stop controller increment",
+    "date":  "2026-10-16",
+    "base_commit":  "df02950584575762c5c98eec4f881cd62917f358",
+    "remote_candidate":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/checkouts/controller-green-v6",
+    "source_files":  {
+                         "controller":  "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+                         "sampled_controller":  "0f4dcb17630a00592cac72f2d1659fe4b7f53ff93f3a5743fe560880655f9d3a",
+                         "sampling_proposal":  "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c",
+                         "grammar_first":  "240ff3db120781e648d9ef07263e4b0eb57d9b2537df9921ba40127461c9219c",
+                         "real":  "d07170ccb928072a0515d712f6b45cf4e187506c89da575e621982e8d7441ea1",
+                         "text_stops":  "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+                     },
+    "tests":  {
+                  "text_stop":  "17/17 PASS",
+                  "text_stop_run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/controller-green-v6-new2",
+                  "existing_grammar_sampling":  "42/42 PASS",
+                  "regression_run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/controller-green-v6-regressions-v2",
+                  "G0":  "51/51 PASS",
+                  "G0_run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/controller-green-v6-g0-v2"
+              },
+    "import_preflight":  "PASS: all six changed production modules imported on llm-60",
+    "red":  "controller-red-v2: expected 5 test methods, four missing-implementation errors; one empty-stop legacy control passed",
+    "limitations":  [
+                        "real.run_state_request STOP wiring has import/preflight coverage only; not end-to-end or GPU-qualified",
+                        "no HTTP/CLI integration in this checkpoint",
+                        "an earlier regression attempt failed setup because tools/ was omitted from PYTHONPATH; corrected run is the cited 42/42 result",
+                        "an initial G0 staging attempt stopped because evidence directory already existed; corrected no-write G0 is cited"
+                    ],
+    "runner":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+}

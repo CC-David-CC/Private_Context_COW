@@ -1,0 +1,30 @@
+{
+  "schema": "cow-client-recovery-evidence-v1",
+  "status": "BOUNDED_CLIENT_PASS",
+  "client_source_commit": "6c4988fe",
+  "client_sha256": "798fe8706b0e5bf8b6ebdf956d10d59ef6bc1e5647b98efe3590e098afb04b91",
+  "windows_python": "3.13.15",
+  "result": "C:/Users/dflanag3/Documents/fleet/context-cow-artifacts/cli-windows-journal-smoke-20261015/attempt-v4/result.json",
+  "result_sha256": "2bcfa8b07f3dc85205a654656ed028ac19099635d5cc2c843352bcd65a7770f1",
+  "first_cli_exit": 2,
+  "retry_cli_exit": 0,
+  "experiments": 1,
+  "unittest_methods": 0,
+  "observed": {
+    "head_gets": 1,
+    "posts": 2,
+    "commits": 1,
+    "original_revision": 4,
+    "identical_post_sha256": "9673c764be4d03a386133e310168034750bb3164556d535089298492655d1e3f",
+    "journal_state": "complete",
+    "authorization_checks": [true, true],
+    "api_key_in_journal": false,
+    "stdout_unicode_exact": true,
+    "stdio_override": null
+  },
+  "primary_review": "Read and hashed the result independently; Python UTF-8 JSON readback confirmed exact Japanese/accent/snowman output, identical original POST digest and one commit.",
+  "driver_sha256": "b331f5cb241afba52bf662d4e8dc6c2f28368cc4567617cc32e2d3a1a03efd82",
+  "server_fixture_sha256": "f94fbc55e0cccdd06cc9eb1c2df6a03e453db5b25aceb8cc9ce0e2dd0210f36a",
+  "cleanup": "Owned Linux fixture servers and Windows SSH tunnels stopped; assigned loopback listeners absent, per worker terminal observation.",
+  "limits": ["Synthetic HTTP fixture, not native inference", "No GPU/model/logit comparison", "No power-loss or Windows ACL qualification", "Earlier fixture/controller setup failures retained in artifact root", "Existing v3 client ZIP unchanged"]
+}

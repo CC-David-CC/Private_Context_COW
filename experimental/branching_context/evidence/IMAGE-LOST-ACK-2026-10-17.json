@@ -1,0 +1,107 @@
+{
+    "schema":  1,
+    "status":  "BOUNDED_VC06_IMAGE_LOST_ACK_MECHANICS_PASS",
+    "date":  "2026-10-17",
+    "host":  "llm-60",
+    "gpu":  [
+                0
+            ],
+    "controller":  "greedy, immediate LABEL GBNF; thinking disabled",
+    "cases":  [
+                  {
+                      "question":  "expanded",
+                      "status":  "VC06_BOUNDED_IMAGE_LOST_ACK_CLI_Q4_PASS",
+                      "quality":  {
+                                      "actual":  "LEFT",
+                                      "completed":  true,
+                                      "expected_host_only":  "LEFT",
+                                      "interpretation":  "PASS"
+                                  },
+                      "source_cells":  355,
+                      "answer_forward_tokens":  2,
+                      "recovery_forward_tokens":  0,
+                      "original_post_count":  1,
+                      "parent_bytes_unchanged":  true,
+                      "parent_checkpoint":  {
+                                                "bytes":  128355220,
+                                                "sha256":  "4d0dffae0fdf12113f4823638ad5881f70a559c29b2a074dcfc3f01d5a0ee754"
+                                            },
+                      "process_exit":  0,
+                      "process_absent":  true,
+                      "execution_profile_id":  "f2ff15027423ea953861147a2b2284a2a48149cdf9cb5e41510251b98f177175",
+                      "question_sha256":  "644fc582b557a168510b10866048c9e69bd95f19ee5959584c806a70b9e444ee",
+                      "image_sha256":  "414bcbf649fc99734f5c7481cc33c84ce3031fc35443f4bdae470397efa532b8"
+                  },
+                  {
+                      "question":  "short",
+                      "status":  "VC06_BOUNDED_IMAGE_LOST_ACK_CLI_Q4_PASS",
+                      "quality":  {
+                                      "actual":  "NOT_VISIBLE",
+                                      "completed":  true,
+                                      "expected_host_only":  "LEFT",
+                                      "interpretation":  "FAIL"
+                                  },
+                      "source_cells":  320,
+                      "answer_forward_tokens":  4,
+                      "recovery_forward_tokens":  0,
+                      "original_post_count":  1,
+                      "parent_bytes_unchanged":  true,
+                      "parent_checkpoint":  {
+                                                "bytes":  127421192,
+                                                "sha256":  "0e9b252812891e2a3e12b0de29465622e56d9eea36d8500ce9305a16e885cf2e"
+                                            },
+                      "process_exit":  0,
+                      "process_absent":  true,
+                      "execution_profile_id":  "f2ff15027423ea953861147a2b2284a2a48149cdf9cb5e41510251b98f177175",
+                      "question_sha256":  "3ca9794c459a9a936175398a3053bf630c4437565c082eddce1f2257ac05ea37",
+                      "image_sha256":  "414bcbf649fc99734f5c7481cc33c84ce3031fc35443f4bdae470397efa532b8"
+                  }
+              ],
+    "numerical_max_error":  null,
+    "numerical_oracle":  "NOT_RUN",
+    "memory_peak":  "NOT_MEASURED",
+    "performance":  "NOT_MEASURED",
+    "tests":  {
+                  "branchwrite_full":  338,
+                  "cow_cli":  51,
+                  "launcher_grammar":  7,
+                  "g0":  51,
+                  "failures":  0,
+                  "errors":  0,
+                  "skips":  0
+              },
+    "source_hashes":  {
+                          "cow":  {
+                                      "experimental/branching_context/scripts/run_cli_grammar_probe.py":  "6cb97d281d10bc6135a20e8eca7ff7962c27463c7fbbc5ce99c946986b0e5e35",
+                                      "experimental/branching_context/tests/implementation/test_cli_grammar_api_key_argument.py":  "f4c53d90130c4a2e718009f3a45debf39ab56c8b7c82eba6a8b2d9c609ba43ab",
+                                      "tools/cow_cli.py":  "e7b61ebc07fafaa17478e18c69ce3456072e2a2c2f4cfee552653579fb2175d1",
+                                      "tools/test_cow_cli_failure_outcome.py":  "946d955514f6da1f19b76357da9e4451a85f7335d83c46a99a90f01dab03e167"
+                                  },
+                          "branchwrite":  {
+                                              "branchwrite/cow_client.py":  "3a5b47707d8fa906f58c99e9860f97f31b8654ba2177d564d52a7e190678ccb7",
+                                              "fixtures/image_questions/expanded.md":  "dcac46878a1dc820cfa2c397060d58665b010a11f521a371c2674469fbf10926",
+                                              "fixtures/image_questions/short.md":  "6028037c6d24a2a3679adf8f48008517f8a7df28f8618454e4495471547e78a2",
+                                              "tests/test_cow_image_lost_ack.py":  "c1a9b7c80d6396148dcc9dc14747acb7187dfc0a23d6a3446e8638f88a566452",
+                                              "validation/cow_fault_proxy.py":  "0300c21f72f0f455c6e97b26e3bdefa381f5089a651a0a5a7c9f4fb65341cfef",
+                                              "validation/run_image_lost_ack_probe.py":  "c8dc3f39148e3284b13a84890215d641ed22aa14f3614f8f914c3da861dc2890"
+                                          }
+                      },
+    "archive":  {
+                    "host":  "box-git",
+                    "path":  "/srv/data/git/private_context_cow.evidence/20261017-branchwrite-image-ack-v1/evidence.tar.gz",
+                    "size_bytes":  15387229,
+                    "members":  567,
+                    "sha256":  "238ad21598a8b786da8777e1a17d153c660f1b285ab9bc4c21b3478113969479",
+                    "receiver_verified":  true,
+                    "derived_native_bytes_excluded":  1023523488
+                },
+    "limitations":  [
+                        "Short question quality FAIL remains: NOT_VISIBLE instead of LEFT, owner accepts/documented model edge; expanded LEFT passes.",
+                        "Client process restarts only; coordinator/native alive. Server-restart lost-ACK remains unqualified.",
+                        "Original G1-G5 and complete VC06/VC09 remain unqualified.",
+                        "Thinking budget NOT_IMPLEMENTED. Q8 deferred to later exact-pair end-to-end."
+                    ],
+    "public_push":  false,
+    "chat_restarted":  false,
+    "failed_attempts_retained":  true
+}

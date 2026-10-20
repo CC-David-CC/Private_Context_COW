@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "completed_result_identical": true,
+  "ledger_unchanged": true,
+  "transport": "stopped SSH tunnel and unusable API key",
+  "proof": {
+    "schema": 1,
+    "layout": "trusted-host-cli-with-audit-and-isolated-tools",
+    "hostname": "r4090",
+    "python": "3.14.4",
+    "native_modules_loaded": [],
+    "native_file_and_process_audit": true,
+    "violations": [],
+    "scope": "Python audit of trusted CLI; not an adversarial OS security proof. Browser/candidate execution retains its separate OS sandbox."
+  }
+}

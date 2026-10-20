@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "pid": 1546176,
+  "phases": [
+    {
+      "phase": "q4-client-pilot",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 42.23224310402293
+    },
+    {
+      "phase": "q8-client-resident",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 115.71932975703385
+    },
+    {
+      "phase": "q8-client-disk",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 119.9765135589987
+    },
+    {
+      "phase": "q8-real-64k",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 1165.7867530430667
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "q8-real-64k",
+  "child_pid": 1549049,
+  "elapsed_seconds": 1140.0260529060615,
+  "restored_server_pid": 1555966,
+  "server_http_status": 200
+}

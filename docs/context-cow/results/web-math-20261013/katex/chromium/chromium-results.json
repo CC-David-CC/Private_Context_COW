@@ -1,0 +1,79 @@
+{
+  "browser": "chromium",
+  "engine": "katex",
+  "vendor_bytes": 3763263,
+  "equations": [
+    {
+      "name": "fraction",
+      "ok": true,
+      "reason": null,
+      "ms": 10.799999982118607,
+      "cached_ms": 0.09999999403953552
+    },
+    {
+      "name": "integral",
+      "ok": true,
+      "reason": null,
+      "ms": 17.400000005960464,
+      "cached_ms": 0.20000001788139343
+    },
+    {
+      "name": "sum",
+      "ok": true,
+      "reason": null,
+      "ms": 15,
+      "cached_ms": 0.19999998807907104
+    },
+    {
+      "name": "matrix",
+      "ok": true,
+      "reason": null,
+      "ms": 15.199999988079071,
+      "cached_ms": 0.20000001788139343
+    },
+    {
+      "name": "cases",
+      "ok": true,
+      "reason": null,
+      "ms": 10.400000005960464,
+      "cached_ms": 0.09999999403953552
+    },
+    {
+      "name": "aligned",
+      "ok": true,
+      "reason": null,
+      "ms": 5.100000023841858,
+      "cached_ms": 0
+    },
+    {
+      "name": "unicode",
+      "ok": true,
+      "reason": null,
+      "ms": 16.400000005960464,
+      "cached_ms": 0.09999999403953552
+    },
+    {
+      "name": "invalid",
+      "ok": false,
+      "reason": "invalid",
+      "ms": 4.9000000059604645,
+      "cached_ms": 0
+    },
+    {
+      "name": "unsupported",
+      "ok": false,
+      "reason": "invalid",
+      "ms": 0.5999999940395355,
+      "cached_ms": 0.10000002384185791
+    },
+    {
+      "name": "loop",
+      "ok": false,
+      "reason": "invalid",
+      "ms": 16.900000005960464,
+      "cached_ms": 0.09999999403953552
+    }
+  ],
+  "cold_chat_ms": 318.18,
+  "vendor_transfer_bytes": 345581
+}

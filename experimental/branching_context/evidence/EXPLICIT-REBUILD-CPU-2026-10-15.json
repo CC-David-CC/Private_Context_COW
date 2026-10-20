@@ -1,0 +1,72 @@
+{
+  "schema": "cow-explicit-rebuild-cpu-v1",
+  "status": "PASS_CPU_ONLY_NOT_SERVING_QUALIFIED",
+  "base_commit": "7c8b48f1c0f185dcdc36636c36c254342ef24bbf",
+  "host": "llm-60",
+  "python": "3.12.3",
+  "source": {
+    "experimental/branching_context/src/context_time_travel/real.py": "951e36dc656acc87267c30946fb89302febd7fd065c701b67b49f0057cb4c772",
+    "experimental/branching_context/tests/implementation/test_checkpoint_rebuild.py": "832db6c16b7abb8d93fda7443bfef1ad30a79d0035259d202af2df13582dd544"
+  },
+  "run_root": "/home/dflanag3/spatial-artifacts/cow-explicit-rebuild-20261015-v1",
+  "results": {
+    "new_test_methods": 10,
+    "related_regression_methods": 17,
+    "combined_methods": 27,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "combined_run": "review-green-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "d594554387b3252cf80a2de02c978688d4c73c1abced256b58ef19b38488bb0b",
+    "g0": {
+      "run": "review-g0-v1",
+      "tests": 51,
+      "status": "PASS",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stdout_sha256": "da35352e19d4c88a11a2737ec6e8c5543054255ada6db2358cadb3ff6de0f4aa"
+    }
+  },
+  "new_test_ids": [
+    "CheckpointRebuildTests.test_missing_materialization_rebuilds_exact_inputs_and_keeps_controller",
+    "CheckpointRebuildTests.test_idle_root_can_rebuild_without_starting_generation",
+    "CheckpointRebuildTests.test_existing_checkpoint_is_not_bypassed_even_if_its_bytes_are_corrupt",
+    "CheckpointRebuildTests.test_existing_hot_materialization_is_not_recomputed",
+    "CheckpointRebuildTests.test_dangling_checkpoint_entry_cannot_be_bypassed",
+    "CheckpointRebuildTests.test_unknown_or_boolean_policy_fields_fail_before_work",
+    "CheckpointRebuildTests.test_concurrent_rebuild_rechecks_after_acquiring_native_lease",
+    "CheckpointRebuildTests.test_strict_restore_still_rejects_a_missing_checkpoint_without_work",
+    "CheckpointRebuildTests.test_wrong_model_and_non_greedy_controller_fail_before_work",
+    "CheckpointRebuildTests.test_incomplete_work_receipts_or_frontier_fail_closed"
+  ],
+  "measured_scope": {
+    "backend": "synthetic CPU control, no GPU/model initialization",
+    "history_tokens_recomputed_in_main_fixture": 7,
+    "idle_root_tokens_recomputed": 5,
+    "concurrent_same_snapshot_rebuilds": 1,
+    "canonical_history_and_branch_bytes_unchanged": true,
+    "controller_unchanged": true,
+    "strict_restore_missing_checkpoint_forward_tokens": 0,
+    "durable_publication_performed": false,
+    "numerical_oracle_comparisons": 0,
+    "max_numerical_error": null,
+    "real_gpu_tests": 0,
+    "serving_integration": "NOT_IMPLEMENTED",
+    "original_G1_G5_qualification": "UNCHANGED_INCOMPLETE"
+  },
+  "retained_failures": [
+    {"run": "red-v1", "tests": 7, "errors_including_subtests": 10, "cause": "rebuild method absent", "command_exit": 1, "wrapper_exit": 1},
+    {"run": "review-red-v1", "tests": 10, "failed_assertions_including_subtests": 8, "cause": "dangling entry, unsupported policy and concurrent rebuild guards absent", "command_exit": 1, "wrapper_exit": 1},
+    {"run": "g0-v1", "cause": "staging omitted acceptance.json; no gate tests executed", "command_exit": 1, "wrapper_exit": 1},
+    {"run": "g0-v2", "cause": "staging omitted locked-references.json; no gate tests executed", "command_exit": 1, "wrapper_exit": 1},
+    {"run": null, "cause": "controller-side stdin launcher removed literal r characters while attempting CR cleanup; failed before runner launch; replaced with transferred LF scripts", "tool_exit": 1}
+  ],
+  "limitations": [
+    "The explicit operation constructs a new computation arrangement. It does not preserve the old numerical computation or promise identical old logits.",
+    "Existing checkpoint entries, including corrupt entries, must be validated instead of bypassed by recomputation.",
+    "This method is not automatically invoked by strict restore or ordinary materialization.",
+    "Real Q4/Q8 rebuild, serving fallback, capacity accounting and cache-eviction integration remain unqualified."
+  ]
+}

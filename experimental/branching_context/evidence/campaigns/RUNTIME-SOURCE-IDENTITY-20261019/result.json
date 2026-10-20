@@ -1,0 +1,23 @@
+{
+  "status": "BOUNDED_CPU_STARTUP_IDENTITY_PASS",
+  "new_methods": 10,
+  "regression_tests": 56,
+  "G0_tests": 51,
+  "failures": 0,
+  "skips": 0,
+  "before": "Eight missing-helper errors plus normal-server failure to reject source mismatch before Store/model setup",
+  "behavior": "Normal serving and direct native admission verify declared source byte hashes at startup; ready event reports result",
+  "limits": [
+    "Checks declared files, not completeness, loaded-bytecode attestation or future source immutability",
+    "Legacy profiles without closure remain not_declared/unverified",
+    "Latest source addition not yet real-Q8 qualified; prior tested pair remains versioned",
+    "No new native C++/CUDA/HIP/SYCL code or performance claim"
+  ],
+  "logs_sha256": {
+    "runtime-source-identity-after.log": "5b762035492b24c3f80a6feead9c67fa392b3dff7d8f4b926ae1d5c5f5140969",
+    "runtime-source-identity-regressions.log": "86267e36852c1359351c1e4d447019b4a1f08b90dfa1414319940c0158ebf000",
+    "runtime-source-identity-G0.log": "8cfb6b4979d8269bcc84747e06c66d70a1a86c4f5f5cfdaad1f629640804f782",
+    "runtime-source-identity-final.log": "1091caf6b075e37f05a89ef036ec0c7d9e1c4c1c0375e3f5462650919f195d9d",
+    "runtime-source-identity-before.log": "e5149fedbfbcfbd3aa27d648c47ad2c0c3b5f5ca51c160cc0299e9b157273ff8"
+  }
+}

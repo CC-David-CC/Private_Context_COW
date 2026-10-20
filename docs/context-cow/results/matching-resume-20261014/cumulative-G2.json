@@ -1,0 +1,45 @@
+{
+  "gates": [
+    {
+      "errors": 0,
+      "expected_failures": 0,
+      "failure_ids": [],
+      "failures": 0,
+      "found_tests": 51,
+      "gate": "G0",
+      "required_cases": 0,
+      "skipped": 0,
+      "skipped_ids": [],
+      "status": "PASS",
+      "test_count": 51,
+      "unexpected_successes": 0
+    },
+    {
+      "errors": 4,
+      "expected_failures": 0,
+      "failure_ids": [
+        "setUpClass (test_adapter.AdapterTests)",
+        "setUpClass (test_continuation.ContinuationTests)",
+        "setUpClass (test_controller.ControllerTests)",
+        "setUpClass (test_profiles.ProfileTests)"
+      ],
+      "failures": 0,
+      "found_tests": 27,
+      "gate": "G1",
+      "required_cases": 27,
+      "skipped": 0,
+      "skipped_ids": [],
+      "status": "FAIL",
+      "test_count": 0,
+      "unexpected_successes": 0
+    }
+  ],
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "requested": "G2",
+  "schema": 1,
+  "source_tree_sha256": "5f3151d1759fdccedd45c77531d93ca259f80ecff2f2067326e13466e067862a",
+  "status": "FAIL",
+  "timestamp_utc": "2026-10-14T04:17:31.121755+00:00",
+  "tool": "scripts/verify.py"
+}

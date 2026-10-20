@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-grammar-speed-v1/evidence.tar",
+  "archive_bytes": 109373440,
+  "archive_sha256": "6b2812e72ad49b3d1e2a31ed630ec0074e030250d9019a5194f47a6536de0944",
+  "extracted_files": 0,
+  "manifest_sha256": "6a4bdc6ad0d5876f388d5d673ce4b49b22f69b2df56894da8ad132f6fb1287d0",
+  "schema": "cow-grammar-first-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 104107247,
+  "verified_members": 5097
+}

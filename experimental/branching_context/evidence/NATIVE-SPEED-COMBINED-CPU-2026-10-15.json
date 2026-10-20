@@ -1,0 +1,81 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "host": "llm-60",
+  "source_commit": "9eafc96e018a56491151985feec4478003319439",
+  "source_tar_sha256": "9108e0d0c6e98df620c8d1bad9f8bcbc3a1445a2f001ae850c04fdbfa588e621",
+  "source_tar_bytes": 487188480,
+  "artifact_root": "/home/dflanag3/spatial-artifacts/native-speed-combined-20261015-v1",
+  "primary_audit_sha256": "82e926404bf6f649ef8144a96be2a6fff6b8875050e708ebd9bb74bbadfe5a34",
+  "suites": [
+    {
+      "name": "combined-suite-v1",
+      "tests": 182,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "025cf3d3b18b6dc424dce829c4b314a482591452d4ac7d86b5577b852d292301"
+      }
+    },
+    {
+      "name": "serving-verifier-v2",
+      "tests": 141,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr.log": "0a0b811c4bcc586f941ca05b2623f1e992d23187db315c03e6e5037546a8bca1"
+      }
+    },
+    {
+      "name": "g0-v2",
+      "tests": 51,
+      "exits": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "log_sha256": {
+        "stdout.log": "d903a6b3501dcfe36bed8ee252d04f58f5a32c821e972b94b98a2f100f346501",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "2e0e0fd3abe8e1e9735790252c2c600c90825982c5960d9593cbf117d6f01bc0",
+    "experimental/branching_context/src/context_time_travel/pools.py": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "experimental/branching_context/src/context_time_travel/real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "experimental/branching_context/src/context_time_travel/store.py": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "experimental/branching_context/tests/implementation/test_checkpoint_operation_receipts.py": "d82958295d687589545c3fabcb1f83b96376363ad0fdd0d221d000b023edf03d",
+    "experimental/branching_context/tests/implementation/test_durable_restore.py": "085f0c088f8f3292d325c10dff9a02652188876340ae3f3760153913e3918adf",
+    "experimental/branching_context/tests/implementation/test_e01_real.py": "bfb313c6584fb68b3e75d455e660a6e06aa4c115d179f0f800874aec2c583efc",
+    "experimental/branching_context/tests/implementation/test_pool_close_release.py": "678e05dbdcea2375f4c8a1cbe28744f9bb99d5fdaef1fa97f9dd10989e37e53b",
+    "experimental/branching_context/tests/implementation/test_pool_coordinator.py": "e9edd0b7d14eaace66ba06efb070469ef4c7b9b06f007eb4661082f12f788d4e",
+    "experimental/branching_context/tests/implementation/test_q02_real.py": "dbdc24d64cf9121c5029aadaebb1cd90f9c2ee9e6a9bae35dc321f7c94b8d375",
+    "experimental/branching_context/tests/implementation/test_receipt_checkpoint_eviction.py": "2f0daafaaf962037b538931ce59eb81efd0c4bd3ca11da765efc6c530a3d804e",
+    "experimental/branching_context/tests/implementation/test_root_reuse_probe_helpers.py": "8125ce2ca7ab950e416f169db531382ee43c21d4f7b3a5d1c08cd2321c4df95d",
+    "experimental/branching_context/tests/implementation/test_shared_pools.py": "5a31e60cc25d85277441e4a61b95d4811b454f3a5e94bc8e1e18a9f3d01c5731"
+  },
+  "behavior": [
+    "Combined root reuse, failed-publication lifecycle, CLI journal, pool close/released storage, receipt validation and eviction-independent acknowledgment recovery.",
+    "Primary audit independently checked exact verbose method IDs, terminal counts, logs and numeric command/wrapper receipts.",
+    "Existing strict numerical restore remains separate from metadata-only acknowledgment recovery."
+  ],
+  "retained_setup_failures": [
+    "First serving verifier invocation omitted required --output, exit2; corrected invocation uses a new run directory.",
+    "First G0 invocation used repository root instead of nested API root, exit2; corrected invocation uses a new run directory."
+  ],
+  "limits": [
+    "CPU/synthetic filesystem and HTTP control checks only; no GPU/model/throughput claim",
+    "Automatic missing-materialization reconstruction and branch-head LRU remain outstanding",
+    "Actual disk-full/process-crash and broad sampler qualification remain outstanding; original gates unchanged"
+  ]
+}

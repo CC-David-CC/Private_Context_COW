@@ -1,0 +1,35 @@
+[
+  {
+    "label": "g0",
+    "command": [
+      "python3",
+      "scripts/verify.py",
+      "--gate",
+      "G0"
+    ],
+    "exit_code": 0,
+    "seconds": 0.19094728003256023,
+    "output": "ests.test_18_branch_pointer_restart_persists) ... ok\ntest_19_retry_receipt_restart_persists (test_logical_store.LogicalStoreTests.test_19_retry_receipt_restart_persists) ... ok\ntest_20_crash_before_reference_staging_keeps_old_tip (test_logical_store.LogicalStoreTests.test_20_crash_before_reference_staging_keeps_old_tip) ... ok\ntest_21_crash_after_stage_before_rename_keeps_old_tip (test_logical_store.LogicalStoreTests.test_21_crash_after_stage_before_rename_keeps_old_tip) ... ok\ntest_22_failure_after_rename_has_retryable_receipt (test_logical_store.LogicalStoreTests.test_22_failure_after_rename_has_retryable_receipt) ... ok\ntest_23_evaluation_like_reads_do_not_move_branch (test_logical_store.LogicalStoreTests.test_23_evaluation_like_reads_do_not_move_branch) ... ok\ntest_24_store_ref_index_rejects_corrupt_json (test_logical_store.LogicalStoreTests.test_24_store_ref_index_rejects_corrupt_json) ... ok\ntest_25_invalid_branch_or_operation_names (test_logical_store.LogicalStoreTests.test_25_invalid_branch_or_operation_names) ... ok\ntest_26_history_can_have_multiple_empty_deltas (test_logical_store.LogicalStoreTests.test_26_history_can_have_multiple_empty_deltas) ... ok\ntest_27_copy_on_read_cannot_modify_store (test_logical_store.LogicalStoreTests.test_27_copy_on_read_cannot_modify_store) ... ok\ntest_28_same_history_different_controller_not_same_snapshot (test_logical_store.LogicalStoreTests.test_28_same_history_different_controller_not_same_snapshot) ... ok\ntest_29_racing_writers_exactly_one_wins (test_logical_store.LogicalStoreTests.test_29_racing_writers_exactly_one_wins) ... ok\ntest_30_unreferenced_snapshot_survives_branch_rewind (test_logical_store.LogicalStoreTests.test_30_unreferenced_snapshot_survives_branch_rewind) ... ok\ntest_31_second_future_after_rewind_stays_independent (test_logical_store.LogicalStoreTests.test_31_second_future_after_rewind_stays_independent) ... ok\ntest_32_external_mutation_after_fork_does_not_propagate (test_logical_store.LogicalStoreTests.test_32_external_mutation_after_fork_does_not_propagate) ... ok\ntest_close_tie_is_not_mislabelled_large_margin (test_numerics.NumericalOracleTests.test_close_tie_is_not_mislabelled_large_margin) ... ok\ntest_corruption_is_detected (test_numerics.NumericalOracleTests.test_corruption_is_detected) ... ok\ntest_exact_vectors_pass (test_numerics.NumericalOracleTests.test_exact_vectors_pass) ... ok\ntest_invalid_tolerance_rejected (test_numerics.NumericalOracleTests.test_invalid_tolerance_rejected) ... ok\ntest_kl_zero_for_identical_values (test_numerics.NumericalOracleTests.test_kl_zero_for_identical_values) ... ok\ntest_nan_rejected (test_numerics.NumericalOracleTests.test_nan_rejected) ... ok\ntest_nonmatching_shape_rejected (test_numerics.NumericalOracleTests.test_nonmatching_shape_rejected) ... ok\ntest_shift_in_logits_detected_by_elementwise_even_if_softmax_same (test_numerics.NumericalOracleTests.test_shift_in_logits_detected_by_elementwise_even_if_softmax_same) ... ok\ntest_small_numerical_error_passes (test_numerics.NumericalOracleTests.test_small_numerical_error_passes) ... ok\ntest_top1_flip_is_detected (test_numerics.NumericalOracleTests.test_top1_flip_is_detected) ... ok\ntest_chunking_does_not_reset_random_stream (ctt_toy_reference.TimeTravelTests.test_chunking_does_not_reset_random_stream) ... ok\ntest_eviction_preserves_history_and_rng_position (ctt_toy_reference.TimeTravelTests.test_eviction_preserves_history_and_rng_position) ... ok\ntest_feed_associativity (ctt_toy_reference.TimeTravelTests.test_feed_associativity) ... ok\ntest_fresh_input_oracle_matches_each_forced_future (ctt_toy_reference.TimeTravelTests.test_fresh_input_oracle_matches_each_forced_future) ... ok\ntest_other_stream_does_not_mutate_parent (ctt_toy_reference.TimeTravelTests.test_other_stream_does_not_mutate_parent) ... ok\ntest_rewind_does_not_delete_old_future (ctt_toy_reference.TimeTravelTests.test_rewind_does_not_delete_old_future) ... ok\ntest_same_snapshot_repeats_sampled_future (ctt_toy_reference.TimeTravelTests.test_same_snapshot_repeats_sampled_future) ... ok\ntest_sibling_scheduling_does_not_change_a (ctt_toy_reference.TimeTravelTests.test_sibling_scheduling_does_not_change_a) ... ok\ntest_worked_attention_outputs (ctt_toy_reference.TimeTravelTests.test_worked_attention_outputs) ... ok\n\n----------------------------------------------------------------------\nRan 51 tests in 0.112s\n\nOK\nG0: PASS: 51 tests; 0 required real-backend cases\nEvidence: evidence/runs/20261013T063308829343Z-G0.json\n"
+  },
+  {
+    "label": "mutations",
+    "command": [
+      "python3",
+      "scripts/mutation_smoke.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.04821859596995637,
+    "output": "KILLED: sibling suffix leakage\nKILLED: RNG cursor reset\nKILLED: logit corruption\nKILLED: ABA stale reference\nREFERENCE MUTANT SMOKE PASS (4 deliberately wrong outcomes rejected)\n"
+  },
+  {
+    "label": "controller",
+    "command": [
+      "python3",
+      "tests/implementation/test_controller_copy.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.043968821002636105,
+    "output": "test_greedy_tie_and_returned_policy_are_independent (__main__.ControllerCopy.test_greedy_tie_and_returned_policy_are_independent) ... ok\ntest_nonfinite_allowed_logit_still_rejected (__main__.ControllerCopy.test_nonfinite_allowed_logit_still_rejected) ... ok\ntest_penalty_grammar_and_rng_continue_exactly (__main__.ControllerCopy.test_penalty_grammar_and_rng_continue_exactly) ... ok\ntest_read_detaches_controller_and_detects_tampering (__main__.ControllerCopy.test_read_detaches_controller_and_detects_tampering) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.001s\n\nOK\n"
+  }
+]

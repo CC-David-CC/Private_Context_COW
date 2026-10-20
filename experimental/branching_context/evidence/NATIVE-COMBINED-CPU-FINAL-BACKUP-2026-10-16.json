@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-native-client-combined-cpu-final-v1/evidence.tar",
+  "archive_bytes": 296960,
+  "archive_sha256": "14d9be091a71b183785b0345077c66d664d6554d92a6450a866d39bcc361e161",
+  "extracted_files": 0,
+  "manifest_sha256": "2de223759b214545ced8a2c207dcd21a2377c4af85d014fefc61fdf861a5c49e",
+  "schema": "cow-native-combined-cpu-final-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 263887,
+  "verified_members": 23
+}

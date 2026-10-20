@@ -1,0 +1,9 @@
+{
+  "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-native-layout-v1.tar.gz",
+  "bytes": 89476,
+  "sha256": "e4686c9ff57f335c72ccd6b2e0141651df5006d7ab68776e13cb6d19c38bd696",
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-native-layout-v1/evidence.tar.gz",
+  "files": 64,
+  "verification": "All archive members reread; destination full SHA-256 reread"
+}

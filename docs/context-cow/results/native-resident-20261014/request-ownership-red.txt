@@ -1,0 +1,31 @@
+test_early_close_cancels_before_releasing_consumed_boundary (test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary) ... ok
+test_foreign_next_and_close_fail_without_sending_acknowledgment (test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment) ... ok
+test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned) ... ok
+test_lease_cannot_be_released_while_request_is_waiting_for_ack (test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack) ... FAIL
+test_one_request_consumes_all_outputs_without_capture_commands (test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands) ... ok
+test_precreated_second_iterator_cannot_steal_active_request (test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request) ... ERROR
+
+======================================================================
+ERROR: test_precreated_second_iterator_cannot_steal_active_request (test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 93, in test_precreated_second_iterator_cannot_steal_active_request
+    next(second)
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-request-api/context_time_travel/strata_backend.py", line 219, in __next__
+    self._finish(response)
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-request-api/context_time_travel/strata_backend.py", line 191, in _finish
+    raise IntegrityError('Incomplete or inconsistent native request completion')
+context_time_travel.store.IntegrityError: Incomplete or inconsistent native request completion
+
+======================================================================
+FAIL: test_lease_cannot_be_released_while_request_is_waiting_for_ack (test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 78, in test_lease_cannot_be_released_while_request_is_waiting_for_ack
+    with self.assertRaises(InvalidOperation):
+AssertionError: InvalidOperation not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=1, errors=1)

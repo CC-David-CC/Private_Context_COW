@@ -1,0 +1,65 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "base_commit": "59d39fc7ed7b5f168202a210511226dab39bd2ea",
+  "host": "llm-60",
+  "interpreter": "Python 3.12.3",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/root-restore-staging-20261015-v1",
+  "invariant": "A reused serialized root holds both its source pin and a native-restoration staging reservation through capture, whether found in RAM or loaded from disk. Insufficient capacity rejects before backend activation.",
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "cc850d699355e5f9e470fd4cac037e0498bddb084ec33f48215006638b48761a",
+    "experimental/branching_context/tests/implementation/test_root_restore_reservation.py": "c6320983afbf034a14507a9a2d74d3feaaae347f7349fd86357cd17987cb31ce"
+  },
+  "red": {
+    "run": "red-02",
+    "tests": 3,
+    "failures": 3,
+    "errors": 0,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "stderr_sha256": "2c2a38311b9dc7a12d55aaf87c6dea7f123b06a9520134ddfd9514fab8a9f325",
+    "observations": "Pool and disk paths reserved 191 bytes at restore against the required 303-byte scratch extent. Capacity control entered backend.restore before rejection. Earlier red-01 retained with a weaker capacity fixture; it is not the final RED proof."
+  },
+  "green": {
+    "run": "green-01",
+    "modules": ["test_root_restore_reservation", "test_root_computation_reuse", "test_pool_cold_cache_ownership", "test_pool_disk_lru_integration"],
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "6d5ab531ffb898c719869ec3f6de58d250f6dab74837a353554c314f04cf5877"
+  },
+  "g0": {
+    "run": "g0-01",
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "310c830627f5faa0a0dc7133f11b30c1391c7810aa2dc04c3d5584d6f5f7980a"
+  },
+  "new_test_ids": [
+    "test_root_restore_reservation.RootRestoreReservationTests.test_pool_hit_reserves_transfer_through_native_restore",
+    "test_root_restore_reservation.RootRestoreReservationTests.test_disk_hit_reserves_transfer_after_preload_admission",
+    "test_root_restore_reservation.RootRestoreReservationTests.test_insufficient_restore_capacity_fails_before_backend_activation"
+  ],
+  "reference_mutation_smoke": {
+    "run": "mutation-01",
+    "deliberately_wrong_outcomes_rejected": 4,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "64e8a1d32187b95415f5830742aab198fc400dbad44d6214c7003a402c862101",
+    "scope": "Reference-level smoke only, not the real-backend negative campaign."
+  },
+  "scope": {
+    "real_gpu": false,
+    "numerical_max_error": null,
+    "model_or_build_fingerprint": null,
+    "memory": "Synthetic pool-accounting assertions, not measured RSS/VRAM. Native models, native arenas and Python object overhead are outside this CPU fixture.",
+    "original_gate_promotion": false,
+    "remaining": ["Integrated full CPU regression", "Real Q4/Q8 root reuse", "Failed-publication lifecycle integration", "Cache-miss reconstruction integration"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "seconds": 5.744572299998254,
+  "executed_ids": [
+    "serve.test_workspace_http.WorkspaceHTTP.test_history_has_auth_and_mutation_has_origin_checks",
+    "serve.test_workspace_http.WorkspaceHTTP.test_import_retry_does_not_duplicate_messages",
+    "serve.test_workspace_http.WorkspaceHTTP.test_reply_is_saved_and_next_branch_uses_only_its_history",
+    "serve.test_workspace_http.WorkspaceHTTP.test_stale_and_repeated_requests_do_not_run_model_again",
+    "serve.test_workspace_http.WorkspaceHTTP.test_stream_publishes_durable_receipt_before_done"
+  ],
+  "executed_methods": 5,
+  "failures": [],
+  "errors": [],
+  "skips": []
+}

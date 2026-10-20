@@ -1,0 +1,67 @@
+{
+  "schema": "cow-lazy-prefix-integration-v1",
+  "status": "BOUNDED_PASS",
+  "host": "llm-60",
+  "GPU": [0],
+  "integrated_native_commit": "420a60b7",
+  "q8_evidence_commit": "fc9c11bc",
+  "source_worker_commit": "5abf68cee56d6cc68b83061c8126078c8e0bc9e5",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1",
+  "native_tests": {"passed_programs": 10, "failed_programs": 0, "skips": 0, "evidence": "LAZY-PREFIX-CUDA-UNIT-2026-10-15.json"},
+  "current_api_model_fixtures": {
+    "passed": ["q4-tiny-v2", "q4-medium-v1", "q4-target-v1", "q8-tiny-v1", "q8-target-v1"],
+    "branch_continuation_comparisons": 15,
+    "prefix_final_vector_pairs": 30,
+    "numerical_max_error": 0,
+    "scope": "Greedy identical execution profile/operators/batch boundaries; prefix and final frontiers only"
+  },
+  "paired_q4": {
+    "run": "q4-paired-v4",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "native_exit_codes": {"old": {"0": 0}, "lazy": {"0": 0}},
+    "primary_audit": "LAZY-PREFIX-Q4-PAIRED-2026-10-15.json",
+    "primary_audit_sha256": "04326a09d03b8be31f4a3acc9b0abd06216389bda6ec76bc7810836d81e3ec12",
+    "result_sha256": "6e2a6b617afa5ae6ce6b50b5e908dc41e1913e598cb76adf7b89352b422dc88d",
+    "request_count": 16,
+    "measured_requests_per_arm": 6,
+    "numerical_max_error": 0,
+    "ordering": "old then lazy; not randomized"
+  },
+  "implementation_tests": {
+    "run": "paired-integration-unit",
+    "passed": 11,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "0fc024db414b82799576c60ca560d7ef31c74004a3f48edf8d12dbe23278e415",
+    "runner_sha256": "11cf3df21fe6e940478fe0604aacb7a6f2a4011ddaf4a4b92656eff33f62298d",
+    "test_sha256": "21ad1878941fa626faf9ba6ba43eb887b2874bd89b185cc910408a19450f25bc"
+  },
+  "G0": {
+    "run": "g0-integration-v1",
+    "passed": 51,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "bd04ce8edc1641de1ec05ccda9c96a20fb8c971cb4fda149e6fbed72b75c23f7",
+    "source_scope": "Unchanged logical/reference source in capacity-main-integration-20261015-v2/source"
+  },
+  "retained_harness_failures": [
+    {"run": "q4-paired-v1", "cause": "Lazy execution_receipt module absent from sys.modules during inventory before native initialization"},
+    {"run": "q4-paired-v2", "cause": "Text VMM diagnostic incorrectly treated as numeric counter after first old-backend request"},
+    {"run": "q4-paired-v3", "cause": "Integer in-process GPU metric key compared to JSON-style string key after first old-backend request"}
+  ],
+  "limitations": [
+    "Original G1-G5 certification unchanged and unqualified",
+    "Actual pool-pressure and cancellation/publication recovery not rerun with newly integrated native candidate yet",
+    "No repeated paired Q8 performance measurement",
+    "No every-token numerical frontier comparison",
+    "Original arena and max-capacity integrity scratch still allocated",
+    "Standalone pinned-closure CUDA builds; HIP/SYCL remain unqualified",
+    "Earlier rejected-save stats inequality remains unresolved",
+    "Chat server remains off; no public push"
+  ]
+}

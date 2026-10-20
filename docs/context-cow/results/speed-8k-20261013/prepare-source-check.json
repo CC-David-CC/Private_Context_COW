@@ -1,0 +1,22 @@
+{
+  "code_commit": "c053ddbb0431d6543cdd5e57a6cbcf0a398db35d",
+  "files": {
+    "CMakeLists.txt": "2e27333bf1732c5d6e975ef6134de3c1f40b526beec1ef464eed1cc85f990d67",
+    "experimental/branching_context/scripts/build_fast_prefill_probe.py": "ba2885b1fcab6d4f7b800f4324e0855d0232ae9280ecab6e717f403a515cc5ac",
+    "experimental/branching_context/scripts/cow_speed_8k.py": "346d144c257817b6224c6f10b7ab52ae727d2af8bb5d6d685911720de6da354c",
+    "experimental/branching_context/scripts/ram_speed_8k.py": "87f7dcb0fd01f081fd8b6c320df0cadf850c85635db93e71433637616d2402ef",
+    "include/strata/core/branch_digest.hpp": "b3a921282b85ddaa68fa701ce51601cbf365e3d44906b85988bd77742277534d",
+    "include/strata/core/branch_pages.hpp": "e98ef16b04afbd8d3cda91619e037cd88bcc7a14313b60b55c08d649f479a0be",
+    "include/strata/core/branch_session.hpp": "300bd37784556439bc747d2898c0eed5c2a2def862b7621edbf870f2e5ff258d",
+    "src/core/branch_digest.cu": "fb2178f20c535cb3736c7f322adbfd14c6da3759643ddcc621cd7b4b73cf6b20",
+    "src/core/branch_driver.cpp": "5057648eae854f0d88e973908e87cbec41a579db00a4bf218b11e0a403dd9dd5",
+    "src/core/branch_pages.cpp": "7a5a5bbc99e3b59f3875c047d34492d9969975eda64ae0d545211274016e8eb3",
+    "src/core/branch_session.cpp": "60521c48e4b295c35e6ca4ea75bf00a4f883fc082c20dde19ea4898c20d51da4",
+    "tests/core/branch_digest_pages_gpu.cpp": "53b4bd049fa20e47331b9029b954f73ba7e53cfe0f209037563604940b2284a0",
+    "tests/core/branch_digest_pages_test.py": "9fcb9ab5ed8958f4038db05bd40c601402b607a84671751a38ea6f608a148e32",
+    "tests/core/branch_prepare_test.cpp": "6a4e3ba4ee27fb784d31aa4520863f590f0d8f233480bf83726b145629b095d2"
+  },
+  "phase": "post-run source verification against publishing checkout",
+  "status": "PASS",
+  "mismatches": []
+}

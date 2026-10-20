@@ -1,0 +1,67 @@
+{
+  "GPU": [
+    0
+  ],
+  "worker_count": 1,
+  "physical_gpu_count": 1,
+  "active_per_gpu": {
+    "0": 0
+  },
+  "max_active_per_gpu": {
+    "0": 1
+  },
+  "queued": 0,
+  "pending_branches": 0,
+  "failed_publications": 0,
+  "completed": 21,
+  "failed": 0,
+  "cancelled": 0,
+  "preload_failures": 0,
+  "ram": {
+    "resident_bytes": 8879407640,
+    "reserved_bytes": 0,
+    "dirty_bytes": 0,
+    "failed_entries": 0,
+    "failed_bytes": 0,
+    "entries": 5,
+    "unique_payloads": 5,
+    "pins": 0,
+    "peak_accounted_bytes": 12761733952,
+    "byte_limit": 12884901888,
+    "clean_evictions": 16,
+    "failed_evictions": 0,
+    "idle_evictions": 0,
+    "admission_waits": 0,
+    "loads_pending": 0
+  },
+  "disk": {
+    "file_bytes": 50523240816,
+    "reserved_bytes": 0,
+    "local_reserved_bytes": 0,
+    "byte_limit": 51539607552,
+    "files_evicted": 42,
+    "admission_waits": 0,
+    "idle_evictions": 0,
+    "recency_entries": 32
+  },
+  "idle_expiry": {
+    "seconds": null,
+    "runs": 0,
+    "last_result": {
+      "ram": 0,
+      "disk": 0
+    },
+    "last_error": null,
+    "running": false
+  },
+  "workers": {
+    "0": {
+      "health": "healthy",
+      "restarts": 0,
+      "failure_reason": null,
+      "active": 0,
+      "max_active": 1,
+      "pid": 640587
+    }
+  }
+}

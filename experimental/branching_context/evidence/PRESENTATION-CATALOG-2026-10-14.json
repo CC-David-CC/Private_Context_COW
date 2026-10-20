@@ -1,0 +1,49 @@
+{
+  "ticket": "read-only-namespace-presentation-catalog",
+  "date": "2026-10-14",
+  "source_head": "03fdd3d78726f6741c5723342dfdcacf6cb9f9cf",
+  "host": "dflanag3-B650-GAMING-X-AX",
+  "os": "Linux 7.0.0-34-generic x86_64",
+  "python": "3.12.3",
+  "remote_scratch": "/home/dflanag3/branching-g3/store-presentation-pub-20261014",
+  "red": {
+    "command": "PYTHONPATH=.:tests/implementation python3 -m unittest -v test_store_presentation_catalog",
+    "tests": 10,
+    "errors": 10,
+    "expected": "presentation_catalog method absent on base Store",
+    "log_sha256": "5009258c93070f3f27f62a8ac46a17f26a8791ff07baa21fb3d3a93288da12a4"
+  },
+  "green": [
+    {
+      "suite": "namespace presentation catalog",
+      "command": "PYTHONPATH=.:tests/implementation python3 -m unittest -v test_store_presentation_catalog",
+      "tests": 10,
+      "status": "PASS",
+      "log_sha256": "639615abb72d79124bb9340f77f2c8fc969054bf5706d68433cf0760dfb486b4"
+    },
+    {
+      "suite": "catalog, Store publication, branch catalog, namespaces, binding",
+      "command": "PYTHONPATH=src:tests/implementation:scripts python3 -m unittest -v test_store_presentation_catalog test_store_presentation test_store_branch_catalog test_store_namespaces test_presentation_binding",
+      "tests": 54,
+      "status": "PASS",
+      "log_sha256": "f9e15f78b8f95c570febcc0c534b840f482550246b03841c0b3c3222084ea517"
+    },
+    {
+      "suite": "pool CPU controls",
+      "command": "PYTHONPATH=src:tests/implementation:scripts python3 -m unittest -v test_pool_coordinator test_pool_campaign test_pool_source_trace test_shared_pools test_disk_pool",
+      "tests": 33,
+      "status": "PASS",
+      "log_sha256": "7ffddb0bdc95ca35ba9b556a73deda1f473b4aa4e0adf522eab9232eda99219c"
+    },
+    {
+      "suite": "G0",
+      "command": "python3 scripts/verify.py --gate G0",
+      "tests": 51,
+      "status": "PASS",
+      "log_sha256": "fee23bf86918d08263cf9c7b8471898fe71058d61ead39915054a8160df0d95a"
+    }
+  ],
+  "store_sha256": "8e8bc51c1a29f4d824adcf4404b484269e018e35e4e76500cf8a5c417e9b2109",
+  "test_sha256": "2cebf5d6e6f21eb856bb6174e4ef2ecabf8011a9d8a4c765461c72c5d42b0de2",
+  "scope": "CPU-only read-side catalog. No coordinator, serving, checkpoint, GPU, inference, or external application was touched. The catalog returns full annotations for projection; it does not implement bounded preview graph/body loading."
+}

@@ -1,0 +1,1 @@
+Repair ledger.py to meet README.md. Read the source and tests,make only granted edits,run the required tests,and report actual results. Do not modify tests or unrelated files.

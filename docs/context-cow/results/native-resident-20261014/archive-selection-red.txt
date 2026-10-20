@@ -1,0 +1,20 @@
+E
+======================================================================
+ERROR: test_evidence_archive (unittest.loader._FailedTest.test_evidence_archive)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_evidence_archive
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\unittest\loader.py", line 403, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Program Files\Python313\Lib\unittest\loader.py", line 346, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "C:\Users\dflanag3\Documents\fleet\context-cow-execution-parity\docs\context-cow\results\native-resident-20261014\tmp_3e1exva\tests\implementation\test_evidence_archive.py", line 7, in <module>
+    from archive_resident_evidence import collect_files
+ImportError: cannot import name 'collect_files' from 'archive_resident_evidence' (C:\Users\dflanag3\Documents\fleet\context-cow-execution-parity\docs\context-cow\results\native-resident-20261014\tmp_3e1exva\scripts\archive_resident_evidence.py)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

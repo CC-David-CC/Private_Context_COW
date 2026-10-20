@@ -1,0 +1,17 @@
+{
+  "host": "llm-60",
+  "server_pid": 1300778,
+  "configuration_unchanged": true,
+  "caches": {
+    "--prompt-cache": "6",
+    "--conversation-cache-mib": "8192",
+    "--conversation-cache-slots": "8"
+  },
+  "source_sha256_lf": {
+    "serve/web/index.html": "245e854887b6bc6914457b812bc27088ec95dd5c4598ef799dd7eb5ec0b6c5aa",
+    "serve/web/app.css": "c6e31a2e663b1212003ac5632264cfd9410be9cfa8ffae7c37caafc787525cc5",
+    "serve/web/workspace.js": "c04df378c24f0d7c4d6d871a7772923ad804399102fd1132fe2dadbeffb765e9",
+    "serve/web/workspace-graph.js": "816150652cb2fa3f2769a3bd3285ba974e6e6ffa1a8defb2aaa3cd1973f6d6f8"
+  },
+  "live_inference_issued_by_this_ui_review": false
+}

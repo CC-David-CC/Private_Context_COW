@@ -1,0 +1,228 @@
+{
+  "approved_plan_path": "/home/dflanag3/spatial-artifacts/reclaim-plan-q8-checkpoints-20261015.json",
+  "approved_plan_sha256": "e11e3f6e4a73749642ef100efd1816526090fe85684e60f71c8ecf7f90ef96a0",
+  "bytes_unlinked": 21708412484,
+  "completed_utc": "2026-10-15T04:33:37Z",
+  "df_available_bytes_after": 53260918784,
+  "df_available_bytes_before": 31552450560,
+  "df_delta_bytes": 21708468224,
+  "other_files_and_archives_preserved": true,
+  "projected_floor_bytes": 51936144635,
+  "restore_map": [
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+      "bytes": 2101053380,
+      "member": "text-resume-q8-2k-v1/store/checkpoints/19047a6143fd3e6ff26e9af42ad0572e9ed4575d406619b0d37081a64e36cde9.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/19047a6143fd3e6ff26e9af42ad0572e9ed4575d406619b0d37081a64e36cde9.state",
+      "sha256": "19047a6143fd3e6ff26e9af42ad0572e9ed4575d406619b0d37081a64e36cde9"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+      "bytes": 2047672276,
+      "member": "text-resume-q8-2k-v1/store/checkpoints/931960d95aacfe607e3fc686d5b8527e534725abf5cba738341bbc4a65bf5641.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/931960d95aacfe607e3fc686d5b8527e534725abf5cba738341bbc4a65bf5641.state",
+      "sha256": "931960d95aacfe607e3fc686d5b8527e534725abf5cba738341bbc4a65bf5641"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+      "bytes": 2047567804,
+      "member": "text-resume-q8-2k-v1/store/checkpoints/9a1f3a05974bbb4d9bcf688ea160799e7978442356a72c25f56b213a972bc46a.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/9a1f3a05974bbb4d9bcf688ea160799e7978442356a72c25f56b213a972bc46a.state",
+      "sha256": "9a1f3a05974bbb4d9bcf688ea160799e7978442356a72c25f56b213a972bc46a"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+      "bytes": 1831745188,
+      "member": "text-resume-q8-2k-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "sha256": "a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+      "bytes": 2100739988,
+      "member": "text-resume-q8-2k-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "sha256": "a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-next-user/text-next-user-q8-full-v1.tgz",
+      "bytes": 2105649792,
+      "member": "text-next-user-q8-v1/store/checkpoints/49592a7c9af48d3ea55e7479f98fdebc7de40afe5ea11b6b6535c1048457839b.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/49592a7c9af48d3ea55e7479f98fdebc7de40afe5ea11b6b6535c1048457839b.state",
+      "sha256": "49592a7c9af48d3ea55e7479f98fdebc7de40afe5ea11b6b6535c1048457839b"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-next-user/text-next-user-q8-full-v1.tgz",
+      "bytes": 1831745188,
+      "member": "text-next-user-q8-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "sha256": "a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-next-user/text-next-user-q8-full-v1.tgz",
+      "bytes": 2100739988,
+      "member": "text-next-user-q8-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "sha256": "a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-namespace-q4/namespace-q4-full-v1.tar",
+      "bytes": 2685798400,
+      "member": null,
+      "path": "/home/dflanag3/branching-g3/namespace-q4-full-v1.tar",
+      "sha256": "3a6b3201097cb2aac66992ff0a9e9cb504c967ca0032b1b5656fc8117c9e87ef"
+    },
+    {
+      "archive": "/srv/data/git/private_context_cow.evidence/20261014-namespace-q8/namespace-q8-full-v1.tar",
+      "bytes": 2855700480,
+      "member": null,
+      "path": "/home/dflanag3/branching-g3/namespace-q8-full-v1.tar",
+      "sha256": "552cfbdfd8809650c6251fd22e3cb9595c5d71c01033cda981b1c7b7a8566184"
+    }
+  ],
+  "results": [
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4462469,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "19047a6143fd3e6ff26e9af42ad0572e9ed4575d406619b0d37081a64e36cde9",
+        "size": 2101053380
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/19047a6143fd3e6ff26e9af42ad0572e9ed4575d406619b0d37081a64e36cde9.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4462453,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "931960d95aacfe607e3fc686d5b8527e534725abf5cba738341bbc4a65bf5641",
+        "size": 2047672276
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/931960d95aacfe607e3fc686d5b8527e534725abf5cba738341bbc4a65bf5641.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4462445,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "9a1f3a05974bbb4d9bcf688ea160799e7978442356a72c25f56b213a972bc46a",
+        "size": 2047567804
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/9a1f3a05974bbb4d9bcf688ea160799e7978442356a72c25f56b213a972bc46a.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4462434,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4",
+        "size": 1831745188
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4462462,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda",
+        "size": 2100739988
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-resume-q8-2k-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4463354,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "49592a7c9af48d3ea55e7479f98fdebc7de40afe5ea11b6b6535c1048457839b",
+        "size": 2105649792
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/49592a7c9af48d3ea55e7479f98fdebc7de40afe5ea11b6b6535c1048457839b.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4463334,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4",
+        "size": 1831745188
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/a1e5bb082df0c50fcc78bdc50dd8120d2d1bad51869363611383b9bddd7b18d4.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 4463346,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda",
+        "size": 2100739988
+      },
+      "kind": "state",
+      "path": "/home/dflanag3/branching-g3/request-stop-20261014/text-next-user-q8-v1/store/checkpoints/a82b6df2e4897eed13df0a8f66a5b89273fee3c7ec01601eb38773982cfeaeda.state",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 2641895,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "3a6b3201097cb2aac66992ff0a9e9cb504c967ca0032b1b5656fc8117c9e87ef",
+        "size": 2685798400
+      },
+      "kind": "spool",
+      "path": "/home/dflanag3/branching-g3/namespace-q4-full-v1.tar",
+      "unlinked": true
+    },
+    {
+      "after_exists": false,
+      "before": {
+        "device": 66306,
+        "inode": 2641896,
+        "link_count": 1,
+        "mode": "0o600",
+        "sha256": "552cfbdfd8809650c6251fd22e3cb9595c5d71c01033cda981b1c7b7a8566184",
+        "size": 2855700480
+      },
+      "kind": "spool",
+      "path": "/home/dflanag3/branching-g3/namespace-q8-full-v1.tar",
+      "unlinked": true
+    }
+  ],
+  "schema": 1,
+  "started_utc": "2026-10-15T04:32:10Z",
+  "targets_unlinked": 10
+}

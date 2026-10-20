@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "scope": "executed math-control reports and screenshots",
+  "files": {
+    "chromium/chromium-immediate-results.json": {
+      "bytes": 672,
+      "sha256": "94f54fe247fb603ef53e9dc72cdaa38b892822097e57ca8195a6d9268f1e787c"
+    },
+    "chromium/chromium-math-disabled.png": {
+      "bytes": 28452,
+      "sha256": "82046e9da2b5e6045a676d8d32c7a081313c03e429c4f7f0ad394b22a5eca7fd"
+    },
+    "dual-chromium/chromium-dual-math.png": {
+      "bytes": 25905,
+      "sha256": "ad2eaed76eecb0a17afdd391327f7e61eabf507a492927dfbe9a47e0e000b8d2"
+    },
+    "dual-chromium/chromium-dual-results.json": {
+      "bytes": 1351,
+      "sha256": "350e7c75aa9fd4f0a5e581ab230e55e0a43dfc2ca0fe3cef9674fcfb4f9059cb"
+    },
+    "dual-firefox/firefox-dual-math.png": {
+      "bytes": 28066,
+      "sha256": "4f72460dc7eaa762bcce7f0a013401b0d5a51eb7f24c05f04816bf2dc19a5a68"
+    },
+    "dual-firefox/firefox-dual-results.json": {
+      "bytes": 1350,
+      "sha256": "24f8ad88672debb96f5448eb63e2f5afdd61977bde0cf1d0cd9a642f457d1d87"
+    },
+    "dual-webkit/webkit-dual-math.png": {
+      "bytes": 24063,
+      "sha256": "c2cd0e7fa89f64ad0b324d19b87855635e566121a9ecabef704be5595eef9696"
+    },
+    "dual-webkit/webkit-dual-results.json": {
+      "bytes": 1349,
+      "sha256": "9c14331a8400b974e783b0993a4d431e6afc46ddbe26d0ab81851c5483916a64"
+    },
+    "final-chromium/chromium-immediate-results.json": {
+      "bytes": 800,
+      "sha256": "c12275821c335074a945cfa9815b698736d3b8e071f3482c445df99b875352ee"
+    },
+    "final-chromium/chromium-math-disabled.png": {
+      "bytes": 28452,
+      "sha256": "82046e9da2b5e6045a676d8d32c7a081313c03e429c4f7f0ad394b22a5eca7fd"
+    },
+    "final-firefox/firefox-immediate-results.json": {
+      "bytes": 799,
+      "sha256": "32500d5735599d12cfcb5e1069c3eaeb09218dd7672d48a0501e0b63f609f8a2"
+    },
+    "final-firefox/firefox-math-disabled.png": {
+      "bytes": 37699,
+      "sha256": "5a1a7c9b1d6afdcd6d707dc4a9c252a710163c0f6207eb679da465ea2bee4d36"
+    },
+    "final-webkit/webkit-immediate-results.json": {
+      "bytes": 798,
+      "sha256": "c5a0100fbea0653e23b4155488d0968736dc3fa083c624027304e016ffba8259"
+    },
+    "final-webkit/webkit-math-disabled.png": {
+      "bytes": 26419,
+      "sha256": "8e1987492c8abc572b53520b44ff54f471c283753a26d1ec61fa41eb6f2a3c9a"
+    },
+    "firefox/firefox-immediate-results.json": {
+      "bytes": 671,
+      "sha256": "9e81b41ee701253a5fe239aa53d7592ae3beecb6c9bf92951b821b919af4e69d"
+    },
+    "firefox/firefox-math-disabled.png": {
+      "bytes": 37699,
+      "sha256": "5a1a7c9b1d6afdcd6d707dc4a9c252a710163c0f6207eb679da465ea2bee4d36"
+    },
+    "live-math-disabled.jpg": {
+      "bytes": 85162,
+      "sha256": "990090a6274dce28b61320115b63bfdd0d938dfd1a5311e99add9d354d7b66fb"
+    },
+    "live-results.json": {
+      "bytes": 590,
+      "sha256": "bf578d79fe7e18dbcaa11ad57857454109438517646bfcacbce8ce7b05da2415"
+    },
+    "red/chromium-immediate-results.json": {
+      "bytes": 202,
+      "sha256": "389ad0b736d928cb06e7e2ee76f92537894e90a5815673280b4876c18f795bb7"
+    },
+    "SUMMARY.json": {
+      "bytes": 1397,
+      "sha256": "99d70ee25d2e50ce848aa7c6349cfa7213e9a130003334c5718c6d3cd86b2bac"
+    },
+    "webkit/webkit-immediate-results.json": {
+      "bytes": 670,
+      "sha256": "ad5598991bd7a42504c10abc1a4e4e81ca17489317d4e7e500145f05c747c61b"
+    },
+    "webkit/webkit-math-disabled.png": {
+      "bytes": 26419,
+      "sha256": "8e1987492c8abc572b53520b44ff54f471c283753a26d1ec61fa41eb6f2a3c9a"
+    }
+  }
+}

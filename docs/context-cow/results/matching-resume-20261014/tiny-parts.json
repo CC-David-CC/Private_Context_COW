@@ -1,0 +1,16 @@
+{
+  "archive_sha256": "dae9ac305afa3fcaed7df4b67e749b63406b2d88fab50b094c2a5b62a8b6c70e",
+  "archive_bytes": 127406983,
+  "parts": [
+    {
+      "name": "tiny-raw.zip.part00",
+      "bytes": 67108864,
+      "sha256": "addc6c43b7d33cf35d45d7c7a5f9f42369c3140b21fabb267fe07f014730efa4"
+    },
+    {
+      "name": "tiny-raw.zip.part01",
+      "bytes": 60298119,
+      "sha256": "832a61c957b5766a3e267d997b86518bbd1328feffa8f0ddb0f325958ccf07d1"
+    }
+  ]
+}

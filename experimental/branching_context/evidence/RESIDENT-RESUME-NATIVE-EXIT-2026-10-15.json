@@ -1,0 +1,42 @@
+{
+  "status": "FOCUSED_CPU_PASS",
+  "scope": "Restart harness now rejects unknown/nonzero native exits; no backend/API changes",
+  "canonical_script_working_bytes_sha256": "031c667a08d51a4032c2f67e352ab0d091dee631b65d04c7b65ad6b5f80ed8f1",
+  "canonical_test_working_bytes_sha256": "18d4c66e69e7d6a1d3718af7fb4a9d5b1408cf54c66eb924bca201908f2126d0",
+  "external_gpu_harness_sha256": "41db6994001f1956fede236e606cd7674a0e213fb5748f3cad4a9eaeb329ac32",
+  "host": "llm-60",
+  "run_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs",
+  "red": {
+    "directory": "q8-shutdown-red-v2",
+    "tests": 5,
+    "failures": 2,
+    "errors": 7,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "behavior": "Old prepare accepts native exit seven and omits numeric codes; new receipt helper/summary APIs absent"
+  },
+  "green": {
+    "directory": "q8-shutdown-canonical-green-v1",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "exact_canonical_working_bytes_tested": true
+  },
+  "cases": [
+    "Prepare raises after nonzero native shutdown",
+    "Prepare records explicit native zero and success",
+    "Missing, unknown, nonzero, bool or invalid success receipts rejected",
+    "Phase summaries preserve numeric native codes",
+    "Python exit zero cannot mask failed native exit"
+  ],
+  "preserved_setup_failure": "q8-shutdown-cpu-v1 failed module invocation before tests; not behavioral RED",
+  "scope_limits": [
+    "CPU fake backend exercises harness behavior only; real-GPU evidence recorded separately",
+    "External GPU harness differs in whitespace from canonical copy and has its own pinned hash",
+    "No numerical tolerance, reference equation, operator or native engine change",
+    "Combined 15 harness regressions and G0 51/51 passed; see INTEGRATED-HARNESS-G0-2026-10-15.json"
+  ]
+}

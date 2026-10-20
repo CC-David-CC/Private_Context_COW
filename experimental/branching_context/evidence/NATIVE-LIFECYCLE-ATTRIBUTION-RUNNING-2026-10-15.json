@@ -1,0 +1,33 @@
+{
+  "status": "RUNNING_NOT_QUALIFIED",
+  "scope": "External phase-aware attribution of the original full Q4 resident P4 arm",
+  "host": "llm-60",
+  "gpu": [0],
+  "tmux": "p4-q4-lifecycle-attribution-v1",
+  "original_pids": {
+    "outer_numeric_runner": 2061161,
+    "launch_script": 2061194,
+    "python_observer": 2061284,
+    "native_worker": 2061355
+  },
+  "outer_receipts": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-launch-v1",
+  "run_root": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1",
+  "result": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/result.json",
+  "diagnostics": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/diagnostics/resident.json",
+  "profile": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "tool_sha256": "4fd182338e4f9613c26b15b0d48aa18a18efb9b0479bd60e31726ba9bc071906",
+  "launcher_sha256": "ada508425b33a4ae8d64e318224184c136c5ab1f96eb8a9f415a7f5ee34b06c9",
+  "root_observed_original_processes_live": true,
+  "last_heartbeat_observed": {
+    "elapsed_seconds": 73.04887590114959,
+    "phase": "warmup",
+    "pid": 2061284,
+    "repeat": -1,
+    "root_index": 1
+  },
+  "fixture": {"roots": 3, "prefix_tokens_each": 65536, "warmups": 3, "measured_requests_planned": 9, "output_limit_each": 128},
+  "source_and_native_profile_changed": false,
+  "observer_overhead_measured": false,
+  "numerical_max_error": null,
+  "instructions": "Follow these original handles; observation timeout is not terminal. Hold other remote CPU-heavy/GPU work until timing completes. No ordinary chat or GitHub publication."
+}

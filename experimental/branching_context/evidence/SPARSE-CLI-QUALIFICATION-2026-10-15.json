@@ -1,0 +1,97 @@
+{
+  "GPU": [
+    0
+  ],
+  "Q8": "DEFERRED_BY_USER_NO_RUN_QUEUED",
+  "campaign_elapsed_seconds": 78.52,
+  "cli_calls": 13,
+  "command_exit": 0,
+  "delivery_files_verified": 243,
+  "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+  "generated_outputs_total": 512,
+  "generated_requests": [
+    {
+      "elapsed_seconds": 2.8613225969020277,
+      "forward_tokens": 640,
+      "label": "ask-a",
+      "loaded_file_bytes": 0,
+      "outputs": 128,
+      "prefill_tokens": 512,
+      "snapshot": "a251681ec7c3e3cfd42c0193bd5ec5df6ff960a5fe3e79c7f554bf0bc038fa5c"
+    },
+    {
+      "elapsed_seconds": 2.5223966632038355,
+      "forward_tokens": 616,
+      "label": "ask-b",
+      "loaded_file_bytes": 0,
+      "outputs": 128,
+      "prefill_tokens": 488,
+      "snapshot": "cde164f91d57bfb706bc456452629ba5354f7c3d67818086622d816651a64c59"
+    },
+    {
+      "elapsed_seconds": 3.0905872110743076,
+      "forward_tokens": 128,
+      "label": "resume-before-restart",
+      "loaded_file_bytes": 323649780,
+      "outputs": 128,
+      "prefill_tokens": 0,
+      "snapshot": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85"
+    },
+    {
+      "elapsed_seconds": 3.334027495002374,
+      "forward_tokens": 128,
+      "label": "resume-after-restart",
+      "loaded_file_bytes": 323649780,
+      "outputs": 128,
+      "prefill_tokens": 0,
+      "snapshot": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85"
+    }
+  ],
+  "host": "llm-60",
+  "limitations": [
+    "No fresh-logit oracle in CLI campaign",
+    "No retry-request or failed-publication qualification in this campaign",
+    "Greedy Q4 only; Q8 deferred by user",
+    "CLI elapsed times include client startup and durable completion; not generation TPS or TTFT",
+    "Both resumed A requests read 323649780 serialized checkpoint bytes; this is not a pure RAM-only reuse benchmark",
+    "Ordinary Strata serving remains outside this dedicated COW service check",
+    "No crash, EFBIG/ENOSPC, sustained pressure or original cumulative gate qualification added"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "native_exit_codes": [
+    0,
+    0
+  ],
+  "native_processes_started": 2,
+  "native_sut_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "numerical_max_error": null,
+  "preflight": {
+    "cpu_setup": "PASS",
+    "inference_started_during_preflight": false,
+    "model_bytes_rehashed": 0,
+    "model_hash_receipts_reused": 15
+  },
+  "primary_audit_sha256": "1a1ec0bc6872fab6ae646515e662373938f2bf9b4cc6e49c6938164c53693fff",
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "quant": "q4",
+  "restart_forward_tokens": 128,
+  "restart_loaded_file_bytes": 323649780,
+  "restart_prefill_tokens": 0,
+  "restart_tokens_and_canonical_snapshot_exact": true,
+  "result_sha256": "807f4b260dfdef80ae5926a69475d3c7f2efda7083b61f5587d7ae7846496a0d",
+  "retained_setup_and_audit_failures": [
+    "V1 source staging nested serve/serve; V2 uses current source archive directly",
+    "Primary audit V1 incorrectly expected root revision zero; V2 checks exact durable load receipt (revision one)"
+  ],
+  "root_tokens": 7231,
+  "schema": "sparse-cli-q4-qualification-v1",
+  "scope": "Actual CLI subprocesses and real COW HTTP/native service, current sparse physical-prefix backend",
+  "selected_api_files_matching_profile": 17,
+  "service_exit_codes": [
+    0,
+    0
+  ],
+  "source_commit": "ddf57e7e4e06ddb799340c94f3ebb615a2416c3a",
+  "status": "FOCUSED-PASS",
+  "wrapper_exit": 0
+}

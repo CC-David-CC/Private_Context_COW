@@ -1,0 +1,56 @@
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp: In function ‘int main()’:
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:29:24: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   29 |         if (!workspace.digest_pages_view(pages,page_bytes,result,count) || count != original.size() ||
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:35:28: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   35 |             if (!workspace.digest_pages_view(pages,page_bytes,result,count) || result != address ||
+      |                            ^~~~~~~~~~~~~~~~~
+      |                            digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:42:19: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_allocations’; did you mean ‘workspace_allocations’?
+   42 |             after.host_workspace_allocations != before.host_workspace_allocations) return 8;
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                   workspace_allocations
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:42:56: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_allocations’; did you mean ‘workspace_allocations’?
+   42 |             after.host_workspace_allocations != before.host_workspace_allocations) return 8;
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                        workspace_allocations
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:53:24: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   53 |             !workspace.digest_pages_view(pages,page_bytes,result,count) ||
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:57:14: error: ‘reverse’ is not a member of ‘std’
+   57 |         std::reverse(reversed.begin(),reversed.end());
+      |              ^~~~~~~
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:58:24: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   58 |         if (!workspace.digest_pages_view(reversed,page_bytes,result,count)) return 11;
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:63:24: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   63 |         if (!workspace.digest_pages_view({pages[0]},page_bytes,result,count) || count != per_page ||
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:65:23: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   65 |         if (workspace.digest_pages_view({nullptr},page_bytes,result,count) || result || count) return 14;
+      |                       ^~~~~~~~~~~~~~~~~
+      |                       digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:66:24: error: ‘class strata::core::BranchDigestWorkspace’ has no member named ‘digest_pages_view’; did you mean ‘digest_pages’?
+   66 |         if (!workspace.digest_pages_view(pages,page_bytes,result,count) ||
+      |                        ^~~~~~~~~~~~~~~~~
+      |                        digest_pages
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:77:40: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_allocations’; did you mean ‘workspace_allocations’?
+   77 |             (unsigned long long)(after.host_workspace_allocations-before.host_workspace_allocations));
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        workspace_allocations
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:77:74: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_allocations’; did you mean ‘workspace_allocations’?
+   77 |             (unsigned long long)(after.host_workspace_allocations-before.host_workspace_allocations));
+      |                                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                          workspace_allocations
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:82:34: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_live_bytes’; did you mean ‘workspace_live_bytes’?
+   82 |     const auto host_live = after.host_workspace_live_bytes-baseline.host_workspace_live_bytes;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                  workspace_live_bytes
+/home/dflanag3/branching-g3/digest-reuse-20261014/branch_digest_view_gpu.cpp:82:69: error: ‘const struct strata::core::BranchDigestCounters’ has no member named ‘host_workspace_live_bytes’; did you mean ‘workspace_live_bytes’?
+   82 |     const auto host_live = after.host_workspace_live_bytes-baseline.host_workspace_live_bytes;
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                     workspace_live_bytes

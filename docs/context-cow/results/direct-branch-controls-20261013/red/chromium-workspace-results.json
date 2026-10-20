@@ -1,0 +1,17 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "sleek_icons_are_default",
+    "icons_have_accessible_names",
+    "brief_hover_does_not_show_tooltip",
+    "held_hover_shows_tooltip",
+    "teaching_mode_shows_labels",
+    "math_in_saved_branch_renders"
+  ],
+  "error": "TimeoutError('Page.wait_for_function: Timeout 30000ms exceeded.')"
+}

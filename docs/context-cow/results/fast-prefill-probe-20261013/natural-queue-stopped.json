@@ -1,0 +1,42 @@
+{
+  "status": "STOPPED_FOR_NORMAL_SERVING_MEASUREMENT",
+  "pinned_sha256": {
+    "<measurement-home>/branching-g3/long_prefill_natural_v2_20261013.py": "702202be0c5e25ee723b793f3e21d01934fbc2ddf5b0282a278ff47eeeca103d",
+    "<measurement-home>/branching-g3/long-prefill-natural-build-20261013/strata-batched-branch": "2f153f5dfe42091858aa365173f320e12eabe4df31ff007759daac994ca0e2d2",
+    "<measurement-home>/branching-g3/long-prefill-natural-build-20261013/strata-batched-fresh": "eb552628da310181559b5f46ac5b414f38f475812bc8079cf7c8a3b01c291f07"
+  },
+  "runs": [
+    {
+      "name": "long-prefill-natural-smoke2-20261013",
+      "command": [
+        "/usr/bin/python3",
+        "<measurement-home>/branching-g3/long_prefill_natural_v2_20261013.py",
+        "<measurement-home>/branching-g3/private-queue-20261012T0818/python-validation-d3d67a24",
+        "<measurement-home>/branching-g3/private-queue-20261012T0818/frozen-execution-profile.json",
+        "<measurement-home>/branching-g3/long-prefill-natural-build-20261013",
+        "<measurement-home>/branching-g3/long-prefill-natural-smoke2-20261013",
+        "--smoke"
+      ],
+      "status": "PASS",
+      "pid": 1097513,
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "long-prefill-natural-32k64k-20261013",
+      "command": [
+        "/usr/bin/python3",
+        "<measurement-home>/branching-g3/long_prefill_natural_v2_20261013.py",
+        "<measurement-home>/branching-g3/private-queue-20261012T0818/python-validation-d3d67a24",
+        "<measurement-home>/branching-g3/private-queue-20261012T0818/frozen-execution-profile.json",
+        "<measurement-home>/branching-g3/long-prefill-natural-build-20261013",
+        "<measurement-home>/branching-g3/long-prefill-natural-32k64k-20261013"
+      ],
+      "status": "RUNNING",
+      "pid": 1100388
+    }
+  ],
+  "started_utc": "2026-10-13T05:31:36Z",
+  "updated_utc": "2026-10-13T05:32:13Z",
+  "stop_receipt": "<measurement-home>/branching-g3/long-prefill-natural-32k64k-20261013/stop-receipt-normal-serving.json"
+}

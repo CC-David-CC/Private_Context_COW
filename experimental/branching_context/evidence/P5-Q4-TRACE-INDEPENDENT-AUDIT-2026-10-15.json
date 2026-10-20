@@ -1,0 +1,30 @@
+{
+    "status":  "PASS",
+    "scope":  "Independent retained-trace artifact audit only; no inference or full-campaign qualification",
+    "utc":  "2026-10-15T04:56:03.4883968Z",
+    "source_sha256":  "73fdfcd340fd390c82158690aefb81891ff8ea908503cdeb62ba012b5187f84b",
+    "events":  13,
+    "matches":  3,
+    "sequence_chains":  [
+                            [
+                                0,
+                                1,
+                                4
+                            ],
+                            [
+                                3,
+                                5,
+                                6
+                            ],
+                            [
+                                8,
+                                9,
+                                12
+                            ]
+                        ],
+    "bytes_per_chain":  1830602232,
+    "process_id":  1879870,
+    "phase_id":  "3ab92dbde3c74361b5d7716cb7f05826",
+    "numerical_error":  null,
+    "checker":  "PowerShell independent key/order/process/byte checks; no campaign validator import"
+}

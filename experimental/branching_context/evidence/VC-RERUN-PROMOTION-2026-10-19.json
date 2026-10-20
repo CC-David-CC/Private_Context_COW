@@ -1,0 +1,243 @@
+{
+  "status": "L_ADMISSION_BOUNDED_VC_PASS",
+  "execution_profile_id": "bbb56fdebf515057da5645549d9c08697ded089d4ed98316306976edf9d7a775",
+  "executed_stages": [
+    {
+      "name": "reap-medium",
+      "exit_code": 0,
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "passed": true,
+      "seconds": 211.67195121198893,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/reap-medium/evidence.tar.gz",
+        "sha256": "5c25dd00430a36760773a01d9691d1e19fc74738d4510bb62beefa7cc8549fad",
+        "bytes": 230158220,
+        "files": 343
+      }
+    },
+    {
+      "name": "reap-target",
+      "exit_code": 0,
+      "status": "VC09_BOUNDED_MATCHING_PROFILE_NUMERICAL_RESTART_PASS",
+      "passed": true,
+      "seconds": 278.6318092769943,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/reap-target/evidence.tar.gz",
+        "sha256": "ec1261f646f24b5222d91e620be9879e91604656a57ae564671c56e18c001c2d",
+        "bytes": 103458892,
+        "files": 203
+      }
+    },
+    {
+      "name": "grammar",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 99.5862790630199,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/grammar/evidence.tar.gz",
+        "sha256": "730560a9fcaf6f70959b5a19f6e606d96f5f3044629a1531fad43f94999ebb35",
+        "bytes": 68573922,
+        "files": 176
+      }
+    },
+    {
+      "name": "minp",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 155.92819693288766,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/minp/evidence.tar.gz",
+        "sha256": "626289e089fa439c839ee9dd126f6d640e52b352be4fcc5d08e75bdff88fee94",
+        "bytes": 110755990,
+        "files": 293
+      }
+    },
+    {
+      "name": "dry",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 281.54444821714424,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/dry/evidence.tar.gz",
+        "sha256": "0b40bea61fed77cf845e127a2307a214717c28c50a08f4b6a720f32616017c40",
+        "bytes": 212189666,
+        "files": 466
+      }
+    },
+    {
+      "name": "typical",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 292.6734682228416,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/typical/evidence.tar.gz",
+        "sha256": "c7d8d557d4ce44c6bd426c21906c18440bb1afb148ede621144c598b4d0ce9e1",
+        "bytes": 212100950,
+        "files": 464
+      }
+    },
+    {
+      "name": "dynamic",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 294.12294846819714,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/dynamic/evidence.tar.gz",
+        "sha256": "9162b6ea2012de576fa12fb6b1a896198504d28c25bec12fe7be4722a38a0b66",
+        "bytes": 212103252,
+        "files": 464
+      }
+    },
+    {
+      "name": "entropy-combined",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 293.6747921789065,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/entropy-combined/evidence.tar.gz",
+        "sha256": "e43ffea7f5cbd8ef953b822fdcf5fdb0c2ddd7e2aae7a98d0e1a6107e692daa2",
+        "bytes": 212100708,
+        "files": 464
+      }
+    },
+    {
+      "name": "xtc",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 294.97738069598563,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/xtc/evidence.tar.gz",
+        "sha256": "4a484df30be30f3819de75507178cbcd91cd3c64addeec4b3e235f1c4ec01b7d",
+        "bytes": 212272621,
+        "files": 466
+      }
+    },
+    {
+      "name": "mirostat",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 313.98428391106427,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/mirostat/evidence.tar.gz",
+        "sha256": "e826d9809fb3056553a56ede4a7d20b769ae2596053666e82ab6b61de8be74be",
+        "bytes": 222616509,
+        "files": 466
+      }
+    },
+    {
+      "name": "adaptive",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 298.35998847382143,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/adaptive/evidence.tar.gz",
+        "sha256": "519ea66822d6611f844e3a0e93f5c7bdb996dc394889244680d1488f18a4a8a4",
+        "bytes": 223447856,
+        "files": 478
+      }
+    },
+    {
+      "name": "dry-entropy",
+      "exit_code": 0,
+      "status": "PASS",
+      "passed": true,
+      "seconds": 296.2804716930259,
+      "error": null,
+      "max_abs_error": 0.0,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/dry-entropy/evidence.tar.gz",
+        "sha256": "5b7d6838788d9cc86f9189f96c032f640ecf3792c8f4329b89d0abbc4851a482",
+        "bytes": 212208571,
+        "files": 466
+      }
+    },
+    {
+      "name": "dry-entropy-1k",
+      "status": "PASS",
+      "exit_code": 0,
+      "passed": true,
+      "backup": {
+        "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+        "archive": "/srv/data/git/private_context_cow.evidence/20261018-vc-rerun-v1/dry-entropy-1k/evidence.tar.gz",
+        "sha256": "f31cdd247c7cf285aa5985f9e7ec8b0d852b9f9f034b0a43eba97fbc5a2f0de3",
+        "bytes": 212391791,
+        "files": 466
+      }
+    }
+  ],
+  "numerical": [
+    {
+      "name": "reap-tiny",
+      "result_sha256": "9b03cb354ac6597b2a2be898abe32b6d9a06e30f97906e93a0dcf1ca10825b86",
+      "max_abs_error": 0
+    },
+    {
+      "name": "reap-medium",
+      "result_sha256": "f92e92602cd92527235a3ca7d0afa1a199edb2c5ecacceec4cdbe0d0daf6a480",
+      "max_abs_error": 0
+    },
+    {
+      "name": "reap-target",
+      "result_sha256": "3e0517b34c2c210632e6ed33022054748fa0b7747b7028135e0a55f8c626875a",
+      "max_abs_error": 0
+    }
+  ],
+  "pending_not_passed": [
+    "reconstruction",
+    "pool-pressure",
+    "host-enomem",
+    "deep-cancel",
+    "publication-crashes",
+    "formats",
+    "authorization",
+    "cuda-oom",
+    "canonical-enospc",
+    "checkpoint-enospc",
+    "latency-8k"
+  ],
+  "scope": "Existing implemented CPU and Q4 profile-bound numerical/controller sampler reruns justify moving to autonomous L tasks. Remaining VC fault/format/timing stages deferred;not entire VC or G qualification.",
+  "scheduler_original_status_preserved": true
+}

@@ -1,0 +1,30 @@
+{
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_prefill.a": {
+    "bytes": 1527632,
+    "sha256": "19ff00bd02344e072a0d06771b606e32b15f6e06b68221a07790fab0a6f8a9ad"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels.a": {
+    "bytes": 35522756,
+    "sha256": "f38d1f919396d14442246ec98e2bfc6d9f38fd491c449af48aeb5352c266cafb"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_mmq.a": {
+    "bytes": 33952296,
+    "sha256": "1556a2ae6736c0d9aedbc08f0b5259d72ffe8355af4124de5d8059324c2f50d5"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_core.a": {
+    "bytes": 544620,
+    "sha256": "0ff52b4bb08cc9323bd241bdfb540f8d432d5563119f9392beb221306fdb4fed"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_engine.a": {
+    "bytes": 3061500,
+    "sha256": "1c0794f48d459da8d6427b409510676cf12699a430f15b24b2fa2ea45a95f225"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_spec.a": {
+    "bytes": 34420,
+    "sha256": "5dcd4607589fd6377f7b4f31519abd560549d430ac6596afb1d122a118034452"
+  },
+  "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels_cpu.a": {
+    "bytes": 1292412,
+    "sha256": "71f52309643d863bde30bd10317eec01772dd41b561e88b7f2a2be44c632f3f6"
+  }
+}

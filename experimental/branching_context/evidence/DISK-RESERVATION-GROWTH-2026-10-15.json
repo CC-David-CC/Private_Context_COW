@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "ticket": "disk-reservation-growth",
+  "status": "CPU-QUALIFIED; NO GPU",
+  "base_commit": "4e1438c6e950b5c10a6961f33f9a610362e80d85",
+  "owned_files": {
+    "experimental/branching_context/src/context_time_travel/pools.py": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+    "experimental/branching_context/tests/implementation/test_disk_reservation_growth.py": "9c0aa0ebcaa5375be339bdfe5ef7f8900076e8ba4c73bb6e23c5c1153de42cd7"
+  },
+  "red": {
+    "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-red-v1",
+    "result": "6 tests; 14 errors because grow() was absent",
+    "command_exit": 1,
+    "wrapper_exit": 1
+  },
+  "green": {
+    "focused": {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-green-v2",
+      "result": "6 tests passed",
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "combined": {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-focused-v1",
+      "result": "59 tests passed across reservation growth, process reservations, disk pool/LRU, shared pool, coordinator, and disk-LRU integration",
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "g0": {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-g0-v3",
+      "result": "G0 PASS: 51 tests; 0 required real-backend cases",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "pool_import_origin": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/growth-green-v2/src/context_time_travel/pools.py",
+      "pool_sha256": "e5b90ab1707e13ea6e7d5762fa09ef7ecc11a11f4be0e185a7f42963ab793fe1"
+    }
+  },
+  "storage_failure_followup": {
+    "red": {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-storage-red-v1",
+      "result": "7 tests; storage-failure regression failed because grow left the reservation open",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    },
+    "green": {
+      "focused": {
+        "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-storage-green-v1",
+        "result": "7 tests passed",
+        "command_exit": 0,
+        "wrapper_exit": 0
+      },
+      "combined": {
+        "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-storage-focused-v1",
+        "result": "60 tests passed",
+        "command_exit": 0,
+        "wrapper_exit": 0
+      },
+      "g0": {
+        "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-storage-g0-v1",
+        "result": "G0 PASS: 51 tests; 0 required real-backend cases",
+        "command_exit": 0,
+        "wrapper_exit": 0,
+        "pool_import_origin": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/growth-storage-green-v2/src/context_time_travel/pools.py",
+        "pool_sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+      }
+    },
+    "behavior": "An in-place marker write/fsync failure now aborts the reservation, removes the possibly partial marker, releases byte and digest ownership, closes the lease once, and rethrows the original error. Cleanup errors are attached as notes."
+  },
+  "preserved_setup_attempts": [
+    {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-g0-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "reason": "candidate stage omitted scripts/verify.py"
+    },
+    {
+      "run": "/home/dflanag3/spatial-artifacts/disk-pool-ipc-20261015/runs/growth-g0-v2",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "reason": "candidate stage omitted docs/acceptance.json"
+    }
+  ],
+  "coverage": [
+    "same marker and digest lease survive growth",
+    "global and local byte metrics update consistently",
+    "foreign process reservation constrains growth and a later retry succeeds",
+    "protected orphan payload survives collection until release",
+    "timeout, incompatible byte limits, invalid arguments, closed reservation, and over-cap growth reject without changing original reservation"
+  ],
+  "limits": [
+    "CPU and filesystem reservation tests only; no GPU or model execution",
+    "No coordinator integration is included; the caller must reserve manifest bytes first, test payload presence while digest protection is held, then grow only if payload bytes are absent",
+    "Full G0 was run from the staged complete API tree; the two earlier incomplete-stage setup failures are retained above"
+  ]
+}

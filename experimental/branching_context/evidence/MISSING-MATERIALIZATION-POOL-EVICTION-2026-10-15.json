@@ -1,0 +1,83 @@
+{
+  "schema": "context-cow-missing-materialization-pool-eviction-evidence-v1",
+  "status": "FOCUSED-PASS",
+  "base_commit": "9160fdd25ab73b28607ca5152d31d89be858754a",
+  "owned_sources": {
+    "experimental/branching_context/scripts/run_missing_materialization_probe.py": "5a5435737c903fb4f17732c1e35e38039393b5b50c5861e267407098b0dbf6c5",
+    "experimental/branching_context/tests/implementation/test_missing_materialization_probe.py": "862ce273488395ab03394f759411e171f5a4d7b18303b5c2ec64dc2e12b1cf5d"
+  },
+  "validation": {
+    "pool_pressure_method": "production DiskCheckpointPool reservation using exact checked inventory byte budget",
+    "candidate_api_store_sha256": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "candidate_api_pool_sha256": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+    "fixture_sizing_test_red": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-fixture-sizing-20261015-v1/red-v1",
+      "status": "EXPECTED-FAIL",
+      "reason": "Current runner rejected new positive size options and lacked positive-value diagnostics",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    },
+    "fixture_sizing_test_green": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-fixture-sizing-20261015-v1/green-v2",
+      "status": "PASS",
+      "tests_passed": 29,
+      "tests_failed": 0,
+      "tests_skipped": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "cpu_red_v4": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-eviction-harness-20261015-v1/red-v4",
+      "status": "EXPECTED-FAIL",
+      "tests": "1 expected PoolFull on old Store retention policy",
+      "command_exit": 1,
+      "wrapper_exit": 1
+    },
+    "cpu_green_v4": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-eviction-harness-20261015-v1/green-v4",
+      "status": "PASS",
+      "tests_passed": 26,
+      "tests_failed": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "q4_gpu_v3": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-pressure-q4-tiny-20261015-v3/run/probe",
+      "status": "PARENT-AUDITED-PASS",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "native_exit_codes": [0, 0, 0],
+      "primary_audit_sha256": "32eef1e8ea6e927fa1f361e06bee966e25be9d5d58aab1f0f5a6a0f6fcf1410a"
+    },
+    "q4_gpu_v4": {
+      "path": "/home/dflanag3/spatial-artifacts/pool-pressure-q4-tiny-20261015-v4/run/probe",
+      "status": "PARENT-AUDITED-PASS",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "native_exit_codes": [0, 0, 0],
+      "primary_audit_sha256": "383663368c980e0feec486431ba3742cf283ff624bccf14d5e3a32ac86c7dc1f"
+    }
+  },
+  "gpu_source_pins": {
+    "runner_sha256": "dfba904b729c1d19632528dd8e5a427e0a475ee66350d6155bb20ccd89fc969a",
+    "test_sha256": "56b1a6348618b41f3c2167386478058c94d447f789992339393be4d23c584305",
+    "dimensions": {"prefix_tokens": 128, "suffix_tokens": 4, "generated_limit": 8}
+  },
+  "scope": {
+    "real_pool_files_evicted": 4,
+    "real_pool_bytes_evicted": 245129355,
+    "canonical_history_unchanged": true,
+    "full_vector_comparisons_each_q4_run": 2,
+    "vector_elements_per_comparison": 248320,
+    "vector_comparison_errors_each_q4_run": 0,
+    "q4_output_tokens_identical": 8,
+    "primary_auditor_independently_checked_full_vectors": true,
+    "q8_probe": "RUNNING; no result claimed"
+  },
+  "limitations": [
+    "An earlier Q4 v2 run failed the present-manifest/missing-payload no-native-work assertion; its cause remains unexplained. The assertion was preserved, and v3/v4 passed it.",
+    "The sizing CLI was validated with CPU mocks only. No larger native fixture was run or qualified.",
+    "GPU evidence and primary audits were executed and independently reviewed by the parent; this summary does not replace their raw run artifacts."
+  ],
+  "local_check": "git diff --check passed; no tests run on Windows"
+}

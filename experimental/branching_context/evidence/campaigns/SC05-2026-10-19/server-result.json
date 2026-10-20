@@ -1,0 +1,92 @@
+{
+  "status": "CLIENT_FINISHED_SERVER_STOP_REQUESTED",
+  "server_host": "dflanag3-B650-GAMING-X-AX",
+  "client_host": "llm-49",
+  "profile_sha256": "cd4eb09866d0f1c5abf570d7bb9439d392f5f2a2f893b6b68525bf24d92f6cae",
+  "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+  "execution_profile_id": "27ddba3e4d7f208b002828554f875cecb8824de1cc80b9eae3cbd00b4ef8b09e",
+  "model_weights_sha256": "5a72afc5bd2c4d28ff5875d40ab441e91c17e8823d7663e18c9ec78ab993a16f",
+  "eos_tokens": [
+    248044,
+    248046
+  ],
+  "grammar_sha256": "d2aa3638ced88b9b2a1cfefff3f3efeeb76434ae88d91119e1e22441c8afe773",
+  "service_argv_redacted": [
+    "/home/dflanag3/src/Strata/.venv/bin/python",
+    "-B",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/server_bootstrap.py",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/profile.json",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-rebuild-v1",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/grammar.json",
+    "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+    "--profile",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/profile.json",
+    "--store",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC01-q8-dynamic-v1/store",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "0",
+    "--text",
+    "--grammar-store",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC01-q8-dynamic-v1/grammar-store",
+    "--api-key=<REDACTED>",
+    "--ram-gib",
+    "96",
+    "--disk-gib",
+    "48",
+    "--pool-trace-output",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/pool.json"
+  ],
+  "numerical_oracle": "NOT_RUN",
+  "server_pid": 632634,
+  "ready": {
+    "event": "ready",
+    "address": [
+      "127.0.0.1",
+      40283
+    ],
+    "execution_profile_id": "27ddba3e4d7f208b002828554f875cecb8824de1cc80b9eae3cbd00b4ef8b09e"
+  },
+  "startup_seconds": 87.11271140608005,
+  "stop": {
+    "exit_code": 0,
+    "graceful": true,
+    "pid": 632634,
+    "command": [
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/server_bootstrap.py",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/profile.json",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-rebuild-v1",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/grammar.json",
+      "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+      "--profile",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/profile.json",
+      "--store",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC01-q8-dynamic-v1/store",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "0",
+      "--text",
+      "--grammar-store",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC01-q8-dynamic-v1/grammar-store",
+      "--api-key=<REDACTED>",
+      "--ram-gib",
+      "96",
+      "--disk-gib",
+      "48",
+      "--pool-trace-output",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/standalone-SC05-q8-installed-v1/pool.json"
+    ],
+    "forced_process_group_cleanup": false
+  },
+  "worker_shutdown": {
+    "native_pid": 632699,
+    "native_exit_code": 0,
+    "close_succeeded": true,
+    "trace_sha256": "c1caf26d05258f3e2fe3d842d47fdc184d3a688216c0551d8840b7cce664a2f0",
+    "event_count": 31
+  }
+}

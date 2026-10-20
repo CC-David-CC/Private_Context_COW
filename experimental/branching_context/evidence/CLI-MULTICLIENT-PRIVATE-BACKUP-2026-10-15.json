@@ -1,0 +1,24 @@
+{
+  "status": "BOX_GIT_RECEIVER_VERIFIED",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-cow-cli-multiclient-q4-q8-v1/",
+  "archive_bytes": 6933729280,
+  "archive_sha256": "c4952321abde2f1440b1345765b8176fa7f05f22914748ffb8b3839a6b2271d7",
+  "manifest_sha256": "36b9a6d8574da52106710c603c1e2025c0d6ebbe938e5824da15eee1dbfa1ade",
+  "verified_regular_files": 378,
+  "verified_source_bytes": 6933148933,
+  "tar_members_including_manifest": 379,
+  "receiver_receipt_raw_sha256": "19e6f2ed2ebb00ffe536044319af26e1240773bde2bac21e2c09ee509c4dd179",
+  "scope": [
+    "Q4 three-client raw HTTP streams, complete Store and native/pool traces",
+    "Q4 and Q8 actual CLI full campaigns and complete Stores, results and numeric runner receipts",
+    "Integrated29/14 focused CPU runs, G0/51 receipts, pinned profiles/fixtures",
+    "Selected source snapshots captured before source commit712b7519"
+  ],
+  "excluded": ["Separately backed-up client ZIP", "Later Unicode fix and Windows client checks"],
+  "verification": "Receiver verified exact regular member set, safe paths, lengths and SHA256. Primary independently read receiver-validation.json, checked its raw SHA and archive byte size.",
+  "sender_exit_receipt": "NOT_RETAINED by nested Windows tool session; not claimed zero",
+  "retained_verifier_failure": "Initial receiver verifier failed when rereading manifest after tar close. Corrected verifier reran full archive hashing/member verification and passed before publication.",
+  "permissions": {"directory": "0700", "files": "0600"},
+  "cleanup": "No campaign files removed",
+  "publication": "Private box-git only"
+}

@@ -1,0 +1,542 @@
+{
+  "actual_encoder_calls": 16,
+  "actual_outputs": {
+    "jpeg-orientation-1": 124,
+    "jpeg-orientation-2": 110,
+    "jpeg-orientation-3": 92,
+    "jpeg-orientation-4": 95,
+    "jpeg-orientation-5": 515,
+    "jpeg-orientation-6": 70,
+    "jpeg-orientation-7": 93,
+    "jpeg-orientation-8": 218,
+    "ordered-jpeg-png": 154,
+    "ordered-png-jpeg": 81,
+    "png-orientation-1": 109,
+    "png-orientation-2": 165,
+    "png-orientation-3": 96,
+    "png-orientation-4": 134,
+    "png-orientation-5": 98,
+    "png-orientation-6": 69,
+    "png-orientation-7": 183,
+    "png-orientation-8": 285
+  },
+  "case_ids": [
+    "png-orientation-1",
+    "png-orientation-2",
+    "png-orientation-3",
+    "png-orientation-4",
+    "png-orientation-5",
+    "png-orientation-6",
+    "png-orientation-7",
+    "png-orientation-8",
+    "jpeg-orientation-1",
+    "jpeg-orientation-2",
+    "jpeg-orientation-3",
+    "jpeg-orientation-4",
+    "jpeg-orientation-5",
+    "jpeg-orientation-6",
+    "jpeg-orientation-7",
+    "jpeg-orientation-8",
+    "ordered-png-jpeg",
+    "ordered-jpeg-png"
+  ],
+  "case_work": [
+    {
+      "actual_question_work": 130,
+      "actual_root_work": 73,
+      "generated": 109,
+      "name": "png-orientation-1",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 106,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 186,
+      "actual_root_work": 73,
+      "generated": 165,
+      "name": "png-orientation-2",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 162,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 117,
+      "actual_root_work": 73,
+      "generated": 96,
+      "name": "png-orientation-3",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 93,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 155,
+      "actual_root_work": 73,
+      "generated": 134,
+      "name": "png-orientation-4",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 131,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 119,
+      "actual_root_work": 73,
+      "generated": 98,
+      "name": "png-orientation-5",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 95,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 90,
+      "actual_root_work": 73,
+      "generated": 69,
+      "name": "png-orientation-6",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 66,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 204,
+      "actual_root_work": 73,
+      "generated": 183,
+      "name": "png-orientation-7",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 180,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 306,
+      "actual_root_work": 73,
+      "generated": 285,
+      "name": "png-orientation-8",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 282,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 145,
+      "actual_root_work": 73,
+      "generated": 124,
+      "name": "jpeg-orientation-1",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 121,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 131,
+      "actual_root_work": 73,
+      "generated": 110,
+      "name": "jpeg-orientation-2",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 107,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 113,
+      "actual_root_work": 73,
+      "generated": 92,
+      "name": "jpeg-orientation-3",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 89,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 116,
+      "actual_root_work": 73,
+      "generated": 95,
+      "name": "jpeg-orientation-4",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 92,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 536,
+      "actual_root_work": 73,
+      "generated": 515,
+      "name": "jpeg-orientation-5",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 512,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "budget"
+    },
+    {
+      "actual_question_work": 91,
+      "actual_root_work": 73,
+      "generated": 70,
+      "name": "jpeg-orientation-6",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 67,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 114,
+      "actual_root_work": 73,
+      "generated": 93,
+      "name": "jpeg-orientation-7",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 90,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 239,
+      "actual_root_work": 73,
+      "generated": 218,
+      "name": "jpeg-orientation-8",
+      "new_suffix_cells": 21,
+      "prefix_cells": 73,
+      "reasoning_tokens": 215,
+      "root_encoder_calls": 1,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 102,
+      "actual_root_work": 87,
+      "generated": 81,
+      "name": "ordered-png-jpeg",
+      "new_suffix_cells": 21,
+      "prefix_cells": 87,
+      "reasoning_tokens": 78,
+      "root_encoder_calls": 0,
+      "thinking_close_reason": "natural"
+    },
+    {
+      "actual_question_work": 175,
+      "actual_root_work": 87,
+      "generated": 154,
+      "name": "ordered-jpeg-png",
+      "new_suffix_cells": 21,
+      "prefix_cells": 87,
+      "reasoning_tokens": 151,
+      "root_encoder_calls": 0,
+      "thinking_close_reason": "natural"
+    }
+  ],
+  "coverage_notes": [
+    "All36 prefix/final full vectors248320 floats finite and byte-identical. Forced observed generation, not independent sampler choices or every output frontier.",
+    "18 actual parent saved-file byte hash checks before/after question; all unchanged.16 actual CUDA encoder invocations; ordered/reversed reused images perform zero encoder work.",
+    "Both GPU runner and independent auditor exit0/0; encoder/serving/reference PIDs absent.",
+    "The2GiB disk pool finished near its capacity. This format trace has no disk-eviction events; do not count it as LRU/pressure qualification. Separate earlier pressure campaign supplies that evidence.",
+    "All full format vectors remain local and in verified private archive. Optional2100993104B of native state retired afterward; canonical/originals/embeddings/manifests/controllers remain.",
+    "No alpha/non-RGB/large-image or broad authorization/controller/upgrade/power-loss/Q8/split/fullVC09/G qualification."
+  ],
+  "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+  "fingerprints": {
+    "backend": "strata",
+    "backend_revision": "private-llm60-20261012T0818",
+    "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "fresh_oracle_executable_sha256": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "gpu": [
+      0
+    ],
+    "host": "llm-60",
+    "kv": "fp16",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "model_hash_receipt_sha256": "111fb6d1cedf28537c0d1787338da7dad923f637b384cd180cd122bc9ae15e34",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "production_source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+    "profile_file_sha256": "b4cc8d480cdd02a7ec08645fb2d1c68086db0eef0f26ba4ffc71bc02d9e1ec14",
+    "sut_executable_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e"
+  },
+  "frozen_harness": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-format-matrix-source-v1",
+  "full_vector_comparisons": 36,
+  "harness_source_commit": "7b67ac1ae005b14f7375eca260eeb9cec6275db4",
+  "image_grids": {
+    "jpeg-orientation-1": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "jpeg-orientation-2": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "jpeg-orientation-3": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "jpeg-orientation-4": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "jpeg-orientation-5": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "jpeg-orientation-6": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "jpeg-orientation-7": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "jpeg-orientation-8": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "ordered-jpeg-png": [
+      [
+        3,
+        4,
+        12
+      ],
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "ordered-png-jpeg": [
+      [
+        4,
+        3,
+        12
+      ],
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "png-orientation-1": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "png-orientation-2": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "png-orientation-3": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "png-orientation-4": [
+      [
+        4,
+        3,
+        12
+      ]
+    ],
+    "png-orientation-5": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "png-orientation-6": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "png-orientation-7": [
+      [
+        3,
+        4,
+        12
+      ]
+    ],
+    "png-orientation-8": [
+      [
+        3,
+        4,
+        12
+      ]
+    ]
+  },
+  "limits": [
+    "Real CLI/HTTP/GPU18 cases:PNG/JPEG EXIF1..8 and two ordered-image controls. Independent pixel permutations and raw checkpoint-free prefix/final comparisons; forced observed tokens, not every generated frontier or semantic answer scoring. No restart/authorization/pressure/performance/Q8/fullVC09/G qualification in this matrix.",
+    "One JPEG case closes thinking at its512-token budget; final OK succeeds, so no budget escalation. Outputs include thinking/closing/final/EOT. Post-production normalization witness reproduces exact earlier accepted payload hashes; geometry audit independently inspects those bytes."
+  ],
+  "local_retirement": {
+    "logical_bytes": 2100993104,
+    "physical_free_delta": 2101047296,
+    "status": "SUCCESSFUL_RUN_OPTIONAL_STATE_RETIRED_AFTER_VERIFIED_FULL_VECTOR_BACKUP"
+  },
+  "max_abs_error": 0,
+  "normalization_cases": [
+    {
+      "height": 2,
+      "name": "png-orientation-1",
+      "sha256": "dd29dc2589f8d6d18128b870702ec83b7b6282d386402f71846684864d2392e1",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "png-orientation-2",
+      "sha256": "54bde30cabbc2a6162f05217739e1694652892f3ee9c276284b8818a31ee36d4",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "png-orientation-3",
+      "sha256": "7e94ed92b999b14ceccf3bd1a5875bbd932e90902fb8efda14a9372f7ed0be57",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "png-orientation-4",
+      "sha256": "11ab5bae9a4b3cbdcd7eb459bb1042b44e4f2924083af2d5f171151287698346",
+      "width": 3
+    },
+    {
+      "height": 3,
+      "name": "png-orientation-5",
+      "sha256": "8148ae42d21d4cd9f62139f9547053bf0806042094560e5e59e735986ef24a35",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "png-orientation-6",
+      "sha256": "88524c75813a679a230a8545b1d9bff6c1c78f6d7fee99a1e2ed74c87834ae1d",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "png-orientation-7",
+      "sha256": "b2ac077f00eaafc4ff152795313af997e7427ed6e31d4b2bbfa7f05a2bb34425",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "png-orientation-8",
+      "sha256": "acb2279973dbb222dcbff1d20fc2a6dac11b4c85552688b66ad45e74c479ceb9",
+      "width": 2
+    },
+    {
+      "height": 2,
+      "name": "jpeg-orientation-1",
+      "sha256": "0a5b02bd81815698a53d00ad407f58d3d52ab21bb58ecb5db086f6adb377dea7",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "jpeg-orientation-2",
+      "sha256": "b6934d76ec961e13902dea0eace9e3e7ce1ac672d6c72700209dbf4b2a8a81cb",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "jpeg-orientation-3",
+      "sha256": "fac17348b88f63d1b5c2748eb7d9e91a99aad06ee987483cd2b17f92fd8f5c88",
+      "width": 3
+    },
+    {
+      "height": 2,
+      "name": "jpeg-orientation-4",
+      "sha256": "09f1448f464ffc54cca48f03064eaecdead7c15eb500c7885d1c5d23aca4bd09",
+      "width": 3
+    },
+    {
+      "height": 3,
+      "name": "jpeg-orientation-5",
+      "sha256": "eda1af2b9bad3e78aa818f4752f113e58173033afb4d4a4b8c51bcbf21fc3cda",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "jpeg-orientation-6",
+      "sha256": "f5482d4803b6725a2d5c59476e38d2b87e4f3a1f6b7eae21270a9e17bca28fac",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "jpeg-orientation-7",
+      "sha256": "48045767f507349c9b650fee6433d1527b90e514d1099be61cd8803886d89f97",
+      "width": 2
+    },
+    {
+      "height": 3,
+      "name": "jpeg-orientation-8",
+      "sha256": "12bc95ea946ef916ac5d078d66cd0bb603501f777afa2198bd317a5ed822f5cc",
+      "width": 2
+    }
+  ],
+  "oracle_binary_archive": {
+    "archive_bytes": 160373200,
+    "archive_sha256": "c86698c0448d5e9de07450570e87e8724493ad567fa7188cc62f8fcc19a8f5d1",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-vision-final-route-target-v1/evidence.tar.gz",
+    "individually_verified_data_files": 328,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 329,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "parent_payload_byte_audits": 18,
+  "pixel_witness": "Six-pixel RGB fixtures, original3x2 dimensions; all eight exact literal geometric permutations checked. Reconstructed normalized bytes match earlier GPU-accepted SHA256 values, then independent auditor decodes and checks every pixel. Actual native grids4x3 and3x4,12 rows per image.",
+  "private_archive": {
+    "archive_bytes": 133276903,
+    "archive_sha256": "08843e9c553145fbce8afd61f8a1cab44d5839f3576d5081b1610a83d2f32858",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-vision-format-matrix-v1/evidence.tar.gz",
+    "individually_verified_data_files": 771,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 772,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "production_source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+  "result_sha256": "0a4efb81406968340ab8de3eb460ddc2895b6bf9b48c83c2f17ef6b8343d8919",
+  "status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+  "terminal_native_forward_tokens": 4411
+}

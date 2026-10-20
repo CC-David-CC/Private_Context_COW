@@ -1,0 +1,230 @@
+{
+  "source_commit": "2c0884d99e9c71615f37ae05cdc1366f67d039e1",
+  "files": {
+    "experimental/branching_context/scripts/run_cli_grammar_probe.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/scripts/run_cli_grammar_probe.py",
+      "sha256": "6cb97d281d10bc6135a20e8eca7ff7962c27463c7fbbc5ce99c946986b0e5e35"
+    },
+    "experimental/branching_context/scripts/run_thinking_cli_probe.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/scripts/run_thinking_cli_probe.py",
+      "sha256": "dad1924d3de6bf373b72aff4b62f4303880a7cc00dbf118899428faf65419649"
+    },
+    "experimental/branching_context/src/context_time_travel/__init__.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/__init__.py",
+      "sha256": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+    },
+    "experimental/branching_context/src/context_time_travel/adaptive_p.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/adaptive_p.py",
+      "sha256": "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd"
+    },
+    "experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/adaptive_p_pipeline.py",
+      "sha256": "8891025d2f43c7916490bbd1bba3405d6182757a668c1e90dd29ba288656f7cb"
+    },
+    "experimental/branching_context/src/context_time_travel/checkpoint_cache.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/checkpoint_cache.py",
+      "sha256": "84e32e9d2208a87fb41f5cc576c84d8e47fa6afc7c82f16c2ad8b78918aaac55"
+    },
+    "experimental/branching_context/src/context_time_travel/controller.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/controller.py",
+      "sha256": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf"
+    },
+    "experimental/branching_context/src/context_time_travel/coordinator.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/coordinator.py",
+      "sha256": "ef3c3452a6f36706c51179094b3006f82c31753002d926be1576bd83a6ff41fd"
+    },
+    "experimental/branching_context/src/context_time_travel/digest_attestation.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/digest_attestation.py",
+      "sha256": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+    },
+    "experimental/branching_context/src/context_time_travel/dry.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/dry.py",
+      "sha256": "cdf0b57a8856cecf576484d6a9a042558e6f4e5c6c10e452f0d276f3a4cc14bf"
+    },
+    "experimental/branching_context/src/context_time_travel/dynatemp.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/dynatemp.py",
+      "sha256": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b"
+    },
+    "experimental/branching_context/src/context_time_travel/evaluation.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/evaluation.py",
+      "sha256": "bb26837681e30fa510d6dd961126669e68f174ef940449a09ef3ebda3938097d"
+    },
+    "experimental/branching_context/src/context_time_travel/evaluation_worker.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/evaluation_worker.py",
+      "sha256": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688"
+    },
+    "experimental/branching_context/src/context_time_travel/execution_receipt.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/execution_receipt.py",
+      "sha256": "f03740fb405254ad932b6acb28c732b5313cfd07fcbe44b9e44d2757f42f8930"
+    },
+    "experimental/branching_context/src/context_time_travel/grammar_first.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/grammar_first.py",
+      "sha256": "03e2a6560558f564cc893148bdc01f17989dd7a21721f5129cc9829754dea62d"
+    },
+    "experimental/branching_context/src/context_time_travel/input_schedule_projection.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/input_schedule_projection.py",
+      "sha256": "578c6bdaf6f190f6903a7595647199a9b9187e18c84b0ae590f719728b925662"
+    },
+    "experimental/branching_context/src/context_time_travel/input_spans.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/input_spans.py",
+      "sha256": "9304236e4e8c81cc3dc8d1dc8059b99bc536af3c2a17abbfbe22f2e745eb6ec2"
+    },
+    "experimental/branching_context/src/context_time_travel/min_p.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/min_p.py",
+      "sha256": "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd"
+    },
+    "experimental/branching_context/src/context_time_travel/mirostat2.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/mirostat2.py",
+      "sha256": "969576f04b5e5b74c34f3dd53a810675145ee837111250d7d6737f07d9f9aba9"
+    },
+    "experimental/branching_context/src/context_time_travel/numerics.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/numerics.py",
+      "sha256": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"
+    },
+    "experimental/branching_context/src/context_time_travel/oracle.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/oracle.py",
+      "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+    },
+    "experimental/branching_context/src/context_time_travel/pools.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/pools.py",
+      "sha256": "d36555a0a706308c1626fa22adb253738744331ed0948d26a0a1003c9f4d29aa"
+    },
+    "experimental/branching_context/src/context_time_travel/presentation_binding.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/presentation_binding.py",
+      "sha256": "a911b28eafd87b75b7adeea0f1b7c7f110b71598bd730943b97983b0499e6f0d"
+    },
+    "experimental/branching_context/src/context_time_travel/presentation_request.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/presentation_request.py",
+      "sha256": "08f9e5b55e4850af8f3b7537453d6e859d869b6366afbd4a5f607e84e71cdcf7"
+    },
+    "experimental/branching_context/src/context_time_travel/real.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/real.py",
+      "sha256": "a35f46c3a6d6106656d682086068f882d94d2365b2c90d69b54a0b9200e84263"
+    },
+    "experimental/branching_context/src/context_time_travel/sampled_controller.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/sampled_controller.py",
+      "sha256": "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393"
+    },
+    "experimental/branching_context/src/context_time_travel/sampling_proposal.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/sampling_proposal.py",
+      "sha256": "84b1da4a4a7f355ecb91b9c3389f6d7e175615becdeb2f1f564b441120c3d34c"
+    },
+    "experimental/branching_context/src/context_time_travel/seed_controls.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/seed_controls.py",
+      "sha256": "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b"
+    },
+    "experimental/branching_context/src/context_time_travel/slots.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/slots.py",
+      "sha256": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5"
+    },
+    "experimental/branching_context/src/context_time_travel/store.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/store.py",
+      "sha256": "7bd6700966ccecea7c06cb85dfeb77a305f4519cf0c3a4b8f2b3b62050dd9bad"
+    },
+    "experimental/branching_context/src/context_time_travel/strata_backend.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "sha256": "892346fe4b41950b28b5b18839618300f0e2146397206fc849d99a47f518a9b6"
+    },
+    "experimental/branching_context/src/context_time_travel/text_stops.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/text_stops.py",
+      "sha256": "92ce3ca23286aa3dbb8bcf271ab37f4ed5022f27fdde90e9f2c5d0c7850e0619"
+    },
+    "experimental/branching_context/src/context_time_travel/thinking_grammar.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/thinking_grammar.py",
+      "sha256": "5aad49e045e5e20635d0c6e7e8777fbcc40b826832a8fae5aeea3933a2aa2784"
+    },
+    "experimental/branching_context/src/context_time_travel/typical.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/typical.py",
+      "sha256": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e"
+    },
+    "experimental/branching_context/src/context_time_travel/vision_artifacts.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/vision_artifacts.py",
+      "sha256": "c654c71ee0ed91db01ccd8cccf6ebca62a6734fa2a535734b0694bfec8138b9d"
+    },
+    "experimental/branching_context/src/context_time_travel/vision_controllers.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/vision_controllers.py",
+      "sha256": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a"
+    },
+    "experimental/branching_context/src/context_time_travel/vision_dry.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/vision_dry.py",
+      "sha256": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10"
+    },
+    "experimental/branching_context/src/context_time_travel/vision_embeddings.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/vision_embeddings.py",
+      "sha256": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6"
+    },
+    "experimental/branching_context/src/context_time_travel/vision_execution.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/vision_execution.py",
+      "sha256": "9d2c4d2d9561fa6f1e80c833e29984831b1ec7585ce4e8e00475d77c6ad9d24f"
+    },
+    "experimental/branching_context/src/context_time_travel/xtc_pipeline.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/experimental/branching_context/src/context_time_travel/xtc_pipeline.py",
+      "sha256": "a481e823d1ca9e7a2ad9fc29773d35a954c95a6d215dece7178dc90d6d25c386"
+    },
+    "serve/cow_adapter.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_adapter.py",
+      "sha256": "606cf4e454d7fc0bdac6a348e1e1cfe54f8e9c8b36f315af07c6f9ae4573535a"
+    },
+    "serve/cow_browser_fixture.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_browser_fixture.py",
+      "sha256": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183"
+    },
+    "serve/cow_grammar.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_grammar.py",
+      "sha256": "169b9a58ec6bbf62e3826915e6a6a11761b9436c75f344eef6c2742c8341eada"
+    },
+    "serve/cow_http.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_http.py",
+      "sha256": "3b3880311384168ffb09b3769200c867e0c2be3b69dca04f82fd07aa53590ec3"
+    },
+    "serve/cow_prefix.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_prefix.py",
+      "sha256": "83a0feaa70b7d0305ba6a14de378b67b5da302c6df20ede57c9694671aef38db"
+    },
+    "serve/cow_prompt_encoder.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_prompt_encoder.py",
+      "sha256": "ccfdebd6114ff22aee39671325f57c0bbd40b5198c4db786cdc2ed43c84c06dc"
+    },
+    "serve/cow_renderer.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_renderer.py",
+      "sha256": "90c2b552559c0e88fedecf58cdc71c86344e757b645eff18378f5a9401496b06"
+    },
+    "serve/cow_text_adapter.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_text_adapter.py",
+      "sha256": "570f4f9b63cbfc676ac3a8378daff94763de3a8bce1fbd1e44b945174b38114f"
+    },
+    "serve/cow_vision.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_vision.py",
+      "sha256": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af"
+    },
+    "serve/cow_vision_encoder.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_vision_encoder.py",
+      "sha256": "54bf5ff283d46df81628a2992588ba138e44cf3004708e6e1ec159bd6a7b2445"
+    },
+    "serve/cow_vision_preparer.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_vision_preparer.py",
+      "sha256": "d1de11d62a10e8cced55a93b2df618eaabc86643c28760c58cefa51a25ca1148"
+    },
+    "serve/cow_workspace.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_workspace.py",
+      "sha256": "3d223b38936d24b4fb7857101fdfd3fd429affb98ec86c9cb8b376a0e95e97af"
+    },
+    "tools/cow_cli.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/tools/cow_cli.py",
+      "sha256": "e7b61ebc07fafaa17478e18c69ce3456072e2a2c2f4cfee552653579fb2175d1"
+    },
+    "serve/cow_grammar_router.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_grammar_router.py",
+      "sha256": "e719332c2a5260a6498ae28c20318678a3286fbf9ce93dd76998ff75281f42fa"
+    },
+    "serve/cow_grammar_catalog.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_grammar_catalog.py",
+      "sha256": "9d4c9712687ca2607321ab22b2e8ce0491cf3f60d9c87a0410a780e8e13d711d"
+    },
+    "serve/cow_grammar_disk.py": {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc-rerun-20261018-v1/runtime-grammar-admission-v1/serve/cow_grammar_disk.py",
+      "sha256": "7e65d5c3581672e399775b8e129fddb3b5cab9e14c5e5381458269e3cb0a1026"
+    }
+  },
+  "files_sha256": "7387f1a0cbaf8fe2cf095872dfc1c079075d63eadd99dd5b0d9e64535329aa95"
+}

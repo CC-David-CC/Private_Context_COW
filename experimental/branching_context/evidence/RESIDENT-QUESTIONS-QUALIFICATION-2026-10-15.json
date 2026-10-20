@@ -1,0 +1,114 @@
+{
+  "GPU": [
+    0
+  ],
+  "actual_outputs": [
+    320,
+    317,
+    330
+  ],
+  "base_commit": "ddf57e7e4e06ddb799340c94f3ebb615a2416c3a",
+  "campaign_elapsed_seconds": 38.62,
+  "controller_and_canonical_stdout": "EXACT",
+  "ended_by_eos": [
+    true,
+    true,
+    true
+  ],
+  "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+  "final_cpu": {
+    "errors": 0,
+    "failures": 0,
+    "methods": 10,
+    "skips": 0
+  },
+  "full_numerical_oracle": "NOT_RUN",
+  "g0": {
+    "failures": 0,
+    "methods": 51,
+    "scope": "Unchanged logical/reference source, no new original real-backend gate qualification",
+    "skips": 0
+  },
+  "host": "llm-60",
+  "http_exit": 0,
+  "limitations": [
+    "No fresh independent logits oracle or quality qualification",
+    "5000 was the ceiling; all three answers stopped at EOS below it",
+    "Whole CLI rates include suffix prefill and durable publication, exclude model/prefix startup",
+    "Resident native KV-image handle does not promise all auxiliary state is GPU-resident",
+    "Q8 deferred; no explicit residency-lock feature added"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "native_exit": 0,
+  "native_file_load_bytes": 0,
+  "native_prefix_handle": 0,
+  "numerical_max_error": null,
+  "old_prefix_forward_tokens": 0,
+  "output_ceiling_each": 5000,
+  "primary_audit_sha256": "e6d8d1b1f1438d260653b255991e0dfccc6b4deeb5e70d40040377bffb11b2b5",
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "python_exit": 0,
+  "quant": "q4",
+  "question_tokens_each": 30,
+  "requests": [
+    {
+      "elapsed_cli_seconds": 3.916316522983834,
+      "ended_by_eos": true,
+      "file_load_bytes": 0,
+      "new_question_tokens": 30,
+      "old_prefix_work": 0,
+      "outputs": 320,
+      "question": 1,
+      "snapshot": "70698bf674e030d552e8bcdc0ca6bfb6cc79b61c99c82bb08ff3858acf888262",
+      "whole_cli_output_tokens_per_second": 81.70943235103802
+    },
+    {
+      "elapsed_cli_seconds": 3.869866724824533,
+      "ended_by_eos": true,
+      "file_load_bytes": 0,
+      "new_question_tokens": 30,
+      "old_prefix_work": 0,
+      "outputs": 317,
+      "question": 2,
+      "snapshot": "a6275d5cb26a8349afc1875f5768c7329473633a461fa81d3afca516d2df2b8d",
+      "whole_cli_output_tokens_per_second": 81.91496569287496
+    },
+    {
+      "elapsed_cli_seconds": 4.12338907783851,
+      "ended_by_eos": true,
+      "file_load_bytes": 0,
+      "new_question_tokens": 30,
+      "old_prefix_work": 0,
+      "outputs": 330,
+      "question": 3,
+      "snapshot": "96d01d9ca9664dcd57afb954fc207c32cecbfb2a7a3fc7b9085366d787763e12",
+      "whole_cli_output_tokens_per_second": 80.03125433241598
+    }
+  ],
+  "resident_lock_api_added": false,
+  "retained_failures": [
+    {
+      "failures": 8,
+      "methods": 8,
+      "run": "red-v1",
+      "scope": "Harness absent; no model/backend execution"
+    },
+    {
+      "run": "gpu-q4-v1",
+      "scope": "After first 320-output answer, expected EOS field tuple differs from canonical JSON list; no numerical mismatch measured",
+      "status": "FAIL"
+    },
+    {
+      "failures": 1,
+      "methods": 10,
+      "run": "controller-red-v2",
+      "scope": "New canonical-list assertion fails on tuple; unchanged full-controller comparison retained after helper fix"
+    }
+  ],
+  "root_tokens": 7231,
+  "runner_sha256": "5868d2239355b7808cf5c6f2eafe20698e40f96541c9751c7a1e741a7d0a59e0",
+  "schema": "resident-questions-qualification-v1",
+  "source_branch": "work/luna-resident-questions",
+  "status": "FOCUSED-PASS",
+  "tests_sha256": "89c2345d3454de4b5a07f46e37f339dce4954416daf333dae0230a3dac133cf5"
+}

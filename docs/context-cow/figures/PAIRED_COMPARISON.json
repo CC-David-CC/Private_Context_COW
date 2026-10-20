@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "scope": "bounded paired measurement; not gate certification",
+  "baseline_policy": "per-write-sha256",
+  "candidate_policy": "externally-managed",
+  "fixture_sha256": "f9703b78ad6ac6e1626ee6b758d30ea7546ad58bd8159ef708f06aaab9b92679",
+  "numerical_max_error": 0.0,
+  "requests": [
+    {
+      "lane": "resident",
+      "label": "A",
+      "native_tps_baseline": 47.48558073485785,
+      "native_tps_candidate": 50.631839457219805,
+      "native_tps_gain_percent": 6.625713898139973,
+      "prepare_seconds_baseline": 0.183748832,
+      "prepare_seconds_candidate": 0.004757893,
+      "api_tps_baseline": 8.05599756735965,
+      "api_tps_candidate": 8.096786275261731,
+      "decode_integrity_baseline": {
+        "integrity_kernel_calls": 128,
+        "integrity_device_hashed_bytes": 32212254720,
+        "integrity_checked_pages": 15360
+      },
+      "decode_integrity_candidate": {
+        "integrity_kernel_calls": 0,
+        "integrity_device_hashed_bytes": 0,
+        "integrity_checked_pages": 0
+      }
+    },
+    {
+      "lane": "resident",
+      "label": "B",
+      "native_tps_baseline": 43.12589424681594,
+      "native_tps_candidate": 45.87829233730019,
+      "native_tps_gain_percent": 6.382240040593401,
+      "prepare_seconds_baseline": 0.185497211,
+      "prepare_seconds_candidate": 0.004827164,
+      "api_tps_baseline": 7.854045276386494,
+      "api_tps_candidate": 7.903357195994936,
+      "decode_integrity_baseline": {
+        "integrity_kernel_calls": 128,
+        "integrity_device_hashed_bytes": 32212254720,
+        "integrity_checked_pages": 15360
+      },
+      "decode_integrity_candidate": {
+        "integrity_kernel_calls": 0,
+        "integrity_device_hashed_bytes": 0,
+        "integrity_checked_pages": 0
+      }
+    },
+    {
+      "lane": "host-ram",
+      "label": "A",
+      "native_tps_baseline": 51.43957110034964,
+      "native_tps_candidate": 51.68297657883309,
+      "native_tps_gain_percent": 0.47318722391485046,
+      "prepare_seconds_baseline": 0.01169995,
+      "prepare_seconds_candidate": 0.004465675,
+      "api_tps_baseline": 7.068128062418353,
+      "api_tps_candidate": 7.190837964636388,
+      "decode_integrity_baseline": {
+        "integrity_kernel_calls": 0,
+        "integrity_device_hashed_bytes": 0,
+        "integrity_checked_pages": 0
+      },
+      "decode_integrity_candidate": {
+        "integrity_kernel_calls": 0,
+        "integrity_device_hashed_bytes": 0,
+        "integrity_checked_pages": 0
+      }
+    },
+    {
+      "lane": "disk",
+      "label": "B",
+      "native_tps_baseline": 43.37626731355899,
+      "native_tps_candidate": 46.21262129427838,
+      "native_tps_gain_percent": 6.538953571583073,
+      "prepare_seconds_baseline": 0.188269654,
+      "prepare_seconds_candidate": 0.005042858,
+      "api_tps_baseline": 6.86043227016832,
+      "api_tps_candidate": 7.0458258963345095,
+      "decode_integrity_baseline": {
+        "integrity_kernel_calls": 128,
+        "integrity_device_hashed_bytes": 32212254720,
+        "integrity_checked_pages": 15360
+      },
+      "decode_integrity_candidate": {
+        "integrity_kernel_calls": 0,
+        "integrity_device_hashed_bytes": 0,
+        "integrity_checked_pages": 0
+      }
+    }
+  ]
+}

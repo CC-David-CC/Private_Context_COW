@@ -1,0 +1,144 @@
+{
+    "ticket":  "cli-retry-native-probe",
+    "qualification":  "CPU_ORCHESTRATION_ONLY",
+    "host":  "llm-60",
+    "checkout":  "C:/Users/dflanag3/Documents/fleet/context-cow-cli-retry-native-probe",
+    "branch":  "work/cli-retry-native-probe-20261016",
+    "base_commit":  "90a9322ca0e4aae4d98d4ee74b306f0d3cf798df",
+    "integrated_retry_fix_commit":  "eff2d2b9d379cd1e6237d6dbdb44ea4d59ab879e",
+    "cpu_run":  {
+                    "run_directory":  "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/cpu-final-v6/run",
+                    "runner":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+                    "runner_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+                    "python":  "/home/dflanag3/src/Strata/.venv/bin/python",
+                    "command_exit":  0,
+                    "wrapper_exit":  0,
+                    "terminal":  "COMPLETE",
+                    "tests_passed":  11,
+                    "tests_failed":  0,
+                    "tests_skipped":  0,
+                    "test_ids":  [
+                                     "CliRetryNativeProbeFlowTests.test_complete_retry_workflow_against_canonical_retry_fixture",
+                                     "CliRetryNativeProbeTests.test_changed_retry_confirmation_may_omit_replayed_flag",
+                                     "CliRetryNativeProbeTests.test_changed_retry_confirmation_rejects_non_boolean_replayed_flag",
+                                     "CliRetryNativeProbeTests.test_changed_retry_rejects_wrong_output_or_reset_continuation_cursor",
+                                     "CliRetryNativeProbeTests.test_changed_retry_reposts_exact_completed_cli_journal_body",
+                                     "CliRetryNativeProbeTests.test_changed_retry_requires_new_operation_and_original_source_stream",
+                                     "CliRetryNativeProbeTests.test_exact_replay_rejects_branch_change_and_native_rpc",
+                                     "CliRetryNativeProbeTests.test_exact_replay_rejects_receipt_or_native_work_change",
+                                     "CliRetryNativeProbeTests.test_exact_replay_requires_same_text_receipt_head_sibling_and_zero_work",
+                                     "CliRetryNativeProbeTests.test_stale_revision_rejects_work_ack_or_unrelated_failure",
+                                     "CliRetryNativeProbeTests.test_stale_revision_requires_conflict_before_any_native_or_branch_change"
+                                 ]
+                },
+    "profile_preparation":  {
+                                "stage":  "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v3",
+                                "source":  "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v3/source",
+                                "profile":  "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v3/profile.json",
+                                "profile_sha256":  "bb1c0bb57ea8fb0a827949ba34b48746ae0e4299d36060aa2cbde308e2282fff",
+                                "profile_prepare_receipt_sha256":  "986657c1819eb93c92d38f281bec777adc4110ed71b8c884bd4010b4a4eba176",
+                                "source_manifest_sha256":  "44d3a474116d376d7d538d3f6f032c9a56470f4102c65b5e8fe04123901e28a6",
+                                "execution_profile_id":  "accffb2f6db32d037f2487e263e4d9eb0ed026dee04c18ab8f40a6cbe66d3e59",
+                                "native_sha256":  "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+                                "command_exit":  0,
+                                "wrapper_exit":  0,
+                                "execution_validation":  "PASS",
+                                "model_validation":  "PASS",
+                                "model_hash_receipts_reused":  15,
+                                "model_files_rehashed":  0,
+                                "model_loaded":  false,
+                                "service_started":  false,
+                                "inference_started":  false,
+                                "gpu_used":  false
+                            },
+    "historical_attempts":  [
+                                {
+                                    "attempt":  "test-red-v1",
+                                    "classification":  "SETUP_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "runner source unavailable in initial stage"
+                                },
+                                {
+                                    "attempt":  "cpu-green-v1",
+                                    "classification":  "SETUP_FAILURE",
+                                    "detail":  "runner refused pre-existing run directory"
+                                },
+                                {
+                                    "attempt":  "cpu-green-v2",
+                                    "classification":  "SETUP_FAILURE",
+                                    "detail":  "runner refused pre-existing run directory"
+                                },
+                                {
+                                    "attempt":  "cpu-green-v3",
+                                    "classification":  "TEST_FAILURE",
+                                    "detail":  "fixture snapshot and recovery-message expectations mismatched"
+                                },
+                                {
+                                    "attempt":  "cpu-final-v1",
+                                    "classification":  "TEST_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "CPU fixture adapter lacked api_key configuration"
+                                },
+                                {
+                                    "attempt":  "cpu-final-v2",
+                                    "classification":  "TEST_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "fixture checkpoint envelope required synthetic-fixture mode"
+                                },
+                                {
+                                    "attempt":  "cpu-final-v3",
+                                    "classification":  "TEST_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "wrapper helper NameError for checkpoint_fingerprint"
+                                },
+                                {
+                                    "attempt":  "cpu-final-v4",
+                                    "classification":  "GENUINE_REGRESSION_RED",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "changed retry returned HTTP 409 due pre-submit revision guard; fixed in eff2d2b9d379cd1e6237d6dbdb44ea4d59ab879e"
+                                },
+                                {
+                                    "attempt":  "cpu-final-v5",
+                                    "classification":  "TEST_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "actual CLI restart invocation used invalid command argument"
+                                },
+                                {
+                                    "attempt":  "profile-prep-v1",
+                                    "classification":  "SETUP_FAILURE",
+                                    "command_exit":  1,
+                                    "wrapper_exit":  1,
+                                    "detail":  "required remapped scripts/durable_resume.py absent from partial source; no profile emitted"
+                                },
+                                {
+                                    "attempt":  "profile-prep-v2",
+                                    "classification":  "SUPERSEDED_INCOMPLETE_SOURCE",
+                                    "detail":  "partial source preparation preserved; do not launch; replaced by complete credential-green base plus tracked retry/G4 code closure in retry-gpu-stage-v3"
+                                }
+                            ],
+    "source_files":  [
+                         {
+                             "path":  "experimental/branching_context/scripts/run_cli_retry_probe.py",
+                             "sha256":  "549053451e4f31316ba369bdfaba7b0c14606e651f85d417fe914ac3510b0eb5"
+                         },
+                         {
+                             "path":  "experimental/branching_context/tests/implementation/test_cli_retry_native_probe.py",
+                             "sha256":  "45ce287db5105e03278c7bdf84784c662818c6ac028c5aa0aca58a7f5fb75e98"
+                         },
+                         {
+                             "path":  "experimental/branching_context/scripts/README_cli_retry_native_probe.md",
+                             "sha256":  "cf522e5690ead203da5d24325c8b8fc274d5f5a807ae637fd8d59c5553945b9d"
+                         }
+                     ],
+    "limitations":  [
+                        "The CPU fixture validates CLI, HTTP, journal, and canonical Store orchestration using RetryFlowModel; it is not a native or GPU qualification.",
+                        "The GPU probe stage is prepared but has not been launched by this worker.",
+                        "The 15 existing model-file hash receipts were reused; this preparation did not perform a full model-file rehash."
+                    ]
+}

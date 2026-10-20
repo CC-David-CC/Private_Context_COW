@@ -1,0 +1,5 @@
+{"format":0,"prepare_seconds":0.002577609,"hashed_bytes":119537664,"launches":9}
+{"format":1,"prepare_seconds":0.002552531,"hashed_bytes":48234496,"launches":9}
+{"format":2,"prepare_seconds":0.002380865,"hashed_bytes":44040192,"launches":9}
+{"format":3,"prepare_seconds":0.002451298,"hashed_bytes":46137344,"launches":9}
+{"status":"PASS","checks":546,"failures":0,"model_forward":false}

@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "status": "PASS_WITH_LIMITED_SCOPE",
+  "source": {
+    "base_commit": "e3bc0dda4e4c8a5ad370e395e90bfa151aeb8c2d",
+    "candidate_commit": "fa2be7ea3dff1f47685689f1d50e3deed744411d",
+    "base_archive": {
+      "path": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/base-e3.zip",
+      "sha256": "75f277d4d1544c367806ee39d599db31bff439268f59385f8c6b1cab5282c69b"
+    },
+    "candidate_archive_sha256": "ee3c0b636d307274e63be3de0312c1df7150e36c4f0cf984e6f74c814f51309d",
+    "candidate_archive_note": "Transient git archive of candidate_commit; distinct from base_archive and removed after hashing.",
+    "changed_files": {
+      "serve/cow_browser_fixture.py": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183",
+      "serve/cow_http.py": "2ae630915e359a2bd989d98f0c1e0a6691dcd6aa03f9e892954963a8450392c2",
+      "serve/cow_prompt_encoder.py": "aa871cba81a6e23ed8d03ef9649ad563d9fa6bf4b8e97cbe16bdce3fc983ff49",
+      "serve/cow_text_adapter.py": "efe519d7c9f977725d281896e45787cef4c6c85b89dd8297215f9c64cf0ebafd",
+      "serve/cow_workspace.py": "b416c007169c4b9e5e4a4d131b8c51df23fbbeec143ddb77f1479cf2a5817a78",
+      "serve/test_cow_browser_fixture.py": "b442aa2061ed24dcf5454b92b7d445ee14de4902ec3d64dc7135410331352495",
+      "serve/test_cow_context_root_capability.py": "970efb70897caf6b297ac5f2aebd725912560cb38a85bee6982cc9eaff068b8a",
+      "serve/test_cow_presentation_adapter.py": "784483d73b19b92d3cf01e55d3ca372596416561ea6748fd952e593ad6dded9d",
+      "serve/test_cow_presentation_flow.py": "28ee1b5e902d0089de69973a6396a523c96ac2a94e5762aaa76099002cdf4ea3",
+      "serve/verify_cow_serving.py": "57fd181b470e77cc189fef0934c2b465fa2106509fea0abc605bd6e74eaf3698",
+      "serve/web/app.js": "1eb0dd2bb23bbd72e40ae5be4cab67af0647c9c4ca84bc25c3eea992d7a382d7",
+      "serve/web/index.html": "233d4bc52f7890f8cc173a4e63a5609b1973cf73ef1abc7c4ec076dfe3a57c68",
+      "serve/web/test_cow_native_ui.js": "7083ec10403fedf22b37a99e4166ba7e59daa448ac1bc3bece9a0b235a1c5ed88",
+      "serve/web/workspace.js": "0738bea07372444e07cb0d8f5ca1561369ed394f76f160ef0a9c4b5a7a1ce503",
+      "docs/context-cow/START_HERE.md": "ae1cabc88d8ab82ac512b6b2b3793fc6a2a5974ceee7c535276954aa66fa6da8"
+    }
+  },
+  "execution": {
+    "host": "llm-60",
+    "python": "3.12.3",
+    "dependency": {
+      "regex_version": "2026.9.29",
+      "regex_path": "/home/dflanag3/issue-2026-20261012/deps/regex/__init__.py"
+    },
+    "runner": {
+      "path": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+      "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+    },
+    "serving_verifier": {
+      "result": "REUSABLE-CONTEXT-SERVING-VERIFIER-2026-10-15.json",
+      "result_sha256": "c7b7624ae599a6b5920acf83d0cf9e79d8c9ff98c688a32760c59fa53761221c",
+      "tests_run": 125,
+      "passed": 125,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "xfails": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/serving-verifier-2",
+      "executed_test_ids_are_in_referenced_result": true
+    },
+    "g0": {
+      "command": "env PYTHONPATH=/home/dflanag3/branching-g3/reusable-context-luna-20261015/red-green/experimental/branching_context/src:/home/dflanag3/branching-g3/reusable-context-luna-20261015/red-green/experimental/branching_context/tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 experimental/branching_context/scripts/verify.py --gate G0 --no-write",
+      "tests_run": 51,
+      "passed": 51,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stdout_file": "REUSABLE-CONTEXT-G0-2026-10-15.stdout.log",
+      "stdout_sha256": "17308678bab478a010fd2ae56c70a090f47219a67bdc2efc5ac318c3a97ad324",
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/g0-1"
+    },
+    "focused": {
+      "tests_run": 52,
+      "passed": 52,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/focused-green-3"
+    },
+    "ui_dom": {
+      "command_exit": 0,
+      "runner_exit": 0,
+      "result": "PASS default prepare/answer unchanged; user-role reusable context, retry/reload identity, suffix ask, fail-closed auth",
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/ui-chromium-3",
+      "command": "/snap/bin/chromium --headless --no-sandbox --disable-gpu --allow-file-access-from-files --virtual-time-budget=20000 --dump-dom file:///.../serve/native-ui-test.html"
+    },
+    "loopback_synthetic_browser": {
+      "scope": "synthetic FlowModel over actual loopback HTTP; not native GPU/model execution",
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/ui-proof",
+      "screenshot_path": "C:/Users/dflanag3/Documents/fleet/context-cow-reusable-context-evidence/context-branches.png",
+      "screenshot_sha256": "65117d3a59a83bd17ceee4b9fac3259f2d2dabcc9fb11005e52e2c287b36109212",
+      "server_stopped": true
+    }
+  },
+  "red_evidence": {
+    "expected_code_failure": {
+      "tests_run": 3,
+      "expected_errors": 5,
+      "reason": "initial_root_mode capability was not implemented yet",
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/red/serve/test_cow_context_root_capability.py"
+    },
+    "setup_failures": [
+      "An initial staging import failed because experimental/branching_context/src was omitted from PYTHONPATH; classified as setup failure, not product test failure.",
+      "A subsequent focused UI run had three assertion failures and was corrected; later focused and full serving runs passed.",
+      "An intermediate serving verifier found two synthetic adapter tests without explicit capability fixtures; fixtures were corrected before the final 125-test pass."
+    ],
+    "known_bad_runner_attempt": "An older malformed wrapper emitted literal %s placeholders; excluded from final numeric evidence. Final evidence uses the verified run-command-v2 runner and numeric command/wrapper exits."
+  },
+  "limitations": [
+    "No native GPU backend or model inference was run for this UI/context change.",
+    "The Chromium UI evidence is a synthetic browser fixture and does not qualify real-model behavior.",
+    "No cross-browser or mobile-browser run was executed.",
+    "The loopback screenshot is synthetic test evidence, not a production or model screenshot."
+  ]
+}

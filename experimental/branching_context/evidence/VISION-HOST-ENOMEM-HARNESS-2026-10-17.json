@@ -1,0 +1,30 @@
+{
+  "base": "4139f032bdc820635e9bc45d8e2c06382e75a574",
+  "branch": "work/vision-host-enomem-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "contract": "Child-only RLIMIT_AS128MiB; strace must show successful pinned encoder exec plus actual mmap/mremap/brk ENOMEM. Reject durable publication, preserve old prefix, release reservations and verify unbounded recovery/full frontier.",
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "new_harness_methods": 6,
+    "related_unique": 51,
+    "skips": 0
+  },
+  "final_evidence": "VISION-HOST-ENOMEM-2026-10-17.json",
+  "host": "llm-60",
+  "limits": "Bounded virtual address space, not physical RAM exhaustion. Main model/native resources unchanged. Diagnostic trace/limit wrapping only, no public API or numerical/reference changes.",
+  "manual_git_exception": "Installed helper pins unrelated Spatial repo; reviewed manual explicit identity/paths/refs and SHA verification.",
+  "owned_paths": [
+    "experimental/branching_context/scripts/run_vision_host_enomem.py",
+    "experimental/branching_context/tests/implementation/test_vision_host_enomem.py",
+    "experimental/branching_context/evidence/VISION-HOST-ENOMEM-HARNESS-2026-10-17.json"
+  ],
+  "preflight": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-host-enomem-preflight-v1/result.json",
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+  "publication": "Private LAN only",
+  "red": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-host-enomem-red-run-v1",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+  "schema": 1,
+  "status": "VC08_BOUNDED_Q4_ENCODER_HOST_ENOMEM_PASS"
+}

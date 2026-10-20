@@ -1,0 +1,229 @@
+{
+    "schema":  "cow-xtc-private-backup-v2",
+    "status":  "RECEIVER_VERIFIED",
+    "authoritative":  {
+                          "status":  "RECEIVER_VERIFIED",
+                          "destination":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-xtc-qualified-v2/evidence.tar",
+                          "archive_sha256":  "90a70b690733ab2e44f2334cd63bdbc99afb357b79e713526c1b56b63570f42f",
+                          "archive_bytes":  1021562880,
+                          "member_manifest_sha256":  "2375850d5faadcdef1f50e1b66452f2edf7e91dc0907f95dd3f9f960d575adbc",
+                          "member_count":  2406,
+                          "member_bytes":  1016735450,
+                          "raw_frontier_vectors":  {
+                                                       "campaigns":  [
+                                                                         "gpu-xtc-q4-tiny-v1",
+                                                                         "gpu-xtc-q4-serving-v1",
+                                                                         "gpu-xtc-q8-serving-v1",
+                                                                         "gpu-xtc-q4-8k-timing-v1"
+                                                                     ],
+                                                       "count":  840,
+                                                       "bytes":  834355200,
+                                                       "included":  true
+                                                   },
+                          "cpu_record":  {
+                                             "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/xtc-integrated-v2.json",
+                                             "sha256":  "be6a1eb320ff87d1d860f1a88270e36e3facf3118a4880d31c36fd74e7a93c74",
+                                             "tests":  629,
+                                             "failures":  0,
+                                             "errors":  0,
+                                             "skips":  0,
+                                             "command_wrapper_exit":  [
+                                                                          0,
+                                                                          0
+                                                                      ]
+                                         },
+                          "g0":  {
+                                     "tests":  51,
+                                     "command_wrapper_exit":  [
+                                                                  0,
+                                                                  0
+                                                              ]
+                                 },
+                          "native_v7":  {
+                                            "path":  "/home/dflanag3/spatial-artifacts/xtc-native-20261016-v1/native-v7/output/strata-batched-branch-lazy-xtc-min-p-v5",
+                                            "sha256":  "195f8e4281dae0f07ed00d657ca0f9b8a3eefa49f1795d935b5a82eb18999efc",
+                                            "build_json_sha256":  "582f1f3a2a83ab3be5809dea71e9f27a7b47fcfa478e83e78c8f3d6dfc70740f"
+                                        },
+                          "source_pins":  {
+                                              "stage_json_sha256":  "82b4eb648d1894cbec6a2a99049f277c6ba16cb9a995fcf137500fef991d79e7",
+                                              "committed_source_verification_sha256":  "f7ab6e77ee2b29ceb637953d1ca6c342e790c0e0c819940256471610891c3993",
+                                              "qualification_json_sha256":  "93307127a8d715721fb8b85f4cacdf8413e1ea4b3c682f1808775fe7e1210eb1",
+                                              "timing_summary_sha256":  "9fcda6e70ff68b3366186e9965ca8047b6bc9b9b03b054dcc8ed02db10f154f4"
+                                          },
+                          "transfer_receipt":  {
+                                                   "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v2/transfer.json",
+                                                   "sha256":  "39124946589506115957a509a411c4a8d076d1d8549af11d0936e0936d0edcc3",
+                                                   "command_wrapper_exit":  [
+                                                                                0,
+                                                                                0
+                                                                            ]
+                                               },
+                          "receiver_readback":  {
+                                                    "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v2/readback.json",
+                                                    "sha256":  "27901fdcdeaa3654e695a78928186b52c21083b642bce8b7906720e29803192b",
+                                                    "status":  "PASS",
+                                                    "command_wrapper_exit":  [
+                                                                                 0,
+                                                                                 0
+                                                                             ],
+                                                    "remote_archive_mode":  "600",
+                                                    "remote_directory_mode":  "700"
+                                                },
+                          "limitations":  [
+                                              "Store .state and model files excluded; raw .f32 vectors for the qualified campaigns are included. This is evidence, not a restorable checkpoint bundle."
+                                          ]
+                      },
+    "prior_scope_deficient_archive":  {
+                                          "schema":  "context-cow-private-evidence-backup-v1",
+                                          "created_utc_date":  "2026-10-16",
+                                          "status":  "SCOPE_DEFICIENT_SUPERSEDED_BY_V2",
+                                          "destination":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-xtc-qualified-v1/evidence.tar",
+                                          "archive":  {
+                                                          "sha256":  "780a23440e4372ce47da77b04a73dd6814e5f0065df7255ff2d434166fa78bfb",
+                                                          "bytes":  186808320,
+                                                          "member_manifest_sha256":  "8775b55bbb978d5e7d4c43f12137cba4735dc5311f28d86b5c73d8de4ea6d8cf",
+                                                          "members":  1566,
+                                                          "member_bytes":  182380250,
+                                                          "excluded_entries":  7788,
+                                                          "excluded_bytes":  3406907333,
+                                                          "local_tar_created":  false
+                                                      },
+                                          "receiver_readback":  {
+                                                                    "status":  "PASS",
+                                                                    "verification":  "Receiver streamed full archive and independently hashed every member; no extraction performed",
+                                                                    "remote_archive_mode":  "600",
+                                                                    "remote_directory_mode":  "700",
+                                                                    "receipt_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v1/readback.json",
+                                                                    "receipt_sha256":  "d3d2109ee91e25762265858fd3834f491354f3d78d8c387a7db48304ce2e9f3e",
+                                                                    "transfer_receipt_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v1/transfer.json",
+                                                                    "transfer_receipt_sha256":  "bbf05f75c6429e50d8b1f1f5c0599482ca3fd08f7707ae071e1c2d847bda07d9",
+                                                                    "transfer_command_wrapper_exit":  [
+                                                                                                          0,
+                                                                                                          0
+                                                                                                      ],
+                                                                    "readback_command_wrapper_exit":  [
+                                                                                                          0,
+                                                                                                          0
+                                                                                                      ]
+                                                                },
+                                          "included_scope":  {
+                                                                 "frozen_source_stage":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/xtc-integrated-v2/source",
+                                                                 "stage_manifest_sha256":  "82b4eb648d1894cbec6a2a99049f277c6ba16cb9a995fcf137500fef991d79e7",
+                                                                 "committed_source_verification_sha256":  "f7ab6e77ee2b29ceb637953d1ca6c342e790c0e0c819940256471610891c3993",
+                                                                 "qualification_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/qualification-xtc-v1.json",
+                                                                 "qualification_sha256":  "93307127a8d715721fb8b85f4cacdf8413e1ea4b3c682f1808775fe7e1210eb1",
+                                                                 "q4_timing_summary_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-xtc-q4-8k-timing-v1-summary.json",
+                                                                 "q4_timing_summary_sha256":  "9fcda6e70ff68b3366186e9965ca8047b6bc9b9b03b054dcc8ed02db10f154f4",
+                                                                 "native_binary_in_v1":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/native-v4-green-v7/build-parent/output/strata-batched-branch-lazy-typical-dyna-min-p-v4",
+                                                                 "native_binary_in_v1_sha256":  "621227440f4fc701095b274f7f15acdfdfbcee7806c45bd88b6531668de0e64d",
+                                                                 "cpu_qualification":  {
+                                                                                           "status":  "PASS",
+                                                                                           "tests":  564,
+                                                                                           "failures":  [
+
+                                                                                                        ],
+                                                                                           "errors":  [
+
+                                                                                                      ],
+                                                                                           "skips":  [
+
+                                                                                                     ],
+                                                                                           "command_wrapper_exit":  [
+                                                                                                                        0,
+                                                                                                                        0
+                                                                                                                    ],
+                                                                                           "note":  "Actual archived run reports 564 tests, not 629."
+                                                                                       },
+                                                                 "g0":  {
+                                                                            "status":  "PASS",
+                                                                            "tests":  51,
+                                                                            "command_wrapper_exit":  [
+                                                                                                         0,
+                                                                                                         0
+                                                                                                     ]
+                                                                        }
+                                                             },
+                                          "exclusions_and_limits":  [
+                                                                        "Checkpoint .state files, object stores, and raw .f32 frontiers were excluded; this is not a restorable checkpoint/frontier bundle.",
+                                                                        "Model files and build object/archive files were excluded; final native executable and build/provenance receipts were retained.",
+                                                                        "Earlier failed attempts are retained in compact command/result/log form; raw checkpoint payloads were not included."
+                                                                    ],
+                                          "scope_deficiency":  "The first archive accidentally selected an older V4 executable and 564-test combined record instead of final XTC native v7 and 629-test XTC-integrated CPU record. It also filtered the requested raw .f32 frontier vectors. Archive and receiver byte integrity passed, but qualification scope was incomplete. It is retained without overwrite; the corrected v2 archive has explicit path/hash/count assertions.",
+                                          "superseded_by":  "/srv/data/git/private_context_cow.evidence/20261016-xtc-qualified-v2/evidence.tar",
+                                          "known_setup_issue":  "A preliminary remote stat command was misquoted and failed; subsequent receiver readback independently verified archive and directory permissions.",
+                                          "plan_vs_final_note":  "The dry-run member-byte estimate differed slightly from the final manifest total. Final archived member manifest and receiver readback are authoritative; all selected member hashes passed.",
+                                          "corrected_v2":  {
+                                                               "status":  "RECEIVER_VERIFIED",
+                                                               "destination":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-xtc-qualified-v2/evidence.tar",
+                                                               "archive_sha256":  "90a70b690733ab2e44f2334cd63bdbc99afb357b79e713526c1b56b63570f42f",
+                                                               "archive_bytes":  1021562880,
+                                                               "member_manifest_sha256":  "2375850d5faadcdef1f50e1b66452f2edf7e91dc0907f95dd3f9f960d575adbc",
+                                                               "member_count":  2406,
+                                                               "member_bytes":  1016735450,
+                                                               "raw_frontier_vectors":  {
+                                                                                            "campaigns":  [
+                                                                                                              "gpu-xtc-q4-tiny-v1",
+                                                                                                              "gpu-xtc-q4-serving-v1",
+                                                                                                              "gpu-xtc-q8-serving-v1",
+                                                                                                              "gpu-xtc-q4-8k-timing-v1"
+                                                                                                          ],
+                                                                                            "count":  840,
+                                                                                            "bytes":  834355200,
+                                                                                            "included":  true
+                                                                                        },
+                                                               "cpu_record":  {
+                                                                                  "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/xtc-integrated-v2.json",
+                                                                                  "sha256":  "be6a1eb320ff87d1d860f1a88270e36e3facf3118a4880d31c36fd74e7a93c74",
+                                                                                  "tests":  629,
+                                                                                  "failures":  0,
+                                                                                  "errors":  0,
+                                                                                  "skips":  0,
+                                                                                  "command_wrapper_exit":  [
+                                                                                                               0,
+                                                                                                               0
+                                                                                                           ]
+                                                                              },
+                                                               "g0":  {
+                                                                          "tests":  51,
+                                                                          "command_wrapper_exit":  [
+                                                                                                       0,
+                                                                                                       0
+                                                                                                   ]
+                                                                      },
+                                                               "native_v7":  {
+                                                                                 "path":  "/home/dflanag3/spatial-artifacts/xtc-native-20261016-v1/native-v7/output/strata-batched-branch-lazy-xtc-min-p-v5",
+                                                                                 "sha256":  "195f8e4281dae0f07ed00d657ca0f9b8a3eefa49f1795d935b5a82eb18999efc",
+                                                                                 "build_json_sha256":  "582f1f3a2a83ab3be5809dea71e9f27a7b47fcfa478e83e78c8f3d6dfc70740f"
+                                                                             },
+                                                               "source_pins":  {
+                                                                                   "stage_json_sha256":  "82b4eb648d1894cbec6a2a99049f277c6ba16cb9a995fcf137500fef991d79e7",
+                                                                                   "committed_source_verification_sha256":  "f7ab6e77ee2b29ceb637953d1ca6c342e790c0e0c819940256471610891c3993",
+                                                                                   "qualification_json_sha256":  "93307127a8d715721fb8b85f4cacdf8413e1ea4b3c682f1808775fe7e1210eb1",
+                                                                                   "timing_summary_sha256":  "9fcda6e70ff68b3366186e9965ca8047b6bc9b9b03b054dcc8ed02db10f154f4"
+                                                                               },
+                                                               "transfer_receipt":  {
+                                                                                        "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v2/transfer.json",
+                                                                                        "sha256":  "39124946589506115957a509a411c4a8d076d1d8549af11d0936e0936d0edcc3",
+                                                                                        "command_wrapper_exit":  [
+                                                                                                                     0,
+                                                                                                                     0
+                                                                                                                 ]
+                                                                                    },
+                                                               "receiver_readback":  {
+                                                                                         "path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/stream-xtc-qualified-v2/readback.json",
+                                                                                         "sha256":  "27901fdcdeaa3654e695a78928186b52c21083b642bce8b7906720e29803192b",
+                                                                                         "status":  "PASS",
+                                                                                         "command_wrapper_exit":  [
+                                                                                                                      0,
+                                                                                                                      0
+                                                                                                                  ],
+                                                                                         "remote_archive_mode":  "600",
+                                                                                         "remote_directory_mode":  "700"
+                                                                                     },
+                                                               "limitations":  [
+                                                                                   "Store .state and model files excluded; raw .f32 vectors for the qualified campaigns are included. This is evidence, not a restorable checkpoint bundle."
+                                                                               ]
+                                                           }
+                                      },
+    "worker_index_sha256":  "d5653ed45044f222d1ffde8cb9051af5b31dff577f02a8f6d244ef042f4184b1"
+}

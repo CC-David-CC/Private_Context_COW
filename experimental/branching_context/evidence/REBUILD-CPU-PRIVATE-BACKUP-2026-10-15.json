@@ -1,0 +1,27 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "RECEIVER_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-rebuild-missing-cpu-v1",
+  "archive": "evidence.tar",
+  "archive_bytes": 25415680,
+  "archive_sha256": "32000b32b8e8e4abfb92169f3cb84a539a0e494f0ecfaa9afd1cc5b51bcd03dc",
+  "manifest_sha256": "d7ecc6faf6516301307c55321eb68ca117a8d304dfdacee82a940d482e885179",
+  "members": 2168,
+  "payload_members": 2167,
+  "receiver_verification": {
+    "file": "receiver.verify.json",
+    "sha256": "ba46c01cc64862ec87ec693720ef764421e98376bab7816c9b7abffaa53983e5",
+    "exit_file": "receiver.verify.exit",
+    "exit": 0,
+    "verifier_file": "verify_archive.py",
+    "verifier_sha256": "afa71e0b941b1f8fa3c3469c357884f701f8c30565847ff355095e4afdf982d0"
+  },
+  "scope": [
+    "Worker missing-source recovery raw attempts, including intentional failing lifetime regression.",
+    "Combined CPU202, serving141 and G0 51 with exact source overlays and primary audit."
+  ],
+  "limitations": [
+    "This archive does not include later GPU reconstruction, canonical-action experiments or new native hash executable.",
+    "Raw evidence is external to Git; cloning the source repository does not retrieve the archive."
+  ]
+}

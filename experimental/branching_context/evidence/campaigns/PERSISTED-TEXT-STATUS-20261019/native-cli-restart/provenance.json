@@ -1,0 +1,20 @@
+{
+  "source_commit": "d0610d4697259892589886ae6b2796e9b980dcea",
+  "changes": [
+    {
+      "file": "serve/cow_http.py",
+      "before": "3b3880311384168ffb09b3769200c867e0c2be3b69dca04f82fd07aa53590ec3",
+      "after": "4ec8172772c6ffaf89da95ad11a75a6560ecfce6a31a2d49347b43f7d49b64b4"
+    },
+    {
+      "file": "serve/cow_text_adapter.py",
+      "before": "570f4f9b63cbfc676ac3a8378daff94763de3a8bce1fbd1e44b945174b38114f",
+      "after": "94e95b0807919d751c65748ec013bc36bfef8c82eefb48334437c96c3e7aba29"
+    }
+  ],
+  "execution_profile_id": "aeb19be324aa1e2e4f19a61776b890c6c36bc225095582343dd0885e6d670bfb",
+  "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+  "native_profile_unchanged": true,
+  "previous_execution_profile_id": "9b41fafe211adeb51b6c347190b1a13c17c9ee767069711dbd3dfd309d7f6e16",
+  "profile_scope": "New source-bound profile; native executable/model/settings unchanged; no old checkpoint imported"
+}

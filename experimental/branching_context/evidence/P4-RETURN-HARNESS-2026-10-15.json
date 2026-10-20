@@ -1,0 +1,59 @@
+{
+  "artifact": "P4 repeated-return latency harness draft",
+  "status": "DRAFT_CPU_FIXTURE_ONLY",
+  "base_commit": "7df39e74b183bc23602c051e6f9ccfdcf0367c32",
+  "branch": "work/luna-p4-return",
+  "source_files": {
+    "experimental/branching_context/scripts/p4_return_latency.py": "ad5fc24e5486cc5f6d748009db171fee600664cf5aa546146e01645ecb699bf1",
+    "experimental/branching_context/scripts/test_p4_return_latency.py": "7da56db3b71147e16dc20306e1a4a0ea952970be63b97da3ef8d3e46537afa8f"
+  },
+  "test_execution": {
+    "host": "llm-60",
+    "python": "Python 3.12.3",
+    "cwd": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context",
+    "command": "PYTHONPATH=src:scripts python3 scripts/test_p4_return_latency.py",
+    "exit_code": 0,
+    "summary_stdout": "Ran 12 tests in 0.409s; OK",
+    "test_ids": [
+      "test_corrupt_checkpoint_payload_fails_before_target_publish",
+      "test_import_preserves_canonical_ids_history_and_only_requested_root",
+      "test_injected_fake_coordinator_runs_both_arm_control_flows",
+      "test_missing_checkpoint_fails_before_target_becomes_usable",
+      "test_operator_schedule_is_bound_to_exact_history_and_profile",
+      "test_output_requires_first_reference_prefix_or_actual_eos",
+      "test_producer_and_consumer_times_are_separate",
+      "test_profile_mismatch_fails_before_target_becomes_usable",
+      "test_readonly_source_bytes_and_modes_remain_unchanged",
+      "test_target_cannot_be_created_inside_frozen_source_store",
+      "test_tier_classification_ignores_native_loaded_file_counter",
+      "test_work_delta_rejects_saved_prefix_forward_work"
+    ]
+  },
+  "dependencies_and_scope": {
+    "runtime": "Python standard library plus the checked-out experimental/branching_context/src package; no install/build step",
+    "native_or_model_dependencies_loaded": false,
+    "fixture": "Temporary canonical Store, synthetic checkpoint payloads, fake Coordinator/Backend. Fake native methods enforce the owning worker thread.",
+    "import_staging": "CPU-tested importer copies only the selected canonical root snapshot/history/controller and checkpoint envelope/payload into a fresh independent staged Store; validates identities, profile, manifests, payload hashes, and byte/mode immutability before publishing target. It does not load a model or replay prefixes.",
+    "runner_scope": "One arm per invocation (resident or disk), three warmups plus nine serial 128-token-reference return samples, exact per-key pool/disk tier witnesses, producer and consumer timelines kept separate, and stage timings. All native runner behavior remains UNRUN.",
+    "gpu_or_inference_execution": "UNRUN; not qualified"
+  },
+  "red_green_history": [
+    {
+      "red": "After consolidating submission handling, fake arm test failed with NameError for stale measured-loop handle reference.",
+      "green": "Removed the stale access and used receipt captured by wait_request; both arm control paths passed."
+    },
+    {
+      "red": "An asynchronous shared-preload fixture initially retained an already-completed future after explicit pool removal, producing no new disk-preload trace and correctly failing tier classification.",
+      "green": "Updated fake pool preload lifecycle to create a fresh future after completed-load removal while sharing one in-flight future between two callers. Test now verifies shared identity, distinct waiter timing records, and matching exact-key start/success trace."
+    },
+    {
+      "review_fix_green": "Removed main-thread backend counter RPCs; work deltas are read from worker-produced answers. Quiescence precedes pool/cache inspection and removal. Added owner-thread assertions and reversed-order/cross-process tier negatives."
+    }
+  ],
+  "known_pending": [
+    "Real native/backend execution and GPU qualification are not run or claimed.",
+    "Before any model run, restore the exact selected three root checkpoint payloads from the verified archive using the root-maintained restore map; the source campaign's payloads were intentionally unlinked. Runner must fail closed while any payload is absent.",
+    "No prefix replay, checkpoint reconstruction by inference, or GPU run is authorized by this evidence.",
+    "Root review of full importer/runner is pending."
+  ]
+}

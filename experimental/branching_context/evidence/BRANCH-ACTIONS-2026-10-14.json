@@ -1,0 +1,69 @@
+{
+  "status": "FOCUSED-PASS",
+  "scope": "ContextCoordinator namespace-bound fork and typed rewind; synthetic Store/controller CPU control only",
+  "checkout": "C:/Users/dflanag3/Documents/fleet/context-cow-multiturn-oracle-luna",
+  "branch": "work/luna-fresh-multiturn-oracle",
+  "base_integration": "3f2806c1af79ec45b66713df68d16cea6dde9113",
+  "owned_files": [
+    "experimental/branching_context/src/context_time_travel/coordinator.py",
+    "experimental/branching_context/tests/implementation/test_pool_branch_actions.py"
+  ],
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "46f100f63125b982027da283b170c9577104b4e157496117ee9fc790be9a6dd5",
+    "experimental/branching_context/tests/implementation/test_pool_branch_actions.py": "e694a59de1642b73ac2179619314d514afa5c6a3dbfde706290942bbe2d2d879"
+  },
+  "execution": {
+    "host": "llm-60 (Linux, CPU only)",
+    "python": "Python 3.12.3",
+    "scratch_checkout": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/checkout",
+    "focused_run_dir": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-016",
+    "g0_run_dir": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-017",
+    "runner": "/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/runner.sh",
+    "focused_command": "bash /home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/runner.sh /home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/checkout /home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-016 env PYTHONPATH=.:src:tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 -m unittest -v tests.implementation.test_pool_branch_actions",
+    "g0_command": "bash /home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/runner.sh /home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/checkout /home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-017 env PYTHONPATH=.:src:tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 scripts/verify.py --gate G0 --no-write"
+  },
+  "checks": {
+    "focused": {
+      "status": "PASS",
+      "executed": 7,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "ids": [
+        "test_checkpoint_corruption_fails_before_fork_or_rewind_publication",
+        "test_fork_accepts_published_same_namespace_savedpoint",
+        "test_fork_rejects_cross_namespace_savedpoint_and_unpublished_snapshot",
+        "test_legacy_rewind_serializes_store_move_with_new_admission",
+        "test_namespaced_fork_is_idempotent_and_preserves_namespace",
+        "test_rewind_rejects_stale_revision_and_pending_branch_work",
+        "test_typed_rewind_binds_exact_source_and_replays_after_later_move"
+      ],
+      "receipt": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-016"
+    },
+    "G0": {
+      "status": "PASS",
+      "executed": 51,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "summary": "G0: PASS: 51 tests; 0 required real-backend cases",
+      "receipt": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-017"
+    },
+    "local_diff_check": "PASS"
+  },
+  "preserved_failures": [
+    {
+      "run": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-004",
+      "finding": "Initial focused run blocked acquiring read-lease while holding Store global flock. Wait channel was locks_lock_inode_wait. Terminated only the owned test PID, then fixed lock order by acquiring leases before rechecking head and publishing."
+    },
+    {
+      "run": "/home/dflanag3/spatial-artifacts/context-cow-branch-actions-luna-20261014/run-005",
+      "finding": "After the lock fix, tests exposed fixture expectation mistakes and imported unittest TestCase discovery; narrowed fixture imports and corrected the test contracts. Final focused run is run-012."
+    }
+  ],
+  "limitations": [
+    "Synthetic protocol and Store controls only; no GPU/native qualification is claimed.",
+    "The schema-2 fork receipt binds target name, snapshot, and namespace, but not source_branch. Same-snapshot source branches with distinct presentation histories therefore lack durable source-branch provenance.",
+    "Failed-publication recovery still requires the existing explicit retry_failed path; no new automatic retry or HTTP recovery endpoint was added."
+  ]
+}

@@ -1,0 +1,56 @@
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: all pool checks precede any tail copy
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: all pool checks precede any tail copy
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: all pool checks precede any tail copy
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: one integrity launch across every sealed pool
+FAIL: all pool checks precede any tail copy
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+FAIL: rejected preparation leaves all page ownership unchanged
+{"format":0,"prepare_seconds":0.008445371,"hashed_bytes":119537664,"launches":35}
+{"format":1,"prepare_seconds":0.005321494,"hashed_bytes":48234496,"launches":21}
+{"format":2,"prepare_seconds":0.004702215,"hashed_bytes":44040192,"launches":19}
+{"format":3,"prepare_seconds":0.005002695,"hashed_bytes":46137344,"launches":20}
+{"status":"FAIL","checks":546,"failures":51,"model_forward":false}

@@ -1,0 +1,63 @@
+{
+  "actual_new_tokens": [
+    9763,
+    55,
+    9763,
+    55,
+    50553,
+    55,
+    9763,
+    55,
+    9763,
+    248046
+  ],
+  "actual_output_count": 10,
+  "execution_profile_id": "8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695",
+  "final_eos": 248046,
+  "integrity_mismatches": 0,
+  "limitations": [
+    "The full workflow probe remains FAIL: it incorrectly required an active controller and all16 output tokens after restart.",
+    "This audit proves measured token lineage, RNG cursor continuity and zero saved-prefix forward work for the observed continuation; no independent fresh-frontier numerical comparison ran.",
+    "Grammar/STOP sibling path was not reached in this attempt."
+  ],
+  "native_forward_tokens": 10,
+  "native_loaded_file_bytes": 119004804,
+  "native_prefill_tokens": 0,
+  "native_sampling_calls": 10,
+  "native_trace_sha256": "9abaebee237de67fd5d3a012a3bfc4432d7ea4e9aac1b13e2d494c8f40193475",
+  "original_probe_failure": [
+    {
+      "message": "new service process did not continue the active sampled controller",
+      "type": "RuntimeError"
+    }
+  ],
+  "original_probe_status": "FAIL",
+  "processes": [
+    {
+      "absent": true,
+      "pid": 3685027
+    },
+    {
+      "absent": true,
+      "pid": 3685150
+    },
+    {
+      "absent": true,
+      "pid": 3685647
+    },
+    {
+      "absent": true,
+      "pid": 3685653
+    }
+  ],
+  "restored_history_tokens": 35,
+  "result_sha256": "8a667aa7cfb4d7a9f915009bd0aaf76f52c7dbd1efce8e28e85138d153417ab6",
+  "rng_draw_after": 26,
+  "rng_draw_before": 16,
+  "schema": "cow-restarted-consumed-work-audit-v1",
+  "source_snapshot": "0f4b5725eba7dce895d967a5b8d832d07da056c14c6767b929776f8b65c69bc9",
+  "status": "BOUNDED_RESTART_WORK_AUDIT_PASS_WORKFLOW_INCOMPLETE",
+  "target_snapshot": "8a7f99c384f4d7c80b1482ccbf6e13c0d49659feebdef0cfdae17cdd2918bec9",
+  "unchanged_stream_key": true,
+  "zero_saved_prefix_forward_work": true
+}

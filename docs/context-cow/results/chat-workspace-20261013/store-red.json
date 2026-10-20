@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "seconds": 0.10273120002239011,
+  "executed_ids": [
+    "unittest.loader._FailedTest.test_chat_workspace"
+  ],
+  "executed_methods": 1,
+  "failures": [],
+  "errors": [
+    [
+      "unittest.loader._FailedTest.test_chat_workspace",
+      "ImportError: Failed to import test module: test_chat_workspace\nTraceback (most recent call last):\n  File \"C:\\Program Files\\Python313\\Lib\\unittest\\loader.py\", line 141, in loadTestsFromName\n    module = __import__(module_name)\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_chat_workspace.py\", line 8, in <module>\n    from serve.chat_workspace import ChatWorkspace, WorkspaceConflict\nModuleNotFoundError: No module named 'serve.chat_workspace'\n\n"
+    ]
+  ],
+  "skips": []
+}

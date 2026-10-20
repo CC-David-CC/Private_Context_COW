@@ -1,0 +1,18 @@
+Internal ctest changing into directory: <measurement-home>/branching-g3/context-cow-public-20261013/build
+Test project <measurement-home>/branching-g3/context-cow-public-20261013/build
+    Start 18: branch_lifecycle_test
+1/6 Test #18: branch_lifecycle_test ............   Passed    2.45 sec
+    Start 19: branch_pages_test
+2/6 Test #19: branch_pages_test ................   Passed    0.22 sec
+    Start 20: branch_page_batch_test
+3/6 Test #20: branch_page_batch_test ...........   Passed    0.21 sec
+    Start 21: branch_prepare_test
+4/6 Test #21: branch_prepare_test ..............   Passed    0.30 sec
+    Start 25: branch_session_test
+5/6 Test #25: branch_session_test ..............   Passed    0.52 sec
+    Start 27: branch_integrity_test
+6/6 Test #27: branch_integrity_test ............   Passed    0.21 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =   3.91 sec

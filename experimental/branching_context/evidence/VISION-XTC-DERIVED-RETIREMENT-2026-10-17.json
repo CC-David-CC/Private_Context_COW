@@ -1,0 +1,237 @@
+{
+  "status": "RETIRED_BACKED_UP_DERIVED_COPIES",
+  "scope": "Only derived .state/.sve copies; canonical histories, originals, manifests, vectors, logs and archive retained",
+  "archive": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-xtc-v1/evidence.tar.gz",
+  "archive_sha256": "42ee7ab81dd6f7a47a50e0a891fea7e76a4cffb2927bf0e1714fb4c4d305b5a2",
+  "files": [
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "bytes": 121251660,
+      "sha256": "15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "bytes": 121042732,
+      "sha256": "32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "bytes": 122296308,
+      "sha256": "41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "bytes": 501780,
+      "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "bytes": 121147196,
+      "sha256": "5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "bytes": 123758816,
+      "sha256": "81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "bytes": 121565052,
+      "sha256": "850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "bytes": 121356124,
+      "sha256": "a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v1/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "archive_member": "attempts/vc07-xtc-tiny-gpu-v1/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "bytes": 121147196,
+      "sha256": "aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "bytes": 121251660,
+      "sha256": "15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "bytes": 121042732,
+      "sha256": "32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "bytes": 122296308,
+      "sha256": "41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "bytes": 501780,
+      "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "bytes": 121147196,
+      "sha256": "5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "bytes": 123758816,
+      "sha256": "81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "bytes": 121565052,
+      "sha256": "850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "bytes": 121356124,
+      "sha256": "a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-tiny-gpu-v2/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "archive_member": "gpu/vc07-xtc-tiny-gpu-v2/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "bytes": 121147196,
+      "sha256": "aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a.state",
+      "bytes": 121251660,
+      "sha256": "15655e3bd2f8afeffd201b156102a2abc8d7c3bb5c9d16280d565ffd5239c00a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0.state",
+      "bytes": 121042732,
+      "sha256": "32b71b05c1a3cbeb4745bdcbfe0f587c578829da4be62c48ddab765215e7cef0"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a.state",
+      "bytes": 122296308,
+      "sha256": "41a128e60b56a84ff236f82bcbe5f155531a3d5fc77d200783c4e3f462a4001a"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "bytes": 501780,
+      "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28.state",
+      "bytes": 121147196,
+      "sha256": "5edbd10648b1e5e098b3bd98baa25dcf7d6600d384f12e3331af6278c9d8ec28"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c.state",
+      "bytes": 123758816,
+      "sha256": "81dbc1c3db5f60bd6f4af32378c6cd8cc5dc940e6b71ee84d94f6b3edf7e434c"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b.state",
+      "bytes": 121565052,
+      "sha256": "850015cb79b45705c4882eb7d85e366df03aad760405e4df591a67edbbf4929b"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e.state",
+      "bytes": 121356124,
+      "sha256": "a39c3f6e133db73e494b5c618b1652c1c23ea5c419cd35143a4403c56b19cc8e"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-combined-gpu-v1/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "archive_member": "gpu/vc07-xtc-combined-gpu-v1/store/checkpoints/aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d.state",
+      "bytes": 121147196,
+      "sha256": "aa00625849bebf5230c56076d86bbcc1cd6cf7e0f02e82bfdff6395c5285e00d"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/3140bd3e23cb5745ee64570fef69aed39dfcce4d427f7229da89ced76b275cb2.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/3140bd3e23cb5745ee64570fef69aed39dfcce4d427f7229da89ced76b275cb2.state",
+      "bytes": 147472124,
+      "sha256": "3140bd3e23cb5745ee64570fef69aed39dfcce4d427f7229da89ced76b275cb2"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea.sve",
+      "bytes": 501780,
+      "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/4c41c0f72349c0b13757272d7d547d28a3b5561203226288fb1cea7911f53baf.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/4c41c0f72349c0b13757272d7d547d28a3b5561203226288fb1cea7911f53baf.state",
+      "bytes": 148621228,
+      "sha256": "4c41c0f72349c0b13757272d7d547d28a3b5561203226288fb1cea7911f53baf"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/739322e6d48918b3b4ed864956df7991b75498dd5a106be71e95affee2198bae.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/739322e6d48918b3b4ed864956df7991b75498dd5a106be71e95affee2198bae.state",
+      "bytes": 147263196,
+      "sha256": "739322e6d48918b3b4ed864956df7991b75498dd5a106be71e95affee2198bae"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/b6ed79201484d2c801f8e6bf7eb153ca19ca9cf1993ac3765de3da4a4daafb4e.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/b6ed79201484d2c801f8e6bf7eb153ca19ca9cf1993ac3765de3da4a4daafb4e.state",
+      "bytes": 147785524,
+      "sha256": "b6ed79201484d2c801f8e6bf7eb153ca19ca9cf1993ac3765de3da4a4daafb4e"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/d6d80e1f74550bf42b629614beb38b344d4ea890cb1d17dad28a826c8092c975.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/d6d80e1f74550bf42b629614beb38b344d4ea890cb1d17dad28a826c8092c975.state",
+      "bytes": 147367660,
+      "sha256": "d6d80e1f74550bf42b629614beb38b344d4ea890cb1d17dad28a826c8092c975"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/dd4042b4eed437480ec13685e3f5a15f1e78c53f8e30fb2b24a0aa59d42f0026.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/dd4042b4eed437480ec13685e3f5a15f1e78c53f8e30fb2b24a0aa59d42f0026.state",
+      "bytes": 147576588,
+      "sha256": "dd4042b4eed437480ec13685e3f5a15f1e78c53f8e30fb2b24a0aa59d42f0026"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/ee825e1077da868c6057f3bb02394c5780a854e33222d2c01671d1e8a6ad6bc5.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/ee825e1077da868c6057f3bb02394c5780a854e33222d2c01671d1e8a6ad6bc5.state",
+      "bytes": 147367660,
+      "sha256": "ee825e1077da868c6057f3bb02394c5780a854e33222d2c01671d1e8a6ad6bc5"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/efb0b6dce20a3af89163c50af056ff4fdce88c130b853c8c69d7e1da1f732a0c.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/efb0b6dce20a3af89163c50af056ff4fdce88c130b853c8c69d7e1da1f732a0c.state",
+      "bytes": 176205896,
+      "sha256": "efb0b6dce20a3af89163c50af056ff4fdce88c130b853c8c69d7e1da1f732a0c"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/f70b187d0d96e842603cc1d8fdd9da59a91f6efe0609c9c86be6adbdf6f8d967.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/f70b187d0d96e842603cc1d8fdd9da59a91f6efe0609c9c86be6adbdf6f8d967.state",
+      "bytes": 147785516,
+      "sha256": "f70b187d0d96e842603cc1d8fdd9da59a91f6efe0609c9c86be6adbdf6f8d967"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-xtc-1k-gpu-v1/store/checkpoints/fd194ac08e7c6ea5ae5e4076cb3ac49d788072a82ffbbad75065393a33c47715.state",
+      "archive_member": "gpu/vc07-xtc-1k-gpu-v1/store/checkpoints/fd194ac08e7c6ea5ae5e4076cb3ac49d788072a82ffbbad75065393a33c47715.state",
+      "bytes": 147367660,
+      "sha256": "fd194ac08e7c6ea5ae5e4076cb3ac49d788072a82ffbbad75065393a33c47715"
+    }
+  ],
+  "bytes": 4427515424
+}

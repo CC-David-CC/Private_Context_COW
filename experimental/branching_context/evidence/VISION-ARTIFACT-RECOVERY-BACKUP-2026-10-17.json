@@ -1,0 +1,10 @@
+{
+  "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-artifact-recovery-v1.tar.gz",
+  "bytes": 1501692,
+  "sha256": "7fb8820a48c90c5e0079e4a28f3353265eabc7a3ff666774623fccf82776d35d",
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-artifact-recovery-v1/evidence.tar.gz",
+  "destination_readback_sha256": "7fb8820a48c90c5e0079e4a28f3353265eabc7a3ff666774623fccf82776d35d",
+  "files": 128,
+  "github_publication": false
+}

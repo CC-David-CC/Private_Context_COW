@@ -1,0 +1,56 @@
+{
+  "ticket": "synthetic end-to-end text COW presentation flow",
+  "qualification": "Linux CPU-only synthetic control test; no GPU/model/server correctness or performance claim",
+  "integration_merge": "1ee5ee6d159c5193dadfbd9fb7d77d887e26fb0f (merged root cab60e11a4e08a44799fad19b0e66eb9dec8ae08)",
+  "host": "llm-60",
+  "python": "/usr/bin/python3 3.12.3",
+  "scratch": "/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014",
+  "focused_run": {
+    "run_dir": "runs/flow-focused-7",
+    "cwd": "flow",
+    "command": "env PYTHONPATH=.:src:tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 -m unittest -v serve.test_cow_presentation_flow",
+    "exit_code": 0,
+    "wrapper_exit": 0,
+    "executed": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "executed_ids": [
+      "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_chat_lifecycle_fork_retry_and_namespace_catalog",
+      "serve.test_cow_presentation_flow.CowPresentationFlowTests.test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens"
+    ]
+  },
+  "g0_run": {
+    "run_dir": "runs/flow-g0-1",
+    "command": "PYTHONPATH=/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/src:/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 /home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/scripts/verify.py --gate G0 --no-write",
+    "exit_code": 0,
+    "wrapper_exit": 0,
+    "tests": 51,
+    "passed": 51,
+    "failed": 0,
+    "required_real_backend_cases": 0
+  },
+  "coverage": [
+    "prepared root with generation frame, then idle answer",
+    "controller.start and controller.consume_many used for deterministic synthetic native outputs",
+    "active bounded assistant continuation on original branch and active-answer fork preserves the same assistant message ID",
+    "actual synthetic EOS stops the turn; a later user append preserves all prior canonical token IDs and binds raw text",
+    "coordinator restart and exact durable retry resolve original intent source without additional model forward counters",
+    "identical root token IDs in two namespaces produce separate presentation catalogs",
+    "changed raw message text under same operation ID is rejected even when the renderer trims to identical token IDs"
+  ],
+  "source_sha256": {
+    "serve/test_cow_presentation_flow.py": "cf6d87ff9c47c769665e04bc9f0bf38587c83decc5ca85093f23b3385c844ad9",
+    "serve/cow_adapter.py": "de98140fc1a2c1e82e3a041bec365fa6ad2e4de5bcd1a140979a577ec91fa257",
+    "serve/cow_text_adapter.py": "b3cca06ed4b7f5805cd584dda9f2f17d0e94582860342996d653869077784814",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "cdbd2f8dede09a6bb6a715fda66e6b99b52360308fbd807f51062c63acc7dcb4",
+    "experimental/branching_context/src/context_time_travel/store.py": "8e8bc51c1a29f4d824adcf4404b484269e018e35e4e76500cf8a5c417e9b2109"
+  },
+  "test_first_failed_runs_retained": [
+    "runs/flow-focused-1: test fixture token-byte fallback evaluated bytes(token) for generated IDs >255",
+    "runs/flow-focused-3: catalog expectation omitted the active-fork resume receipt",
+    "runs/flow-focused-4: expected caller root operation ID instead of deterministic internal root fork ID",
+    "runs/flow-focused-5: expected head order differed from Store's deterministic lexical ordering"
+  ],
+  "scope_note": "This exercises prepare(root+generation frame)->answer. It does not cover the separately planned initial_turn path from a codebase-only idle root. No production serve code was changed."
+}

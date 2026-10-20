@@ -1,0 +1,29 @@
+{
+  "ast_identical": true,
+  "change": "Removed trailing spaces on two test source lines only; no assertion or executable AST change",
+  "errors": [],
+  "failures": [],
+  "repository_test_sha256": "1568b33112688d8b71c9dcf17b779c18592b0199c63d33aa2ad32c68239c9154",
+  "skips": [],
+  "source_production_unchanged": true,
+  "status": "PASS",
+  "test_ids": [
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_branch_stream_and_output_cap_are_bound",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_rejects_boolean_alias_in_full_token_ids",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_rejects_boolean_negative_and_noninteger_fixture_ids",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_rejects_fixture_full_history_mismatch",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_result_exposes_candidate_stopped_and_final_sample_fields",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_result_rejects_nonboolean_stopped_state",
+    "test_grammar_long_reference_normalized.FixtureValidationTests.test_selected_branch_is_exact_root_plus_suffix",
+    "test_grammar_long_reference_normalized.NativeProcessLifecycleTests.test_forced_cleanup_targets_only_owned_native_process",
+    "test_grammar_long_reference_normalized.NativeProcessLifecycleTests.test_native_child_stays_in_reference_worker_process_group",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_counter_delta_requires_exact_forward_prefill_and_decode_work",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_decode_receipt_is_single_token_at_absolute_position",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_logits_path_matches_actual_unquoted_native_grammar",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_native_command_guard_excludes_all_checkpoint_and_mask_commands",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_prefill_receipt_validates_two_absolute_chunks",
+    "test_grammar_long_reference_normalized.NativeReceiptTests.test_rejects_wrong_prefill_position_count_or_schedule"
+  ],
+  "tested_original_sha256": "cbaa039b8165bd900c1c4dae6267a4cef169128e1448602e543138b80902d17a",
+  "tests": 15
+}

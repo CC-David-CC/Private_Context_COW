@@ -1,0 +1,1 @@
+Continue CURRENT ledger project: implement exclude exactly as CURRENT README documents. Inspect current files and tests. Edit only ledger.py, keep tests unchanged, run required tests and report actual results.

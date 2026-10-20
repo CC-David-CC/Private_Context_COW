@@ -1,0 +1,765 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_AUTONOMOUS_H12_Q4_PASS",
+  "catalogue": "Basic Agent Loop",
+  "catalogue_progress": {
+    "passed": "H00-H12",
+    "bounded_tasks": 13,
+    "total_tasks": 13,
+    "next": "Ubuntu Agent Baseline L00;not_run"
+  },
+  "executed_branchwrite_commit": "1caf1dd14e7fbe55e3b2138cd98be29da8600dc7",
+  "branch": "work/branchwrite-h12-viewports-20261018",
+  "client_host": "llm-49",
+  "server_host": "llm-60",
+  "component_checks": {
+    "client": 302,
+    "server_cpu": 19,
+    "total": 321,
+    "failures": [],
+    "errors": [],
+    "skips": []
+  },
+  "task": {
+    "task": "H12",
+    "description": "Model repairs fixed-width overflow and independently exercises desktop and phone",
+    "source_inputs_unchanged": true,
+    "human_candidate_edits": false,
+    "changed_files": [
+      "style.css"
+    ],
+    "actual_model_tools": [
+      {
+        "frame": "call-5461f734b6b5669a57c22448ff3a06c81b980892dd0271d4",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-4f1870be284460719f3a3ad85c96842cb6fba93e2bb79a13",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-c36eae52aafbff8190502c9a08b2c7b535e58819127bf0aa",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-bb30d06345378b54a0ea5b25ba334d56027fab0215d303de",
+        "tool": "replace",
+        "disposition": "applied",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-927bf6c9508a8cf5b89ee343ecda58871e982ef36fc44aa3",
+        "tool": "replace",
+        "disposition": "applied",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-45d027c244baeda1c7db61cb6e407375743734befa10f949",
+        "tool": "capture_page",
+        "disposition": "captured",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": [
+          640,
+          480
+        ],
+        "viewport_name": "desktop",
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-508a1054bec391972598319a530bde35a51473aac446fe66",
+        "tool": "interact_page",
+        "disposition": "captured",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": [
+          360,
+          640
+        ],
+        "viewport_name": "phone",
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-507f66ce8b4839d468c3a7cbb6fc3e764da63f695b24e705",
+        "tool": "interact_page",
+        "disposition": "captured",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": [
+          640,
+          480
+        ],
+        "viewport_name": "desktop",
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-4f9fa827afc809ba4565677eed829881d18858598a66f95a",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-d8373a99b1706d385ef2ecb430d0ac5958304fa3fb4ffc38",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-fb1ee67b1e5003f53406069047a3d063f77ebc3cd86f6365",
+        "tool": "read_file",
+        "disposition": "read",
+        "exit_code": 0,
+        "requested_finish": false,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      },
+      {
+        "frame": "call-33f8566ecae388a88ce29f8797d99e17d8d6cf1e20563fbd",
+        "tool": "finish",
+        "disposition": "completion_requested",
+        "exit_code": null,
+        "requested_finish": true,
+        "viewport": null,
+        "viewport_name": null,
+        "runtime_errors": []
+      }
+    ],
+    "model_output_tokens": [
+      156,
+      25,
+      138,
+      553,
+      159,
+      157,
+      168,
+      141,
+      72,
+      67,
+      24,
+      897
+    ],
+    "output_tokens": 2557,
+    "protected_inspections": [
+      {
+        "actions": [
+          {
+            "kind": "click",
+            "target": "increment",
+            "value": ""
+          },
+          {
+            "kind": "fill",
+            "target": "name",
+            "value": "Ada Lovelace"
+          },
+          {
+            "kind": "click",
+            "target": "greet",
+            "value": ""
+          }
+        ],
+        "asset_manifest": [
+          {
+            "bytes": 725,
+            "media_type": "text/css; charset=utf-8",
+            "path": "style.css",
+            "sha256": "c836e242d89de998f4ad68f8648f968149f4751897b83461578efff79d678d90"
+          },
+          {
+            "bytes": 336,
+            "media_type": "text/javascript; charset=utf-8",
+            "path": "app.js",
+            "sha256": "a8be7b56ef06352d5276a90e946d7640d7e6a8bcc742cf3652aae9e59071fd95"
+          },
+          {
+            "bytes": 115,
+            "media_type": "image/png",
+            "path": "assets/sample.png",
+            "sha256": "ddbed78bee900b67e5a3ecb0f1e7bc79acfe8b7c18a2886078e5c193be64e60f"
+          }
+        ],
+        "captured_image_sha256": "60b957d6de9ea46808fcc04fbdfd60f90f0708ba3932d383cdaa95e92f8d8060",
+        "checker": {
+          "actions": [
+            [
+              "click",
+              "increment"
+            ],
+            [
+              "click",
+              "increment"
+            ],
+            [
+              "fill",
+              "name=Ada"
+            ],
+            [
+              "click",
+              "greet"
+            ],
+            [
+              "fill",
+              "name=<b>Ada</b>"
+            ],
+            [
+              "click",
+              "greet"
+            ]
+          ],
+          "error": null,
+          "inspector_sha256": "59c93e1f003fe8e62abe606894ef34a478b5911a67178b017cf39c014223bf73",
+          "schema": 1,
+          "status": "PASS",
+          "target": "H12"
+        },
+        "document_path": "index.html",
+        "height": 640,
+        "image_sha256": "60b957d6de9ea46808fcc04fbdfd60f90f0708ba3932d383cdaa95e92f8d8060",
+        "inspector_sha256": "59c93e1f003fe8e62abe606894ef34a478b5911a67178b017cf39c014223bf73",
+        "path": "index.html",
+        "protected_image": [
+          "ed6ab2a46605c9212e5a9e0133910779b87a210bafef0e5c4ad52a03a14556d5",
+          11320
+        ],
+        "protected_isolation": {
+          "chromium_sandbox": true,
+          "kind": "bubblewrap-browser-v1",
+          "launcher_pid": 2106156,
+          "mount_ns": "mnt:[4026532772]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532896]",
+          "pid_ns": "pid:[4026532891]",
+          "retirement_wait_seconds": 0.0024248260306194425,
+          "schema": 1,
+          "uid": 1000,
+          "worker_exited": true
+        },
+        "replay_isolation": {
+          "chromium_sandbox": true,
+          "kind": "bubblewrap-browser-v1",
+          "launcher_pid": 2105996,
+          "mount_ns": "mnt:[4026532771]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532779]",
+          "pid_ns": "pid:[4026532777]",
+          "retirement_wait_seconds": 0.002273346995934844,
+          "schema": 1,
+          "uid": 1000,
+          "worker_exited": true
+        },
+        "same_capture": true,
+        "source_sha256": "3a85a99e224d1185ddaec3613c9476e68ca9e407620c81cbb8e3b0688d6aa5e6",
+        "status": "PASS",
+        "target": "H12",
+        "viewport_name": "phone",
+        "width": 360
+      },
+      {
+        "actions": [
+          {
+            "kind": "click",
+            "target": "increment",
+            "value": ""
+          },
+          {
+            "kind": "fill",
+            "target": "name",
+            "value": "Ada Lovelace"
+          },
+          {
+            "kind": "click",
+            "target": "greet",
+            "value": ""
+          }
+        ],
+        "asset_manifest": [
+          {
+            "bytes": 725,
+            "media_type": "text/css; charset=utf-8",
+            "path": "style.css",
+            "sha256": "c836e242d89de998f4ad68f8648f968149f4751897b83461578efff79d678d90"
+          },
+          {
+            "bytes": 336,
+            "media_type": "text/javascript; charset=utf-8",
+            "path": "app.js",
+            "sha256": "a8be7b56ef06352d5276a90e946d7640d7e6a8bcc742cf3652aae9e59071fd95"
+          },
+          {
+            "bytes": 115,
+            "media_type": "image/png",
+            "path": "assets/sample.png",
+            "sha256": "ddbed78bee900b67e5a3ecb0f1e7bc79acfe8b7c18a2886078e5c193be64e60f"
+          }
+        ],
+        "captured_image_sha256": "1109ca9a5858054c81b8eeaa1333f63330bcb9b370a242a0f089f6a122df13a7",
+        "checker": {
+          "actions": [
+            [
+              "click",
+              "increment"
+            ],
+            [
+              "click",
+              "increment"
+            ],
+            [
+              "fill",
+              "name=Ada"
+            ],
+            [
+              "click",
+              "greet"
+            ],
+            [
+              "fill",
+              "name=<b>Ada</b>"
+            ],
+            [
+              "click",
+              "greet"
+            ]
+          ],
+          "error": null,
+          "inspector_sha256": "59c93e1f003fe8e62abe606894ef34a478b5911a67178b017cf39c014223bf73",
+          "schema": 1,
+          "status": "PASS",
+          "target": "H12"
+        },
+        "document_path": "index.html",
+        "height": 480,
+        "image_sha256": "1109ca9a5858054c81b8eeaa1333f63330bcb9b370a242a0f089f6a122df13a7",
+        "inspector_sha256": "59c93e1f003fe8e62abe606894ef34a478b5911a67178b017cf39c014223bf73",
+        "path": "index.html",
+        "protected_image": [
+          "a157435771b4a70bd0f16143ea4681a8cf2ee5fb49bcfe441359a99fd4404596",
+          10996
+        ],
+        "protected_isolation": {
+          "chromium_sandbox": true,
+          "kind": "bubblewrap-browser-v1",
+          "launcher_pid": 2106474,
+          "mount_ns": "mnt:[4026532777]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532901]",
+          "pid_ns": "pid:[4026532897]",
+          "retirement_wait_seconds": 0.002138649928383529,
+          "schema": 1,
+          "uid": 1000,
+          "worker_exited": true
+        },
+        "replay_isolation": {
+          "chromium_sandbox": true,
+          "kind": "bubblewrap-browser-v1",
+          "launcher_pid": 2106317,
+          "mount_ns": "mnt:[4026532776]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532782]",
+          "pid_ns": "pid:[4026532780]",
+          "retirement_wait_seconds": 0.0022323790472000837,
+          "schema": 1,
+          "uid": 1000,
+          "worker_exited": true
+        },
+        "same_capture": true,
+        "source_sha256": "3a85a99e224d1185ddaec3613c9476e68ca9e407620c81cbb8e3b0688d6aa5e6",
+        "status": "PASS",
+        "target": "H12",
+        "viewport_name": "desktop",
+        "width": 640
+      }
+    ],
+    "images": 3,
+    "native_image_rows": 820,
+    "final_interactions_delivered_before_finish": [
+      {
+        "edit": 1,
+        "interaction": 5,
+        "delivery": 6,
+        "finish": 7,
+        "viewport": "desktop",
+        "frame": "call-507f66ce8b4839d468c3a7cbb6fc3e764da63f695b24e705"
+      },
+      {
+        "edit": 1,
+        "interaction": 3,
+        "delivery": 4,
+        "finish": 7,
+        "viewport": "phone",
+        "frame": "call-508a1054bec391972598319a530bde35a51473aac446fe66"
+      }
+    ],
+    "original_final_static_images": {
+      "desktop": {
+        "sha256": "e7f5d5318266c7999cb691dd84c7eb9b1c65a2cf80bfa38fd89ba28c9b33a37f",
+        "original_sha256": "b8d856ca394ac4d0276afec8a3c7997bcd64ebf611adbf74f2ec272d4379f4c4",
+        "whole_png_equal": false
+      },
+      "phone": {
+        "sha256": "f024b7bd5c0131f673e68ffff46b1c36510147e2149a7e366831b527923ef616",
+        "original_sha256": "fd04243b86fffddf15c84f34c4c6dfcab22863371e10a0b1c9dd0498d82607e7",
+        "whole_png_equal": false
+      }
+    },
+    "visual_review": "Both actual final interactive PNGs inspected;desktop and phone show visible squares,working controls and marker;phone wraps greeting without horizontal overflow"
+  },
+  "timing": {
+    "whole_cli_seconds": 158.0544525749283,
+    "startup_seconds": 25.365060941083357,
+    "offline_completed_reopen_seconds": 0.4006677019642666,
+    "measurement_scope": "One autonomous workflow;not a throughput benchmark"
+  },
+  "native_counters": {
+    "consumed_tokens": 21704,
+    "checkpoint_export_bytes": 8453029264,
+    "checkpoint_import_bytes": 2951578800,
+    "contexts_created": 1,
+    "contexts_freed": 1,
+    "lease_acquires": 26,
+    "lease_releases": 26,
+    "frontier_read_bytes": 12912640,
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15,
+    "consumed": 21704,
+    "forward_tokens": 21704,
+    "prefill_tokens": 19147,
+    "prefill_chunks": 43,
+    "grammar_selection_calls": 0,
+    "grammar_selection_logit_bytes": 0,
+    "grammar_selection_mask_bytes": 0,
+    "sampling_calls": 2557,
+    "sampling_logit_bytes": 2539816960,
+    "sampling_mask_bytes": 79369280,
+    "sampling_ns": 2040528797,
+    "sampling_v2_calls": 2557,
+    "sampling_v2_logit_bytes": 2539816960,
+    "sampling_v2_mask_bytes": 79369280,
+    "sampling_v2_ns": 2040528797,
+    "sampling_v3_calls": 0,
+    "sampling_v3_logit_bytes": 0,
+    "sampling_v3_mask_bytes": 0,
+    "sampling_v3_ns": 0,
+    "sampling_mixed_dry_calls": 0,
+    "sampling_mixed_dry_ns": 0,
+    "sampling_mixed_dry_logit_bytes": 0,
+    "sampling_mixed_dry_mask_bytes": 0,
+    "sampling_v4_calls": 0,
+    "sampling_v4_logit_bytes": 0,
+    "sampling_v4_mask_bytes": 0,
+    "sampling_v4_ns": 0,
+    "sampling_image_dry_combination_calls": 0,
+    "sampling_v5_calls": 0,
+    "sampling_v5_logit_bytes": 0,
+    "sampling_v5_mask_bytes": 0,
+    "sampling_v5_ns": 0,
+    "sampling_mirostat2_calls": 0,
+    "sampling_mirostat2_logit_bytes": 0,
+    "sampling_mirostat2_mask_bytes": 0,
+    "sampling_mirostat2_ns": 0,
+    "sampling_adaptive_p_calls": 0,
+    "sampling_adaptive_p_logit_bytes": 0,
+    "sampling_adaptive_p_mask_bytes": 0,
+    "sampling_adaptive_p_ns": 0,
+    "sampling_v5_activation_draws": 0,
+    "sampling_v5_activated_calls": 0,
+    "sampling_v5_removed_candidates": 0,
+    "typical_filter_calls_v5": 0,
+    "dynatemp_filter_calls_v5": 0,
+    "dry_penalized_candidates_v5": 0,
+    "typical_filter_calls": 0,
+    "dynatemp_filter_calls": 0,
+    "dry_penalized_candidates_v4": 0,
+    "dry_penalized_candidates": 0,
+    "decode_prepare_ns": 2518124781,
+    "decode_compute_ns": 19998522747,
+    "decode_finish_ns": 182348371,
+    "decode_timed_tokens": 2557,
+    "windows": 2557,
+    "resident_expert_entries": 0,
+    "cpu_expert_entries": 0,
+    "pcie_expert_groups": 0,
+    "allocations": 720,
+    "releases": 0,
+    "live_bytes": 1509949440,
+    "cow_pages": 432,
+    "copied_bytes": 905969664,
+    "mappings": 11616,
+    "unmappings": 11328,
+    "address_reservations": 504,
+    "address_releases": 432,
+    "vmm_driver_failures": 0,
+    "vmm_out_of_memory_failures": 0,
+    "vmm_last_driver_error": 0,
+    "vmm_last_failed_operation": "",
+    "audit_read_bytes": 0,
+    "integrity_checked_pages": 486552,
+    "integrity_mismatches": 0,
+    "integrity_last_mismatch_tile": 18446744073709551615,
+    "integrity_seal_allocations": 720,
+    "integrity_seal_releases": 0,
+    "integrity_seal_live_bytes": 11796480,
+    "integrity_seal_upload_bytes": 11796480,
+    "integrity_device_hashed_bytes": 1021883449344,
+    "integrity_digest_copy_bytes": 130940928,
+    "integrity_plan_copy_bytes": 3834240,
+    "integrity_expected_seal_plan_copy_bytes": 3834240,
+    "integrity_compare_flag_init_bytes": 20552,
+    "integrity_compare_result_copy_bytes": 20552,
+    "integrity_plan_upload_ns": 47521613,
+    "integrity_page_hash_ns": 0,
+    "integrity_page_digest_download_ns": 0,
+    "integrity_seal_compare_ns": 2318349663,
+    "integrity_seal_result_download_ns": 25739463,
+    "integrity_compare_workspace_live_bytes": 9896,
+    "integrity_host_workspace_allocations": 1,
+    "integrity_host_workspace_live_bytes": 20250624,
+    "integrity_kernel_calls": 8857,
+    "integrity_workspace_allocations": 40,
+    "integrity_workspace_releases": 0,
+    "integrity_workspace_live_bytes": 29707592,
+    "binding_copy_bytes": 0,
+    "saved_running_bytes": 1534820976,
+    "restored_running_bytes": 2951578800,
+    "written_file_bytes": 6918208288,
+    "loaded_file_bytes": 0,
+    "cold_restore_copy_bytes": 0,
+    "cold_restore_copy_calls": 0,
+    "captures": 13,
+    "restores": 25,
+    "handle_allocations": 13,
+    "handle_releases": 0,
+    "handle_live_entries": 13,
+    "handle_live_bytes": 520,
+    "handle_peak_bytes": 520,
+    "handle_issued": 13,
+    "handle_lookup_steps": 25,
+    "snapshot_allocations": 13,
+    "snapshot_releases": 0,
+    "snapshot_live_images": 13,
+    "snapshot_payload_capacity_bytes": 1548560263,
+    "snapshot_peak_payload_capacity_bytes": 1548560263,
+    "host_heap_allocated_bytes": 4800754672
+  },
+  "fingerprint": {
+    "model": "Qwen3.8-Flash-Next UD-Q4_K_XL",
+    "kv": "FP16",
+    "execution_profile_id": "092f4c044df5365834addf220feb7464e13703239658c754513af9f557a0ce77",
+    "profile_sha256": "79550b1143656babc7db523db34b71b160ff289cdca3bf6f33bb57d75b788272",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "model_hash_receipt_sha256": "111fb6d1cedf28537c0d1787338da7dad923f637b384cd180cd122bc9ae15e34",
+    "backend": "strata",
+    "backend_revision": "private-llm60-20261012T0818",
+    "native_path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow",
+    "native_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "verified_source_receipt_sha256": "ce50a965702c65b05124715729bf70ac57602fd53ee18d29af9748f0c2df2161",
+    "gpu_current": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07",
+    "execution": {
+      "GPU": [
+        0
+      ],
+      "capacity": 98304,
+      "checkpoint_cache": {
+        "byte_limit": 17179869184,
+        "entry_limit": 256
+      },
+      "embedding_width": 2560,
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "0"
+      },
+      "eos_tokens": [
+        248044,
+        248046
+      ],
+      "generated_operator": "normal-verifier-decode",
+      "grammar_selection_protocol": "finite-mask-argmax-v1",
+      "kv_dtype": "FP16",
+      "native_request_protocol": "consumed-greedy-ack-v1",
+      "operator": "batched-input/native-greedy-request/per-write-sha256",
+      "oracle_command": [
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh",
+        "--pack",
+        "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl",
+        "--native",
+        "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+        "--max-context",
+        "98304",
+        "--prefill",
+        "512",
+        "--spec",
+        "2",
+        "--suffix-draft",
+        "0",
+        "--kv",
+        "fp16",
+        "--expert-profile",
+        "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+        "--prompt-cache",
+        "0",
+        "--conversation-cache-mib",
+        "0",
+        "--stats",
+        "--no-prefill-borrow",
+        "--resident-budget-gib",
+        "40",
+        "--expert-cache",
+        "auto",
+        "--ple-io",
+        "direct",
+        "--ple-row-cache",
+        "1048576",
+        "--vram-reserve-mib",
+        "8192",
+        "--pcie-frac",
+        "0.55",
+        "--max-new",
+        "0",
+        "--gpu",
+        "0"
+      ],
+      "prefill_chunk": 512,
+      "resume_contract": "identical-mixed-native-operators-v1",
+      "sampling_protocol": "full-vocab-adaptive-p-u53-v7",
+      "selected_token_protocol": "consumed-selected-receipt-v1",
+      "sut_command": [
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow",
+        "--pack",
+        "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl",
+        "--native",
+        "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+        "--max-context",
+        "98304",
+        "--prefill",
+        "512",
+        "--spec",
+        "2",
+        "--suffix-draft",
+        "0",
+        "--kv",
+        "fp16",
+        "--expert-profile",
+        "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+        "--prompt-cache",
+        "0",
+        "--conversation-cache-mib",
+        "0",
+        "--stats",
+        "--no-prefill-borrow",
+        "--resident-budget-gib",
+        "40",
+        "--expert-cache",
+        "auto",
+        "--ple-io",
+        "direct",
+        "--ple-row-cache",
+        "1048576",
+        "--vram-reserve-mib",
+        "8192",
+        "--pcie-frac",
+        "0.55",
+        "--max-new",
+        "128",
+        "--tokens",
+        "1",
+        "--vision",
+        "--gpu",
+        "0"
+      ],
+      "text_template_kwargs": {
+        "enable_thinking": true
+      },
+      "vision_dry_protocol": "mixed-text-runs-dry-u53-v1",
+      "vision_protocol": "explicit-image-rows-mrope-v3"
+    },
+    "verification_scope": "Profile and native executable rehashed during H12; GPU/driver queried now;model hash/provenance inherited from pinned verified profile, not a new full weight-file hashing campaign."
+  },
+  "sampler": {
+    "temperature": 0.7,
+    "min_p": 0.05,
+    "top_k": 60,
+    "top_p": 0.95,
+    "dry_multiplier": 0,
+    "dry_base": 1.75,
+    "dry_allowed_length": 2,
+    "dry_penalty_last_n": 256
+  },
+  "sampler_scope": "Explicit per-run DRY-off;global DRY+Min-P default unchanged",
+  "thinking_budget": 1024,
+  "cleanup": {
+    "server_exit": 0,
+    "native_exit": 0,
+    "owned_processes_absent": true,
+    "gpu_idle": true,
+    "temporary_grant_restored": true,
+    "ephemeral_secrets_removed": true,
+    "chat_server": "OFF"
+  },
+  "private_backup": {
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-h12-autonomous-v1/evidence.tar.gz",
+    "archive_bytes": 19301529,
+    "archive_sha256": "32a38caa8a9d112d62f26bb8f4c42d1b32ddd0c33c21eedd6d20f248d6980967",
+    "regular_members": 932,
+    "individually_verified_data_files": 931,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "executed_code_git_verified": true,
+    "executed_commit": "1caf1dd14e7fbe55e3b2138cd98be29da8600dc7",
+    "github_touched": false
+  },
+  "excluded_optional_native_payloads": {
+    "bytes": 6931120928,
+    "files": 13,
+    "scope": "Inventoried,not archived;canonical records and manifests retained"
+  },
+  "prior_failures": {
+    "component_red_runs_retained": true,
+    "autonomous_h12_failed_attempts": 0,
+    "engineering_setup": [
+      "The first credential relay used the transport helper in the wrong direction;both scripts were absent on those ends,no client launch or model work occurred. Direction was corrected after original receiver inspection.",
+      "The private Git transport receipt inherited an H11 label;original receipt preserved and an explicit correction added;verified ref/commit were correct."
+    ]
+  },
+  "limitations": [
+    "No new fresh full-logit comparison or inference-process restart oracle in H12",
+    "No Q8 trial;Q8 remains deferred",
+    "Current-profile long-context speed and full VC09/G1-G5 qualification remain open",
+    "Single bounded success per workload is not general autonomous coding qualification",
+    "Generic VERIFY failure summary is not yet fed back to model;repeated premature finish can exhaust current workflow"
+  ],
+  "github_touched": false
+}

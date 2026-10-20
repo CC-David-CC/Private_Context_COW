@@ -1,0 +1,55 @@
+[
+  {
+    "label": "configure",
+    "argv": [
+      "cmake",
+      "-S",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "-B",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-G",
+      "Unix Makefiles",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DSTRATA_ENABLE_CUDA=ON",
+      "-DSTRATA_NATIVE_EXPERTS=ON",
+      "-DSTRATA_BUILD_TESTS=ON",
+      "-DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc",
+      "-DCUDAToolkit_ROOT=/usr/local/cuda",
+      "-DCMAKE_CUDA_ARCHITECTURES=120",
+      "-DSTRATA_GGML_DIR=<measurement-home>/branching-g3/llama-pinned"
+    ],
+    "exit_code": 0,
+    "seconds": 2.1504451239015907
+  },
+  {
+    "label": "build",
+    "argv": [
+      "cmake",
+      "--build",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-j16",
+      "--target",
+      "strata",
+      "strata-branch",
+      "strata-fresh",
+      "branch_page_batch_test",
+      "branch_pages_test",
+      "branch_session_test",
+      "branch_integrity_test"
+    ],
+    "exit_code": 0,
+    "seconds": 90.30030651204288
+  },
+  {
+    "label": "probes",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/build_fast_prefill_probe.py",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-batched",
+      "--long-demo"
+    ],
+    "exit_code": 0,
+    "seconds": 10.53578412195202
+  }
+]

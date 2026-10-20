@@ -1,0 +1,26 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "RECEIVER_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-native-hash-integration-v1",
+  "archive": "evidence.tar",
+  "archive_bytes": 959846400,
+  "archive_sha256": "d4628bdcd96dcf4de452be2d5e1cd789d52f93a8674d794dd3f653d1a42b749c",
+  "manifest_sha256": "81411449212c6241a0a6226bb9157e63c4de094c54af0e03918eee98c79f9acf",
+  "members": 252,
+  "regular_files": 210,
+  "regular_file_bytes": 959533581,
+  "receiver_verification": {
+    "file": "receiver-verification.json",
+    "sha256": "473eefead422b8b5ba90b55941642cc020d1c480d1dd1ad7e535eaa1ec750361",
+    "status": "PASS"
+  },
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "primary_check": "Primary rehashed the final receiver archive and read the per-member verification receipt.",
+  "scope": "Hash-v1 source/object/ELF, build closure receipts, all derived profiles, older-coordinator and recovery-coordinator tiny GPU runs, both primary vector audits.",
+  "limitations": [
+    "External raw archive is not retrieved by source Git clone.",
+    "Subsequent coordinator fork/retry GPU run and finite-capacity/IPC work are not included.",
+    "The separately backed-up microbenchmark root is not duplicated."
+  ]
+}

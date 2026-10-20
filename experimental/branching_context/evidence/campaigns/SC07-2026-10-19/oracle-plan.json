@@ -1,0 +1,6 @@
+{
+  "seed": 7417,
+  "cases": 64,
+  "audit_sha256": "4e33f458471b3938458507aaa1706ef8f706c6f87432a0b5c7d8fb0fa5c4496c",
+  "scope": "Prepared before autonomous repair; no training export"
+}

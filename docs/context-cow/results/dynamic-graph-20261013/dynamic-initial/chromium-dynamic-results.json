@@ -1,0 +1,16 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real SQLite and browser; mock model; no GPU qualification",
+  "checks": [
+    "vertical_viewer_is_beside_chat",
+    "four_branch_badges_are_fully_visible",
+    "same_tip_branches_use_one_point",
+    "same_tip_badges_are_grouped",
+    "chat_has_room_to_read",
+    "selected_fork_is_not_clipped",
+    "new_fork_reflows_without_clipping",
+    "fork_keeps_original_messages"
+  ],
+  "error": "AssertionError('new_ending_reflows_graph')"
+}

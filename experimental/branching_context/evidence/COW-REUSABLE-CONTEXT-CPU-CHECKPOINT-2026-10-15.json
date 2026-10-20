@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "qualification": "UNQUALIFIED_CPU_SUPPORT_ONLY",
+  "checkout": "C:/Users/dflanag3/Documents/fleet/context-cow-reusable-context",
+  "branch": "work/luna-cow-reusable-context",
+  "base_commit": "a897c23bc8e0e6a4108cb2fd341d73b569de89f1",
+  "test_host": "llm-60",
+  "python": "Python 3.12.3",
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "scope": {
+    "browser_driver": "Opt-in support path captures real CDP POST bodies and completed same-request NDJSON, requires new branch revision/tip for asks, checks exact suffix plus generated-token forward counts, actual root fork isolation, pinned UI source hashes, and model/execution identity from durable context and A/B receipts.",
+    "store_audit": "CPU-only post-run helper validates canonical root ID/model contract/token IDs, profile-specific execution schedule and token positions, complete payload SHA/size/frontier, and unchanged canonical refs/objects/presentation records around Store initialization/audit.",
+    "not_qualified": ["No native server launched", "No browser session launched", "No model inference", "No GPU work", "No native payload compatibility or real HTTP UI result", "No new execution profile emitted"]
+  },
+  "source_files": [
+    {"path": "serve/web/cow_native_smoke.py", "sha256": "df099961559eeff4c3d8f7df88c40005f6f1d3ec061c57058dec45a08bec1e4c"},
+    {"path": "serve/test_cow_reusable_context_smoke.py", "sha256": "c88fca8208e9b667b92a51af74c7f4593bb6607f743ff1cb0596ac6feca867b4"},
+    {"path": "experimental/branching_context/scripts/build_cow_browser_context_fixture.py", "sha256": "a11c116cc43a52033aa65fb2f372ffa2dc26f09bd6c89b54b6de0e002995969d"},
+    {"path": "experimental/branching_context/scripts/audit_cow_browser_context_store.py", "sha256": "159ef0a7f45eff384b5feff8d77a3de647e243e89d9e8cb3dc0d6d894587b957"},
+    {"path": "experimental/branching_context/scripts/test_audit_cow_browser_context_store.py", "sha256": "242549ec987139eaa0341994324339af46a856a52e3676059b39cda72d3db163"}
+  ],
+  "executed_checks": [
+    {
+      "id": "reusable_context_browser_support",
+      "test_ids": [
+        "test_fixture_file_block_handles_fences_newlines_and_literal_control_text",
+        "test_fixture_file_block_rejects_paths_and_nontext",
+        "test_cdp_capture_uses_actual_post_data_and_complete_ndjson",
+        "test_work_validator_rejects_prefix_replay_and_inexact_counter",
+        "test_network_capture_fails_closed_without_post_or_durable_complete",
+        "test_network_exchange_requires_completed_matching_request",
+        "test_new_publication_wait_rejects_preexisting_idle_root",
+        "test_durable_server_receipt_must_match_fixture_model_and_profile"
+      ],
+      "count": 8,
+      "command": "bash /home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-smoke-1 env PYTHONPATH=/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source/experimental/branching_context/src:/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source python3 -m unittest serve.test_cow_reusable_context_smoke",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "raw_path": "/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-smoke-1"
+    },
+    {
+      "id": "browser_context_store_audit",
+      "test_ids": [
+        "test_audits_real_store_root_and_schema3_schedule_without_mutating_authority",
+        "test_rejects_wrong_model_contract",
+        "test_rejects_schedule_digest_mismatch",
+        "test_rejects_schedule_with_wrong_history_or_positions",
+        "test_rejects_profile_resume_contract_and_manifest_schema_mismatch",
+        "test_fingerprint_covers_migrated_reference_directory_and_ref_order"
+      ],
+      "count": 6,
+      "command": "bash /home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-audit-2 env PYTHONPATH=/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source/experimental/branching_context/src:/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source python3 experimental/branching_context/scripts/test_audit_cow_browser_context_store.py",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "raw_path": "/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-audit-2"
+    },
+    {
+      "id": "python_compile",
+      "test_ids": ["py_compile_all_five_changed_python_files"],
+      "count": 1,
+      "command": "bash /home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/source /home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-compile-2 env python3 -m py_compile serve/web/cow_native_smoke.py serve/test_cow_reusable_context_smoke.py experimental/branching_context/scripts/build_cow_browser_context_fixture.py experimental/branching_context/scripts/audit_cow_browser_context_store.py experimental/branching_context/scripts/test_audit_cow_browser_context_store.py",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "raw_path": "/home/dflanag3/branching-g3/cow-browser-harness-luna-20261015/runs/receipt-final-compile-2"
+    }
+  ],
+  "preserved_attempts": [
+    {"run": "audit-fix-1", "command_exit": 1, "wrapper_exit": 1, "classification": "setup/runner invocation used absolute test paths unsupported by unittest module loader"},
+    {"run": "smoke-support-2", "command_exit": 1, "wrapper_exit": 1, "classification": "staging layout selected an earlier flattened test copy; import path did not match checkout layout"},
+    {"run": "smoke-support-3", "command_exit": 1, "wrapper_exit": 1, "classification": "expected assertion text was stale after adding matching-request completion guard"},
+    {"run": "audit-focused-1", "command_exit": 2, "wrapper_exit": 2, "classification": "test file had not yet been copied into scripts staging directory"},
+    {"run": "audit-focused-2", "command_exit": 1, "wrapper_exit": 1, "classification": "package dependency path not staged"},
+    {"run": "focused-audit-2", "command_exit": 1, "wrapper_exit": 1, "classification": "test setup imported a class not needed by the fixture and absent in this base API"},
+    {"run": "receipt-final-audit-1", "command_exit": 1, "wrapper_exit": 1, "classification": "negative wrong-model test initially had inconsistent receipt fixture; corrected setup then final suite passed"}
+  ],
+  "next_staging_handoff": {
+    "status": "NOT_STARTED",
+    "instruction": "Before any authorized native/browser run, create a minimal immutable source overlay from the exact pinned base plus only the Python import closure required by gpu_http_probe text mode (experimental/branching_context/src/context_time_travel, serve modules, tools Python modules), serve/web assets, the Q8 fixture builder output, and the audited fixture/pinned profile. Hash every imported source and verify hashes after transfer; exclude documentation/history and all weights. Derive a new execution-profile/source-manifest identity for this changed runtime; do not reuse historic profile ID b62b4e1842ae4c9b5a0b9c6ea372cb9dcaa2333206adf4b2dd9b7a747f7323d1 as qualification. Then wait for explicit launch authorization after Q8 pressure work."
+  }
+}

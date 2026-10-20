@@ -1,0 +1,17 @@
+{
+  "status": "BOUNDED_Q8_RESTART_AND_CODING_WORK_PROOF",
+  "prefix_tokens": 15780,
+  "restored_prefix_consumed": 15780,
+  "forward_tokens_through_prefix_restore": 0,
+  "native_bytes_loaded": 530181256,
+  "total_forward_tokens": 3443,
+  "prefill_tokens": 2968,
+  "generated_timed_tokens": 475,
+  "native_timed_tps": 53.97377351553496,
+  "native_decode_seconds": 8.800570519,
+  "integrity_mismatches": 0,
+  "captures": 6,
+  "restores": 9,
+  "device_hashed_bytes": 209253826560,
+  "scope": "No fresh numerical oracle; native timed TPS excludes client/tools/durable publication/startup"
+}

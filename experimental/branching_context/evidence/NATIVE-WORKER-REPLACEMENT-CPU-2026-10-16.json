@@ -1,0 +1,65 @@
+{
+    "schema":  "native-worker-replacement-cpu-v1",
+    "qualification":  "FOCUSED-CPU-PASS; GPU-UNQUALIFIED",
+    "host":  "llm-60",
+    "tests":  63,
+    "failures":  0,
+    "errors":  0,
+    "skips":  0,
+    "source_unchanged":  true,
+    "coordinator_sha256":  "bb6a1f8d9582c35dfaec69391658a033320e25d717b61ebfb9b0bec1f6c6c32b",
+    "test_sha256":  "045acb29539fb78dac00521e913b4044600167b7957f519228619d5e8f544d21",
+    "backend_sha256":  "d692e00310984dcea2332d86862fde0010ff06f50b7f62b35a97d25110443de1",
+    "command_exit":  0,
+    "wrapper_exit":  0,
+    "G0_tests":  51,
+    "G0_command_exit":  0,
+    "G0_wrapper_exit":  0,
+    "red_tests":  63,
+    "red_failures":  3,
+    "red_command_exit":  1,
+    "red_wrapper_exit":  1,
+    "root":  "llm-60:/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/",
+    "red":  "replacement-root-red-v4",
+    "green":  "replacement-root-green-v4",
+    "loaded_imports":  {
+                           "context_time_travel.coordinator":  {
+                                                                   "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/src/context_time_travel/coordinator.py",
+                                                                   "sha256":  "bb6a1f8d9582c35dfaec69391658a033320e25d717b61ebfb9b0bec1f6c6c32b"
+                                                               },
+                           "context_time_travel.strata_backend":  {
+                                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/src/context_time_travel/strata_backend.py",
+                                                                      "sha256":  "d692e00310984dcea2332d86862fde0010ff06f50b7f62b35a97d25110443de1"
+                                                                  },
+                           "test_checkpoint_operation_receipts":  {
+                                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_checkpoint_operation_receipts.py",
+                                                                      "sha256":  "d82958295d687589545c3fabcb1f83b96376363ad0fdd0d221d000b023edf03d"
+                                                                  },
+                           "test_native_request_protocol":  {
+                                                                "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_native_request_protocol.py",
+                                                                "sha256":  "ce72134b211c3338378de2d97585391f9f097a15517194739335483da6ddb6ea"
+                                                            },
+                           "test_native_terminal_error_recovery":  {
+                                                                       "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_native_terminal_error_recovery.py",
+                                                                       "sha256":  "261fb67d0a23bad044870936072263959f3d980be181a8f58e56afc6a5b1a88f"
+                                                                   },
+                           "test_poisoned_worker_replacement":  {
+                                                                    "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_poisoned_worker_replacement.py",
+                                                                    "sha256":  "045acb29539fb78dac00521e913b4044600167b7957f519228619d5e8f544d21"
+                                                                },
+                           "test_pool_coordinator":  {
+                                                         "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_pool_coordinator.py",
+                                                         "sha256":  "e9edd0b7d14eaace66ba06efb070469ef4c7b9b06f007eb4661082f12f788d4e"
+                                                     },
+                           "test_pool_spill_reload_trace":  {
+                                                                "path":  "/home/dflanag3/spatial-artifacts/q4-terminal-error-cpu-20261016-v1/replacement-root-green-v4/source/tests/implementation/test_pool_spill_reload_trace.py",
+                                                                "sha256":  "bb9d46b8128ef6342c56f92e78200d8f085cf803cfc02ceb5a1eab588dd05f59"
+                                                            }
+                       },
+    "report_sha256":  "ac27d3143dc0d7aac16da2f7976ac965d20820a2629ed9cbf79dcc2548a26066",
+    "invalidated_prior_qualification":  "replacement-green-v2/run-focused-v4 cannot qualify current source; staged files were overwritten. run-focused-v5 failed 60 tests with one failure.",
+    "numerical_oracle_executed":  false,
+    "numerical_max_error":  null,
+    "GPU_test_executed":  false,
+    "limitation":  "New API source profile and real Q4 allocation-failure/restart qualification required before integration."
+}

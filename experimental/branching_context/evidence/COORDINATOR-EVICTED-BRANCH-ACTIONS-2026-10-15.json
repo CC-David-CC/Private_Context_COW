@@ -1,0 +1,61 @@
+{
+  "schema": "missing-materialization-coordinator-branch-actions-v1",
+  "qualification": "CPU synthetic coordinator regression only; no GPU or native model execution",
+  "checkout": "C:/Users/dflanag3/Documents/fleet/context-cow-missing-materialization-luna",
+  "branch": "work/luna-missing-materialization",
+  "base_commit": "da063a057df31eea10bf530bbe44d8ade9bd6bbd",
+  "source_files": {
+    "experimental/branching_context/scripts/run_missing_materialization_probe.py": "3132a89d02fd21373aa7908a582a4434e3855141b7649cbdb644122e9c7b6e81",
+    "experimental/branching_context/tests/implementation/test_missing_materialization_probe.py": "99081a4a83442e2e868143d8ca58f27ae294e9ddf825cb703b9455ce0c459923"
+  },
+  "candidate_overlay": {
+    "path": "/home/dflanag3/spatial-artifacts/canonical-actions-20261015-v1/source-overlay-v2/context_time_travel/coordinator.py",
+    "sha256": "6891e7258067332f214a6b7a9b560334914ef6f0b6fb55e2911e39b39f8f8d77"
+  },
+  "runtime_source_coordinator": {
+    "path": "/home/dflanag3/spatial-artifacts/rebuild-combined-20261015-v1/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+    "sha256": "f6f81749c3ba7710b4dc147991c5bc869b37abac5e98f7e9b3470e350f0795af"
+  },
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "launcher": {
+    "path": "/home/dflanag3/spatial-artifacts/run-branch-actions-harness-cpu-20261015-v1.sh",
+    "sha256": "b883ccf67c0b17bdcb116df21289beb2c4ce13f192241ac0c35c64a2a41cc0e6",
+    "invocation": "ssh llm-60 bash /home/dflanag3/spatial-artifacts/run-branch-actions-harness-cpu-20261015-v1.sh"
+  },
+  "red": {
+    "path": "/home/dflanag3/spatial-artifacts/canonical-actions-harness-20261015-v1/red-v1",
+    "test": "test_missing_materialization_probe.MissingMaterializationProbeTests.test_real_fork_and_idempotent_rewinds_do_not_need_numeric_checkpoint_files",
+    "result": "EXPECTED_RED",
+    "cause": "Baseline coordinator rejects fork after numerical checkpoint eviction: Fork requires an acknowledged durable checkpoint",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "eb72c8346af5b1c92de5e0238b9e8d1cd4e779de3665038fa8d4f158dec0c3ca"
+  },
+  "green": {
+    "path": "/home/dflanag3/spatial-artifacts/canonical-actions-harness-20261015-v1/green-v1",
+    "suite": "test_missing_materialization_probe",
+    "result": "PASS",
+    "tests_passed": 24,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "729e70a2103adedcb0b7ca90363e545476b9001dd9bd6ea8c3e9cd242142ea92"
+  },
+  "assertions": [
+    "Coordinator fork operates when all numerical checkpoint manifests and payloads are absent",
+    "Fork source ref, canonical snapshot/history, and prior operation receipt stay unchanged",
+    "Two coordinator rewinds return to producer root and source; same-operation replay is idempotent",
+    "Native work counters remain unchanged and no numerical checkpoint files are recreated",
+    "The separate present-manifest/missing-payload strict rejection control remains intact"
+  ],
+  "unrun": [
+    "Real GPU/native coordinator execution of these new fork/rewind steps",
+    "Full missing-materialization tiny GPU campaign after this branch-action addition"
+  ]
+}

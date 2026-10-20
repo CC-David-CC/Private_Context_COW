@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 14735360,
+  "archive_sha256": "bb1f3939f4fbf39358ab7adcfa28ea56e5b1673a24758e3c14d71a918bf0d224",
+  "extracted_files": 0,
+  "manifest_sha256": "556fd9135ff706c71e544600251d46f65e50704de322c44762dca200c57e38fd",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-recovery-compact-v1/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 14458764,
+  "verified_regular_files": 217
+}

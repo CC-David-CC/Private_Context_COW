@@ -1,0 +1,661 @@
+{
+  "completion_scope": "36 complete actual CLI requests:9 paths,1 warmup+3 measurements each;4 independent full prefix/final vectors exactly equal. No every-token certification, image-answer quality claim, cold physical-disk claim or fullVC09/G/Q8 qualification.",
+  "execution_profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+  "filesystem_cache": "Warm/uncontrolled filesystem cache. No system-wide cache dropping. Native/file and pool reads are logical transferred bytes, not physical NVMe traffic.",
+  "frozen_harness": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-harness-v2",
+  "full_vector_comparisons": 4,
+  "gpu_memory": "Observed nvidia-smi samples82904 to83678MiB; peak not continuously instrumented. Not a VRAM peak qualification.",
+  "host_process_high_water_kib": {
+    "native": 80860060,
+    "server": 2789096
+  },
+  "independent_audit": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-final-route-latency-8k-terminal-audit-v1.json",
+  "instrumentation_note": "Observer overhead0.3272% is just client observer versus plain CLI with identical server instrumentation. It is not total integrity/COW/publication overhead. Native/capture/request timings overlap; never sum nested durations. Last-token-to-durable includes final checks/publication; no unmeasured causal attribution.",
+  "later_local_vector_retirement": {
+    "report": "VISION-LATENCY-LOG-RETIREMENT-2026-10-18.json",
+    "scope": "Full numerical .f32 logs are now archive-only after exact remote archive+manifest re-verification and local ownership/inode/checksum validation. Original executed result unchanged. Canonical/originals/embeddings/manifests/controllers/non-numerical logs remain."
+  },
+  "limits": [
+    "One warmup+3 runs per path. Warm uncontrolled filesystem cache; transferred bytes are not physical NVMe bytes. Native/reference generated operator is normal-verifier-decode. Numerical checks force observed tokens and sample prefix/final, not every token or selection. Final OK constrained; thought quality not scored. Q4/profile-bound, not Q8/fullVC09/G certification. Test-only tier setup included in complete CLI timings."
+  ],
+  "local_retirement": {
+    "archive": {
+      "archive_bytes": 81159652,
+      "archive_sha256": "9f68c7f65259f9bacbac0b2382b55981101b7880e4759222e32104220f7f4211",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-final-route-latency-8k-v1/evidence.tar.gz",
+      "individually_verified_data_files": 606,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 607,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "logical_bytes": 1363026536,
+    "physical_free_delta": 1363046400,
+    "status": "SUCCESSFUL_RUN_OPTIONAL_STATE_RETIRED_AFTER_VERIFIED_FULL_VECTOR_BACKUP"
+  },
+  "max_abs_error": 0,
+  "measurements": [
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 1,
+      "loaded_file_bytes": 0,
+      "operation": "latency-cold-encode-prefill-0",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 1,
+      "loaded_file_bytes": 0,
+      "operation": "latency-cold-encode-prefill-1",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 1,
+      "loaded_file_bytes": 0,
+      "operation": "latency-cold-encode-prefill-2",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 1,
+      "loaded_file_bytes": 0,
+      "operation": "latency-cold-encode-prefill-3",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-embedding-prefill-0",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-embedding-prefill-1",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-embedding-prefill-2",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8561,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-embedding-prefill-3",
+      "outputs": 0,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 8561,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-0",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-1",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-2",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-3",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-plain-cli-0",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-plain-cli-1",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-plain-cli-2",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-resident-plain-cli-3",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-ram-0",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-ram-1",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-ram-2",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-ram-3",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 342715340,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-disk-0",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 342715340,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-disk-1",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 342715340,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-disk-2",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 342715340,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 341722060,
+      "operation": "latency-disk-3",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 8259,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-prefill-0",
+      "outputs": 0,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 8259,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8259,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-prefill-1",
+      "outputs": 0,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 8259,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8259,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-prefill-2",
+      "outputs": 0,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 8259,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 8259,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-prefill-3",
+      "outputs": 0,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 8259,
+      "suffix_cells": 0
+    },
+    {
+      "actual_forward_tokens": 166,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-resident-0",
+      "outputs": 141,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 166,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-resident-1",
+      "outputs": 141,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 166,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-resident-2",
+      "outputs": 141,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 166,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-text-resident-3",
+      "outputs": 141,
+      "prefix_cells": 8259,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-image-after-text-0",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-image-after-text-1",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-image-after-text-2",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    },
+    {
+      "actual_forward_tokens": 140,
+      "disk_preload_bytes": 0,
+      "encoder_calls": 0,
+      "loaded_file_bytes": 0,
+      "operation": "latency-image-after-text-3",
+      "outputs": 115,
+      "prefix_cells": 8561,
+      "prefix_forward_tokens": 0,
+      "suffix_cells": 25
+    }
+  ],
+  "native_medians": {
+    "disk": {
+      "captures": 2,
+      "copied_bytes": 75497472,
+      "decode_compute_ns": 891596984,
+      "decode_finish_ns": 7373514,
+      "decode_prepare_ns": 74753476,
+      "decode_timed_tokens": 115,
+      "forward_tokens": 140,
+      "integrity_device_hashed_bytes": 23983030272,
+      "loaded_file_bytes": 341722060,
+      "prefill_tokens": 25,
+      "restores": 0
+    },
+    "ram": {
+      "captures": 2,
+      "copied_bytes": 75497472,
+      "decode_compute_ns": 892639707,
+      "decode_finish_ns": 7419437,
+      "decode_prepare_ns": 74929576,
+      "decode_timed_tokens": 115,
+      "forward_tokens": 140,
+      "integrity_device_hashed_bytes": 23983030272,
+      "loaded_file_bytes": 341722060,
+      "prefill_tokens": 25,
+      "restores": 0
+    },
+    "resident": {
+      "captures": 1,
+      "copied_bytes": 75497472,
+      "decode_compute_ns": 892981424,
+      "decode_finish_ns": 7388018,
+      "decode_prepare_ns": 75090853,
+      "decode_timed_tokens": 115,
+      "forward_tokens": 140,
+      "integrity_device_hashed_bytes": 23983030272,
+      "loaded_file_bytes": 0,
+      "prefill_tokens": 25,
+      "restores": 1
+    }
+  },
+  "observer_overhead_percent": 0.3272267548519947,
+  "pools": {
+    "disk_gib": 2,
+    "native_policy": {
+      "byte_limit": 17179869184,
+      "entry_limit": 256
+    },
+    "ram_gib": 96
+  },
+  "prefix": {
+    "image_outputs": 115,
+    "image_prefix_cells": 8561,
+    "image_rows": 300,
+    "image_text_control_cells": 8261,
+    "question_tokens": 25,
+    "requested_source_tokens": 8192,
+    "text_only_prefix_cells": 8259,
+    "text_outputs": 141
+  },
+  "private_archive": {
+    "archive_bytes": 81159652,
+    "archive_sha256": "9f68c7f65259f9bacbac0b2382b55981101b7880e4759222e32104220f7f4211",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-final-route-latency-8k-v1/evidence.tar.gz",
+    "individually_verified_data_files": 606,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 607,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "private_archive_status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED",
+  "raw_result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-final-route-latency-8k-gpu-v1/result.json",
+  "requested_prefix_text_tokens": 8192,
+  "resource_note": "Pinned98K-capacity/40GiB expert-residency/8GiB vision-headroom profile, all32 CPUs available. Disk pool bounded2GiB because host free space is limited; no2-CPU or small-VRAM execution cap.",
+  "result_sha256": "efe9ee0f55f99e2c848b91e08e43657eccc2101df6df4eb8f43fd531620cb6e3",
+  "retained_auditor_failure": "Initial independent auditor attempted a median over null decode TPS for zero-output context preparation; corrected audit excludes generation metrics for zero-output groups. GPU runner passed unchanged; audit v1 FAIL retained, v2 PASS. No inference rerun or tolerance change.",
+  "scope": "CLI HTTP consumed/durable arrivals; no per-token snapshot/export or numerical audit. Test-only eligibility/eviction setup is separately timed and remains included in whole CLI latency.",
+  "source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+  "status": "BOUNDED_CURRENT_Q4_COMPLETE_8K_LATENCY_AND_REFERENCE_PASS",
+  "summaries": {
+    "cold-encode-prefill": {
+      "actual_output_counts": [
+        0,
+        0,
+        0
+      ],
+      "individual_seconds": [
+        8.087048755027354,
+        8.09812626708299,
+        8.071424934081733
+      ],
+      "median_seconds": 8.087048755027354,
+      "median_whole_cli_tps": null
+    },
+    "disk": {
+      "actual_output_counts": [
+        115,
+        115,
+        115
+      ],
+      "individual_seconds": [
+        7.96803999482654,
+        7.9659989778883755,
+        7.912553617963567
+      ],
+      "median_last_token_to_durable_ms": 4112.793366,
+      "median_seconds": 7.9659989778883755,
+      "median_stream_tps": 47.651888508399935,
+      "median_tpot_ms": 20.98552714912281,
+      "median_ttft_ms": 1355.719301,
+      "median_whole_cli_tps": 14.436356358971585
+    },
+    "embedding-prefill": {
+      "actual_output_counts": [
+        0,
+        0,
+        0
+      ],
+      "individual_seconds": [
+        7.01342648989521,
+        7.005508749978617,
+        7.024817064870149
+      ],
+      "median_seconds": 7.01342648989521,
+      "median_whole_cli_tps": null
+    },
+    "image-after-text": {
+      "actual_output_counts": [
+        115,
+        115,
+        115
+      ],
+      "individual_seconds": [
+        6.960593221941963,
+        6.975172196980566,
+        7.026778012048453
+      ],
+      "median_last_token_to_durable_ms": 4122.857437,
+      "median_seconds": 6.975172196980566,
+      "median_stream_tps": 48.26712242899843,
+      "median_tpot_ms": 20.7180364122807,
+      "median_ttft_ms": 391.041116,
+      "median_whole_cli_tps": 16.487048169188075
+    },
+    "ram": {
+      "actual_output_counts": [
+        115,
+        115,
+        115
+      ],
+      "individual_seconds": [
+        7.317064475035295,
+        7.382690503029153,
+        7.35604916815646
+      ],
+      "median_last_token_to_durable_ms": 4094.573824,
+      "median_seconds": 7.35604916815646,
+      "median_stream_tps": 47.96253572623579,
+      "median_tpot_ms": 20.84960657017544,
+      "median_ttft_ms": 789.491256,
+      "median_whole_cli_tps": 15.633391970491788
+    },
+    "resident": {
+      "actual_output_counts": [
+        115,
+        115,
+        115
+      ],
+      "individual_seconds": [
+        6.958062842022628,
+        6.953203212004155,
+        6.936293807113543
+      ],
+      "median_last_token_to_durable_ms": 4079.001386,
+      "median_seconds": 6.953203212004155,
+      "median_stream_tps": 47.81242797977799,
+      "median_tpot_ms": 20.91506418421053,
+      "median_ttft_ms": 382.279653,
+      "median_whole_cli_tps": 16.539139802711592
+    },
+    "resident-plain-cli": {
+      "actual_output_counts": [
+        115,
+        115,
+        115
+      ],
+      "individual_seconds": [
+        6.936333037912846,
+        6.93017222895287,
+        6.930524680996314
+      ],
+      "median_seconds": 6.930524680996314,
+      "median_whole_cli_tps": 16.59326029316844
+    },
+    "text-prefill": {
+      "actual_output_counts": [
+        0,
+        0,
+        0
+      ],
+      "individual_seconds": [
+        6.7110392798203975,
+        6.716053009964526,
+        6.74186774995178
+      ],
+      "median_seconds": 6.716053009964526,
+      "median_whole_cli_tps": null
+    },
+    "text-resident": {
+      "actual_output_counts": [
+        141,
+        141,
+        141
+      ],
+      "individual_seconds": [
+        8.040629572002217,
+        8.06844149203971,
+        8.04946112493053
+      ],
+      "median_last_token_to_durable_ms": 4691.337129,
+      "median_seconds": 8.04946112493053,
+      "median_stream_tps": 48.445009691282316,
+      "median_tpot_ms": 20.641960985714288,
+      "median_ttft_ms": 352.085325,
+      "median_whole_cli_tps": 17.51670053580349
+    }
+  },
+  "terminal_forward_tokens": 104988
+}

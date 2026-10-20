@@ -1,0 +1,206 @@
+{
+  "schema": "cow-q8-next-turn-boundary-probe-v1",
+  "status": "PASS_CPU_REPRODUCED_WITH_PREFIX_MISMATCH_DETAILS",
+  "scope": "Recorded Q8 prompt/output IDs and actual Q8 tokenizer/template; CPU only, no model inference, no GPU/native EOF test.",
+  "fixture_evidence_path": "evidence/COW-Q8-RELEVANT-CODE-2026-10-14.json",
+  "fixture_evidence_sha256": "9cb571dd30781f90f95990239e6ab987d0ec61c98b9936dcc38d130091dd6ed7",
+  "resume_raw_path": "evidence/TEXT-RESUME-v2-raw.json",
+  "resume_raw_sha256": "5d02fb2f06eff90dc616dd5ec64f305e50c253bbda100b82de614e9185d97737",
+  "resume_request_name": "A",
+  "recorded_output_tokens": 128,
+  "recorded_output_text_utf8_bytes": 538,
+  "recorded_output_token_ids_sha256": "32a97440ff88d7f852f8348328fb98a4aa3a4a45eef60f60cf579c271a0925ef",
+  "recorded_output_text_sha256": "864653ab2f1a71f14fa451fff9931a82b31a8f713d693766b1590c4e63109ef0",
+  "recorded_output_text_tail": "mory ranges (`offset`, `bytes`) that will be modified for each bound pool (K, V, scales, etc.).\n",
+  "recorded_output_text_ends_with_newline": true,
+  "recorded_output_text": "Based on the provided source code, here is the trace of how a branch preserves parent page bytes during its first divergent write, specifically focusing on the Copy-On-Write (COW) mechanism implemented in `BranchPages`.\n\n### 1. The Trigger: `BranchSession::begin`\nThe process begins when a branch session attempts to write new tokens.\n*   **Method:** `BranchSession::begin` (`src/core/branch_session.cpp`)\n*   **Action:** It calculates the memory ranges (`offset`, `bytes`) that will be modified for each bound pool (K, V, scales, etc.).\n",
+  "decoded_recorded_ids_equal_saved_text": true,
+  "reencoded_saved_text_token_count": 128,
+  "reencoded_saved_text_token_ids_equal_recorded_ids": true,
+  "canonical_token_count": 73965,
+  "recorded_history_matches_prompt_plus_output": true,
+  "eot_token_id": 248046,
+  "new_user_question": "Review the supplied native COW allocator and branch-session code for failure handling. Explain how two siblings isolate writes, identify the exact paths that make pages writable and release them, and propose focused aliasing, partial-copy, and cleanup tests. Cite concrete symbols from the source and avoid claiming unexecuted GPU behavior.",
+  "rendered_next_turn_sha256": "3ad93497e0d2f1b3f7fab6feb912a6324e8787d5cab3732934d67ee89756c6f0",
+  "rendered_next_turn_token_count": 74041,
+  "rendered_assistant_content_tail_before_eot": "emory ranges (`offset`, `bytes`) that will be modified for each bound pool (K, V, scales, etc.).",
+  "rendered_assistant_content": "<think>\n\n</think>\n\nBased on the provided source code, here is the trace of how a branch preserves parent page bytes during its first divergent write, specifically focusing on the Copy-On-Write (COW) mechanism implemented in `BranchPages`.\n\n### 1. The Trigger: `BranchSession::begin`\nThe process begins when a branch session attempts to write new tokens.\n*   **Method:** `BranchSession::begin` (`src/core/branch_session.cpp`)\n*   **Action:** It calculates the memory ranges (`offset`, `bytes`) that will be modified for each bound pool (K, V, scales, etc.).",
+  "rendered_assistant_content_ends_with_newline": false,
+  "rendered_assistant_content_chars": 556,
+  "rendered_assistant_content_matches_template_prefix_plus_trimmed_text": true,
+  "template_thinking_prefix": "<think>\n\n</think>\n\n",
+  "template_preserves_generated_text_after_thinking_prefix": true,
+  "template_strips_generated_trailing_newline": true,
+  "frontend_jinja_trim_blocks": true,
+  "frontend_jinja_lstrip_blocks": true,
+  "actual_template_relevant_lines": [
+    {
+      "line_1based": 48,
+      "text": "        {%- set sys_content = render_content(message.content, false, true)|trim %}"
+    },
+    {
+      "line_1based": 87,
+      "text": "    {{- '<|im_end|>\\n' }}"
+    },
+    {
+      "line_1based": 90,
+      "text": "        {{- '<|im_start|>system\\n' + (reasoning_instructions + '\\n\\n' if reasoning_instructions else '')  + merged_system + '<|im_end|>\\n' }}"
+    },
+    {
+      "line_1based": 92,
+      "text": "        {{- '<|im_start|>system\\n' + reasoning_instructions + '<|im_end|>\\n' }}"
+    },
+    {
+      "line_1based": 99,
+      "text": "        {%- set content = render_content(message.content, false)|trim %}"
+    },
+    {
+      "line_1based": 108,
+      "text": "    {%- set content = render_content(message.content, true)|trim %}"
+    },
+    {
+      "line_1based": 112,
+      "text": "        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}"
+    },
+    {
+      "line_1based": 118,
+      "text": "        {%- set reasoning_content = reasoning_content|trim %}"
+    },
+    {
+      "line_1based": 133,
+      "text": "                    {%- if content|trim %}"
+    },
+    {
+      "line_1based": 149,
+      "text": "                    {%- if tool_call.arguments|trim %}"
+    },
+    {
+      "line_1based": 158,
+      "text": "        {{- '<|im_end|>\\n' }}"
+    },
+    {
+      "line_1based": 167,
+      "text": "            {{- '<|im_end|>\\n' }}"
+    },
+    {
+      "line_1based": 169,
+      "text": "            {{- '<|im_end|>\\n' }}"
+    }
+  ],
+  "ordinary_service_ids_match": true,
+  "active_reply_comparison": {
+    "label": "active_bounded_reply_without_eot",
+    "expected_tokens": 73965,
+    "rendered_tokens": 74041,
+    "expected_is_exact_rendered_prefix": false,
+    "first_mismatch_index_zero_based": 73964,
+    "expected_tail_before_mismatch": "K, V, scales, etc.).\n",
+    "rendered_tail_before_mismatch": "K, V, scales, etc.).<|im_end|>\n<|im_start|>user\nReview the supplied",
+    "expected_ids_near_mismatch": [
+      42,
+      11,
+      629,
+      11,
+      27477,
+      11,
+      4831,
+      34163,
+      198
+    ],
+    "rendered_ids_near_mismatch": [
+      42,
+      11,
+      629,
+      11,
+      27477,
+      11,
+      4831,
+      34163,
+      248046,
+      198,
+      248045,
+      846,
+      198,
+      18842,
+      279,
+      16713
+    ]
+  },
+  "synthetic_forced_eot_comparison": {
+    "label": "synthetic_forced_eot_cpu_case_not_native_eof_test",
+    "expected_tokens": 73966,
+    "rendered_tokens": 74041,
+    "expected_is_exact_rendered_prefix": false,
+    "first_mismatch_index_zero_based": 73964,
+    "expected_tail_before_mismatch": "K, V, scales, etc.).\n<|im_end|>",
+    "rendered_tail_before_mismatch": "K, V, scales, etc.).<|im_end|>\n<|im_start|>user\nReview the supplied",
+    "expected_ids_near_mismatch": [
+      42,
+      11,
+      629,
+      11,
+      27477,
+      11,
+      4831,
+      34163,
+      198,
+      248046
+    ],
+    "rendered_ids_near_mismatch": [
+      42,
+      11,
+      629,
+      11,
+      27477,
+      11,
+      4831,
+      34163,
+      248046,
+      198,
+      248045,
+      846,
+      198,
+      18842,
+      279,
+      16713
+    ]
+  },
+  "assistant_only_template_tail": " modified for each bound pool (K, V, scales, etc.).<|im_end|>\n",
+  "assistant_only_template_tail_ids": [
+    10490,
+    364,
+    1754,
+    6608,
+    7087,
+    318,
+    42,
+    11,
+    629,
+    11,
+    27477,
+    11,
+    4831,
+    34163,
+    248046,
+    198
+  ],
+  "rendered_assistant_text_contains_think_open": false,
+  "rendered_assistant_text_contains_think_close": false,
+  "template_kwargs": {
+    "enable_thinking": false
+  },
+  "template_source_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+  "tokenizer_source_sha256": "40595124e02c198e464c12cbe5fe6d4fb079daa3238263fc71ea8d2cf279ca12",
+  "gguf_reader_source_sha256": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e",
+  "frontend_source_sha256": "e5a84546300b948ed8ca79d25bb03b1af89e2ee1017e5f7ac67e2acbb1e84b5d",
+  "service_source_sha256": "c8186d7d185773beeff013e0e77f5d6d88a8017b60696de64620ece4c87b6143",
+  "cow_prompt_encoder_source_sha256": "708616561c0ff31d06369a3c82175be7088ce4a1f32d00e786d70ae940f20b0a",
+  "tokenizer_vocab_count": 248320,
+  "tokenizer_merge_count": 247587,
+  "tokenizer_pre": "qwen35",
+  "gguf_model_shard_sha256": "2dabcbb53ca537a7947bc7d20414fd464eeaf4d66d43021b5b2556cc87544ad2",
+  "model_weights_sha256_profile_identity": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+  "regex_version": "2026.9.29",
+  "python_version": "3.12.3",
+  "python_executable": "/usr/bin/python3"
+}

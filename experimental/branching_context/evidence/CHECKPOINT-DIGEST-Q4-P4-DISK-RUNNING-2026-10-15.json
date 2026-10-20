@@ -1,0 +1,38 @@
+{
+  "status": "RUNNING_NOT_PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "tmux": "cow-digest-q4-p4-disk-v1",
+  "started_utc": "2026-10-15T10:37:53Z",
+  "observed_live": {
+    "launcher_pid": 2135573,
+    "python_pid": 2135621,
+    "native_pid": 2135742,
+    "phase": "coordinator_startup"
+  },
+  "launcher_sha256": "072ef16a625b275cdb146daa2ac1d885a022263766b6a12eabcb9dc686490d9e",
+  "p4_helper_sha256": "0d8fa63dcbde960db10e8a998bcc6e4d5d18d7ed9049e4780958e1b192b5b423",
+  "source_execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+  "output": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/p4-disk-v1/output",
+  "receipts": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/p4-disk-command-v1",
+  "measurement": {
+    "arm": "disk",
+    "arm_order": "disk,resident",
+    "order_seed": "p4-q4-arm-order-draw-2026-10-15-01",
+    "warmups": 3,
+    "measured_requests": 9,
+    "output_limit_each": 128,
+    "prefix_each": 65536,
+    "validation_enabled": true,
+    "additional_lifecycle_observer": false,
+    "filesystem_cache": "warm, not cold device",
+    "source_staging": "tmpfs; copied payloads/manifests/checkpoint directory/staging Store/output parent fsynced before timing"
+  },
+  "throughput_loss_target_percent": 8,
+  "throughput_target_is_rejection_gate": false,
+  "numerical_max_error": null,
+  "failures": null,
+  "scope": "Real disk/RAM manager with Q4, all production checks enabled; no terminal timing result yet"
+}

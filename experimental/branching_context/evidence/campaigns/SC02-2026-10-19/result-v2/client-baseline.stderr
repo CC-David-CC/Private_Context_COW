@@ -1,0 +1,54 @@
+test_ascii_merge (test_casefold.Casefold.test_ascii_merge) ... ERROR
+test_default_preserves_names (test_casefold.Casefold.test_default_preserves_names) ... ok
+test_invalid_still_rejected (test_casefold.Casefold.test_invalid_still_rejected) ... ERROR
+test_iterator_and_comments (test_casefold.Casefold.test_iterator_and_comments) ... ERROR
+test_unicode_expansion (test_casefold.Casefold.test_unicode_expansion) ... ERROR
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ok
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... ok
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... ok
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... ok
+test_trim (test_ledger.LedgerTests.test_trim) ... ok
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... ok
+
+======================================================================
+ERROR: test_ascii_merge (test_casefold.Casefold.test_ascii_merge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc02-q8-retained-v1/baseline-world/workspace/tests/test_casefold.py", line 7, in test_ascii_merge
+    self.assertEqual(summarize([" Oak :2","oak:3"],casefold=True),{"oak":5})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'casefold'
+
+======================================================================
+ERROR: test_invalid_still_rejected (test_casefold.Casefold.test_invalid_still_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc02-q8-retained-v1/baseline-world/workspace/tests/test_casefold.py", line 13, in test_invalid_still_rejected
+    with self.assertRaises(ValueError):summarize(["oak:-1"],casefold=True)
+                                       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'casefold'
+
+======================================================================
+ERROR: test_iterator_and_comments (test_casefold.Casefold.test_iterator_and_comments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc02-q8-retained-v1/baseline-world/workspace/tests/test_casefold.py", line 11, in test_iterator_and_comments
+    self.assertEqual(summarize(iter(["# comment",""," Σ :1","ς:3"]),casefold=True),{"σ":4})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'casefold'
+
+======================================================================
+ERROR: test_unicode_expansion (test_casefold.Casefold.test_unicode_expansion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc02-q8-retained-v1/baseline-world/workspace/tests/test_casefold.py", line 9, in test_unicode_expansion
+    self.assertEqual(summarize(["Straße:2","STRASSE:4"],casefold=True),{"strasse":6})
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'casefold'
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.001s
+
+FAILED (errors=4)

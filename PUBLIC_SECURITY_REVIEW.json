@@ -1,0 +1,4307 @@
+{
+  "scanner": "gitleaks8.30.1",
+  "raw_scanner_exit": 1,
+  "raw_findings": 614,
+  "unresolved": 0,
+  "reviewed_findings": [
+    {
+      "file": "docs/context-cow/EXTERNAL_WRITE_INTEGRITY.md",
+      "line": 120,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/durable-resume-20261014/frontier-diagnosis.json",
+      "line": 168,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/external-model-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/external-model-profile.json",
+      "line": 9559,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/v011-guarded-control-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/v011-guarded-control-profile.json",
+      "line": 9554,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-profile-host-v1.json",
+      "line": 104,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-profile-host-v1.json",
+      "line": 318,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-request-profile-v3.json",
+      "line": 104,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-request-profile-v3.json",
+      "line": 314,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-96k-profile-v4.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-96k-profile-v4.json",
+      "line": 305,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-request-profile-v3.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-request-profile-v3.json",
+      "line": 301,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-profile-host-v1.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-profile-host-v1.json",
+      "line": 305,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-real-64k-summary.json",
+      "line": 121,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-real-64k-summary.json",
+      "line": 141,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-real-64k-summary.json",
+      "line": 275,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-real-64k-summary.json",
+      "line": 294,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-tiny-v4-summary.json",
+      "line": 117,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-tiny-v4-summary.json",
+      "line": 137,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-tiny-v4-summary.json",
+      "line": 279,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-tiny-v4-summary.json",
+      "line": 298,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-real-8k-summary.json",
+      "line": 121,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-real-8k-summary.json",
+      "line": 141,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-real-8k-summary.json",
+      "line": 275,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-real-8k-summary.json",
+      "line": 294,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-request-profile.json",
+      "line": 104,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-request-profile.json",
+      "line": 314,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-medium-v4-summary.json",
+      "line": 117,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-medium-v4-summary.json",
+      "line": 137,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-medium-v4-summary.json",
+      "line": 295,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-medium-v4-summary.json",
+      "line": 314,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-64k-summary.json",
+      "line": 121,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-64k-summary.json",
+      "line": 141,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-64k-summary.json",
+      "line": 274,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-64k-summary.json",
+      "line": 293,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-8k-v4-summary.json",
+      "line": 117,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-8k-v4-summary.json",
+      "line": 137,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-8k-v4-summary.json",
+      "line": 271,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q8-8k-v4-summary.json",
+      "line": 290,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/cow-timed-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/cow-timed-profile.json",
+      "line": 9554,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-64k-v4-summary.json",
+      "line": 117,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-64k-v4-summary.json",
+      "line": 137,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-64k-v4-summary.json",
+      "line": 271,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/native-resident-20261014/q4-64k-v4-summary.json",
+      "line": 290,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 138,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 151,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 218,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 272,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 674,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 781,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 839,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 840,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/32k-partial-profile.json",
+      "line": 980,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/public-clean-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/public-clean-profile.json",
+      "line": 9552,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/external-prepared-model-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/external-prepared-model-profile.json",
+      "line": 9559,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/cow-prepare-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/cow-prepare-profile.json",
+      "line": 9552,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 137,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 150,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 217,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 271,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 433,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 673,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 780,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 838,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 839,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/experimental-profile.json",
+      "line": 1004,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 138,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 151,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 218,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 272,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 674,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 781,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 839,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 840,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/fast-prefill-probe-20261013/natural-smoke2-profile.json",
+      "line": 980,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/v011-external-control-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/external-integrity-20261013/v011-external-control-profile.json",
+      "line": 9559,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/web-start-20261013/model-literals.json",
+      "line": 7,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/docs/locked-references.json",
+      "line": 4,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 51,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 52,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 185,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 229,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 399,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 570,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 632,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-FOCUS17-2026-10-16.json",
+      "line": 633,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-Q8-PROFILE-ADMISSION-RAW-2026-10-15.json",
+      "line": 30,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5263,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5272,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5315,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-Q8-PROFILE-ADMISSION-SUMMARY-2026-10-15.json",
+      "line": 40,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5583,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-INTEGRATED-Q4-INDEPENDENT-NUMERICS-2026-10-16.json",
+      "line": 1087,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-INTEGRATED-Q4-INDEPENDENT-NUMERICS-2026-10-16.json",
+      "line": 1096,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-INTEGRATED-Q4-INDEPENDENT-NUMERICS-2026-10-16.json",
+      "line": 1105,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-GRAMMAR-NUMERICS-2026-10-16.json",
+      "line": 171,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-GRAMMAR-NUMERICS-2026-10-16.json",
+      "line": 619,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-GRAMMAR-NUMERICS-2026-10-16.json",
+      "line": 641,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-GRAMMAR-NUMERICS-2026-10-16.json",
+      "line": 679,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-UI-Q8-RETRY-V2-RESULT.json",
+      "line": 73,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-UI-Q8-RETRY-V2-RESULT.json",
+      "line": 79,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-Q8-NEXT-TURN-BOUNDARY-2026-10-14.json",
+      "line": 12,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-Q8-NEXT-TURN-BOUNDARY-2026-10-14.json",
+      "line": 193,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-TINY-ROOT-FRONTIER-AUDIT-2026-10-15.json",
+      "line": 421,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-TINY-ROOT-FRONTIER-AUDIT-2026-10-15.json",
+      "line": 428,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-TINY-ROOT-FRONTIER-AUDIT-2026-10-15.json",
+      "line": 473,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CHECKPOINT-DIGEST-TINY-ROOT-FRONTIER-AUDIT-2026-10-15.json",
+      "line": 480,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5645,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5646,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5801,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5810,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 5853,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 53,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 54,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 187,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 231,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 401,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 572,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 634,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/BOUNDED-TREE-RETENTION-CPU101-2026-10-16.json",
+      "line": 635,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-GRAMMAR-RAW-AUDIT-PREFLIGHT-2026-10-16.json",
+      "line": 46,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 13,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 14,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 37,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 47,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COMBINED-Q8-64K-2048-AUDIT-2026-10-15.json",
+      "line": 101,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-Q8-STOPPED-TURN-SUFFIX-2026-10-14.json",
+      "line": 153,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/COW-REUSABLE-CONTEXT-Q8-PREP-2026-10-15.json",
+      "line": 52,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/EXTERNAL-BUILD-DIR-CONTROLS-2026-10-15.json",
+      "line": 26,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/ram-sequence-profile.json",
+      "line": 177,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "docs/context-cow/results/speed-8k-20261013/ram-sequence-profile.json",
+      "line": 9554,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 6121,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 6183,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ADAPTIVE-P-QUALIFICATION-2026-10-16.json",
+      "line": 6184,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 89,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 205,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 235,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 247,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 259,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 271,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-SPEED-QUALIFICATION-2026-10-16.json",
+      "line": 283,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IMAGE-LOST-ACK-2026-10-17.json",
+      "line": 76,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/L-SERIES-2026-10-19.md",
+      "line": 9,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "reviewed elapsed-time measurement in prose"
+    },
+    {
+      "file": "experimental/branching_context/evidence/CLI-SEED-STOP-Q4-FLOW-2026-10-16.json",
+      "line": 312,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-LINEAR-MATCHED-TIMING-2026-10-16.json",
+      "line": 16,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-LINEAR-MATCHED-TIMING-2026-10-16.json",
+      "line": 31,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-LINEAR-MATCHED-TIMING-2026-10-16.json",
+      "line": 46,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 94,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 95,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 232,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 277,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 432,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 460,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 597,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 855,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 920,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 921,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2304,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2305,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2442,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2489,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P4-Q4-EXECUTION-PREP-2026-10-15.json",
+      "line": 105,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P4-Q4-EXECUTION-PREP-2026-10-15.json",
+      "line": 116,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P4-Q4-EXECUTION-PREP-2026-10-15.json",
+      "line": 127,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 102,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 103,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 245,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 298,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 480,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 517,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 658,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 916,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 981,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+      "line": 982,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/JSON-SCHEMA-2026-10-17.json",
+      "line": 257,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P4-RETURN-HARNESS-FOLLOWUP-2026-10-15.json",
+      "line": 109,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P5-Q8-PREFLIGHT-2026-10-15.json",
+      "line": 97,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/P5-Q8-ROOT-RESTORE-INPUTS-2026-10-15.json",
+      "line": 12,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 94,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 95,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 232,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 277,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 462,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 599,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 857,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 922,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 923,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 120,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 314,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 349,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 385,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 578,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 630,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 742,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 754,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 1274,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 2595,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 2671,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 2783,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 2795,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 3315,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1323,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1325,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1327,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1397,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1399,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 1401,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 4888,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5047,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/POSTCOMMIT-RESTART-2026-10-16.json",
+      "line": 56,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLI-PUBLICATION-OVERLAP-CPU9-2026-10-16.json",
+      "line": 55,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLI-PUBLICATION-OVERLAP-CPU9-2026-10-16.json",
+      "line": 224,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 31,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 32,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 400,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 401,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 603,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 604,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 972,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 973,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 1175,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 1176,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 1544,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-THREE-CONTEXTS-NUMERICAL-2026-10-15.json",
+      "line": 1545,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 31,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 32,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 400,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 401,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 603,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 604,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 972,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 973,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1175,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1176,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1544,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q4-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1545,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-ONE-EXAMPLE-2026-10-19.md",
+      "line": 31,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "elapsed numerical measurement"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MISSING-MATERIALIZATION-POOL-EVICTION-2026-10-15.json",
+      "line": 11,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MISSING-MATERIALIZATION-POOL-EVICTION-2026-10-15.json",
+      "line": 12,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3261,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3263,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3265,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3327,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3329,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 3331,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2650,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2678,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 2815,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 3073,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 120,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 314,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 349,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 385,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 578,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 630,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 738,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 750,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 790,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 1299,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 1375,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 1483,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 1495,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 1535,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-FULL96-PILOT-2026-10-14.json",
+      "line": 2035,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 31,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 32,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 400,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 401,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 603,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 604,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 972,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 973,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1175,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1176,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1544,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-CLIENT-PRESSURE-NUMERICAL-2026-10-15.json",
+      "line": 1545,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/RESIDENT-QUESTIONS-Q4-2026-10-15.json",
+      "line": 155,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1446,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1447,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NAMESPACE-Q4-8K-MEASUREMENTS-2026-10-14.json",
+      "line": 4638,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 84,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 85,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 218,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 262,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 571,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 829,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 894,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-FINAL-2026-10-16.json",
+      "line": 895,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5293,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5355,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5356,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5366,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "Git commit identity"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5504,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5513,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SPARSE-CLI-Q4-2026-10-15.json",
+      "line": 221,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SOURCE-CONTEXT-Q4-64K-2026-10-14.json",
+      "line": 11263,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 86,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 87,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 220,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 264,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 436,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 573,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 831,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 895,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-BASELINE-CONFLICT-2026-10-16.json",
+      "line": 896,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 464,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 476,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 488,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 500,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 512,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1045,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1046,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1181,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1226,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1377,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1405,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1542,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1800,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 102,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 103,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 245,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 298,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 476,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 513,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 654,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 912,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-SUFFIX-FRONTIER-RESULT-2026-10-15.json",
+      "line": 23,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-SUFFIX-FRONTIER-RESULT-2026-10-15.json",
+      "line": 53,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-SUFFIX-FRONTIER-RESULT-2026-10-15.json",
+      "line": 523,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/Q8-SUFFIX-FRONTIER-RESULT-2026-10-15.json",
+      "line": 530,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 705,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 706,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 848,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 899,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 94,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 252,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 373,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 462,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 640,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 791,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2026-10-14.json",
+      "line": 881,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1074,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1106,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6455,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6601,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SOURCE-CONTEXT-Q8-64K-2026-10-14.json",
+      "line": 11718,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1865,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-NATIVE-SELECTION-QUALIFICATION-2026-10-16.json",
+      "line": 1866,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 94,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 252,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 373,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 462,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 640,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 792,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-RESUME-Q8-2K-2026-10-14.json",
+      "line": 882,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 3138,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 3139,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 3977,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 3978,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4115,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4162,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 977,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIROSTAT2-PRECONTROLLER-CPU-2026-10-16.json",
+      "line": 978,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 33,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 35,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 37,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2470,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2628,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2749,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2838,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2962,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 2997,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 3033,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-NEXT-USER-Q8-2026-10-14.json",
+      "line": 3229,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1245,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6847,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6909,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6910,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 6920,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "Git commit identity"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1503,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1568,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/PROPOSAL-FOUNDATION-AND-SELECTION-2026-10-16.json",
+      "line": 1569,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4323,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4351,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4488,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4746,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4811,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/MIN-P-QUALIFICATION-2026-10-16.json",
+      "line": 4812,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5711,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5773,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5774,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5810,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 5902,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6472,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6502,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6514,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6526,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6538,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-LONG-QUALIFICATION-2026-10-16.json",
+      "line": 6550,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 107,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 265,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 472,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 524,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 660,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 676,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 1196,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 84,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 85,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 218,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 262,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 434,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 571,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 829,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 893,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/NATIVE-COMBINED-CPU-2026-10-16.json",
+      "line": 894,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 8359,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 8435,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 8571,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 8587,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 9107,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-HTTP-Q8-2026-10-14.json",
+      "line": 16266,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1584,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1629,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 193,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 194,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 335,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 385,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 558,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 590,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 729,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 987,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1786,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1814,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 107,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 265,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 386,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 564,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 616,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 756,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 772,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 1292,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7058,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7067,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 1052,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SAMPLER-Q4-PROGRESS-2026-10-16.json",
+      "line": 1053,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7265,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7327,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7328,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7364,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/GRAMMAR-Q8-SPOT-QUALIFICATION-2026-10-16.json",
+      "line": 7462,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/authorization-prework.json",
+      "line": 80,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CANONICAL-API-2026-10-17.json",
+      "line": 11,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CANONICAL-API-2026-10-17.json",
+      "line": 18,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 396,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 397,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 522,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 641,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 851,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 874,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 922,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 983,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC03-2026-10-19/SCOPE.txt",
+      "line": 1,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "reviewed forward-token arithmetic in measurement prose"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC02-2026-10-19/result-v2/server-profile.json",
+      "line": 181,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC02-2026-10-19/result-v2/server-profile.json",
+      "line": 403,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2897,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2904,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2911,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2918,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2925,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-CLIENT-INPUTS-2026-10-17.json",
+      "line": 2932,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 1951,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 2209,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 2274,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/IDLE-EXPIRY-QUALIFICATION-2026-10-16.json",
+      "line": 2275,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 8454,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 8530,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 8670,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 8686,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 9206,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/SERVING-TEXT-HTTP-Q8-2026-10-14.json",
+      "line": 16357,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "canonical deterministic RNG stream state, not an authentication key"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 1674,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 1787,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 1853,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-METADATA-INTEGRATED-2026-10-17.json",
+      "line": 1854,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC06-2026-10-19/server-activation-summary.json",
+      "line": 35,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC07-2026-10-19/server-profile.json",
+      "line": 181,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC07-2026-10-19/server-profile.json",
+      "line": 403,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/campaigns/SC08-2026-10-19/initial-prefix-checkpoint-manifest.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 754,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 755,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 880,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 997,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 1207,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 1230,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 1276,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 1337,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-GRAMMAR-CORE-2026-10-17.json",
+      "line": 4607,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-GRAMMAR-CORE-2026-10-17.json",
+      "line": 7697,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/native-multiturn-oracle-2026-10-14/full-run.json",
+      "line": 11,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/native-multiturn-oracle-2026-10-14/full-run.json",
+      "line": 13,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/native-multiturn-oracle-2026-10-14/full-run.json",
+      "line": 15,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 101,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 102,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 244,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 296,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 471,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 508,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 648,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 906,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 971,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/XTC-INTEGRATED-CPU-2026-10-16.json",
+      "line": 972,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/native-multiturn-oracle-2026-10-14/tiny-eos-rejection.json",
+      "line": 11,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/native-multiturn-oracle-2026-10-14/tiny-eos-rejection.json",
+      "line": 13,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 52,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 65,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 132,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 186,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 348,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 588,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 695,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 753,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 754,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 800,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 804,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 808,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 812,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 816,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 820,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 824,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 828,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 832,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 836,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 840,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 844,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 848,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 852,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 856,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 860,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 864,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 868,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 872,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 876,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 880,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 884,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 888,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 892,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 896,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 900,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-frozen-calibration.json",
+      "line": 904,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ordinary-step-validation.json",
+      "line": 713,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ordinary-step-validation.json",
+      "line": 848,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ordinary-step-validation.json",
+      "line": 1109,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/ordinary-step-validation.json",
+      "line": 1237,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/source-manifest.json",
+      "line": 29,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/source-manifest.json",
+      "line": 41,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/source-manifest.json",
+      "line": 83,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/upstream-data/source-manifest.json",
+      "line": 36,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/upstream-data/source-manifest.json",
+      "line": 48,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/upstream-data/source-manifest.json",
+      "line": 90,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/upstream-data/source-manifest.json",
+      "line": 142,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/upstream-data/source-manifest.json",
+      "line": 474,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/normal-prefill-validation.json",
+      "line": 427,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/normal-prefill-validation.json",
+      "line": 688,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 2028,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 2141,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 2207,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/VISION-TEST-METADATA-2026-10-17.json",
+      "line": 2208,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/plans/luna/queue.json",
+      "line": 13,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/plans/luna/queue.json",
+      "line": 28,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/short-prefill-validation.json",
+      "line": 152,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/short-prefill-validation.json",
+      "line": 413,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/short-prefill-validation.json",
+      "line": 1443,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/short-prefill-validation.json",
+      "line": 1704,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/corrected-prefill-validation.json",
+      "line": 154,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/corrected-prefill-validation.json",
+      "line": 415,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 44,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "token fixture SHA256 in fixture manifest"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 145,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 158,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 225,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 279,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 441,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 681,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 788,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 846,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/llm60-supporting-validation.json",
+      "line": 847,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/dispatch-correction-validation.json",
+      "line": 1693,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/dispatch-correction-validation.json",
+      "line": 1828,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/dispatch-correction-validation.json",
+      "line": 2089,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/evidence/dispatch-correction-validation.json",
+      "line": 2217,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "experimental/branching_context/tests/implementation/test_vision_coordinator.py",
+      "line": 27,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "integer vocabulary token expression, not an authentication token"
+    },
+    {
+      "file": "serve/cow_renderer_evidence.json",
+      "line": 52,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "explicit artifact/source/token fingerprint"
+    },
+    {
+      "file": "src/core/native_dense.cpp",
+      "line": 176,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "native tensor name"
+    },
+    {
+      "file": "sycl/src/core/native_dense.cpp",
+      "line": 130,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "native tensor name"
+    },
+    {
+      "file": "tests/core/gguf_split_test.cpp",
+      "line": 98,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "native tensor name"
+    },
+    {
+      "file": "tests/core/native_dense_ple_key_test.cpp",
+      "line": 50,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "native tensor name"
+    },
+    {
+      "file": "tools/test_iq_pack.py",
+      "line": 128,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "native tensor name"
+    },
+    {
+      "file": "tools/test_strata_bench.py",
+      "line": 169,
+      "rule": "generic-api-key",
+      "disposition": "reviewed noncredential",
+      "reason": "synthetic local redactor unit-test key"
+    }
+  ],
+  "scope": "pattern scan plus contextual triage, not proof of absence of every possible secret"
+}

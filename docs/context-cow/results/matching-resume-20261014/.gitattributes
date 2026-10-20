@@ -1,0 +1,2 @@
+# Archive fragments must retain exact measured bytes on every platform.
+*.zip.part* binary

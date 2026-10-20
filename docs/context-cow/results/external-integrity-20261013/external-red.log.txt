@@ -1,0 +1,21 @@
+FAIL: caller-managed write performs no hash launch
+FAIL: caller-managed write reads no sealed bytes for hashing
+FAIL: external policy does not detect a changed sealed byte before write
+FAIL: promise-violation case also has no hash launch
+FAIL: caller-managed write performs no hash launch
+FAIL: caller-managed write reads no sealed bytes for hashing
+FAIL: external policy does not detect a changed sealed byte before write
+FAIL: promise-violation case also has no hash launch
+FAIL: caller-managed write performs no hash launch
+FAIL: caller-managed write reads no sealed bytes for hashing
+FAIL: external policy does not detect a changed sealed byte before write
+FAIL: promise-violation case also has no hash launch
+FAIL: caller-managed write performs no hash launch
+FAIL: caller-managed write reads no sealed bytes for hashing
+FAIL: external policy does not detect a changed sealed byte before write
+FAIL: promise-violation case also has no hash launch
+{"format":0,"external_promise_violation_detected_before_write":true}
+{"format":1,"external_promise_violation_detected_before_write":true}
+{"format":2,"external_promise_violation_detected_before_write":true}
+{"format":3,"external_promise_violation_detected_before_write":true}
+{"status":"FAIL","checks":214,"failures":16,"contract":"caller-managed-write-integrity","model_forward":false}

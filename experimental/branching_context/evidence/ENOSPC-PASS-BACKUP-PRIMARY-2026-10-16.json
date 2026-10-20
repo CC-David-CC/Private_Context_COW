@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 13977600,
+  "archive_sha256": "465e8f01158d95d7f16f0ec362dba7c3825fc79ed740662b44ebae761943010b",
+  "extracted_files": 0,
+  "manifest_sha256": "c50f37f923fb8f158f62e1e60fd8193ce80a7a48db3d8828c1f73180043fffcd",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-enospc-recovery-compact-v1/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 13786493,
+  "verified_regular_files": 139
+}

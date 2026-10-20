@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "PASS_WITH_LIMITED_SCOPE",
+  "purpose": "Reusable-context acknowledgement recovery follows the original operation's canonical move receipt, not the earlier root-fork receipt.",
+  "tested_overlay": {
+    "base_commit": "72b695817d83fa8b8eb3fa6efe4c6a928cb418ee",
+    "path": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/receipt-red",
+    "files": {
+      "serve/web/workspace.js": "a4f267d6a647e8d7164c07ca4c08262f6883a6db4e998117793d6865f6042fc5",
+      "serve/web/test_cow_native_ui.js": "466bdb4bdfcf3fa622e0e735cfb2c9e31f6fd50d0744c3928b5a8693dc8ba208",
+      "serve/test_cow_browser_fixture.py": "7c60d9d3a6322226700e996e4eed466600a5769b86c187b27c49e41886616405"
+    },
+    "local_remote_sha256_match": true,
+    "imported_python_dependencies_and_full_executed_ids": "REUSABLE-CONTEXT-RECEIPT-RECOVERY-SERVING-2026-10-15.json"
+  },
+  "receipt_rule": {
+    "durable_event": "Catalog event matches the pending operation_id and branch, has type=move, and result.tip equals result.root.",
+    "root_corroboration": "A same-branch type=fork event has a validated schema-1 root presentation for this namespace and exactly the same result tip/root.",
+    "not_sufficient": "The derived root-<sha256(operation_id)[:32]> fork event alone does not acknowledge saved context.",
+    "restart_behavior": "Historical catalog events remain authoritative after coordinator restart and later branch movement; process-local operation_status is not required."
+  },
+  "red": {
+    "runner_scope": "Headless Chromium UI regression against the old recovery predicate.",
+    "observed_failure": "FAIL Error: context save consumed the question or retained saved files",
+    "artifact": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/receipt-red/RED.html",
+    "scenario": "Mock catalog represented the actual hashed root-fork operation followed by an annotation-free durable move under the original operation."
+  },
+  "green": {
+    "host": "llm-60",
+    "python": "3.12.3",
+    "runner": {
+      "path": "/home/dflanag3/spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+      "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+    },
+    "serving": {
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/context-recovery-serving-final",
+      "result_file": "REUSABLE-CONTEXT-RECEIPT-RECOVERY-SERVING-2026-10-15.json",
+      "result_sha256": "ba41a4f4de168c860671803b20e13a60753898635e93c2f88db5fa6d399eae6c",
+      "tests_run": 126,
+      "passed": 126,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "expected_failures": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "new_test_id": "test_cow_browser_fixture.CowBrowserFixtureTests.test_root_fork_is_not_durable_until_original_move_and_survives_restart_and_advance"
+    },
+    "g0": {
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/context-recovery-g0-final",
+      "stdout_file": "REUSABLE-CONTEXT-RECEIPT-RECOVERY-G0-2026-10-15.stdout.log",
+      "stdout_sha256": "576ac9f54022f7ea5e99cd63b79cad59fb8cbdcff90d24b3bc6d68b1088f5c153",
+      "tests_run": 51,
+      "passed": 51,
+      "failures": 0,
+      "errors": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0
+    },
+    "focused_http_boundary_pre_final_cleanup": {
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/context-publication-http-green",
+      "test_id": "test_cow_browser_fixture.CowBrowserFixtureTests.test_root_fork_is_not_durable_until_original_move_and_survives_restart_and_advance",
+      "tests_run": 1,
+      "passed": 1,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "note": "The same test is included in the final 126-test serving run after a cleanup-registration-only test adjustment."
+    },
+    "headless_chromium": {
+      "run_directory": "/home/dflanag3/branching-g3/reusable-context-luna-20261015/runs/context-recovery-ui-final",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "result": "PASS default prepare/answer unchanged; user-role reusable context, retry/reload identity, suffix ask, fail-closed auth"
+    }
+  },
+  "raw_artifacts": {
+    "serving_result": "REUSABLE-CONTEXT-RECEIPT-RECOVERY-SERVING-2026-10-15.json",
+    "g0_stdout": "REUSABLE-CONTEXT-RECEIPT-RECOVERY-G0-2026-10-15.stdout.log"
+  },
+  "limitations": [
+    "Recovery scenarios use a synthetic CPU model and real loopback HTTP/Store coordinator, not native GPU inference.",
+    "No real-model or GPU request was launched.",
+    "No cross-browser or mobile-browser validation was run."
+  ]
+}

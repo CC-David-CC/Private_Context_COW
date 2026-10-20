@@ -1,0 +1,10 @@
+{
+  "profile_path": "/home/dflanag3/spatial-artifacts/project-base-three-builds-20261019-v1/dev24-q8-reference-refresh-v1/profile.json",
+  "source_root": "/home/dflanag3/src/context-cow-client-setup-20261020",
+  "scope": "Read-only startup source verification; no model load or GPU work.",
+  "result": {
+    "status": "FAIL",
+    "error": "Runtime source fingerprint mismatch: serve/cow_http.py",
+    "type": "IntegrityError"
+  }
+}

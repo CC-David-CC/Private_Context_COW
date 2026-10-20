@@ -1,0 +1,36 @@
+{
+    "status":  "PASS",
+    "scope":  "Current assembled-source CPU/synthetic HTTP browser flow and display-only math; not real-GPU browser qualification",
+    "host":  "llm-60",
+    "source_baseline":  "605a41e978a351bdfb293006a71ff7bd2b444a4e",
+    "source_overlay":  "Uncommitted frontend and smoke-driver changes identified by verified runtime hashes below",
+    "runtime_source_sha256":  {
+                                  "serve/cow_adapter.py":  "319a8fcb2709583c15a1275d6641452a7a63f64c0841ad6f92fd47e6a13a5eb9",
+                                  "serve/cow_http.py":  "6dbae477d66d3621d535fecbde470d28a132a178123fc3828df60cf28cc055fa",
+                                  "serve/cow_workspace.py":  "c60a3a0bc49cf825b71dec5535974051ca2d282e203ba186a0788ac572f53a4f",
+                                  "serve/web/app.js":  "d4ec08ef9005fba146c1aea769747ca0ef289b9921132f6a2f98748048a9d5ed",
+                                  "serve/web/workspace.js":  "f2b13bd8a708d1b51ca24e96b53b837aab45792785ef9fc311ad8f50d69a50df",
+                                  "serve/web/workspace-graph.js":  "2f5931c21f1629835a847a7bd56c6f7ca774a83ff3df701d022cc37e090c370b",
+                                  "serve/web/cow_native_smoke.py":  "d4ddf9a36652364c05f900ae5dd42bbf6600d57ee73bd4429699a698bfb3b058",
+                                  "serve/web/cow_math_engines_browser_test.py":  "36f6ff3048a0f3ea103b8b6575cbb0f18f7ef52472c4ebda02831edd4101561b"
+                              },
+    "remote_source_matches_local":  true,
+    "browser_report_sha256":  "81cd869146788218479add9fbd3423a65f0e802318b5cf9a86db4a9a37b07945",
+    "browser_checks":  8,
+    "math_report_sha256":  "824226a8d06bf322d939c0164a714dfc66f99728ffcd02892458f23cef66876f",
+    "math_checks":  4,
+    "raw_directory":  "/home/dflanag3/spatial-artifacts/graph-integrated-root-20261014",
+    "red_reports":  [
+                        "browser-date-red/artifacts/report.json",
+                        "browser-status-red/artifacts/report.json",
+                        "browser-mcp-red/artifacts/report.json"
+                    ],
+    "final_browser":  "browser-final-v3/artifacts/report.json",
+    "final_math":  "math-final/artifacts/report.json",
+    "all_final_commands_exit":  0,
+    "limits":  [
+                   "No model inference during these browser runs",
+                   "Original gate qualification remains separate",
+                   "Large-history scalability and additional chat mutations remain incomplete"
+               ]
+}

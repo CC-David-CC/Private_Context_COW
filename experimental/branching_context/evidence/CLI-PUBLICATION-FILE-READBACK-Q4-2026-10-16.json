@@ -1,0 +1,204 @@
+{
+  "actual_read_bytes": 2677282274,
+  "checked_file_count": 24,
+  "chunk_bytes": 8388608,
+  "files": [
+    {
+      "bytes": 36014,
+      "inode": 7366531,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/objects/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json",
+      "sha256": "698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 891,
+      "inode": 7366540,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json",
+      "sha256": "b195580a777f9ce54446640f153af7a524117af3f2acb64b7de5ca650a19edf0",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 330284116,
+      "inode": 7366539,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f.state",
+      "sha256": "bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 1641728,
+      "inode": 7366558,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/objects/201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53.json",
+      "sha256": "201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7366563,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53.json",
+      "sha256": "4dc6629910d18066a5dfc01f7b6ce9b3d40925d7d955d56deaff43a9e3e1f302",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7366562,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/a43e30433dea4512bc75d15a4c5d765fbb02b704e7161196834b179a12438d3a.state",
+      "sha256": "a43e30433dea4512bc75d15a4c5d765fbb02b704e7161196834b179a12438d3a",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 1641612,
+      "inode": 7366570,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/objects/2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d.json",
+      "sha256": "2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7366575,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d.json",
+      "sha256": "e61d72bb34cb8d8040faadb6a1017bb3a423cf1e63accd02ff93117045fab14b",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7366574,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/35a7a6fc38b0c8b4357cc9dbcf73b1d9f2de5739dd6dc235e0406b2ec565495c.state",
+      "sha256": "35a7a6fc38b0c8b4357cc9dbcf73b1d9f2de5739dd6dc235e0406b2ec565495c",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 1641677,
+      "inode": 7366556,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/objects/683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5.json",
+      "sha256": "683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7366586,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5.json",
+      "sha256": "569f77bda16e4dd1321f9893282f3434f4c1248cd40ca90f88a833ccb0e85677",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7366585,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-publication-timing-20261016-v1/instrumented-campaign-v1/store/checkpoints/834898361b10706707d601d95ff17b165898a1c9df1581f2cc55aa8fc47f7c0c.state",
+      "sha256": "834898361b10706707d601d95ff17b165898a1c9df1581f2cc55aa8fc47f7c0c",
+      "store": "instrumented"
+    },
+    {
+      "bytes": 36014,
+      "inode": 7355286,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/objects/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json",
+      "sha256": "698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607",
+      "store": "baseline"
+    },
+    {
+      "bytes": 891,
+      "inode": 7356391,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607.json",
+      "sha256": "b195580a777f9ce54446640f153af7a524117af3f2acb64b7de5ca650a19edf0",
+      "store": "baseline"
+    },
+    {
+      "bytes": 330284116,
+      "inode": 7356390,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f.state",
+      "sha256": "bfffa68b4313dc8dcc3aa0f9568cee77e55e2e0773bdf3c51f76edaebf244c7f",
+      "store": "baseline"
+    },
+    {
+      "bytes": 1641728,
+      "inode": 7356409,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/objects/201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53.json",
+      "sha256": "201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53",
+      "store": "baseline"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7356414,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/201328c52ee8ae76182451962bb9602531be05d92bf581be13b4ac6fc7c1ef53.json",
+      "sha256": "4dc6629910d18066a5dfc01f7b6ce9b3d40925d7d955d56deaff43a9e3e1f302",
+      "store": "baseline"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7356413,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/a43e30433dea4512bc75d15a4c5d765fbb02b704e7161196834b179a12438d3a.state",
+      "sha256": "a43e30433dea4512bc75d15a4c5d765fbb02b704e7161196834b179a12438d3a",
+      "store": "baseline"
+    },
+    {
+      "bytes": 1641612,
+      "inode": 7356430,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/objects/2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d.json",
+      "sha256": "2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d",
+      "store": "baseline"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7356435,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/2fca2d84475deb1be0a11f6c030b60fb047bcd1ebec7d15175c4a97d74db5e8d.json",
+      "sha256": "e61d72bb34cb8d8040faadb6a1017bb3a423cf1e63accd02ff93117045fab14b",
+      "store": "baseline"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7356434,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/35a7a6fc38b0c8b4357cc9dbcf73b1d9f2de5739dd6dc235e0406b2ec565495c.state",
+      "sha256": "35a7a6fc38b0c8b4357cc9dbcf73b1d9f2de5739dd6dc235e0406b2ec565495c",
+      "store": "baseline"
+    },
+    {
+      "bytes": 1641677,
+      "inode": 7356407,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/objects/683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5.json",
+      "sha256": "683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5",
+      "store": "baseline"
+    },
+    {
+      "bytes": 2365,
+      "inode": 7356446,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/683fb4cf5c4750182c274964d0a9ccab1fb60bd643217e7a1f9bb4e8eee617b5.json",
+      "sha256": "569f77bda16e4dd1321f9893282f3434f4c1248cd40ca90f88a833ccb0e85677",
+      "store": "baseline"
+    },
+    {
+      "bytes": 334462668,
+      "inode": 7356445,
+      "mode": 384,
+      "path": "/home/dflanag3/spatial-artifacts/cow-cli-resident-probe-20261016-v1/campaign-v1/store/checkpoints/834898361b10706707d601d95ff17b165898a1c9df1581f2cc55aa8fc47f7c0c.state",
+      "sha256": "834898361b10706707d601d95ff17b165898a1c9df1581f2cc55aa8fc47f7c0c",
+      "store": "baseline"
+    }
+  ],
+  "gpu_executed": false,
+  "measurement_scope": "Independent post-campaign full file hashing; excluded from inference timing.",
+  "schema": "cow-publication-independent-file-readback-v1",
+  "status": "PASS",
+  "summary_sha256": "7dcf4e7f776f644c7d13b91de6c046a46230be7827a2fc2e3d989239b6256328"
+}

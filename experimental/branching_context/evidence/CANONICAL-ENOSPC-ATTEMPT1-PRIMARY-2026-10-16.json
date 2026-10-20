@@ -1,0 +1,44 @@
+{
+  "actual_branch_writer_released": false,
+  "all_pids_absent": true,
+  "branch_writer_enospc_executed": false,
+  "cleanup_exit": 0,
+  "command_exit": 1,
+  "files": {
+    "04b2e300bc3c407772f2d44997be8a1f842bd7d52f1787f202f00107c5c4c31e": {
+      "canonical_sha256": "04b2e300bc3c407772f2d44997be8a1f842bd7d52f1787f202f00107c5c4c31e",
+      "manifest_sha256": "46411071c283ef023f0e5b7ba9e7a3580c666dea4e59c44de7fafc535448e493",
+      "payload_bytes": 328403764,
+      "payload_sha256": "94c2afaa1c16b957ecbf0219eae7d8191dfc6e834041f14b6f59ccb0738275d3"
+    },
+    "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85": {
+      "canonical_sha256": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+      "manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+      "payload_bytes": 327985908,
+      "payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810"
+    }
+  },
+  "filler_and_stage_files_absent": true,
+  "generated_tokens_before_abort": 16,
+  "http_exit": 0,
+  "image_sha256_after": "1834b8df4ee342c58c122ce0328c967a26ba91582c6ae5b5e71e43365930d66f",
+  "limitation": "No target writer errno28 test occurred; filler zero-available guard aborted first",
+  "native_exit": 0,
+  "native_forward_tokens": 16,
+  "native_integrity_mismatches": 0,
+  "native_prefill_tokens": 0,
+  "numerical_max_error": null,
+  "observed_error": "CanonicalEnospcError: filesystem still has 417792 available bytes after ENOSPC",
+  "old_branch_unchanged": true,
+  "process_ids": [
+    2794586,
+    2794592
+  ],
+  "raw_result_sha256": "550a2029d6b1ca4cf7f7d312ac297a8e10cba8bfea2fb896bc8dc713f94b342e",
+  "readonly_export_sha256": "e5a206b3fd28b4e88057409c02fd5ccace4b70c6390f1d935fea79520259282e",
+  "saved_prefix_tokens": 7999,
+  "schema": "q4-canonical-enospc-attempt1-primary-v1",
+  "source_bytes_unchanged": true,
+  "status": "FAIL-HARNESS-PRE-RELEASE",
+  "wrapper_exit": 1
+}

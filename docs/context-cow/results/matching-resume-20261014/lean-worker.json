@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "pid": 1465193,
+  "phases": [
+    {
+      "phase": "lean-resident",
+      "exit_code": 0,
+      "seconds": 109.99000495695509
+    },
+    {
+      "phase": "lean-disk",
+      "exit_code": 0,
+      "seconds": 107.88817987800576
+    },
+    {
+      "phase": "lean-fresh",
+      "exit_code": 0,
+      "seconds": 159.4798177019693
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "lean-fresh",
+  "child_pid": 1465849,
+  "elapsed_seconds": 150.002185693942,
+  "restored_server_pid": 1466998,
+  "server_http_status": 200
+}

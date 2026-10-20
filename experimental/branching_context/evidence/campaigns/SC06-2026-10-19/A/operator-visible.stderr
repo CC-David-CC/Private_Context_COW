@@ -1,0 +1,31 @@
+test_ascii_merge (test_casefold.Casefold.test_ascii_merge) ... ok
+test_default_preserves_names (test_casefold.Casefold.test_default_preserves_names) ... ok
+test_invalid_still_rejected (test_casefold.Casefold.test_invalid_still_rejected) ... ok
+test_iterator_and_comments (test_casefold.Casefold.test_iterator_and_comments) ... ok
+test_unicode_expansion (test_casefold.Casefold.test_unicode_expansion) ... ok
+test_exact_case (test_exclude.Exclude.test_exact_case) ... ok
+test_folded (test_exclude.Exclude.test_folded) ... ok
+test_invalid_not_hidden (test_exclude.Exclude.test_invalid_not_hidden) ... ok
+test_iterator_and_threshold (test_exclude.Exclude.test_iterator_and_threshold) ... ok
+test_one_name (test_exclude.Exclude.test_one_name) ... ok
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ok
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... ok
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... ok
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... ok
+test_trim (test_ledger.LedgerTests.test_trim) ... ok
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... ok
+test_applies_after_aggregation (test_threshold.Threshold.test_applies_after_aggregation) ... ok
+test_default_keeps_zero (test_threshold.Threshold.test_default_keeps_zero) ... ok
+test_exact_boundary (test_threshold.Threshold.test_exact_boundary) ... ok
+test_filters_low_totals (test_threshold.Threshold.test_filters_low_totals) ... ok
+test_fold_before_threshold (test_threshold.Threshold.test_fold_before_threshold) ... ok
+test_iterator_single_pass (test_threshold.Threshold.test_iterator_single_pass) ... ok
+test_record_validation_not_bypassed (test_threshold.Threshold.test_record_validation_not_bypassed) ... ok
+test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.001s
+
+OK

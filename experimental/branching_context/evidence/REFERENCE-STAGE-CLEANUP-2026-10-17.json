@@ -1,0 +1,29 @@
+{
+  "base_commit": "52de9aa229376be9ed6793205754373205f30fc0",
+  "branch": "work/vision-reference-stage-cleanup-20261017",
+  "green": {
+    "affected_unique": 271,
+    "failures": 0,
+    "focused": 4,
+    "g0": 51,
+    "harness": 3,
+    "serving_unique": 38,
+    "skips": 0
+  },
+  "invariant": "Under the existing global reference transaction lock, a new Store reclaims only owned regular unpublished stage files in its selected references directory; live writers finish first and published canonical records are preserved",
+  "next": "Fresh source-bound profile and full real-GPU crash campaign with empty reference-stage assertion",
+  "qualification": "Not a GPU result, complete VC08/VC09, power-loss or cumulative G1-G5 certification",
+  "red": {
+    "harness_negative_subtest_failures": 11,
+    "store_methods_failed": 2
+  },
+  "retained_setup_failure": "Broadv1 could not import tests.implementation due missing experimental root in search path; corrected broadv2 changes only execution cwd/PYTHONPATH and passes all271",
+  "schema": 1,
+  "source_sha256": {
+    "experimental/branching_context/scripts/run_vision_publication_crash_probe.py": "cd7e9977e7bc4706e9bcb9baa32433e390d429c21072b664a0de42d6b8a4ec86",
+    "experimental/branching_context/src/context_time_travel/store.py": "b62901c1215d2d406ff1caa8bad2b39e2ea48fe6921f7bb9ffd76b276a8686d8",
+    "experimental/branching_context/tests/implementation/test_vision_publication_crash_probe.py": "d45cd58e651f40a7810a87d028d9a86c2c1b1a57055109b24373828ddf29d63b",
+    "experimental/branching_context/tests/native/test_reference_stage_recovery.py": "3af79c74712089883cab3dcd4165aa9e2f44d6e9dc4ba0f342c1990603c46de7"
+  },
+  "status": "CPU_PASS_GPU_NOT_YET_RERUN"
+}

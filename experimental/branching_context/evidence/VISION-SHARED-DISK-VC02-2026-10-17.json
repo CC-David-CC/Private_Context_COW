@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "status": "FOCUSED-PASS",
+  "scope": "VC02 shared derived disk accounting and leases",
+  "host": "llm-60",
+  "base_commit": "391788f6855395f99de92ef9bf950fce8dc34d38",
+  "source_files": [
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-source-v2/experimental/branching_context/src/context_time_travel/pools.py",
+      "bytes": 47408,
+      "sha256": "95a39407b18fa2047ce6a835d404c389406cbf3ec4b5aca32c834b45b6260c44"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-source-v2/experimental/branching_context/tests/implementation/test_vision_disk_pool.py",
+      "bytes": 4295,
+      "sha256": "d53b19e954d4e0b931dc5fcbef007633ccfcc1b88919edf36b0eab4c995f2bca"
+    }
+  ],
+  "red": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-red-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "tests_run": 5,
+    "seconds": 0.078,
+    "test_ids": [
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_checkpoint_and_embedding_share_one_recency_order",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_embedding_counts_toward_existing_budget_and_can_be_evicted",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_embedding_touch_persists_idle_age_across_pool_restart",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_process_death_releases_embedding_eviction_pin",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_zero_byte_digest_lease_protects_an_embedding_from_another_pool"
+    ],
+    "unique_test_ids": 5,
+    "unittest_terminal": [
+      "FAILED (failures=3, errors=2)"
+    ],
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-red-v1/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-red-v1/stderr.log",
+        "bytes": 4532,
+        "sha256": "35c20b28e0c29dc88b5314c0417895b6d33ff58f697a8e298b0fc71f36d0073c"
+      }
+    ],
+    "argv": [
+      "env",
+      "PYTHONPATH=/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-ram-source-v1/experimental/branching_context/src:/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-tests-v1",
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_vision_disk_pool"
+    ]
+  },
+  "green": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-green-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 31,
+    "seconds": 0.711,
+    "test_ids": [
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_checkpoint_and_embedding_share_one_recency_order",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_embedding_counts_toward_existing_budget_and_can_be_evicted",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_embedding_touch_persists_idle_age_across_pool_restart",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_process_death_releases_embedding_eviction_pin",
+      "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_zero_byte_digest_lease_protects_an_embedding_from_another_pool",
+      "test_disk_pool.DiskPoolTests.test_failed_reservation_releases_and_does_not_exceed_limit",
+      "test_disk_pool.DiskPoolTests.test_history_roots_tips_and_saved_points_do_not_permanently_pin_numerical_copies",
+      "test_disk_pool.DiskPoolTests.test_orphan_payload_collection_never_deletes_canonical_history",
+      "test_disk_pool.DiskPoolTests.test_read_lease_is_a_disk_eviction_pin",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_concurrent_processes_with_different_limits_fail_explicitly",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_failed_admission_cleanup_closes_reservation_descriptor_once",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_other_process_collection_preserves_inflight_orphan_payload",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_release_closes_reservation_descriptor_once",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_reservations_from_two_processes_share_one_byte_limit",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_sigkill_releases_stale_reservation_and_next_process_reclaims_marker",
+      "test_disk_pool_process_reservations.DiskPoolProcessReservationTests.test_waiting_digest_is_protected_globally_until_timeout_then_released",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_active_payload_reservation_survives_idle_manifest_expiry",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_disk_cutoff_is_strict_and_clock_rollback_retains_future_stamp",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_expired_alias_manifest_does_not_remove_shared_live_payload",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_missing_or_invalid_touch_does_not_create_or_refresh_metadata",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_persisted_touch_is_visible_after_pool_restart_and_peer_use",
+      "test_pool_idle_expiry.DiskPoolIdleExpiryTests.test_read_lease_protects_expired_checkpoint_and_history_is_unchanged",
+      "test_pool_idle_expiry.PoolConfigIdleExpiryTests.test_default_is_disabled_and_valid_durations_are_retained",
+      "test_pool_idle_expiry.PoolConfigIdleExpiryTests.test_rejects_nonpositive_nonfinite_boolean_and_nonnumber_durations",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_aliases_have_independent_expiry_and_shared_bytes_remain",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_dirty_entries_are_protected_and_failed_entries_can_expire",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_idle_age_uses_strict_cutoff_and_get_refreshes",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_invalid_admission_does_not_refresh_existing_entry",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_long_pin_starts_idle_interval_on_release",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_metrics_and_misses_do_not_refresh_and_clock_rollback_is_conservative",
+      "test_pool_idle_expiry.SharedPoolIdleExpiryTests.test_pin_clock_error_does_not_leak_pin"
+    ],
+    "unique_test_ids": 31,
+    "unittest_terminal": [
+      "OK"
+    ],
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-green-v1/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-green-v1/stderr.log",
+        "bytes": 5720,
+        "sha256": "87c47c1b9cec44e045535ed2ea86d32e0b1b754071adf4505702bb20c456c4ee"
+      }
+    ],
+    "argv": [
+      "env",
+      "PYTHONPATH=/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-source-v1/experimental/branching_context/src:/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-disk-source-v1/experimental/branching_context/tests/implementation",
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_vision_disk_pool",
+      "test_disk_pool",
+      "test_disk_pool_process_reservations",
+      "test_pool_idle_expiry"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xfails": 0
+  },
+  "g0": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-g0-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 51,
+    "seconds": 0.247,
+    "test_ids": [
+      "test_logical_store.LogicalStoreTests.test_01_root_history",
+      "test_logical_store.LogicalStoreTests.test_02_fork_same_logical_state",
+      "test_logical_store.LogicalStoreTests.test_03_independent_suffixes",
+      "test_logical_store.LogicalStoreTests.test_04_empty_delta_controller_transition",
+      "test_logical_store.LogicalStoreTests.test_05_canonical_content_identity",
+      "test_logical_store.LogicalStoreTests.test_06_mutable_arguments_do_not_modify_saved_state",
+      "test_logical_store.LogicalStoreTests.test_07_snapshot_integrity_reject_tampered_blob",
+      "test_logical_store.LogicalStoreTests.test_08_missing_parent_fails_closed",
+      "test_logical_store.LogicalStoreTests.test_09_invalid_inputs_rejected",
+      "test_logical_store.LogicalStoreTests.test_10_invalid_controller_rejected",
+      "test_logical_store.LogicalStoreTests.test_11_fork_duplicate_fails",
+      "test_logical_store.LogicalStoreTests.test_12_missing_head_fails",
+      "test_logical_store.LogicalStoreTests.test_13_atomic_CAS_updates_one_revision",
+      "test_logical_store.LogicalStoreTests.test_14_successful_retry_is_idempotent",
+      "test_logical_store.LogicalStoreTests.test_15_reuse_operation_id_with_different_payload_rejected",
+      "test_logical_store.LogicalStoreTests.test_16_ABA_fails_with_stale_revision",
+      "test_logical_store.LogicalStoreTests.test_17_cannot_move_between_unrelated_roots",
+      "test_logical_store.LogicalStoreTests.test_18_branch_pointer_restart_persists",
+      "test_logical_store.LogicalStoreTests.test_19_retry_receipt_restart_persists",
+      "test_logical_store.LogicalStoreTests.test_20_crash_before_reference_staging_keeps_old_tip",
+      "test_logical_store.LogicalStoreTests.test_21_crash_after_stage_before_rename_keeps_old_tip",
+      "test_logical_store.LogicalStoreTests.test_22_failure_after_rename_has_retryable_receipt",
+      "test_logical_store.LogicalStoreTests.test_23_evaluation_like_reads_do_not_move_branch",
+      "test_logical_store.LogicalStoreTests.test_24_store_ref_index_rejects_corrupt_json",
+      "test_logical_store.LogicalStoreTests.test_25_invalid_branch_or_operation_names",
+      "test_logical_store.LogicalStoreTests.test_26_history_can_have_multiple_empty_deltas",
+      "test_logical_store.LogicalStoreTests.test_27_copy_on_read_cannot_modify_store",
+      "test_logical_store.LogicalStoreTests.test_28_same_history_different_controller_not_same_snapshot",
+      "test_logical_store.LogicalStoreTests.test_29_racing_writers_exactly_one_wins",
+      "test_logical_store.LogicalStoreTests.test_30_unreferenced_snapshot_survives_branch_rewind",
+      "test_logical_store.LogicalStoreTests.test_31_second_future_after_rewind_stays_independent",
+      "test_logical_store.LogicalStoreTests.test_32_external_mutation_after_fork_does_not_propagate",
+      "test_numerics.NumericalOracleTests.test_close_tie_is_not_mislabelled_large_margin",
+      "test_numerics.NumericalOracleTests.test_corruption_is_detected",
+      "test_numerics.NumericalOracleTests.test_exact_vectors_pass",
+      "test_numerics.NumericalOracleTests.test_invalid_tolerance_rejected",
+      "test_numerics.NumericalOracleTests.test_kl_zero_for_identical_values",
+      "test_numerics.NumericalOracleTests.test_nan_rejected",
+      "test_numerics.NumericalOracleTests.test_nonmatching_shape_rejected",
+      "test_numerics.NumericalOracleTests.test_shift_in_logits_detected_by_elementwise_even_if_softmax_same",
+      "test_numerics.NumericalOracleTests.test_small_numerical_error_passes",
+      "test_numerics.NumericalOracleTests.test_top1_flip_is_detected",
+      "ctt_toy_reference.TimeTravelTests.test_chunking_does_not_reset_random_stream",
+      "ctt_toy_reference.TimeTravelTests.test_eviction_preserves_history_and_rng_position",
+      "ctt_toy_reference.TimeTravelTests.test_feed_associativity",
+      "ctt_toy_reference.TimeTravelTests.test_fresh_input_oracle_matches_each_forced_future",
+      "ctt_toy_reference.TimeTravelTests.test_other_stream_does_not_mutate_parent",
+      "ctt_toy_reference.TimeTravelTests.test_rewind_does_not_delete_old_future",
+      "ctt_toy_reference.TimeTravelTests.test_same_snapshot_repeats_sampled_future",
+      "ctt_toy_reference.TimeTravelTests.test_sibling_scheduling_does_not_change_a",
+      "ctt_toy_reference.TimeTravelTests.test_worked_attention_outputs"
+    ],
+    "unique_test_ids": 51,
+    "unittest_terminal": [
+      "OK"
+    ],
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-g0-v1/stdout.log",
+        "bytes": 6578,
+        "sha256": "9c768895dd1326047288d5f3636e1ccff24a468119ecd844d68f7e2fbe97d2ce"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-g0-v1/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "argv": [
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-artifact-source-v2/experimental/branching_context/scripts/verify.py",
+      "--gate",
+      "G0",
+      "--no-write"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xfails": 0
+  },
+  "mutation": {
+    "mutation": "ignore other processes active disk digest reservations",
+    "test_id": "test_vision_disk_pool.VisionDiskPoolTests.test_vc006_zero_byte_digest_lease_protects_an_embedding_from_another_pool",
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skips": 0,
+    "detected": true
+  },
+  "model_logit_max_abs_error": null,
+  "limitations": [
+    "Real filesystem and process locks with synthetic small files; no GPU sharing proof",
+    "No actual ENOSPC, power-loss or long pressure campaign in this subphase"
+  ]
+}

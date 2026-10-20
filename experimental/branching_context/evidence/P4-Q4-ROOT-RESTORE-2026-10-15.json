@@ -1,0 +1,269 @@
+{
+  "archive_member_listing": {
+    "bytes": 664763,
+    "members": 6213,
+    "sha256": "d766cb7a4d84c2db07c2fc32c17657f442b30374f7636d36173e619bd66333b3"
+  },
+  "archive_path": "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+  "archive_sha256_expected": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+  "destination_mode_octal": "0600",
+  "disk_preflight": {
+    "destination": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints",
+    "free_bytes": 54480908288,
+    "passed": true,
+    "required_free_bytes": 43688258416
+  },
+  "finished_unix_ns": 1792048092960688549,
+  "inputs_path": "/home/dflanag3/spatial-artifacts/p4-q4-selective-restore-20261015/P4-Q4-ROOT-RESTORE-INPUTS-2026-10-15.json",
+  "inputs_sha256_actual": "3ebb21cb7b1ab693ec72f967fda567b67388ad8deff3bc16bbcd720302ea2a3f",
+  "inputs_sha256_expected": "3ebb21cb7b1ab693ec72f967fda567b67388ad8deff3bc16bbcd720302ea2a3f",
+  "member_processes": [
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "-xOf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state"
+      ],
+      "disk_preflight": {
+        "free_bytes": 54480474112,
+        "passed": true,
+        "required_bytes": 16229224936
+      },
+      "exit_code": 0,
+      "partial_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/.cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state.partial.1988104.8417d7f7c1b34590b13b2c2354ff2c2b",
+      "received_bytes": 1830602232,
+      "received_sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca",
+      "root_index": 0,
+      "snapshot": "e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "-xOf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state"
+      ],
+      "disk_preflight": {
+        "free_bytes": 52649562112,
+        "passed": true,
+        "required_bytes": 14398622704
+      },
+      "exit_code": 0,
+      "partial_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/.9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state.partial.1988104.65fa84f7ef9b4fe8b4e62365a492e02c",
+      "received_bytes": 1830602232,
+      "received_sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7",
+      "root_index": 1,
+      "snapshot": "c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "-xOf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state"
+      ],
+      "disk_preflight": {
+        "free_bytes": 50818953216,
+        "passed": true,
+        "required_bytes": 12568020472
+      },
+      "exit_code": 0,
+      "partial_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/.43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state.partial.1988104.7354471c093a4199aca1801541fb016e",
+      "received_bytes": 1830602232,
+      "received_sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7",
+      "root_index": 2,
+      "snapshot": "bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a",
+      "stderr": ""
+    }
+  ],
+  "payloads": [
+    {
+      "bytes": 1830602232,
+      "mode_octal": "0600",
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+      "result": "restored_atomically_no_replace",
+      "root_index": 0,
+      "sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca",
+      "snapshot": "e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286"
+    },
+    {
+      "bytes": 1830602232,
+      "mode_octal": "0600",
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+      "result": "restored_atomically_no_replace",
+      "root_index": 1,
+      "sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7",
+      "snapshot": "c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316"
+    },
+    {
+      "bytes": 1830602232,
+      "mode_octal": "0600",
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+      "result": "restored_atomically_no_replace",
+      "root_index": 2,
+      "sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7",
+      "snapshot": "bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a"
+    }
+  ],
+  "process_exit_code": 0,
+  "required_free_bytes_before_restore": 43688258416,
+  "retained_manifests": [
+    {
+      "bytes": 984,
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286.json",
+      "result": "verified_unchanged",
+      "sha256": "07a8d31e1d61e71e25f15322ea5ddd8608e9244a242863ad49e24ce389849a69"
+    },
+    {
+      "bytes": 984,
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316.json",
+      "result": "verified_unchanged",
+      "sha256": "e897d52f34c2cd445635e7c7002455ac8d93eeef7b581881d1b0de43b93cc9f2"
+    },
+    {
+      "bytes": 984,
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a.json",
+      "result": "verified_unchanged",
+      "sha256": "5c725a23cafa398c40c24e202cf6b8d23cee900d9f77bccb50b85b2e0605e8e4"
+    }
+  ],
+  "schema": "p4-q4-root-payload-restore-v1",
+  "source_archive_bytes_expected": 41838049280,
+  "source_processes": [
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "sha256sum",
+        "--",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 157,
+      "stdout_sha256": "1d124923ed41ab12e9c12267f79f1a846602569fd87969092409ab21e180c134"
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "stat",
+        "--format=%F:%s",
+        "--",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 25,
+      "stdout_sha256": "5537541171e7e61d240bcfa1f6ba49eed2b69af96a5192be7c9374ca4cb9cdc9"
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "-tf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 664763,
+      "stdout_sha256": "d766cb7a4d84c2db07c2fc32c17657f442b30374f7636d36173e619bd66333b3"
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "--numeric-owner",
+        "-tvf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "--",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 201,
+      "stdout_sha256": "2f07af37bed858be924a7559125c67a183290b652c42b6b4248adcefd75cd7c9"
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "--numeric-owner",
+        "-tvf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "--",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 201,
+      "stdout_sha256": "1cfd821e7de99b413031a23d128bf4246369eb7da5f7bf69fa484241cec89e87"
+    },
+    {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "box-git",
+        "tar",
+        "--numeric-owner",
+        "-tvf",
+        "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+        "--",
+        "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_bytes": 201,
+      "stdout_sha256": "e293453bc388c6e241bb101b21c102091be646b2c8feec5796c59385d9b722e8"
+    }
+  ],
+  "started_unix_ns": 1792047894195392855,
+  "status": "PASS"
+}

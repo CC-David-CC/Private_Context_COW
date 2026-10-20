@@ -1,0 +1,11 @@
+{
+  "consumed": 15780,
+  "forward_tokens": 15780,
+  "prefill_tokens": 15780,
+  "prefill_chunks": 31,
+  "decode_timed_tokens": 0,
+  "written_file_bytes": 530181256,
+  "captures": 1,
+  "restores": 1,
+  "integrity_mismatches": 0
+}

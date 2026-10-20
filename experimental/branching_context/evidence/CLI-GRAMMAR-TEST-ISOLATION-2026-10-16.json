@@ -1,0 +1,30 @@
+{
+  "schema": "cli-grammar-audit-test-isolation-v1",
+  "scope": "Post-audit test-only isolation for the real pinned LLguidance matcher-padding probe. The prior v15 GPU audit used the runner and test source hashes recorded in CLI-GRAMMAR-RAW-AUDIT-BACKUP-2026-10-16.json; no GPU rerun was performed for this test-only change.",
+  "change": {
+    "reason": "load_pinned_grammar_registry prepends runtime/dependency paths to sys.path and imports pinned runtime modules. Running it in the combined unittest process could shadow modules from another source checkout for later tests.",
+    "fix": "Run the single actual LLguidance dependency/matcher probe in a fresh python -B subprocess with PYTHONPATH removed, an explicit auditor file path, and explicit runtime/profile/registry/dependency arguments. Verify imported tokenizer/grammar modules are rooted under the pinned runtime, LLguidance is rooted under the pinned dependency, and the parent sys.path/sys.modules are unchanged.",
+    "runner_sha256": "7e7a0520f1d232f54d45985ff57bf338a5ac90e5835691b1caacd86381f7c475",
+    "test_sha256": "f58762d7936c8ba414e92d28bb3919d1afabb0ea07933d01f8eaba56cdbc2a0b"
+  },
+  "run": {
+    "source": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v16/source",
+    "result_directory": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v16/tests-run-v3",
+    "command": "python -B -m unittest discover -s experimental/branching_context/tests/implementation -p test_cli_grammar_numerical_audit.py -v",
+    "tests": 27,
+    "passed": 27,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "7009401abeaacec12d6eb4eff28245a4fbeb3c6ebb57e1840313f166414dd4a7",
+    "llguidance_native_sha256": "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a",
+    "gpu_or_model_execution": false
+  },
+  "retained_setup_failures": [
+    {"path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v16/tests-run-v1", "cause": "The approved runner was invoked directly without Bash; execution stopped with Permission denied before tests."},
+    {"path": "/home/dflanag3/spatial-artifacts/cli-grammar-numerical-audit-20261016-v1/green-v16/tests-run-v2", "cause": "The run directory had been pre-created, so the approved runner refused it before tests."}
+  ]
+}

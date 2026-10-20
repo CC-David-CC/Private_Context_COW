@@ -1,0 +1,35 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "WINDOWS_PACKAGING_PASS",
+  "python": "3.13.15",
+  "scope": "client ZIP generation and local documentation links; no GPU/model/HTTP execution",
+  "red": {
+    "tests": 1,
+    "failed_link_subtests": 28,
+    "exit": 1,
+    "stderr_sha256": "36233ed8a19b2a4fed40f53d522cd8f701da2b5bd0b1a63bdfdc6aab2c19fae5",
+    "cause": "README fragment links were not relocated; nested status links referenced source-only files absent from client package"
+  },
+  "green": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "exit": 0,
+    "stderr_sha256": "400ccd7109bcbf245c8873b41142e524a565b43eb8dae476ab55a2e4ab5f486f"
+  },
+  "behavior": [
+    "Rebase relocated README local links including fragments",
+    "Preserve main guide links; mark omitted historical source references as full-source-checkout text with package note",
+    "Record transformed documentation in package manifest; never recursively add code/model/raw archives"
+  ],
+  "retained_failed_zip": {
+    "path": "C:/Users/dflanag3/Documents/fleet/context-cow-cli-private-draft-20261015/context-cow-cli-private-draft-v4.zip",
+    "bytes": 294350,
+    "sha256": "a51c4f511e9a4308ce3e6316219fd72afcbfc79ca26965c9ead35a1d1a54f923"
+  },
+  "limits": [
+    "The failed v4 ZIP remains evidence, not the shareable artifact",
+    "This changes packaging only; numerical and controller qualification unchanged"
+  ]
+}

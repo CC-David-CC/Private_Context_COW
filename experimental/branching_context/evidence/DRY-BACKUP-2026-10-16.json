@@ -1,0 +1,11 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-dry-v1/evidence.tar",
+  "archive_bytes": 487690240,
+  "archive_sha256": "bae7d9d13fd87c81d2239b4fc0323a9c84df771202736859200f3c2dffe95df7",
+  "extracted_files": 0,
+  "manifest_sha256": "39cec03e6372e305d18c3d01fb9f02551149d38394f275b7483141efc865af0a",
+  "member_count": 9546,
+  "status": "PASS",
+  "total_member_bytes": 472367456,
+  "verification": "Full SSH-streamed readback, every regular member and complete archive byte stream verified"
+}

@@ -1,0 +1,43 @@
+{
+    "source_compact_receipt_sha256": "df11fbbd670943d780520b49378954314d67c2bdb6e90a98e5dee271b8873986",
+    "serialization": "Derived LF copy; original compact receipt bytes retained in context-cow-artifacts/q4-realcode-8k128-v1-backup-20261015/backup-summary.json",
+    "schema":  "q4-realcode-8k128-v1-backup-summary",
+    "status":  "PASS_RAW_EVIDENCE_BACKUP",
+    "target":  "/srv/data/git/private_context_cow.evidence/20261015-q4-realcode-8k128-v1/evidence.tar",
+    "archive_sha256":  "0fa371423d26a6d6debdc853656b9ead2baa62e7323563b8c9f3f3a1c726acf0",
+    "archive_bytes":  8089436160,
+    "member_count":  622,
+    "manifest_sha256":  "4faaeca9f355cfcd2afe59937d52d12d776a9c547105f9a09df9affcee2e7c01",
+    "receiver_status":  "PASS",
+    "receiver_archive_sha256":  "0fa371423d26a6d6debdc853656b9ead2baa62e7323563b8c9f3f3a1c726acf0",
+    "receiver_member_listing_sha256":  "cad32c743a7b4cd3ab00712ab504d7c247be3b3b8cc8abc001cd09c50691271f",
+    "receiver_receipt_sha256":  "1021d44aa517fe3ee2edca72303ac1a153c2a8c35b007185e4985b9782fac5f1",
+    "source_root":  "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+    "selected_trees":  [
+                           "case-old4ac-8k128",
+                           "case-f94-8k128",
+                           "client-old-resident-v1",
+                           "client-old-disk-v1",
+                           "client-new-resident-v1",
+                           "client-new-disk-v1"
+                       ],
+    "preflight_status":  "PREFLIGHT_PASS_NO_STREAM",
+    "preflight_command_exit":  "0",
+    "preflight_wrapper_exit":  "0",
+    "stream_command_exit":  "0",
+    "stream_wrapper_exit":  "0",
+    "caller_sha256":  "3becf303a2a9850ac948ca1da9ed264c22bf33b2353ad1a7981b1efce63a4561",
+    "exclusions":  [
+                       "cow-seal-stream-candidate-20261015-v1/client-stream-v2 GPU timing/output trees (active Q8/V2; not included or traversed)",
+                       "all other Q8 profiles, timing folders, and active GPU outputs",
+                       "model weight files and source/native build trees already covered by the referenced private archive",
+                       "unselected top-level CAND folders and run receipts"
+                   ],
+    "case_scope":  "PASS reports retained; native_exit_observed true but numeric native exit codes absent, so native exit 0 unproven",
+    "v1_timing_scope":  "PRELIMINARY_TIMING_ONLY; numeric native exit codes absent",
+    "failed_preflight_attempt":  "preflight-run attempt01 preserved: raw input fixture hash was compared to normalized case fixture hash",
+    "files_deleted":  0,
+    "models_copied":  0,
+    "receiver_manifest_canonical_sha256":  "5926d5d7ac24beab0e1790cd424f23a34fc32bd60f2425c9df343df2daa5d2c6",
+    "manifest_hash_semantics":  "manifest_sha256 is SHA256 of exact MANIFEST.json bytes from source preflight (including trailing LF); receiver_manifest_canonical_sha256 is SHA256 of parsed manifest reserialized as sorted compact JSON without trailing LF by receiver; both represent the same manifest content."
+}

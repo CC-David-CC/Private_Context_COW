@@ -1,0 +1,10 @@
+{
+  "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-parser-lifecycle-v1.tar.gz",
+  "bytes": 104299,
+  "sha256": "191452e5c3fdfc8b84625ec1fc45322ea5c0ea86e6c4e8b9bd6973646aa4b43e",
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-parser-lifecycle-v1/evidence.tar.gz",
+  "destination_readback_sha256": "191452e5c3fdfc8b84625ec1fc45322ea5c0ea86e6c4e8b9bd6973646aa4b43e",
+  "files": 108,
+  "github_publication": false
+}

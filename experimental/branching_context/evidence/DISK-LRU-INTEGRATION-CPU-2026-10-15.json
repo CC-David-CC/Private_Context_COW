@@ -1,0 +1,70 @@
+{
+  "schema": "cow-disk-lru-integration-cpu-v1",
+  "status": "PASS_CPU_ONLY",
+  "base_commit": "5aea4351",
+  "host": "llm-60",
+  "python": "3.12.3",
+  "source": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "ad9fb585fa92196e25a9a20294c7a53faf2bee438aa5f811f03217fd9d5a5623",
+    "experimental/branching_context/src/context_time_travel/pools.py": "08e736266266d6120f166b7c8983feeeb65fe939f7fda4e93e5faf3ea3c0d4b1",
+    "experimental/branching_context/tests/implementation/test_pool_disk_lru_integration.py": "a18e6d4858b3029c12efb7c6612e4db40e5b047dd73cf5ff0da684b544b191a4",
+    "experimental/branching_context/tests/implementation/test_disk_lru.py": "8cd3073b8f8eb51f9be8fc38f722d643908c6da2f580b9ac1bf56b3e0b2c8c3c"
+  },
+  "run_root": "/home/dflanag3/spatial-artifacts/cow-explicit-rebuild-20261015-v1",
+  "new_integration_test_ids": [
+    "DiskLRUCoordinatorTests.test_publication_protects_digest_and_uses_configured_bounded_wait",
+    "DiskLRUCoordinatorTests.test_concurrent_collection_preserves_payload_before_manifest_publication",
+    "DiskLRUCoordinatorTests.test_validated_disk_load_and_publication_update_recency",
+    "DiskLRUCoordinatorTests.test_failed_disk_load_does_not_update_recency"
+  ],
+  "final_results": {
+    "run": "disk-integration-green-v2",
+    "test_methods": 81,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "stderr_sha256": "cf367ecd8e7627b457d9c93a6aedb321782fb1abf4c4c7d05f8869e903b72171",
+    "g0_run": "disk-integration-g0-v1",
+    "g0_methods": 51,
+    "g0_command_exit": 0,
+    "g0_wrapper_exit": 0,
+    "g0_stdout_sha256": "da35352e19d4c88a11a2737ec6e8c5543054255ada6db2358cadb3ff6de0f4aa"
+  },
+  "retained_failures": [
+    {
+      "run": "disk-integration-red-v1",
+      "methods": 4,
+      "failures": 3,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "finding": "collector removed an unmanifested in-flight payload; publisher did not pass protection/deadline; validated reads/publication did not update disk MRU"
+    },
+    {
+      "run": "disk-integration-green-v1",
+      "loader_entries": 75,
+      "import_errors": 2,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "finding": "staging omitted two requested unchanged regression modules; copied them and reran the entire requested suite without dropping checks"
+    }
+  ],
+  "scope": {
+    "backend": "synthetic CPU coordinator model plus actual local filesystem files/locks",
+    "publication_window_fixture": "collect after payload creation and before manifest creation",
+    "reservation_timeout_seconds_in_new_fixture": 0.2,
+    "native_build": null,
+    "model_fingerprint": null,
+    "real_gpu_methods": 0,
+    "numerical_oracle_comparisons": 0,
+    "maximum_logit_error": null,
+    "gate_qualification": "G0 only; original G1-G5 status unchanged"
+  },
+  "remaining_boundaries": [
+    "The disk collector still protects existing Store checkpoint anchors, including branch roots/tips, until explicit cache-miss reconstruction is wired and qualified.",
+    "Failed publications still use the old retained-RAM retry policy. The selected ordinary-LRU/error behavior is not implemented by this ticket.",
+    "Real Q4/Q8 runs on this new Python source have not been executed; historical GPU passes retain their original fingerprints.",
+    "Disk recency is transient and seeded deterministically on restart; no canonical history or checkpoint format was added."
+  ]
+}

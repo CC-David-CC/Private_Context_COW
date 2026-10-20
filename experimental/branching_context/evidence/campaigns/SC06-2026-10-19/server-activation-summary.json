@@ -1,0 +1,48 @@
+{
+  "source_acquisitions": {
+    "shared_pool": 2,
+    "model_cache": 16
+  },
+  "native_commands": {
+    "stats": 7540,
+    "vision_info": 3707,
+    "load_image": 2,
+    "capture": 20,
+    "pages": 20,
+    "feed": 17,
+    "sample_mask_v2": 3615,
+    "decode": 3615,
+    "logits": 18,
+    "restore": 34,
+    "write": 18,
+    "ram_clear": 18,
+    "drop": 8,
+    "quit": 1
+  },
+  "partial_generation": {
+    "source_snapshot": "598d5024cd6d1898ecd2307151890e7ad485d5139bba21e2d78cde2651214af1",
+    "status": "active",
+    "accepted_in_scope": 2048,
+    "schema": 3,
+    "next_draw": 0,
+    "constraint": {
+      "agent_state": "g1ded3cb56aa3b0dbf8729bb4e851321f98e0a42e6f91f12512bc095e5d3d1549_s0",
+      "engine_id": "f373cd8e6d469a68fd4c6b4413c87ba3095be55f5986c3f9ad325e8a2f1e60ac",
+      "llguidance_version": "1.9.1",
+      "schema": 1,
+      "scope_start": 42371,
+      "spec_sha256": "a30ee6f42d3a95207c4a09bbe33a1f9f5246b484b71c1acad2867d44a36b9552",
+      "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+    },
+    "resume_operation": "bwnative-6b2c089714b48268bb59425ab8c5e433752f42055ac9a4b4",
+    "other_branch_durable_between_partial_publish_and_resume_acquisition": [],
+    "scope": "Observed active greedy grammar continuation;no nonzero RNG claim",
+    "other_branch_acquired_between_generation_segments": [
+      {
+        "operation_id": "bwnative-cb2d8b5fe221a855634d05e246abdb0a637f3fa997d56785",
+        "snapshot": "046e56df60ee9fc9c93ba49d78999951b8e8c290b4e804e002c017bbfb326b9c",
+        "monotonic_ns": 1454478944974968
+      }
+    ]
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "assertions": [
+    {
+      "detail": "pid=32356",
+      "name": "owned_ssh_tunnel_ready",
+      "passed": true
+    },
+    {
+      "detail": "status returned JSON",
+      "name": "status_json",
+      "passed": true
+    },
+    {
+      "detail": "namespace listing returned JSON",
+      "name": "namespaces_json",
+      "passed": true
+    },
+    {
+      "detail": "namespace receipt keys=['created_at_ns', 'namespace_id', 'operation_id', 'title']",
+      "name": "namespace_created",
+      "passed": true
+    },
+    {
+      "detail": "load completed with durable receipt",
+      "name": "utf8_load_durable_receipt",
+      "passed": true
+    },
+    {
+      "detail": "fork completed with durable receipt",
+      "name": "05-fork-a_receipt",
+      "passed": true
+    },
+    {
+      "detail": "fork completed with durable receipt",
+      "name": "06-fork-b_receipt",
+      "passed": true
+    },
+    {
+      "detail": "A durable",
+      "name": "ask_a_receipt",
+      "passed": true
+    },
+    {
+      "detail": "A continuation durable",
+      "name": "continue_a_receipt",
+      "passed": true
+    },
+    {
+      "detail": "B durable",
+      "name": "ask_b_receipt",
+      "passed": true
+    },
+    {
+      "detail": "branch listing returned JSON",
+      "name": "branches_listed",
+      "passed": true
+    },
+    {
+      "detail": "serialized A history contains context and exact A input",
+      "name": "history_a_contains_utf8_context_and_question",
+      "passed": true
+    },
+    {
+      "detail": "serialized B history contains context and exact B input",
+      "name": "history_b_contains_utf8_context_and_question",
+      "passed": true
+    },
+    {
+      "detail": "12 commands",
+      "name": "all_cli_commands_succeeded",
+      "passed": true
+    }
+  ],
+  "cli_path": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+  "cli_sha256": "8b6ed68280aed798a099c05062184ff1070a7b676aeb60b4cab9a25bd309ab8e",
+  "commands": [
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "status"
+      ],
+      "elapsed_seconds": 1.2266919612884521,
+      "exit_code": 0,
+      "label": "01-status",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 704,
+      "stdout_sha256": "6fe81c47bab10c1697702ec32ae68d886e3850457d5160eb6093ef4c3638d0ec"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "namespaces"
+      ],
+      "elapsed_seconds": 0.7042896747589111,
+      "exit_code": 0,
+      "label": "02-namespaces",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 464,
+      "stdout_sha256": "72e4952817cd8665bd13051da80b220611108628bc60878aeae18ac0161343ae"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "namespace",
+        "--title",
+        "Windows CLI v3 café 東京"
+      ],
+      "elapsed_seconds": 0.7387862205505371,
+      "exit_code": 0,
+      "label": "03-create-namespace",
+      "operation_id": "op-e049e9e8f0f94eb6b971eb6ebc08f460",
+      "receipt": {
+        "created_at_ns": 1792089107911205012,
+        "namespace_id": "a814b03dc15b933c0bc01c156235014e",
+        "operation_id": "op-e049e9e8f0f94eb6b971eb6ebc08f460",
+        "title": "Windows CLI v3 café 東京"
+      },
+      "stderr_bytes": 262,
+      "stderr_sha256": "10c71e04647a31bf9f70c25da5368297fe4a34e626707aceca9aee8897581709",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "load",
+        "--file",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\cli-windows-20261015-v3\\context-utf8.txt",
+        "--namespace-id",
+        "a814b03dc15b933c0bc01c156235014e",
+        "--branch",
+        "WindowsV3Base",
+        "--operation-id",
+        "win-v3-load-utf8"
+      ],
+      "elapsed_seconds": 0.831089973449707,
+      "exit_code": 0,
+      "label": "04-load-utf8",
+      "operation_id": "win-v3-load-utf8",
+      "receipt": {
+        "branch": {
+          "name": "WindowsV3Base",
+          "revision": 1,
+          "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+          "tip": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02"
+        },
+        "execution_profile_id": "flow-profile",
+        "model_contract_id": "flow-model",
+        "payload_sha256": "1a0a0ad8eae07cf367be9a3a72cc6bbbaa3117f08467939eca1a8bcccd00b181",
+        "snapshot": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02"
+      },
+      "stderr_bytes": 524,
+      "stderr_sha256": "a76d0fa62a2a43bbc58274c1dfe8b0c26efbdd01c0f87ecf317ac281e2a5d4d6",
+      "stdout_bytes": 1,
+      "stdout_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "fork",
+        "--source-branch",
+        "WindowsV3Base",
+        "--name",
+        "WindowsV3A"
+      ],
+      "elapsed_seconds": 1.030358076095581,
+      "exit_code": 0,
+      "label": "05-fork-a",
+      "operation_id": "op-909b5d8bbb1c4204a0461538e70363d2",
+      "receipt": {
+        "name": "WindowsV3A",
+        "revision": 0,
+        "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+        "tip": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02"
+      },
+      "stderr_bytes": 265,
+      "stderr_sha256": "693277916c65de1f46fc3bd3abcb871af3791160700fdfe4dbf844e352df8901",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "fork",
+        "--source-branch",
+        "WindowsV3Base",
+        "--name",
+        "WindowsV3B"
+      ],
+      "elapsed_seconds": 0.993659257888794,
+      "exit_code": 0,
+      "label": "06-fork-b",
+      "operation_id": "op-41f509c35c69466f9c030526966d077e",
+      "receipt": {
+        "name": "WindowsV3B",
+        "revision": 0,
+        "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+        "tip": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02"
+      },
+      "stderr_bytes": 265,
+      "stderr_sha256": "f0fc70c447a92f12738600cf58bf50b3a1ac7eeff2fa1e71456c8738f280ea3c",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "ask",
+        "--branch",
+        "WindowsV3A",
+        "--text",
+        "Question A — café",
+        "--max-tokens",
+        "1",
+        "--operation-id",
+        "win-v3-ask-a"
+      ],
+      "elapsed_seconds": 0.9559144973754883,
+      "exit_code": 0,
+      "label": "07-ask-a",
+      "operation_id": "win-v3-ask-a",
+      "receipt": {
+        "branch": {
+          "name": "WindowsV3A",
+          "revision": 1,
+          "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+          "tip": "2e4c968eee9b38a1bc52df44673e6324cf8ac4a3114a0b05c42f408154b7d6aa"
+        },
+        "execution_profile_id": "flow-profile",
+        "model_contract_id": "flow-model",
+        "payload_sha256": "cd8652aab256da1865051ab6dff4443dfa4f964e1e408aaaa556923cc8e60449",
+        "snapshot": "2e4c968eee9b38a1bc52df44673e6324cf8ac4a3114a0b05c42f408154b7d6aa"
+      },
+      "stderr_bytes": 517,
+      "stderr_sha256": "cd78636d45ffa785f431378c0d14388a62835e0531864e8d5956de8aad2e9f4c",
+      "stdout_bytes": 2,
+      "stdout_sha256": "7ddcfda184b55ee06b0c81e0ad136b1aa4a86daeb1078bcaeccc246eb2c8693b"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "continue",
+        "--branch",
+        "WindowsV3A",
+        "--max-tokens",
+        "2",
+        "--operation-id",
+        "win-v3-continue-a"
+      ],
+      "elapsed_seconds": 1.1679675579071045,
+      "exit_code": 0,
+      "label": "08-continue-a",
+      "operation_id": "win-v3-continue-a",
+      "receipt": {
+        "branch": {
+          "name": "WindowsV3A",
+          "revision": 2,
+          "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+          "tip": "2d7b9eeb219cae5b46bc5e0e5b0ad67778e48210ac2554641c1a8ed05985f4cd"
+        },
+        "execution_profile_id": "flow-profile",
+        "model_contract_id": "flow-model",
+        "payload_sha256": "ac2738dd51320b199ee97c2afe231e35bf0bacade58f8f2e3c5fef9479ec7e15",
+        "snapshot": "2d7b9eeb219cae5b46bc5e0e5b0ad67778e48210ac2554641c1a8ed05985f4cd"
+      },
+      "stderr_bytes": 522,
+      "stderr_sha256": "b60615cc641cefd16058bbdfe4da6c67a5313c013d993af77b0eeaf6352aa70c",
+      "stdout_bytes": 2,
+      "stdout_sha256": "7ddcfda184b55ee06b0c81e0ad136b1aa4a86daeb1078bcaeccc246eb2c8693b"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "ask",
+        "--branch",
+        "WindowsV3B",
+        "--text",
+        "Question B — 東京",
+        "--max-tokens",
+        "2",
+        "--operation-id",
+        "win-v3-ask-b"
+      ],
+      "elapsed_seconds": 1.3437552452087402,
+      "exit_code": 0,
+      "label": "09-ask-b",
+      "operation_id": "win-v3-ask-b",
+      "receipt": {
+        "branch": {
+          "name": "WindowsV3B",
+          "revision": 1,
+          "root": "abd309be3548c71530ad20b228d58cf6c43ea0ef275ff72479bfb067a25c7b02",
+          "tip": "0b8f330b37eff9338998fdd29b95962568d445305ccae87929dac14f48666bb1"
+        },
+        "execution_profile_id": "flow-profile",
+        "model_contract_id": "flow-model",
+        "payload_sha256": "15703dacb478e8c40b350169faa02f39bba9f2767421aecae8a407b3ae45563e",
+        "snapshot": "0b8f330b37eff9338998fdd29b95962568d445305ccae87929dac14f48666bb1"
+      },
+      "stderr_bytes": 517,
+      "stderr_sha256": "e12ffe9187cb26923398e3bf349aaed6cdb4faa5cbe92c924e77e261e03da98a",
+      "stdout_bytes": 2,
+      "stdout_sha256": "7ddcfda184b55ee06b0c81e0ad136b1aa4a86daeb1078bcaeccc246eb2c8693b"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "branches"
+      ],
+      "elapsed_seconds": 1.567840337753296,
+      "exit_code": 0,
+      "label": "10-branches",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2042,
+      "stdout_sha256": "4f27c9a1ff4cd3e2cee5c2204743ca1cbc9e6eb0da164b2537a5ce390cdf2376"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "history",
+        "--branch",
+        "WindowsV3A"
+      ],
+      "elapsed_seconds": 1.572173833847046,
+      "exit_code": 0,
+      "label": "11-history-a",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 4650,
+      "stdout_sha256": "f6333a2828fb24c77a2ee0536382237cd9519f96e8cc5a57860e7355fc2d601c"
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Python313\\python.exe",
+        "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-model-free-fleet\\tools\\cow_cli.py",
+        "--url",
+        "http://127.0.0.1:18234",
+        "history",
+        "--branch",
+        "WindowsV3B"
+      ],
+      "elapsed_seconds": 0.942793607711792,
+      "exit_code": 0,
+      "label": "12-history-b",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 3702,
+      "stdout_sha256": "c4e7a07884e85a2901d8d7f2a617a154455165e1efcbc0625159bc8970ecd715"
+    }
+  ],
+  "context_path": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\cli-windows-20261015-v3\\context-utf8.txt",
+  "context_sha256": "c4498db9cddf1e1e21cb5ab3f69e7c5cedc11912d2189b0b0cfda829e0417fce",
+  "local_url": "http://127.0.0.1:18234",
+  "namespace_id": "a814b03dc15b933c0bc01c156235014e",
+  "python_version": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "schema": "cow-cli-windows-synthetic-smoke-v1",
+  "status": "PASS_SYNTHETIC_ONLY",
+  "synthetic_service_only": true,
+  "tunnel_exit_code": 1,
+  "tunnel_pid": 32356,
+  "tunnel_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tunnel_target": "llm-60:127.0.0.1:18234"
+}

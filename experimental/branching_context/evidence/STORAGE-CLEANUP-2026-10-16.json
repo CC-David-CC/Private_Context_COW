@@ -1,0 +1,114 @@
+{
+    "status":  "VERIFIED",
+    "date":  "2026-10-16",
+    "committed_bundle":  {
+                             "location":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/context-cow-all-refs.bundle",
+                             "sha256":  "38b6830feb0ade726334cff01ef327963e6cfea5d7385a673d697264904a070b",
+                             "bytes":  424139077,
+                             "independent_mirror_fsck":  "PASS",
+                             "verification_sha256":  "b166a1e2e21803a07e921f2ce39b2b450b93b629e1ab5c800b4d4a4df08d70f1"
+                         },
+    "sparse_trim":  {
+                        "status":  "PASS",
+                        "free_before_bytes":  2635104256,
+                        "free_after_bytes":  5576331264,
+                        "committed_history_backup":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/context-cow-all-refs.bundle",
+                        "action":  "Remove duplicate tracked working copies using sparse checkout; preserve dirty/untracked source",
+                        "worktrees":  [
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-dry-reference",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "experimental/branching_context/tests/implementation/test_dry_reference.py":  "AE52E1F11B0C9BCA5A56BCD351781B1F0CF0B9819132B0880724B1F3B4713190",
+                                                                       "experimental/branching_context/src/context_time_travel/dry.py":  "CDF0B57A8856CECF576484D6A9A042558E6F4E5C6C10E452F0D276F3A4CC14BF"
+                                                                   }
+                                          },
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-dry-native",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "experimental/branching_context/native/min_p_select.h":  "3D35800A6AF382B45AA30EF1EA0C232F0C1A19039A315D477A7FA618395A1D69",
+                                                                       "experimental/branching_context/scripts/build_min_p_selector_probe.py":  "BF37937A19A7F661438BD77FEDDA10CB5CC34FE726264117A01A84379B24C632",
+                                                                       "experimental/branching_context/tests/implementation/test_dry_native.py":  "D7510DDE1C8FB03FB375EB273CE0F71789E97B7892D1CD18D41724AAE5C5AACA"
+                                                                   }
+                                          },
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-dry-cli",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "serve/cow_adapter.py":  "64084CE3231456D7576F74307ABFBA69CAD60D3F7CCE5D23FC78B90A1A7022BD",
+                                                                       "serve/test_cow_dry_settings.py":  "833EBAEFB337CF75E343BE404657FDF3C3F44062A4BC46D4F8DC17420ED6468B",
+                                                                       "tools/cow_cli.py":  "D69963575324545B1B872B9085981AF420297185634F5F0120546250D9DBE3C1",
+                                                                       "serve/cow_text_adapter.py":  "3712A1DAC28A228A2543F83C5CE8F5B93FD54192A3C969C0CF02553FEC844B99"
+                                                                   }
+                                          },
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-sampler-sweep-v2",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "experimental/branching_context/tests/implementation/test_generation_settings_observer.py":  "5F182A0D21BED47E8A7F8F48EB4101F9683987C5E53E92A0D2D6FACD3DD3679D",
+                                                                       "experimental/branching_context/scripts/run_generation_settings_probe.py":  "44536FD278091DFE71DC6C835D027380245AF2CEE0B265F95CD4DD863173D9CA"
+                                                                   }
+                                          },
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-sampler-cli-v2",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "experimental/branching_context/tests/implementation/test_sampler_serving.py":  "51F88EF6CCDFB271355DB90B03853129A11739801047481D3D26A465CC50E200"
+                                                                   }
+                                          },
+                                          {
+                                              "worktree":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-sampler-native-v2",
+                                              "status_unchanged":  true,
+                                              "preserved_sha256":  {
+                                                                       "experimental/branching_context/native/min_p_select.h":  "5000AFD0AA8255FD5412A40E2BE2CF1AD7D6C9E850AA6B7ADFFA9B7B2DE0C538",
+                                                                       "experimental/branching_context/scripts/build_min_p_selector_probe.py":  "104C473B561F293D2E0DE3536AC3052F81EB66B4349ED8E00CADC0F80FC4810E",
+                                                                       "experimental/branching_context/tests/implementation/test_min_p_top_k_top_p_native.py":  "389DB455C539936A68FBB1CEE98729E10E4590EBFAEFD3B9FB2B604DF40C702F"
+                                                                   }
+                                          }
+                                      ]
+                    },
+    "moved_archives":  {
+                           "value":  [
+                                         {
+                                             "source":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\q4-tree-retention-red-v1\\source.tar",
+                                             "remote":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/source-archives/context-cow-artifacts__q4-tree-retention-red-v1__source.tar",
+                                             "bytes":  490465280,
+                                             "sha256":  "cd280367bf59106d2de1316058d9f8caa3a877482903c4584e180ee9ea9782aa",
+                                             "local_deleted":  true
+                                         },
+                                         {
+                                             "source":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\native-speed-combined-9eafc96e.tar",
+                                             "remote":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/source-archives/context-cow-artifacts__native-speed-combined-9eafc96e.tar",
+                                             "bytes":  487188480,
+                                             "sha256":  "9108e0d0c6e98df620c8d1bad9f8bcbc3a1445a2f001ae850c04fdbfa588e621",
+                                             "local_deleted":  true
+                                         },
+                                         {
+                                             "source":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\checkpoint-digest-candidate\\seal-stream-integrated-source.tar",
+                                             "remote":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/source-archives/context-cow-artifacts__checkpoint-digest-candidate__seal-stream-integrated-source.tar",
+                                             "bytes":  484464640,
+                                             "sha256":  "1b9551ae9cc40b34e26d596771f75a3a38bec1efc691539e5da8921378947c05",
+                                             "local_deleted":  true
+                                         },
+                                         {
+                                             "source":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\p5-q4-root24b4-source.tar",
+                                             "remote":  "middle-child:/home/dflanag3/context-cow-backups/windows-cleanup-20261016/source-archives/context-cow-artifacts__p5-q4-root24b4-source.tar",
+                                             "bytes":  481832960,
+                                             "sha256":  "ee3d0ea9c8e459c33293ba7523073aff844374bfe314bf0062b31a3513695825",
+                                             "local_deleted":  true
+                                         }
+                                     ],
+                           "Count":  4
+                       },
+    "working_files_backup":  {
+                                 "status":  "VERIFIED",
+                                 "archive":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\sampler-working-backup-20261016-v1.tar",
+                                 "bytes":  540160,
+                                 "sha256":  "53b6bcf1e8e7afadd169a7879bc30b3ff6b22ea6b7eacfd6b8c576eaaef0078c",
+                                 "remote":  "box-git:/srv/data/git/private_context_cow.evidence/20261016-sampler-working-v1/working-source.tar",
+                                 "source_manifest":  "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\sampler-working-backup-20261016-v1\\manifest.json"
+                             },
+    "current_C_free_bytes":  7507562496,
+    "limitation":  "Historical bundle omits uncommitted files; separate working-source archive preserves those at its capture time."
+}

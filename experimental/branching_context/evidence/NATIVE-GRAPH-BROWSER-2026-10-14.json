@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "scope": "real browser UI over live same-origin COW HTTP routes; server/model process not started by driver",
+  "server_service": "context-cow",
+  "server_model_label": "Context COW",
+  "browser": "Chrome/155.0.8059.39",
+  "browser_gpu_disabled": true,
+  "authenticated_server": true,
+  "api_key_in_report": false,
+  "output_limit": 8,
+  "max_resumes_per_answer": 8,
+  "max_request_output_budget_upper_bound_per_answer": 72,
+  "inference_kind": "synthetic",
+  "context_attachment": {
+    "name": "smoke_sample.py",
+    "bytes": 67,
+    "sha256": "1738403352bac024c8a423907c9d960dbd80ee9e3173ad0245f027b656aa0c65"
+  },
+  "tmp_root_storage_claim": "none; profile removed at exit",
+  "checks": [
+    {
+      "id": "SMOKE-HEALTH",
+      "status": "PASS",
+      "service": "context-cow"
+    },
+    {
+      "id": "SMOKE-AUTH",
+      "status": "PASS",
+      "key_value_recorded": false
+    },
+    {
+      "id": "SMOKE-EMPTY-NAMESPACE",
+      "status": "PASS",
+      "branches": 0
+    },
+    {
+      "id": "SMOKE-PREPARE-ANSWER",
+      "status": "PASS",
+      "branch": "b-op8942a2554d814c0187d6e921fca928cf",
+      "revision": 3,
+      "messages": 2,
+      "output_characters": 3,
+      "canonical_ui_model_match": true,
+      "normalized_markdown_projection_match": true,
+      "resume_rounds": 1
+    },
+    {
+      "id": "SMOKE-FORK-ISOLATION",
+      "status": "PASS",
+      "source_branch": "b-op8942a2554d814c0187d6e921fca928cf",
+      "fork_branch": "b-adff43879a3a4e229e758fb408554af2",
+      "source_unchanged": true,
+      "selection_restored": true,
+      "fork_resume_rounds": 0,
+      "fork_output_characters": 1
+    },
+    {
+      "id": "SMOKE-GRAPH",
+      "status": "PASS",
+      "branches": 2,
+      "shared_prefix_messages": 2,
+      "counts_before_rewind": {
+        "b-op8942a2554d814c0187d6e921fca928cf": 2,
+        "b-adff43879a3a4e229e758fb408554af2": 4
+      },
+      "drafts_preserved": true,
+      "unavailable_boundary_has_no_actions": true,
+      "rewind_published": true,
+      "previous_tip_retained": true,
+      "previous_tip_not_active": true
+    },
+    {
+      "id": "SMOKE-MATH",
+      "status": "PASS",
+      "engine": "katex",
+      "enable_and_disable_persisted": true,
+      "typesetter_element_rendered": true
+    },
+    {
+      "id": "SMOKE-TRACE",
+      "status": "PASS",
+      "events": 7489
+    }
+  ],
+  "first_branch": {
+    "branch": "b-op8942a2554d814c0187d6e921fca928cf",
+    "revision": 3,
+    "status": "stopped",
+    "count": 2,
+    "hasContext": true,
+    "output_tokens": 3,
+    "bubblePresent": true,
+    "tip": "68752c94098f0c3978546dd9f1fe7c084092c392b491e8b774366bf54a8d89d6",
+    "assistantNode": "68752c94098f0c3978546dd9f1fe7c084092c392b491e8b774366bf54a8d89d6"
+  },
+  "fork_branch": {
+    "branch": "b-adff43879a3a4e229e758fb408554af2",
+    "status": "stopped",
+    "count": 4,
+    "hasForkQuestion": true,
+    "answerCharacters": 1,
+    "output_tokens": 2,
+    "dom": 2
+  },
+  "artifacts": {
+    "01-empty-namespace.png": {
+      "bytes": 103225,
+      "sha256": "49d29528ea5868cf140afa4b9c1883a4af71d5b5b757faa9e274211596189148"
+    },
+    "02-first-answer.png": {
+      "bytes": 117396,
+      "sha256": "d15937e83459c8eb588cbe0635c8f09c96af248effb6147ae671453da4bbc198"
+    },
+    "03-fork-and-settings.png": {
+      "bytes": 147097,
+      "sha256": "ea353a78c00de42e70c15fb80c88d1b77bddb2228f04aeb260d6440b1d1febd5"
+    },
+    "04-shared-branches.png": {
+      "bytes": 128592,
+      "sha256": "1fc165abdf712c73881d9e8fd347035cf0fdf490291b6821964cacde74f7fcbb"
+    },
+    "05-previous-tip.png": {
+      "bytes": 144307,
+      "sha256": "fd8a5b516da5c83b17ca790ce55cdb9662a8ce227e8b639bd0d76ca56eb737b2"
+    },
+    "browser-trace.json": {
+      "bytes": 1687018,
+      "sha256": "8b66c7147fd0ff74ccc808cdf49c0fedd5951154bff08da1cd70472f36f7c6c5"
+    },
+    "trace_event_count": 7489
+  },
+  "status": "PASS"
+}

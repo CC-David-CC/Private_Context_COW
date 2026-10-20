@@ -1,0 +1,13 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-cli-publication-overlap-v1/evidence.tar",
+  "archive_bytes": 163809280,
+  "archive_sha256": "67a2640dafea4357f52f2fe110d82cb2951bdbfc73a6f169092881513b24618d",
+  "extracted_files": 0,
+  "manifest_sha256": "1ba016b9037ac50cfa7b51f8bfa421dec40dfa8434b50439e2099e29c39a8d5d",
+  "schema": "cow-q4-overlap-private-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 161715155,
+  "verified_members": 1602
+}

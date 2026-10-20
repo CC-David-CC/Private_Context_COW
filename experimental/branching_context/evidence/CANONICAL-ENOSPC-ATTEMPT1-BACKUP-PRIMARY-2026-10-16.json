@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 22497280,
+  "archive_sha256": "e1b5839a13e2367faf1ba989e97a2593d1fed0bda2dbe57e40cc4ce7d0a46cd2",
+  "extracted_files": 0,
+  "manifest_sha256": "6c3ccd0dee2c3ffe0a2e32e1da1473624beda8d848d40fe6306c3cffacd41521",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-attempt1-compact-v1/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 22229614,
+  "verified_regular_files": 217
+}

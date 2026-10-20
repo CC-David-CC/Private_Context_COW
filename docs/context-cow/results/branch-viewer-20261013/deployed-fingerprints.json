@@ -1,0 +1,17 @@
+{
+  "host": "llm-60",
+  "python": "3.12.3",
+  "native_executable": "/home/dflanag3/branching-g3/context-cow-public-20261013/build/strata",
+  "native_executable_sha256": "497d7e4c32b8922210dfb1510ed5f101d151c1995f01946a3ac62830fa85719c",
+  "model_path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+  "model_hash_remeasured": false,
+  "source_sha256_lf": {
+    "serve/chat_workspace.py": "a06a89f3b600958f55843328007e380f6fe3f2b048b9d39ad6aa35136de1fb04",
+    "serve/server.py": "c8186d7d185773beeff013e0e77f5d6d88a8017b60696de64620ece4c87b6143",
+    "serve/web/index.html": "79061aafb5269a71f7bafa89ba8fea007ef61dc6ae294939493fc3d395de6465",
+    "serve/web/app.css": "ce8e9478854c7cedfafbb3928ab28dc49dd0abc90e51072f5d7e511d5aae5fdc",
+    "serve/web/app.js": "0b52d0c18c01aa3436d3a7880f0e8f2e92fd95f7583b0f8c9adab50998b190de",
+    "serve/web/workspace.js": "0e44b0ee6784e72ea0b455f2baa1ee8b18c1f0408648f9a1fd1ceea010ecccb1",
+    "serve/web/workspace-graph.js": "cd121d76d96b90cbb624a1fb2cb94f488f3ecffebd69d322513511940986ceb1"
+  }
+}

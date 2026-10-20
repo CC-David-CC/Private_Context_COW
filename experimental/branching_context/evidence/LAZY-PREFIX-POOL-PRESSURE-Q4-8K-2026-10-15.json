@@ -1,0 +1,150 @@
+{
+  "schema": "cow-pool-pressure-primary-audit-v1",
+  "status": "PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "quant": "q4",
+  "scope": "Sized actual disk-LRU pressure, canonical fork/retry, explicit reconstruction and independent native oracle",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/lazy-prefix-pressure-20261015-v1",
+  "result_sha256": "0f968f04df04ceabee33cea4729187e5d2bd14c2fa53f538292051265f90d584",
+  "numerical_max_error": 0,
+  "exact_full_vector_comparisons": 2,
+  "logits_per_vector": 248320,
+  "tokens_exact": true,
+  "tested_greedy_controller_exact": true,
+  "prefix_tokens": 8192,
+  "suffix_tokens": 512,
+  "generated_token_limit": 128,
+  "producer_output_tokens": 128,
+  "output_tokens": 128,
+  "work_split": {
+    "output_tokens": 128,
+    "prefix_consumed_tokens": 8832,
+    "prefix_forward_tokens": 8832,
+    "prefix_history_tokens": 8832,
+    "suffix_and_output_forward_tokens": 640,
+    "suffix_tokens": 512,
+    "total_forward_tokens": 9472
+  },
+  "source_recomputation": {
+    "controller_sha256": "3e331aa85916e6ab2ec1b9630ed386cef5e89e2f17a5987222a51946b6b0fb58",
+    "durable": false,
+    "prefix_consumed_tokens": 8832,
+    "prefix_forward_tokens": 8832,
+    "prefix_history_tokens": 8832,
+    "prior_computation_preserved": false,
+    "schedule_sha256": "fc6ea1a46452824ecd2d8377ddc009b77ff10b4220941dadcf8d5837ae566061",
+    "seconds": 1.858676752075553,
+    "snapshot": "fd4cd4e4a94131de86a307126557968b62ecbea2aebd630912136363c6f55143",
+    "source_kind": "recomputed-history"
+  },
+  "eviction": {
+    "canonical_after_sha256": "56b618c6b71f91fc2ada0eb4bbebcbf631ea6bf3bef9a4b1ee569d33d14c85a3",
+    "canonical_before_sha256": "56b618c6b71f91fc2ada0eb4bbebcbf631ea6bf3bef9a4b1ee569d33d14c85a3",
+    "canonical_snapshots_refs_controllers_histories_unchanged": true,
+    "checkpoint_directory_empty": true,
+    "evicted_files": [
+      {
+        "bytes": 349720568,
+        "relative_path": "checkpoints/7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9.state",
+        "sha256": "7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9"
+      },
+      {
+        "bytes": 333006328,
+        "relative_path": "checkpoints/b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b.state",
+        "sha256": "b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b"
+      },
+      {
+        "bytes": 891,
+        "relative_path": "checkpoints/f4d5306c46487a89388b2be597c9669a7bd5f928a37c2ba903f45efc40a581be.json",
+        "sha256": "56ccd3681783bb1da6501487aa3721789e7804001c88f54c5f3708875dd2ec05"
+      },
+      {
+        "bytes": 2367,
+        "relative_path": "checkpoints/fd4cd4e4a94131de86a307126557968b62ecbea2aebd630912136363c6f55143.json",
+        "sha256": "f61f9ffffcf1c616dcf8ff85e95a2dac7562b0a442bc5d12497133368e226258"
+      }
+    ],
+    "expected_snapshots": [
+      "f4d5306c46487a89388b2be597c9669a7bd5f928a37c2ba903f45efc40a581be",
+      "fd4cd4e4a94131de86a307126557968b62ecbea2aebd630912136363c6f55143"
+    ],
+    "inventory_bytes": 682730154,
+    "inventory_file_count": 4,
+    "method": "production-DiskCheckpointPool.reserve-pressure",
+    "metrics_after_release": {
+      "admission_waits": 0,
+      "byte_limit": 682730154,
+      "file_bytes": 0,
+      "files_evicted": 4,
+      "local_reserved_bytes": 0,
+      "recency_entries": 0,
+      "reserved_bytes": 0
+    },
+    "metrics_before": {
+      "admission_waits": 0,
+      "byte_limit": 682730154,
+      "file_bytes": 682730154,
+      "files_evicted": 0,
+      "local_reserved_bytes": 0,
+      "recency_entries": 2,
+      "reserved_bytes": 0
+    },
+    "metrics_during_reservation": {
+      "admission_waits": 0,
+      "byte_limit": 682730154,
+      "file_bytes": 0,
+      "files_evicted": 4,
+      "local_reserved_bytes": 682730154,
+      "recency_entries": 0,
+      "reserved_bytes": 682730154
+    },
+    "pressure_budget_bytes": 682730154,
+    "producer_receipt_unchanged": true
+  },
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "runtime_source_sha256": {
+    "context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "context_time_travel/coordinator.py": "01a2b42d7bf23a16441563a24afb6b611ed46b12a4d7f379ccdd4d688ca6c3ad",
+    "context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "context_time_travel/pools.py": "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3",
+    "context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "context_time_travel/real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "context_time_travel/store.py": "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3",
+    "context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "harness_sha256": "5a5435737c903fb4f17732c1e35e38039393b5b50c5861e267407098b0dbf6c5",
+  "native_binary_sha256": {
+    "sut_command": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+    "oracle_command": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+  },
+  "python_native_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "elapsed_seconds": 72.21410807501525,
+  "limitations": [
+    "Prefix and final frontier only; not every generated frontier.",
+    "Deliberate bounded pressure fixture; production inference pools remain 96 GiB RAM / 128 GiB disk.",
+    "Numerical eviction intentionally loses saved computation and reconstruction evaluates 8832 saved tokens.",
+    "Earlier intermittent counter-inequality failure remains unexplained; this run does not resolve it.",
+    "Deterministic greedy fixture, not crash, ENOSPC, soak or cumulative G1-G5 qualification."
+  ]
+}

@@ -1,0 +1,13 @@
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ok
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... ok
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... ok
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... ok
+test_trim (test_ledger.LedgerTests.test_trim) ... ok
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.000s
+
+OK

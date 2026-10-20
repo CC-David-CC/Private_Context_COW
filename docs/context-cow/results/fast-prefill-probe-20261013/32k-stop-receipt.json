@@ -1,0 +1,10 @@
+{
+  "status": "STOPPED_FOR_NORMAL_SERVING_MEASUREMENT",
+  "pids": [
+    1097506,
+    1100388,
+    1131055
+  ],
+  "utc": "2026-10-13T05:41:32Z",
+  "reason": "User requested ordinary serving TPS measurement before memory-streaming changes. Preserve partial exact evidence; 8-request and 64K cases are incomplete."
+}

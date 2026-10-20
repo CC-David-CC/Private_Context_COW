@@ -1,0 +1,63 @@
+{
+    "schema":  1,
+    "title":  "Controller-only reseed canonical history validation",
+    "date":  "2026-10-16",
+    "worktree":  "C:/Users/dflanag3/Documents/fleet/context-cow-reseed-integrity",
+    "branch":  "work/reseed-integrity-20261016",
+    "base_commit":  "cf90285c9be67f5f79c198c415e83440f4893515",
+    "status":  "CPU_PASS_GPU_UNRUN",
+    "finding":  "Controller snapshot integrity hashes do not prove controller progress matches canonical history. Before this fix, a valid Store snapshot with a modified seen count could be reseeded and published.",
+    "implementation":  [
+                           "BranchingModel.set_random_stream validates controller progress by replaying accepted canonical history before changing stream_key/next_draw.",
+                           "Plain sampled controllers use PlainSamplingSession.restore; grammar controllers restore through the server-owned GrammarEngine; legacy greedy controllers are reconstructed and consumed against the canonical suffix.",
+                           "Coordinator carries the startup GrammarRegistry only for grammar-bound reseed and preserves existing generic model signatures for plain reseed.",
+                           "CowAdapter forwards its configured server-owned registry to reseed."
+                       ],
+    "final_stage":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/source-green-v11",
+    "final_source_sha256":  {
+                                "experimental/branching_context/src/context_time_travel/seed_controls.py":  "a62b8f4e574f1114ef1b0d3723764bba9c4dad1b1b49d2b5a4b071936d5e5d7b",
+                                "experimental/branching_context/src/context_time_travel/real.py":  "6d8d35f8056632977ade4ff8427ce4a2987c71fe0fa17e387df882e6d3f97a39",
+                                "experimental/branching_context/src/context_time_travel/coordinator.py":  "0a7a31aadea3425fd8755d00949f523c93382d14ebd9b860543abe12ec40c11f",
+                                "serve/cow_adapter.py":  "62f5952e16708eb5a79bd901466e5d1a02b79e01d34c6926eaffb83b697aedac",
+                                "experimental/branching_context/tests/implementation/test_reseed_history_integrity.py":  "f9cea2a35e202cd220231f7d44ce7059952e1a0b0890fa5c96084dcc434fab6e"
+                            },
+    "behavioral_red":  {
+                           "source":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/source-red-v7",
+                           "test_sha256":  "806a7e923af19da5b7939fb145bb547e65d5be47a127d4f76f1323443a6743f5",
+                           "run":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/red-run-v7",
+                           "command_exit":  1,
+                           "wrapper_exit":  1,
+                           "failure":  "IntegrityError not raised for a checksum-valid canonical snapshot whose seen count disagreed with token history."
+                       },
+    "qualification":  {
+                          "focused_command":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/runs/focused-v9",
+                          "focused_exit":  "command=0;wrapper=0;2 tests passed",
+                          "regression_command":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/runs/regressions-v4",
+                          "regression_exit":  "command=0;wrapper=0;38 tests passed",
+                          "regression_modules":  [
+                                                     "test_seed_presentation_flow",
+                                                     "serve.test_cow_grammar_canonical_flow",
+                                                     "serve.test_cow_text_stops_cli",
+                                                     "test_reseed_history_integrity"
+                                                 ],
+                          "import_preflight":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/runs/import-preflight-v2",
+                          "import_preflight_exit":  "command=0;wrapper=0",
+                          "g0":  "/home/dflanag3/spatial-artifacts/reseed-integrity-20261016-v1/runs/g0-v3",
+                          "g0_exit":  "command=0;wrapper=0;G0 PASS 51 tests",
+                          "g0_argv":  "experimental/branching_context/scripts/verify.py --gate G0 --no-write"
+                      },
+    "regression_details":  [
+                               "Plain FlowModel/coordinator route: valid reseed is a positive control; checksum-valid wrong seen count is rejected with unchanged head, no receipt, and unchanged forward/consumed work counters.",
+                               "Real BranchingModel + real GrammarRegistry + CPU GrammarEngine route: valid reseed preserves grammar state, accepted count, and ambiguous stop prefix; a valid but wrong grammar state and a valid but wrong stop matcher state are rejected before branch mutation.",
+                               "A grammar-bound reseed without the server registry fails closed."
+                           ],
+    "preserved_attempts":  [
+                               "Preserve red-run-v1 through red-run-v7; v7 is the behavioral red. Early staging/import attempts are setup failures.",
+                               "Preserve runs/regressions-v1 and regressions-v3 failed attempts; regressions-v4 is the final 38-test green run.",
+                               "Preserve runs/g0-v1 failed path invocation and g0-v2/v3 completed G0 invocations; g0-v3 is current source."
+                           ],
+    "limits":  [
+                   "CPU synthetic backend and FlowModel tests only; no native/GPU qualification.",
+                   "G0 verifier was run with --no-write; its complete terminal output is retained in the external run directory."
+               ]
+}

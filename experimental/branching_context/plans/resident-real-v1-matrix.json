@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "name": "q4-real-8k",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-real-v1/scripts/resident_resume.py", "campaign", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/resident-real-v1-20261014/q4-real-8k", "--fixture", "/home/dflanag3/branching-g3/codebase-fixtures-20261014/q4-8k.json", "--generated", "128"]
+    },
+    {
+      "name": "q8-64k",
+      "argv": ["python3", "/home/dflanag3/branching-g3/native-request-probe-20261014/api-real-v1/scripts/resident_resume.py", "campaign", "--profile", "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-v4/profile.json", "--output", "/home/dflanag3/branching-g3/resident-real-v1-20261014/q8-64k", "--prefix", "65536", "--suffix", "8192", "--generated", "2048"]
+    }
+  ]
+}

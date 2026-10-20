@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/native-multiturn-luna-20261014/scripts/run_native_multiturn_oracle.py", line 186, in <module>
+    raise SystemExit(run(args.profile, args.fixture, args.binary, args.run_dir, args.rejection))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/spatial-artifacts/native-multiturn-luna-20261014/scripts/run_native_multiturn_oracle.py", line 77, in run
+    command = profile_command(profile, binary, tokens_path, max_new)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/spatial-artifacts/native-multiturn-luna-20261014/scripts/run_native_multiturn_oracle.py", line 37, in profile_command
+    token_index = command.index('--tokens')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: '--tokens' is not in list

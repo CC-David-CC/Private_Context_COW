@@ -1,0 +1,30 @@
+{
+  "envsyntax.py": {
+    "sha256": "2f1a67d8117f3bd24ef5ffc1cd5a18d29718884f720de825da189f92058d2951",
+    "mode": "0o600"
+  },
+  "README.md": {
+    "sha256": "e95d58ed6549f5bfeb2a8ff05129e1e4dd42f1ce2c69942785dfdea7c36d0001",
+    "mode": "0o664"
+  },
+  "envconfig.py": {
+    "sha256": "d5bcb267b832166e69e42673e8b40c8abbcf03d2959496fcafc995b42fe6a648",
+    "mode": "0o664"
+  },
+  "tests/test_envconfig.py": {
+    "sha256": "3cd21a43e60de2034ae49f8e15519f5cdfd21718c6cfe1aee212071a4f53ab8b",
+    "mode": "0o664"
+  },
+  "tests/test_duplicates.py": {
+    "sha256": "f0160907d52c60e3c19ba2394ebde143e23c6a2560ca840142607b1f4d1f49f4",
+    "mode": "0o664"
+  },
+  "tests/test_envsyntax.py": {
+    "sha256": "856688ad1fd91ca158e7ef64a102622886d23d2a5117e099017c212ab8547a22",
+    "mode": "0o664"
+  },
+  "tests/__init__.py": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mode": "0o664"
+  }
+}

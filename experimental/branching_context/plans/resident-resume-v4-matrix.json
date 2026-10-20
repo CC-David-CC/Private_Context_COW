@@ -1,0 +1,148 @@
+{
+  "jobs": [
+    {
+      "name": "q4-tiny",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q4-tiny",
+        "--prefix",
+        "128",
+        "--suffix",
+        "4",
+        "--generated",
+        "8"
+      ]
+    },
+    {
+      "name": "q3-tiny",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q3-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q3-tiny",
+        "--prefix",
+        "128",
+        "--suffix",
+        "4",
+        "--generated",
+        "8"
+      ]
+    },
+    {
+      "name": "q4-medium",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q4-medium",
+        "--prefix",
+        "1024",
+        "--suffix",
+        "64",
+        "--generated",
+        "16"
+      ]
+    },
+    {
+      "name": "q4-8k",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q4-8k",
+        "--prefix",
+        "8192",
+        "--suffix",
+        "512",
+        "--generated",
+        "128"
+      ]
+    },
+    {
+      "name": "q4-64k",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q4-96k-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q4-64k",
+        "--prefix",
+        "65536",
+        "--suffix",
+        "8192",
+        "--generated",
+        "2048"
+      ]
+    },
+    {
+      "name": "q8-tiny",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q8-tiny",
+        "--prefix",
+        "128",
+        "--suffix",
+        "4",
+        "--generated",
+        "8"
+      ]
+    },
+    {
+      "name": "q8-medium",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q8-medium",
+        "--prefix",
+        "1024",
+        "--suffix",
+        "64",
+        "--generated",
+        "16"
+      ]
+    },
+    {
+      "name": "q8-8k",
+      "argv": [
+        "python3",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/api-v4/scripts/resident_resume.py",
+        "campaign",
+        "--profile",
+        "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-profile-v4/profile.json",
+        "--output",
+        "/home/dflanag3/branching-g3/resident-resume-v4-20261014/q8-8k",
+        "--prefix",
+        "8192",
+        "--suffix",
+        "512",
+        "--generated",
+        "128"
+      ]
+    }
+  ]
+}

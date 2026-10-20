@@ -1,0 +1,99 @@
+{
+  "status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+  "profile_id": "61d56afbbb79519633ff937aa335bc81991c6d4de692587d5458ceb71346e341",
+  "source_commit": "c2af920f1ad63651f05c9befda9e62a3faa2e1fd",
+  "result_sha256": "a22f87c97faebffbf578cbc12abbfe1d48713f88b7a7a4410edec2bbe285bd4d",
+  "fixture": {
+    "text_control_tokens": 1024,
+    "image_rows": 1073,
+    "total_cells": 2097,
+    "suffix_tokens": 64,
+    "outputs_each": 16
+  },
+  "full_vector_comparisons": 190,
+  "controller_comparisons": 7,
+  "max_abs_error": 0,
+  "all_generated_frontiers": true,
+  "work": [
+    {
+      "forward_tokens": 2257,
+      "prefix_forward_tokens": 2097,
+      "stage": "prepare"
+    },
+    {
+      "forward_tokens": 2177,
+      "prefix_forward_tokens": 2097,
+      "stage": "reference-A-0"
+    },
+    {
+      "forward_tokens": 2177,
+      "prefix_forward_tokens": 2097,
+      "stage": "reference-A-1"
+    },
+    {
+      "forward_tokens": 2177,
+      "prefix_forward_tokens": 2097,
+      "stage": "reference-B-0"
+    },
+    {
+      "forward_tokens": 2177,
+      "prefix_forward_tokens": 2097,
+      "stage": "reference-B-1"
+    },
+    {
+      "forward_tokens": 160,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-0"
+    },
+    {
+      "forward_tokens": 160,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-1"
+    },
+    {
+      "forward_tokens": 160,
+      "prefix_forward_tokens": 0,
+      "stage": "resume-2"
+    },
+    {
+      "forward_tokens": 12,
+      "prefix_forward_tokens": 0,
+      "stage": "generated-restart"
+    }
+  ],
+  "pids_absent": [
+    261306,
+    261323,
+    261447,
+    261448,
+    261505,
+    261506,
+    261629,
+    261630,
+    261798,
+    261799,
+    261979,
+    261982,
+    262160,
+    262163,
+    262267,
+    262270,
+    262334,
+    262337
+  ],
+  "private_archive": {
+    "archive_bytes": 287048629,
+    "archive_sha256": "fc8bd308aa92c040dbc0c55f20b44f49f5e7f6062d30bf39897151c9ef623092",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-medium-v1/evidence.tar.gz",
+    "individually_verified_data_files": 472,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 473,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "local_retirement": {
+    "state_logical_bytes": 349578952,
+    "vector_logical_bytes": 244346880,
+    "scope": "Every full vector archived and receiver-verified before local derived copies retired; canonical/originals/embeddings/manifests/logs retained"
+  },
+  "limitations": "Bounded Q4/profile61d56af only; target8K running separately, combined new-image profile8e7fa4f GPU UNRUN, fullVC09 and original G1-G5 unqualified"
+}

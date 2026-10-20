@@ -1,0 +1,21 @@
+# CLI machine results and reseed revision CAS
+
+This worker checkpoint fixes two CLI boundaries. Machine-result output and its local journal retain the exact complete-event answer object when a non-generating operation has no `text` field; a present `text` field must be a string. `reseed --revision N` checks the observed head before sending and sends that exact `N`, leaving the server's revision CAS as the race guard. Omitting `--revision` retains the previous read-head behavior.
+
+The local source commit is `dd991add5ab2c0de99e98d30c4a034f6aacc8675` on `work/cli-seed-stop-combined-20261016`. It was not pushed. Its source files are `tools/cow_cli.py` (SHA-256 `dfbf3dd35f61bf8210fe64bcd1e7b0927d4b59cebaa9af0b1d456b8eb8954b46`), `experimental/branching_context/tests/implementation/test_cow_cli_machine_result.py` (`bb5c54a2d4e55abdf2e59079c277832b2c8a6ea7b2b3472a17a38e0a5c70f633`), and `experimental/branching_context/tests/implementation/test_cow_cli_reseed_revision.py` (`a65c368c594f5e03ba0622e19d799c636aa83503851ca9ede050547f7c79c818`).
+
+## CPU evidence
+
+All runtime checks used the approved llm-60 runner at `/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh` (SHA-256 `7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537`) and `/home/dflanag3/src/Strata/.venv/bin/python -B`. The final frozen source is `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source`, manifest `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/source.sha256` (SHA-256 `7c78b126690735c68bba88b83bf2abc82086f2d83c3139cadca139ad94337ea9`). Its three changed-file hashes match the local commit.
+
+- Focused machine-result and reseed revision modules: 10 tests passed, 0 failures/errors; command/wrapper `0/0`; run `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/run-v16-focused`.
+- Full CPU union: 338 tests passed, 0 failures/errors/skips; command/wrapper `0/0`; run `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/run-v16-union`.
+- G0: 51 tests passed, 0 failures/errors; command/wrapper `0/0`; run `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/run-v16-g0`.
+
+The reseed revision test performs an actual CLI subprocess against the COW HTTP service. It verifies a matching revision succeeds, an already-stale revision is rejected before mutation, and a deterministic post-read race advances the branch before forwarding the CLI's unchanged revision to the real endpoint; the server rejects that CAS and the competing move remains the only branch update.
+
+## Profile and qualification boundary
+
+The separately finalized profile is `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v16/profile-v4/profile.json`, SHA-256 `682b7f8ea85487c0617333636a274e33022c07c57567df9ee8762defb5c5740b`, mode `0400`. Its execution profile ID is `8db64e3cbef0906e7757875483d1c9548d09198a5cd6a999c8329be30e422695`; model contract ID is `ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827`. Preparation receipt `.../profile-v4/prepare.json` has SHA-256 `13bcbba5a88897dd329fafefc09c65834dbd8b4fa5c3466a1537aed95747c300`. Finalization reloaded and validated the serialized profile, execution/model pins, and runtime closure against the exact frozen v16 source. It verified 13 imported modules under that source and reused 15 model-file hash receipts without hashing model bytes in the preparation process. No service/native process was started for profile preparation. This profile is `PROFILE_PREPARED_NOT_RUN`; G1 and GPU qualification remain NOT_RUN.
+
+The earlier actual GPU attempt remains preserved at `/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/gpu-cli-command-v1` and `gpu-cli-results-v1`; it stopped at the reseed CLI parser with `unrecognized arguments: --revision 1`. It is not evidence against the corrected CPU source. Profile-preparation v1's helper failed before profile creation by treating a hash string as a path; v3's receipt recorded the prior 337-test count and is superseded by the v4 receipt. The underlying profile bytes are unchanged between those two preparations; use the v4 receipt.

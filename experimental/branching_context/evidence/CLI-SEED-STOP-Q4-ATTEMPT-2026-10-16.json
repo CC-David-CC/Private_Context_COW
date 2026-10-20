@@ -1,0 +1,104 @@
+{
+  "command_exit": 1,
+  "commands": [
+    {
+      "elapsed_seconds": 0.057844531955197453,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "label": "namespace",
+      "native_trace_bytes_after": 3388,
+      "native_trace_bytes_before": 3388,
+      "native_trace_delta_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "elapsed_seconds": 0.6490725970361382,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "label": "prepare",
+      "native_trace_bytes_after": 51126,
+      "native_trace_bytes_before": 3388,
+      "native_trace_delta_sha256": "5e1215b3c4066a6d9c3aedea7f25c520f3b83d2103fb40d687eb3375cfcf4456"
+    },
+    {
+      "elapsed_seconds": 0.12309124507009983,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "label": "fork-sampled",
+      "native_trace_bytes_after": 51126,
+      "native_trace_bytes_before": 51126,
+      "native_trace_delta_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "elapsed_seconds": 0.11780332890339196,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "label": "fork-grammar",
+      "native_trace_bytes_after": 51126,
+      "native_trace_bytes_before": 51126,
+      "native_trace_delta_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "elapsed_seconds": 1.2275495789945126,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "label": "sampled-partial",
+      "native_trace_bytes_after": 107755,
+      "native_trace_bytes_before": 51126,
+      "native_trace_delta_sha256": "2e9e9f36b504bb6f65eff94af9e1012f69f88739c26886a0e293d4f7eea3713e"
+    },
+    {
+      "elapsed_seconds": 0.04086363804526627,
+      "exit_code": 2,
+      "expected_exit_code": 0,
+      "label": "reseed",
+      "native_trace_bytes_after": 107755,
+      "native_trace_bytes_before": 107755,
+      "native_trace_delta_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "failures": [
+    {
+      "message": "CLI reseed returned 2, expected 0",
+      "type": "RuntimeError"
+    }
+  ],
+  "last_command_stderr": "usage: cow_cli.py [-h] [--url URL] [--timeout TIMEOUT] [--state-dir STATE_DIR]\n                  [--machine-result]\n                  {status,contexts,namespaces,branches,history,operation,namespace,load,prepare,ask,answer,continue,append-user,retry,fork,rewind,reseed,retry-publication,retry-request,evaluate,inspect-evaluation,select-evaluations,adopt-evaluation}\n                  ...\ncow_cli.py: error: unrecognized arguments: --revision 1\n",
+  "limitations": [
+    "CLI reseed rejected --revision before request dispatch; no restart or STOP coverage from this attempt.",
+    "First sampled output succeeded but is not independently numerically audited."
+  ],
+  "numerical_audit": "NOT_RUN",
+  "profile": "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v13/profile-v2/profile.json",
+  "profile_identity": {
+    "execution_profile_id": "5cf8c835143e9c12485c51d69ea0c27e52357cd857e6ec717931861fba09b4e9",
+    "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827"
+  },
+  "reseed": 73,
+  "restart": "NOT_REACHED",
+  "result_sha256": "da1993c6de8c3be90cf1909e08d6f482814e5bf7d482c8e69e7990d668d22e08",
+  "schema": "cow-cli-seed-stop-attempt-summary-v1",
+  "seed": 0,
+  "services": [
+    {
+      "pid": 3669562,
+      "process_absence_at_audit": {
+        "3669562": true,
+        "3669568": true
+      },
+      "service_exit": 0,
+      "startup_seconds": 19.968328073155135,
+      "worker_shutdown": {
+        "close_succeeded": true,
+        "event_count": 5,
+        "native_exit_code": 0,
+        "native_pid": 3669568,
+        "trace_sha256": "eaaf0799ed57b5004769960429a8297b9d6c47fc7e3af04dfdfd832fdd919af9"
+      }
+    }
+  ],
+  "source_runtime": "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v13/source",
+  "status": "FAIL",
+  "stop_flow": "NOT_REACHED",
+  "wrapper_exit": 1
+}

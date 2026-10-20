@@ -1,0 +1,29 @@
+{
+  "schema": "cow-cli-package-evidence-v1",
+  "status": "PRIVATE_CLIENT_PACKAGE_VERIFIED",
+  "source_commit": "93eb378f5d41c2a2c62bc9249b782ed453c3b26d",
+  "local_file": "C:/Users/dflanag3/Documents/fleet/context-cow-cli-private-draft-20261015/context-cow-cli-private-draft-v5.zip",
+  "box_git_file": "/srv/data/git/private_context_cow.evidence/20261015-cli-client-package-v1/context-cow-cli-private-draft-v5.zip",
+  "bytes": 294858,
+  "sha256": "22834c9f1ac7aaeebc95c6dd267c47246495e5830e0e6356d517e3a31f3c2931",
+  "cli_sha256": "798fe8706b0e5bf8b6ebdf956d10d59ef6bc1e5647b98efe3590e098afb04b91",
+  "manifested_files": 20,
+  "zip_members": 21,
+  "local_links_checked": 23,
+  "help_exit": 0,
+  "box_git_sha256_independently_read": true,
+  "box_git_permissions": {
+    "directory": "0700",
+    "file": "0600"
+  },
+  "validation": [
+    "Manifest lengths/SHA and ZIP CRC match",
+    "Every local Markdown link in the packaged files resolves, including relocated README fragment link",
+    "Extracted client --help exposes retry-request and --state-dir under Windows Python3.13.15",
+    "CLI hash matches the earlier actual Windows lost-ACK test and current combined CPU qualification"
+  ],
+  "retained_failure": "v4 failed on relocated fragment and source-only historical links; original ZIP and RED logs retained. V3 predates journal.",
+  "scope": "Client and guides only; existing authorized COW server required. No model/engine or API key in archive; no new inference run from this ZIP.",
+  "qualification": "Bounded private draft; original G1-G5 unchanged",
+  "publication": "Private local artifacts and box-git only; no GitHub"
+}

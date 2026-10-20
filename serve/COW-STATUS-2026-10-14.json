@@ -1,0 +1,44 @@
+{
+  "schema": "cow-status-endpoint-cpu-evidence-v1",
+  "status": "PASS_CPU_SYNTHETIC_ONLY",
+  "date": "2026-10-14",
+  "source": {
+    "root_graph_route_commit": "c70652b165560bee36c7e5437f5bd84a4d72b6c2",
+    "merged_branch": "feat/model-free-fleet",
+    "files": {
+      "serve/cow_adapter.py": "319a8fcb2709583c15a1275d6641452a7a63f64c0841ad6f92fd47e6a13a5eb9",
+      "serve/cow_http.py": "6dbae477d66d3621d535fecbde470d28a132a178123fc3828df60cf28cc055fa",
+      "serve/test_cow_status_http.py": "88ae85782fdf2fd0a6181c0ed158f4ecaf9df2ca684e3d04b907c7b70b757f45"
+    }
+  },
+  "behavior": {
+    "route": "GET /cow/status",
+    "authentication": "Authorization: Bearer <configured API key> required; existing Origin validation runs before metrics are read.",
+    "query": "All query parameters rejected with HTTP 400 before metrics read.",
+    "success": "Returns coordinator.metrics() unchanged (JSON serialized), including GPU, worker_count, physical_gpu_count, active_per_gpu, max_active_per_gpu, queued, pending_branches, failed_publications, completed, failed, cancelled, preload_failures, ram, and disk.",
+    "failure": "Coordinator or serialization failure returns HTTP 409; no synthetic healthy fallback.",
+    "side_effects": "No model forward, request admission, Store head mutation, estimated TPS, or alternate Store."
+  },
+  "red": {
+    "command": "PYTHONPATH=experimental/branching_context/src:. python3 /tmp/test_cow_status_http_luna.py -v",
+    "host": "llm-60; untouched Q8 frozen source tree before adapter/HTTP overlay",
+    "outcome": "Expected RED: authorization/origin test passed; the three authenticated status cases returned 404 because /cow/status did not yet exist."
+  },
+  "green": {
+    "command": "PYTHONPATH=/home/dflanag3/branching-g3/cow-status-luna-20261014:/home/dflanag3/branching-g3/namespace-q8-http-luna-20261014/source-b0072ac0/tree/experimental/branching_context/src:/home/dflanag3/branching-g3/namespace-q8-http-luna-20261014/source-b0072ac0/tree python3 -m unittest -v serve.test_cow_http serve.test_cow_status_http",
+    "host": "llm-60, Python 3.12, isolated scratch overlay /home/dflanag3/branching-g3/cow-status-luna-20261014",
+    "exit_code": 0,
+    "tests_passed": 18,
+    "tests_skipped": 0,
+    "executed_status_test_ids": [
+      "serve.test_cow_status_http.CowStatusHTTPTests.test_auth_and_origin_are_checked_before_metrics_read",
+      "serve.test_cow_status_http.CowStatusHTTPTests.test_metrics_failure_is_not_reported_as_healthy_status",
+      "serve.test_cow_status_http.CowStatusHTTPTests.test_status_rejects_all_query_parameters_before_metrics_read",
+      "serve.test_cow_status_http.CowStatusHTTPTests.test_status_returns_actual_metrics_without_forward_or_store_mutation",
+      "serve.test_cow_status_http.CowStatusRealCoordinatorTests.test_http_snapshot_matches_real_metrics_without_canonical_or_forward_work"
+    ],
+    "existing_http_tests": 13,
+    "duration_seconds": 10.042,
+    "scope": "Synthetic coordinator/model startup only; no native backend inference or GPU correctness claim."
+  }
+}

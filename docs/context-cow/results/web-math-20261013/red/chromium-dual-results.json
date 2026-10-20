@@ -1,0 +1,11 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "actual browser UI; mock inference, no GPU",
+  "checks": [
+    "rendering_starts_disabled",
+    "no_vendor_load_when_disabled"
+  ],
+  "engines": {},
+  "error": "AssertionError('renderer_selector_exists')"
+}

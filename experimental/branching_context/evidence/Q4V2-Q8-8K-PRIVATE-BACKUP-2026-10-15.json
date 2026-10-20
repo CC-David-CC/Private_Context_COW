@@ -1,0 +1,62 @@
+{
+  "archive_bytes": 8089784320,
+  "archive_sha256": "e56ce620f605ea32e10c0372d9b4ba09886d75dab270695dd61fbbc65c9fa604",
+  "excluded": [
+    "live case-q8-code64k8335-2048-shutdown-v1 and matching run (not inspected/collected)",
+    "models/model weights",
+    "native/source/build archive already backed up separately",
+    "already-archived Q4 V1 evidence"
+  ],
+  "files_deleted": 0,
+  "manifest_sha256_receiver": "ed881f68eca805bc08b79fc541aa0af55d48c01dd84d302ca820a7153ae4ce6a",
+  "manifest_sha256_sender": "51b2f09ee26f6d5f6024e2e15f1a541ee68cfb274e7d2f3a152346cc52bf7869",
+  "member_listing_sha256": "3113ad41dce04fc83fa9ac2c27bcce01768aff330327cd2bbcbe3783c9d6c88e",
+  "members": 634,
+  "models_copied": 0,
+  "native_exit_scope": {
+    "q4_v2": "four client measurements record numeric native worker exit 0; summary runs exited 0",
+    "q8_shutdown_v2": "numeric native phase exit records retained and zero",
+    "q8_v1": "native numeric exit absent; do not infer exit 0"
+  },
+  "permissions": {
+    "archive": "0600",
+    "target_directory": "0700"
+  },
+  "preflight": {
+    "command_exit": 0,
+    "input_bytes": 8088973899,
+    "manifest_sha256": "51b2f09ee26f6d5f6024e2e15f1a541ee68cfb274e7d2f3a152346cc52bf7869",
+    "members": 634,
+    "status": "PREFLIGHT_PASS_NO_STREAM",
+    "wrapper_exit": 0
+  },
+  "preserved_failure": {
+    "attempt": "preflight-run-v1",
+    "cause": "initial run selection incorrectly used output-tree names for the two Q8 run receipt paths; corrected in preflight v2",
+    "command_exit": 1,
+    "wrapper_exit": 1
+  },
+  "receiver_receipt_sha256": "f203d2e7068b828f7d2cfb1ea8284ef4914f96efaf3ed5de9f132ccd25a54368",
+  "selected_output_trees": [
+    "client-old-resident-v2",
+    "client-old-disk-v2",
+    "client-new-resident-v2",
+    "client-new-disk-v2",
+    "case-q8-code8k128-v1",
+    "case-q8-code8k128-shutdown-v2"
+  ],
+  "source_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1",
+  "status": "PASS_RAW_EVIDENCE_BACKUP",
+  "stream_run": {
+    "command_exit": 0,
+    "pane_pid": 2263117,
+    "receiver_ssh_pid": 2263168,
+    "run_command_pid": 2263118,
+    "run_dir": "/home/dflanag3/spatial-artifacts/q4v2-q8-8k-shutdown-backup-20261015/stream-run-v1",
+    "sender_pid": 2263152,
+    "terminal": "COMPLETE",
+    "tmux": "q4v2q8backup-stream01",
+    "wrapper_exit": 0
+  },
+  "target": "/srv/data/git/private_context_cow.evidence/20261015-q4v2-q8-8k-shutdown-v2/evidence.tar"
+}

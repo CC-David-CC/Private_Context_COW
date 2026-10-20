@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "gate_status": "NOT_QUALIFIED",
+  "scope": "fixed aligned prefix/chunk prototype; no full acceptance qualification",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11
+  },
+  "profile_sha256": "478ccb03e5fc93a5112156b725dabb2a661b72b090b83bc4ea927c8a7a2059f0",
+  "model_contract_id": "50f15fcca3784a1c0c2b2c144a79f479696fa76b2029f09391e02951f0471704",
+  "execution_profile_id": "8bc4a5846abb1a99eae46c99010fbb5b31917b4612623e3205ed93c8a556c05b",
+  "sampling": {
+    "temperature": 0,
+    "output_work_bound": 8,
+    "eos_tokens": [
+      248044,
+      248046
+    ],
+    "excluded_ids": []
+  },
+  "cases": [
+    {
+      "id": "LONG-128",
+      "prefix_tokens": 128,
+      "added_tokens": 128,
+      "requested_output_bound": 8,
+      "status": "PASS",
+      "paths": [
+        {
+          "lane": "recompute",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "recompute prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "recompute output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 2.9985611750744283,
+          "added_prefill_seconds": 2.4828508489299566,
+          "prompt_frontier_seconds": 5.481412024004385,
+          "prefill_counter_delta": 256,
+          "native_load_bytes": 0,
+          "decode_seconds": 0.9336058620829135,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 6.756030415999703,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 258,
+            "prefill_tokens": 256,
+            "windows": 2,
+            "loaded_file_bytes": 0,
+            "cow_pages": 0,
+            "copied_bytes": 0
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        },
+        {
+          "lane": "resident",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.03249831509310752,
+          "added_prefill_seconds": 2.238641479983926,
+          "prompt_frontier_seconds": 2.2711397950770333,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 0,
+          "decode_seconds": 0.9504822689341381,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 3.5863643230404705,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 130,
+            "prefill_tokens": 128,
+            "windows": 2,
+            "loaded_file_bytes": 0,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        },
+        {
+          "lane": "disk",
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "disk prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "disk output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.4289532460970804,
+          "added_prefill_seconds": 2.246132016996853,
+          "prompt_frontier_seconds": 2.6750852630939335,
+          "prefill_counter_delta": 128,
+          "native_load_bytes": 121413624,
+          "decode_seconds": 0.9484636479755864,
+          "actual_generated_tokens": 2,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 3.9737135090399534,
+          "outputs": [
+            271,
+            248046
+          ],
+          "snapshot": "cf4ad4a6c5c66e7a413d2bbeb95b5dc55f64e60c593b80c0694445fd1383a52d",
+          "counters": {
+            "forward_tokens": 130,
+            "prefill_tokens": 128,
+            "windows": 2,
+            "loaded_file_bytes": 121413624,
+            "cow_pages": 36,
+            "copied_bytes": 75497472
+          },
+          "parent_audit": {
+            "bytes": 244886064,
+            "sha256": "acec2e1555ffe1eb30575a8e1b3515cf52c4094ce234adbc0366233d6f688745"
+          }
+        }
+      ],
+      "actual_generated_tokens": 2,
+      "oracle": {
+        "command": [
+          "<measurement-home>/branching-g3/long-prefill-natural-build-20261013/strata-batched-fresh",
+          "--pack",
+          "<measurement-home>/branching-g3/q8-pack",
+          "--native",
+          "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+          "--mmap-experts",
+          "--max-new",
+          "8",
+          "--max-context",
+          "4096",
+          "--pool-workers",
+          "2",
+          "--spec",
+          "2",
+          "--prefill",
+          "128",
+          "--suffix-draft",
+          "0",
+          "--expert-profile",
+          "<measurement-home>/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+          "--expert-cache",
+          "512",
+          "--pcie-frac",
+          "0.55",
+          "--tokens-file",
+          "<measurement-home>/branching-g3/long-prefill-natural-smoke-20261013/prefix-128/prompt.tokens"
+        ],
+        "prompt_tokens": 256,
+        "outputs": [
+          271,
+          248046
+        ],
+        "counters": {
+          "consumed": 258,
+          "prompt_consumed": 256,
+          "decode_tokens": 2,
+          "stopping_reason": "eos",
+          "prefill_tokens": 256,
+          "prefill_chunks": 2,
+          "prefill_seconds": 6.87438,
+          "decode_seconds": 0.544363,
+          "generated": [
+            271,
+            248046
+          ]
+        },
+        "process_seconds": 13.794083619024605,
+        "frontier_sha256": "bbb4c10cc15dfbd208e1d2dfb8f3dd6c53d9977ecdb77a950bf84e3d7ea9d76d",
+        "trace_sha256": "9906701468b282c67420fcdf93265e983a7a34f2aefd355761f64b364ded6268"
+      },
+      "prepare_seconds": 4.3379123019985855,
+      "save_seconds": 0.28776858502533287,
+      "checkpoint": {
+        "bytes": 122406904,
+        "sha256": "8c3b2e57586fd2eccb3dc13dd0bb65b825bbf0e3cb04921d1cc290cb72679e30",
+        "manifest_sha256": "34026b2a663bb1c2c32a6a591f26867c87c65c4e641ea9a4dd08bfc9e8e04ff1"
+      }
+    }
+  ],
+  "phase": "complete",
+  "updated_utc": "2026-10-13T05:30:00Z",
+  "prefix_tokens": 128,
+  "accepted_outputs": 0
+}

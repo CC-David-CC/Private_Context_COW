@@ -1,0 +1,35 @@
+{
+  "status": "FAIL",
+  "seconds": 3.0964028000016697,
+  "executed_ids": [
+    "serve.test_chat_workspace.WorkspaceTests.test_cas_rejects_stale_writer_and_aba",
+    "serve.test_chat_workspace.WorkspaceTests.test_cross_chat_node_is_refused",
+    "serve.test_chat_workspace.WorkspaceTests.test_fork_shares_prefix_and_keeps_suffixes_isolated",
+    "serve.test_chat_workspace.WorkspaceTests.test_generation_reservation_blocks_only_its_branch",
+    "serve.test_chat_workspace.WorkspaceTests.test_message_and_node_rows_cannot_be_updated_or_deleted",
+    "serve.test_chat_workspace.WorkspaceTests.test_ordered_attachments_and_tools_survive_without_branch_copies",
+    "serve.test_chat_workspace.WorkspaceTests.test_rename_and_archive_are_metadata_only",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_marks_interrupted_request_and_retains_input",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_preserves_chats_branches_and_source",
+    "serve.test_chat_workspace.WorkspaceTests.test_retry_is_idempotent_even_after_later_move",
+    "serve.test_chat_workspace.WorkspaceTests.test_rewind_and_clear_leave_old_history_recoverable",
+    "serve.test_chat_workspace.WorkspaceTests.test_sql_constraints_and_foreign_keys_are_enabled"
+  ],
+  "executed_methods": 12,
+  "failures": [],
+  "errors": [
+    [
+      "serve.test_chat_workspace.WorkspaceTests.test_fork_shares_prefix_and_keeps_suffixes_isolated",
+      "Traceback (most recent call last):\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 625, in _rmtree_unsafe\n    os.unlink(fullname)\n    ~~~~~~~~~^^^^^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmpbhjsao10\\\\chats.sqlite3'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_chat_workspace.py\", line 20, in tearDown\n    self.tmp.cleanup()\n    ~~~~~~~~~~~~~~~~^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 956, in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 936, in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 790, in rmtree\n    return _rmtree_unsafe(path, onexc)\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 629, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 911, in onexc\n    _os.unlink(path)\n    ~~~~~~~~~~^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmpbhjsao10\\\\chats.sqlite3'\n"
+    ],
+    [
+      "serve.test_chat_workspace.WorkspaceTests.test_message_and_node_rows_cannot_be_updated_or_deleted",
+      "Traceback (most recent call last):\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 625, in _rmtree_unsafe\n    os.unlink(fullname)\n    ~~~~~~~~~^^^^^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmp0fyznzny\\\\chats.sqlite3'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_chat_workspace.py\", line 20, in tearDown\n    self.tmp.cleanup()\n    ~~~~~~~~~~~~~~~~^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 956, in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 936, in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 790, in rmtree\n    return _rmtree_unsafe(path, onexc)\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 629, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 911, in onexc\n    _os.unlink(path)\n    ~~~~~~~~~~^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmp0fyznzny\\\\chats.sqlite3'\n"
+    ],
+    [
+      "serve.test_chat_workspace.WorkspaceTests.test_ordered_attachments_and_tools_survive_without_branch_copies",
+      "Traceback (most recent call last):\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 625, in _rmtree_unsafe\n    os.unlink(fullname)\n    ~~~~~~~~~^^^^^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmpk0s_4eb4\\\\chats.sqlite3'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_chat_workspace.py\", line 20, in tearDown\n    self.tmp.cleanup()\n    ~~~~~~~~~~~~~~~~^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 956, in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 936, in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 790, in rmtree\n    return _rmtree_unsafe(path, onexc)\n  File \"C:\\Program Files\\Python313\\Lib\\shutil.py\", line 629, in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Python313\\Lib\\tempfile.py\", line 911, in onexc\n    _os.unlink(path)\n    ~~~~~~~~~~^^^^^^\nPermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\dflanag3\\\\AppData\\\\Local\\\\Temp\\\\tmpk0s_4eb4\\\\chats.sqlite3'\n"
+    ]
+  ],
+  "skips": []
+}

@@ -1,0 +1,279 @@
+{
+  "host": "dflanag3-B650-GAMING-X-AX",
+  "status": "INVENTORIED_NOT_QUALIFIED",
+  "models": [
+    {
+      "path": "/home/dflanag3/models/huggingface/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/IQ2_XS/Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00002-of-00002.gguf",
+      "bytes": 28800138432,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": null,
+      "name": null,
+      "file_type": null,
+      "tokenizer": null,
+      "split_count": 2,
+      "split_no": 1,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq2/conversions.json",
+          "expected_shard_bytes": 28800138432,
+          "shard_size_matches": true
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/models/huggingface/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/IQ2_XS/Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00001-of-00002.gguf",
+      "bytes": 39225954592,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": "qwen4exp",
+      "name": "Qwen3.8-Flash-Next GSQ-RCO",
+      "file_type": 20,
+      "tokenizer": "gpt2",
+      "split_count": 2,
+      "split_no": 0,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq2/conversions.json",
+          "expected_shard_bytes": 39225954592,
+          "shard_size_matches": true
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/models/huggingface/ukisai/Swift-1.5-Qwen3.8-Flash-Next-GSQ-RCO-GGUF/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00002-of-00002.gguf",
+      "bytes": 28363693824,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": null,
+      "name": null,
+      "file_type": null,
+      "tokenizer": null,
+      "split_count": 2,
+      "split_no": 1,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/swift-iq2_xs/conversions.json",
+          "expected_shard_bytes": 28363693824,
+          "shard_size_matches": true
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/models/huggingface/ukisai/Swift-1.5-Qwen3.8-Flash-Next-GSQ-RCO-GGUF/Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00001-of-00002.gguf",
+      "bytes": 39788473344,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": "qwen4exp",
+      "name": "Swift Flash Next",
+      "file_type": 20,
+      "tokenizer": "gpt2",
+      "split_count": 2,
+      "split_no": 0,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/swift-iq2_xs/conversions.json",
+          "expected_shard_bytes": 39788473344,
+          "shard_size_matches": true
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/models/ISTA-IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+      "bytes": 47039860096,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": "qwen4exp",
+      "name": "Qwen3.8-Flash-Next GSQ-RCO",
+      "file_type": 23,
+      "tokenizer": "gpt2",
+      "split_count": 2,
+      "split_no": 0,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-downloads/lower-quant-20261005/pack-iq3_xxs/conversions.json",
+          "expected_shard_bytes": 47039860096,
+          "shard_size_matches": true
+        },
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/conversions.json",
+          "expected_shard_bytes": 47039860096,
+          "shard_size_matches": true
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/models/ISTA-IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+      "bytes": 28800138432,
+      "header_cache": false,
+      "loader_status": "NOT_TESTED",
+      "architecture": null,
+      "name": null,
+      "file_type": null,
+      "tokenizer": null,
+      "split_count": 2,
+      "split_no": 1,
+      "matching_pack_receipts": [
+        {
+          "pack": "/home/dflanag3/fleet-downloads/lower-quant-20261005/pack-iq3_xxs/conversions.json",
+          "expected_shard_bytes": 28800138432,
+          "shard_size_matches": true
+        },
+        {
+          "pack": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/conversions.json",
+          "expected_shard_bytes": 28800138432,
+          "shard_size_matches": true
+        }
+      ]
+    }
+  ],
+  "packs": [
+    {
+      "path": "/home/dflanag3/fleet-downloads/lower-quant-20261005/pack-iq3_xxs/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+          "size": 47039860096
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+          "size": 28800138432
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-downloads/lower-quant-20261005/pack-unsloth_iq1/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00001-of-00003.gguf",
+          "size": 10946624
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00002-of-00003.gguf",
+          "size": 49988981792
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-UD-IQ1_M-00003-of-00003.gguf",
+          "size": 24538827360
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq3-llm60-main/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+          "size": 47039860096
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+          "size": 28800138432
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-iq2/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00001-of-00002.gguf",
+          "size": 39225954592
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00002-of-00002.gguf",
+          "size": 28800138432
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/swift-iq3-llm60-main/conversions.json",
+      "source_shards": [
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+          "size": 39785790560
+        },
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+          "size": 36180282560
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/swift-iq2_xs/conversions.json",
+      "source_shards": [
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00001-of-00002.gguf",
+          "size": 39788473344
+        },
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-IQ2_XS-00002-of-00002.gguf",
+          "size": 28363693824
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/ap-iq2-s-llm60-main/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-AP-IQ2_S.gguf",
+          "size": 81641739136
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/swift-q2_0/conversions.json",
+      "source_shards": [
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+          "size": 39799117984
+        },
+        {
+          "name": "Swift-Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+          "size": 26750834816
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/ista-q2/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+          "size": 37623740192
+        },
+        {
+          "name": "Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+          "size": 28800138432
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/ap-iq3-xxs-llm60-main/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-AP-IQ3_XXS.gguf",
+          "size": 86672420736
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/gyro-s-llm60-rc1/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-Gyro-S-TQ1_0.gguf",
+          "size": 58487015808
+        }
+      ]
+    },
+    {
+      "path": "/home/dflanag3/fleet-tool-eval-20261007/packs/gyro-m-llm60-rc1/conversions.json",
+      "source_shards": [
+        {
+          "name": "Qwen3.8-Flash-Next-Gyro-M-TQ2_0.gguf",
+          "size": 91965774272
+        }
+      ]
+    }
+  ],
+  "missing_roots": [],
+  "reader_sha256": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e",
+  "script_sha256": "e2428b64d89aa288fa9c9cc8745ff1e2c08f22f778a8d3952e5cceb61f511f9e"
+}

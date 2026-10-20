@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "name": "native-smoke",
+      "argv": [
+        "/home/dflanag3/branching-g3/web-review-20261013/.venv/bin/python",
+        "/home/dflanag3/branching-g3/native-resident-cow-20261014/native_serving_baseline.py",
+        "--serve-root", "/home/dflanag3/branching-g3/web-review-20261013",
+        "--config", "/home/dflanag3/branching-g3/web-review-20261013/config.json",
+        "--output", "/home/dflanag3/branching-g3/native-resident-cow-20261014/q8-smoke",
+        "--prefix", "128", "--suffix", "4", "--generated", "16",
+        "--repetitions", "1"
+      ]
+    },
+    {
+      "name": "native-8k",
+      "argv": [
+        "/home/dflanag3/branching-g3/web-review-20261013/.venv/bin/python",
+        "/home/dflanag3/branching-g3/native-resident-cow-20261014/native_serving_baseline.py",
+        "--serve-root", "/home/dflanag3/branching-g3/web-review-20261013",
+        "--config", "/home/dflanag3/branching-g3/web-review-20261013/config.json",
+        "--output", "/home/dflanag3/branching-g3/native-resident-cow-20261014/q8-8k",
+        "--prefix", "8192", "--suffix", "512", "--generated", "128",
+        "--warmup", "--repetitions", "3"
+      ]
+    }
+  ]
+}

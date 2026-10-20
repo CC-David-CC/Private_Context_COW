@@ -1,0 +1,187 @@
+{
+    "errors":  [
+
+               ],
+    "failures":  [
+
+                 ],
+    "imports":  {
+                    "context_time_travel":  {
+                                                "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/__init__.py",
+                                                "sha256":  "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+                                            },
+                    "context_time_travel.controller":  {
+                                                           "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/controller.py",
+                                                           "sha256":  "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"
+                                                       },
+                    "context_time_travel.coordinator":  {
+                                                            "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                            "sha256":  "bb6a1f8d9582c35dfaec69391658a033320e25d717b61ebfb9b0bec1f6c6c32b"
+                                                        },
+                    "context_time_travel.digest_attestation":  {
+                                                                   "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/digest_attestation.py",
+                                                                   "sha256":  "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+                                                               },
+                    "context_time_travel.execution_receipt":  {
+                                                                  "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/execution_receipt.py",
+                                                                  "sha256":  "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215"
+                                                              },
+                    "context_time_travel.numerics":  {
+                                                         "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/numerics.py",
+                                                         "sha256":  "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"
+                                                     },
+                    "context_time_travel.oracle":  {
+                                                       "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/oracle.py",
+                                                       "sha256":  "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+                                                   },
+                    "context_time_travel.pools":  {
+                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/pools.py",
+                                                      "sha256":  "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+                                                  },
+                    "context_time_travel.presentation_request":  {
+                                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                     "sha256":  "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"
+                                                                 },
+                    "context_time_travel.real":  {
+                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                     "sha256":  "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c"
+                                                 },
+                    "context_time_travel.store":  {
+                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                      "sha256":  "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+                                                  },
+                    "context_time_travel.strata_backend":  {
+                                                               "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/src/context_time_travel/strata_backend.py",
+                                                               "sha256":  "d692e00310984dcea2332d86862fde0010ff06f50b7f62b35a97d25110443de1"
+                                                           },
+                    "test_checkpoint_operation_receipts":  {
+                                                               "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_checkpoint_operation_receipts.py",
+                                                               "sha256":  "d82958295d687589545c3fabcb1f83b96376363ad0fdd0d221d000b023edf03d"
+                                                           },
+                    "test_native_request_protocol":  {
+                                                         "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_native_request_protocol.py",
+                                                         "sha256":  "ce72134b211c3338378de2d97585391f9f097a15517194739335483da6ddb6ea"
+                                                     },
+                    "test_native_terminal_error_recovery":  {
+                                                                "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_native_terminal_error_recovery.py",
+                                                                "sha256":  "261fb67d0a23bad044870936072263959f3d980be181a8f58e56afc6a5b1a88f"
+                                                            },
+                    "test_poisoned_worker_replacement":  {
+                                                             "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_poisoned_worker_replacement.py",
+                                                             "sha256":  "045acb29539fb78dac00521e913b4044600167b7957f519228619d5e8f544d21"
+                                                         },
+                    "test_pool_coordinator":  {
+                                                  "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_pool_coordinator.py",
+                                                  "sha256":  "e9edd0b7d14eaace66ba06efb070469ef4c7b9b06f007eb4661082f12f788d4e"
+                                              },
+                    "test_pool_spill_reload_trace":  {
+                                                         "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_pool_spill_reload_trace.py",
+                                                         "sha256":  "bb9d46b8128ef6342c56f92e78200d8f085cf803cfc02ceb5a1eab588dd05f59"
+                                                     },
+                    "test_q4_cuda_recovery":  {
+                                                  "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466/source/experimental/branching_context/tests/implementation/test_q4_cuda_recovery.py",
+                                                  "sha256":  "38f17aa33b74008169e26cc447795875c861853b2953e47e9c524ba67bda4527"
+                                              }
+                },
+    "mode":  "focus",
+    "schema":  "q4-recovery-integrated-cpu-v1",
+    "scope":  "CPU synthetic backend and real filesystem/HTTP controls; not GPU inference",
+    "script_sha256":  "ae0fd14af30fafabffcee3d68adfddd4a708a5860a1ed496c8e4dd598d65c5a2",
+    "seconds":  0.7437255459371954,
+    "skipped":  [
+
+                ],
+    "source_commit":  "62b4e466",
+    "source_unchanged":  true,
+    "status":  "PASS",
+    "test_ids":  [
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_checkpoint_receipt_is_owner_only_and_missing_operation_is_not_found",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_descriptor_and_digest_tampering_fail_closed",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_namespace_move_and_retry_keep_checkpoint_descriptor",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_optional_move_keeps_legacy_receipt_shape_byte_identical",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_plain_branch_result_tampering_rejected_by_lookup_and_retry",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_post_rename_fsync_failure_is_recovered_by_exact_retry",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_receipt_survives_reopen_rewind_retry_and_numerical_file_deletion",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_reused_operation_id_with_altered_descriptor_is_rejected",
+                     "test_checkpoint_operation_receipts.CheckpointOperationReceiptTests.test_wrong_target_model_and_malformed_descriptor_reject_before_cas",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands",
+                     "test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request",
+                     "test_native_terminal_error_recovery.NativeTerminalErrorRecoveryTests.test_invalid_success_completion_still_poisons_pipe",
+                     "test_native_terminal_error_recovery.NativeTerminalErrorRecoveryTests.test_malformed_terminal_error_frames_fail_closed",
+                     "test_native_terminal_error_recovery.NativeTerminalErrorRecoveryTests.test_native_error_after_a_token_does_not_create_a_completion_receipt",
+                     "test_native_terminal_error_recovery.NativeTerminalErrorRecoveryTests.test_native_failure_after_consumed_token_keeps_boundary_and_never_captures",
+                     "test_native_terminal_error_recovery.NativeTerminalErrorRecoveryTests.test_native_failure_before_first_token_preserves_reason_and_poisons_pipe",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_close_during_replacement_does_not_deadlock_or_start_unowned_child",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_close_exception_after_proven_exit_still_allows_replacement",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_close_failure_without_proven_process_exit_does_not_spawn_replacement",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_durable_receipt_recovers_after_replacement_failure",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_durable_receipt_recovers_while_replacement_is_blocked",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_failed_replacement_marks_worker_unavailable_and_new_request_fails_promptly",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_healthy_gpu_continues_when_poisoned_peer_replacement_fails",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_malformed_replacement_gpu_is_closed_before_worker_is_unavailable",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_mismatched_replacement_model_or_profile_is_unavailable",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_poisoned_job_fails_once_then_replacement_preserves_publication_retry",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_process_exit_without_backend_closed_marker_is_not_sufficient",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_request_queued_during_replacement_fails_if_factory_fails",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_transition_trace_failure_closes_unpublished_replacement",
+                     "test_poisoned_worker_replacement.PoisonedWorkerReplacementTests.test_unproven_replacement_exit_remains_owned_until_final_shutdown",
+                     "test_pool_coordinator.CoordinatorTests.test_duplicate_operation_returns_same_handle_and_altered_request_fails",
+                     "test_pool_coordinator.CoordinatorTests.test_failed_publication_pins_bytes_and_retry_needs_no_gpu",
+                     "test_pool_coordinator.CoordinatorTests.test_mixed_groups_use_one_scheduler_slot_each",
+                     "test_pool_coordinator.CoordinatorTests.test_only_selected_gpus_created_and_each_has_one_request",
+                     "test_pool_coordinator.CoordinatorTests.test_pending_cancel_does_not_steal_active_owner",
+                     "test_pool_coordinator.CoordinatorTests.test_queued_source_is_leased_until_cancel_or_completion",
+                     "test_pool_coordinator.CoordinatorTests.test_restart_retry_uses_canonical_receipt_without_executing_again",
+                     "test_pool_coordinator.CoordinatorTests.test_same_branch_blocked_and_stale_revision_is_not_rebased",
+                     "test_pool_coordinator.CoordinatorTests.test_snapshot_precedes_durable_and_writer_does_not_take_gpu_slot",
+                     "test_pool_coordinator.CoordinatorTests.test_upload_staging_reserved_before_native_use_and_released_after_first_token",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_aggregate_without_identity_events_is_not_proof",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_completion_callback_eviction_orders_after_completed_disk_trace",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_coordinator_marks_only_actual_checkpoint_loader_as_disk_read",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_default_order_is_unchanged_and_pressure_order_interleaves_fixture_ids",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_failed_disk_loader_never_emits_success",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_failed_or_cross_process_load_does_not_match",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_failed_preload_does_not_consume_eviction_before_successful_retry",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_pool_emits_success_only_after_loader_and_admission",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_ram_cache_hit_emits_no_disk_read_success",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_reversed_order_does_not_match",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_same_identity_eviction_then_successful_disk_read_is_required",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_sequence_gaps_cannot_qualify",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_shared_payload_alias_eviction_does_not_claim_bytes_freed_for_first_key",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_success_with_wrong_load_id_is_rejected",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_successful_load_requires_positive_bytes",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_truncated_trace_cannot_qualify",
+                     "test_pool_spill_reload_trace.SpillReloadTraceTests.test_wrong_snapshot_key_does_not_match",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_actual_recovery_preflight_accepts_coherent_pinned_runtime",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_clean_restart_requires_eight_tokens_zero_prefix_and_unchanged_source",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_cleanup_stop_receipt_derives_pid_absence_from_owned_process",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_durable_receipt_must_bind_exact_branch_tip_revision_and_answer",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_final_result_requires_distinct_clean_service_and_zero_exit",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_final_result_requires_original_cu_mem_create_error",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_profile_pinned_http_source_must_match_independent_pin",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_restart_branch_must_be_independent_and_still_at_source_p",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_same_service_rejects_reused_pid_missing_exit_or_factory_before_exit",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_same_service_rejects_source_head_or_payload_mutation",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_same_service_requires_eight_actual_tokens_and_exact_work_deltas",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_same_service_requires_one_healthy_restart_on_unchanged_http_pid",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_terminal_persistence_fails_closed_on_cleanup_or_heartbeat_failure",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_token_only_fork_uses_snapshot_request_and_checks_returned_tip",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_token_only_history_rejects_stale_http_head",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_token_only_store_history_is_readable_without_presentation_namespace",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_trace_proves_old_exit_precedes_replacement_and_new_worker_closes_cleanly",
+                     "test_q4_cuda_recovery.Q4CudaRecoveryEvidenceTests.test_valid_same_service_recovery_requires_worker_replacement_and_zero_prefix"
+                 ],
+    "tests":  81,
+    "xfails":  [
+
+               ],
+    "source_commit_full":  "62b4e466a17bc89e1b514f7a9d219cbc4a8715ef",
+    "command_exit":  0,
+    "wrapper_exit":  0
+}

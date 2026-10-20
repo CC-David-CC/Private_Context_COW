@@ -1,0 +1,128 @@
+{
+  "schema": 2,
+  "task": "seed and text-stop composition with CLI revision CAS preservation",
+  "source_branch": "work/cli-seed-stop-combined-20261016",
+  "base_commit": "863bb447",
+  "composed_commits": [
+    "b473b223",
+    "3fa2a59d",
+    "9c96f214",
+    "a18f78ff",
+    "27a752b9",
+    "11b485a7",
+    "ef766293"
+  ],
+  "cpu_stage": {
+    "path": "/home/dflanag3/spatial-artifacts/seed-stop-combined-20261016-v1/combined-cpu-v11",
+    "base_source": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/source",
+    "overlay_archive_sha256": "7b297ad16fcd379c1bcc1029b902cd7e9034c1f9b4a432d781c30c967556e2a1",
+    "source_manifest": "source.sha256",
+    "source_manifest_sha256": "4175e2904023fdb56e3aaf524e48088ff505b31e89df94a7f8a93bea758f6216",
+    "source_file_count": 1047,
+    "local_windows_python": "not used"
+  },
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "python_flags": ["-B"],
+    "pythondontwritebytecode": true
+  },
+  "runs": [
+    {
+      "name": "combined-cpu-v8/run-union-v1",
+      "result": "FAIL",
+      "tests": 327,
+      "failures": 7,
+      "errors": 1,
+      "skips": 0,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "stderr_sha256": "9d3e27e30797b86283f7848da632375f2ccb00bb68e554c4fa7235307412b751",
+      "cause": "HTTP always passed text_stops=None to legacy adapter signatures; omitted option now stays omitted."
+    },
+    {
+      "name": "combined-cpu-v9/run-affected-v1",
+      "result": "PASS",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "04011ad211c479cfb0c22de7cc26c9a62b42dcb0f16e6001f1ccc8b8a3ca21f1"
+    },
+    {
+      "name": "combined-cpu-v9/run-union-v1",
+      "result": "PASS",
+      "tests": 327,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "167b4190ba27909efc48f18f8193dc9668c638fb98b459de6c0828986728b8cb"
+    },
+    {
+      "name": "combined-cpu-v10/run-machine-focused-v1",
+      "result": "FAIL",
+      "tests": 10,
+      "failures": 5,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "cause": "Machine-mode journal capture attempted to persist non-answer streamed envelopes without answer.text; legacy CLI/STOP setup then failed before generation. Fixed by making canonical answer capture optional for non-text results."
+    },
+    {
+      "name": "combined-cpu-v11/run-focused-v1",
+      "result": "PASS",
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "68fbba0775ac08132e67ea15f92d6cd4ffba528a919591768c2fea05bd12e558"
+    },
+    {
+      "name": "combined-cpu-v11/run-union-v1",
+      "result": "PASS",
+      "tests": 334,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stderr_sha256": "6ce3dcb245d8a4e61c2bed2091d4858f2996d820170e658d01742abcb7a03d72"
+    },
+    {
+      "name": "combined-cpu-v11/run-g0-v1",
+      "result": "PASS",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "stdout_sha256": "1e9d04cbe7198b1bd902e9e2b82d72468cff6496343d54f6b4f7035879d37150"
+    }
+  ],
+  "changed_files": {
+    "serve/cow_http.py": "a972a56edd0a3619c730c09b9b43792d5c8cbab37ceaa3b3b519560b6f73ff0a",
+    "serve/test_cow_text_stops_cli.py": "34525a3589ee7eee0852776ef7a99ce6f39526faaa07cece7e8111a0ceff2317",
+    "tools/cow_cli.py": "4b9db58bd2c45cb638124ec7e21e6ebafce46202637d528f5e4c9beafb669116",
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "9e2dd1239559e148e52c0356e7d41c87d7a4610a9bbded73ab713fac93aa6eda",
+    "experimental/branching_context/src/context_time_travel/controller.py": "f67e8f9f2aa7cefa315478308e52988fb620945b30389595c1d64c22ae043dbf",
+    "experimental/branching_context/scripts/run_cli_seed_stop_probe.py": "2a58fa9ab00d526ecaa8c287f30166a7b93cbdc373d4f25c3782e00fdb3906fa",
+    "experimental/branching_context/tests/implementation/test_cli_seed_stop_probe.py": "2e25595e2334ecdee1811f97880616c947f693bd98c93c09698da8b113330479",
+    "experimental/branching_context/tests/implementation/test_cow_cli_machine_result.py": "d0bbb295e6a5ca2c6ab5c5398860d33a7094a4f08e3eb3142095723b31a82d00",
+    "experimental/branching_context/scripts/README-cli-seed-stop-probe.md": "bd3b79e4fbf4f7381e90aad3f0e838077cd1ad9a5ba29ee37ac2aa9bfb78764d"
+  },
+  "scope": {
+    "gpu": "not run; parent owns GPU launches",
+    "numerical_oracle": "not part of this CPU integration run",
+    "human_cli_stdout": "retains display newline; machine-result JSON is opt-in via --machine-result",
+    "revision_flag": "answer/ask/continue/append-user preflight-check observed head and post exact supplied revision for server CAS"
+  }
+}

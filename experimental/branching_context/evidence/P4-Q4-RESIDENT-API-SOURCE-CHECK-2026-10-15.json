@@ -1,0 +1,43 @@
+{
+  "actual_sha256": {
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/coordinator.py": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/pools.py": "7c90645bf87a414e1686543a0b099e5c9648616c391e74bee754496fd9b2a78f",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/real.py": "6ab1abe6d2e6e4d8c92b7af0cb896e55ede51edf721a61a6a746f8aa3ca4fddd",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "expected_sha256": {
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/coordinator.py": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/pools.py": "7c90645bf87a414e1686543a0b099e5c9648616c391e74bee754496fd9b2a78f",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/real.py": "6ab1abe6d2e6e4d8c92b7af0cb896e55ede51edf721a61a6a746f8aa3ca4fddd",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/src/context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+  },
+  "files": 16,
+  "mismatches": [],
+  "scope": "read-only frozen P4 API bytes versus exact Git blobs",
+  "source_commit": "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+  "status": "PASS"
+}

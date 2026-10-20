@@ -1,0 +1,55 @@
+{
+  "executed_followup": {
+    "evidence": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+    "profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "scope": "Old profile8e remains FAIL; corrected profile92df passed bounded live flow. Historical preceding record preserved.",
+    "status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS"
+  },
+  "frozen_harness": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-flow-source-v3",
+  "gpu": "Corrected production route CPU424/115/G051 PASS; new source-bound GPU rerun pending.",
+  "gpu_attempts": [
+    {
+      "reason": "Frozen bundle omitted run_vision_pool_pressure; fixed bundle passed exact import closure check",
+      "run": "thinking-new-image-flow-gpu-run-v1",
+      "status": "FAIL_BEFORE_MODEL_IMPORT"
+    },
+    {
+      "reason": "First published question contains duplicate42-token reasoning system frame; original records retained, server/native exited0",
+      "run": "thinking-new-image-flow-gpu-run-v2",
+      "status": "REAL_GPU_DETECTED_PREPARATION_ROUTE_DEFECT"
+    }
+  ],
+  "import_preflight": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-flow-source-v3/import-preflight.json",
+  "limitations": "This is an audit harness, not a performance measurement, semantic-answer-quality check or original G1-G5/fullVC09 qualification.",
+  "planned_gpu_scope": [
+    "same native pad IDs and grid but distinct pixels/embeddings",
+    "actual new-image encoder call versus cached image",
+    "two placements of cached image after completed answer; literal marker data",
+    "fork A/B, original retries before/after process restart",
+    "producer-free cold question from saved new-image context, full controller/token/frontier agreement",
+    "fresh prefix/new-image-ingested/final full vectors"
+  ],
+  "previous_frozen_harness": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-flow-source-v1",
+    "reason": "Additional freeze after source review; SHA check confirms v1/v2/current source are identical.",
+    "status": "BYTE_IDENTICAL_GPU_UNRUN_DUPLICATE"
+  },
+  "profile_id": "8e7fa4f7a25a97c03adc8b2e28dd8adc203d2a8d7c8b05409a9209fe18660682",
+  "red": [
+    "thinking-image-reference-red-run-v1: new helper missing",
+    "thinking-image-reference-limit-red-run-v1: native eight-image limit not yet enforced"
+  ],
+  "reference_design": "Raw native processes import no checkpoints. Each new image operation gets an independent CPU position table for complete logical history and a manifest of only the newly consumed images. Prefix/delta native chunk boundaries are checked. Payload finite/shape/checksum rejection and absolute position fixtures tested.",
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-combined-image-suffix-source-v1",
+  "source_sha256": "44894a55a98aef1f1d78ed9d4ba370e1e25bbdd88711081a3f42b1df4734a29c",
+  "status": "THINKING_NEW_IMAGE_FLOW_HARNESS_CPU_PASS_GPU_UNRUN",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "focused": 23,
+    "g0": 51,
+    "new_methods": 10,
+    "regression_union": 115,
+    "skips": 0
+  }
+}

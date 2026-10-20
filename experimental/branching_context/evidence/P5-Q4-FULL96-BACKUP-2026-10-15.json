@@ -1,0 +1,49 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+  "bytes": 41838049280,
+  "contents": [
+    "spatial-artifacts/p5-q4-full96-run-20261015-v1",
+    "branching-g3/p5-q4-root24b4-source-20261015",
+    "spatial-artifacts/p5-q4-full96-20261015-v1",
+    "branching-g3/native-request-probe-20261014/source-digest-v1",
+    "branching-g3/native-request-probe-20261014/binaries-digest-v1",
+    "branching-g3/native-request-probe-20261014/api-digest-v1",
+    "branching-g3/native-request-probe-20261014/q4-profile-digest-v1/profile.json",
+    "branching-g3/multi-code-contexts-20261014/q4-64k-full-v1/profile.json",
+    "branching-g3/multi-code-contexts-20261014/fixtures/q4_64k.json",
+    "branching-g3/speed-recovery-20261014-v1/q4-profile/model-receipt.json",
+    "branching-g3/private-queue-20261012T0818/source.json",
+    "spatial-artifacts/namespace-q8-browser-ac6-20261014/run-command-v2.sh",
+    "spatial-artifacts/p5-q4-full96-20261015-v1/backup-plan.json",
+    "spatial-artifacts/p5-q4-full96-20261015-v1/backup-stream.sh"
+  ],
+  "destination_host": "box-git",
+  "destination_sha256": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+  "directory_mode": "0700",
+  "excluded": [
+    "Q4 model weights",
+    "expert pack/dense.bin and external pack files",
+    "external system libraries",
+    "no symlink dereferencing"
+  ],
+  "execution_profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "file_mode": "0600",
+  "member_count": 6213,
+  "member_listing_sha256": "d766cb7a4d84c2db07c2fc32c17657f442b30374f7636d36173e619bd66333b3",
+  "schema": "private-evidence-backup-v1",
+  "sha256": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+  "source_frozen_commit": "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+  "source_host": "llm-60",
+  "source_stream_sha256": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+  "status": "PASS",
+  "symlinks_preserved_without_dereference": [
+    "native-request-probe-20261014/source-digest-v1/src/program",
+    "native-request-probe-20261014/source-digest-v1/build"
+  ],
+  "validation": [
+    "tar stream source SHA equals destination partial SHA",
+    "destination tar member listing validated",
+    "final path SHA re-read and equals source stream SHA",
+    "final mode/size/inode unchanged across atomic rename"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "BOUNDED_INSTALLED_Q8_BOOTSTRAP_RESTART_AND_AUTONOMOUS_CODING_PASS",
+  "server_source": "2a083b85308416b3563224778e9620c301ea45e1",
+  "client_source": "c5fdb874436fb712d7ba443a156df08a325a1671",
+  "wheel_sha256": "9e0dd41651edb73f2a919322a1cb7212f27ae3b830d67d9f10da85c1da448a66",
+  "prefix_tokens": 15780,
+  "prefill_batches": 31,
+  "root_native_written_bytes": 530181256,
+  "forward_tokens_during_reconcile": 0,
+  "forward_tokens_through_prefix_load": 0,
+  "coding_new_forward_tokens": 3443,
+  "coding_new_prefill_tokens": 2968,
+  "coding_generated_tokens": 475,
+  "native_timed_tps": 53.97377351553496,
+  "native_integrity_mismatches": 0,
+  "scope": "One small greedy coding fixture after actual Q8 process restart; no fresh logit oracle or full gate qualification",
+  "limitations": [
+    "First attempt failed harness audit-hook compilation; owned client terminated, cancellation settled",
+    "Second attempt exposed typed-text root replay mismatch; failed pending operation retained; CPU reproducer/fix recorded",
+    "Third attempt used fixed source-bound profile and fresh store, not migrated checkpoints",
+    "Whole CLI timing includes tools and persistence; native TPS is not whole-agent throughput",
+    "No validation-disabled speed control;8percent overhead target not measured",
+    "Automatic project-base scheduling/adoption remains unfinished"
+  ]
+}

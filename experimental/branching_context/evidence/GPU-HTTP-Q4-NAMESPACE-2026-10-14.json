@@ -1,0 +1,91 @@
+{
+  "status": "PASS_WITH_LIMITS",
+  "scope": "Opt-in namespace-bound COW HTTP probe against Q4 GGUF on llm-60 GPU 0; not ordinary chat/UI or browser qualification.",
+  "source": {
+    "worktree": "context-cow-multiturn-oracle-luna",
+    "base_commit": "00356cf78dfc6ae77ef079a2a586bd1ec79d8682",
+    "candidate": "/home/dflanag3/branching-g3/gpu-http-q4-namespace-luna-20261014/source-full96-8k",
+    "probe_sha256": "4dbe074895406750b064bc7a5bc3659939796d6641e957027b4a851c6df2c43a",
+    "profile_sha256": "a771d58eff4184e6b71e3533db151041fc8cda7ac10301e07ac160f7fde75eb4",
+    "profile_base": "/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q4-timing-64k/profile.json",
+    "profile_execution_matches": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q4-64k-full-v1/profile.json",
+    "execution_profile_id": "55b2900d78d01117c194fd2980d546dd661eaef745699cb4862407bad0f1188e",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "capacity_tokens": 98304,
+    "gpu": [
+      0
+    ],
+    "pool_config": {
+      "ram_gib": 96,
+      "disk_gib": 128,
+      "minimum_available_host_ram_gib": 16
+    },
+    "input_profile_sha256": "b30688ad932e5fd99e0e1e9e691573f3080546e97351d1d2ca93b43b35bc4db6"
+  },
+  "fixture": {
+    "path": "/home/dflanag3/spatial-artifacts/gpu-http-q4-namespace-luna-20261014/fixture-q4-8k-full96-v4.json",
+    "sha256": "77accf59393dea81b7d8ebccad50bc8a1fd9518e2505f4ecc0f828ef46ac2bdc",
+    "extracted_real_source_tokens": 8800,
+    "rendered_base_tokens": 8835,
+    "question_suffix_tokens": {
+      "A": 456,
+      "B": 512
+    },
+    "cpu_actual_gguf_tokenizer_template_tests": "3/3 passed; literal-safe Service.encode_prompt parity and exact suffix-prefix checks"
+  },
+  "run": {
+    "directory": "/home/dflanag3/spatial-artifacts/gpu-http-q4-namespace-luna-20261014/gpu-8k-512-128-v1",
+    "terminal_command_exit": 0,
+    "terminal_wrapper_exit": 0,
+    "native_exit": 0,
+    "result_sha256": "fbf0594337fa31b5ef71c72555c739fa3cb17338aa295be6647735d833e328c0",
+    "duration_seconds": 81.76889892714098,
+    "startup_seconds": 17.57035362510942,
+    "executed_checks": [
+      "HTTP-GPU-001: pinned-profile namespace prefix durably created",
+      "HTTP-GPU-2: A stream and durable retry; no prefix work; parent unchanged",
+      "HTTP-GPU-3: B stream and durable retry; no prefix work; parent unchanged",
+      "HTTP-GPU-EXACT-A: generated token IDs and final full frontier exactly match fresh oracle",
+      "HTTP-GPU-EXACT-B: generated token IDs and final full frontier exactly match fresh oracle"
+    ],
+    "numerical_max_error": 0.0,
+    "outputs": {
+      "A": 128,
+      "B": 128
+    },
+    "native_prefill_chunks": {
+      "shared_base": [
+        [
+          0,
+          8192
+        ],
+        [
+          8192,
+          643
+        ]
+      ],
+      "A_suffix": [
+        8835,
+        456
+      ],
+      "B_suffix": [
+        8835,
+        512
+      ]
+    },
+    "gpu_lock": "/home/dflanag3/branching-g3/native-client-speed.gpu0.lock",
+    "root_offline_audit": "PASS: four root/final full-vector comparisons, canonical histories, complete controllers and suffix-only native work; root-audit-8k.json"
+  },
+  "separate_nonqualifying_pilots": {
+    "12k_capacity_run": "PASS as a narrow correctness pilot only; its 12,288-token capacity is not full-profile qualification.",
+    "first_profile_attempt": "Retained failure: rejected invalid worker GPU topology before native process start; corrected candidate adds GPU 0.",
+    "full96_short_fixture": "PASS, 1,612-token base and 8 outputs; compact parent-reviewed record at root-reviewed-full96-pilot.json."
+  },
+  "limitations": [
+    "Two branch requests, no warmup or repeated timing median.",
+    "One final generated frontier per branch; not every-token G1 qualification.",
+    "Explicit COW endpoint only; not ordinary OpenAI chat, browser, or full UI integration.",
+    "This is Q4-specific; it says nothing about Q8 quantization equivalence or performance.",
+    "The established execution profile has 96K capacity, but this fixture uses an 8,835-token base plus a 456/512-token suffix, not a 64K workload."
+  ]
+}

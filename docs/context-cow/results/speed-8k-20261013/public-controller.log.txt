@@ -1,0 +1,9 @@
+test_greedy_tie_and_returned_policy_are_independent (__main__.ControllerCopy.test_greedy_tie_and_returned_policy_are_independent) ... ok
+test_nonfinite_allowed_logit_still_rejected (__main__.ControllerCopy.test_nonfinite_allowed_logit_still_rejected) ... ok
+test_penalty_grammar_and_rng_continue_exactly (__main__.ControllerCopy.test_penalty_grammar_and_rng_continue_exactly) ... ok
+test_read_detaches_controller_and_detects_tampering (__main__.ControllerCopy.test_read_detaches_controller_and_detects_tampering) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

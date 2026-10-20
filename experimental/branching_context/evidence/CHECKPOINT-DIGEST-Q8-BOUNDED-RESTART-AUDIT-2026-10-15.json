@@ -1,0 +1,56 @@
+{
+  "status": "PASS_BOUNDED_Q8_RESTART_INDEPENDENT_ARTIFACT_AUDIT",
+  "root": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/bounded8k-v2",
+  "profile_id": "608bae645dd91c04f01d4cb42acccf8ff8cd6d0bf4da16d5dbecef8371661da3",
+  "source_sha256": {
+    "result.json": "fdc583c979b5d586f39405ab7f75dcb758d56c63d6f2d46d78753885708286c8",
+    "prepare.json": "9126b6b330446c0f882b6755be6552ebec0d6a4494f55c91dddbf256210d37ad",
+    "resume.json": "fb90be67fd2174bbf6cc25d7db0307efa1a418397ea65da4066642e9e51f700f"
+  },
+  "outputs": [
+    128,
+    1
+  ],
+  "resumed_outputs": [
+    124,
+    0
+  ],
+  "frontier_comparisons": [
+    {
+      "tree": 0,
+      "output_count": 4,
+      "frontier_sha256": "c50513c3af7afc39762677c5b83059505a130ab0ba8f850f77e5266ddd50aaa0"
+    },
+    {
+      "tree": 0,
+      "output_count": 128,
+      "frontier_sha256": "1934ec8bae8cbfec127c2013cc54f4a058315550ca9e3146e07543bd6fc9eb81"
+    },
+    {
+      "tree": 1,
+      "output_count": 1,
+      "frontier_sha256": "ef6189e22f6f271c9f16c05aed57591c8574a4dc878bd0b5fffa5b45aa16873e"
+    },
+    {
+      "tree": 1,
+      "output_count": 1,
+      "frontier_sha256": "ef6189e22f6f271c9f16c05aed57591c8574a4dc878bd0b5fffa5b45aa16873e"
+    }
+  ],
+  "unique_frontier_boundaries": 3,
+  "numerical_max_error": 0.0,
+  "parent_bytes_unchanged": true,
+  "resumed_forward_tokens": 124,
+  "resumed_prefill_tokens": 0,
+  "checkpoint_import_bytes": 345488904,
+  "failures": [],
+  "skips": [],
+  "limits": [
+    "Greedy matching-profile execution only; not cumulative G2.",
+    "Four comparisons include the same EOS frontier twice; three unique boundaries.",
+    "Branch B stopped before restart; no B post-restart inference was exercised.",
+    "Counters cover restore plus continuation, not an isolated pre-first-logit restore interval.",
+    "No added RNG/grammar/crash-injection or every-token frontier qualification.",
+    "This audit verifies recorded artifacts, not a new GPU execution."
+  ]
+}

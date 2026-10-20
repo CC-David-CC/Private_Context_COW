@@ -1,0 +1,184 @@
+{
+  "name": "Q4-target",
+  "status": "PASS",
+  "result": "/home/dflanag3/spatial-artifacts/root-reuse-probe-q4-20261015-v1/target-q4-final-v1/run/probe/result.json",
+  "result_sha256": "9665be0f70ed671b6deeb0dbd22c0cc8fdfa88b911bca67a6e2c7e5d24c91e30",
+  "sizes": {
+    "generated_limit": 128,
+    "prefix": 8192,
+    "suffix": 512
+  },
+  "comparisons": 3,
+  "numerical_max_error": 0,
+  "root_work": [
+    {
+      "operation": "root-A-process-1",
+      "coordinator_forward_tokens": 8192,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 3.500999543815851,
+      "capture_seconds": 0.8589850110001862,
+      "durable_wait_seconds": 3.2157505590002984
+    },
+    {
+      "operation": "root-B-process-1",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 1.5312428968027234,
+      "capture_seconds": 0.9001516429707408,
+      "durable_wait_seconds": 1.2403731099329889
+    },
+    {
+      "operation": "root-A-process-2",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 332013048,
+      "request_wall_seconds": 2.4577449050266296,
+      "capture_seconds": 1.3379382949788123,
+      "durable_wait_seconds": 2.1653734219726175
+    }
+  ],
+  "actual_output_counts": {
+    "A": 128,
+    "B": 128
+  },
+  "elapsed_seconds": 120.48213032679632,
+  "runtime_source_sha256": {
+    "context_time_travel.coordinator": "2e0e0fd3abe8e1e9735790252c2c600c90825982c5960d9593cbf117d6f01bc0",
+    "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel.pools": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "context_time_travel.real": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel.store": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+    "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+  },
+  "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+  "execution_profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "probe_sha256": "a7bb7877f5afcd60e107861167a94a7dfddcf17186dc4141ab69ac339cc2eb9d",
+  "scope": "duplicate-root reuse and fresh-process disk reuse; no HTTP",
+  "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+  "process_ids": [
+    {
+      "python": 2527974,
+      "native": {
+        "0": 2527979
+      }
+    },
+    {
+      "python": 2528217,
+      "native": {
+        "0": 2528222
+      }
+    }
+  ],
+  "pool_peak_accounted_bytes": [
+    8818228352,
+    8468507784
+  ],
+  "request_times": [
+    {
+      "operation": "answer-A-process-1",
+      "output_tokens": 128,
+      "request_wall_seconds": 4.131257355911657,
+      "completion_wait_seconds": 3.763245876180008,
+      "durable_wait_seconds": 3.763243281049654,
+      "capture_seconds": 0.9207608308643103,
+      "answer_timings": {
+        "capture_seconds": 0.9207608308643103,
+        "generation_seconds": 1.7195889179129153,
+        "request_seconds": 2.570642550010234
+      },
+      "whole_request_output_tokens_per_second": 30.983303380225717,
+      "generation_output_tokens_per_second": 74.43639503990003
+    },
+    {
+      "operation": "answer-B-process-1",
+      "output_tokens": 128,
+      "request_wall_seconds": 4.1547964829951525,
+      "completion_wait_seconds": 3.805031567113474,
+      "durable_wait_seconds": 3.805029683979228,
+      "capture_seconds": 0.9061133260838687,
+      "answer_timings": {
+        "capture_seconds": 0.9061133260838687,
+        "generation_seconds": 1.7008544891141355,
+        "request_seconds": 2.5215379979927093
+      },
+      "whole_request_output_tokens_per_second": 30.807766523313806,
+      "generation_output_tokens_per_second": 75.2562907757423
+    },
+    {
+      "operation": "answer-A-process-2",
+      "output_tokens": 128,
+      "request_wall_seconds": 4.32746616192162,
+      "completion_wait_seconds": 3.963039668975398,
+      "durable_wait_seconds": 3.9630363730248064,
+      "capture_seconds": 0.9031295131426305,
+      "answer_timings": {
+        "capture_seconds": 0.9031295131426305,
+        "generation_seconds": 1.728422351181507,
+        "request_seconds": 2.7128868938889354
+      },
+      "whole_request_output_tokens_per_second": 29.57850973539706,
+      "generation_output_tokens_per_second": 74.05597359493896
+    }
+  ],
+  "schema": "cow-real-root-reuse-target-v1",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "source_commit": "9eafc96e018a56491151985feec4478003319439",
+  "source_tar_sha256": "9108e0d0c6e98df620c8d1bad9f8bcbc3a1445a2f001ae850c04fdbfa588e621",
+  "primary_audit": "/home/dflanag3/spatial-artifacts/root-reuse-q4-target-primary-audit-20261015.json",
+  "primary_audit_sha256": "9c3e0749a164a2f52bf1f16bc94c7293845c5c78e81aa94b351c8f49a1c4a233",
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "native_build_sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-branch": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+    "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+  },
+  "reference_work": [
+    {
+      "name": "reference-A",
+      "work": {
+        "consumed": 8832,
+        "decode_seconds": 1.06363,
+        "decode_tokens": 128,
+        "normal_decode_windows": 128,
+        "normal_forward_tokens": 128,
+        "prefill_chunks": 2,
+        "prefill_seconds": 1.69094,
+        "prefill_tokens": 8704,
+        "prompt_consumed": 8704,
+        "stopping_reason": "output_bound"
+      }
+    },
+    {
+      "name": "reference-B",
+      "work": {
+        "consumed": 8832,
+        "decode_seconds": 1.04232,
+        "decode_tokens": 128,
+        "normal_decode_windows": 128,
+        "normal_forward_tokens": 128,
+        "prefill_chunks": 2,
+        "prefill_seconds": 1.66633,
+        "prefill_tokens": 8704,
+        "prompt_consumed": 8704,
+        "stopping_reason": "output_bound"
+      }
+    }
+  ],
+  "limits": [
+    "One observation per request, not repeated medians or an isolated cache-speed benchmark.",
+    "request_wall_seconds includes audit state inspection after durable completion; completion_wait_seconds is the earlier durable wait. Neither includes model startup.",
+    "generation_seconds includes the native consumed-progress protocol; native decode compute time excludes that protocol and other preparation.",
+    "Prefix/final full248320-logit vectors only; no suffix or every-generated-frontier qualification in this probe.",
+    "Greedy matching-native-operator arrangement only; no cross-arrangement equivalence or broad controller coverage.",
+    "Pool accounting is not RSS, and point GPU telemetry is not peak VRAM.",
+    "No disk-budget eviction pressure/crash injection; original G1-G5 remains unchanged."
+  ]
+}

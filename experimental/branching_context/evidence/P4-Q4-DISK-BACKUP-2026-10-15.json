@@ -1,0 +1,14 @@
+{
+  "archive_bytes": 17866475520,
+  "archive_sha256": "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+  "final_bytes": 17866475520,
+  "final_sha256": "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+  "manifest_sha256": "dd5ddccc63d72aa976a8e4f4f6da536ccc058aedc59ac8dd81cf5b1020652e44",
+  "member_count": 137,
+  "member_listing_sha256": "06419cf44a4a546295690addcb35776377e594f45156424a522db82a652fa361",
+  "partial_sha256": "51e0015403e6772545ffd90e8b2b813c9899102f61c6318643505501bb2edc78",
+  "status": "PASS",
+  "target": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar",
+  "verification": "every regular tar member matches the embedded sorted input manifest",
+  "verified_utc": "2026-10-15T07:37:39Z"
+}

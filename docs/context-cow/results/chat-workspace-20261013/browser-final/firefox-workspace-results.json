@@ -1,0 +1,9 @@
+{
+  "browser": "firefox",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible"
+  ],
+  "error": "AssertionError('named_chat_created')"
+}

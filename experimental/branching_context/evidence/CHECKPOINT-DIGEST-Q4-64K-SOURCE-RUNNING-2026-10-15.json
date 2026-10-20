@@ -1,0 +1,125 @@
+{
+  "status": "RUNNING_NOT_PASS",
+  "started_utc": "2026-10-15T10:21:59Z",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "tmux": "cow-digest-q4-source64k-v1",
+  "launcher_pid": 2121227,
+  "initial_native_pid": 2121281,
+  "launcher_sha256": "11e63a9cafe2c0cdb85b611c1cf5076372261476fc28468213bd845a4bc94d08",
+  "import_resource_witness_sha256": "f48bc67d2a1cb280711b7a85f84e28514bcdd82e64e24159303fb4c3d9ee853f",
+  "source_output": "/dev/shm/context-cow-digest-q4-64k-source-20261015-v1",
+  "receipts": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/source64k-command-v1",
+  "witness": {
+    "status": "PREFLIGHT_PASS_NOT_CAMPAIGN_RESULT",
+    "modules": [
+      {
+        "module": "context_time_travel",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/__init__.py",
+        "sha256": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+      },
+      {
+        "module": "context_time_travel.strata_backend",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/strata_backend.py",
+        "sha256": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"
+      },
+      {
+        "module": "context_time_travel.controller",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/controller.py",
+        "sha256": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"
+      },
+      {
+        "module": "context_time_travel.presentation_request",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_request.py",
+        "sha256": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"
+      },
+      {
+        "module": "context_time_travel.checkpoint_cache",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/checkpoint_cache.py",
+        "sha256": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a"
+      },
+      {
+        "module": "context_time_travel.evaluation_worker",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation_worker.py",
+        "sha256": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688"
+      },
+      {
+        "module": "context_time_travel.real",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/real.py",
+        "sha256": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f"
+      },
+      {
+        "module": "context_time_travel.coordinator",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/coordinator.py",
+        "sha256": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac"
+      },
+      {
+        "module": "context_time_travel.evaluation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation.py",
+        "sha256": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8"
+      },
+      {
+        "module": "context_time_travel.presentation_binding",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_binding.py",
+        "sha256": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813"
+      },
+      {
+        "module": "context_time_travel.slots",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/slots.py",
+        "sha256": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5"
+      },
+      {
+        "module": "context_time_travel.execution_receipt",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/execution_receipt.py",
+        "sha256": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215"
+      },
+      {
+        "module": "context_time_travel.digest_attestation",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/digest_attestation.py",
+        "sha256": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+      },
+      {
+        "module": "context_time_travel.numerics",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/numerics.py",
+        "sha256": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"
+      },
+      {
+        "module": "context_time_travel.pools",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/pools.py",
+        "sha256": "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729"
+      },
+      {
+        "module": "context_time_travel.oracle",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/oracle.py",
+        "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+      },
+      {
+        "module": "context_time_travel.store",
+        "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/store.py",
+        "sha256": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c"
+      }
+    ],
+    "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+    "mem_available_bytes": 129722380288,
+    "tmpfs_free_bytes": 67059625984,
+    "real_disk_free_bytes": 44280623104,
+    "scope": "RAM-backed source preparation only; not durable-disk or timing qualification",
+    "raw_fixture_sha256": "9fb32731440a794234eae1f622b34415d6a80c433df79f30aea6c37d0f9cb5c2",
+    "fixture_tokens_equal_previous_baseline": true,
+    "ram_pool_bytes": 103079215104,
+    "disk_pool_limit_bytes": 137438953472,
+    "min_mem_available_bytes": 17179869184
+  },
+  "scope": "64K source preparation and matching-schedule correctness; tmpfs source files are not durable-disk evidence; not timed P4 arms",
+  "fixtures": {
+    "prefix_tokens_each": 65536,
+    "roots": 3,
+    "questions": 6,
+    "output_limit_each": 128
+  },
+  "measurement_next": "Real-disk copies of these roots for paired 3-warmup/9-measured return arms, preserving historical matching model/native/input/schedule identities",
+  "numerical_max_error": null,
+  "completion": "No terminal result or numeric exits observed at capture; follow original process/session, do not duplicate"
+}

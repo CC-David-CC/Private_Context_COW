@@ -1,0 +1,60 @@
+{
+  "bytes": 3097342392,
+  "compact_backup": "box-git:/srv/data/git/private_context_cow.evidence/20261015-sparse-cancel-compact-v1/",
+  "payloads": [
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v1/probe/store/checkpoints/3ded5f18ccdb4a442bac25e1dfdbda1c69517fe374941f17baa49aa739ce28dc.state",
+      "sha256": "3ded5f18ccdb4a442bac25e1dfdbda1c69517fe374941f17baa49aa739ce28dc"
+    },
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v1/probe/store/checkpoints/7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9.state",
+      "sha256": "7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9"
+    },
+    {
+      "bytes": 333006328,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v1/probe/store/checkpoints/b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b.state",
+      "sha256": "b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b"
+    },
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v2/probe/store/checkpoints/3ded5f18ccdb4a442bac25e1dfdbda1c69517fe374941f17baa49aa739ce28dc.state",
+      "sha256": "3ded5f18ccdb4a442bac25e1dfdbda1c69517fe374941f17baa49aa739ce28dc"
+    },
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v2/probe/store/checkpoints/7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9.state",
+      "sha256": "7753f687aa4364fef9b0526df54226b5bb563b473109dc59821d9afb8c19cbd9"
+    },
+    {
+      "bytes": 333006328,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v2/probe/store/checkpoints/b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b.state",
+      "sha256": "b8b8d9506717aedbaf1f83891f68b38df148aaf3d9554d1125a18d8fe15b390b"
+    },
+    {
+      "bytes": 333006328,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q8-v2/probe/store/checkpoints/0f756221d7132699f562699378fe66bdff16615e2229f1347f3b4ccc44fb6def.state",
+      "sha256": "0f756221d7132699f562699378fe66bdff16615e2229f1347f3b4ccc44fb6def"
+    },
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q8-v2/probe/store/checkpoints/4736df9f011844933fae83144453e75d3de1e7754e10827c45c5165740537821.state",
+      "sha256": "4736df9f011844933fae83144453e75d3de1e7754e10827c45c5165740537821"
+    },
+    {
+      "bytes": 349720568,
+      "path": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q8-v2/probe/store/checkpoints/e8e80ef90b34fa6ceb4615a9b88934c3ad446aead21ebab6ef1a63a335f83780.state",
+      "sha256": "e8e80ef90b34fa6ceb4615a9b88934c3ad446aead21ebab6ef1a63a335f83780"
+    }
+  ],
+  "reason": "Recover space for Q4 tests; only previously audited disposable numerical copies",
+  "retained": [
+    "canonical histories and controllers",
+    "references and receipts",
+    "checkpoint manifests with original checksums",
+    "verified compact evidence backup"
+  ],
+  "schema": "completed-derived-payload-eviction-v1",
+  "status": "COMPLETE"
+}

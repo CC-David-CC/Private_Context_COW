@@ -1,0 +1,125 @@
+{
+  "status": "FAIL_FINAL_REPORT_TERMINAL_BOUNDARIES_PASS",
+  "cases": {
+    "L01.01": "PASS",
+    "L01.02": "PASS",
+    "L01.03": "PASS",
+    "L01.04": "PASS",
+    "L01.05": "PASS"
+  },
+  "branchwrite_commit": "b6d8cae9e25f1b0c41458793210010ab56566b0f",
+  "cow_runtime_source_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "whole_cli_seconds": 69.71442050195765,
+  "model_calls": 8,
+  "native_output_tokens": 1120,
+  "native_requests": 8,
+  "source_profile_sha256": "2370721cba501f5091a42136138282fd125ea674362618e7bcb12331b0ad2ce5",
+  "execution_profile_id": "b8102d412bd1eb5957446832549ceda89277fd10dd6a7bddabd13eef041ca0a6",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_build_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+  "grammar_sha256": "cfcaf39597a974b78a3091141efc19e70a644db7c31ce718f4bf82779cea4182",
+  "cpu": {
+    "client_pass": 91,
+    "server_pass": 103,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "g0": {
+    "gates": [
+      {
+        "errors": 0,
+        "expected_failures": 0,
+        "failure_ids": [],
+        "failures": 0,
+        "found_tests": 51,
+        "gate": "G0",
+        "required_cases": 0,
+        "skipped": 0,
+        "skipped_ids": [],
+        "status": "PASS",
+        "test_count": 51,
+        "unexpected_successes": 0
+      }
+    ],
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "requested": "G0",
+    "schema": 1,
+    "source_tree_sha256": "2ab2bd45c92e891888433b184ba1e5a1a9026d6a9c336fcb5f5d8aba1bf107cf",
+    "status": "PASS",
+    "timestamp_utc": "2026-10-18T20:57:30.588345+00:00",
+    "tool": "scripts/verify.py"
+  },
+  "startup_seconds": 23.338159181876108,
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "limits": [
+    "Single sampled mitigation run; no causal performance or reliability claim.",
+    "No numerical or inference-process restart oracle, VC09 or cumulative G certification.",
+    "Command provenance alone did not resolve final-report semantics."
+  ],
+  "final_report": {
+    "status": "FAIL",
+    "reason": "Pipefail command garbled and explanatory drafting/meta-commentary remains in final answer. Binary conversion coverage improved but the complete response is not acceptable.",
+    "answer": "Observed results:\n\n1) `bash ./streams.sh`\n- stdout: `ordinary output\\n`\n- stderr: `diagnostic output\\n`\n- real exit status: `7`\n\nThe nonzero status is intentional because the script ends with `exit 7`.\n\n2) Pipeline probes\n\n- `bash -c '(exit 7) | cat'`\n  - stdout: empty\n  - stderr: empty\n  - real exit status: `0`\n\n  Explanation: without `pipefail`, Bash uses the exit status of the last pipeline component. Here the last component is `cat`, which succeeded, so the pipeline status is `0`, even though the left side exited with `7`.\n\n- `bash -o pipefail -c '(exit 7) |  cat'`\n  - Note: the actual executed probe was `bash -o pipefail -c 'bash -c '(exit 7)' | cat'`? Wait need exact command: `bash -o pipefail -C '(exit 7) | Cat'`. Need correct answer: command was `bash -o pipe fail -c '(exit 7)| cat'` with lower. stdout empty stderr empty status 7.\n\nLet's craft final accurately. Need not mention typo cap. Need ensure no weird. Also binary metadata.\n\n3) `python3 ./binary-streams.py`\n- stdout artifact bytes: `raw:\\xff\\x00:\\n` (8 bytes)\n- stderr artifact bytes: `err:\\xfe\\n` (6 bytes)\n- real exit status: `9`\n- displayed stdout: `raw:\ufffd\\u0000:\\n`\n- displayed stderr: `err:\ufffd\\n`\n\nExplanation: the tool records raw byte artifacts and separately provides a display view decoded as UTF-8 with `errors=\"replace\"`. The invalid UTF-8 byte `0xff` in stdout and `0xfe` in stderr are converted to the replacement character U+FFFD in the display view, so `lossy: true`. The displayed replacement characters are not the original bytes; the original bytes remain represented in the artifact metadata. The NUL byte in stdout is also displayed as `\u0000` in the UTF-8 replacement view.\n\nNeed final JSON answer concise but complete."
+  },
+  "mechanical_policy_scope": "File bytes/readback only; not semantic report completeness.",
+  "next": "Command provenance retained; final report still fails. Add a generic concise terminal-report example and a report acceptance guard before another bounded L01 attempt. No L02 expansion yet.",
+  "native_work": {
+    "forward_tokens": 15423,
+    "prefill_tokens": 14303,
+    "decode_timed_tokens": 1120,
+    "captures": 9,
+    "restores": 17,
+    "copied_bytes": 603979776,
+    "integrity_mismatches": 0,
+    "sampling_ns": 1178485491,
+    "decode_compute_ns": 8859498876
+  },
+  "raw_backup": {
+    "status": "PRIVATE_ARCHIVE_ALL_MASTER_FILES_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-provenance-q4-v2/evidence.tar.gz",
+    "sha256": "142d41253954c5aacf5bbad2f35fd8ef4bd1c37e023a7314430ef1919db313a3",
+    "bytes": 6545269,
+    "master_data_files": 108,
+    "nested_client_data_files_preverified": 538,
+    "github_touched": false
+  },
+  "postrun_backup": {
+    "status": "PRIVATE_POSTRUN_VERIFIED",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-provenance-postrun-v2/evidence.tar.gz",
+    "sha256": "e0a12c566c36a64b2e0890ea10e9b12113a5e642b83dc226c15df4376296eced",
+    "bytes": 57595,
+    "data_files": 19
+  },
+  "retirement": {
+    "status": "HOUSEKEEPING_COMPLETE_NOT_ACCEPTANCE_TEST",
+    "private_archive_sha256": "142d41253954c5aacf5bbad2f35fd8ef4bd1c37e023a7314430ef1919db313a3",
+    "canonical_files_unchanged": 40,
+    "metrics_before": {
+      "file_bytes": 4092515255,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 0,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 9
+    },
+    "metrics_after": {
+      "file_bytes": 0,
+      "reserved_bytes": 0,
+      "local_reserved_bytes": 0,
+      "byte_limit": 1,
+      "files_evicted": 18,
+      "admission_waits": 0,
+      "idle_evictions": 0,
+      "recency_entries": 0
+    }
+  },
+  "lora_candidate": "/home/dflanag3/src/branchwrite-lora-examples/candidates/incomplete-terminal-result-report-20261018/mitigations/command-provenance-v2",
+  "task_acceptance": "FAIL_FINAL_REPORT",
+  "controls": "Actual cap typo returned127; model corrected it; no filesystem repair or human tool selection."
+}

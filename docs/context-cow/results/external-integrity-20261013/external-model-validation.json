@@ -1,0 +1,90 @@
+[
+  {
+    "label": "external-profile",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/prepare_speed_profile.py",
+      "--source",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external",
+      "--model",
+      "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+      "--pack",
+      "<measurement-home>/branching-g3/q8-pack",
+      "--expert-profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/data/expert-profile.bin",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-profile",
+      "--model-receipt",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/model-receipt.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.6903323821024969
+  },
+  {
+    "label": "external-model",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-model",
+      "--oracle-evidence",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 0,
+    "seconds": 163.38560100307222
+  },
+  {
+    "label": "external-prepared-profile",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/prepare_speed_profile.py",
+      "--source",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external-prepared",
+      "--model",
+      "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+      "--pack",
+      "<measurement-home>/branching-g3/q8-pack",
+      "--expert-profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/data/expert-profile.bin",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-prepared-profile",
+      "--model-receipt",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/model-receipt.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.6134756500832736
+  },
+  {
+    "label": "external-prepared-model",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-prepared-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-external-prepared",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-prepared-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/external-prepared-model",
+      "--oracle-evidence",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 0,
+    "seconds": 163.41765889304224
+  }
+]

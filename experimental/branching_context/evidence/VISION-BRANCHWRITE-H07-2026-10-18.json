@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_AUTONOMOUS_H07_PASS_WITH_PER_RUN_DRY_OFF",
+  "executed_commit": "30b8bda2eec2698a357c69be77894e0c71c70113",
+  "catalog": {
+    "passed": [
+      "H00",
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05",
+      "H06",
+      "H07"
+    ],
+    "passed_count": 8,
+    "total": 13,
+    "unrun": [
+      "H08",
+      "H09",
+      "H10",
+      "H11",
+      "H12"
+    ]
+  },
+  "client_host": "llm-49",
+  "server_host": "llm-60",
+  "model": "Qwen3.8-Flash-Next UD-Q4_K_XL",
+  "execution_profile_id": "092f4c044df5365834addf220feb7464e13703239658c754513af9f557a0ce77",
+  "thinking_budget": 1024,
+  "global_sampler_default_changed": false,
+  "sampler": {
+    "temperature": 0.7,
+    "min_p": 0.05,
+    "top_k": 60,
+    "top_p": 0.95,
+    "dry_multiplier": 0,
+    "dry_base": 1.75,
+    "dry_allowed_length": 2,
+    "dry_penalty_last_n": 256
+  },
+  "attempt2": {
+    "status": "AUTONOMOUS_H07_UNVERIFIED_REPEAT_EXHAUSTED",
+    "seconds": 491.24685295589734,
+    "outputs": 16,
+    "output_tokens": 9827,
+    "images": 0,
+    "open_frames": 0,
+    "checksum_argument_requests": 0
+  },
+  "attempt3": {
+    "status": "BOUNDED_CROSS_HOST_AUTONOMOUS_CLI_PASS",
+    "whole_cli_seconds": 108.3750994920265,
+    "offline_reopen_seconds": 0.4007799569517374,
+    "model_output_tokens": [
+      105,
+      801,
+      554,
+      37,
+      809
+    ],
+    "total_consumed_output_tokens": 2306,
+    "tool_sequence": [
+      "read_file",
+      "replace",
+      "interact_page",
+      "read_file",
+      "finish"
+    ],
+    "source_sha256": "c959bf293f51bcd8d039806c10c1b444c6d071fb4c7a0aa136aba77e95d75ff3",
+    "source_bytes": 1371,
+    "image_sha256": "5ef09dbd516dc3f6a081c03a7e1d5cd383e970f0efbe7dfe8a424bb9538023a9",
+    "image_bytes": 10278,
+    "actual_interaction_and_literal_greeting": true,
+    "protected_checker": "UNCHANGED_PASS",
+    "same_recipe_source_action_pixel_text_replay": "PASS",
+    "image_delivered_before_finish": true,
+    "original_source_unchanged": true,
+    "completed_reopen_without_transport": "PASS"
+  },
+  "native": {
+    "audit": "PASS",
+    "images": 1,
+    "image_rows": 300,
+    "consumed_output_tokens": 2306,
+    "captures": 6,
+    "restores": 11,
+    "integrity_mismatches": 0,
+    "server_exit": 0,
+    "native_exit": 0,
+    "numerical_oracle": "NOT_RUN"
+  },
+  "selected_cpu_checks": {
+    "prior_host_binding_pass": 217,
+    "client": 201,
+    "server": 16,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "rerun_for_notes_only": false
+  },
+  "comparison_limit": "One sampled trajectory per setting; does not prove general DRY causality or justify changing global default.",
+  "private_archive": {
+    "path": "box-git:/srv/data/git/private_context_cow.evidence/20261018-h07-v23-autonomous-v1/evidence.tar.gz",
+    "bytes": 32574845,
+    "sha256": "ea2ef90f8ee926b169cf66eab75c7d7006b38d4d971713605e3fef6343b4ce04",
+    "verified_data_files": 720,
+    "optional_native_payload_bytes_inventoried_not_archived": 11000047156
+  },
+  "cleanup": "Owned processes exited; temporary API credentials/SSH grant removed; chat OFF; GPU idle",
+  "limitations": [
+    "No fresh full-logit oracle or restart qualification in this workload",
+    "H08-H10 immutable resource/asset delivery not implemented",
+    "H11 runtime-error feedback and H12 viewport campaign remain",
+    "Broad VC/G/Q8 qualification remains outstanding"
+  ],
+  "next": "Implement isolated immutable multi-file browser assets with exact observation/ownership guards and distinguishing tests, then autonomously run H08; do not teach protected answers.",
+  "github_touched": false,
+  "branchwrite_notes_commit": "1a1f2fcf738c6563e922950f3da96a9c7ccede8a",
+  "cow_runtime_change": false,
+  "vc_scope": "VC09 actual client integration evidence; no full VC or G gate qualification"
+}

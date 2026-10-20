@@ -1,0 +1,7 @@
+{
+  "GPU": [0],
+  "ram_bytes": 8589934592,
+  "disk_bytes": 68719476736,
+  "min_available_bytes": 17179869184,
+  "profile": "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json"
+}

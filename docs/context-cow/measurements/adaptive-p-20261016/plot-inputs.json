@@ -1,0 +1,27 @@
+{
+  "fixture_source_sha256": "6f517dbf9380416f581a1ac222434d99f97567f5b1f79f8a834615f3b7b28a9d",
+  "matplotlib_version": "3.10.7",
+  "measured_rows": 6,
+  "native_elf_sha256": "c674659df23ace94dfb29023d4f1dec1bd9f4f219df0ddb4802e0300b11ad87e",
+  "output_sha256": {
+    "adaptive-p-q4-8k.png": "1cce310f119f4b770df32c80ef324d1336cd14ac023ebbfa4d2500b6ca3d0b86",
+    "measurements.csv": "4773dbf0b2395f7a3c6d3392c79b06abf11c861a9d318bde3d9feff7d0761dc4"
+  },
+  "policy": {
+    "adaptive_decay": 0.9,
+    "adaptive_target": 0.55,
+    "min_p": 0.05,
+    "repetition_penalty": 1.0,
+    "temperature": 0.7,
+    "top_k": 0,
+    "top_p": 1.0
+  },
+  "profile_sha256": "dab1c17e875a4c3c3c7979d1deff4cbdd069b7cd3985fb5a82bde96db926a617",
+  "schema": "context-cow-adaptive-p-figure-v1",
+  "script_sha256": "000dd2e7621606b88cb89cd4134e53f520df128a3b5044785282b3985aefe348",
+  "selected_fixture_sha256": "78553f0140428c589e12e7fb01728e119f461ea216e239edaf4379875bd19296",
+  "source_commit": "747d5d4b4ba7b10e99ca7312b918e5587e126385",
+  "source_report": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-q4-expanded-qualification-v1.json",
+  "source_report_sha256": "63143233d19e31123b4eeaeeccd899fd9fa256d671c0ee7e883a18aa1d861868",
+  "warmup_rows_excluded": 2
+}

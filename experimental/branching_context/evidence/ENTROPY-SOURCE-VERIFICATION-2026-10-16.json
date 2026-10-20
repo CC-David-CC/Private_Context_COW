@@ -1,0 +1,103 @@
+{
+  "files": [
+    {
+      "bytes": 4061,
+      "path": "experimental/branching_context/native/dynatemp_select.h",
+      "sha256": "049f1fca4f92b0c8eec7bb5645a9183a8aecf789ed0ba7062c31d61795cbb149"
+    },
+    {
+      "bytes": 25033,
+      "path": "experimental/branching_context/native/min_p_select.h",
+      "sha256": "cdfcb4f8102e63eb68d8fa45619cac88ef4a800bb1fde1a1495a4a438f981716"
+    },
+    {
+      "bytes": 4342,
+      "path": "experimental/branching_context/native/typical_select.h",
+      "sha256": "f24f393e7c4608ebe432ee600e7d6a67a4bbd3af193b7bdbcfe7bacebd12754a"
+    },
+    {
+      "bytes": 49093,
+      "path": "experimental/branching_context/scripts/build_min_p_selector_probe.py",
+      "sha256": "a8ef3e22a81c333c7cf21726165e5405e4bb6460989b95343132d15705b9b7f9"
+    },
+    {
+      "bytes": 17440,
+      "path": "experimental/branching_context/scripts/run_sampler_serving_probe.py",
+      "sha256": "ee9c369feef7e286cf338428ca8f5af1f06e9ece69b3311051337ebb4063e2d8"
+    },
+    {
+      "bytes": 4345,
+      "path": "experimental/branching_context/src/context_time_travel/dynatemp.py",
+      "sha256": "1f50719f0c410f1ec22f306fcafff194cfdfbeb8833f73a0e96c7015b6ac6c6b"
+    },
+    {
+      "bytes": 12549,
+      "path": "experimental/branching_context/src/context_time_travel/min_p.py",
+      "sha256": "9383bada6a4b45013e7ee849310f478dcc72968e157cc7ced54e48c8cf41b581"
+    },
+    {
+      "bytes": 19869,
+      "path": "experimental/branching_context/src/context_time_travel/sampled_controller.py",
+      "sha256": "b3190be7e761c042714d9d074cacd09ddbe1bfbacf36578650463c044aab1d98"
+    },
+    {
+      "bytes": 52471,
+      "path": "experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "sha256": "f2f3ad6b3ddc2a30147b356ea331dc7ddd2736988fbf00474b6f4d8364529741"
+    },
+    {
+      "bytes": 4132,
+      "path": "experimental/branching_context/src/context_time_travel/typical.py",
+      "sha256": "5bb3dd9fff53b169f066fac02965979f2430c36b562714704108ffa565afbe5e"
+    },
+    {
+      "bytes": 9367,
+      "path": "experimental/branching_context/tests/implementation/test_entropy_controller_recovery.py",
+      "sha256": "eddf55272a44e35035bbaa33b03510db7ca90fa0aa011f008c6b2eb84d4d0c60"
+    },
+    {
+      "bytes": 4701,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_backend.py",
+      "sha256": "793c86ffbc6dd088a4c97b8823b4d91009ae9169de9a14dc8f4f5395cb4fc50d"
+    },
+    {
+      "bytes": 4913,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_generation.py",
+      "sha256": "d4e3b1bd585a2695b4041e8455f47f8d8fda71115ac9189e01497947682e9c40"
+    },
+    {
+      "bytes": 16848,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_native.py",
+      "sha256": "f8ddf2df37842c0af7754dddcde76b16519b9d4b2f152b975a36d5f9adf2e9a4"
+    },
+    {
+      "bytes": 2138,
+      "path": "experimental/branching_context/tests/implementation/test_typical_dynatemp_observer.py",
+      "sha256": "30f411ca0f3c066e67e1534864ff9e4ef5d85d245c6196b92850312f84498499"
+    },
+    {
+      "bytes": 9756,
+      "path": "serve/cow_adapter.py",
+      "sha256": "beee600edea5a012eebf69508093a8773a825ba55891516eef30006a1764d600"
+    },
+    {
+      "bytes": 20646,
+      "path": "serve/cow_text_adapter.py",
+      "sha256": "81ea165ff9b9b7ee26aae481d937bf43262fe2f59049f1ac5840ae166bed2e8c"
+    },
+    {
+      "bytes": 11168,
+      "path": "serve/test_cow_typical_dynatemp_settings.py",
+      "sha256": "498a7c61f8a124f30dc8999707edab87370424e308db3c83532700b3def6b91e"
+    },
+    {
+      "bytes": 43683,
+      "path": "tools/cow_cli.py",
+      "sha256": "94f7f6ad7ad6a2e90aef3997dbab9024033c27efd7f371f32d3baaa209bbc6b1"
+    }
+  ],
+  "source": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/entropy-integrated-v3/source",
+  "source_commit": "9737850c4eaa958cd693d8233622dbff1981ba06",
+  "status": "PASS",
+  "verification": "Exact Git object bytes equal frozen executed source bytes"
+}

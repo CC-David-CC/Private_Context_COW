@@ -1,0 +1,8 @@
+{
+    "schema":  "cow-summary-line-ending-normalization-v1",
+    "raw_sha256":  "551a47acffccf5a4346ee4c348351512fef38a17a41cf1ba3afdcd528d2359fe",
+    "repository_sha256":  "043aff4666bfd3969720ad8078d23b6f0212dd2be72fb5759a101cfcdc4836a1",
+    "change":  "Authored qualification summary CRLF to LF and UTF8 without BOM; parsed JSON unchanged. Original bytes preserved in verified private archive.",
+    "raw_archive_sha256":  "0f9e8896ee4dc24f7eb85496c16a296992e99c8531be5a8806e2e9bbb6c998b8",
+    "source_and_test_bytes_changed":  false
+}

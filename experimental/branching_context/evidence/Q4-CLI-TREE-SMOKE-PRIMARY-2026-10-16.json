@@ -1,0 +1,69 @@
+{
+  "all_owned_pids_absent": true,
+  "audit_result_sha256": "16385599b080c0e89e7a9b5522b1672b3d9cbdb12c0723998619adad6b533a4f",
+  "audit_script_sha256": "ef5367ade8e1334a6ddac8165e227ded656df5bd8185da57d47a612965e07c02",
+  "candidate_frontiers_checked": [
+    "saved-prefix",
+    "final-consumed-output"
+  ],
+  "candidate_result_sha256": "84f0c2ad2c742d05f1a7e3a32042adade0c1faa845a0a7bf0af18f8e6a7e380f",
+  "canonical_history_exact": true,
+  "captures": 2,
+  "cli_process_seconds": 2.3456532971467823,
+  "cli_sha256": "798fe8706b0e5bf8b6ebdf956d10d59ef6bc1e5647b98efe3590e098afb04b91",
+  "command_and_wrapper_exits": [
+    0,
+    0
+  ],
+  "decode_compute_ns": 70422556,
+  "decode_finish_ns": 849345,
+  "decode_prepare_ns": 3589053,
+  "execution_profile_id": "fed7e7d5e4b2405fc75e6d300deef7576fe4a0a8ddec88841331144568ada450",
+  "fresh_repeat_frontiers": 10,
+  "full_greedy_controller_exact": true,
+  "full_vector_comparisons": 12,
+  "generated_tokens_exact": true,
+  "gpu": "RTX PRO 6000 Blackwell GPU0",
+  "hashed_bytes": 2113929216,
+  "host": "llm-60",
+  "idempotent_retry_receipt_exact": true,
+  "integrity_mismatches": 0,
+  "limitations": [
+    "Single eight-output request, not a throughput benchmark",
+    "TTFT/TPOT observer and multi-tree campaign unrun",
+    "Matching profile/operator sequence only; no cross-arrangement equivalence",
+    "Greedy controller only",
+    "No new cumulative G1-G5 qualification",
+    "Q8 deferred; chat server off; private only"
+  ],
+  "loaded_native_bytes": 306935540,
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "native_forward_tokens": 520,
+  "native_prefill_tokens": 512,
+  "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "numerical_max_error": 0,
+  "operation_retry_scope": "Completed operation is replayed from the unchanged CLI journal; this smoke does not re-POST a lost acknowledgment",
+  "original_prefix_bytes_unchanged": true,
+  "output_tokens": 8,
+  "owned_pids": [
+    2865483,
+    2865489,
+    2867040,
+    2867155
+  ],
+  "prefix_tokens": 7231,
+  "preserved_failures": [
+    "Smoke v1 rejected root revision 1 due to an incorrect revision-zero assumption; root was valid",
+    "Reference audit v1 stopped after 10 successful repeat vector checks: omitted required snapshot argument to Store.read_lease",
+    "Reference audit v2 reused the two completed fresh reference runs after checking raw-vector hashes, input IDs, native schedule, work and process receipts"
+  ],
+  "profile_sha256": "a7d53c45ebd7a1aa841ee10a7f5ef55472d5c761be928551a176b94f7d3f1755",
+  "restores": 1,
+  "runner_sha256": "e2ea694cd8f18d63900f8b1e47f8082eb08e210cfdea1aaf794c27a7bbe0726e",
+  "schema": "cow-q4-cli-smoke-primary-v1",
+  "scope": "Actual terminal CLI -> COW HTTP -> native execution; saved-root reuse, new question and local completed-operation retry",
+  "source_scope": "Three distinct Strata source bundles, not three unrelated repositories; old source text reused as data and retokenized, no old native checkpoint imported",
+  "startup_seconds": 18.78002382791601,
+  "status": "FOCUSED-PASS",
+  "suffix_tokens": 512
+}

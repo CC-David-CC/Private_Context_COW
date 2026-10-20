@@ -1,0 +1,45 @@
+{
+  "schema": "cow-focused-qualification-v1",
+  "status": "CPU_FOCUSED_PASS",
+  "host": "llm-60",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/receipt-eviction-integration-20261015-v1",
+  "primary_audit_sha256": "216f983c83b21ec81f8d843989bdc7f4da5eb5fd9bc3aba4aec1c15b93f72563",
+  "source_scope": "green-source-v2: explicit source overlay on earlier combined CPU archive; not a complete current-main GPU qualification",
+  "source_sha256": {
+    "coordinator.py": "57c72a43c2df8475ac1f0b4c8b50de980671917fa2eb36190a71573efe9af19d",
+    "real.py": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "store.py": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "test_receipt_checkpoint_eviction.py": "2f0daafaaf962037b538931ce59eb81efd0c4bd3ca11da765efc6c530a3d804e"
+  },
+  "executed": {
+    "green-v2": {"tests": 43, "command_exit": 0, "wrapper_exit": 0},
+    "serving-v1": {"tests": 141, "command_exit": 0, "wrapper_exit": 0},
+    "g0-v1": {"tests": 51, "command_exit": 0, "wrapper_exit": 0}
+  },
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "red": {
+    "run": "runs/red-v2",
+    "tests": 5,
+    "failures": 3,
+    "errors": 1,
+    "command_exit": 1,
+    "cause": "Previous publications did not bind checkpoint metadata to the atomic move receipt; recovery attempted numerical reads after eviction. Earlier red-v1 also retained a fixture setup error; red-v2 corrected only that fixture control."
+  },
+  "behavior": [
+    "New durable publications bind versioned snapshot, payload, model and execution identities to their existing atomic branch-move receipt.",
+    "After coordinator close/reopen and deletion of every numerical checkpoint, the original operation recovers its original acknowledgment without numerical reads or forward work.",
+    "Recovering an old acknowledgment never rewinds a newer branch head.",
+    "Incompatible current execution identities are rejected; strict restore still requires complete numerical bytes.",
+    "Retrying a completed legacy prepared publication preserves its original move digest."
+  ],
+  "limits": [
+    "CPU synthetic backend and filesystem/socket checks, not real GPU/model qualification",
+    "An old acknowledgment is historical publication evidence, not a promise that its derived payload remains cached",
+    "Legacy operations without checkpoint metadata still require their checked numerical-file recovery path",
+    "Automatic computation rebuild after cache eviction remains a separate integration task",
+    "No process-kill/power-loss, ENOSPC or broad controller qualification; G1-G5 unchanged"
+  ]
+}

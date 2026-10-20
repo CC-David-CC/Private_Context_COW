@@ -1,0 +1,118 @@
+{
+  "artifact": "P4 repeated-return latency harness draft follow-up",
+  "status": "DRAFT_CPU_FIXTURE_ONLY",
+  "base_commit": "d089c5089dc2b674cac16ef33c9702b2770ce764",
+  "source_branch": "work/luna-p4-return",
+  "source_files": {
+    "experimental/branching_context/scripts/p4_return_latency.py": "f3e1898ab70fb9125216fb477d756a0ca7cd8a543c55cdab7597ae816b4f8fc9",
+    "experimental/branching_context/scripts/test_p4_return_latency.py": "33f341c5dc48097cc714c5b4ef1e38b8111509f78a3e69ab553ea0d459c55698"
+  },
+  "cpu_test_execution": {
+    "host": "llm-60",
+    "python": "Python 3.12.3",
+    "root_source_checkout_commit": "141f0a63bfca89adadfdc30636ec9678f9de340e",
+    "frozen24b4_source_python_git_tree": "aa426bd12091a898eae04dc4d2fe818468f97c51",
+    "working_directory": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context",
+    "command": "PYTHONPATH=src:scripts python3 scripts/test_p4_return_latency.py",
+    "exit_code": 0,
+    "summary_stdout": "Ran 19 tests in 1.031s; OK",
+    "raw_stdout_stderr_path": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/pytest-final2.log",
+    "raw_stdout_stderr_sha256": "ac8028f81e9f0e0659a30121d07d28dc5e0acc7bbee48e96a248b7a2fef9cd33",
+    "raw_stdout_stderr_bytes": 3012,
+    "test_ids": [
+      "test_campaign_inputs_requires_native_prefix_and_explicit_supported_roots",
+      "test_cleanup_failure_is_recorded_without_masking_original_failure",
+      "test_cli_exception_never_reuses_preexisting_pass_receipt",
+      "test_cli_exception_uses_persisted_failure_receipt",
+      "test_cli_returns_nonzero_for_fail_and_preserves_receipt_summary",
+      "test_corrupt_checkpoint_payload_fails_before_target_publish",
+      "test_heartbeat_reports_phase_root_repeat_pid_and_stops",
+      "test_heartbeat_worker_failure_is_surfaced_on_close",
+      "test_import_preserves_canonical_ids_history_and_only_requested_root",
+      "test_injected_fake_coordinator_runs_both_arm_control_flows",
+      "test_missing_checkpoint_fails_before_target_becomes_usable",
+      "test_operator_schedule_is_bound_to_exact_history_and_profile",
+      "test_output_requires_first_reference_prefix_or_actual_eos",
+      "test_producer_and_consumer_times_are_separate",
+      "test_profile_mismatch_fails_before_target_becomes_usable",
+      "test_readonly_source_bytes_and_modes_remain_unchanged",
+      "test_target_cannot_be_created_inside_frozen_source_store",
+      "test_tier_classification_ignores_native_loaded_file_counter",
+      "test_work_delta_rejects_saved_prefix_forward_work"
+    ]
+  },
+  "review_fix_red_green": [
+    {
+      "red": "CLI status mapping previously returned process success when cleanup changed the result to FAIL; a new fake retained-process case makes run_arm produce FAIL with native_exit_observed=false.",
+      "green": "main now exits zero only for PASS and returns nonzero otherwise; tests preserve measured request counts, native-exit boolean, and the persisted report summary."
+    },
+    {
+      "red": "An injected original startup failure plus coordinator.close failure previously prevented final result.json persistence and risked masking the original error.",
+      "green": "Nested cleanup captures cleanup errors, persists FAIL and numeric receipts, then rethrows the original run error. Separate coverage verifies a close-only failure after nine completed samples also persists FAIL."
+    },
+    {
+      "red": "Long startup/import/request phases previously had no heartbeat or phase context.",
+      "green": "A 30-second heartbeat writes PID, phase, root, repeat, and elapsed time; incremental result.json phase/sample updates remain. Tests check heartbeat context, clean thread stop, and that background emit failures cause a harness failure."
+    },
+    {
+      "red": "A runner exception could summarize a pre-existing PASS result as successful, and a heartbeat thread write failure could disappear without failing the harness.",
+      "green": "CLI exception handling always returns FAIL, records the pre-existing status and invocation error, and leaves an old result file byte-for-byte untouched. The heartbeat worker error is retained and raised by close(). Regressions cover old PASS refusal and worker emit failure."
+    },
+    {
+      "red": "Native process cleanup treated any observed exit, including signal/nonzero exit, as success.",
+      "green": "Reports now include native_exit_codes and PASS requires each observed code to be zero. CPU regression injects -9 and verifies FAIL; no native process was launched for this test."
+    },
+    {
+      "red": "Input acceptance allowed fixture root mapping to be inferred and did not require actual 65,536-token prepared histories.",
+      "green": "Production inputs now require three roots with 65,536 history tokens each and an explicit six-tree map; selected trees 0/2/4 must map to roots 0/1/2. CPU fixture uses an explicit test-only 256-token override and rejects the override without an injected fake coordinator."
+    },
+    {
+      "green": "Module docstring now distinguishes import from the explicit CLI runner that imports checkpoints and starts a coordinator."
+    }
+  ],
+  "scope_and_dependencies": {
+    "runtime_dependencies": "Python standard library and checked-out experimental/branching_context/src package; no install/build step",
+    "native_or_model_dependencies_loaded_by_tests": false,
+    "cpu_fixture_prefix_tokens": 256,
+    "production_required_prefix_tokens": 65536,
+    "import_staging": "Previously tested selected-root copying into an independent Store; payload/profile/manifest validation before publish; no prefix replay.",
+    "native_runner_qualification": "UNRUN",
+    "G0": "PASS: minimal G0 inputs were staged into this exact CPU stage after confirming every production src/*.py file matched the frozen24b4 source byte-for-byte."
+  },
+  "g0_execution": {
+    "host": "llm-60",
+    "python": "Python 3.12.3",
+    "checkout": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context",
+    "command": "python3 scripts/verify.py --gate G0",
+    "runner": "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "run_directory": "/home/dflanag3/spatial-artifacts/p4-return-g0-run-20261015-02",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "status": "PASS",
+    "tests": 51,
+    "required_real_backend_cases": 0,
+    "source_tree_sha256": "4450caf539ecdd62803cb904736a6aeb8e0676c8d0c66bccd29eb826b55dba41",
+    "scope": "Minimal G0 package plus P4 harness. Production src Python files all byte-match /home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/src. This is not a full repository-tree digest or native qualification.",
+    "report_path": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/evidence/runs/20261015T060625305688Z-G0.json",
+    "report_sha256": "877e60a5d37e21ada70b4d09d08de1be34085d8759653bf9bb2fd7f8ac6ca772",
+    "stdout_path": "/home/dflanag3/spatial-artifacts/p4-return-g0-run-20261015-02/stdout.log",
+    "stdout_sha256": "c5228534e7258b41bfd878e21fd8665971d384e7f7b5b7d08c5957a512adcd59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "staged_inputs": {
+      "scripts/verify.py": "df7e8caf244ddeb529af106aca2b5629fb56296399cfd48c2706912318109a24",
+      "tests/test_logical_store.py": "7108d9ba90b48a09418a3eaa0a8d280506a41bfb9531f4fc7f35da9b7d53e798",
+      "tests/test_numerics.py": "f38ac8b7f63974b8938a76ed11702eb6be8318f9b5871c09654bde146ae694fd",
+      "reference/test_context_time_travel_toy.py": "44c9ee81e8f9b2da0cb829e27fe14b11ba3db9b94266e1e52f8f0961c29efd23",
+      "docs/acceptance.json": "a6f59153a78fbcc8e4e0fcee1d47f5dfded645f6f7f474010883421ac6695f3b",
+      "docs/locked-references.json": "c7c734a01471e9e39471259283e1e7a406801357178c6b2b49ade1ab38eb64a5",
+      "spec/branching-context-api.md": "c847876f4efbec69760ffdf8793389afbcfacbace6187661606e97aabe95fabe"
+    }
+  },
+  "remaining_blockers": [
+    "The G0 evidence is a minimal staged-input run, not a full repository-tree verification or native runner qualification.",
+    "Do not execute the native runner until root authorizes it.",
+    "Selected three source checkpoint payloads were unlinked after archive verification; restore them using the root-maintained archive restore map. The runner must reject missing/corrupt payloads and must never replay prefixes.",
+    "CPU fixture PASS does not qualify real backend/GPU behavior."
+  ]
+}

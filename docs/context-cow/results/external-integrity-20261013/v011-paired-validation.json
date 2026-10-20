@@ -1,0 +1,23 @@
+[
+  {
+    "label": "v011-guarded-control",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/prepare-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-prepare",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/prepare-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/v011-guarded-control",
+      "--oracle-evidence",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 1,
+    "seconds": 0.04460361797828227
+  }
+]

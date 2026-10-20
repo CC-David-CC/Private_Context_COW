@@ -1,0 +1,30 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "PASS_RECEIVER_VERIFIED",
+  "archive": "box-git:/srv/data/git/private_context_cow.evidence/20261015-pool-lru-rebuild-cpu-v1/evidence.tar",
+  "archive_bytes": 8478720,
+  "sha256": "feca3bfc9602b42d47cb3e3055f91d0df23e858ff86edc4005feb2b82cd5fbb7",
+  "manifest_sha256": "be4e027538c9fb9177ae6ece4cb83146cd10ffbf8026fccb1f180b24fa8420c6",
+  "source_files": 953,
+  "source_logical_bytes": 6330321,
+  "archive_members_including_directories_and_verifier": 1058,
+  "pipeline_exit_codes": [0, 0, 0],
+  "source_roots_on_llm60": [
+    "/home/dflanag3/spatial-artifacts/cow-explicit-rebuild-20261015-v1",
+    "/home/dflanag3/spatial-artifacts/cow-publication-recovery-20261015-v1",
+    "/home/dflanag3/spatial-artifacts/disk-lru-pool-20261015"
+  ],
+  "sender_receipt": "/home/dflanag3/spatial-artifacts/pool-lru-backup-work-20261015-v1/backup-receipt.json",
+  "sender_receipt_sha256": "a26f6e3ce106493e5bcd06b685949bd25a84a247338faf0c2ebefc111baf1ab9",
+  "receiver_result": "/srv/data/git/private_context_cow.evidence/20261015-pool-lru-rebuild-cpu-v1/verify-result.json",
+  "receiver_result_sha256": "a0d5bcebc773d3dad38296d62e6d992160b5d9dfcde1b56894d1f5e8d496f0b3",
+  "permissions": {"directory": "0700", "archive": "0600", "receipts": "0600"},
+  "primary_readback": "Independently read sender receipt, receiver result and archive/result SHA256 from their hosts; hashes match worker verification.",
+  "scope": {
+    "included": "Completed CPU source snapshots, launchers, numeric exit receipts, passing runs and retained failures for explicit rebuild, disk LRU and publication preflight.",
+    "excluded": ["ongoing root-reuse work", "ongoing CLI journal work", "future real GPU campaigns"],
+    "raw_archives_transferred_to_windows": false,
+    "source_artifacts_deleted": false,
+    "real_gpu_qualification_added": false
+  }
+}

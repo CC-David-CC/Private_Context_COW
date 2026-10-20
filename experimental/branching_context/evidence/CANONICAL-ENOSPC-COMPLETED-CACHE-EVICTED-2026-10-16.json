@@ -1,0 +1,49 @@
+{
+  "allocated_bytes_released": 719978496,
+  "available_bytes_after": 19277967360,
+  "available_bytes_before": 18557988864,
+  "limitation": "Child histories remain; their derived numerical checkpoints and fault image were intentionally evicted. Compact archives are evidence, not complete numerical-store backups.",
+  "removed": [
+    {
+      "allocated_bytes": 4096,
+      "inode": 5254991,
+      "logical_bytes": 3982,
+      "path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/checkpoint-volume-v1/04b2e300bc3c407772f2d44997be8a1f842bd7d52f1787f202f00107c5c4c31e.json",
+      "sha256": "46411071c283ef023f0e5b7ba9e7a3580c666dea4e59c44de7fafc535448e493"
+    },
+    {
+      "allocated_bytes": 328409088,
+      "inode": 5254988,
+      "logical_bytes": 328403764,
+      "path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/checkpoint-volume-v1/94c2afaa1c16b957ecbf0219eae7d8191dfc6e834041f14b6f59ccb0738275d3.state",
+      "sha256": "94c2afaa1c16b957ecbf0219eae7d8191dfc6e834041f14b6f59ccb0738275d3"
+    },
+    {
+      "allocated_bytes": 8192,
+      "inode": 5255678,
+      "logical_bytes": 4212,
+      "path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/checkpoint-volume-v1/964300bb5f406563d58d72713755e95fb1ef48366dd888ba5498d421e963835b.json",
+      "sha256": "c8a8e75de0be941464774ba6a8968ad35a8555057804a80cd3ff9c0bd87ee31d"
+    },
+    {
+      "allocated_bytes": 328613888,
+      "inode": 5255677,
+      "logical_bytes": 328612692,
+      "path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/checkpoint-volume-v1/ca1fc752e5f494773fdfe60d2773ce58da2103e96cc07bd81b4603d59b2b1513.state",
+      "sha256": "ca1fc752e5f494773fdfe60d2773ce58da2103e96cc07bd81b4603d59b2b1513"
+    },
+    {
+      "allocated_bytes": 62943232,
+      "inode": 5254728,
+      "logical_bytes": 67108864,
+      "path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-20261016-v1/canonical-ext4-64m.img",
+      "sha256": "ef39e14a5372e3cf06cf7973d37dac00a04a8e88970379bccef4021d2b8573a4"
+    }
+  ],
+  "retained_canonical_bytes_verified": true,
+  "retained_canonical_files": 66,
+  "retained_source_payload_bytes": 327985908,
+  "retained_source_payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+  "schema": "completed-canonical-fixture-eviction-v1",
+  "status": "PASS"
+}

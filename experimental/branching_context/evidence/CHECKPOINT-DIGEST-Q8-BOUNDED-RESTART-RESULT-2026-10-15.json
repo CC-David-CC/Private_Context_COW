@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "scope": "real model pool campaign; matching native operators, greedy only",
+  "sizes": {
+    "prefix": 8192,
+    "suffix": 512,
+    "output_limit": 128,
+    "trees": 2,
+    "roots": 1
+  },
+  "phases": {
+    "prepare": {
+      "python_pid": 2143545,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 106.37337554711848,
+      "native_pids": {
+        "0": 2143606
+      },
+      "native_exit_codes": {
+        "0": 0
+      },
+      "native_exit_observed": true,
+      "native_exit_success": true
+    },
+    "resume": {
+      "python_pid": 2143952,
+      "observed_exit": true,
+      "exit_code": 0,
+      "seconds": 89.6141141471453,
+      "native_pids": {
+        "0": 2143958
+      },
+      "native_exit_codes": {
+        "0": 0
+      },
+      "native_exit_observed": true,
+      "native_exit_success": true
+    }
+  },
+  "numerical_max_error": 0.0,
+  "harness_sha256": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2",
+  "actual_token_counts": {
+    "prefixes": [
+      8192
+    ],
+    "suffixes": [
+      512,
+      512
+    ]
+  },
+  "profile_id": "608bae645dd91c04f01d4cb42acccf8ff8cd6d0bf4da16d5dbecef8371661da3",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "executed_test_ids": [
+    "POOL-REAL-ROOTS",
+    "POOL-REAL-SOURCE-TREES",
+    "POOL-REAL-RESTART",
+    "POOL-REAL-ZERO-PREFIX-WORK",
+    "POOL-REAL-PARENT-BYTES",
+    "POOL-REAL-MATCHING-REFERENCES"
+  ],
+  "failures": [],
+  "skips": [],
+  "xfails": [],
+  "comparisons": [
+    {
+      "tree": 0,
+      "client": 0,
+      "status": "PASS",
+      "outputs": 128,
+      "resumed_outputs": 124,
+      "already_stopped": false,
+      "checked_output_boundaries": [
+        4,
+        128
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0
+    },
+    {
+      "tree": 1,
+      "client": 0,
+      "status": "PASS",
+      "outputs": 1,
+      "resumed_outputs": 0,
+      "already_stopped": true,
+      "checked_output_boundaries": [
+        1
+      ],
+      "full_frontier_checks": 2,
+      "max_absolute_error": 0.0
+    }
+  ],
+  "build_sha256": {
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/build.json": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/include/strata/core/branch_driver.hpp": "8afc6e787e30d1cca8852232cc8adf7fa86d7e2dfabe5b9cb1ac9bda053104b2",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/program/generate.cpp": "32ebb09d134df32d8307f7558c5863c23ccc8f830b7de9e7e8a52695a0a76e7f",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/branch_driver.cpp": "650aaa4a136e92af32d9881174ef96e7380fb97f58a0d34228f987216b48423d",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/branch_session.cpp": "699b8af726a91f446ad1f393d98afa0045ecd93d73e0faeaa9d42835094ca16c",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/conversation_snapshot.cpp": "6a2b5cc0050cf8062389f2c8663ef9829939e6d4672424404ccdfcd08fa48b4a",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/conversation_state.cpp": "942d8ec05d53ffc18d9da0142dd4c3744053ac2715e080005b7ab6b65409190e",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/conversation_copy.hpp": "ef262ce9e4a40e6ea19560386ed41ee87920e4ed277e769006fe32b3d66fa14a",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/include/strata/core/branch_session.hpp": "91418bde4b2a9450de1d60909d708f483583e0892ba39817bdbfb82a8e923904",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/branch_digest.cu": "1681d560554d2e44611bfc6181e27833b52c9a398249f529f15b3ab4c44f4138",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/src/core/branch_pages.cpp": "ab45dd105a06fa336b74b83c9395f69d67dd8e10d78ea4053740bce5212a59d6",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/include/strata/core/branch_digest.hpp": "616a900d16f747c096d36365898012d43cd834f1cc0a3666e81fddbe287ab5eb",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/include/strata/core/branch_sha256.hpp": "90a250f5c3576e1b3371bc829200a0ef871791384dc6e0c2bd3c2a3654aa5c9f",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/include/strata/core/branch_pages.hpp": "e98ef16b04afbd8d3cda91619e037cd88bcc7a14313b60b55c08d649f479a0be",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/api-digest-v1/scripts/build_digest_reuse_probe.py": "9867b51fb19ba2ec05b71f48fc9a6d0ebd7f98c8ab24b9cffc11935d290ff447",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/source-digest-v1/build/CMakeFiles/strata-branch.dir/flags.make": "ab45954004d0f2db9d4f5fd57b813569703a69c9ad95e40c7482e27a9e46d5d3",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/include/strata/core/branch_driver.hpp": "0febf8c1afc0fbb6fdf2c4edc153d2de6ad9f7d371066ee05ff1de2447319f95",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/generate.cpp": "e85dc1a87754c38c35d7a9e889637fb442c4fa309def319928400aa06d790cf7",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/branch_driver.cpp": "4eead7ac2510ba9afe5a6643d84a5cb17d6479d2c5016db08cf3762b2268b62a",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/fresh_prefill.cpp": "b3f4ef5638d2bf4cd323b29c79b83e2fa8fa639b375caa520d1e2519eba18b8c",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1-core/branch_digest.o": "35ce5672a9f46c9e4f473593ee35a6034f6f1a3dee0c8702d905896bee382a2d",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1-core/branch_pages.o": "4ec2a0c8aa767ff7d675c615da4311f0dfa2fcc87c863eb7be008ce665da9981",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/include/strata/core/branch_session.hpp": "91418bde4b2a9450de1d60909d708f483583e0892ba39817bdbfb82a8e923904",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-fresh": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c",
+    "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-branch": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_engine.a": "1c0794f48d459da8d6427b409510676cf12699a430f15b24b2fa2ea45a95f225",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_prefill.a": "19ff00bd02344e072a0d06771b606e32b15f6e06b68221a07790fab0a6f8a9ad",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_spec.a": "5dcd4607589fd6377f7b4f31519abd560549d430ac6596afb1d122a118034452",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels.a": "f38d1f919396d14442246ec98e2bfc6d9f38fd491c449af48aeb5352c266cafb",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_core.a": "0ff52b4bb08cc9323bd241bdfb540f8d432d5563119f9392beb221306fdb4fed",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_kernels_cpu.a": "71f52309643d863bde30bd10317eec01772dd41b561e88b7f2a2be44c632f3f6",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/ggml/src/libggml-cpu.a": "da0f47e57a1f4808bee485d472872913a2c0b05f702ee7d103531c1526634baf",
+    "/usr/local/cuda-13.2/targets/x86_64-linux/lib/libculibos.a": "fd507932fa9a782e5fa15540d82ea02ee572a2a749c04369b57e3b50f5d0b591",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/libstrata_mmq.a": "1556a2ae6736c0d9aedbc08f0b5259d72ffe8355af4124de5d8059324c2f50d5",
+    "/home/dflanag3/branching-g3/context-cow-public-20261013/build/ggml/src/libggml-base.a": "99687a2ac594cab2b102fb3f3c702459ab1cfba3ec6af181c982b7627445a89f",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/__init__.py": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/strata_backend.py": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/controller.py": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_request.py": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/checkpoint_cache.py": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation_worker.py": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/real.py": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/coordinator.py": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/evaluation.py": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/presentation_binding.py": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/slots.py": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/execution_receipt.py": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/digest_attestation.py": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/numerics.py": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/pools.py": "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/oracle.py": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496",
+    "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/store.py": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+    "/home/dflanag3/branching-g3/private-queue-20261012T0818/tools/gguf_reader.py": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e"
+  },
+  "raw_result_sha256": "fdc583c979b5d586f39405ab7f75dcb758d56c63d6f2d46d78753885708286c8",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "artifact_root": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q8-attestation-20261015/bounded8k-v2",
+  "qualification": "Bounded greedy matching-profile restart only; cumulative G2 unqualified.",
+  "limits": [
+    "Branch B EOS after one token; only A exercised post-restart continuation.",
+    "Three unique generated frontier boundaries, not every-token checking.",
+    "Normal verifier decode generated tokens; fast batched prompt ingestion.",
+    "No new RNG/grammar/crash-injection/long-context certification."
+  ]
+}

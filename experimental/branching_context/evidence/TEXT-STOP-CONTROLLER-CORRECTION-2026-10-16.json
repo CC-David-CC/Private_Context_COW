@@ -1,0 +1,42 @@
+{
+    "ticket":  "Text-stop EOS and falsy configuration correction",
+    "base_commit":  "c39e95a1b9911704db7ea2bfa1079009f3306bf8",
+    "date":  "2026-10-16",
+    "red":  {
+                "run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/eos-config-red-v2",
+                "command_exit":  1,
+                "wrapper_exit":  1,
+                "intended_cases":  "Configured EOS id with is_eog false did not finish matcher; explicit False, 0, empty string, and None were silently treated as disabled in sampled and grammar starts."
+            },
+    "green":  {
+                  "run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/eos-config-green-v2-focused",
+                  "tests":  "20/20 PASS",
+                  "command_exit":  0,
+                  "wrapper_exit":  0
+              },
+    "regressions":  {
+                        "run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/eos-config-green-v2-regressions",
+                        "tests":  "42/42 PASS",
+                        "command_exit":  0,
+                        "wrapper_exit":  0
+                    },
+    "G0":  {
+               "run":  "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/eos-config-green-v2-g0",
+               "tests":  "51/51 PASS",
+               "command_exit":  0,
+               "wrapper_exit":  0,
+               "mode":  "--no-write"
+           },
+    "files":  {
+                  "sampled_controller":  "d6e3abda5e4680db8c2ab81aae236c78bb0e8dbf9b6dfa1fa9a2e0fae33e8393",
+                  "grammar_first":  "131097cff80d001d17e6a23b2061f2eebde59336b4e1776a883c01588fa3c012",
+                  "test_text_stop_controller":  "9ea1b5fbecb126391797d4bcb21b090e23ebadf3aeec7174a591f5f66fa92a83",
+                  "test_text_stop_grammar":  "301d06f95fe6a0df9c8efd20e07dc1f7323158e563166c9e199a3c1207cc1e02"
+              },
+    "changes":  [
+                    "Normalize stop input even when falsy; invalid explicit False, 0, empty string, and None now raise instead of silently disabling stops. Omitted argument and empty sequence keep legacy schemas.",
+                    "Plain sampling session finalizes stop matcher for either tokenizer EOG or configured EOS token ID, matching controller stop and restore behavior."
+                ],
+    "runner":  "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+}

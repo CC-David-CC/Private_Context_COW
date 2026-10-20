@@ -1,0 +1,87 @@
+{
+    "status":  "RUNNING",
+    "scope":  "full Q4 64k-context P5 native COW pressure campaign; one GPU job; no pass claim until terminal audits",
+    "utc_observed":  "2026-10-15T04:48:12Z",
+    "source_commit":  "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+    "source_manifest_sha256":  "2d8e80454d82604fec66b6c47f4c57b2c6d0b5611370b8d5c15fe663b944130f",
+    "source_freeze_receipt":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-20261015-v1/source-freeze-receipt.json",
+    "fixture":  "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q4_64k.json",
+    "fixture_sha256":  "9fb32731440a794234eae1f622b34415d6a80c433df79f30aea6c37d0f9cb5c2",
+    "fixture_scope":  {
+                          "root_tokens_each":  65536,
+                          "root_count":  3,
+                          "suffix_count":  6,
+                          "suffix_tokens":  [
+                                                8336,
+                                                8311,
+                                                8320,
+                                                8311,
+                                                8315,
+                                                8318
+                                            ]
+                      },
+    "derived_input_profile_id":  "ecfe15d7ea341517f93133867907f8ee720b0ad4ff9959a24ce8f839a2e5a5de",
+    "derived_input_profile_sha256":  "6f20aabe61a54a12402102536801ff63657a9f6b120a821b12c23fa260c4933a",
+    "executed_profile":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/profile.json",
+    "executed_profile_sha256":  "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+    "executed_profile_id":  "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+    "native_build_json_sha256":  "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "run_output":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+    "run_command":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/run-command.json",
+    "tmux_session":  "p5-q4-full96-20261015",
+    "lock":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-20261015-v1/gpu0-pressure.lock",
+    "observed_pids":  {
+                          "launcher":  1879827,
+                          "campaign":  1879859,
+                          "native_worker":  1881127,
+                          "sampler":  1881510,
+                          "resume":  1881115
+                      },
+    "sampler":  "/home/dflanag3/spatial-artifacts/p5-q4-full96-20261015-v1/telemetry.jsonl",
+    "telemetry_started_after_campaign_start":  true,
+    "telemetry_scope_limit":  "Late sampler; no full-campaign peak claim.",
+    "last_observed":  {
+                          "gpu0_memory_mib":  88315,
+                          "gpu0_util_percent":  91,
+                          "mem_available_bytes":  120807309312,
+                          "disk_free_bytes":  34911645696
+                      },
+    "profile_settings":  {
+                             "capacity":  98304,
+                             "prefill_chunk":  8192,
+                             "kv_dtype":  "FP16",
+                             "GPU":  [
+                                         0
+                                     ],
+                             "checkpoint_cache_bytes":  8589934592,
+                             "checkpoint_cache_entries":  3,
+                             "resident_budget_gib":  40,
+                             "vram_reserve_mib":  8192
+                         },
+    "disk_margin_policy":  {
+                               "required_remaining_free_bytes":  10737418240,
+                               "output_tree_estimate_bytes":  41198726395
+                           },
+    "current_result":  "RUNNING; prepare and six resume requests completed; three same-process spill/reload witnesses validated; rewind and fresh-reference/terminal audits pending",
+    "historical_pid_scope":  "Initial receipt observed resume, not prepare; these IDs describe that observation only.",
+    "root_verified_observation":  {
+                                      "utc":  "2026-10-15T04:52:57.0331566Z",
+                                      "wrapper_live":  1879827,
+                                      "campaign_live":  1879859,
+                                      "rewind_python_live":  1883650,
+                                      "rewind_native_live":  1883704,
+                                      "sampler_live":  1881510,
+                                      "resume_additional_outputs":  [
+                                                                        2044,
+                                                                        503,
+                                                                        2044,
+                                                                        2044,
+                                                                        2044,
+                                                                        2044
+                                                                    ],
+                                      "resume_prefill_tokens_each":  0,
+                                      "witness_matches":  3,
+                                      "witness_sha256":  "eaa638227b4719d2314905373f8e1cb861c7a5ea09dacfcc5b87c8bbbb38bcbf",
+                                      "numerical_comparisons":  "PENDING"
+                                  }
+}

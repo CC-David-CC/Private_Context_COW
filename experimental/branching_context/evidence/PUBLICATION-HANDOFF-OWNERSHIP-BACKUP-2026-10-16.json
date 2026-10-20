@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-publication-handoff-ownership-controller-v1/evidence.tar",
+  "archive_bytes": 1689600,
+  "archive_sha256": "809abde072cd8a866d01b722141f526d528506f771fdd02a06e90416a1e2ce84",
+  "extracted_files": 0,
+  "manifest_sha256": "abf6ae147de38b7d6ec0ec3e5ff8dc271fe06cd347c43d2d2e3439b0b9c06b51",
+  "schema": "cow-publication-ownership-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 1418857,
+  "verified_members": 240
+}

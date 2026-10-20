@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "scope": "beginner guide and executed web evidence; paths relative to repository",
+  "files": {
+    "docs/context-cow/guide-images/01-math-settings.jpg": {
+      "bytes": 53673,
+      "sha256": "40b1828f862255d4a589837169727cbe0d9cbf22d5fb87e0acc8fe140570a74b"
+    },
+    "docs/context-cow/guide-images/02-real-model-katex.jpg": {
+      "bytes": 36052,
+      "sha256": "3b7da440fb62e468c1aa783e24631d880cacc1d82abb47e86424bf9524fe2389"
+    },
+    "docs/context-cow/guide-images/03-real-model-mathjax.jpg": {
+      "bytes": 36198,
+      "sha256": "abbbd14b3f50700426ecab4cddd1649114b97098f32a7dbd08853c804394c6a2"
+    },
+    "docs/context-cow/guide-images/04-real-model-tool.jpg": {
+      "bytes": 48403,
+      "sha256": "4be1bfc7032136088b91d3b70a9901cad4a1715c5c351af86164bd4532b9fd6e"
+    },
+    "docs/context-cow/guide-images/05-literal-tags.jpg": {
+      "bytes": 57794,
+      "sha256": "eae4e2117b64db962f88754a0444f6def1e2b55c77a4b43dc6dc71f1e3702c47"
+    },
+    "docs/context-cow/guide-images/06-sample-app.jpg": {
+      "bytes": 34574,
+      "sha256": "fa29dc9caaceb7c19fef1a6a033b0b9b9fa635f8b232bad01792f61d4a7442fa"
+    },
+    "docs/context-cow/results/web-start-20261013/browser-dual/chromium-dual-math.png": {
+      "bytes": 25880,
+      "sha256": "3650f3fab83a5a56a4957cb97b11f0a438f52f6b207cf70af0467f2c76099a27"
+    },
+    "docs/context-cow/results/web-start-20261013/browser-dual/chromium-dual-results.json": {
+      "bytes": 1351,
+      "sha256": "d943e840981a7ffba945df25969085cb7fddf5ede08cbdf0fb05b84d21777249"
+    },
+    "docs/context-cow/results/web-start-20261013/literal-expanded.json": {
+      "bytes": 1274,
+      "sha256": "6c38f7519d096bafd5f82bf709d61643a1df1f4feebc1406ba45e0125c0e68e9"
+    },
+    "docs/context-cow/results/web-start-20261013/literal-extra-red.json": {
+      "bytes": 2102,
+      "sha256": "3680bb6206edb9c3135a2c253f094b300a7f02b672bfc68897875bccd8c5e7e4"
+    },
+    "docs/context-cow/results/web-start-20261013/literal-red.log": {
+      "bytes": 27354,
+      "sha256": "3c2b54fa92419f187085b135a83d9beba831a208468d0085561239f7c2d41014"
+    },
+    "docs/context-cow/results/web-start-20261013/live-auth.json": {
+      "bytes": 195,
+      "sha256": "d4813f5df757bedb10befeb225d7b862adbeb0691a69f7330f8a90f271c52e93"
+    },
+    "docs/context-cow/results/web-start-20261013/live-chat-export.md": {
+      "bytes": 690,
+      "sha256": "9474108d38d0859e69dabf4cfd808101dca3072fc89af5186a92a976f0549a31"
+    },
+    "docs/context-cow/results/web-start-20261013/live-copy-automation-read-empty.json": {
+      "bytes": 38,
+      "sha256": "d806f011e220124e3f626da61f67b1ef60c1eca2546673ef0207a0e640ed83a8"
+    },
+    "docs/context-cow/results/web-start-20261013/live-copy-source.json": {
+      "bytes": 221,
+      "sha256": "16481291309d0929d36437bdb87eedebdef53fae1946d71cb8e48b75e2266e45"
+    },
+    "docs/context-cow/results/web-start-20261013/live-exact-copy-final.json": {
+      "bytes": 68301,
+      "sha256": "5eaf433afaa2b74c300883395605fb75c77b9df5ac9322a4e1d728d0eb477aee"
+    },
+    "docs/context-cow/results/web-start-20261013/live-exact-copy.json": {
+      "bytes": 68308,
+      "sha256": "48a2cc5576cbfe34200147e2b317597769bf02729760ee386400720a0eda6889"
+    },
+    "docs/context-cow/results/web-start-20261013/live-profile.json": {
+      "bytes": 1571,
+      "sha256": "87e40838966d852bfda9d96629e81709e4f112d222b5a23de5ab91d280bdd528"
+    },
+    "docs/context-cow/results/web-start-20261013/model-literals.json": {
+      "bytes": 8546,
+      "sha256": "9eb9a592e17d849c040a22cc1cee91a018373db9f25b4504e3201569761884c3"
+    },
+    "docs/context-cow/results/web-start-20261013/regressions-final.json": {
+      "bytes": 10033,
+      "sha256": "1944626b3409a6980c4e36f37083c91d1ed6ed0840bca306a6bc6253147ac222"
+    },
+    "docs/context-cow/results/web-start-20261013/regressions-missing-dependency.json": {
+      "bytes": 11134,
+      "sha256": "14ac69ca2e1d9c388cd57168a32911b6c7ebf9c56c8519e05e6c10f46dd7b39f"
+    },
+    "docs/context-cow/results/web-start-20261013/regressions.json": {
+      "bytes": 9567,
+      "sha256": "8009b2e4a9ff765799c57ca16b41c4b23691df30e7b7a1c9f8d2f67922abd767"
+    },
+    "docs/context-cow/results/web-start-20261013/sample-clean-env.json": {
+      "bytes": 263,
+      "sha256": "29d20dcfcd87c999645d9bf003a0a1cca307b6883c701f0a5b40a0ee6a5fa2bb"
+    },
+    "docs/context-cow/results/web-start-20261013/SUMMARY.json": {
+      "bytes": 2039,
+      "sha256": "8baf9f0c33bda79734f2dc461c043eb78cfcabca6ff9ca4e2aec2de26469e4b6"
+    },
+    "docs/context-cow/START_HERE.md": {
+      "bytes": 15327,
+      "sha256": "2994990c557252c245941484a2b68deb33259b49d3559172781816b514eea2ca"
+    },
+    "docs/context-cow/WEB_START_VALIDATION.md": {
+      "bytes": 8924,
+      "sha256": "c6f2b2537dca34b6ea6827dea63cde0f99a92ede09e709f331a1bc88fa5c42b3"
+    },
+    "docs/context-cow/results/web-start-20261013/regressions-combined-126.json": {
+      "bytes": 10132,
+      "sha256": "204dec5703bb53dfe23a47ac8f05ee8f1506f983c91ed57ebd74995120ce74d6"
+    }
+  }
+}

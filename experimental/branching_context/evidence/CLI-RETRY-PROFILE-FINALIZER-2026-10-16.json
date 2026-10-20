@@ -1,0 +1,78 @@
+{
+  "ticket": "cli-retry-profile-finalizer",
+  "qualification": "CHILD_BOOTSTRAP_PROFILE_PREFLIGHT_ONLY",
+  "host": "llm-60",
+  "worktree": "C:/Users/dflanag3/Documents/fleet/context-cow-cli-retry-native-probe",
+  "branch": "work/cli-retry-native-probe-20261016",
+  "frozen_input": {
+    "source": "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v3/source",
+    "source_manifest_sha256": "44d3a474116d376d7d538d3f6f032c9a56470f4102c65b5e8fe04123901e28a6",
+    "profile": "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v3/profile.json",
+    "profile_sha256": "bb1c0bb57ea8fb0a827949ba34b48746ae0e4299d36060aa2cbde308e2282fff"
+  },
+  "diagnosis": {
+    "field": "native_build.source_status",
+    "digest_preimage_value": "Adaptive-P native base with G4 and CLI retry probe overlays; candidate not GPU-qualified",
+    "serialized_v3_value": "CLI retry probe candidate; not GPU-qualified",
+    "stored_v3_execution_profile_id": "accffb2f6db32d037f2487e263e4d9eb0ed026dee04c18ab8f40a6cbe66d3e59",
+    "recomputed_from_digest_preimage": "accffb2f6db32d037f2487e263e4d9eb0ed026dee04c18ab8f40a6cbe66d3e59",
+    "recomputed_from_serialized_v3": "0442929dd10e677dcdf742d9dac64eada0b56e524000b02a869772013b6002ff",
+    "proof_run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-prep-v4c/run",
+    "proof_command_exit": 0,
+    "proof_wrapper_exit": 0,
+    "proof_stdout_sha256": "b11270e581c32a1d6c055737a57fa94e3de8c7c726695d9725a7fc74b14c593a",
+    "conclusion": "The builder changed a fingerprinted native_build field after digest calculation and validation, before writing the profile. Environment validation passed; execution-profile identity failed."
+  },
+  "child_validation": {
+    "verifier": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/verify_profile_child.py",
+    "verifier_sha256": "e29dd76d8f8eef09e421fc44f12bf3cdae3c111939ab95cc2710f9ad36cf3d15",
+    "v3_run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-v3-child-check/run",
+    "v3_command_exit": 1,
+    "v3_wrapper_exit": 1,
+    "v3_status": "PROFILE_REJECTED",
+    "v3_exception": "IntegrityError: Strata execution profile fingerprint mismatch",
+    "v4_run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-v4-child-check/run",
+    "v4_command_exit": 0,
+    "v4_wrapper_exit": 0,
+    "v4_status": "PROFILE_CHILD_VALIDATION_PASS",
+    "v4_profile": "/home/dflanag3/spatial-artifacts/cli-combined-20261016-v1/retry-gpu-stage-v4/profile.json",
+    "v4_profile_sha256": "540d4bb34ce6eb628318e80db0b59a5c2a4fa3b1da584c38332ebdfddb9357a0",
+    "v4_execution_profile_id": "0442929dd10e677dcdf742d9dac64eada0b56e524000b02a869772013b6002ff",
+    "v4_child_bootstrap_stdout_sha256": "e94db663d531c33fd5a7faa690f0890d3416e1627727c3ba85643c2943cbdf22",
+    "v4_child_bootstrap_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model_hash_receipts_reused": 15,
+    "model_bytes_hashed": 0,
+    "model_loaded": false,
+    "native_process_started": false,
+    "service_started": false,
+    "gpu_used": false
+  },
+  "finalizer_cpu_tests": {
+    "run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-cpu-v2/run",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "terminal": "COMPLETE",
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "test_ids": [
+      "ExecutionProfileFinalizerTests.test_corrected_finalization_binds_the_final_status",
+      "ExecutionProfileFinalizerTests.test_destination_must_be_new",
+      "ExecutionProfileFinalizerTests.test_finalizer_removes_profile_if_serialized_validator_rejects",
+      "ExecutionProfileFinalizerTests.test_finalizer_validates_the_serialized_final_metadata",
+      "ExecutionProfileFinalizerTests.test_post_digest_fingerprinted_mutation_is_rejected"
+    ]
+  },
+  "setup_attempts": [
+    {"run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-prep-v4/run", "classification": "SETUP_REFUSAL", "detail": "approved runner rejected a run directory inside its checkout"},
+    {"run": "/home/dflanag3/spatial-artifacts/cli-retry-native-probe-20261016-v1/profile-finalizer-cpu-v1/run", "classification": "SETUP_REFUSAL", "detail": "approved runner rejected the pre-created run directory"}
+  ],
+  "source_files": [
+    {"path": "experimental/branching_context/scripts/execution_profile_finalizer.py", "sha256": "77cdc51f8126b37f4c52cf1b4109fddfb09f7ecb507fd84723293326b99c3740"},
+    {"path": "experimental/branching_context/tests/implementation/test_execution_profile_finalizer.py", "sha256": "a4aa2f441a6186da45ee4c9b919bb09da0cb7773dbe8eb0e522156ed72a7be3f"}
+  ],
+  "limitations": [
+    "The child preflight imports the same server/backend modules and calls the production execution-profile validator with the backend's effective filtered worker environment; it does not invoke CowHTTP.main or instantiate StrataBackend.",
+    "No GPU, inference service, native child, or model load was started by this worker."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-eviction-recomputation-notice-v1/evidence.tar",
+  "archive_bytes": 880640,
+  "archive_sha256": "0f9e8896ee4dc24f7eb85496c16a296992e99c8531be5a8806e2e9bbb6c998b8",
+  "extracted_files": 0,
+  "manifest_sha256": "a3da968446bcfdbfe8297d2a456cf0094daf02ad7cb1532681209dc84f4b66ad",
+  "schema": "cow-eviction-notice-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 683088,
+  "verified_members": 185
+}

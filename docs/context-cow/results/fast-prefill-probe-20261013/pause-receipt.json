@@ -1,0 +1,11 @@
+{
+  "status": "PAUSED_BY_USER",
+  "utc": "2026-10-13T05:47:14Z",
+  "owned_process_matches": [],
+  "owned_process_search_exit_code": 1,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 0 %, 15 MiB",
+  "normal_serving_measurement": "NOT_STARTED",
+  "formal_G1": "PAUSED",
+  "soak": "NOT_STARTED",
+  "automatic_restart": false
+}

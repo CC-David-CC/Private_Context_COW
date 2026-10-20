@@ -1,0 +1,59 @@
+[
+  {
+    "name": "branch_pages_test",
+    "argv": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "86",
+      "--log-file",
+      "<measurement-home>/branching-g3/speed-isolation-20261013/branch_pages_test-memcheck.log",
+      "<measurement-home>/branching-g3/strata-immutable-branch-kv/build/full/branch_pages_test"
+    ],
+    "exit_code": 0,
+    "seconds": 0.3958634790033102,
+    "stdout": "{\"status\":\"PASS\",\"granularity\":2097152,\"allocations\":6,\"releases\":6,\"cow_pages\":3,\"copied_bytes\":6291456,\"live_bytes\":0,\"failures\":0}\n",
+    "stderr": "",
+    "memcheck_log": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors\n",
+    "binary_sha256": "e5ad9ad4acb991cef996287c3c06cbd3c26072e65b4219e6a55778c1796792f1"
+  },
+  {
+    "name": "branch_session_test",
+    "argv": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "86",
+      "--log-file",
+      "<measurement-home>/branching-g3/speed-isolation-20261013/branch_session_test-memcheck.log",
+      "<measurement-home>/branching-g3/strata-immutable-branch-kv/build/full/branch_session_test"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5604943509679288,
+    "stdout": "{\"status\":\"PASS\",\"checks\":434,\"formats\":4,\"model_forward\":false}\n",
+    "stderr": "",
+    "memcheck_log": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors\n",
+    "binary_sha256": "3879bb0cd6c6ee48965b526085adc75527c99435d2a92bedb8f5c179ca35eebd"
+  },
+  {
+    "name": "conversation_file_test",
+    "argv": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "86",
+      "--log-file",
+      "<measurement-home>/branching-g3/speed-isolation-20261013/conversation_file_test-memcheck.log",
+      "<measurement-home>/branching-g3/strata-immutable-branch-kv/build/full/conversation_file_test"
+    ],
+    "exit_code": 255,
+    "seconds": 1.3131094109849073,
+    "stdout": "conversation_file_test: 209 checks passed\n",
+    "stderr": "",
+    "memcheck_log": "========= COMPUTE-SANITIZER\n========= Error: Target application terminated before first instrumented API call\n",
+    "binary_sha256": "d1dabafab8568a662f4fc3089b8a2714f0202b738df2c88af56a11e834b92519"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "BOX_GIT_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-root-reuse-integration-v1/evidence.tar",
+  "archive_bytes": 595056640,
+  "archive_sha256": "1f9150f2255c539bab7b854a9e0d4f7a2e81105d2c8382605a21c22151c62818",
+  "receiver_receipt_sha256": "67192f7fa79ae863318b9de23de13d30bb5e9267ca21ed03c2c7f2d626cfea36",
+  "member_count": 7782,
+  "manifest_sha256": "a81e906e879ee28b17aae3174e0efb37e606708a0f6d27ba48d7cb34c58de12f",
+  "scope": "Completed earlier root reuse CPU integrations, root restore staging, failed-publication integration and pool-close worker evidence",
+  "excludes": "Later combined9eaf source qualification, GPU root reuse probes and receipt-eviction recovery are not included in this archive",
+  "verification": "Receiver checked each regular tar member against embedded manifest; primary independently rehashed archive and receipt on box-git",
+  "originals_retained": true,
+  "publication": "Private box-git only"
+}

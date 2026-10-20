@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "pid": 1441311,
+  "phases": [
+    {
+      "phase": "layers",
+      "exit_code": 0,
+      "seconds": 143.99737807293423
+    }
+  ],
+  "server_config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "phase": "layers",
+  "child_pid": 1441320,
+  "elapsed_seconds": 120.00161084195133,
+  "restored_server_pid": 1441826,
+  "server_http_status": 200
+}

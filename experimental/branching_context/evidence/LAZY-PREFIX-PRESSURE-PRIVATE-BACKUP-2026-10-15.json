@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "source_root": "/home/dflanag3/spatial-artifacts/lazy-prefix-pressure-20261015-v1",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-lazy-prefix-pressure-compact-v1",
+  "source_inventory": {
+    "path": "external-artifacts/lazy-prefix-pressure-inventory.json",
+    "files": 169,
+    "bytes": 1064120954
+  },
+  "runs": {
+    "q4": {"name": "q4-pressure-8192-v1", "status": "PASS", "primary_audit_sha256": "14339fca4a86c41363f114e4c3ba75d3a490d8cdfc5f51f14e7acf467c5f4939"},
+    "q8": {"name": "q8-pressure-8192-v1", "status": "PASS", "elapsed_seconds": 277.27469, "primary_audit_sha256": "d98496f9b253f764f1d46dacdfc1eda9f8caf4bc6594e0b2cd89dd33e55647de"}
+  },
+  "compact_selection": {
+    "manifest_sha256": "65c1dd81f51cb4154616d1c5ca4e43e2fb1643ac58c0e8a2ca13baeff7bca60a",
+    "payload_members": 140,
+    "payload_bytes": 78350385,
+    "derived_final_vectors": 2,
+    "excludes": ["checkpoint .state files", "Python bytecode", "locks", "full per-token decode streams"]
+  },
+  "receiver": {
+    "archive": "evidence.tar.gz",
+    "archive_bytes": 22676140,
+    "archive_sha256": "ba919d1a70a0f0902e0978266115c9ffaa421134d2c1f4934d4c90c0834befa9",
+    "receiver_verify_sha256": "0b0f03fb6713c52dd8f1831399fcb1580283481e64086f7070527872f747ddcf",
+    "verifier_sha256": "cac954d96d6e84607fb998ed05a82aef7fe8e0c4bf892d22b5cfa0959b3ea22d",
+    "verified_members_including_embedded_manifest": 141,
+    "all_manifest_members_verified": true,
+    "directory_mode_octal": "0700",
+    "files_mode_octal": "0600"
+  },
+  "limits": ["Compact evidence archive; not a full checkpoint/store backup.", "The saved last decode vector is derived from each full stream; source SHA and byte offset are retained in SELECTION.json."]
+}

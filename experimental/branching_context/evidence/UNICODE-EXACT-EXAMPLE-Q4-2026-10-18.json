@@ -1,0 +1,648 @@
+{
+  "schema": 1,
+  "status": "COMPARISON_FAIL_EXACT_DEMO_AND_TWO_TRANSFER_CASES_PASS_BOUNDED",
+  "grammar_patch_commit": "0c50aeb42c490740c90064e746edebd25d1f1f5b",
+  "runtime_base_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "execution_profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "client_source_commit": "fa7da85eeb14709ef4d2257311ce6c1a0ec64579",
+  "baseline_comparison": {
+    "tiny-quote": {
+      "status": "PASS",
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "prefix_sha256": "1e6ab6346f5867852dff4938fd593f61e0dfd5d31e1691eddd5c5ca94de2cd5c",
+      "prefix_bytes": 39986,
+      "context_creation_seconds": 11.112765574944206,
+      "elapsed_seconds": 77.390873670578,
+      "thinking_tokens": [
+        1959
+      ],
+      "thinking_median": 1959,
+      "natural_closures": 1,
+      "budget_closures": 0,
+      "case_seconds": [
+        65.94204663892742
+      ],
+      "failures": []
+    },
+    "existing-ten": {
+      "status": "FAIL",
+      "completed": 10,
+      "passed": 7,
+      "failed": 3,
+      "prefix_sha256": "1e6ab6346f5867852dff4938fd593f61e0dfd5d31e1691eddd5c5ca94de2cd5c",
+      "prefix_bytes": 39986,
+      "context_creation_seconds": 1.6151855640346184,
+      "elapsed_seconds": 507.6444945335388,
+      "thinking_tokens": [
+        4096,
+        1306,
+        2581,
+        1013,
+        1240,
+        1682,
+        1673,
+        1354,
+        251,
+        79
+      ],
+      "thinking_median": 1330.0,
+      "natural_closures": 9,
+      "budget_closures": 1,
+      "case_seconds": [
+        137.81081859592814,
+        42.304594531073235,
+        83.60616784298327,
+        33.3494278480066,
+        39.14451416907832,
+        51.798652923083864,
+        52.86542287794873,
+        43.656742195016704,
+        11.443658023956232,
+        5.745393865043297
+      ],
+      "failures": [
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step0",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step1",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step3",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0x5c",
+                "0x6e"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0x5c",
+                "0x6e"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "expanded-55": {
+      "status": "FAIL",
+      "completed": 10,
+      "passed": 7,
+      "failed": 3,
+      "prefix_sha256": "b0dd9c7b02f02df42e14dcb0181105c379f001e087d7755c2013eb118df900bd",
+      "prefix_bytes": 188251,
+      "context_creation_seconds": 56.93847554293461,
+      "elapsed_seconds": 1398.013300895691,
+      "thinking_tokens": [
+        3215,
+        1352,
+        589,
+        372,
+        696,
+        2583,
+        1345,
+        990,
+        575,
+        417
+      ],
+      "thinking_median": 843.0,
+      "natural_closures": 10,
+      "budget_closures": 0,
+      "case_seconds": [
+        336.94929916993715,
+        144.25794099492487,
+        71.42037269403227,
+        47.72711126494687,
+        78.34873119799886,
+        271.5792960120598,
+        145.52376236289274,
+        110.84410107298754,
+        66.89489378000144,
+        54.17295193800237
+      ],
+      "failures": [
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step0",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xa"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step1",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35"
+              ]
+            }
+          }
+        },
+        {
+          "id": "TC011-heldout-1b6c0b0f6bcce5-step2",
+          "mismatches": {
+            "stdout": {
+              "expected": "\u00e9 e\u0301 $HOME 1b6c0b0f6bcce5\r\n",
+              "actual": "\u00e9 \u00e9 $HOME 1b6c0b0f6bcce5\r\n"
+            }
+          },
+          "codepoints": {
+            "stdout": {
+              "expected": [
+                "0xe9",
+                "0x20",
+                "0x65",
+                "0x301",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xd",
+                "0xa"
+              ],
+              "actual": [
+                "0xe9",
+                "0x20",
+                "0xe9",
+                "0x20",
+                "0x24",
+                "0x48",
+                "0x4f",
+                "0x4d",
+                "0x45",
+                "0x20",
+                "0x31",
+                "0x62",
+                "0x36",
+                "0x63",
+                "0x30",
+                "0x62",
+                "0x30",
+                "0x66",
+                "0x36",
+                "0x62",
+                "0x63",
+                "0x63",
+                "0x65",
+                "0x35",
+                "0xd",
+                "0xa"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "exact_demo": {
+    "status": "BOUNDED_EXACT_DEMONSTRATION_AND_TWO_NEARBY_TRANSFER_CASES_PASS",
+    "seen_cases": 1,
+    "transfer_cases": 2,
+    "heldout_qualification": false,
+    "profiles": {
+      "seen-exact": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+      "new-seed": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af"
+    },
+    "cases": [
+      {
+        "arm": "seen-exact",
+        "id": "TC011-heldout-1b6c0b0f6bcce5-step0",
+        "status": "PASS",
+        "stdout_utf8_hex": "c3a92065cc812024484f4d452031623663306230663662636365350a",
+        "expected_stdout_utf8_hex": "c3a92065cc812024484f4d452031623663306230663662636365350a",
+        "thinking": {
+          "schema": 1,
+          "phase": "final",
+          "max_tokens": 4096,
+          "reasoning_tokens": 1359,
+          "closing_tokens": 1,
+          "final_tokens": 77,
+          "close_reason": "natural"
+        },
+        "question_seconds": 44.04041458899155
+      },
+      {
+        "arm": "new-seed",
+        "id": "TC011-heldout-c5df535205f37a-step0",
+        "status": "PASS",
+        "stdout_utf8_hex": "c3a92065cc812024484f4d452063356466353335323035663337610a",
+        "expected_stdout_utf8_hex": "c3a92065cc812024484f4d452063356466353335323035663337610a",
+        "thinking": {
+          "schema": 1,
+          "phase": "final",
+          "max_tokens": 4096,
+          "reasoning_tokens": 907,
+          "closing_tokens": 1,
+          "final_tokens": 77,
+          "close_reason": "natural"
+        },
+        "question_seconds": 30.356957026058808
+      },
+      {
+        "arm": "new-seed",
+        "id": "TC011-heldout-c5df535205f37a-step1",
+        "status": "PASS",
+        "stdout_utf8_hex": "c3a92065cc812024484f4d45206335646635333532303566333761",
+        "expected_stdout_utf8_hex": "c3a92065cc812024484f4d45206335646635333532303566333761",
+        "thinking": {
+          "schema": 1,
+          "phase": "final",
+          "max_tokens": 4096,
+          "reasoning_tokens": 895,
+          "closing_tokens": 1,
+          "final_tokens": 81,
+          "close_reason": "natural"
+        },
+        "question_seconds": 30.14992281794548
+      }
+    ],
+    "scope": "Exact first question/desired response deliberately supplied by owner. Transfer changes random marker and final-newline presence. Not OOD robustness,statistical accuracy, numerical or restart oracle. Same comparator/settings/schema/model; only the system prefix changed.",
+    "prefix_sha256": "84c6e4d1d12acfdef90a6d39473856c9f97100982dc72df09813ccdf4384e9b2"
+  },
+  "token_byte_audit": {
+    "status": "CPU_INPUT_ROUNDTRIP_AND_NATIVE_SELECTED_OUTPUT_AUDIT_PASS",
+    "roundtrips": [
+      {
+        "input_utf8_hex": "c3a92065cc812024484f4d45206d61726b65720a",
+        "decoded_utf8_hex": "c3a92065cc812024484f4d45206d61726b65720a",
+        "exact": true
+      },
+      {
+        "input_utf8_hex": "7b227374646f7574223a20225c753030653920655c75303330312024484f4d45206d61726b65725c6e227d",
+        "decoded_utf8_hex": "7b227374646f7574223a20225c753030653920655c75303330312024484f4d45206d61726b65725c6e227d",
+        "exact": true
+      }
+    ],
+    "native_selected_token_count": 700,
+    "reported_final_text_is_literal_substring_of_selected_token_bytes": true,
+    "actual_final_stdout_utf8_hex": "c3a920c3a92024484f4d452031623663306230663662636365350a",
+    "expected_stdout_utf8_hex": "c3a92065cc812024484f4d452031623663306230663662636365350a",
+    "scope": "Tokenizer preserves NFD input bytes. Actual selected output token bytes already contain the NFC report. This rules out display-only normalization for this recorded case; not an inference numerical oracle or model-cause proof."
+  },
+  "private_comparison_archive": {
+    "status": "PRIVATE_FINAL_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-json-unicode-final-v1/evidence.tar.gz",
+    "sha256": "26665be4033fb273ecfc47045405a26eb341bb3c788f81266a4ebeb999223aed",
+    "bytes": 31007836,
+    "verified_files": 303
+  },
+  "private_exact_archive": {
+    "status": "PRIVATE_ALL_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-unicode-exact-example-v1/evidence.tar.gz",
+    "sha256": "ea94e704bf42c2d23209c4f02e6cc3e545198e3d9644e8f13a76604e0d8faf30",
+    "bytes": 3612434,
+    "verified_files": 69
+  },
+  "housekeeping": {
+    "comparison_retired_bytes": 25749733006,
+    "comparison_canonical_files_unchanged": 179,
+    "exact_retired_bytes": 1971088847,
+    "exact_canonical_files_unchanged": 33
+  },
+  "nested_file_fix": {
+    "branch": "fix/branchwrite-nested-file-create-20261018",
+    "commit": "4ca28a711652b0e1a5047b6db9ed65af828e0706",
+    "private_repository": "box-git:/srv/data/git/BranchWrite.git",
+    "status": "CPU87_UNIQUE_PASS_NOT_YET_INTEGRATED_OR_AUTONOMOUS_L02",
+    "scope": "13 new red/green tests;79 actual client filesystem/Chromium checks on49 plus8 COW CPU integration checks on60,zero final failures/errors/skips."
+  },
+  "native_counter_observation": {
+    "forward_tokens": 17833,
+    "prefill_tokens": 14431,
+    "scope": "Actual exact-example trace;not numerical validation or an isolated speed benchmark."
+  },
+  "cleanup": "Both finished model services/native processes exited0 and are absent;client tunnels gone;scoped keys revoked byte-exactly;credentials removed;chat OFF.",
+  "harness_failure": "Original comparative orchestrator exited0 while its report and child comparators failed. Retained and classified FAIL. New exact-example launcher fails closed;isolated PASS/FAIL/ERROR exit checks return0/1/1.",
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "full_vc_g_qualification": false,
+  "limitations": [
+    "One stochastic trajectory per question;no general causal or statistical reliability estimate.",
+    "Exact instance now deliberately seen in prefill;cannot be claimed held-out in future. Two fresh markers/newline variants are narrow transfer only.",
+    "Comparator,schema,model,sampler and4K thinking unchanged;global DRY+Min-P defaults unchanged while these explicit diagnostic arms useDRY0.",
+    "Earlier grammar-restricted observations cannot establish intrinsic model failure.",
+    "Derived numerical state bytes intentionally omitted from new archives;canonical history/metadata retained and private bytes verified.",
+    "No new numerical/restart oracle or cumulative VC09/G1-G5 pass;Q8 deferred;Windows steering;private LAN only."
+  ]
+}

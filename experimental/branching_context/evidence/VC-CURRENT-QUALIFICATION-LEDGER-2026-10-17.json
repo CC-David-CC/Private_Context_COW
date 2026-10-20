@@ -1,0 +1,782 @@
+{
+  "active_runtime": {
+    "bounded_observations": "JSON compiler CPU tests/G0 pass. Exact Unicode teaching1 seen+2 narrow transfers pass. AutonomousL02 v4 fails literal bytes honestly;v5 generic-example and same-leaf edit trial running.",
+    "current_full_vector_comparison_instances": 0,
+    "evidence": [
+      "JSON-UNICODE-ESCAPES-2026-10-18.json",
+      "UNICODE-EXACT-EXAMPLE-Q4-2026-10-18.json",
+      "BRANCHWRITE-L02-LITERAL-COPY-2026-10-18.json"
+    ],
+    "grammar_patch_commit": "0c50aeb42c490740c90064e746edebd25d1f1f5b",
+    "numerical_oracle": "NOT_RUN_ON_THIS_PROFILE",
+    "prior_profile_not_interchangeable": true,
+    "profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+    "profile_path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-json-unicode-profile-v2/profile.json",
+    "profile_sha256": "b36d9104215430e66d03106ab0e3c056b5c1b22da910b5b217d6b843286b09b9",
+    "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/bw-literal-l02-q4-v5/result.json",
+    "source_base_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+    "source_scope": "Frozen53-file closure;base plus grammar_first.py Unicode-escape compiler fix. Not the entire current repository.",
+    "speed": "No new isolated throughput claim. Earlier92df417 comparisons and8K timing remain attributed only to their tested profile.",
+    "state": "CURRENT_INTERPRETATION_AND_AUTONOMOUS_PROTOTYPE_PROFILE_NOT_NUMERICALLY_REQUALIFIED"
+  },
+  "chat_server": "OFF",
+  "gates": [
+    {
+      "evidence": [
+        {
+          "path": "VISION-BASELINE-VC00-2026-10-16.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "ee5349eb33a8582497c4a7a8d09fc1b7c6752554262d142a83cf49f13e02e254"
+        }
+      ],
+      "id": "VC00",
+      "name": "Baseline",
+      "remaining": "Baseline evidence is historical; later source/profile fingerprints have their own qualification; no original G1-G5 pass.",
+      "status": "BOUNDED_BASELINE_PASS",
+      "working": "Pinned real ordinary Q4 image/encoder baseline plus text regressions exists."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-HISTORY-LIFECYCLE-VC01-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "47886b738912d9941543428adc2ffba6a4914acb2e6f54d5f80f85ccf1ae5d4b"
+        },
+        {
+          "path": "VISION-CANONICAL-API-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "eb9b6456201d2ca52ead2bcd68aa8463b76f333f8b41d0178ec442b822119d4f"
+        },
+        {
+          "path": "VISION-CLIENT-BINDINGS-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "2e38b733195ce1344ad0f372306d9f3c97f1e8cc549212ca78baf6c1b0bf6239"
+        },
+        {
+          "path": "VISION-ORIENTATION-CPU-2026-10-17.json",
+          "recorded_status": "CPU_ORIENTATION_PASS",
+          "sha256": "2d0833b22486e5b43c98dfc453425f542273a489266020dc745b33dad54b339d"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        }
+      ],
+      "id": "VC01",
+      "name": "Canonical mixed-input identity",
+      "remaining": "Current92 tiny RGB PNG/JPEG all eight EXIF orientations and reversed image order pass actual GPU/fresh references; alpha/non-RGB/larger-image and final authorization matrix remain.",
+      "status": "BOUNDED_EVIDENCE",
+      "working": "Immutable text/image histories, namespaces, content identity and controller-bound continuation exist."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-EMBEDDING-PARSER-VC02-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "e1f696bdc2f3bb24ccaf48a88cffe293092cb2225a868d7f52a6cbd9b053f6a3"
+        },
+        {
+          "path": "VISION-SHARED-RAM-VC02-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "af238c4c8ed67c4ab3b5ae04e047c4279b56c225ef51e4014ba2a0aeacb8e1ab"
+        },
+        {
+          "path": "VISION-SHARED-DISK-VC02-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "ae2aa462069da7b8812e52d79b569ad58d20115ac3608d8cf0af62d64b73134a"
+        },
+        {
+          "path": "VISION-ARTIFACT-RECOVERY-VC02-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "12adbf6a13b2487af08e6e9f61607e6ffa10032a46715edc10052360c88950be"
+        },
+        {
+          "path": "VISION-ORIGINAL-MEMORY-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "ecd4ff4a1ca7fbcacd8136072e35145f29cb2c771fd7c27ecedebdd0fcda2e7a"
+        },
+        {
+          "path": "VISION-RECONSTRUCTION-GUARDS-2026-10-17.json",
+          "recorded_status": "FOCUSED_REAL_Q4_ARTIFACT_GUARDS_AND_RECONSTRUCTION_PASS",
+          "sha256": "0c9e33b0a1ca9a1fab2b91a9e704a955b39a741fcc7cf724199fea2c98f53231"
+        },
+        {
+          "path": "VISION-POOL-PRESSURE-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_COMBINED_POOL_PRESSURE_PASS",
+          "sha256": "862a8654363b69141fa725ac74b0e7b6115a969894da5e30dc4d3fb74659e3ed"
+        },
+        {
+          "path": "VISION-HOST-ENOMEM-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_ENCODER_HOST_ENOMEM_PASS",
+          "sha256": "096b0e5efa152b22bf88aca3df052f50ee7292f6404f1bf06dec7407b7db8379"
+        }
+      ],
+      "id": "VC02",
+      "name": "Artifacts and shared pools",
+      "remaining": "Shared-pool LRU and real-clock active-image lease expiry now pass bounded actual Q4; pool payload accounting is not whole-process RSS. Sustained host pressure and bounded host allocation failures remain.",
+      "status": "BOUNDED_EVIDENCE",
+      "working": "SVE integrity, shared budgets, lease-aware expiry, retained originals and verified re-encoding have executed evidence."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-NATIVE-INGEST-VC03-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "798effea3377416a7615d6e3ddddc8059128a21398c77eb14f53bd8aa2e3f90d"
+        },
+        {
+          "path": "VISION-NATIVE-LAYOUT-VC03-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "41da2ea25a3374c17a06a55f2d2f1b1afb98f9ed3fd6199495bf573eab4bd0c9"
+        },
+        {
+          "path": "VISION-DURABLE-RESTART-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "098039127de9b118f4b2bc4209d68cc967f09aab7ce99a696177629f23c05bad"
+        },
+        {
+          "path": "VISION-MEDIUM-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "fe72268df178d5332ada37ac78a3049751fa156bca5cb57b5f42fc628aaf6654"
+        },
+        {
+          "path": "VISION-VC09-TINY-2026-10-17.json",
+          "recorded_status": "VC09_TINY_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "e296c90b76dde6a91767dce8cc7d3158e405573c58a87b4502038e92f91388e9"
+        },
+        {
+          "path": "VISION-VC09-MEDIUM-2026-10-17.json",
+          "recorded_status": "VC09_MEDIUM_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1e68a939933121483edf745031f08d01dfad3865c6be8d759337a95171520aaa"
+        },
+        {
+          "path": "VISION-VC09-TARGET-2026-10-17.json",
+          "recorded_status": "VC09_TARGET_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1c16a09600319358cbaa37ce483379e43788ce9c04839320d4eccb5a3c5246c6"
+        },
+        {
+          "path": "VISION-EVERY-FRONTIER-2026-10-17.json",
+          "recorded_status": "VC09_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "99aaee481ca19023b71ca62359cc14a30acd2753e36dd4973d4812ab79819abc"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TINY-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TINY_REAL_Q4_EVERY_FRONTIER_RESTART_PASS",
+          "sha256": "7b329388cf7e1832f844a3dc382e7a14c7dbfaad660a771c10b5256076fec847"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-SPEED-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_OWNED_SCHEDULE_SPEEDUP_MEASURED_AND_INDEPENDENTLY_AUDITED",
+          "sha256": "a79b96659bb7d7259a819f411a580aaf8eb6aad0d06ba35073c108abc26bed3b"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-SMALL-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "e4dab660ad28a37e692bbd22e400b63c9cba6ddbaad087bfb21c89b68929cd7c"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        }
+      ],
+      "id": "VC03",
+      "name": "Native image parity",
+      "remaining": "Cross-arrangement equivalence remains excluded from prototype exactness; tiny/medium checks do not qualify arbitrary sizes/layouts.",
+      "status": "BOUNDED_NUMERICAL_EVIDENCE",
+      "working": "Independent layout and matching-schedule raw native comparisons exist, including rejection mutants."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-HOT-BRANCHES-VC04-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "167ef8cdfd971dd5ee11c9dd82b908414233c4e03f10101b23d46c1468358050"
+        },
+        {
+          "path": "VISION-MEDIUM-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "fe72268df178d5332ada37ac78a3049751fa156bca5cb57b5f42fc628aaf6654"
+        },
+        {
+          "path": "VISION-SUFFIX-CLI-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "fa43daec50a2b2ab7f32f71e3bb0823d4134dfec9576b9696fe962e50dc2f704"
+        },
+        {
+          "path": "VISION-VC09-TINY-2026-10-17.json",
+          "recorded_status": "VC09_TINY_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "e296c90b76dde6a91767dce8cc7d3158e405573c58a87b4502038e92f91388e9"
+        },
+        {
+          "path": "VISION-VC09-MEDIUM-2026-10-17.json",
+          "recorded_status": "VC09_MEDIUM_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1e68a939933121483edf745031f08d01dfad3865c6be8d759337a95171520aaa"
+        },
+        {
+          "path": "VISION-VC09-TARGET-2026-10-17.json",
+          "recorded_status": "VC09_TARGET_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1c16a09600319358cbaa37ce483379e43788ce9c04839320d4eccb5a3c5246c6"
+        },
+        {
+          "path": "THINKING-SUFFIX-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_CONTEXT_SUFFIX_RESTART_PASS",
+          "sha256": "f27521a8033433a61f9489b5b7b223e3df78ffdbe60b8fc1d7c641adf1e38ad2"
+        },
+        {
+          "path": "VISION-EVERY-FRONTIER-2026-10-17.json",
+          "recorded_status": "VC09_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "99aaee481ca19023b71ca62359cc14a30acd2753e36dd4973d4812ab79819abc"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TINY-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TINY_REAL_Q4_EVERY_FRONTIER_RESTART_PASS",
+          "sha256": "7b329388cf7e1832f844a3dc382e7a14c7dbfaad660a771c10b5256076fec847"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-SPEED-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_OWNED_SCHEDULE_SPEEDUP_MEASURED_AND_INDEPENDENTLY_AUDITED",
+          "sha256": "a79b96659bb7d7259a819f411a580aaf8eb6aad0d06ba35073c108abc26bed3b"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-SMALL-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "e4dab660ad28a37e692bbd22e400b63c9cba6ddbaad087bfb21c89b68929cd7c"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        }
+      ],
+      "id": "VC04",
+      "name": "Branch isolation",
+      "remaining": "Broader long-context resource/layout audit remains; target9265-cell numerical/restart now passed bounded.",
+      "status": "BOUNDED_NUMERICAL_EVIDENCE",
+      "working": "Image-prefix A/B branches, text/image switching and bounded page/batch crossings have evidence."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-DURABLE-RESTART-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "098039127de9b118f4b2bc4209d68cc967f09aab7ce99a696177629f23c05bad"
+        },
+        {
+          "path": "VISION-REBUILD-VC015-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "df11774ade8a4ee43abc85f0ee94818da6ecc253aa4feb4413268efd71960f5f"
+        },
+        {
+          "path": "VISION-SERVING-REBUILD-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "10217bfa4d745e157ab5adf6ce9afb2d6e7dfeef064820b02552130af83451e3"
+        },
+        {
+          "path": "VISION-SAMPLING-RETRY-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "9d2ffa059604473050b7f78320eb8f8c07a08027e56eee4c779f983c6e9d48ac"
+        },
+        {
+          "path": "VISION-RECONSTRUCTION-GUARDS-2026-10-17.json",
+          "recorded_status": "FOCUSED_REAL_Q4_ARTIFACT_GUARDS_AND_RECONSTRUCTION_PASS",
+          "sha256": "0c9e33b0a1ca9a1fab2b91a9e704a955b39a741fcc7cf724199fea2c98f53231"
+        },
+        {
+          "path": "VISION-POOL-PRESSURE-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_COMBINED_POOL_PRESSURE_PASS",
+          "sha256": "862a8654363b69141fa725ac74b0e7b6115a969894da5e30dc4d3fb74659e3ed"
+        },
+        {
+          "path": "VISION-VC09-TINY-2026-10-17.json",
+          "recorded_status": "VC09_TINY_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "e296c90b76dde6a91767dce8cc7d3158e405573c58a87b4502038e92f91388e9"
+        },
+        {
+          "path": "VISION-VC09-MEDIUM-2026-10-17.json",
+          "recorded_status": "VC09_MEDIUM_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1e68a939933121483edf745031f08d01dfad3865c6be8d759337a95171520aaa"
+        },
+        {
+          "path": "VISION-VC09-TARGET-2026-10-17.json",
+          "recorded_status": "VC09_TARGET_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1c16a09600319358cbaa37ce483379e43788ce9c04839320d4eccb5a3c5246c6"
+        },
+        {
+          "path": "THINKING-SUFFIX-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_CONTEXT_SUFFIX_RESTART_PASS",
+          "sha256": "f27521a8033433a61f9489b5b7b223e3df78ffdbe60b8fc1d7c641adf1e38ad2"
+        },
+        {
+          "path": "VISION-EVERY-FRONTIER-2026-10-17.json",
+          "recorded_status": "VC09_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "99aaee481ca19023b71ca62359cc14a30acd2753e36dd4973d4812ab79819abc"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TINY-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TINY_REAL_Q4_EVERY_FRONTIER_RESTART_PASS",
+          "sha256": "7b329388cf7e1832f844a3dc382e7a14c7dbfaad660a771c10b5256076fec847"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-SPEED-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_OWNED_SCHEDULE_SPEEDUP_MEASURED_AND_INDEPENDENTLY_AUDITED",
+          "sha256": "a79b96659bb7d7259a819f411a580aaf8eb6aad0d06ba35073c108abc26bed3b"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-SMALL-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "e4dab660ad28a37e692bbd22e400b63c9cba6ddbaad087bfb21c89b68929cd7c"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        }
+      ],
+      "id": "VC05",
+      "name": "Disk restart and reconstruction",
+      "remaining": "Target three cold prefix restores and consumed-four restart now passed; broader controller/recovery combinations remain.",
+      "status": "BOUNDED_NUMERICAL_EVIDENCE",
+      "working": "New native processes restore retained image context without prefix work; explicit verified regeneration and consumed-token restart exist."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-CLI-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "f2b483df937151162759144e8e5348611b87a57e6116ad43fc20763ba43ce626"
+        },
+        {
+          "path": "VISION-SUFFIX-CLI-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "fa43daec50a2b2ab7f32f71e3bb0823d4134dfec9576b9696fe962e50dc2f704"
+        },
+        {
+          "path": "IMAGE-LOST-ACK-2026-10-17.json",
+          "recorded_status": "BOUNDED_VC06_IMAGE_LOST_ACK_MECHANICS_PASS",
+          "sha256": "1d619b1210e8789e9f6bab933962e4df02420b6aafc5e96ed31e5f52a4486cdd"
+        },
+        {
+          "path": "BRANCHWRITE-H04-H05-Q4-2026-10-17.json",
+          "recorded_status": "H04_H05_BOUNDED_Q4_PASS",
+          "sha256": "9ebfec0f24882c58603bfb0416eabfb49d2788304aa86b156d449fcea4a7f542"
+        },
+        {
+          "path": "VISION-PUBLICATION-CRASH-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_IMAGE_PUBLICATION_PROCESS_CRASH_PASS",
+          "sha256": "d0c4bf428b99e8dd73e87996d59544f4ed3bcb40d4b436dd986b4cc759363206"
+        },
+        {
+          "path": "VISION-DEEP-CANCEL-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_DEEP_DISCONNECT_PASS",
+          "sha256": "c2d6f6520a697be729e16d450693106cdad3b7becfdd3d2c5d97ac771276874f"
+        },
+        {
+          "path": "THINKING-SUFFIX-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_CONTEXT_SUFFIX_RESTART_PASS",
+          "sha256": "f27521a8033433a61f9489b5b7b223e3df78ffdbe60b8fc1d7c641adf1e38ad2"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        },
+        {
+          "path": "BRANCHWRITE-L02-LITERAL-COPY-2026-10-18.json",
+          "recorded_status": "BOUNDED_L02_MODEL_LITERAL_COPY_FAIL_RETAINED_REPAIR_TRIAL_UNRUN",
+          "sha256": "75615912e1e475634d8c2baaeba8a773bd0c47645249f3f5fe4676c5704f338d"
+        }
+      ],
+      "id": "VC06",
+      "name": "CLI/HTTP/client",
+      "remaining": "BranchWrite mixed-image load_context CLI bridge, full client/format matrix and long-lived concurrent-client qualification remain. Direct COW mixed context --parts-file passes.",
+      "status": "BOUNDED_END_TO_END_EVIDENCE",
+      "working": "Actual clients exercise image upload/context/questions/fork/retry/restart and protected BranchWrite edit/render loops. Thinking plain-text new questions and completed-turn followup now pass actual CLI plus producer-free restart on profile0c0bc546. Corrected new-image thinking first-admission/retry and completed-turn append now pass actual CLI plus producer-free disk continuation on92df."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-GRAMMAR-CLI-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "14147bd49dd604cbda6e04c509388f1f491b3234fdcf6fb6f6bd5af3c89637cc"
+        },
+        {
+          "path": "VISION-SAMPLING-CLI-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "e7e613946d24872e3b2c9eaf3123a51736ad0ce8d4eb5ed819f1b04dd24b005e"
+        },
+        {
+          "path": "VISION-XTC-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "91ed1a71914a2efe076a2702990cb07065a6887c88040eee34dd7834c8e8c1e2"
+        },
+        {
+          "path": "VISION-MIROSTAT-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "a69db80487f5bbb91904ba58e2e2ae62416372d497cfd970bd4baf3f29b7034a"
+        },
+        {
+          "path": "VISION-ADAPTIVE-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "0c71a0f1d2eb68cfd46d9153be32d8cf38ec970904c03d7de8f4deae131a24cb"
+        },
+        {
+          "path": "VISION-DRY-ENTROPY-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "646b17b221ca3ba29e3ecb49bfef6f5f90ec0ab4d43bdb6f28930d5f4abe5a13"
+        },
+        {
+          "path": "THINKING-CLI-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_THINKING_CLI_Q4_PASS_QUALITY_REPORTED_SEPARATELY",
+          "sha256": "95046bd9429e5c72221da600ffac8480e82460787ddf6c1b2330c6fc0ba72318"
+        },
+        {
+          "path": "THINKING-SUFFIX-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_CONTEXT_SUFFIX_RESTART_PASS",
+          "sha256": "f27521a8033433a61f9489b5b7b223e3df78ffdbe60b8fc1d7c641adf1e38ad2"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        },
+        {
+          "path": "JSON-UNICODE-ESCAPES-2026-10-18.json",
+          "recorded_status": "PASS_BOUNDED_JSON_UNICODE_GRAMMAR_CPU_NOT_MODEL_QUALIFICATION",
+          "sha256": "b15b3e5b0bc92236559ca3a10bea7dd6ff1d7ec5286d3969451cae8edfefd0af"
+        },
+        {
+          "path": "UNICODE-EXACT-EXAMPLE-Q4-2026-10-18.json",
+          "recorded_status": "COMPARISON_FAIL_EXACT_DEMO_AND_TWO_TRANSFER_CASES_PASS_BOUNDED",
+          "sha256": "4842d50469ecd45bceb508cb8b558bf6323ffed67c8bcfafff012a2706a448c8"
+        }
+      ],
+      "id": "VC07",
+      "name": "Controllers/samplers/grammar",
+      "remaining": "Image-aware DRY+XTC combination remains guarded and explicitly deferred; full pending decoder/stopping/general thinking/restart matrix remains.",
+      "status": "BOUNDED_EXACT_EVIDENCE_SUPPORTED_COMBINATIONS",
+      "working": "Branch-owned grammar/RNG and multiple sampler families have bounded CLI/native reference evidence; thinking has a consumed-boundary view. New thinking plain-text suffix/controller consumed-boundary flow now has bounded GPU evidence."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-ROOT-CANCELLATION-2026-10-17.json",
+          "recorded_status": "VC08_ROOT_DISCONNECT_FOCUSED_PASS",
+          "sha256": "3251eb7d687e18783885e5c3457d932ac62269890344bfc873204ec4badc30e5"
+        },
+        {
+          "path": "VISION-CANONICAL-ENOSPC-2026-10-17.json",
+          "recorded_status": "FOCUSED_REAL_Q4_IMAGE_CANONICAL_ENOSPC_PASS",
+          "sha256": "ba1a1965529e32278ce3a834b13cd3d70ca9153c928dced0787fd79c74af799d"
+        },
+        {
+          "path": "VISION-RECONSTRUCTION-GUARDS-2026-10-17.json",
+          "recorded_status": "FOCUSED_REAL_Q4_ARTIFACT_GUARDS_AND_RECONSTRUCTION_PASS",
+          "sha256": "0c9e33b0a1ca9a1fab2b91a9e704a955b39a741fcc7cf724199fea2c98f53231"
+        },
+        {
+          "path": "VISION-PUBLICATION-CRASH-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_IMAGE_PUBLICATION_PROCESS_CRASH_PASS",
+          "sha256": "d0c4bf428b99e8dd73e87996d59544f4ed3bcb40d4b436dd986b4cc759363206"
+        },
+        {
+          "path": "REFERENCE-STAGE-CLEANUP-2026-10-17.json",
+          "recorded_status": "CPU_PASS_GPU_NOT_YET_RERUN",
+          "sha256": "e6bdfe02c130624bf17f2fceee6013f692e5a83b2ef26173649de15d0cfec509"
+        },
+        {
+          "path": "REFERENCE-STAGE-RECOVERY-GPU-2026-10-17.json",
+          "recorded_status": "VC08_REFERENCE_AND_CHECKPOINT_STAGE_PROCESS_CRASH_PASS",
+          "sha256": "2f6f9d11dcca929f214e87a27994d921a73a6891d839657085734154453f4cde"
+        },
+        {
+          "path": "VISION-CUDA-OOM-RECOVERY-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_IMAGE_REAL_CUDA_OOM_RECOVERY_PASS",
+          "sha256": "c41018df257d20bf03c52d699555a7c0f48e2c50c7b9c731eabb6f086744378f"
+        },
+        {
+          "path": "VISION-CHECKPOINT-ENOSPC-2026-10-17.json",
+          "recorded_status": "BOUNDED_REAL_Q4_IMAGE_CHECKPOINT_ENOSPC_PASS",
+          "sha256": "a72a24387a0275a30fb70f17807c38627e7e4decc521ce3407a9197d919e4ee8"
+        },
+        {
+          "path": "VISION-POOL-PRESSURE-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_COMBINED_POOL_PRESSURE_PASS",
+          "sha256": "862a8654363b69141fa725ac74b0e7b6115a969894da5e30dc4d3fb74659e3ed"
+        },
+        {
+          "path": "VISION-HOST-ENOMEM-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_ENCODER_HOST_ENOMEM_PASS",
+          "sha256": "096b0e5efa152b22bf88aca3df052f50ee7292f6404f1bf06dec7407b7db8379"
+        },
+        {
+          "path": "VISION-DEEP-CANCEL-2026-10-17.json",
+          "recorded_status": "VC08_BOUNDED_Q4_DEEP_DISCONNECT_PASS",
+          "sha256": "c2d6f6520a697be729e16d450693106cdad3b7becfdd3d2c5d97ac771276874f"
+        }
+      ],
+      "id": "VC08",
+      "name": "Capacity and faults",
+      "remaining": "Extended later host-allocator/physical-pressure, cancellation-site/controller and current supported-matrix audit remain; completed bounded subcases do not establish power-loss/full VC08/09 or G certification. Proceed to VC09 target and performance now.",
+      "status": "BOUNDED_FAULT_POOL_HOST_LOADER_AND_DEEP_DISCONNECT_EVIDENCE_EXTENDED_MATRIX_OPEN",
+      "working": "Encoder cancellation, real bounded canonical ENOSPC, corrupt receipts/regeneration mismatch and11 actual process-crash cases pass within scope. Actual image COW cuMemCreate OOM now has exact same-service native replacement and separate restart continuation evidence. Separate actual checkpoint-volume ENOSPC now passes exact original prepared-byte retry and retained image-root continuation. Combined real Q4 RAM/disk LRU, active-image real-clock expiry and process-separated verified reconstruction now pass with exact tokens/full controllers/final logits. Bounded real encoder-loader mmap ENOMEM now preserves branch/state and clears staging; unbounded recovery and same-native-worker retained-prefix continuation match exactly. Actual disconnect after360-cell image prefill and4 consumed outputs preserves branches; writer-handoff disconnect commits once and original-journal replay does no native work. Controls/controllers/final logits exact."
+    },
+    {
+      "evidence": [
+        {
+          "path": "VISION-MEDIUM-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "fe72268df178d5332ada37ac78a3049751fa156bca5cb57b5f42fc628aaf6654"
+        },
+        {
+          "path": "VISION-DRY-ENTROPY-2026-10-17.json",
+          "recorded_status": "FOCUSED-PASS",
+          "sha256": "646b17b221ca3ba29e3ecb49bfef6f5f90ec0ab4d43bdb6f28930d5f4abe5a13"
+        },
+        {
+          "path": "VISION-VC09-TINY-2026-10-17.json",
+          "recorded_status": "VC09_TINY_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "e296c90b76dde6a91767dce8cc7d3158e405573c58a87b4502038e92f91388e9"
+        },
+        {
+          "path": "VISION-VC09-MEDIUM-2026-10-17.json",
+          "recorded_status": "VC09_MEDIUM_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1e68a939933121483edf745031f08d01dfad3865c6be8d759337a95171520aaa"
+        },
+        {
+          "path": "VISION-VC09-TARGET-2026-10-17.json",
+          "recorded_status": "VC09_TARGET_CURRENT_PROFILE_NUMERICAL_RESTART_PASS",
+          "sha256": "1c16a09600319358cbaa37ce483379e43788ce9c04839320d4eccb5a3c5246c6"
+        },
+        {
+          "path": "THINKING-SUFFIX-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_CONTEXT_SUFFIX_RESTART_PASS",
+          "sha256": "f27521a8033433a61f9489b5b7b223e3df78ffdbe60b8fc1d7c641adf1e38ad2"
+        },
+        {
+          "path": "VISION-EVERY-FRONTIER-2026-10-17.json",
+          "recorded_status": "VC09_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "99aaee481ca19023b71ca62359cc14a30acd2753e36dd4973d4812ab79819abc"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TINY-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TINY_REAL_Q4_EVERY_FRONTIER_RESTART_PASS",
+          "sha256": "7b329388cf7e1832f844a3dc382e7a14c7dbfaad660a771c10b5256076fec847"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-SPEED-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_OWNED_SCHEDULE_SPEEDUP_MEASURED_AND_INDEPENDENTLY_AUDITED",
+          "sha256": "a79b96659bb7d7259a819f411a580aaf8eb6aad0d06ba35073c108abc26bed3b"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-MEDIUM-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "867f97243f72cb9356a4d31a783854556e1ea0ead6bdd30f0192d983eb6e4339"
+        },
+        {
+          "path": "VISION-OWNED-SCHEDULE-TARGET-2026-10-17.json",
+          "recorded_status": "OWNED_SCHEDULE_TARGET_8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "17898f31fa9be797a04681fa9c7af2e0657fc2c63a0de868471fba898753fa45"
+        },
+        {
+          "path": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+          "recorded_status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS",
+          "sha256": "80f61d7d895a30b46d3ff78823b447128509636995a681e5720f781aad309aae"
+        },
+        {
+          "path": "VISION-COMPLETE-8K-LATENCY-2026-10-17.json",
+          "recorded_status": "BOUNDED_CURRENT_Q4_COMPLETE_8K_LATENCY_AND_REFERENCE_PASS",
+          "sha256": "4922cb959dad994b9f45a5bf9727cca667cdd51fa9467d4adba80b28e8ea183c"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-SMALL-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS",
+          "sha256": "e4dab660ad28a37e692bbd22e400b63c9cba6ddbaad087bfb21c89b68929cd7c"
+        },
+        {
+          "path": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_TARGET8K_SAMPLED_NUMERICAL_RESTART_PASS",
+          "sha256": "ea491f90c560288b9d4194cf2aa96758c17d0bff2a5083e49e60c3ca8e6abf1f"
+        },
+        {
+          "path": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+          "recorded_status": "CORRECTED92_Q4_PNG_JPEG_EXIF_AND_ORDER_BOUNDED_PASS",
+          "sha256": "074895a56afc1e4ba8357ca75cca2bde17b5aef13d020f4fe66b9b82ed9bb02b"
+        }
+      ],
+      "id": "VC09",
+      "name": "Measurement and qualification",
+      "remaining": "Requalify supported numerical/controller/CLI matrix on current28 Unicode-policy closure before attributing older92 results to it. Actual current image HTTP authorization/reuse and final requirement audit remain. Q8/split/long soak/original G certification deferred or separate; L02 autonomy alone cannot qualify VC09.",
+      "status": "BOUNDED_NUMERICAL_AND_SPEED_EVIDENCE_NOT_FULLY_QUALIFIED",
+      "working": "Fast61 tiny102/medium190 every-generated comparisons and8K target71 sampled comparisons,21 full controllers total, error0, strict restarts. Separately corrected92df new-image CLI/restart14 full vectors/one full controller match. Earlier61 small-context36 measurements show92 streamTPS with recovered text reference explicitly recorded. Corrected92df complete8K timing36 requests,4 independent image/text full vectors error0; resident47.81TPS/6.953s whole CLI, RAM47.96, disk47.65; all fresh references pass without recovery. Current92 progressive363 vectors/21 controllers exact0 plus18-format36 vectors/18 saved-parent audits exact0 and16 normalized pixel witnesses; current92 total417 comparison instances across all declared scopes. Target memory281 read-only1Hz samples recorded."
+    }
+  ],
+  "last_numerically_qualified_runtime": {
+    "current_format_campaign": {
+      "evidence": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+      "status": "PASS"
+    },
+    "current_full_vector_comparison_instances": 417,
+    "current_small_campaign": {
+      "evidence": "VISION-FINAL-ROUTE-SMALL-2026-10-18.json",
+      "status": "CORRECTED92_Q4_TINY_MEDIUM_EVERY_GENERATED_FRONTIER_RESTART_PASS"
+    },
+    "current_target_campaign": {
+      "evidence": "VISION-FINAL-ROUTE-TARGET-2026-10-18.json",
+      "status": "PASS"
+    },
+    "private_backup": "box-git:/srv/data/git/private_context_cow.evidence/20261017-thinking-new-image-flow-v1/evidence.tar.gz",
+    "private_integration_commit": "91625bd5dfc1e12b3bae702da03bb3ad569405de",
+    "profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-flow-gpu-v4/result.json",
+    "source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe",
+    "speed": "92df:8561-cell image prefix/115 outputs, resident47.81 streamTPS/6.953s whole CLI;36 actual requests+4 exact raw reference vectors PASS.",
+    "speed_evidence": "VISION-COMPLETE-8K-LATENCY-2026-10-17.json",
+    "state": "CORRECTED92_PROGRESSIVE_RESTART_FORMAT_MATRIX_AND_8K_TIMING_BOUNDED_PASS"
+  },
+  "last_updated_utc": "2026-10-19T01:21:59.892360+00:00",
+  "original_gates": "G0 latest51PASS; cumulative G1-G5 not qualified; this ledger never substitutes for original registered tests",
+  "plan": "plans/VISION-COW-INTEGRATION-2026-10-16.md",
+  "prior_runtime_before_owned_cursor": {
+    "private_backup": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-full-frontiers-medium-v1/evidence.tar.gz",
+    "profile_id": "0c0bc5464f45a3850ecb32b5d39d9538b5337f093e460e2d26bd9aa3480089d8",
+    "result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-full-frontiers-medium-gpu-v1/result.json",
+    "source_commit": "e01aa26403654dab35c3557b5105bb5ddaf310dc",
+    "state": "EVERY_GENERATED_TINY_MEDIUM_PASS_TIMING_NEXT"
+  },
+  "profile_scopes": [
+    {
+      "profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+      "scope": "Tiny/medium/target raw numerical/restart;169 sampled vectors/21 controllers; target9265 cells.",
+      "source_commit": "aa17edfe741ae096514a49d676713def5ec21b4d"
+    },
+    {
+      "profile_id": "0c0bc5464f45a3850ecb32b5d39d9538b5337f093e460e2d26bd9aa3480089d8",
+      "scope": "370-cell thinking context/new questions/followup/retry/cold question;7 prefix/final forced-token comparisons; not8K or performance qualification. Tiny177/medium2097 every-generated-frontier campaign:292 exact vectors/14 controllers, four fresh references and three cold prefix restores plus generated-four restart per size.",
+      "source_commit": "e01aa26403654dab35c3557b5105bb5ddaf310dc"
+    },
+    {
+      "profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+      "scope": "417 full-vector comparison instances across the documented small/medium/target/format and CLI scopes; bounded, not417 methods. Historical relative to current28 Unicode-policy source closure. Full details in last_numerically_qualified_runtime.",
+      "source_commit": "d4d2745d5ebd5bd5e8f7953778b2d31ca23aeffe"
+    },
+    {
+      "grammar_patch_commit": "0c50aeb42c490740c90064e746edebd25d1f1f5b",
+      "profile_id": "28c765ed95ce356f9aa02b311472825d6e6863155dfeb879c4cb07447102a9af",
+      "scope": "Current JSON interpretation/autonomous CLI tests only;no new native full-frontier numerical qualification.",
+      "source_base_commit": "9a289063450759c8da8c3ca875327808fbaf0e3f"
+    }
+  ],
+  "publication": "Private LAN box-git only; GitHub and Strata require new approval",
+  "q8": "DEFERRED_BY_OWNER",
+  "schema": 1,
+  "scope": "Current profile28 Unicode-policy change is not interchangeable with numerically tested92df. Historical bounded passes remain scoped;none establish current full VC00-VC09/original G1-G5 qualification.",
+  "status": "PARTIAL_EVIDENCE_NOT_COMPLETE_VC00_VC09",
+  "windows": "Steering only"
+}

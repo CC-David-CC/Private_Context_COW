@@ -1,0 +1,63 @@
+{
+    "schema":  1,
+    "parent":  "9c6eb59992266b9990dc5f62b93094dce0431e4f",
+    "scope":  "O(1) certified-owner lookup guard plus internal factory hashing. CPU-only; no measured performance or GPU claim.",
+    "eligibility_scan_red":  {
+                                 "tests":  1,
+                                 "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/eligible-scan-red",
+                                 "failures":  1,
+                                 "wrapper_exit":  1,
+                                 "command_exit":  1,
+                                 "observed_eligible_calls_on_certified_hit":  1
+                             },
+    "green_regression":  {
+                             "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/regression11",
+                             "failures":  0,
+                             "errors":  0,
+                             "command_exit":  0,
+                             "tests":  78,
+                             "wrapper_exit":  0,
+                             "elapsed_seconds":  1.066,
+                             "skipped":  0,
+                             "modules":  [
+                                             "test_checkpoint_digest_attestation",
+                                             "test_checkpoint_digest_attestation_red",
+                                             "test_prepared_checkpoint",
+                                             "test_shared_pools",
+                                             "test_durable_restore",
+                                             "test_pool_coordinator",
+                                             "test_pool_spill_reload_trace",
+                                             "test_pool_request_stop"
+                                         ]
+                         },
+    "formal_g0":  {
+                      "path":  "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/evidence/formal-g0-v3",
+                      "failures":  0,
+                      "invocation":  "python3 scripts/verify.py --gate G0 --no-write",
+                      "status":  "PASS",
+                      "errors":  0,
+                      "command_exit":  0,
+                      "tests":  51,
+                      "wrapper_exit":  0,
+                      "skipped":  0
+                  },
+    "changes":  [
+                    {
+                        "sha256":  "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15",
+                        "path":  "experimental/branching_context/src/context_time_travel/digest_attestation.py"
+                    },
+                    {
+                        "sha256":  "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f",
+                        "path":  "experimental/branching_context/src/context_time_travel/real.py"
+                    },
+                    {
+                        "sha256":  "bf1f4f2636b396e3815578f7e900eee5e4b124affc06a38f7d3336e2731ddd0d",
+                        "path":  "experimental/branching_context/tests/implementation/test_checkpoint_digest_attestation.py"
+                    }
+                ],
+    "interpretation":  [
+                           "A certified hit now checks owner weakref identity, exact blob/frontier identities and checksum in O(1); eligibility was fully checked at registration.",
+                           "Fresh numeric values, mutable/custom values and replaced components still use the full-hash path.",
+                           "No latency improvement is claimed until a separately reviewed full-capacity GPU run measures it."
+                       ]
+}

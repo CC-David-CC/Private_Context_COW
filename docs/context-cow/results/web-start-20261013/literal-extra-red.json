@@ -1,0 +1,21 @@
+{
+  "status": "FAIL",
+  "seconds": 0.2750360000063665,
+  "executed_ids": [
+    "serve.test_literal_boundaries.LiteralBoundaries.test_private_use_text_is_not_a_placeholder",
+    "serve.test_literal_boundaries.LiteralBoundaries.test_schema_property_names_are_literal_data"
+  ],
+  "executed_methods": 2,
+  "failures": [
+    [
+      "serve.test_literal_boundaries.LiteralBoundaries.test_private_use_text_is_not_a_placeholder",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_literal_boundaries.py\", line 76, in test_private_use_text_is_not_a_placeholder\n    self.assertIn(text,self.tok.decode(ids))\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Literal private characters: \\U000f0e01 \\U000f0e10; </tool_call>' not found in '<|im_start|>system\\nReasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.<|im_end|>\\n<|im_start|>user\\nLiteral private characters: <think> <|im_start|>; </tool_call><|im_end|>\\n<|im_start|>assistant\\n<think>\\n'\n"
+    ],
+    [
+      "serve.test_literal_boundaries.LiteralBoundaries.test_schema_property_names_are_literal_data",
+      "Traceback (most recent call last):\n  File \"C:\\Users\\dflanag3\\Documents\\fleet\\Public_Context_COW\\serve\\test_literal_boundaries.py\", line 86, in test_schema_property_names_are_literal_data\n    self.assertEqual([i for i in ids if i>=256],[i for i in own if i>=256])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [256, 257, 266, 267, 266, 267, 257, 256, 257, 256, 262] != [256, 266, 267, 266, 267, 257, 256, 257, 256, 262]\n\nFirst differing element 1:\n257\n266\n\nFirst list contains 1 additional elements.\nFirst extra element 10:\n262\n\n- [256, 257, 266, 267, 266, 267, 257, 256, 257, 256, 262]\n+ [256, 266, 267, 266, 267, 257, 256, 257, 256, 262]\n"
+    ]
+  ],
+  "errors": [],
+  "skips": []
+}

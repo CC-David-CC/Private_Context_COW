@@ -1,0 +1,7 @@
+# Synthetic COW presentation flow
+
+`serve/test_cow_presentation_flow.py` drives the actual `CowTextAdapter` and `CowAdapter` into `ContextCoordinator` and the Store using a deterministic CPU-only synthetic native protocol model. The fixture uses the real branch-local controller `start` and `consume_many` transitions and increments forward counters for actual synthetic prompt/output work.
+
+The test covers prepared root plus assistant frame, initial answer, active resume on the source and a fork with the same assistant message ID, consumed EOS, append-user with exact canonical-prefix preservation, restart retry without another forward pass, and namespace-separated catalogs for deduplicated identical roots. A second test verifies changed raw text is rejected on operation-ID reuse even when rendering trims it to the same token IDs.
+
+The focused test command, executed IDs, hashes, red/green attempts, and refreshed G0 receipt are in [COW-PRESENTATION-FLOW-2026-10-14.json](COW-PRESENTATION-FLOW-2026-10-14.json). Tests are supplemental CPU control evidence only; they do not qualify GPU execution or production server behavior. The flow covers prepared-root answering, not the separate initial-turn path from a codebase-only idle root.

@@ -1,0 +1,33 @@
+test_consumed_progress_is_published_once_at_request_boundary (test_resident_request_publication.ResidentRequestPublicationTests.test_consumed_progress_is_published_once_at_request_boundary) ... ok
+test_empty_suffix_continues_controller_instead_of_resetting_scope (test_resident_request_publication.ResidentRequestPublicationTests.test_empty_suffix_continues_controller_instead_of_resetting_scope) ... FAIL
+test_invalid_bound_and_incompatible_contract_fail_before_execution (test_resident_request_publication.ResidentRequestPublicationTests.test_invalid_bound_and_incompatible_contract_fail_before_execution) ... ok
+test_progress_exception_preserves_canonical_parent_and_publishes_nothing (test_resident_request_publication.ResidentRequestPublicationTests.test_progress_exception_preserves_canonical_parent_and_publishes_nothing) ... ok
+test_unsupported_existing_sampler_is_rejected_before_native_restore (test_resident_request_publication.ResidentRequestPublicationTests.test_unsupported_existing_sampler_is_rejected_before_native_restore) ... ERROR
+
+======================================================================
+ERROR: test_unsupported_existing_sampler_is_rejected_before_native_restore (test_resident_request_publication.ResidentRequestPublicationTests.test_unsupported_existing_sampler_is_rejected_before_native_restore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 112, in test_unsupported_existing_sampler_is_rejected_before_native_restore
+    self.model.run_greedy_request(sid,[],2,stream='test')
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/src/context_time_travel/real.py", line 350, in run_greedy_request
+    with self._materialize(snapshot) as (lease,_):
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/src/context_time_travel/real.py", line 298, in _materialize
+    raise IntegrityError('Exact batched materialization requires a retained numerical checkpoint')
+context_time_travel.store.IntegrityError: Exact batched materialization requires a retained numerical checkpoint
+
+======================================================================
+FAIL: test_empty_suffix_continues_controller_instead_of_resetting_scope (test_resident_request_publication.ResidentRequestPublicationTests.test_empty_suffix_continues_controller_instead_of_resetting_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 103, in test_empty_suffix_continues_controller_instead_of_resetting_scope
+    self.assertEqual(actual['accepted_in_scope'],2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.046s
+
+FAILED (failures=1, errors=1)

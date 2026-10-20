@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "command": "CTT_MATCHING_RESUME_RESULTS=/home/dflanag3/branching-g3/matching-resume-20261014-expanded/target python3 -m unittest discover -s /home/dflanag3/branching-g3/matching-resume-20261014-v2/api/tests/real_resume -p test_matching_restart.py -v",
+  "executed_test_ids": ["MR-001", "MR-002", "MR-003", "MR-004"],
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "seconds": 0.589,
+  "host": "llm-60",
+  "scope": "Assertions over executed real-GPU process-separated target campaign evidence; not original G1-G5 certification"
+}

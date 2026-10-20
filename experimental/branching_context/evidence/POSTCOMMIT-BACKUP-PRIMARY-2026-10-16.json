@@ -1,0 +1,38 @@
+{
+  "schema": "postcommit-backup-primary-index-v1",
+  "status": "PASS",
+  "verification": "Primary independently streamed both receiver-side archives, rejected unsafe/duplicate names and non-regular members, and checked every file size and SHA against the pinned manifest without extraction",
+  "cpu_archive": {
+    "remote_archive": "box-git:/srv/data/git/private_context_cow.evidence/20261016-postcommit-cpu-and-host-oom-compact-v1/evidence.tar",
+    "bytes": 4464640,
+    "sha256": "5924c298253e6ec1aca4503b226208db56ddbbcf762ade1878d4b3e241af74af",
+    "manifest_sha256": "05741a1f49d0743373301d47ca3c8120e4d42b22f3e04e351cbb8f7509581774",
+    "verified_files": 349,
+    "verified_file_bytes": 4087058,
+    "primary_report": "llm-60:/home/dflanag3/spatial-artifacts/postcommit-cpu-host-oom-backup-primary-20261016.json",
+    "primary_report_sha256": "96591aeb81c8286cbe0ca17ae8d3a7a10fb31a5239a6a6807d96efdd540f8a3e"
+  },
+  "gpu_archive": {
+    "remote_archive": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-postcommit-restart-compact-v2/evidence.tar",
+    "bytes": 15339520,
+    "sha256": "519cb49f81d47c4f550130df4a3df13f786555f00b949a40207446f8fc358b4f",
+    "manifest_sha256": "2163ad7b47b7dfc71c4e6828537960b1b19cc6baf4db45940f0c5d75fa0b3851",
+    "verified_files": 288,
+    "verified_file_bytes": 15043576,
+    "primary_report": "llm-60:/home/dflanag3/spatial-artifacts/q4-postcommit-backup-primary-20261016-v2.json",
+    "primary_report_sha256": "ba2ae4ac99ace41469dbb1eb447069a7883d2e40d8f1f707ce61df5c94083d66",
+    "initial_primary_reader_failure": "The first reader assumed manifest total fields used by the CPU archive; this manifest lists members without totals. The corrected reader checks the independently pinned 288 files / 15043576 bytes, all member hashes, and exact archive/manifest SHA."
+  },
+  "scope": "Compact sources, canonical metadata, receipts, logs and executed evidence; not a full numerical checkpoint/model backup",
+  "staging_cleanup": {
+    "mistake": "The first two packaging attempts copied numerical payloads before filtering",
+    "correction": "Copy exclusions now apply before staging, not only during tar creation",
+    "removed_copies": 8,
+    "allocated_bytes_freed": 2625855488,
+    "raw_stores_untouched": true,
+    "receipt": "llm-60:/home/dflanag3/spatial-artifacts/q4-postcommit-package-state-cleanup-20261016-v1.json",
+    "receipt_sha256": "50be492e31f30ad6fe65cc1b9d7bf5d35b539a901667b2bea3f29a069d0dd230",
+    "primary_readback": "Both failed staging trees contain no .state files and each now occupies 16 MiB; retained logs/metadata remain"
+  },
+  "limitations": ["Four full checkpoint payloads and .f32 streams are excluded", "All setup/streaming failures remain identified in the companion backup index", "Backup verification does not add model, numerical, performance or gate qualification"]
+}

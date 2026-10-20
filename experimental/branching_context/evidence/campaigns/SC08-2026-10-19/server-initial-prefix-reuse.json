@@ -1,0 +1,9 @@
+{
+  "source_branch": "standalone-sc08-q8-real-repository-20261019-v1",
+  "snapshot": "6fd3acbb21f430a0477e9af66682d2ee95cabde9cf754a4f400297b5965cc360",
+  "consumed_tokens": 16442,
+  "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+  "execution_profile_id": "27ddba3e4d7f208b002828554f875cecb8824de1cc80b9eae3cbd00b4ef8b09e",
+  "payload_sha256": "c95bbe22076a121082e137a5517410d8a3f804fccec829fe05692cb3f0180df0",
+  "scope": "Initial system prefix, before task admission; next run must measure whether optional checkpoint is still available."
+}

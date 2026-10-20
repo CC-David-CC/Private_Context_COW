@@ -1,0 +1,11 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-entropy-v1/evidence.tar",
+  "archive_bytes": 520960000,
+  "archive_sha256": "7b7425e5f8d1cc130be783bf07b83e198bf7d4fdb1a090fe206c3f5dd7bc6e3d",
+  "extracted_files": 0,
+  "manifest_sha256": "37354e6920f277f5f97cb871f1c4692b04fc7a5078fd8f670094c9e01c08e68a",
+  "member_count": 11984,
+  "status": "PASS",
+  "total_member_bytes": 501238429,
+  "verification": "Full SSH-streamed readback, every regular member and complete archive byte stream verified"
+}

@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "status": "FOCUSED-PASS",
+  "milestone": "VC02 bounded payload parser subphase",
+  "host": "llm-60",
+  "base_commit": "b98ee5699d7dc2b525fa5269e93aff70d7870eef",
+  "scope": "CPU validation, not GPU inference or complete artifact cache",
+  "red": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-red-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "tests_run": 13,
+    "test_ids": [
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_checksum_rejection_includes_one_finite_changed_byte",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_rejects_mutable_buffers_before_borrowing_them",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_rejects_wrong_model_width_even_with_valid_hash",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_valid_payload_keeps_exact_immutable_bytes_and_dimensions",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_enforces_row_cap_including_huge_size_arithmetic",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_bad_magic_nonrectangular_and_negative_dimensions",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_invalid_pinned_expectations",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_nan_and_both_infinities_with_matching_hashes",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_truncation_trailing_bytes_and_concatenated_chunks",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_encoding_identity_binds_full_normalized_digest_and_profile",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_refuses_symlink_and_fifo",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_rejects_oversize_sparse_file_without_reading_it_all",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_round_trip_validates_without_an_encoder"
+    ],
+    "unique_test_ids": 13,
+    "unittest_terminal": [
+      "FAILED (errors=29)"
+    ],
+    "seconds": 0.003,
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-red-v1/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-red-v1/stderr.log",
+        "bytes": 30685,
+        "sha256": "1b2d0eb27f724fdabe8b06afe31e64fd46bec254b4ce6e2f3a48c95804a4c39a"
+      }
+    ],
+    "argv": [
+      "env",
+      "PYTHONPATH=/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc01-source-v2/experimental/branching_context/src:/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-tests-v1",
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_vision_embeddings"
+    ]
+  },
+  "green": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-green-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 13,
+    "test_ids": [
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_checksum_rejection_includes_one_finite_changed_byte",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_rejects_mutable_buffers_before_borrowing_them",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_rejects_wrong_model_width_even_with_valid_hash",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_valid_payload_keeps_exact_immutable_bytes_and_dimensions",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_enforces_row_cap_including_huge_size_arithmetic",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_bad_magic_nonrectangular_and_negative_dimensions",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_invalid_pinned_expectations",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_nan_and_both_infinities_with_matching_hashes",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc005_rejects_truncation_trailing_bytes_and_concatenated_chunks",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_encoding_identity_binds_full_normalized_digest_and_profile",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_refuses_symlink_and_fifo",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_rejects_oversize_sparse_file_without_reading_it_all",
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc006_file_load_round_trip_validates_without_an_encoder"
+    ],
+    "unique_test_ids": 13,
+    "unittest_terminal": [
+      "OK"
+    ],
+    "seconds": 0.002,
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-green-v1/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-green-v1/stderr.log",
+        "bytes": 2394,
+        "sha256": "81317f1307ccd4a9c3bbc41e4fbee102214bed9f3efec6f015af879931a8c649"
+      }
+    ],
+    "argv": [
+      "env",
+      "PYTHONPATH=/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-source-v1/experimental/branching_context/src:/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-source-v1/experimental/branching_context/tests/implementation",
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_vision_embeddings"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xfails": 0
+  },
+  "g0": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-g0-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 51,
+    "test_ids": [
+      "test_logical_store.LogicalStoreTests.test_01_root_history",
+      "test_logical_store.LogicalStoreTests.test_02_fork_same_logical_state",
+      "test_logical_store.LogicalStoreTests.test_03_independent_suffixes",
+      "test_logical_store.LogicalStoreTests.test_04_empty_delta_controller_transition",
+      "test_logical_store.LogicalStoreTests.test_05_canonical_content_identity",
+      "test_logical_store.LogicalStoreTests.test_06_mutable_arguments_do_not_modify_saved_state",
+      "test_logical_store.LogicalStoreTests.test_07_snapshot_integrity_reject_tampered_blob",
+      "test_logical_store.LogicalStoreTests.test_08_missing_parent_fails_closed",
+      "test_logical_store.LogicalStoreTests.test_09_invalid_inputs_rejected",
+      "test_logical_store.LogicalStoreTests.test_10_invalid_controller_rejected",
+      "test_logical_store.LogicalStoreTests.test_11_fork_duplicate_fails",
+      "test_logical_store.LogicalStoreTests.test_12_missing_head_fails",
+      "test_logical_store.LogicalStoreTests.test_13_atomic_CAS_updates_one_revision",
+      "test_logical_store.LogicalStoreTests.test_14_successful_retry_is_idempotent",
+      "test_logical_store.LogicalStoreTests.test_15_reuse_operation_id_with_different_payload_rejected",
+      "test_logical_store.LogicalStoreTests.test_16_ABA_fails_with_stale_revision",
+      "test_logical_store.LogicalStoreTests.test_17_cannot_move_between_unrelated_roots",
+      "test_logical_store.LogicalStoreTests.test_18_branch_pointer_restart_persists",
+      "test_logical_store.LogicalStoreTests.test_19_retry_receipt_restart_persists",
+      "test_logical_store.LogicalStoreTests.test_20_crash_before_reference_staging_keeps_old_tip",
+      "test_logical_store.LogicalStoreTests.test_21_crash_after_stage_before_rename_keeps_old_tip",
+      "test_logical_store.LogicalStoreTests.test_22_failure_after_rename_has_retryable_receipt",
+      "test_logical_store.LogicalStoreTests.test_23_evaluation_like_reads_do_not_move_branch",
+      "test_logical_store.LogicalStoreTests.test_24_store_ref_index_rejects_corrupt_json",
+      "test_logical_store.LogicalStoreTests.test_25_invalid_branch_or_operation_names",
+      "test_logical_store.LogicalStoreTests.test_26_history_can_have_multiple_empty_deltas",
+      "test_logical_store.LogicalStoreTests.test_27_copy_on_read_cannot_modify_store",
+      "test_logical_store.LogicalStoreTests.test_28_same_history_different_controller_not_same_snapshot",
+      "test_logical_store.LogicalStoreTests.test_29_racing_writers_exactly_one_wins",
+      "test_logical_store.LogicalStoreTests.test_30_unreferenced_snapshot_survives_branch_rewind",
+      "test_logical_store.LogicalStoreTests.test_31_second_future_after_rewind_stays_independent",
+      "test_logical_store.LogicalStoreTests.test_32_external_mutation_after_fork_does_not_propagate",
+      "test_numerics.NumericalOracleTests.test_close_tie_is_not_mislabelled_large_margin",
+      "test_numerics.NumericalOracleTests.test_corruption_is_detected",
+      "test_numerics.NumericalOracleTests.test_exact_vectors_pass",
+      "test_numerics.NumericalOracleTests.test_invalid_tolerance_rejected",
+      "test_numerics.NumericalOracleTests.test_kl_zero_for_identical_values",
+      "test_numerics.NumericalOracleTests.test_nan_rejected",
+      "test_numerics.NumericalOracleTests.test_nonmatching_shape_rejected",
+      "test_numerics.NumericalOracleTests.test_shift_in_logits_detected_by_elementwise_even_if_softmax_same",
+      "test_numerics.NumericalOracleTests.test_small_numerical_error_passes",
+      "test_numerics.NumericalOracleTests.test_top1_flip_is_detected",
+      "ctt_toy_reference.TimeTravelTests.test_chunking_does_not_reset_random_stream",
+      "ctt_toy_reference.TimeTravelTests.test_eviction_preserves_history_and_rng_position",
+      "ctt_toy_reference.TimeTravelTests.test_feed_associativity",
+      "ctt_toy_reference.TimeTravelTests.test_fresh_input_oracle_matches_each_forced_future",
+      "ctt_toy_reference.TimeTravelTests.test_other_stream_does_not_mutate_parent",
+      "ctt_toy_reference.TimeTravelTests.test_rewind_does_not_delete_old_future",
+      "ctt_toy_reference.TimeTravelTests.test_same_snapshot_repeats_sampled_future",
+      "ctt_toy_reference.TimeTravelTests.test_sibling_scheduling_does_not_change_a",
+      "ctt_toy_reference.TimeTravelTests.test_worked_attention_outputs"
+    ],
+    "unique_test_ids": 51,
+    "unittest_terminal": [
+      "OK"
+    ],
+    "seconds": 0.385,
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-g0-v1/stdout.log",
+        "bytes": 6578,
+        "sha256": "93315224ceefe2dd96d098e7e13284543460a05ecbcd32f84719e74ef1539d4c"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-g0-v1/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "argv": [
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-source-v1/experimental/branching_context/scripts/verify.py",
+      "--gate",
+      "G0",
+      "--no-write"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xfails": 0
+  },
+  "real_encoder_payloads_and_mutation": {
+    "schema": 1,
+    "scope": "CPU validation of actual fresh-encoder output bytes; no new model inference",
+    "admitted": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/image-baseline-v2/image-0.sve",
+        "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea",
+        "bytes": 501780
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/image-baseline-v2/image-1.sve",
+        "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea",
+        "bytes": 501780
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/image-baseline-v2/image-2.sve",
+        "sha256": "47e7aeae46e9f9f9593982a2b319fd4c142ce653331589e62111bfd9e9e1b9ea",
+        "bytes": 501780
+      }
+    ],
+    "status": "PASS",
+    "numerical_max_logit_error": null,
+    "mutation": {
+      "kind": "test-only skipped full payload digest validation",
+      "test_id": "test_vision_embeddings.VisionEmbeddingTests.test_vc004_checksum_rejection_includes_one_finite_changed_byte",
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "detected": true
+    }
+  },
+  "audit_command": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-audit-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_run": 1,
+    "test_ids": [
+      "test_vision_embeddings.VisionEmbeddingTests.test_vc004_checksum_rejection_includes_one_finite_changed_byte"
+    ],
+    "unique_test_ids": 1,
+    "unittest_terminal": [
+      "FAILED (failures=1)"
+    ],
+    "seconds": 0.0,
+    "logs": [
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-audit-v1/stdout.log",
+        "bytes": 1150,
+        "sha256": "502d2ec68d55d1c46d7853c52c378f43dbdcef774b747b1592b3a705e561c3cf"
+      },
+      {
+        "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-audit-v1/stderr.log",
+        "bytes": 995,
+        "sha256": "39c280c8c96357db9d29b1eff0d165e018bfdaa64acf88ed19d25ba43eb7634f"
+      }
+    ],
+    "argv": [
+      "/home/dflanag3/src/Strata/.venv/bin/python",
+      "-B",
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-parser-audit.py"
+    ]
+  },
+  "source_files": [
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-source-v1/experimental/branching_context/src/context_time_travel/vision_embeddings.py",
+      "bytes": 4570,
+      "sha256": "08580b3e588a654e49dd7edde8240d92add1fc4150445989c33d8bd3b03eade6"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc02-source-v1/experimental/branching_context/tests/implementation/test_vision_embeddings.py",
+      "bytes": 6567,
+      "sha256": "dd6b087e30e7c9d129f3217d47fa2fdee66b88c14769469e291970e85e259af8"
+    }
+  ],
+  "numerical_max_logit_error": null,
+  "limitations": [
+    "Retained-original persistence, shared pool integration and eviction/re-encoding are still unimplemented",
+    "Only regular local Linux artifact reads are exercised; no Windows qualification",
+    "The checksum-skipping mutant is a deliberate negative CPU fixture, not a backend defect"
+  ]
+}

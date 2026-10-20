@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "unauthenticated_chat_status": 401,
+  "response": {
+    "error": {
+      "type": "authentication_error",
+      "message": "missing or wrong API key"
+    }
+  }
+}

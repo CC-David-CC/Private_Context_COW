@@ -1,0 +1,44 @@
+{
+  "status": "EXECUTION_PROFILE_BOUND_DURABLE_RESUME_PASS",
+  "scope": "Bounded greedy real-Q8 CUDA restart; original cumulative G2 unqualified",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/case-q8-code8k128-shutdown-v2",
+  "run_directory": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code8k128-shutdown-v2",
+  "result_sha256": "2e4fe09c199387e624dcfc820c1b06dd3718061b6a16fd16749202718adbc4e9",
+  "prepare_sha256": "88b9f2e1e250430c62911ea4cba52b9b3de4a40a280b298aa2d673e10c804f1e",
+  "resume_sha256": "94bb19ca7c210ced2f429120757b6262c9ee8f6129e0653726bcd0fa36f7b7f3",
+  "execution_profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+  "fingerprint_reference": "COMBINED-Q8-PROFILE-READY-2026-10-15.json",
+  "raw_backup_reference": "Q4V2-Q8-8K-PRIVATE-BACKUP-2026-10-15.json",
+  "harness_sha256": "41db6994001f1956fede236e606cd7674a0e213fb5748f3cad4a9eaeb329ac32",
+  "prefix_tokens": 8192,
+  "suffix_tokens": {"A": 527, "B": 527},
+  "actual_outputs": {"A": 128, "B": 128, "A_after_generated_restart": 124},
+  "prefix_restore": {
+    "consumed": 8192,
+    "forward_tokens": 0,
+    "prefill_tokens": 0,
+    "loaded_file_bytes": 332013048,
+    "cold_restore_copy_bytes": 213915648
+  },
+  "frontier_comparisons": 13,
+  "numerical_max_error": 0.0,
+  "sampling": "Prefix; each branch generated 1/16/64/final; A generated checkpoint at four. Final/prefix comparisons repeat; not every-token oracle certification.",
+  "prepared_restored_tokens_equal": true,
+  "prepared_restored_history_controller_consumed_equal": true,
+  "greedy_controller": {"accepted_per_branch": 128, "next_draw": 0, "status": "active", "pending_utf8": "empty"},
+  "saved_parent_sha256_before_after": "4a0d3733d6bf4156eba990f46f51d876805322f018d2d55b61c7416e900e5781",
+  "phases": [
+    {"phase": "prepare", "python_pid": 2252654, "python_exit": 0, "native_pid": 2252657, "native_exit_code": 0, "native_exit_success": true},
+    {"phase": "resume", "python_pid": 2253886, "python_exit": 0, "native_pid": 2253889, "native_exit_code": 0, "native_exit_success": true}
+  ],
+  "native_receipt_label": "None is the opaque backend.gpu_id label; selected GPU is pinned to device 0 by the execution profile",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "limits": [
+    "Fast batched Prefill and normal verifier generated-token decode; identical ordered execution boundaries required",
+    "No cross-boundary equivalence or nonzero-RNG/grammar/crash/OOM qualification",
+    "No performance claim from this audited campaign",
+    "Old exit-unqualified evidence retained separately; corrected result does not rewrite it",
+    "No current 64K result yet; next campaign is separately live"
+  ]
+}

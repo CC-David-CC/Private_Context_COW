@@ -1,0 +1,32 @@
+{
+  "stats": {
+    "consumed": 66632,
+    "forward_tokens": 66632,
+    "prefill_tokens": 58639,
+    "prefill_chunks": 127,
+    "decode_timed_tokens": 7993,
+    "decode_prepare_ns": 22722429332,
+    "decode_compute_ns": 131889985035,
+    "decode_finish_ns": 991639056,
+    "copied_bytes": 1509949440,
+    "live_bytes": 2390753280
+  },
+  "commands": {
+    "stats": 16338,
+    "vision_info": 8096,
+    "reset": 1,
+    "feed": 19,
+    "capture": 21,
+    "pages": 21,
+    "logits": 21,
+    "restore": 41,
+    "write": 21,
+    "ram_clear": 21,
+    "sample_mask_v2": 7993,
+    "decode": 7993,
+    "drop": 12,
+    "quit": 1
+  },
+  "native_timed_decode_tps": 51.36755646250116,
+  "numerical_oracle": "NOT_RUN"
+}

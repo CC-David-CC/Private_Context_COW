@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "artifact": "Q8 long-context correctness and client timing evidence archive",
+  "published_at": "/srv/data/git/private_context_cow.evidence/20261015-q8-long64k-client-v2/evidence.tar",
+  "archive_sha256_sender": "d4e3a9a3ed4d6fcde0a52487ba271aa1789c8f9a7fda14fdc533ee92f4800f3a",
+  "archive_sha256_receiver": "d4e3a9a3ed4d6fcde0a52487ba271aa1789c8f9a7fda14fdc533ee92f4800f3a",
+  "manifest_path": "/srv/data/git/private_context_cow.evidence/20261015-q8-long64k-client-v2/BACKUP-MANIFEST.json",
+  "manifest_sha256": "6b0853b460161a203b1475f5c78c7bbe54b934602c824c0851da63805b99dc46",
+  "file_count": 390,
+  "tar_regular_file_count_including_manifest": 391,
+  "total_source_bytes": 26651217180,
+  "archive_mode": "0600",
+  "destination_directory_mode": "0700",
+  "receiver_validation": "PASS; exact member set, member sizes and member SHA-256 values checked before atomic rename",
+  "pipeline": {
+    "run_directory": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-long-client-backup-v2",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "elapsed_seconds": 447.86,
+    "launcher_sha256": "4ac59a2cf41cea0d8ff15131ae60784b3a8cf9c4ff48938a558026ed0e1dcb74",
+    "packager_sha256": "ba2759b194b0ff69a73330785482275aa211f36b09eecb13dabb0b132d20f9c4",
+    "verifier_sha256": "7214d06edde52050530161cf19095935667b07eebc094d6997a917a2e3dabfd9"
+  },
+  "source_references": {
+    "integrated_repository_head": "7e0582a66e912d229429739e5fba557c4350d41f",
+    "frozen_cpp_source_commit": "520abdbc3157aca6f2d575459446b43c479ea66e",
+    "frozen_cpp_source_archive_sha256": "1b9551ae9cc40b34e26d596771f75a3a38bec1efc691539e5da8921378947c05",
+    "q8_execution_profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+    "q8_execution_profile_sha256": "b784dd10bca6cd3765a7f5a05b7537b276db6aade8223cbb8995560c8bb678c7",
+    "case_result_sha256": "d4b716350957b9c8cf024ca31d0fb1a1ca3ad3b38068fde3e96525d0fd722998",
+    "parent_payload_sha256": "0752b4ac6abc7411cc89978bf4f7fbc38625a7886f149dcff2e69b3ad50cea15"
+  },
+  "retained_attempts": {
+    "v1_archive_attempt": {
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "cause": "tarfile classified a multiply-linked regular checkpoint file as a hardlink entry; original incomplete .part was left unpublished",
+      "partial_bytes": 14401013760,
+      "partial_sha256": null,
+      "final_archive_published": false,
+      "failure_receipt_in_archive": "q8-long-client-backup-staging-v1/failed-attempt-v1.json"
+    },
+    "hardlink_round_trip_test": {
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "result": "PASS; both paths archived as independent regular members and content hashes matched"
+    },
+    "preflight_v2b": {
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "result": "PASS; 388 paths, 3 multiply-linked paths, no symlinks/nonregular paths"
+    }
+  },
+  "raw_receipt_sha256": "3d3dd24c9178df08fb057c0ce16fdc6d98ffc04ef3f650e0896b71553b8e1f08",
+  "raw_receipt_path": "box-git:/srv/data/git/private_context_cow.evidence/20261015-q8-long64k-client-v2/backup-campaign-receipt.json",
+  "serialization_note": "Derived JSON serialized with LF for Git; original receiver receipt bytes remain unchanged at the recorded path."
+}

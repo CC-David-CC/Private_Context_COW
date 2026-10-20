@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "seconds": 10.16485040000407,
+  "executed_ids": [
+    "serve.test_server.ConfigApiKey.test_a_blank_key_is_refused",
+    "serve.test_server.ConfigApiKey.test_a_key_and_no_key",
+    "serve.test_server.ConfigApiKey.test_an_empty_key_is_a_warning",
+    "serve.test_chat_workspace.WorkspaceTests.test_cas_rejects_stale_writer_and_aba",
+    "serve.test_chat_workspace.WorkspaceTests.test_cross_chat_node_is_refused",
+    "serve.test_chat_workspace.WorkspaceTests.test_fork_shares_prefix_and_keeps_suffixes_isolated",
+    "serve.test_chat_workspace.WorkspaceTests.test_generation_reservation_blocks_only_its_branch",
+    "serve.test_chat_workspace.WorkspaceTests.test_message_and_node_rows_cannot_be_updated_or_deleted",
+    "serve.test_chat_workspace.WorkspaceTests.test_ordered_attachments_and_tools_survive_without_branch_copies",
+    "serve.test_chat_workspace.WorkspaceTests.test_rename_and_archive_are_metadata_only",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_marks_interrupted_request_and_retains_input",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_preserves_chats_branches_and_source",
+    "serve.test_chat_workspace.WorkspaceTests.test_retry_is_idempotent_even_after_later_move",
+    "serve.test_chat_workspace.WorkspaceTests.test_rewind_and_clear_leave_old_history_recoverable",
+    "serve.test_chat_workspace.WorkspaceTests.test_second_server_cannot_recover_a_live_request",
+    "serve.test_chat_workspace.WorkspaceTests.test_sql_constraints_and_foreign_keys_are_enabled",
+    "serve.test_workspace_http.WorkspaceHTTP.test_history_has_auth_and_mutation_has_origin_checks",
+    "serve.test_workspace_http.WorkspaceHTTP.test_import_retry_does_not_duplicate_messages",
+    "serve.test_workspace_http.WorkspaceHTTP.test_reply_is_saved_and_next_branch_uses_only_its_history",
+    "serve.test_workspace_http.WorkspaceHTTP.test_stale_and_repeated_requests_do_not_run_model_again",
+    "serve.test_workspace_http.WorkspaceHTTP.test_stream_publishes_durable_receipt_before_done"
+  ],
+  "executed_methods": 21,
+  "failures": [],
+  "errors": [],
+  "skips": []
+}

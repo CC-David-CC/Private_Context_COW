@@ -1,0 +1,188 @@
+{
+  "browser": "chromium",
+  "status": "PASS",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [
+    "chat_list_is_visible",
+    "named_chat_created",
+    "answer_is_durably_saved",
+    "sleek_icons_are_default",
+    "icons_have_accessible_names",
+    "brief_hover_does_not_show_tooltip",
+    "held_hover_shows_tooltip",
+    "teaching_mode_shows_labels",
+    "math_in_saved_branch_renders",
+    "fork_retains_prefix_messages",
+    "fork_has_its_own_suffix",
+    "parent_branch_is_unchanged",
+    "clear_empties_only_selected_branch",
+    "clear_is_recoverable",
+    "reload_keeps_selected_branch_and_history",
+    "branch_can_be_named",
+    "archived_chat_is_recoverable",
+    "archiving_keeps_sqlite_history",
+    "mobile_has_no_page_overflow",
+    "no_browser_errors"
+  ],
+  "overflow_elements": [
+    {
+      "id": "drawer",
+      "cls": "st-drawer",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "st-drawer__head",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "card-title",
+      "right": 480.140625
+    },
+    {
+      "id": "drawer-close",
+      "cls": "st-btn st-btn--icon",
+      "right": 730
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 722
+    },
+    {
+      "id": "",
+      "cls": {},
+      "right": 714.5
+    },
+    {
+      "id": "",
+      "cls": "st-drawer__body",
+      "right": 750
+    },
+    {
+      "id": "",
+      "cls": "st-field",
+      "right": 730
+    },
+    {
+      "id": "",
+      "cls": "st-label",
+      "right": 730
+    },
+    {
+      "id": "o-thinking",
+      "cls": "",
+      "right": 730
+    }
+  ],
+  "mobile_layout": {
+    "width": 390,
+    "scroll": 390,
+    "teaching": "false",
+    "buttons": [
+      {
+        "id": "archive-chat-btn",
+        "x": 151.859375,
+        "right": 179.859375,
+        "tooltip": "98.1875px"
+      },
+      {
+        "id": "",
+        "x": 297.859375,
+        "right": 325.859375,
+        "tooltip": "84.7812px"
+      },
+      {
+        "id": "new-btn",
+        "x": 8,
+        "right": 44,
+        "tooltip": "68.2031px"
+      },
+      {
+        "id": "export-btn",
+        "x": 52,
+        "right": 89,
+        "tooltip": "54.125px"
+      },
+      {
+        "id": "rename-chat-btn",
+        "x": 285,
+        "right": 322,
+        "tooltip": "76.5156px"
+      },
+      {
+        "id": "rename-branch-btn",
+        "x": 97,
+        "right": 134,
+        "tooltip": "90.3125px"
+      },
+      {
+        "id": "clear-branch-btn",
+        "x": 142,
+        "right": 179,
+        "tooltip": "87.4844px"
+      },
+      {
+        "id": "teaching-btn",
+        "x": 345,
+        "right": 382,
+        "tooltip": "120.266px"
+      },
+      {
+        "id": "restore-point-btn",
+        "x": 216,
+        "right": 253,
+        "tooltip": "88.7344px"
+      },
+      {
+        "id": "",
+        "x": 292,
+        "right": 329,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 337,
+        "right": 374,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 292,
+        "right": 329,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 337,
+        "right": 374,
+        "tooltip": "83.2969px"
+      },
+      {
+        "id": "",
+        "x": 16,
+        "right": 53,
+        "tooltip": "68.7188px"
+      },
+      {
+        "id": "",
+        "x": 61,
+        "right": 98,
+        "tooltip": "83.2969px"
+      }
+    ]
+  }
+}

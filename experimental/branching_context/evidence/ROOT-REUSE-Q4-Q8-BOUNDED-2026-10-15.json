@@ -1,0 +1,277 @@
+{
+  "schema": "cow-real-root-reuse-qualification-v1",
+  "status": "BOUNDED_REAL_GPU_PASS",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "primary_audit": "/home/dflanag3/spatial-artifacts/root-reuse-primary-audit-20261015.json",
+  "primary_audit_sha256": "01e54bf5ce00702982d05f890f74aeaf181ad9e7b2bcd1e48ee4ed7a932bfd2f",
+  "executed_comparisons": 9,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "numerical_max_error": 0,
+  "campaigns": [
+    {
+      "name": "Q4-tiny",
+      "status": "PASS",
+      "result": "/home/dflanag3/spatial-artifacts/root-reuse-probe-q4-20261015-v1/runs/real-q4-v1/probe/result.json",
+      "result_sha256": "a87315caa2565407fdc576a2163dcd98005d4b9e2255e6812e1d8fbde9652e9a",
+      "sizes": {
+        "generated_limit": 8,
+        "prefix": 128,
+        "suffix": 4
+      },
+      "comparisons": 3,
+      "numerical_max_error": 0,
+      "root_work": [
+        {
+          "operation": "root-A-process-1",
+          "coordinator_forward_tokens": 128,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 1.704178042942658,
+          "capture_seconds": 0.642338362056762,
+          "durable_wait_seconds": 1.5821361138951033
+        },
+        {
+          "operation": "root-B-process-1",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 0.8713853571098298,
+          "capture_seconds": 0.6315347398631275,
+          "durable_wait_seconds": 0.7506508480291814
+        },
+        {
+          "operation": "root-A-process-2",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 121413624,
+          "request_wall_seconds": 1.3955130998510867,
+          "capture_seconds": 0.9389847330749035,
+          "durable_wait_seconds": 1.2704260570462793
+        }
+      ],
+      "actual_output_counts": {
+        "A": 8,
+        "B": 8
+      },
+      "elapsed_seconds": 103.99268128490075,
+      "runtime_source_sha256": {
+        "context_time_travel.coordinator": "cc850d699355e5f9e470fd4cac037e0498bddb084ec33f48215006638b48761a",
+        "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+        "context_time_travel.pools": "ef3f55a7816db91c50dc18a456d565808004cdf79d86102df86fe5210f178ec5",
+        "context_time_travel.real": "df2b157b868b1c953999a75ab9c5b0edeacaf5ea4ec75214c0de4632bdd5d1fa",
+        "context_time_travel.store": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+        "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+        "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+        "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+      },
+      "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+      "execution_profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+      "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+      "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+      "probe_sha256": "c163990810c55d4b5ae21ee7446ddf82d32c3449997f409001382eaffa2bed6c",
+      "scope": "real Q4 duplicate-root reuse and fresh-process disk reuse; no HTTP",
+      "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+      "process_ids": [
+        {
+          "python": 2505163,
+          "native": {
+            "0": 2505168
+          }
+        },
+        {
+          "python": 2506348,
+          "native": {
+            "0": 2506353
+          }
+        }
+      ],
+      "pool_peak_accounted_bytes": [
+        8380524352,
+        8257804056
+      ],
+      "native_build_sha256": {
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-branch": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+      }
+    },
+    {
+      "name": "Q4-medium",
+      "status": "PASS",
+      "result": "/home/dflanag3/spatial-artifacts/root-reuse-probe-q4-20261015-v1/medium-q4-v1/run/probe/result.json",
+      "result_sha256": "78a0d002539f189da9b65d123e8a31f048c10d00281ba3bb3e3a2c74ca21fc39",
+      "sizes": {
+        "generated_limit": 16,
+        "prefix": 1024,
+        "suffix": 64
+      },
+      "comparisons": 3,
+      "numerical_max_error": 0,
+      "root_work": [
+        {
+          "operation": "root-A-process-1",
+          "coordinator_forward_tokens": 1024,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 1.9276264649815857,
+          "capture_seconds": 0.6544245511759073,
+          "durable_wait_seconds": 1.7930326049681753
+        },
+        {
+          "operation": "root-B-process-1",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 0.9296571908053011,
+          "capture_seconds": 0.6559331030584872,
+          "durable_wait_seconds": 0.7943376388866454
+        },
+        {
+          "operation": "root-A-process-2",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 144813560,
+          "request_wall_seconds": 1.4989071618765593,
+          "capture_seconds": 0.9830050261225551,
+          "durable_wait_seconds": 1.3626975361257792
+        }
+      ],
+      "actual_output_counts": {
+        "A": 16,
+        "B": 16
+      },
+      "elapsed_seconds": 90.60846853698604,
+      "runtime_source_sha256": {
+        "context_time_travel.coordinator": "cc850d699355e5f9e470fd4cac037e0498bddb084ec33f48215006638b48761a",
+        "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+        "context_time_travel.pools": "ef3f55a7816db91c50dc18a456d565808004cdf79d86102df86fe5210f178ec5",
+        "context_time_travel.real": "df2b157b868b1c953999a75ab9c5b0edeacaf5ea4ec75214c0de4632bdd5d1fa",
+        "context_time_travel.store": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+        "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+        "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+        "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+      },
+      "profile_sha256": "6e6f6ebc99ed509e8f7b22553bfde5bf4c994795ed122327157fd6b95ff66a25",
+      "execution_profile_id": "601677ef38f6aa7b6e9c74f956352e41e6789c4c3eec5538e69af80c56aed0a1",
+      "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+      "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+      "probe_sha256": "c163990810c55d4b5ae21ee7446ddf82d32c3449997f409001382eaffa2bed6c",
+      "scope": "real Q4 duplicate-root reuse and fresh-process disk reuse; no HTTP",
+      "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+      "process_ids": [
+        {
+          "python": 2516781,
+          "native": {
+            "0": 2516786
+          }
+        },
+        {
+          "python": 2517185,
+          "native": {
+            "0": 2517214
+          }
+        }
+      ],
+      "pool_peak_accounted_bytes": [
+        8429111680,
+        8281215560
+      ],
+      "native_build_sha256": {
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-branch": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+      }
+    },
+    {
+      "name": "Q8-tiny",
+      "status": "PASS",
+      "result": "/home/dflanag3/spatial-artifacts/root-reuse-probe-q8-20261015-v1/q8-tiny-v1/run/probe/result.json",
+      "result_sha256": "31da312b6fddc84d0b0bd563a65203f23c8a4ae962d06438f45bbd64a2467b15",
+      "sizes": {
+        "generated_limit": 8,
+        "prefix": 128,
+        "suffix": 4
+      },
+      "comparisons": 3,
+      "numerical_max_error": 0,
+      "root_work": [
+        {
+          "operation": "root-A-process-1",
+          "coordinator_forward_tokens": 128,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 2.664535837015137,
+          "capture_seconds": 0.6348915381822735,
+          "durable_wait_seconds": 2.546841020928696
+        },
+        {
+          "operation": "root-B-process-1",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 0,
+          "request_wall_seconds": 0.8800814859569073,
+          "capture_seconds": 0.6440399119164795,
+          "durable_wait_seconds": 0.7635547928512096
+        },
+        {
+          "operation": "root-A-process-2",
+          "coordinator_forward_tokens": 0,
+          "loaded_file_bytes_after_capture": 121413624,
+          "request_wall_seconds": 1.5332369320094585,
+          "capture_seconds": 1.0515543420333415,
+          "durable_wait_seconds": 1.407237279927358
+        }
+      ],
+      "actual_output_counts": {
+        "A": 8,
+        "B": 8
+      },
+      "elapsed_seconds": 350.0164729109965,
+      "runtime_source_sha256": {
+        "context_time_travel.coordinator": "cc850d699355e5f9e470fd4cac037e0498bddb084ec33f48215006638b48761a",
+        "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+        "context_time_travel.pools": "ef3f55a7816db91c50dc18a456d565808004cdf79d86102df86fe5210f178ec5",
+        "context_time_travel.real": "df2b157b868b1c953999a75ab9c5b0edeacaf5ea4ec75214c0de4632bdd5d1fa",
+        "context_time_travel.store": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+        "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+        "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+        "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+      },
+      "profile_sha256": "ecdbdee319a4e71000fe7e62c5c75a81dab6377b79d4247c95c510145df380c9",
+      "execution_profile_id": "5fde43eef79ca98011400e2dca96f9934194669b64c593d60768990524176809",
+      "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+      "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+      "probe_sha256": "a7bb7877f5afcd60e107861167a94a7dfddcf17186dc4141ab69ac339cc2eb9d",
+      "scope": "duplicate-root reuse and fresh-process disk reuse; no HTTP",
+      "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+      "process_ids": [
+        {
+          "python": 2519955,
+          "native": {
+            "0": 2519960
+          }
+        },
+        {
+          "python": 2521104,
+          "native": {
+            "0": 2521109
+          }
+        }
+      ],
+      "pool_peak_accounted_bytes": [
+        8380524352,
+        8257804056
+      ],
+      "native_build_sha256": {
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-branch": "b18f5fec652c479a2d9e6fe72a9a4d6601b2837fc96b2a3b5a5b0baea865737f",
+        "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129"
+      }
+    }
+  ],
+  "limits": [
+    "Runtime modules are the explicitly recorded earlier cc850d/df2b source mapping, not latest9eafc96e control-plane code.",
+    "Execution profiles also fingerprint historical Python paths. runtime_source_sha256 identifies the actual exercised control-plane modules; native/profile identity alone does not.",
+    "Greedy same-native-operator arrangement only. Prefix and final full248320-logit vectors compared; suffix and intermediate generated frontiers not qualified here.",
+    "Normal-verifier-decode consumes generated tokens in this native-speed profile; these are not the earlier batches-only milestone.",
+    "Tiny Q4/Q8 and medium Q4 only; target8192/512/128 qualification remains outstanding.",
+    "RAM figures are pool accounting, not process RSS. GPU telemetry is a point sample, not a measured peak.",
+    "Observed request times include audit capture and publication. One observation per fixture is not a throughput benchmark.",
+    "No cache-budget eviction pressure, fault injection, broad controller state, power-loss or cumulative G1-G5 qualification."
+  ]
+}

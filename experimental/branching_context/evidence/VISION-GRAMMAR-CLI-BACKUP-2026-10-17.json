@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-grammar-client-collected-v1/evidence.tar.gz",
+    "bytes": 1434535488,
+    "sha256": "a44ddd27d01c6a39931c83ad7179d9bb0d94ae8b53abb35d8fd83b49182fcb3b"
+  },
+  "members": 723,
+  "verification": "Every regular archive member sequentially SHA-256 checked after compression",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-grammar-cli-v1/evidence.tar.gz",
+  "destination_sha256": "a44ddd27d01c6a39931c83ad7179d9bb0d94ae8b53abb35d8fd83b49182fcb3b",
+  "destination_bytes": 1434535488
+}

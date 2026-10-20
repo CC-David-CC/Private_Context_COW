@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "stage": null,
+  "resume_rounds": null,
+  "error": "/cow/text/ask request failed before durable completion",
+  "inference_kind": "real",
+  "output_limit": 128,
+  "max_resumes_per_answer": 0,
+  "max_request_output_budget_upper_bound_per_answer": 128,
+  "answer_forced_complete": false,
+  "api_key_in_report": false
+}

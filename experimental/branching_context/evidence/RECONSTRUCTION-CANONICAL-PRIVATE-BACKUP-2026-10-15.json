@@ -1,0 +1,34 @@
+{
+  "schema": "cow-private-evidence-backup-v1",
+  "status": "RECEIVER_VERIFIED",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261015-reconstruction-canonical-raw-v1",
+  "archive": "evidence.tar",
+  "archive_bytes": 183173120,
+  "archive_sha256": "390bcad6918a5e724b62d274a1bd543f8d4c2f59ced74a4029833e46aaed3689",
+  "manifest_sha256": "eef742176d3868d14466b99003874ac2c04390aac03e70d8a6b0ae62095aec0d",
+  "members": 385,
+  "payload_members": 384,
+  "receiver_verification": {
+    "file": "receiver.verify.json",
+    "sha256": "447a88141823e8303216a5f70728e4d5ed71dd532c7c35afd95decaa0726162c",
+    "exit_file": "receiver.verify.exit",
+    "exit": 0,
+    "verifier_file": "verify_archive.py",
+    "verifier_sha256": "799415f7c57efce8038e7e4e32f807fb95d9ca3006185131830347bb19fd94d9"
+  },
+  "roots": [
+    "missing-materialization-probe-20261015-cpu-v1",
+    "missing-materialization-probe-20261015-cpu-v2",
+    "missing-materialization-probe-20261015-gpu-v2",
+    "missing-materialization-probe-20261015-gpu-v3",
+    "canonical-actions-20261015-v1"
+  ],
+  "scope": "Completed reconstruction and canonical-action evidence, including classifier failure, deadlock failure and corrected runs; no model weights",
+  "primary_check": "Primary independently read the persisted verification result and rehashed the receiver archive and receipt.",
+  "permissions": {"directory": "0700", "files": "0600"},
+  "limitations": [
+    "Raw evidence is external to Git and is not retrieved by cloning the source repository.",
+    "Duplicate qualified source base was omitted; source overlays and provenance mappings remain.",
+    "Later native hash build and its model runs are outside this archive."
+  ]
+}

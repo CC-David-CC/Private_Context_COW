@@ -1,0 +1,279 @@
+{
+    "errors":  [
+
+               ],
+    "failures":  [
+
+                 ],
+    "imports":  {
+                    "context_time_travel":  {
+                                                "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/__init__.py",
+                                                "sha256":  "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"
+                                            },
+                    "context_time_travel.controller":  {
+                                                           "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/controller.py",
+                                                           "sha256":  "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"
+                                                       },
+                    "context_time_travel.coordinator":  {
+                                                            "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/coordinator.py",
+                                                            "sha256":  "bb6a1f8d9582c35dfaec69391658a033320e25d717b61ebfb9b0bec1f6c6c32b"
+                                                        },
+                    "context_time_travel.digest_attestation":  {
+                                                                   "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/digest_attestation.py",
+                                                                   "sha256":  "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"
+                                                               },
+                    "context_time_travel.oracle":  {
+                                                       "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/oracle.py",
+                                                       "sha256":  "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"
+                                                   },
+                    "context_time_travel.pools":  {
+                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/pools.py",
+                                                      "sha256":  "6f84f1e8db7974977ac41cd4e0e773d79e15306d527254d96f0acd942bd21aa3"
+                                                  },
+                    "context_time_travel.presentation_request":  {
+                                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/presentation_request.py",
+                                                                     "sha256":  "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"
+                                                                 },
+                    "context_time_travel.real":  {
+                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/real.py",
+                                                     "sha256":  "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c"
+                                                 },
+                    "context_time_travel.store":  {
+                                                      "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/store.py",
+                                                      "sha256":  "e59506960152217e0a22abc6dabdf84cb4248e5126565c39fa469cbee91cdda3"
+                                                  },
+                    "context_time_travel.strata_backend":  {
+                                                               "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/experimental/branching_context/src/context_time_travel/strata_backend.py",
+                                                               "sha256":  "d692e00310984dcea2332d86862fde0010ff06f50b7f62b35a97d25110443de1"
+                                                           },
+                    "test_cow_adapter":  {
+                                             "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_adapter.py",
+                                             "sha256":  "d3f42e71c8c7b7d7019b8fe645c76ae904e2b3a2d686dbc306f98d7a0485303e"
+                                         },
+                    "test_cow_browser_fixture":  {
+                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_browser_fixture.py",
+                                                     "sha256":  "7c60d9d3a6322226700e996e4eed466600a5769b86c187b27c49e41886616405"
+                                                 },
+                    "test_cow_context_root_capability":  {
+                                                             "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_context_root_capability.py",
+                                                             "sha256":  "970efb70897caf6b297ac5f2aebd725912560cb38a85bee6982cc9eaff068b8a"
+                                                         },
+                    "test_cow_http":  {
+                                          "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_http.py",
+                                          "sha256":  "1f2044d35156d6c98f7174a5b8650e793bf908fddf2878a2c0d244c174675fca"
+                                      },
+                    "test_cow_namespace_http":  {
+                                                    "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_namespace_http.py",
+                                                    "sha256":  "3f2c50ce23f198bcdbef3f35bcb705639f43025a38fff35100a674310915938f"
+                                                },
+                    "test_cow_prefix":  {
+                                            "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_prefix.py",
+                                            "sha256":  "8f64a55106d98d990077f7bcb9a8535f52366ee48feb30e6e1bc5a49795e6362"
+                                        },
+                    "test_cow_presentation_adapter":  {
+                                                          "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_presentation_adapter.py",
+                                                          "sha256":  "784483d73b19b92d3cf01e55d3ca372596416561ea6748fd952e593ad6dded9d"
+                                                      },
+                    "test_cow_presentation_flow":  {
+                                                       "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_presentation_flow.py",
+                                                       "sha256":  "28ee1b5e902d0089de69973a6396a523c96ac2a94e5762aaa76099002cdf4ea3"
+                                                   },
+                    "test_cow_prompt_encoder":  {
+                                                    "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_prompt_encoder.py",
+                                                    "sha256":  "b802ed28f7d09a8f1bab752f06916d9d255b9a579647fd3787060105ae75525c"
+                                                },
+                    "test_cow_renderer":  {
+                                              "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_renderer.py",
+                                              "sha256":  "43a6777dca31ee41290b5ec58dd04502558f7c115a941919e683b8841c6f88cc"
+                                          },
+                    "test_cow_reusable_context_smoke":  {
+                                                            "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_reusable_context_smoke.py",
+                                                            "sha256":  "3f06172aed711dcf6392fb55098a11e218591b612a7ca966bd10bbeecb63bee6"
+                                                        },
+                    "test_cow_status_http":  {
+                                                 "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_status_http.py",
+                                                 "sha256":  "88ae85782fdf2fd0a6181c0ed158f4ecaf9df2ca684e3d04b907c7b70b757f45"
+                                             },
+                    "test_cow_text_adapter":  {
+                                                  "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_text_adapter.py",
+                                                  "sha256":  "cd01d5c4b06e1d33dcb968d10b503bec296c3225e634c4592ceadec7cc6ea431"
+                                              },
+                    "test_cow_workspace":  {
+                                               "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_workspace.py",
+                                               "sha256":  "394ad5dbfd970c262a04b10399967c3ececf70dbf390a716cd8efc7982d56dd2"
+                                           },
+                    "test_cow_workspace_graph":  {
+                                                     "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_workspace_graph.py",
+                                                     "sha256":  "68485a26585aa22d0c806926c12423e8a962ae6f9b904c8560524345ac1fabdb"
+                                                 },
+                    "test_cow_workspace_graph_http":  {
+                                                          "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_workspace_graph_http.py",
+                                                          "sha256":  "4354ea2d40f80ac22fa36844bc065760ddd069a8287847b4bcc2fb6913986966"
+                                                      },
+                    "test_cow_workspace_http":  {
+                                                    "path":  "/home/dflanag3/spatial-artifacts/q4-cuda-recovery-20261016-v1/integrated-62b4e466-v2/source/serve/test_cow_workspace_http.py",
+                                                    "sha256":  "72eed1f66049b4190eae3ed669ef1de33d8ead2216763f2adde85b107fe6d71c"
+                                                }
+                },
+    "mode":  "http",
+    "schema":  "q4-recovery-integrated-cpu-v1",
+    "scope":  "CPU synthetic backend and real filesystem/HTTP controls; not GPU inference",
+    "script_sha256":  "5210fcb35f82528b2ee260d897d24628abe5bd74dcf2e43bcd077d4f3996b872",
+    "seconds":  23.519830040168017,
+    "skipped":  [
+
+                ],
+    "source_commit":  "62b4e466",
+    "source_unchanged":  true,
+    "status":  "PASS",
+    "test_ids":  [
+                     "test_cow_adapter.CowServingAdapterTests.test_branch_catalog_uses_canonical_store_and_never_submits_work",
+                     "test_cow_adapter.CowServingAdapterTests.test_completed_retry_rejects_changed_input_without_canonical_mutation",
+                     "test_cow_adapter.CowServingAdapterTests.test_completed_retry_uses_original_source_and_returns_same_request",
+                     "test_cow_adapter.CowServingAdapterTests.test_create_fork_and_rewind_dispatch_to_coordinator_store_operations",
+                     "test_cow_adapter.CowServingAdapterTests.test_generate_rejects_rendered_prefix_mismatch_before_submit",
+                     "test_cow_adapter.CowServingAdapterTests.test_generate_rejects_unsupported_sampling_before_submit",
+                     "test_cow_adapter.CowServingAdapterTests.test_generate_submits_exact_new_tokens_and_returns_coordinator_request",
+                     "test_cow_adapter.CowServingAdapterTests.test_head_and_history_read_only_from_canonical_store",
+                     "test_cow_adapter.CowServingAdapterTests.test_source_head_rejects_intent_bound_to_different_branch_or_revision",
+                     "test_cow_adapter.CowServingAdapterTests.test_source_head_rejects_tampered_intent_checksum",
+                     "test_cow_adapter.CowServingAdapterTests.test_source_head_uses_uncommitted_intent_after_branch_moves",
+                     "test_cow_adapter.CowServingAdapterTests.test_source_state_reads_history_and_controller_from_same_immutable_source",
+                     "test_cow_adapter.CowServingAdapterTests.test_stale_revision_is_rejected_without_submission",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_cli_ready_json_and_sigterm_clean_exit",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_context_creation_retry_after_store_restart_reuses_exact_root_receipt",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_context_root_forks_into_independent_questions_over_real_http",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_fixture_refuses_non_loopback_bind",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_persistent_store_can_be_reopened_without_sqlite_or_gpu_work",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_real_http_flow_projects_durable_history_and_shuts_down",
+                     "test_cow_browser_fixture.CowBrowserFixtureTests.test_root_fork_is_not_durable_until_original_move_and_survives_restart_and_advance",
+                     "test_cow_context_root_capability.CowContextRootCapabilityTests.test_capability_uses_actual_closed_and_prepared_token_tails",
+                     "test_cow_context_root_capability.CowContextRootCapabilityTests.test_other_controller_states_are_not_initial_root_modes",
+                     "test_cow_context_root_capability.CowContextRootCapabilityTests.test_user_role_context_can_ask_without_reencoding_or_authorizing_file_text",
+                     "test_cow_http.CowHTTPTests.test_append_user_route_passes_only_new_content_and_streams_text",
+                     "test_cow_http.CowHTTPTests.test_auth_and_foreign_origin_reject_before_admission",
+                     "test_cow_http.CowHTTPTests.test_catalog_route_is_authenticated_read_only_and_root_scoped",
+                     "test_cow_http.CowHTTPTests.test_disconnect_sets_transient_cancellation_before_publication",
+                     "test_cow_http.CowHTTPTests.test_head_fork_and_rewind_use_adapter_authority",
+                     "test_cow_http.CowHTTPTests.test_missing_request_fields_reject_before_admission",
+                     "test_cow_http.CowHTTPTests.test_nonstream_response_contains_acknowledged_receipt",
+                     "test_cow_http.CowHTTPTests.test_public_bind_requires_key",
+                     "test_cow_http.CowHTTPTests.test_publication_failure_never_emits_complete",
+                     "test_cow_http.CowHTTPTests.test_stream_separates_provisional_token_and_durable_success",
+                     "test_cow_http.CowHTTPTests.test_text_routes_are_explicitly_disabled_without_text_adapter",
+                     "test_cow_http.CowHTTPTests.test_text_stream_and_nonstream_decode_same_canonical_tokens",
+                     "test_cow_http.CowHTTPTests.test_unknown_options_do_not_silently_change_the_contract",
+                     "test_cow_namespace_http.NamespaceHTTPTests.test_answer_and_first_question_return_text_only_after_durable_success",
+                     "test_cow_namespace_http.NamespaceHTTPTests.test_catalog_requires_one_namespace_and_rejects_unknown_query",
+                     "test_cow_namespace_http.NamespaceHTTPTests.test_hidden_presentation_descriptor_and_bad_stream_fail_before_dispatch",
+                     "test_cow_namespace_http.NamespaceHTTPTests.test_namespace_create_list_and_catalog_are_authenticated",
+                     "test_cow_namespace_http.NamespaceHTTPTests.test_prepare_and_context_bind_namespace_without_inventing_an_answer",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_empty_canonical_history_returns_complete_prompt",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_equal_history_has_empty_suffix",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_exact_prefix_returns_only_new_rendered_token_ids",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_character_prefix_when_reencoding_changes_bpe_boundary",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_non_token_ids_instead_of_coercing_them",
+                     "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_short_or_divergent_rendered_history",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_answer_consumes_no_new_prompt_or_rerender",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_answer_rejects_active_or_stopped_controller",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_bound_full_transcript_generation_is_rejected_before_dispatch",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_first_question_keeps_codebase_prefix_as_separate_snapshot",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_missing_renderer_rejects_bound_prepare_before_dispatch",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_new_user_binds_original_text_only",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_prepare_binds_exact_display_text_and_generation_prompt",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_prepare_retries_have_stable_message_ids",
+                     "test_cow_presentation_adapter.PresentationAdapterTests.test_resume_keeps_original_assistant_message_id",
+                     "test_cow_presentation_adapter.TokenPresentationForwardingTests.test_token_create_forwards_presentation",
+                     "test_cow_presentation_adapter.TokenPresentationForwardingTests.test_token_generate_forwards_presentation_with_suffix_not_saved_prefix",
+                     "test_cow_presentation_flow.CowPresentationFlowTests.test_chat_lifecycle_fork_retry_and_namespace_catalog",
+                     "test_cow_presentation_flow.CowPresentationFlowTests.test_closed_user_context_is_forkable_and_independent_questions_use_only_suffixes",
+                     "test_cow_presentation_flow.CowPresentationFlowTests.test_context_and_prepared_root_operations_are_not_interchangeable",
+                     "test_cow_presentation_flow.CowPresentationFlowTests.test_raw_text_is_bound_even_when_renderer_trims_to_same_tokens",
+                     "test_cow_presentation_flow.CowPresentationFlowTests.test_synthetic_frontier_bytes_are_actually_validated",
+                     "test_cow_prompt_encoder.CowPromptEncoderParityTests.test_initial_question_suffix_matches_uninterrupted_rendered_prefix",
+                     "test_cow_prompt_encoder.CowPromptEncoderParityTests.test_lightweight_encoder_has_no_engine_or_service_lifecycle",
+                     "test_cow_prompt_encoder.CowPromptEncoderParityTests.test_matches_service_for_special_looking_literals_and_generation_modes",
+                     "test_cow_prompt_encoder.CowPromptEncoderParityTests.test_new_user_suffix_preserves_answer_newline_and_encodes_literals_as_data",
+                     "test_cow_prompt_encoder.CowPromptEncoderParityTests.test_new_user_suffix_requires_actual_eos_and_supported_template_profile",
+                     "test_cow_renderer.RendererIdentityTests.test_empty_contract_and_non_json_kwargs_are_rejected",
+                     "test_cow_renderer.RendererIdentityTests.test_implementation_policy_hashes_are_bound_without_paths",
+                     "test_cow_renderer.RendererIdentityTests.test_missing_or_incomplete_tokenizer_metadata_is_rejected",
+                     "test_cow_renderer.RendererIdentityTests.test_receipt_contains_raw_input_fingerprints_and_qualified_contract",
+                     "test_cow_renderer.RendererIdentityTests.test_same_metadata_is_stable_across_mapping_order_and_cache_mutation",
+                     "test_cow_renderer.RendererIdentityTests.test_seeded_fixture_metadata_and_each_rendering_input_change_identity",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_cdp_capture_uses_actual_post_data_and_complete_ndjson",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_client_ack_accepts_only_complete_consumer_receipt_for_aborted_cdp_request",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_client_ack_rejects_missing_or_malformed_stream_evidence",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_client_ack_rejects_operation_branch_revision_and_snapshot_mismatches",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_context_root_action_uses_unique_branch_snapshot_not_chat_anchor",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_durable_server_receipt_must_match_fixture_model_and_profile",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_exact_server_sigint_runs_finally_and_closes_child_cleanly",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_failed_request_diagnostic_retains_matching_request_without_headers",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_fixture_file_block_handles_fences_newlines_and_literal_control_text",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_fixture_file_block_rejects_paths_and_nontext",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_network_capture_fails_closed_without_post_or_durable_complete",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_network_exchange_requires_completed_matching_request",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_new_publication_wait_rejects_preexisting_idle_root",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_root_fork_click_selects_unique_validated_action_after_other_boundary",
+                     "test_cow_reusable_context_smoke.ReusableContextSmokeSupportTests.test_work_validator_rejects_prefix_replay_and_inexact_counter",
+                     "test_cow_status_http.CowStatusHTTPTests.test_auth_and_origin_are_checked_before_metrics_read",
+                     "test_cow_status_http.CowStatusHTTPTests.test_metrics_failure_is_not_reported_as_healthy_status",
+                     "test_cow_status_http.CowStatusHTTPTests.test_status_rejects_all_query_parameters_before_metrics_read",
+                     "test_cow_status_http.CowStatusHTTPTests.test_status_returns_actual_metrics_without_forward_or_store_mutation",
+                     "test_cow_status_http.CowStatusRealCoordinatorTests.test_http_snapshot_matches_real_metrics_without_canonical_or_forward_work",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_append_user_preserves_original_ids_and_uses_request_bound_controller",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_append_user_rejects_active_or_missing_suffix_encoder_before_submit",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_create_and_generate_render_complete_history_and_forward_exact_ids",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_incremental_utf8_text_events_preserve_original_token_ids",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_literal_special_looking_text_is_sent_through_frontend_encoder",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_rejects_roles_images_tools_and_options_before_dispatch",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_requires_linear_token_byte_decoder_before_any_request",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_resume_rejects_idle_stopped_and_non_greedy_before_submit",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_resume_submits_canonical_ids_without_rendering_and_carries_pending_utf8",
+                     "test_cow_text_adapter.CowTextAdapterTests.test_tokenizer_boundary_mismatch_is_rejected_by_token_adapter_before_submit",
+                     "test_cow_workspace.CowWorkspaceTests.test_corrupt_annotation_missing_canonical_history_and_restricted_owner_fail",
+                     "test_cow_workspace.CowWorkspaceTests.test_empty_and_nonempty_chat_and_branch_catalogs",
+                     "test_cow_workspace.CowWorkspaceTests.test_explicit_fork_source_inherits_captured_branch_revision_only",
+                     "test_cow_workspace.CowWorkspaceTests.test_forked_active_branches_get_distinct_assistant_bodies",
+                     "test_cow_workspace.CowWorkspaceTests.test_identical_text_with_different_message_ids_is_not_deduplicated",
+                     "test_cow_workspace.CowWorkspaceTests.test_initial_turn_input_boundary_is_not_faked",
+                     "test_cow_workspace.CowWorkspaceTests.test_pending_assistant_is_durable_incomplete_not_provisional",
+                     "test_cow_workspace.CowWorkspaceTests.test_prepared_root_messages_have_no_invented_per_message_checkpoint",
+                     "test_cow_workspace.CowWorkspaceTests.test_projection_is_read_only_and_has_no_live_pending_request_claim",
+                     "test_cow_workspace.CowWorkspaceTests.test_resume_extends_same_assistant_id_across_pending_utf8_boundary",
+                     "test_cow_workspace.CowWorkspaceTests.test_rewind_hides_abandoned_messages_but_retains_saved_points",
+                     "test_cow_workspace.CowWorkspaceTests.test_same_computational_root_does_not_merge_distinct_chat_namespaces",
+                     "test_cow_workspace.CowWorkspaceTests.test_same_namespace_independent_branches_do_not_merge_root_annotations",
+                     "test_cow_workspace.CowWorkspaceTests.test_user_and_assistant_count_and_exact_output_boundary",
+                     "test_cow_workspace.CowWorkspaceTests.test_user_turn_input_boundary_is_not_faked",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_active_assistant_fork_shares_prefix_then_resume_versions_diverge",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_branches_follow_committed_creation_order_not_random_name",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_completed_shared_assistant_is_not_partial_after_newer_branch_tails",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_empty_and_single_chat_graph_counts_messages_not_snapshots",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_generated_branch_ids_get_stable_display_labels",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_graph_preview_is_bounded_and_branch_tip_is_not_snapshot_id",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_identical_canonical_root_with_distinct_message_provenance_stays_separate",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_partial_then_common_completion_is_not_a_shared_partial",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_prepared_transcript_assistant_role_is_a_message_not_a_generated_version",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_previous_tips_are_faded_paths_not_current_saved_message_progress",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_rewind_graph_keeps_only_current_message_ancestry",
+                     "test_cow_workspace_graph.CowWorkspaceGraphTests.test_unknown_namespace_graph_is_not_disclosed",
+                     "test_cow_workspace_graph_http.CowWorkspaceGraphHTTPTests.test_graph_route_requires_auth_and_exact_namespace_scope",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_empty_namespace_has_no_invented_branch_or_inference",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_failed_publication_can_be_finished_without_repeating_computation",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_history_is_canonical_and_only_committed_output_is_projected",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_namespace_fork_and_rewind_publish_canonical_typed_receipts",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_operation_controls_fail_before_mutation_for_unknown_or_unauthorized_ids",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_ordinary_workspace_mutations_are_not_exposed",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_projection_auth_origin_query_and_missing_scope",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_retry_waits_for_original_failure_notification_to_finish",
+                     "test_cow_workspace_http.WorkspaceHTTPTests.test_same_origin_ui_assets_and_native_capability_discovery"
+                 ],
+    "tests":  141,
+    "xfails":  [
+
+               ],
+    "source_commit_full":  "62b4e466a17bc89e1b514f7a9d219cbc4a8715ef",
+    "command_exit":  0,
+    "wrapper_exit":  0
+}

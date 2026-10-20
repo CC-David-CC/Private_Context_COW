@@ -1,0 +1,226 @@
+{
+  "GPU": [
+    0
+  ],
+  "cpu": {
+    "errors": 0,
+    "exits": {
+      "command.exit": 0,
+      "wrapper.exit": 0
+    },
+    "failures": 0,
+    "methods": 10,
+    "skips": 0
+  },
+  "execution": {
+    "contract": "identical-native-operators-v1",
+    "generated_operator": "normal-verifier-decode",
+    "input_operator": "prefill",
+    "prefill_chunk_tokens": 8192,
+    "protocol": "consumed-greedy-ack-v1"
+  },
+  "g0": {
+    "exits": {
+      "command.exit": 0,
+      "wrapper.exit": 0
+    },
+    "failures": 0,
+    "methods": 51,
+    "scope": "Unchanged logical/reference source, not original G1-G5 qualification",
+    "skips": 0,
+    "source": "/home/dflanag3/spatial-artifacts/capacity-main-integration-20261015-v2/source/experimental/branching_context"
+  },
+  "guard_mutations": {
+    "baseline_tests": 10,
+    "detected_guards": [
+      "validate_cancel_evidence",
+      "validate_recovery_answer"
+    ],
+    "exits": {
+      "command.exit": 0,
+      "wrapper.exit": 0
+    },
+    "scope": "CPU evidence validators only; not GPU backend mutants",
+    "status": "PASS_BOTH_CPU_GUARD_MUTANTS_DETECTED"
+  },
+  "host": "llm-60",
+  "limitations": [
+    "Previously executed independent uncached matching-operator references reused after exact case/profile/raw-file checks; no new fresh forwards in cancellation runs",
+    "Four full final recovery vector pairs checked; cancelled three outputs checked as IDs and native receipts, not full frontier vectors",
+    "Greedy single-GPU fixture only; no general RNG/grammar/pending-decoder qualification",
+    "Resident cancellation recovery only; no new crash, ENOSPC, sustained pressure or long soak coverage",
+    "Elapsed campaign times include startup and audits and are not serving throughput benchmarks",
+    "No isolated peak-memory or transfer-performance measurement in this cancellation campaign",
+    "Original G1-G5 cumulative qualification unchanged"
+  ],
+  "real_gpu": [
+    {
+      "audit": {
+        "cancel_forward_tokens": 515,
+        "cancel_tokens_match_reference": true,
+        "cancelled_consumed_tokens": 3,
+        "checks": [
+          "SPARSE-CANCEL-001",
+          "SPARSE-CANCEL-002",
+          "SPARSE-CANCEL-003"
+        ],
+        "elapsed_seconds": 29.84440896101296,
+        "exact_full_vector_pairs": 2,
+        "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+        "harness_sha256": "c95807de21e0b2acd7db2b8650c9b7d14a2b68142135bd6a2cf86ffae3e5ec68",
+        "limitations": [
+          "Previously executed independent uncached reference reused after exact case/profile/file checks",
+          "Final recovery vectors checked; cancelled three tokens checked as IDs/receipts, not full vectors",
+          "Greedy single-GPU prototype; not crash/ENOSPC/soak or G1-G5 certification"
+        ],
+        "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+        "native_exit_codes": {
+          "0": 0
+        },
+        "native_sut_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+        "no_cancelled_publication": true,
+        "numerical_max_error": 0,
+        "quant": "q4",
+        "recovery_comparisons": [
+          {
+            "branch": "A",
+            "final_frontier_sha256": "c4272c59cad865a28fbe6a3cd770926f341d9df24b5e4a3c76b659e2ae23b429",
+            "forward_tokens": 640,
+            "numerical_max_error": 0,
+            "outputs": 128
+          },
+          {
+            "branch": "B",
+            "final_frontier_sha256": "824df00a92bad676f9ba7fbd14ecfde38bc9d813a5c0ffd329139087b016a040",
+            "forward_tokens": 640,
+            "numerical_max_error": 0,
+            "outputs": 128
+          }
+        ],
+        "result_sha256": "541cc52d94408fdf8e8cafb24ea3dfe9fe1ecc12fce20c12e6dd7d7b2f4c9acc",
+        "root_payload_unchanged": true,
+        "run": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q4-v2",
+        "schema": "sparse-cancel-primary-audit-v1",
+        "status": "PASS"
+      },
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "primary_audit_sha256": "8af6d7923850503fc82175fe684fc3a78709bfcbcf14b8830efb7515e091fbc0",
+      "result_relative_path": "gpu-q4-v2/probe/result.json",
+      "run": "gpu-q4-v2"
+    },
+    {
+      "audit": {
+        "cancel_forward_tokens": 515,
+        "cancel_tokens_match_reference": true,
+        "cancelled_consumed_tokens": 3,
+        "checks": [
+          "SPARSE-CANCEL-001",
+          "SPARSE-CANCEL-002",
+          "SPARSE-CANCEL-003"
+        ],
+        "elapsed_seconds": 103.457711155992,
+        "exact_full_vector_pairs": 2,
+        "execution_profile_id": "da13f5531567a73a7241d273ddc55a59ac77d53d329510769b5ab18d34efe7c6",
+        "harness_sha256": "c95807de21e0b2acd7db2b8650c9b7d14a2b68142135bd6a2cf86ffae3e5ec68",
+        "limitations": [
+          "Previously executed independent uncached reference reused after exact case/profile/file checks",
+          "Final recovery vectors checked; cancelled three tokens checked as IDs/receipts, not full vectors",
+          "Greedy single-GPU prototype; not crash/ENOSPC/soak or G1-G5 certification"
+        ],
+        "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+        "native_exit_codes": {
+          "0": 0
+        },
+        "native_sut_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+        "no_cancelled_publication": true,
+        "numerical_max_error": 0,
+        "quant": "q8",
+        "recovery_comparisons": [
+          {
+            "branch": "A",
+            "final_frontier_sha256": "466bd415f8c53768c07d1f23d227c5bfa2c8e00e746909218d495c00cc345a81",
+            "forward_tokens": 640,
+            "numerical_max_error": 0,
+            "outputs": 128
+          },
+          {
+            "branch": "B",
+            "final_frontier_sha256": "f6ac7a54aeb6c62bcd2dd22cee5dd2379ddf26dae52ae547a48b429e8abf0a68",
+            "forward_tokens": 640,
+            "numerical_max_error": 0,
+            "outputs": 128
+          }
+        ],
+        "result_sha256": "200e51e5a60b042b3056765e675a06ed056f68512e6b220f5fda36736a30e043",
+        "root_payload_unchanged": true,
+        "run": "/home/dflanag3/spatial-artifacts/sparse-cancel-20261015-v1/gpu-q8-v2",
+        "schema": "sparse-cancel-primary-audit-v1",
+        "status": "PASS"
+      },
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "primary_audit_sha256": "65a42127195f481ed48070790fba08e51d6ff07203e5a7826c73acf2eb8e6122",
+      "result_relative_path": "gpu-q8-v2/probe/result.json",
+      "run": "gpu-q8-v2"
+    }
+  ],
+  "recorded_utc": "2026-10-16T03:00:05.679980+00:00",
+  "retained_failures": [
+    {
+      "outcome": "Missing new probe file, zero behavioral methods completed",
+      "run": "red-v1"
+    },
+    {
+      "outcome": "Incorrect tools-relative source closure mapping, before inference",
+      "run": "case-preflight-v1"
+    },
+    {
+      "failures": 2,
+      "methods": 8,
+      "outcome": "Tools mapping and forged imported digest regressions exposed",
+      "run": "behavioral-red-v2"
+    },
+    {
+      "cleanup": "Process absence observed; numeric native exit was not retained",
+      "native_exit_numeric": null,
+      "outcome": "Provenance guard rejected explicitly declared metadata helper after engine startup, before cancellation cases",
+      "run": "gpu-q4-v1"
+    },
+    {
+      "errors": 2,
+      "methods": 10,
+      "outcome": "Explicit metadata helper guard absent before implementation",
+      "run": "behavioral-red-v3"
+    },
+    {
+      "failures": 1,
+      "methods": 10,
+      "outcome": "Positive control exposed invalid negative-test baseline schedule; corrected to three contiguous native one-token verifier chunks",
+      "run": "controls-red-v4"
+    }
+  ],
+  "schema": "sparse-cancel-qualification-v1",
+  "scope": "Single-GPU greedy cancellation and resident A/B recovery on sparse physical COW pages",
+  "shape": {
+    "cancelled_consumed_outputs": 3,
+    "prefix_tokens": 8192,
+    "recovery_outputs_each": 128,
+    "suffix_tokens_each": 512
+  },
+  "source": {
+    "base_commit": "d22633eb7644c460c3fcdfd7c0c46bc3af045f38",
+    "final_cpu_source_version": "harness-source-v4",
+    "final_test_sha256": "ae107c573993e30de72f535098e3d2821585ca0f5a34a604c5f6abcf296c8500",
+    "gpu_and_final_runner_bytes_identical": true,
+    "gpu_source_version": "harness-source-v3",
+    "production_api_changes": false,
+    "runner_sha256": "c95807de21e0b2acd7db2b8650c9b7d14a2b68142135bd6a2cf86ffae3e5ec68",
+    "worker_branch": "work/luna-sparse-cancel"
+  },
+  "status": "FOCUSED-PASS"
+}

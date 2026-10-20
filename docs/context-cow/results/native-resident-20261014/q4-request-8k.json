@@ -1,0 +1,1560 @@
+{
+  "status": "PASS",
+  "scope": "native request primitive only; canonical publication not qualified",
+  "profile_id": "118f45383fce97d06f0d67e45762c22faacc9006f79601dbcfe097486cd8e8eb",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "comparisons": 144,
+  "numerical_max_error": 0.0,
+  "branches": {
+    "A": {
+      "outputs": [
+        122,
+        123,
+        126,
+        223,
+        126,
+        224,
+        126,
+        225,
+        126,
+        226,
+        126,
+        227,
+        128,
+        243,
+        128,
+        244,
+        169637,
+        128,
+        248,
+        168975,
+        25933,
+        150003,
+        127,
+        233,
+        136,
+        112,
+        136,
+        113,
+        136,
+        114,
+        136,
+        115,
+        136,
+        116,
+        136,
+        94,
+        136,
+        95,
+        136,
+        100,
+        136,
+        101,
+        136,
+        249,
+        136,
+        244,
+        136,
+        247,
+        136,
+        245,
+        136,
+        246,
+        136,
+        250,
+        136,
+        251,
+        136,
+        252,
+        136,
+        253,
+        136,
+        254,
+        136,
+        96,
+        136,
+        97,
+        136,
+        98,
+        136,
+        99,
+        136,
+        102,
+        136,
+        103,
+        136,
+        104,
+        136,
+        105,
+        136,
+        255,
+        136,
+        106,
+        136,
+        107,
+        136,
+        108,
+        136,
+        109,
+        136,
+        110,
+        136,
+        111,
+        136,
+        117,
+        136,
+        118,
+        136,
+        119,
+        136,
+        120,
+        137,
+        229,
+        137,
+        230,
+        137,
+        231,
+        137,
+        235,
+        137,
+        236,
+        158,
+        225,
+        104,
+        158,
+        225,
+        107,
+        158,
+        225,
+        108,
+        158,
+        116,
+        236,
+        166,
+        247,
+        106,
+        166,
+        247,
+        108
+      ],
+      "seconds": 1.2093351760413498,
+      "tokens_per_second": 105.84327863429601,
+      "consumed": 8832,
+      "request_receipt": {
+        "status": "ok",
+        "operator": "normal-verifier-decode",
+        "position": 8704,
+        "count": 128,
+        "generated": 128,
+        "consumed": 8832,
+        "forward_tokens": 8832,
+        "chunks": [
+          [
+            8704,
+            1
+          ],
+          [
+            8705,
+            1
+          ],
+          [
+            8706,
+            1
+          ],
+          [
+            8707,
+            1
+          ],
+          [
+            8708,
+            1
+          ],
+          [
+            8709,
+            1
+          ],
+          [
+            8710,
+            1
+          ],
+          [
+            8711,
+            1
+          ],
+          [
+            8712,
+            1
+          ],
+          [
+            8713,
+            1
+          ],
+          [
+            8714,
+            1
+          ],
+          [
+            8715,
+            1
+          ],
+          [
+            8716,
+            1
+          ],
+          [
+            8717,
+            1
+          ],
+          [
+            8718,
+            1
+          ],
+          [
+            8719,
+            1
+          ],
+          [
+            8720,
+            1
+          ],
+          [
+            8721,
+            1
+          ],
+          [
+            8722,
+            1
+          ],
+          [
+            8723,
+            1
+          ],
+          [
+            8724,
+            1
+          ],
+          [
+            8725,
+            1
+          ],
+          [
+            8726,
+            1
+          ],
+          [
+            8727,
+            1
+          ],
+          [
+            8728,
+            1
+          ],
+          [
+            8729,
+            1
+          ],
+          [
+            8730,
+            1
+          ],
+          [
+            8731,
+            1
+          ],
+          [
+            8732,
+            1
+          ],
+          [
+            8733,
+            1
+          ],
+          [
+            8734,
+            1
+          ],
+          [
+            8735,
+            1
+          ],
+          [
+            8736,
+            1
+          ],
+          [
+            8737,
+            1
+          ],
+          [
+            8738,
+            1
+          ],
+          [
+            8739,
+            1
+          ],
+          [
+            8740,
+            1
+          ],
+          [
+            8741,
+            1
+          ],
+          [
+            8742,
+            1
+          ],
+          [
+            8743,
+            1
+          ],
+          [
+            8744,
+            1
+          ],
+          [
+            8745,
+            1
+          ],
+          [
+            8746,
+            1
+          ],
+          [
+            8747,
+            1
+          ],
+          [
+            8748,
+            1
+          ],
+          [
+            8749,
+            1
+          ],
+          [
+            8750,
+            1
+          ],
+          [
+            8751,
+            1
+          ],
+          [
+            8752,
+            1
+          ],
+          [
+            8753,
+            1
+          ],
+          [
+            8754,
+            1
+          ],
+          [
+            8755,
+            1
+          ],
+          [
+            8756,
+            1
+          ],
+          [
+            8757,
+            1
+          ],
+          [
+            8758,
+            1
+          ],
+          [
+            8759,
+            1
+          ],
+          [
+            8760,
+            1
+          ],
+          [
+            8761,
+            1
+          ],
+          [
+            8762,
+            1
+          ],
+          [
+            8763,
+            1
+          ],
+          [
+            8764,
+            1
+          ],
+          [
+            8765,
+            1
+          ],
+          [
+            8766,
+            1
+          ],
+          [
+            8767,
+            1
+          ],
+          [
+            8768,
+            1
+          ],
+          [
+            8769,
+            1
+          ],
+          [
+            8770,
+            1
+          ],
+          [
+            8771,
+            1
+          ],
+          [
+            8772,
+            1
+          ],
+          [
+            8773,
+            1
+          ],
+          [
+            8774,
+            1
+          ],
+          [
+            8775,
+            1
+          ],
+          [
+            8776,
+            1
+          ],
+          [
+            8777,
+            1
+          ],
+          [
+            8778,
+            1
+          ],
+          [
+            8779,
+            1
+          ],
+          [
+            8780,
+            1
+          ],
+          [
+            8781,
+            1
+          ],
+          [
+            8782,
+            1
+          ],
+          [
+            8783,
+            1
+          ],
+          [
+            8784,
+            1
+          ],
+          [
+            8785,
+            1
+          ],
+          [
+            8786,
+            1
+          ],
+          [
+            8787,
+            1
+          ],
+          [
+            8788,
+            1
+          ],
+          [
+            8789,
+            1
+          ],
+          [
+            8790,
+            1
+          ],
+          [
+            8791,
+            1
+          ],
+          [
+            8792,
+            1
+          ],
+          [
+            8793,
+            1
+          ],
+          [
+            8794,
+            1
+          ],
+          [
+            8795,
+            1
+          ],
+          [
+            8796,
+            1
+          ],
+          [
+            8797,
+            1
+          ],
+          [
+            8798,
+            1
+          ],
+          [
+            8799,
+            1
+          ],
+          [
+            8800,
+            1
+          ],
+          [
+            8801,
+            1
+          ],
+          [
+            8802,
+            1
+          ],
+          [
+            8803,
+            1
+          ],
+          [
+            8804,
+            1
+          ],
+          [
+            8805,
+            1
+          ],
+          [
+            8806,
+            1
+          ],
+          [
+            8807,
+            1
+          ],
+          [
+            8808,
+            1
+          ],
+          [
+            8809,
+            1
+          ],
+          [
+            8810,
+            1
+          ],
+          [
+            8811,
+            1
+          ],
+          [
+            8812,
+            1
+          ],
+          [
+            8813,
+            1
+          ],
+          [
+            8814,
+            1
+          ],
+          [
+            8815,
+            1
+          ],
+          [
+            8816,
+            1
+          ],
+          [
+            8817,
+            1
+          ],
+          [
+            8818,
+            1
+          ],
+          [
+            8819,
+            1
+          ],
+          [
+            8820,
+            1
+          ],
+          [
+            8821,
+            1
+          ],
+          [
+            8822,
+            1
+          ],
+          [
+            8823,
+            1
+          ],
+          [
+            8824,
+            1
+          ],
+          [
+            8825,
+            1
+          ],
+          [
+            8826,
+            1
+          ],
+          [
+            8827,
+            1
+          ],
+          [
+            8828,
+            1
+          ],
+          [
+            8829,
+            1
+          ],
+          [
+            8830,
+            1
+          ],
+          [
+            8831,
+            1
+          ]
+        ]
+      },
+      "work_delta": {
+        "consumed_tokens": 128,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 0,
+        "contexts_created": 0,
+        "contexts_freed": 0,
+        "lease_acquires": 0,
+        "lease_releases": 0,
+        "frontier_read_bytes": 0,
+        "model_bytes_hashed_this_process": 0,
+        "model_file_hash_receipts_reused": 0,
+        "consumed": 128,
+        "forward_tokens": 128,
+        "prefill_tokens": 0,
+        "prefill_chunks": 0,
+        "decode_prepare_ns": 0,
+        "decode_compute_ns": 0,
+        "decode_finish_ns": 0,
+        "decode_timed_tokens": 0,
+        "windows": 128,
+        "resident_expert_entries": 0,
+        "cpu_expert_entries": 0,
+        "pcie_expert_groups": 0,
+        "allocations": 0,
+        "releases": 0,
+        "live_bytes": 0,
+        "cow_pages": 0,
+        "copied_bytes": 0,
+        "mappings": 0,
+        "unmappings": 0,
+        "address_reservations": 0,
+        "address_releases": 0,
+        "vmm_driver_failures": 0,
+        "vmm_out_of_memory_failures": 0,
+        "vmm_last_driver_error": 0,
+        "audit_read_bytes": 0,
+        "integrity_checked_pages": 15360,
+        "integrity_mismatches": 0,
+        "integrity_device_hashed_bytes": 32212254720,
+        "integrity_digest_copy_bytes": 251658240,
+        "integrity_plan_copy_bytes": 122880,
+        "integrity_kernel_calls": 128,
+        "integrity_workspace_allocations": 0,
+        "integrity_workspace_releases": 0,
+        "integrity_workspace_live_bytes": 0,
+        "binding_copy_bytes": 0,
+        "saved_running_bytes": 0,
+        "restored_running_bytes": 0,
+        "written_file_bytes": 0,
+        "loaded_file_bytes": 0,
+        "cold_restore_copy_bytes": 0,
+        "cold_restore_copy_calls": 0,
+        "captures": 0,
+        "restores": 0,
+        "handle_allocations": 0,
+        "handle_releases": 0,
+        "handle_live_entries": 0,
+        "handle_live_bytes": 0,
+        "handle_peak_bytes": 0,
+        "handle_issued": 0,
+        "handle_lookup_steps": 0,
+        "snapshot_allocations": 0,
+        "snapshot_releases": 0,
+        "snapshot_live_images": 0,
+        "snapshot_payload_capacity_bytes": 0,
+        "snapshot_peak_payload_capacity_bytes": 0,
+        "host_heap_allocated_bytes": 14263888
+      },
+      "boundary_state_bytes": 446247472,
+      "checked_generated_boundaries": [
+        1,
+        16,
+        64,
+        128
+      ]
+    },
+    "B": {
+      "outputs": [
+        105,
+        157,
+        243,
+        245,
+        158,
+        94,
+        107,
+        158,
+        102,
+        111,
+        157,
+        108,
+        115,
+        159,
+        231,
+        119,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222,
+        128,
+        222
+      ],
+      "seconds": 1.1807608330855146,
+      "tokens_per_second": 108.4046797737318,
+      "consumed": 8832,
+      "request_receipt": {
+        "status": "ok",
+        "operator": "normal-verifier-decode",
+        "position": 8704,
+        "count": 128,
+        "generated": 128,
+        "consumed": 8832,
+        "forward_tokens": 11729,
+        "chunks": [
+          [
+            8704,
+            1
+          ],
+          [
+            8705,
+            1
+          ],
+          [
+            8706,
+            1
+          ],
+          [
+            8707,
+            1
+          ],
+          [
+            8708,
+            1
+          ],
+          [
+            8709,
+            1
+          ],
+          [
+            8710,
+            1
+          ],
+          [
+            8711,
+            1
+          ],
+          [
+            8712,
+            1
+          ],
+          [
+            8713,
+            1
+          ],
+          [
+            8714,
+            1
+          ],
+          [
+            8715,
+            1
+          ],
+          [
+            8716,
+            1
+          ],
+          [
+            8717,
+            1
+          ],
+          [
+            8718,
+            1
+          ],
+          [
+            8719,
+            1
+          ],
+          [
+            8720,
+            1
+          ],
+          [
+            8721,
+            1
+          ],
+          [
+            8722,
+            1
+          ],
+          [
+            8723,
+            1
+          ],
+          [
+            8724,
+            1
+          ],
+          [
+            8725,
+            1
+          ],
+          [
+            8726,
+            1
+          ],
+          [
+            8727,
+            1
+          ],
+          [
+            8728,
+            1
+          ],
+          [
+            8729,
+            1
+          ],
+          [
+            8730,
+            1
+          ],
+          [
+            8731,
+            1
+          ],
+          [
+            8732,
+            1
+          ],
+          [
+            8733,
+            1
+          ],
+          [
+            8734,
+            1
+          ],
+          [
+            8735,
+            1
+          ],
+          [
+            8736,
+            1
+          ],
+          [
+            8737,
+            1
+          ],
+          [
+            8738,
+            1
+          ],
+          [
+            8739,
+            1
+          ],
+          [
+            8740,
+            1
+          ],
+          [
+            8741,
+            1
+          ],
+          [
+            8742,
+            1
+          ],
+          [
+            8743,
+            1
+          ],
+          [
+            8744,
+            1
+          ],
+          [
+            8745,
+            1
+          ],
+          [
+            8746,
+            1
+          ],
+          [
+            8747,
+            1
+          ],
+          [
+            8748,
+            1
+          ],
+          [
+            8749,
+            1
+          ],
+          [
+            8750,
+            1
+          ],
+          [
+            8751,
+            1
+          ],
+          [
+            8752,
+            1
+          ],
+          [
+            8753,
+            1
+          ],
+          [
+            8754,
+            1
+          ],
+          [
+            8755,
+            1
+          ],
+          [
+            8756,
+            1
+          ],
+          [
+            8757,
+            1
+          ],
+          [
+            8758,
+            1
+          ],
+          [
+            8759,
+            1
+          ],
+          [
+            8760,
+            1
+          ],
+          [
+            8761,
+            1
+          ],
+          [
+            8762,
+            1
+          ],
+          [
+            8763,
+            1
+          ],
+          [
+            8764,
+            1
+          ],
+          [
+            8765,
+            1
+          ],
+          [
+            8766,
+            1
+          ],
+          [
+            8767,
+            1
+          ],
+          [
+            8768,
+            1
+          ],
+          [
+            8769,
+            1
+          ],
+          [
+            8770,
+            1
+          ],
+          [
+            8771,
+            1
+          ],
+          [
+            8772,
+            1
+          ],
+          [
+            8773,
+            1
+          ],
+          [
+            8774,
+            1
+          ],
+          [
+            8775,
+            1
+          ],
+          [
+            8776,
+            1
+          ],
+          [
+            8777,
+            1
+          ],
+          [
+            8778,
+            1
+          ],
+          [
+            8779,
+            1
+          ],
+          [
+            8780,
+            1
+          ],
+          [
+            8781,
+            1
+          ],
+          [
+            8782,
+            1
+          ],
+          [
+            8783,
+            1
+          ],
+          [
+            8784,
+            1
+          ],
+          [
+            8785,
+            1
+          ],
+          [
+            8786,
+            1
+          ],
+          [
+            8787,
+            1
+          ],
+          [
+            8788,
+            1
+          ],
+          [
+            8789,
+            1
+          ],
+          [
+            8790,
+            1
+          ],
+          [
+            8791,
+            1
+          ],
+          [
+            8792,
+            1
+          ],
+          [
+            8793,
+            1
+          ],
+          [
+            8794,
+            1
+          ],
+          [
+            8795,
+            1
+          ],
+          [
+            8796,
+            1
+          ],
+          [
+            8797,
+            1
+          ],
+          [
+            8798,
+            1
+          ],
+          [
+            8799,
+            1
+          ],
+          [
+            8800,
+            1
+          ],
+          [
+            8801,
+            1
+          ],
+          [
+            8802,
+            1
+          ],
+          [
+            8803,
+            1
+          ],
+          [
+            8804,
+            1
+          ],
+          [
+            8805,
+            1
+          ],
+          [
+            8806,
+            1
+          ],
+          [
+            8807,
+            1
+          ],
+          [
+            8808,
+            1
+          ],
+          [
+            8809,
+            1
+          ],
+          [
+            8810,
+            1
+          ],
+          [
+            8811,
+            1
+          ],
+          [
+            8812,
+            1
+          ],
+          [
+            8813,
+            1
+          ],
+          [
+            8814,
+            1
+          ],
+          [
+            8815,
+            1
+          ],
+          [
+            8816,
+            1
+          ],
+          [
+            8817,
+            1
+          ],
+          [
+            8818,
+            1
+          ],
+          [
+            8819,
+            1
+          ],
+          [
+            8820,
+            1
+          ],
+          [
+            8821,
+            1
+          ],
+          [
+            8822,
+            1
+          ],
+          [
+            8823,
+            1
+          ],
+          [
+            8824,
+            1
+          ],
+          [
+            8825,
+            1
+          ],
+          [
+            8826,
+            1
+          ],
+          [
+            8827,
+            1
+          ],
+          [
+            8828,
+            1
+          ],
+          [
+            8829,
+            1
+          ],
+          [
+            8830,
+            1
+          ],
+          [
+            8831,
+            1
+          ]
+        ]
+      },
+      "work_delta": {
+        "consumed_tokens": 128,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 0,
+        "contexts_created": 0,
+        "contexts_freed": 0,
+        "lease_acquires": 0,
+        "lease_releases": 0,
+        "frontier_read_bytes": 0,
+        "model_bytes_hashed_this_process": 0,
+        "model_file_hash_receipts_reused": 0,
+        "consumed": 128,
+        "forward_tokens": 128,
+        "prefill_tokens": 0,
+        "prefill_chunks": 0,
+        "decode_prepare_ns": 0,
+        "decode_compute_ns": 0,
+        "decode_finish_ns": 0,
+        "decode_timed_tokens": 0,
+        "windows": 128,
+        "resident_expert_entries": 0,
+        "cpu_expert_entries": 0,
+        "pcie_expert_groups": 0,
+        "allocations": 0,
+        "releases": 0,
+        "live_bytes": 0,
+        "cow_pages": 0,
+        "copied_bytes": 0,
+        "mappings": 0,
+        "unmappings": 0,
+        "address_reservations": 0,
+        "address_releases": 0,
+        "vmm_driver_failures": 0,
+        "vmm_out_of_memory_failures": 0,
+        "vmm_last_driver_error": 0,
+        "audit_read_bytes": 0,
+        "integrity_checked_pages": 15360,
+        "integrity_mismatches": 0,
+        "integrity_device_hashed_bytes": 32212254720,
+        "integrity_digest_copy_bytes": 251658240,
+        "integrity_plan_copy_bytes": 122880,
+        "integrity_kernel_calls": 128,
+        "integrity_workspace_allocations": 0,
+        "integrity_workspace_releases": 0,
+        "integrity_workspace_live_bytes": 0,
+        "binding_copy_bytes": 0,
+        "saved_running_bytes": 0,
+        "restored_running_bytes": 0,
+        "written_file_bytes": 0,
+        "loaded_file_bytes": 0,
+        "cold_restore_copy_bytes": 0,
+        "cold_restore_copy_calls": 0,
+        "captures": 0,
+        "restores": 0,
+        "handle_allocations": 0,
+        "handle_releases": 0,
+        "handle_live_entries": 0,
+        "handle_live_bytes": 0,
+        "handle_peak_bytes": 0,
+        "handle_issued": 0,
+        "handle_lookup_steps": 0,
+        "snapshot_allocations": 0,
+        "snapshot_releases": 0,
+        "snapshot_live_images": 0,
+        "snapshot_payload_capacity_bytes": 0,
+        "snapshot_peak_payload_capacity_bytes": 0,
+        "host_heap_allocated_bytes": -12224
+      },
+      "boundary_state_bytes": 446247472,
+      "checked_generated_boundaries": [
+        1,
+        16,
+        64,
+        128
+      ]
+    }
+  },
+  "harness_sha256": "94e6935cddac17acca6c1d75e511ac241d394bba81707313d7fdec2e1b35968f",
+  "checked_boundaries": "sample",
+  "fixture_sizes": {
+    "prefix": 8192,
+    "suffix": 512,
+    "output_limit": 128
+  },
+  "startup_seconds": 17.032220807974227,
+  "cancellation_consumed": 8705,
+  "parent_byte_audit": "PASS",
+  "final_counters": {
+    "consumed_tokens": 14499,
+    "checkpoint_export_bytes": 1018215552,
+    "checkpoint_import_bytes": 1416757824,
+    "contexts_created": 1,
+    "contexts_freed": 0,
+    "lease_acquires": 12,
+    "lease_releases": 12,
+    "frontier_read_bytes": 13905920,
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15,
+    "consumed": 8192,
+    "forward_tokens": 14499,
+    "prefill_tokens": 13824,
+    "prefill_chunks": 12,
+    "decode_prepare_ns": 0,
+    "decode_compute_ns": 0,
+    "decode_finish_ns": 0,
+    "decode_timed_tokens": 0,
+    "windows": 675,
+    "resident_expert_entries": 0,
+    "cpu_expert_entries": 0,
+    "pcie_expert_groups": 0,
+    "allocations": 708,
+    "releases": 516,
+    "live_bytes": 402653184,
+    "cow_pages": 396,
+    "copied_bytes": 830472192,
+    "mappings": 4848,
+    "unmappings": 4692,
+    "address_reservations": 468,
+    "address_releases": 396,
+    "vmm_driver_failures": 0,
+    "vmm_out_of_memory_failures": 0,
+    "vmm_last_driver_error": 0,
+    "vmm_last_failed_operation": "",
+    "audit_read_bytes": 0,
+    "integrity_checked_pages": 84828,
+    "integrity_mismatches": 0,
+    "integrity_device_hashed_bytes": 178375360512,
+    "integrity_digest_copy_bytes": 1393557504,
+    "integrity_plan_copy_bytes": 661728,
+    "integrity_kernel_calls": 2882,
+    "integrity_workspace_allocations": 38,
+    "integrity_workspace_releases": 0,
+    "integrity_workspace_live_bytes": 11994336,
+    "binding_copy_bytes": 320876544,
+    "saved_running_bytes": 354189456,
+    "restored_running_bytes": 1416757824,
+    "written_file_bytes": 664026096,
+    "loaded_file_bytes": 0,
+    "cold_restore_copy_bytes": 0,
+    "cold_restore_copy_calls": 0,
+    "captures": 3,
+    "restores": 12,
+    "handle_allocations": 3,
+    "handle_releases": 1,
+    "handle_live_entries": 2,
+    "handle_live_bytes": 80,
+    "handle_peak_bytes": 120,
+    "handle_issued": 3,
+    "handle_lookup_steps": 25,
+    "snapshot_allocations": 3,
+    "snapshot_releases": 1,
+    "snapshot_live_images": 2,
+    "snapshot_payload_capacity_bytes": 238180960,
+    "snapshot_peak_payload_capacity_bytes": 357272720,
+    "host_heap_allocated_bytes": 3461467856
+  },
+  "native_exit_observed": true
+}

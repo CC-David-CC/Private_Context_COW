@@ -1,0 +1,45 @@
+test_early_close_cancels_before_releasing_consumed_boundary (test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary) ... ERROR
+test_foreign_next_and_close_fail_without_sending_acknowledgment (test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment) ... ERROR
+test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned) ... ERROR
+test_one_request_consumes_all_outputs_without_capture_commands (test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands) ... ERROR
+
+======================================================================
+ERROR: test_early_close_cancels_before_releasing_consumed_boundary (test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 47, in test_early_close_cancels_before_releasing_consumed_boundary
+    request = backend.generate_request(lease, 8)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StrataBackend' object has no attribute 'generate_request'
+
+======================================================================
+ERROR: test_foreign_next_and_close_fail_without_sending_acknowledgment (test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 56, in test_foreign_next_and_close_fail_without_sending_acknowledgment
+    request = backend.generate_request(lease, 1)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StrataBackend' object has no attribute 'generate_request'
+
+======================================================================
+ERROR: test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 69, in test_incorrect_forward_work_is_rejected_and_connection_is_poisoned
+    list(backend.generate_request(lease, 1))
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StrataBackend' object has no attribute 'generate_request'
+
+======================================================================
+ERROR: test_one_request_consumes_all_outputs_without_capture_commands (test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-resident-cow-20261014-r2/test_native_request_protocol.py", line 39, in test_one_request_consumes_all_outputs_without_capture_commands
+    self.assertEqual(list(backend.generate_request(lease, 2)), [2, 3])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StrataBackend' object has no attribute 'generate_request'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+FAILED (errors=4)

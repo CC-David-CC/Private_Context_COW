@@ -1,0 +1,68 @@
+{
+  "status": "FOCUSED_CPU_PASS",
+  "scope": "Timing-harness shutdown qualification; no inference or GPU performance claim",
+  "canonical_script": "experimental/branching_context/scripts/client_stream_speed.py",
+  "canonical_script_working_bytes_sha256": "749f1e0ce57c7b6d934566c28f47ba0aab574ce74b6f4866c9a86c40c573d617",
+  "portable_test": "experimental/branching_context/tests/implementation/test_client_stream_native_exit.py",
+  "portable_test_working_bytes_sha256": "c9c862cb0e791ef2d7c4e6dbce4a709f83f45559ff72c52b59c6a18810610e47",
+  "helper_sha256": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+  "host": "llm-60",
+  "run_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs",
+  "portable_red": {
+    "directory": "client-exit-portable-red-v1",
+    "tests": 6,
+    "errors": 6,
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "cause": "Old canonical client lacks shutdown qualification helpers"
+  },
+  "portable_green": {
+    "directory": "client-exit-portable-green-v1",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "external_overlay_green": {
+    "directory": "client-exit-green-v3",
+    "tests": 7,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "additional_check": "Imports resolve to frozen candidate API/helper and external timing entrypoint",
+    "entrypoint_sha256": "3de123bf502a2112dbaca64ee51ef8b85bac7077fe4bef93168824aa71f15de1"
+  },
+  "summary_guard": {
+    "script": "experimental/branching_context/scripts/summarize_client_campaign.py",
+    "script_working_bytes_sha256": "6ecc39d4ad97691b1bde333b1068cdf6bc4d4b34799b35b1da63c8d4712c1c98",
+    "test": "experimental/branching_context/tests/implementation/test_summarize_client_campaign_exit.py",
+    "test_working_bytes_sha256": "545f0a9187282851438027c553d7b192eca54f838c9b5622b48c950dbcd6cbb7",
+    "red_directory": "summarizer-exit-red-v1",
+    "red_command_exit": 1,
+    "red_wrapper_exit": 1,
+    "red_outcome": "Three rejected-status cases were wrongly accepted; successful summary omitted numeric codes",
+    "green_directory": "summarizer-exit-green-v1",
+    "green_tests": 4,
+    "green_failures": 0,
+    "green_errors": 0,
+    "green_skips": 0,
+    "green_command_exit": 0,
+    "green_wrapper_exit": 0,
+    "scope": "Otherwise-valid synthetic complete campaigns; no GPU claim"
+  },
+  "cases": [
+    "Native exit zero succeeds",
+    "Native exit seven fails with numeric code retained",
+    "Unfinished process cannot pass",
+    "Close exception fails even after exit zero",
+    "Boolean poll result is not an integer exit code",
+    "Client requires explicit successful numeric exit records"
+  ],
+  "limitations": [
+    "V1 timing results lack numeric native exits and remain preliminary",
+    "V2 measured timing arms are outstanding",
+    "No public API, frozen inference source, model, numerical tolerance or reference change",
+    "Not a registered gate qualification"
+  ]
+}

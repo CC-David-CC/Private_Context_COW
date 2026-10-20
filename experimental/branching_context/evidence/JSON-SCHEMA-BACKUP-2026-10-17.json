@@ -1,0 +1,15 @@
+{
+    "status":  "PRIVATE_BOX_GIT_ARCHIVE_SIZE_AND_SHA256_VERIFIED",
+    "destination":  "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-json-schema-v1/evidence.tar.gz",
+    "sha256":  "cd940cda0254081acedd72bf66f2e8a4321e2a848d704b3f63144afb8fb5bb3b",
+    "size_bytes":  285420500,
+    "members":  469,
+    "source_archive_members_verified":  true,
+    "receiver_size_and_sha256_verified":  true,
+    "summary_sha256":  "a274ba8036e6506e332846b71482a0586ca399c7b6dd4dbb491129695f162fd6",
+    "excluded_native_payloads":  8,
+    "excluded_native_payload_bytes":  979101556,
+    "excluded_payload_status":  "Derived checkpoints retained on llm-60, hashes inventoried; canonical records/manifests archived. No fresh full-logit numerical certification claim.",
+    "publication":  "PRIVATE_LAN_ONLY",
+    "github_updated":  false
+}

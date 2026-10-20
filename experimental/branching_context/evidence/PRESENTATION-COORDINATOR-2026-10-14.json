@@ -1,0 +1,55 @@
+{
+  "ticket": "typed presentation request binding in ContextCoordinator",
+  "qualification": "Linux CPU-only supplemental control tests; coordinator fixture is synthetic and does not qualify native GPU correctness",
+  "host": "llm-60",
+  "python": "/usr/bin/python3 (3.12.3)",
+  "scratch": "/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014",
+  "focused_run": {
+    "run_dir": "runs/final-focused-1",
+    "command": "PYTHONPATH=/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/source/src:/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/source/tests/implementation python3 -m unittest -v test_pool_presentation test_pool_coordinator test_store_presentation",
+    "exit_code": 0,
+    "wrapper_exit": 0,
+    "executed_tests": 35,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0,
+    "executed_ids": {
+      "test_pool_presentation": [
+        "test_create_binds_detached_root_presentation_and_namespace",
+        "test_failure_before_publication_leaves_head_unchanged_then_retries",
+        "test_foreign_namespace_rejected_before_worker_dispatch",
+        "test_intent_schema_rejects_boolean_integer_alias",
+        "test_legacy_without_presentation_keeps_schema_one_intent",
+        "test_malformed_kind_and_reused_input_output_message_id_rejected",
+        "test_missing_or_corrupt_intent_cannot_recover_or_rebind_committed_operation",
+        "test_restart_retry_uses_original_source_and_presentation_receipt",
+        "test_resume_output_id_must_match_active_presentation_before_dispatch",
+        "test_same_operation_id_binds_presentation_text_namespace_and_kind",
+        "test_uncertain_store_commit_retry_reuses_same_annotation"
+      ],
+      "test_pool_coordinator": 10,
+      "test_store_presentation": 14
+    }
+  },
+  "g0_run": {
+    "run_dir": "runs/final-g0-1",
+    "command": "PYTHONPATH=/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/src:/home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/tests/implementation:/home/dflanag3/issue-2026-20261012/deps python3 /home/dflanag3/spatial-artifacts/context-cow-presentation-luna-20261014/g0-source/branching_context/scripts/verify.py --gate G0 --no-write",
+    "exit_code": 0,
+    "wrapper_exit": 0,
+    "tests": 51,
+    "passed": 51,
+    "failed": 0,
+    "required_real_backend_cases": 0
+  },
+  "source_sha256": {
+    "coordinator.py": "cdbd2f8dede09a6bb6a715fda66e6b99b52360308fbd807f51062c63acc7dcb4",
+    "presentation_request.py": "5c8866e5edc2d24618aece746f53946e190d6a33fba0819a8512a23055e0440e",
+    "test_pool_presentation.py": "3a2f2dd838e06a5b7849df4884f103c0fb8ba3f180d8a73764b5d6282fa706f9",
+    "store.py": "d89500013df2ff4a929b57ead0e8a437010976de9c4c12bbe7eaf55e72fb3f46"
+  },
+  "store_provenance": "store.py SHA-256 matches parent integrated checkout context-cow-model-free-fleet at b7486993ee072fd391cab83ffe88593706791654; Store changes are dependency normalization only and should not be cherry-picked from this ticket.",
+  "limitations": [
+    "Synthetic scheduler and model fixture only; no GPU, model, HTTP server, or production serving execution.",
+    "No commits or pushes performed yet."
+  ]
+}

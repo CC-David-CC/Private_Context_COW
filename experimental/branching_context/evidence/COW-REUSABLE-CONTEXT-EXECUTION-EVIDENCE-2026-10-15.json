@@ -1,0 +1,163 @@
+{
+    "schema":  1,
+    "created_utc":  "2026-10-15",
+    "scope":  "CPU-only evidence; no GPU retry, native service, ordinary chat, or model inference launched",
+    "root_source":  {
+                        "tested_code_head":  "30e52e894156723e0cdc16a0641d0f50afe1dc15",
+                        "current_root_head_observed":  "c4ca754206df6af20a636118af2fd15121b20489",
+                        "later_changes_since_tested_head":  "evidence-only",
+                        "serving_test_harness_sha256":  "349f21e6caabd63f30fde639cbacb42f4a41d65b8495546bf529712cb57ae734",
+                        "api_ui_pins":  {
+                                            "serve/web/app.js":  "1eb0dd2bb23bbd72e40ae5be4cab67af0647c9c4ca84bc25c3eea992d7a382d7",
+                                            "serve/web/workspace.js":  "a4f267d6a647e8d7164c07ca4c08262f6883a6db4e998117793d6865f6042fc5",
+                                            "serve/web/workspace-graph.js":  "2f5931c21f1629835a847a7bd56c6f7ca774a83ff3df701d022cc37e090c370b",
+                                            "serve/cow_http.py":  "2ae630915e359a2bd989d98f0c1e0a6691dcd6aa03f9e892954963a8450392c2",
+                                            "store.py":  "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c",
+                                            "coordinator.py":  "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac",
+                                            "cow_workspace.py":  "b416c007169c4b9e5e4a4d131b8c51df23fbbeec143ddb77f1479cf2a5817a78"
+                                        }
+                    },
+    "source_hashes":  {
+                          "serve/test_cow_reusable_context_smoke.py":  "3f06172aed711dcf6392fb55098a11e218591b612a7ca966bd10bbeecb63bee6",
+                          "serve/web/cow_native_smoke.py":  "45bf00c4ed8ec95d414664e00c112ab510699c13d5147141d79da724c83e82b3",
+                          "serve/verify_cow_serving.py":  "349f21e6caabd63f30fde639cbacb42f4a41d65b8495546bf529712cb57ae734"
+                      },
+    "runs":  {
+                 "focused":  {
+                                 "tests":  15,
+                                 "failures":  0,
+                                 "skips":  0,
+                                 "command_exit":  0,
+                                 "wrapper_exit":  0,
+                                 "path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/focused-run-1",
+                                 "terminal_receipt_sha256":  "3f45aabdbfde3adb656e778e76682b1df807a235156fe35401a55ad20f671b5e",
+                                 "test_ids":  [
+                                                  "test_context_root_action_uses_unique_branch_snapshot_not_chat_anchor",
+                                                  "test_root_fork_click_selects_unique_validated_action_after_other_boundary",
+                                                  "test_client_ack_accepts_only_complete_consumer_receipt_for_aborted_cdp_request",
+                                                  "test_client_ack_rejects_missing_or_malformed_stream_evidence",
+                                                  "test_client_ack_rejects_operation_branch_revision_and_snapshot_mismatches",
+                                                  "test_fixture_file_block_handles_fences_newlines_and_literal_control_text",
+                                                  "test_fixture_file_block_rejects_paths_and_nontext",
+                                                  "test_cdp_capture_uses_actual_post_data_and_complete_ndjson",
+                                                  "test_work_validator_rejects_prefix_replay_and_inexact_counter",
+                                                  "test_network_capture_fails_closed_without_post_or_durable_complete",
+                                                  "test_network_exchange_requires_completed_matching_request",
+                                                  "test_failed_request_diagnostic_retains_matching_request_without_headers",
+                                                  "test_exact_server_sigint_runs_finally_and_closes_child_cleanly",
+                                                  "test_new_publication_wait_rejects_preexisting_idle_root",
+                                                  "test_durable_server_receipt_must_match_fixture_model_and_profile"
+                                              ]
+                             },
+                 "serving":  {
+                                 "tests":  141,
+                                 "failures":  0,
+                                 "errors":  0,
+                                 "skips":  0,
+                                 "xfails":  0,
+                                 "command_exit":  0,
+                                 "wrapper_exit":  0,
+                                 "path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/serving-run-3",
+                                 "results_path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/serving-run-3/results.json",
+                                 "results_sha256":  "16e41231459f8e52f3ca742d9ff70f4d75a34cdf0ee3beb0e7597bdee3f65f95"
+                             },
+                 "formal_g0":  {
+                                   "command":  "experimental/branching_context/scripts/verify.py --gate G0 --no-write",
+                                   "tests":  51,
+                                   "failures":  0,
+                                   "command_exit":  0,
+                                   "wrapper_exit":  0,
+                                   "path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/g0-run-1",
+                                   "stdout_sha256":  "c11c6666bf0a1615500e34caf91a255b3f46cb4e508e1c73997686c88d5e520a",
+                                   "source_archive_sha256":  "f467fe89216acde99ff65d979de8cb07edb1412f40a125711d47d8a94fe9709f"
+                               },
+                 "synthetic_browser_run20":  {
+                                                 "status":  "PASS",
+                                                 "scope":  "Real Chrome and same-origin HTTP with synthetic CPU model; not GPU/model evidence",
+                                                 "checks":  [
+                                                                "SMOKE-HEALTH",
+                                                                "SMOKE-EMPTY-NAMESPACE",
+                                                                "SMOKE-REUSABLE-ROOT",
+                                                                "SMOKE-REUSABLE-ASK-A",
+                                                                "SMOKE-REUSABLE-ROOT-FORK",
+                                                                "SMOKE-REUSABLE-ASK-B"
+                                                            ],
+                                                 "source_bytes":  8192,
+                                                 "root_tokens":  8223,
+                                                 "question_suffix_tokens":  [
+                                                                                528,
+                                                                                528
+                                                                            ],
+                                                 "generated_tokens_each":  128,
+                                                 "forward_tokens_each":  656,
+                                                 "path":  "/home/dflanag3/branching-g3/reusable-context-luna-20261015/diagnostic/synthetic-run20/report.json",
+                                                 "report_sha256":  "462b5ccbc4b6d75365f17d9fbdf346219c84aa15a367ca7d0fbb02204beb1e1a"
+                                             }
+             },
+    "preserved_setup_failures":  [
+                                     {
+                                         "run":  "serving-run-1",
+                                         "path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/serving-run-1",
+                                         "classification":  "Setup failed because temporary combined overlay omitted tools path."
+                                     },
+                                     {
+                                         "run":  "serving-run-2",
+                                         "path":  "/home/dflanag3/spatial-artifacts/cow-ui-reusable-review-20261015/serving-run-2",
+                                         "classification":  "Setup failed because tools path remained absent for renderer fingerprint; 141-test invocation had four import/setup errors, not product failures."
+                                     }
+                                 ],
+    "gpu_retry":  {
+                      "status":  "NOT_STARTED",
+                      "derived_profile_id":  "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+                      "model_contract_id":  "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+                      "profile_json_sha256":  "11eeda86f34fa2b53b824f273a37ad743bbf6c0b88e668f3b9c03073b23a13b6",
+                      "harness_sha256":  "45bf00c4ed8ec95d414664e00c112ab510699c13d5147141d79da724c83e82b3",
+                      "fixture_sha256":  "384984f5ef1f30a22edc3a1a80ed2830e59b8a56331e8c397181f482f8ecd16b",
+                      "fixture_context_bytes":  36264,
+                      "fixture_root_tokens":  8189,
+                      "question_suffix_tokens":  [
+                                                     594,
+                                                     596
+                                                 ],
+                      "output_limit":  128,
+                      "max_resumes":  0,
+                      "gpu":  0,
+                      "pools_gib":  {
+                                        "ram":  96,
+                                        "disk":  128
+                                    },
+                      "start":  "Fresh private store/namespace; mode-0600 key file; loopback; no key in argv.",
+                      "stop":  "SIGINT exact recorded Python server PID only; wait server exit 0 and native-exits returncode 0; verify processes absent before fresh oracle.",
+                      "gates":  [
+                                    "Recheck GPU0 lock and \u003e=10 GiB free disk immediately before launch",
+                                    "Check fresh-reference output against durable payload digests and profile/snapshot-bound manifest",
+                                    "Scan retained artifacts for key bytes without printing the key"
+                                ]
+                  },
+    "launch_helper_hashes":  {
+                                 "scan_cow_ui_artifacts.py":  "9c0ecb566b3eef7882e6de1bb9e9f6175d9dc5167363bcb9776a7b91276b3f5b",
+                                 "cow_http_keyfile.py":  "148501e03e01b86e6dc7528a4eabd209ebed7dd8a661b5ccd3c5550dccc279e8",
+                                 "cow_fresh_reference.py":  "67eb4e59c0d4c12a66d4d4b88b19435209c038c14da5140930a05d0bf7223b39",
+                                 "run-cow-http-pid.sh":  "77f34236ff8bfcb50e58520d333becd9df37c2d3da86093c5909804faa1cd181",
+                                 "start-cow-service.sh":  "a12dd1a086ea93172b9455e17274beffd7f56b3298a478151cb67c7611687215",
+                                 "signal-cow-server.py":  "fc4260cef0783ad5002c8d38eb83ff4d4632d6b77a6b6f8aceade81be3b7411d"
+                             },
+    "retry_plan_repo_path":  "experimental/branching_context/evidence/COW-REUSABLE-CONTEXT-Q8-RETRY-PLAN-2026-10-15.md",
+    "retry_plan_sha256":  "43c514e1a571c936a9ca2084d6fece57da516964d9d98ff6ac117623b48aca8a",
+    "fresh_reference_pid_guard":  {
+                                      "red_failures":  1,
+                                      "test_path":  "experimental/branching_context/evidence/test_cow_fresh_reference_guard.py",
+                                      "python_version":  "Python 3.12.3 on llm-60",
+                                      "red_log":  "/home/dflanag3/spatial-artifacts/cow-ui-q8-guard-test-20261015/red-run/stdout.log",
+                                      "red_command_exit":  1,
+                                      "green_failures":  0,
+                                      "test_source_sha256":  "9d8ea28427dcd8c5aeaf6b6ae2fe0819e9c87072dec90ee8c286d6921a6f5409",
+                                      "red_exit":  "/home/dflanag3/spatial-artifacts/cow-ui-q8-guard-test-20261015/red-run/command.exit",
+                                      "tests":  2,
+                                      "green_command_exit":  0,
+                                      "green_exit":  "/home/dflanag3/spatial-artifacts/cow-ui-q8-guard-test-20261015/green-run/command.exit",
+                                      "green_log":  "/home/dflanag3/spatial-artifacts/cow-ui-q8-guard-test-20261015/green-run/stdout.log",
+                                      "command":  "python3 -m unittest -v test_cow_fresh_reference_guard",
+                                      "red_reason":  "Before the fix, a missing server.pid was skipped; execution reached profile file loading instead of rejecting the unproven shutdown."
+                                  }
+}

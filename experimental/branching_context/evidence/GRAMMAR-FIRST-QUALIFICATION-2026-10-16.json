@@ -1,0 +1,254 @@
+{
+  "artifacts": {
+    "campaign": "gpu-q4-v3/campaign.json",
+    "corrected_observer_sha256": "d2b248c2c02c4cec42060683fc537a7195f6212f509b7e3b9bc0eefcfc791d83",
+    "cpu": "combined-cpu-v6.json",
+    "prepare": "gpu-q4-v3/prepare.json",
+    "profile": "profile-candidate-v2/profile.json",
+    "resume": "gpu-q4-v3/resume.json",
+    "root": "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1"
+  },
+  "cpu": {
+    "errors": 0,
+    "failures": 0,
+    "focused_ids": [
+      "test_grammar_first.GrammarFirstTests.test_accepting_is_not_stopped_and_explicit_eos_stops",
+      "test_grammar_first.GrammarFirstTests.test_boolean_token_id_is_rejected",
+      "test_grammar_first.GrammarFirstTests.test_dependency_failure_and_parser_input_limit_fail_closed",
+      "test_grammar_first.GrammarFirstTests.test_edit_operation_enum_excludes_unlisted_operations",
+      "test_grammar_first.GrammarFirstTests.test_invalid_grammar_and_unsupported_json_schema_fail_closed",
+      "test_grammar_first.GrammarFirstTests.test_json_schema_format_is_explicitly_unavailable_in_gbnf_first_delivery",
+      "test_grammar_first.GrammarFirstTests.test_nonfinite_logits_are_rejected_even_for_masked_tokens",
+      "test_grammar_first.GrammarFirstTests.test_premature_eos_and_non_eos_end_of_generation_are_rejected",
+      "test_grammar_first.GrammarFirstTests.test_real_gbnf_mask_preserves_raw_argmax_and_ties_without_rng_draws",
+      "test_grammar_first.GrammarFirstTests.test_restore_checks_repetition_and_pending_decoder_against_canonical_tokens",
+      "test_grammar_first.GrammarFirstTests.test_restore_rejects_wrong_scope_length_and_descriptor_identity",
+      "test_grammar_first.GrammarFirstTests.test_schema2_restore_rejects_policy_changes_and_tokens_after_eos",
+      "test_grammar_first.GrammarFirstTests.test_schema2_structural_validation_does_not_load_llguidance",
+      "test_grammar_first.GrammarFirstTests.test_sibling_matchers_restore_independently_from_same_controller",
+      "test_grammar_first.GrammarFirstTests.test_special_control_tokens_are_not_grammar_emissions",
+      "test_grammar_first.GrammarFirstTests.test_static_read_edit_test_finish_gbnf_examples_compile_and_accept_outputs",
+      "test_grammar_first.GrammarFirstTests.test_tokenizer_mutation_after_compile_does_not_change_matcher_identity",
+      "test_grammar_first.GrammarFirstTests.test_user_defined_literal_token_remains_legal_inside_constrained_string",
+      "test_grammar_first.GrammarFirstTests.test_utf8_byte_split_restore_replays_only_generation_scope",
+      "test_state_request.StateRequestTests.test_cancelled_progress_leaves_no_published_child_and_parent_reusable",
+      "test_state_request.StateRequestTests.test_forked_branch_can_enter_test_while_sibling_keeps_edit_progress",
+      "test_state_request.StateRequestTests.test_generic_paths_cannot_bypass_a_saved_constraint",
+      "test_state_request.StateRequestTests.test_host_switch_is_explicit_and_does_not_modify_parent",
+      "test_state_request.StateRequestTests.test_invalid_state_and_resume_suffix_rejected_before_restore",
+      "test_state_request.StateRequestTests.test_missing_selected_token_capability_rejected_before_work",
+      "test_state_request.StateRequestTests.test_partial_scope_resumes_without_resetting_or_duplicating_prefix",
+      "test_state_request.StateRequestTests.test_state_request_masks_before_greedy_and_captures_once",
+      "test_agent_state_example.HostStateExampleTests.test_accepted_results_choose_only_host_defined_edges",
+      "test_agent_state_example.HostStateExampleTests.test_denial_never_advances_any_state",
+      "test_agent_state_example.HostStateExampleTests.test_static_grammars_are_separate_and_host_named",
+      "test_agent_state_example.HostStateExampleTests.test_truthy_strings_and_model_claims_do_not_authorize",
+      "test_grammar_probe.GrammarProbeTests.test_close_failure_still_records_terminal_failure",
+      "test_grammar_probe.GrammarProbeTests.test_incomplete_actions_cannot_qualify",
+      "test_grammar_probe.GrammarProbeTests.test_timeout_stops_owned_child_group",
+      "test_selected_token_receipt.SelectedTokenReceiptTests.test_capability_must_be_explicit_and_match_ready_frame",
+      "test_selected_token_receipt.SelectedTokenReceiptTests.test_grammar_tokenizer_is_bound_to_model_not_just_vocab_length",
+      "test_selected_token_receipt.SelectedTokenReceiptTests.test_receipt_matches_actual_selected_operator_and_position",
+      "test_selected_token_receipt.SelectedTokenReceiptTests.test_wrong_operator_or_position_is_not_relabelled",
+      "test_grammar_native_builder.GrammarNativeBuilderTests.test_adds_separate_ready_capability_and_actual_decode_boundary",
+      "test_grammar_native_builder.GrammarNativeBuilderTests.test_requires_exactly_one_decode_success_anchor",
+      "test_grammar_native_builder.GrammarNativeBuilderTests.test_requires_exactly_one_ready_anchor"
+    ],
+    "focused_tests": 41,
+    "result_sha256": "61870e7d702822ed70be854c23bd81f6ed60bb67de76b789e0dc38f9f5c22859",
+    "skips": 0,
+    "tests": 297,
+    "xfails": 0
+  },
+  "dependency": {
+    "license": "MIT",
+    "name": "llguidance",
+    "version": "1.9.1",
+    "wheel": "llguidance-1.9.1-cp39-abi3-manylinux_2_31_x86_64.whl",
+    "wheel_sha256": "dfac6021d9c4c5ef16b3a1d336c05ca5e8208ff30dec29d1c63ebcafbee3a346"
+  },
+  "execution_profile_id": "6142e706078a9bfce8748823bf60a9de538ec6a6898d6a717bfb0efffc5d1a17",
+  "g0": {
+    "result_sha256": "fec72df8a08a718dd6eebd570a4edd663a99c9956a67392c9a02d0f43f8c4b1c",
+    "status": "PASS",
+    "tests": 51
+  },
+  "gpu": {
+    "actions": [
+      {
+        "action": {
+          "path": "src/main.py",
+          "tool": "read_file"
+        },
+        "generation_seconds": 1.0766965590883046,
+        "generation_tps": 12.073968185621194,
+        "grammar_complete": true,
+        "native_forward_tokens": 13,
+        "output_tokens": 13,
+        "request_seconds": 1.2918875410687178,
+        "stage": "prepare",
+        "state": "READ",
+        "stopped": true
+      },
+      {
+        "action": {
+          "patch": "--- a/src/main.py\n+++ b/src/main.py\n",
+          "path": "src/main.py",
+          "tool": "propose_patch"
+        },
+        "generation_seconds": 2.5749658818822354,
+        "generation_tps": 11.262285144843057,
+        "grammar_complete": true,
+        "native_forward_tokens": 29,
+        "output_tokens": 29,
+        "request_seconds": 2.789433730999008,
+        "stage": "prepare",
+        "state": "EDIT",
+        "stopped": true
+      },
+      {
+        "action": {
+          "suite": "unit",
+          "tool": "run_tests"
+        },
+        "generation_seconds": 0.8833832449745387,
+        "generation_tps": 12.452126596896285,
+        "grammar_complete": true,
+        "native_forward_tokens": 11,
+        "output_tokens": 11,
+        "request_seconds": 1.106805409071967,
+        "stage": "prepare",
+        "state": "TEST",
+        "stopped": true
+      },
+      {
+        "action": {
+          "status": "verified",
+          "tool": "finish"
+        },
+        "generation_seconds": 0.7937239420134574,
+        "generation_tps": 12.598838803618264,
+        "grammar_complete": true,
+        "native_forward_tokens": 10,
+        "output_tokens": 10,
+        "request_seconds": 1.005524700973183,
+        "stage": "prepare",
+        "state": "FINISH",
+        "stopped": true
+      },
+      {
+        "action": {
+          "path": "src/main.py",
+          "tool": "read_file"
+        },
+        "generation_seconds": 1.0222645041067153,
+        "generation_tps": 12.716865300296993,
+        "grammar_complete": true,
+        "native_forward_tokens": 13,
+        "output_tokens": 13,
+        "request_seconds": 1.2629373779054731,
+        "stage": "resume",
+        "state": "READ",
+        "stopped": true
+      },
+      {
+        "action": {
+          "patch": "--- a/src/main.py\n+++ b/src/main.py\n",
+          "path": "src/main.py",
+          "tool": "propose_patch"
+        },
+        "generation_seconds": 2.602352664107457,
+        "generation_tps": 11.143762488450538,
+        "grammar_complete": true,
+        "native_forward_tokens": 29,
+        "output_tokens": 29,
+        "request_seconds": 2.8446915082167834,
+        "stage": "resume",
+        "state": "EDIT",
+        "stopped": true
+      },
+      {
+        "action": {
+          "suite": "unit",
+          "tool": "run_tests"
+        },
+        "generation_seconds": 0.8763288708869368,
+        "generation_tps": 12.552365174123324,
+        "grammar_complete": true,
+        "native_forward_tokens": 11,
+        "output_tokens": 11,
+        "request_seconds": 1.1156857151072472,
+        "stage": "resume",
+        "state": "TEST",
+        "stopped": true
+      },
+      {
+        "action": {
+          "status": "verified",
+          "tool": "finish"
+        },
+        "generation_seconds": 0.8084906381554902,
+        "generation_tps": 12.368727018057054,
+        "grammar_complete": true,
+        "native_forward_tokens": 10,
+        "output_tokens": 10,
+        "request_seconds": 1.0525994489435107,
+        "stage": "resume",
+        "state": "FINISH",
+        "stopped": true
+      }
+    ],
+    "candidate_sampling": "Final consumed frontier of each of four states, plus mid-READ restart final frontier; not every generated candidate frontier",
+    "checkpoint_after_generated_tokens": 4,
+    "comparisons": 5,
+    "full_controller_exact": true,
+    "numerical_max_error": 0,
+    "oracle_scope": "Uninterrupted vs restarted same native operators. No independent fresh full-history oracle for constrained generation in this ticket.",
+    "partial_restore_forward_tokens": 0,
+    "prefix_restore_forward_tokens": 0,
+    "prefix_tokens": 7231,
+    "processes": [
+      {
+        "all_pids_absent": true,
+        "native_exit_code": 0,
+        "native_pid": 3001473,
+        "python_pid": 3001188
+      },
+      {
+        "all_pids_absent": true,
+        "native_exit_code": 0,
+        "native_pid": 3003307,
+        "python_pid": 3003299
+      }
+    ],
+    "tools_executed": 0
+  },
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "limitations": [
+    "GBNF only; JSON Schema input explicitly rejected",
+    "Greedy only; nonzero RNG/adaptive samplers unsupported",
+    "Host supplies semantic validation, authorization, tool execution and durable host workflow results",
+    "Constraint path reads full logits and runs masks/controller work in Python; no native-speed parity claim",
+    "No Q8, HIP, SYCL, full crash campaign or original G1-G5 qualification in this ticket"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_binary_sha256": "4fb6f7978d6af1e8a11d448e760799aa3207f4953dc78a75d76361af15121d61",
+  "profile_sha256": "bd02b4af425b44291054ae07fb20ea28f63d8f6dc7a4aff52541e6fcc7ce2410",
+  "retained_failures": [
+    "GPU v1 stopped at missing native selected-token receipt; no completed action. Added actual native success receipt and separate capability.",
+    "GPU v2 prepare completed four actions; resume setup refused reused heartbeat output. Separate per-stage progress directories; standalone resume then full v3 pass.",
+    "Combined CPU v1/v4 had one subprocess import failure each from incomplete PYTHONPATH. Fixed runner propagation; affected 9-test control then combined297 passed.",
+    "Worker native builder anchor and compile setup failures retained in native-receipt-build-v1; final build-v4 and CPU green-v7 passed."
+  ],
+  "schema": "cow-grammar-first-qualification-v1",
+  "scope": "Static GBNF, Q4, greedy, CUDA GPU0; branch-local controller and process-separated exact resume. No tool execution or original cumulative gate qualification.",
+  "source_api_sha256": {
+    "experimental/branching_context/src/context_time_travel/controller.py": "5448b830f96eb8ec472c787a87fd2416d98a9dd482eb5b34611d79ee456a427d",
+    "experimental/branching_context/src/context_time_travel/grammar_first.py": "3aed241025e4ee2976f8d580e25a8721ebc7b2c42dacafd57128143ed04786cd",
+    "experimental/branching_context/src/context_time_travel/real.py": "2b50988cc535086090412309217f67301e047310d1be03087353cd1b4d668c2b",
+    "experimental/branching_context/src/context_time_travel/strata_backend.py": "2f6b56462c861dc0b95bda416741ddbd110ef0841191e616d66ea2a3c117e812"
+  },
+  "source_base": "52c762cb676b3fd6b743837fb79005028c06e685",
+  "status": "FOCUSED_PASS"
+}

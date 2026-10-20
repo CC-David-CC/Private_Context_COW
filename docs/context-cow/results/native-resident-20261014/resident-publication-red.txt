@@ -1,0 +1,35 @@
+test_consumed_progress_is_published_once_at_request_boundary (test_resident_request_publication.ResidentRequestPublicationTests.test_consumed_progress_is_published_once_at_request_boundary) ... ERROR
+test_invalid_bound_and_incompatible_contract_fail_before_execution (test_resident_request_publication.ResidentRequestPublicationTests.test_invalid_bound_and_incompatible_contract_fail_before_execution) ... ERROR
+test_progress_exception_preserves_canonical_parent_and_publishes_nothing (test_resident_request_publication.ResidentRequestPublicationTests.test_progress_exception_preserves_canonical_parent_and_publishes_nothing) ... ERROR
+
+======================================================================
+ERROR: test_consumed_progress_is_published_once_at_request_boundary (test_resident_request_publication.ResidentRequestPublicationTests.test_consumed_progress_is_published_once_at_request_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 72, in test_consumed_progress_is_published_once_at_request_boundary
+    result = self.model.run_greedy_request(self.sid,[0,0],2,stream='test',on_token=progress)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'run_greedy_request'
+
+======================================================================
+ERROR: test_invalid_bound_and_incompatible_contract_fail_before_execution (test_resident_request_publication.ResidentRequestPublicationTests.test_invalid_bound_and_incompatible_contract_fail_before_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 98, in test_invalid_bound_and_incompatible_contract_fail_before_execution
+    self.model.run_greedy_request(self.sid,[0],count,stream='test')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'run_greedy_request'
+
+======================================================================
+ERROR: test_progress_exception_preserves_canonical_parent_and_publishes_nothing (test_resident_request_publication.ResidentRequestPublicationTests.test_progress_exception_preserves_canonical_parent_and_publishes_nothing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_resident_request_publication.py", line 90, in test_progress_exception_preserves_canonical_parent_and_publishes_nothing
+    self.model.run_greedy_request(self.sid,[0],2,stream='test',on_token=abort)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BranchingModel' object has no attribute 'run_greedy_request'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.018s
+
+FAILED (errors=3)

@@ -1,0 +1,90 @@
+{
+  "schema": "context-cow-worker-qualification-v1",
+  "ticket": "CLI answer retry and changed-settings retry",
+  "qualification": "FOCUSED-PASS",
+  "host": "llm-60 (dflanag3-B650-GAMING-X-AX)",
+  "worktree": "C:/Users/dflanag3/Documents/fleet/context-cow-cli-answer-retry",
+  "branch": "work/cli-answer-retry-20261016",
+  "base_commit": "5143e44786083ff135315abc92b6f93d2faccadb",
+  "frozen_source": "/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/green-source-v13",
+  "source_overlay_tar": {
+    "path_windows": "C:/Users/dflanag3/Documents/fleet/context-cow-artifacts/cli-answer-retry-v13-overlay.tar.gz",
+    "sha256": "a47d93c92dc7cb8ecba71246ad1637e69b7a5f971fe095269fb972c3bff47966"
+  },
+  "source_files": [
+    {"path":"experimental/branching_context/src/context_time_travel/coordinator.py","sha256":"79b82e7a8c89877a62ccd2825194874e028096a266be92bcd1ff8c596c086d77"},
+    {"path":"experimental/branching_context/src/context_time_travel/presentation_binding.py","sha256":"ea7bbe3ca228aea70de876782c064985aaf918c0bb463952436a850852b24314"},
+    {"path":"experimental/branching_context/src/context_time_travel/presentation_request.py","sha256":"3ab5e77e0ff83dafa45932001e790c76857e052d1d91afa9139324f113084b56"},
+    {"path":"experimental/branching_context/src/context_time_travel/real.py","sha256":"ad23bf1416693a5627a54f06b8b87cf2a2536d29736ba8a0312179e19be5d645"},
+    {"path":"experimental/branching_context/src/context_time_travel/store.py","sha256":"e68095afa1117343e14a87125307d0dae552dbe436a3f1c7726ad89ffc7a0702"},
+    {"path":"serve/cow_http.py","sha256":"b700cf55650655534099594f713fbc36785c7b7dac63aa62e3047816c4754638"},
+    {"path":"serve/cow_text_adapter.py","sha256":"57d3470907f235902a96438ec2298d9e2629c09f29bdb45f7b90e8598a0c8815"},
+    {"path":"serve/test_cow_answer_retry.py","sha256":"3fcd101d51374e4e27297d0555c3bd5ffdc9089e7165e2819e06b629a855dcea"},
+    {"path":"tools/cow_cli.py","sha256":"702085f736c4919b2ae9564680858e1a21825b0aad064bcecc8697982bb72ef6"}
+  ],
+  "runs": [
+    {
+      "name":"green-regressions-v13",
+      "checkout":"/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/green-source-v13",
+      "run_dir":"/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/green-regressions-v13",
+      "runner":"/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+      "runner_sha256":"7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+      "python":"/home/dflanag3/src/Strata/.venv/bin/python",
+      "command":"env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=<source>/experimental/branching_context/src:<source>/experimental/branching_context/tests/implementation:<source> <python> -B -m unittest -v serve.test_cow_http serve.test_cow_text_adapter serve.test_cow_presentation_flow serve.test_cow_namespace_http serve.test_cow_answer_retry test_pool_presentation test_publication_handoff_ownership test_publication_overlap",
+      "result":"PASS",
+      "tests_passed":67,
+      "tests_failed":0,
+      "tests_skipped":0,
+      "command_exit":0,
+      "wrapper_exit":0,
+      "receipt_files":["command.exit","wrapper.exit","terminal-status.txt","stderr.log"]
+    },
+    {
+      "name":"g0-run-v13",
+      "checkout":"/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/g0-source-v13",
+      "run_dir":"/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/g0-run-v13",
+      "runner":"/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+      "runner_sha256":"7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+      "command":"<python> -B <source>/experimental/branching_context/scripts/verify.py --gate G0 --no-write",
+      "result":"PASS",
+      "tests_passed":51,
+      "tests_failed":0,
+      "tests_skipped":0,
+      "required_real_backend_cases":0,
+      "command_exit":0,
+      "wrapper_exit":0,
+      "receipt_files":["command.exit","wrapper.exit","terminal-status.txt","stdout.log"]
+    }
+  ],
+  "red_history": [
+    {
+      "name":"red-greedy-v15",
+      "classification":"executed test failure; fixed in v13",
+      "run_dir":"/home/dflanag3/spatial-artifacts/cli-answer-retry-20261016-v1/red-greedy-v15/run",
+      "failure":"Greedy continue retry was rejected because the stored descriptor used runtime resume=false while the canonical presentation kind was resume.",
+      "observed_error":"IntegrityError: Original resume descriptor differs from presentation kind"
+    },
+    {
+      "classification":"setup failures, not code-test failures",
+      "details":"Earlier RED attempts included a missing run-parent directory and a CRLF-corrupted launch script. They were preserved as setup failures and are not counted in the test totals."
+    }
+  ],
+  "limitations": [
+    "No GPU or model qualification was run.",
+    "Deep retry-chain public-path cost is unqualified; refs-snapshot read-count coverage is bounded and does not establish end-to-end scaling for arbitrarily deep chains.",
+    "Changed-settings retry of legacy descriptors without a complete normalized generation descriptor remains explicitly unsupported; unchanged replay compatibility is retained where the original committed receipt can be validated.",
+    "The focused regression set does not qualify production deployment or the full backend matrix."
+  ],
+  "source_validation": {
+    "remote_frozen_hashes_match_manifest": true,
+    "local_git_diff_check": "PASS",
+    "focused_11_tests": "Included in the broad 67-test run; not counted again."
+  },
+  "checkpoint": {
+    "source_commit": "2b7d72f472955df9a74865c1cdedb9c0270b3158",
+    "source_commit_state": "LOCAL COMMIT",
+    "private_remote": "context-cow-private (box-git:/srv/data/git/private_context_cow.git)",
+    "branch": "refs/heads/work/cli-answer-retry-20261016",
+    "source_commit_ref_verified": true
+  }
+}

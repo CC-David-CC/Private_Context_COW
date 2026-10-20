@@ -1,0 +1,19 @@
+[
+  "/home/dflanag3/spatial-artifacts/branchwrite-cross-host-20261018-v1/client-env/bin/python",
+  "-B",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/client-run/client-driver.py",
+  "--checkout",
+  "/home/dflanag3/src/branchwrite-grammar-client-20261019",
+  "--fixture",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/workload.json",
+  "--state",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/state",
+  "--credentials",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/ssh/credentials.json",
+  "--ssh-key",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/ssh/id_ed25519",
+  "--known-hosts",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/ssh/known_hosts",
+  "--output",
+  "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc01-q8-dynamic-v1/output"
+]

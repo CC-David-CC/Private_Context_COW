@@ -1,0 +1,76 @@
+test_ascii_merge (test_casefold.Casefold.test_ascii_merge) ... ok
+test_default_preserves_names (test_casefold.Casefold.test_default_preserves_names) ... ok
+test_invalid_still_rejected (test_casefold.Casefold.test_invalid_still_rejected) ... ok
+test_iterator_and_comments (test_casefold.Casefold.test_iterator_and_comments) ... ok
+test_unicode_expansion (test_casefold.Casefold.test_unicode_expansion) ... ok
+test_exact_case (test_exclude.Exclude.test_exact_case) ... ERROR
+test_folded (test_exclude.Exclude.test_folded) ... ERROR
+test_invalid_not_hidden (test_exclude.Exclude.test_invalid_not_hidden) ... ERROR
+test_iterator_and_threshold (test_exclude.Exclude.test_iterator_and_threshold) ... ERROR
+test_one_name (test_exclude.Exclude.test_one_name) ... ERROR
+test_comments_and_empty (test_ledger.LedgerTests.test_comments_and_empty) ... ok
+test_empty_input (test_ledger.LedgerTests.test_empty_input) ... ok
+test_empty_name (test_ledger.LedgerTests.test_empty_name) ... ok
+test_malformed (test_ledger.LedgerTests.test_malformed) ... ok
+test_negative_count (test_ledger.LedgerTests.test_negative_count) ... ok
+test_repeated_names_add (test_ledger.LedgerTests.test_repeated_names_add) ... ok
+test_trim (test_ledger.LedgerTests.test_trim) ... ok
+test_unicode_name (test_ledger.LedgerTests.test_unicode_name) ... ok
+test_applies_after_aggregation (test_threshold.Threshold.test_applies_after_aggregation) ... ok
+test_default_keeps_zero (test_threshold.Threshold.test_default_keeps_zero) ... ok
+test_exact_boundary (test_threshold.Threshold.test_exact_boundary) ... ok
+test_filters_low_totals (test_threshold.Threshold.test_filters_low_totals) ... ok
+test_fold_before_threshold (test_threshold.Threshold.test_fold_before_threshold) ... ok
+test_iterator_single_pass (test_threshold.Threshold.test_iterator_single_pass) ... ok
+test_record_validation_not_bypassed (test_threshold.Threshold.test_record_validation_not_bypassed) ... ok
+test_reject_invalid_thresholds_even_empty (test_threshold.Threshold.test_reject_invalid_thresholds_even_empty) ... ok
+
+======================================================================
+ERROR: test_exact_case (test_exclude.Exclude.test_exact_case)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/baseline-world/workspace/tests/test_exclude.py", line 6, in test_exact_case
+    def test_exact_case(self):self.assertEqual(summarize(["A:1","a:2"],exclude=("A",)),{"a":2})
+                                               ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'exclude'
+
+======================================================================
+ERROR: test_folded (test_exclude.Exclude.test_folded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/baseline-world/workspace/tests/test_exclude.py", line 5, in test_folded
+    def test_folded(self):self.assertEqual(summarize(["Straße:4","oak:2"],casefold=True,exclude=(" STRASSE ",)),{"oak":2})
+                                           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'exclude'
+
+======================================================================
+ERROR: test_invalid_not_hidden (test_exclude.Exclude.test_invalid_not_hidden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/baseline-world/workspace/tests/test_exclude.py", line 9, in test_invalid_not_hidden
+    with self.assertRaises(ValueError):summarize(["a:-1"],exclude=("a",))
+                                       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'exclude'
+
+======================================================================
+ERROR: test_iterator_and_threshold (test_exclude.Exclude.test_iterator_and_threshold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/baseline-world/workspace/tests/test_exclude.py", line 7, in test_iterator_and_threshold
+    def test_iterator_and_threshold(self):self.assertEqual(summarize(iter(["a:2","b:7","c:1"]),exclude=iter(["b"]),min_count=2),{"a":2})
+                                                           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'exclude'
+
+======================================================================
+ERROR: test_one_name (test_exclude.Exclude.test_one_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/spatial-artifacts/branchwrite-ubuntu-baseline-20261018-v1/standalone-sc06-q8-two-clients-v1/A/baseline-world/workspace/tests/test_exclude.py", line 4, in test_one_name
+    def test_one_name(self):self.assertEqual(summarize(["a:3","b:5"],exclude=("a",)),{"b":5})
+                                             ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: summarize() got an unexpected keyword argument 'exclude'
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.001s
+
+FAILED (errors=5)

@@ -1,0 +1,7 @@
+{
+  "browser": "chromium",
+  "status": "FAIL",
+  "scope": "real UI and SQLite; mock model, no native COW",
+  "checks": [],
+  "error": "TimeoutError('Page.wait_for_selector: Timeout 8000ms exceeded.\\nCall log:\\n  - waiting for locator(\"#workspace-sidebar:not([hidden])\") to be visible\\n')"
+}

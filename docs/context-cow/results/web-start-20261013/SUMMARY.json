@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "web onboarding, literal prompt boundaries and bounded real chat; no gate certification",
+  "code_commit": "34b627042ebbe196f938c2788cb5178ebca33cbc",
+  "python": "3.13.15",
+  "unique_unittest_methods": 126,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "real_exact_copies": 22,
+  "real_requests": 22,
+  "real_streaming_requests": 11,
+  "real_non_streaming_requests": 11,
+  "real_transport_errors": 0,
+  "mock_http_literal_observations": 44,
+  "real_tokenizer_literal_cases": 22,
+  "screenshots": 6,
+  "native_code_changed": false,
+  "historical_failures": [
+    "literal-red.log",
+    "literal-extra-red.json",
+    "regressions-missing-dependency.json"
+  ],
+  "limitations": [
+    "No clean OS/driver installation or complete model download repeated",
+    "Actual native binary reused; no numerical gate requalification",
+    "Exact-copy results are model-specific, not a universal guarantee",
+    "UI clipboard/download automation observation limitations verified against actual OS artifacts"
+  ],
+  "source_sha256": {
+    "serve/frontend.py": "e5a84546300b948ed8ca79d25bb03b1af89e2ee1017e5f7ac67e2acbb1e84b5d",
+    "serve/server.py": "4626854291cf8783077a2e8784b55a33a77641b6cda8c7e2acb5dde881087135",
+    "serve/test_literal_boundaries.py": "9b4b998a376b417a8900ac32e39ea9735b161e329f16b06a272158282181b280",
+    "serve/test_sample_app.py": "8120dc73eef40d8a55c89aeef78ec41f04bb27378a66f0d4391d6d91e28132e3",
+    "tools/web_demo.py": "20b566dc6b4ca2719d05f57b6e80deebaf71f3cb0b6dcaad32cc7c732d63b28e",
+    "tools/check_live_chat.py": "73f06d7137c0b934114abbb8b096dc012a6e90fd61992862a42565a425ecd912",
+    "tools/check_model_literals.py": "937636760d7e225bb0a3ad5f0b81a56cbe968f2eabcc1b219e02c17b8e8fc4b7",
+    "tools/run_web_regressions.py": "225ca1e340e2a8af2b136fdaba902c2126bc1b2deee1f7dbb5c3bb8bc70ad021"
+  },
+  "combined_regression_report": "regressions-combined-126.json",
+  "combined_regression_seconds": 40.004,
+  "combined_process_exit_code": 0
+}

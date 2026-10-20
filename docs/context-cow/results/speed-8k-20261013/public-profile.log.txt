@@ -1,0 +1,18 @@
+{"event": "hash", "file": "expert-profile.bin", "bytes": 196632}
+{"event": "hash", "file": "compat-bf16.json", "bytes": 38972}
+{"event": "hash", "file": "compat-bf16.json.ranges.json", "bytes": 36}
+{"event": "hash", "file": "conversions.json.ranges.json", "bytes": 37}
+{"event": "hash", "file": "dense.bin.ranges.json", "bytes": 41}
+{"event": "hash", "file": "index.txt.ranges.json", "bytes": 36}
+{"event": "hash", "file": "native_experts.txt.ranges.json", "bytes": 35}
+{"event": "hash", "file": "chat_template.jinja", "bytes": 9993}
+{"event": "hash", "file": "chat_template.jinja.ranges.json", "bytes": 35}
+{"event": "hash", "file": "merges.txt", "bytes": 3353258}
+{"event": "hash", "file": "merges.txt.ranges.json", "bytes": 38}
+{"event": "hash", "file": "token_type.json", "bytes": 744960}
+{"event": "hash", "file": "token_type.json.ranges.json", "bytes": 37}
+{"event": "hash", "file": "tokenizer.json", "bytes": 541}
+{"event": "hash", "file": "tokenizer.json.ranges.json", "bytes": 34}
+{"event": "hash", "file": "vocab.json", "bytes": 5737005}
+{"event": "hash", "file": "vocab.json.ranges.json", "bytes": 38}
+{"status": "PREPARED_NOT_EXECUTED", "profile": "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/profile.json", "fixture": "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/fixture.json", "numerical_gate_qualified": false, "model_bytes_hashed": 10081728, "model_file_hash_receipts_reused": 10}

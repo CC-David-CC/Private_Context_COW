@@ -1,0 +1,337 @@
+{
+  "schema": "p4-q4-three-root-execution-prep-v1",
+  "status": "PREPARED_NOT_RUN_BLOCKED",
+  "scope": "Q4 resident-pool and controlled disk-return arms; preparation and input verification only",
+  "execution_performed": false,
+  "native_backend_loaded": false,
+  "gpu_job_started": false,
+  "prefix_replay_performed": false,
+  "host": {
+    "name": "llm60",
+    "python": "Python 3.12.3",
+    "physical_gpu_index": 0,
+    "gpu_uuid": "GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58",
+    "profile_capacity_tokens": 98304,
+    "profile_chunk_tokens": 8192,
+    "profile_kv_dtype": "FP16",
+    "profile_generated_operator": "normal-verifier-decode",
+    "profile_protocol": "consumed-greedy-ack-v1"
+  },
+  "source": {
+    "case_dir": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+    "store": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store",
+    "result_sha256": "40965f747ebda3fc87eb61cd274c96e2847d46dba65d346eef99e6d25c3d1cfa",
+    "prepare_sha256": "784978eb9e290b1ba02c2bbdd852e495189619b0ddb7811f17559d339522fc5a",
+    "profile_sha256": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+    "profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+    "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "native_build_json_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "source_result_profile_matches_profile": true,
+    "source_result_contract_matches_profile": true
+  },
+  "fixture_provenance": {
+    "raw_source": {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q4_64k.json",
+      "sha256": "9fb32731440a794234eae1f622b34415d6a80c433df79f30aea6c37d0f9cb5c2"
+    },
+    "normalizer": {
+      "path": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/build_codebase_fixture.py",
+      "sha256": "3d4403bc03d539c46dc4db3a50b778b26e1a0769ae3f5884f1558825afc914a8",
+      "function": "normalize_context_fixture",
+      "arguments": {
+        "context_capacity": 98304,
+        "output_limit": 2048
+      },
+      "backend_or_model_imported": false
+    },
+    "normalized_campaign_input": {
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fixture.json",
+      "sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+      "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fixture.json",
+      "archive_member_sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+      "raw_normalization_equals_archived_and_live_bytes": true,
+      "component_equality": {
+        "prefixes": true,
+        "suffixes": true,
+        "tree_roots": true,
+        "context_metadata": true
+      },
+      "prefix_lengths": [
+        65536,
+        65536,
+        65536
+      ],
+      "prefixes_equal_prepared_canonical_root_histories": [
+        true,
+        true,
+        true
+      ],
+      "tree_roots": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "selected_trees": [
+        0,
+        2,
+        4
+      ],
+      "selected_root_indices": [
+        0,
+        1,
+        2
+      ],
+      "selected_suffix_lengths": [
+        8336,
+        8320,
+        8315
+      ],
+      "selected_suffix_sha256_canonical_json": [
+        "b2dc2f012314042582e0c155ee59d88ea605bc2a4e5ce1706d950481480445f2",
+        "888793a5878bd906842aad8184ca88fc99c9a1c630380c9ede9adf7cb913fb55",
+        "7f0a418cdd05666b70b5eed501ecf13c9eab2c77a2e2b599775e8c35c095110f"
+      ]
+    },
+    "fresh_references": [
+      {
+        "tree": 0,
+        "stdout_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-0.stdout",
+        "stdout_sha256": "47aa637d0bfc996406b04d8e00744e50f35501ee5e98f975a50207cec5af1d6c",
+        "schedule_sha256": "f00617384145e752143c7acb3c6e11c2a786b9f9db8ffcf0a17665fbdd90cddc",
+        "request_tokens_file_sha256": "c3bdb0d34f88cfd778b0cbd58ee0a4d07354da18d9001ab8e397f3cf19205314",
+        "reference_generated_tokens": 2048,
+        "schedule_matches_prefix_plus_selected_suffix": true,
+        "saved_request_tokens_equal_prefix_plus_suffix": true,
+        "first_128_reference_canonical_json_sha256": "2c6eaf9507d398ffda7da060d88d0799f9ef1afa0522698a92397ee67013885c"
+      },
+      {
+        "tree": 2,
+        "stdout_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-2.stdout",
+        "stdout_sha256": "947e692e37a056be63ac8ae24a6101a376b4f67239b295b2f2b05c794e2ce0a1",
+        "schedule_sha256": "1c54909490f8268378ee0c7b283b2485e5efdefb08e6df302c334acfca1e127e",
+        "request_tokens_file_sha256": "946f4b0ebf4cb045d5386e21bf3dd54ef6f844f8b3c97647f2dcbd30b9d41841",
+        "reference_generated_tokens": 2048,
+        "schedule_matches_prefix_plus_selected_suffix": true,
+        "saved_request_tokens_equal_prefix_plus_suffix": true,
+        "first_128_reference_canonical_json_sha256": "aa29ef88056ef81a8ff17f3ec6868994598c3dac55bfd0ba4d41aead04baf925"
+      },
+      {
+        "tree": 4,
+        "stdout_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fresh-tree-4.stdout",
+        "stdout_sha256": "7280b2fe26543464122c546b6d07f9e1541adfeefd5512fe09943fe7df99cf98",
+        "schedule_sha256": "07bb49a8941ac6d77c2801e1f2fed373d70b4fbd5642cfb7180a3f58d58039bd",
+        "request_tokens_file_sha256": "7d686165e4e99ec0d766d71db227d2f47da88bd97d2412b1f351429944547043",
+        "reference_generated_tokens": 2048,
+        "schedule_matches_prefix_plus_selected_suffix": true,
+        "saved_request_tokens_equal_prefix_plus_suffix": true,
+        "first_128_reference_canonical_json_sha256": "da2a692e8fd8d42e221447d5a3446cfb91cbcfb0eab8ada831f9c31349f6bf9c"
+      }
+    ]
+  },
+  "root_payload_restore": {
+    "map_status": "READ_ONLY_INPUTS_VALIDATED",
+    "map_sha256": "3ebb21cb7b1ab693ec72f967fda567b67388ad8deff3bc16bbcd720302ea2a3f",
+    "archive_path_box_git": "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+    "archive_sha256": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce",
+    "archive_bytes": 41838049280,
+    "archive_member_listing_sha256": "d766cb7a4d84c2db07c2fc32c17657f442b30374f7636d36173e619bd66333b3",
+    "required_restore_bytes": 5491806696,
+    "restored": false,
+    "payloads": [
+      {
+        "root_index": 0,
+        "snapshot": "e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286",
+        "manifest_sha256": "07a8d31e1d61e71e25f15322ea5ddd8608e9244a242863ad49e24ce389849a69",
+        "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+        "payload_sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca",
+        "payload_bytes": 1830602232,
+        "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+        "present_at_preparation": false
+      },
+      {
+        "root_index": 1,
+        "snapshot": "c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316",
+        "manifest_sha256": "e897d52f34c2cd445635e7c7002455ac8d93eeef7b581881d1b0de43b93cc9f2",
+        "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+        "payload_sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7",
+        "payload_bytes": 1830602232,
+        "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+        "present_at_preparation": false
+      },
+      {
+        "root_index": 2,
+        "snapshot": "bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a",
+        "manifest_sha256": "5c725a23cafa398c40c24e202cf6b8d23cee900d9f77bccb50b85b2e0605e8e4",
+        "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+        "payload_sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7",
+        "payload_bytes": 1830602232,
+        "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+        "present_at_preparation": false
+      }
+    ]
+  },
+  "runner": {
+    "integrated_review_commit": "4f5297532b66c7cae68d10969bd0eeecafb560e4",
+    "current_root_commit_when_prepared": "17bee11bd5f09f0358c760b09233f10b456dd4cf",
+    "cpu_stage": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context",
+    "script": "scripts/p4_return_latency.py",
+    "script_sha256": "f3e1898ab70fb9125216fb477d756a0ca7cd8a543c55cdab7597ae816b4f8fc9",
+    "test_script_sha256": "33f341c5dc48097cc714c5b4ef1e38b8111509f78a3e69ab553ea0d459c55698",
+    "cpu_test_scope": "19 CPU tests and G0 PASS are recorded by P4-RETURN-HARNESS-FOLLOWUP; native run remains unexecuted",
+    "new_run_root": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01",
+    "arm_order": [
+      "disk",
+      "resident"
+    ],
+    "arm_order_seed": "p4-q4-arm-order-draw-2026-10-15-01",
+    "arm_order_seed_sha256": "92c46e55c2c64d533d9a979ce423347503c89f36098db6fc83a61a38c1a05db7",
+    "arm_order_draw": "sha256(seed) first hex nibble parity: odd selects disk,resident; even selects resident,disk; selected first nibble was 9",
+    "arm_parameters": {
+      "ram_bytes": 103079215104,
+      "disk_bytes": 137438953472,
+      "minimum_host_available_bytes": 17179869184,
+      "output_token_bound": 128,
+      "warmups_per_arm": 3,
+      "measured_requests_per_arm": 9,
+      "saved_prefix_tokens_per_root": 65536,
+      "worker_count": 1,
+      "coordinator_starts_total": 2,
+      "disk_arm_tier_label": "controlled exact-key RAM removal followed by disk preload witness; not natural pressure eviction qualification"
+    },
+    "arm_output_paths": {
+      "disk": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/disk-parent/output",
+      "resident": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output"
+    },
+    "persistent_command_receipts": {
+      "helper": "/home/dflanag3/spatial-artifacts/p4-return-runner/run-command.sh/run-command.sh",
+      "helper_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+      "helper_usage": "run-command.sh CHECKOUT NEW_RUN_DIR COMMAND [ARG ...]",
+      "checkout_argument": "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context",
+      "disk_new_run_dir": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/command-receipts/disk",
+      "resident_new_run_dir": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/command-receipts/resident",
+      "distinct_from_arm_output_paths": true,
+      "receipt_files": [
+        "argv.nul",
+        "argv.shell-quoted.txt",
+        "command.exit",
+        "wrapper.exit",
+        "stdout.log",
+        "stderr.log",
+        "terminal-status.txt"
+      ]
+    },
+    "arm_argv": [
+      [
+        "python3",
+        "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/scripts/p4_return_latency.py",
+        "--source-store",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store",
+        "--source-result",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/result.json",
+        "--prepare",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/prepare.json",
+        "--profile",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/profile.json",
+        "--fixture",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fixture.json",
+        "--reference-dir",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+        "--output",
+        "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/disk-parent/output",
+        "--arm",
+        "disk",
+        "--arm-order",
+        "disk,resident",
+        "--order-seed",
+        "p4-q4-arm-order-draw-2026-10-15-01",
+        "--ram-bytes",
+        "103079215104",
+        "--disk-bytes",
+        "137438953472",
+        "--min-available-bytes",
+        "17179869184"
+      ],
+      [
+        "python3",
+        "/home/dflanag3/spatial-artifacts/p4-return-luna-20261015-red/experimental/branching_context/scripts/p4_return_latency.py",
+        "--source-store",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store",
+        "--source-result",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/result.json",
+        "--prepare",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/prepare.json",
+        "--profile",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/profile.json",
+        "--fixture",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/fixture.json",
+        "--reference-dir",
+        "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+        "--output",
+        "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output",
+        "--arm",
+        "resident",
+        "--arm-order",
+        "disk,resident",
+        "--order-seed",
+        "p4-q4-arm-order-draw-2026-10-15-01",
+        "--ram-bytes",
+        "103079215104",
+        "--disk-bytes",
+        "137438953472",
+        "--min-available-bytes",
+        "17179869184"
+      ]
+    ]
+  },
+  "preflight_observed": {
+    "checkpoint_payloads_present": [
+      false,
+      false,
+      false
+    ],
+    "current_root_free_bytes": 13687603200,
+    "runner_single_arm_min_free_bytes": 38196451720,
+    "max_checkpoint_payload_bytes": 1830602232,
+    "source_checkpoint_count": 3,
+    "max_working_checkpoint_count_per_arm": 15,
+    "arm_count_retained_together": 2,
+    "disk_phase_free_required_before_payload_restore_bytes": 43688258416,
+    "each_arm_free_required_after_payload_restore_bytes": 38196451720,
+    "two_arms_retained_free_required_after_payload_restore_bytes": 65655485200,
+    "disk_phase_shortfall_from_preparation_free_bytes": 30000655216,
+    "source_restore_bytes": 5491806696,
+    "estimated_free_after_source_restore_without_reclaim_bytes": 8195796504,
+    "disk_phase_shortfall_from_preparation_free_after_restore_estimate_bytes": 30000655216,
+    "MemAvailable_kB": 126722220,
+    "required_MemAvailable_bytes": 17179869184,
+    "gpu0_free_MiB_read_only_observation": 97235,
+    "gpu0_total_MiB": 97887,
+    "run_root_absent_at_preparation": true,
+    "preflight_status": "BLOCKED_NO_PAYLOAD_RESTORE_AND_INSUFFICIENT_DISK_AT_PREPARATION; PHASED_SEQUENCE_REQUIRES_Q8_RECLAIM_AND_VERIFIED_DISK_ARM_ARCHIVE"
+  },
+  "original_campaign_command_receipt": {
+    "declared_path_in_windows_P5_running_evidence": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/run-command.json",
+    "file_present_on_llm60_at_preparation": false,
+    "note": "P5-Q4-FULL96-RUNNING-2026-10-15.json is Windows private evidence; its declared remote path was not proof of presence. New P4 arm argv is frozen above and will be retained with the run."
+  },
+  "phased_capacity_plan": {
+    "before_restore_disk_arm_required_free_bytes": 43688258416,
+    "after_restore_each_arm_required_free_bytes": 38196451720,
+    "retaining_both_arm_outputs_locally_would_require_bytes": 65655485200,
+    "disk_archive_target": "box-git:/srv/data/git/private_context_cow.evidence/20261015-p4-q4-disk-return/p4-q4-disk-return-20261015.tar",
+    "resident_arm_gate": "Start only after disk-arm archive/member hashes verify, exact local output checkpoint payloads are reclaimed, all three source payloads still verify, and live free disk >= 38196451720 bytes.",
+    "q8_reclaim_projection_not_yet_observed": {
+      "post_backup_inventory_bytes": 41483065500,
+      "pre_restore_free_bytes_projected": 55185750172,
+      "after_source_restore_free_bytes_projected": 49693943476,
+      "pre_restore_disk_arm_requirement_bytes": 43688258416,
+      "post_restore_each_arm_requirement_bytes": 38196451720,
+      "status": "projection only; reclaimed bytes not yet observed"
+    }
+  },
+  "next_action_gate": "Wait for parent authorization and Q8 capacity reclaim. Before restoring payloads, require free disk >= 43688258416 bytes for the three source payloads, one 15-checkpoint arm envelope, and a 10-GiB floor. Restore and verify the exact mapped payloads, then run only the disk arm. Archive and verify its complete output to the private box-git target and reclaim only exact verified local checkpoint payload paths. Before resident starts, require free disk >= 38196451720 bytes, MemAvailable >= 17179869184 bytes, intact source hashes, and the pinned GPU0 UUID/profile. Root controls restore, archive verification, reclamation, and launch."
+}

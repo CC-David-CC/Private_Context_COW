@@ -1,0 +1,41 @@
+{
+  "status": "ACTUAL_RECEIPTS_CPU_COMPARISON_PASS_NOT_GPU_TIMING",
+  "scope": "Isolated CPU validation replay of actual 188-event image request,187 extensions. No inference. New path includes full entry/publication audits; both include prefix construction.",
+  "source_sha256": "89973d88e5f8c9d4736871a5eb4273c8e62b5ca8e9c3e2b16d57d0b976164e73",
+  "outputs": 186,
+  "runs": [
+    {
+      "mode": "incremental",
+      "seconds": 0.3355954240541905
+    },
+    {
+      "mode": "full-repeat",
+      "seconds": 13.606499501969665
+    },
+    {
+      "mode": "full-repeat",
+      "seconds": 13.60353742307052
+    },
+    {
+      "mode": "incremental",
+      "seconds": 0.29992774315178394
+    },
+    {
+      "mode": "incremental",
+      "seconds": 0.3054817470256239
+    },
+    {
+      "mode": "full-repeat",
+      "seconds": 13.536568850046024
+    }
+  ],
+  "medians": {
+    "incremental": 0.3054817470256239,
+    "full-repeat": 13.60353742307052
+  },
+  "speedup": 44.53142472675937,
+  "reduction_percent": 97.75439477596797,
+  "g0_status": "51/51 PASS",
+  "regression_union_status": "98/98 PASS, no skips",
+  "gpu_status": "Tiny process-separated independent-reference campaign running; no end-to-end speedup yet"
+}

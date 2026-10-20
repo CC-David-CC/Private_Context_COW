@@ -1,0 +1,32 @@
+{
+  "status": "TWO_REAL_PAYLOAD_HASHES_PASS",
+  "payloads": [
+    {
+      "snapshot": "aa9af58423dfefe6c0b52ac930a966cf901880689f91ba33262680da1bdc47fd",
+      "consumed": 16003,
+      "native_state_bytes": 536025092,
+      "logits_count": 248320,
+      "payload_bytes": 537018372,
+      "sha256": "4f09a8a5377580e84cdd434ca7c0bcb14606925ab4061331c50eeef47b6f6d75",
+      "positions": "qwen-image-grid-mrope-v1",
+      "rotary_cursor": 16003,
+      "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+      "execution_profile_id": "15ef2e771faf1b5858fb138b5a03201105bd467361ef033ce3b07ec7fc77fce8",
+      "schedule_sha256": "bc19a4c33ae75a6a8ae2acb450aaf086ae65c1ab80a12dcbb04eaad56fc45336"
+    },
+    {
+      "snapshot": "7b96b5282993de35e5f8db1399aca8084c9765e99fa91222fb1d74e9aa2a9031",
+      "consumed": 21077,
+      "native_state_bytes": 668589900,
+      "logits_count": 248320,
+      "payload_bytes": 669583180,
+      "sha256": "e6fd552a6ed8f4dc371d9055a170d4b318f99ca189bbb35e05f2dcbc55bf3787",
+      "positions": "qwen-image-grid-mrope-v1",
+      "rotary_cursor": 21077,
+      "model_contract_id": "3fcd9cfc2e977dbf56522e710cb3903e03ab00ca2ed5d0daa3d9f840edf5a833",
+      "execution_profile_id": "15ef2e771faf1b5858fb138b5a03201105bd467361ef033ce3b07ec7fc77fce8",
+      "schedule_sha256": "a191f9cab510ef6813cd57a15a369efb29cd067011fff96c029d77e004af2e8c"
+    }
+  ],
+  "scope": "Actual disk payload lengths and SHA256 against manifests;not a process-restart test. Working state retained for follow-up."
+}

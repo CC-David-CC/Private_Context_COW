@@ -1,0 +1,14 @@
+{
+  "schema": "private-evidence-backup-v1",
+  "status": "PASS",
+  "source_host": "llm-60",
+  "source_directory": "/home/dflanag3/branching-g3/request-stop-20261014",
+  "destination_host": "box-git",
+  "archive": "/srv/data/git/private_context_cow.evidence/20261014-text-resume/text-resume-q8-2k-full-v1.tgz",
+  "bytes": 13136063130,
+  "sha256": "d9da89f9d19a00d57f4f131bd6ba7302e878504edae5831bb860470960c59a18",
+  "file_mode": "0600",
+  "validated": ["streaming tar/gzip/ssh pipeline exited successfully", "destination gzip CRC validation", "destination full-file SHA-256", "backup process exited and BACKUP_COMPLETE logged"],
+  "contents": ["text-resume-q8-2k-v1 including canonical store and numerical checkpoints", "raw independent numerical traces and token fixtures", "producer/consumer logs and profile", "text-resume-q8-2k-v1-audited.json", "audit_text_resume_long.py"],
+  "limitations": ["model weights and native executables are not included", "not a self-contained deployment package", "restore still requires the recorded compatible model, backend and execution profile"]
+}

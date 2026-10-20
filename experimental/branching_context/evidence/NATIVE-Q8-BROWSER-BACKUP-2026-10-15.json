@@ -1,0 +1,51 @@
+{
+    "schema":  1,
+    "status":  "VALIDATED_PRIVATE_BOX_GIT_BACKUP",
+    "archive":  "/srv/data/git/private_context_cow.evidence/20261015-namespace-q8-browser-ac6/browser-v2-terminal-raw.tar",
+    "archive_bytes":  1551093760,
+    "archive_sha256":  "926808ae1d114fcb1bb5c7212501023e4abd8a88c734715ea4b4345662433bce",
+    "source_stream_sha256":  "926808ae1d114fcb1bb5c7212501023e4abd8a88c734715ea4b4345662433bce",
+    "tar_exit":  0,
+    "receiver_exit":  0,
+    "tar_listing":  "PASS",
+    "tar_entries":  5442,
+    "directory_mode":  "0700",
+    "archive_mode":  "0600",
+    "source_checkout":  "/home/dflanag3/branching-g3/namespace-q8-browser-ac6-20261014/source-ac6/tree",
+    "source_commit":  "ac6b8e6d465d866a0ae341d9d37a28400aea582f",
+    "source_manifest_sha256":  "a490001319dd79e56e984d0ce1693adf25918a43dd5002789cdccdf60f3b61d7",
+    "profile":  "/home/dflanag3/spatial-artifacts/namespace-q8-http-luna-20261014/gpu-8k-512-128-v1/result/profile.json",
+    "profile_sha256":  "14b3d16b9ba65e84e42c16352ffcd88304e4ff3ea2302a235d75ef1ecb164e59",
+    "contains":  [
+                     "frozen ac6 source and sha256 manifest",
+                     "v1 and v2 raw browser reports, screenshots, traces and receipts",
+                     "canonical Store v1 checkpoints and references",
+                     "executed Q8 profile",
+                     "verified launch and preflight helper scripts",
+                     "context fixture"
+                 ],
+    "excluded":  [
+                     "external Q8 model weights and pack",
+                     "external native executable binaries",
+                     "symlinks were not dereferenced; none present in frozen source tree"
+                 ],
+    "tracked_controlvector":  {
+                                  "path":  "source-ac6/tree/data/experimental-speed-projection/Qwen3.8-Flash-Next-experimental-speed-projection.gguf",
+                                  "sha256":  "ef0724c5b79297e481017be85769832bc26eb220c984ecba2b0e1b0c8426312b",
+                                  "purpose":  "tracked 480KB optional Qwen control vector; disabled/not loaded during browser run",
+                                  "bytes":  483520
+                              },
+    "prior_failed_archive":  {
+                                 "status":  "incomplete; missing browser.command.exit and packager scripts; not final",
+                                 "path":  "/srv/data/git/private_context_cow.evidence/20261015-namespace-q8-browser-ac6/browser-v2-terminal-raw-incomplete-v1.tar",
+                                 "sha256":  "21e3ed3a6d21ca2c55948f9f8c95e9363fdfa8c0eb3fbb6a1dae535cf15ced16",
+                                 "bytes":  1551083520
+                             },
+    "runner":  {
+                   "validator_sha256":  "095e0f3c814f4064f2128edfce1525b5280dfb39691951ad4115028cb9e89dd8",
+                   "receiver_sha256":  "8c4cd451980f99747769348538abdfc89fe1226faaabb96ac845f0f530343f2a",
+                   "launch_script_sha256":  "bb230b1840c5667515db99ace455f6e507b121ba950a7973d09d9a43c627a962",
+                   "run_command_sha256":  "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+                   "backup_streamer_sha256":  "f0b08416de19af78069edca57d5181e8ad4553b1515b3c798e6920e8091db564"
+               }
+}

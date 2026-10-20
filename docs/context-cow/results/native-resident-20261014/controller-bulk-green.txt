@@ -1,0 +1,8 @@
+test_exception_during_events_cannot_mutate_parent (test_controller_bulk_consumption.BulkControllerTests.test_exception_during_events_cannot_mutate_parent) ... ok
+test_grammar_penalties_and_stop_sequences_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_grammar_penalties_and_stop_sequences_match_ordered_consumption) ... ok
+test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption (test_controller_bulk_consumption.BulkControllerTests.test_pending_utf8_and_nonzero_rng_cursor_match_ordered_consumption) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

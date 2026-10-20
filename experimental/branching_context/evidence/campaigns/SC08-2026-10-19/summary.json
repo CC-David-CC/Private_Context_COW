@@ -1,0 +1,16 @@
+{
+  "status": "BOUNDED_AUTONOMOUS_Q8_SC08_PASS",
+  "methods": 16,
+  "generated_cases": 64,
+  "model_calls": 18,
+  "output_tokens": 7993,
+  "whole_cli_seconds": 1171.895474405028,
+  "native_timed_decode_tps": 51.36755646250116,
+  "numerical_oracle": "NOT_RUN",
+  "domain_examples_added": 0,
+  "scope": "Original parser-defect replay with corrected infrastructure; no G1-G5 qualification",
+  "private_archives": {
+    "client": "fce03f3ff0bdb3b96c17155cf67f1284fc72ad4df25551d4aeb8ea52d72401bd",
+    "server": "cc65fc1f2cb0c55b94cf404cfa961777e5ce5dbe4e4d551b00c039472a60a09d"
+  }
+}

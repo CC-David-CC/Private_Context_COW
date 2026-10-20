@@ -1,0 +1,9 @@
+STARTED_UTC=2026-10-15T08:43:26Z
+df: options -P and --output are mutually exclusive
+Try 'df --help' for more information.
+FREE_BEFORE_BYTES=
+RUN_COMMAND_EXIT=0
+df: options -P and --output are mutually exclusive
+Try 'df --help' for more information.
+FREE_AFTER_BYTES=
+FINISHED_UTC=2026-10-15T08:43:42Z

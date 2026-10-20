@@ -1,0 +1,8 @@
+{
+  "scope": "30-second sidecar samples; begins after sampler repair, not continuous peak instrumentation",
+  "samples": 55,
+  "max_observed_gpu_used_mib": 92785,
+  "min_observed_host_mem_available_bytes": 69285978112,
+  "min_observed_disk_free_bytes": 13687648256,
+  "heartbeat_sha256": "3f2ed94d7ff52cc4bbf7110fac31f584fdd80bf038c12c47b4dd78c98ec92780"
+}

@@ -1,0 +1,27 @@
+{
+  "aborted_gpu_result_sha256": "550a2029d6b1ca4cf7f7d312ac297a8e10cba8bfea2fb896bc8dc713f94b342e",
+  "archive": "box-git:/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-attempt1-compact-v1/evidence.tar",
+  "archive_sha256": "e1b5839a13e2367faf1ba989e97a2593d1fed0bda2dbe57e40cc4ce7d0a46cd2",
+  "archive_size_bytes": 22497280,
+  "backup_scope_sha256": "bc29b55e4c22860d2b15a5f87d4858ec87244326ee65f697621469ec43fc255e",
+  "excluded": "All .state payloads, .f32, 64MiB image, model/pack/cache/build/compiled files, pycache, final-green-v5-red, full Store/payload data. Exclusion inventory found two .state files (656389672 bytes) and no copied image.",
+  "included": "Aborted GPU Q4 v1 campaign; launch/preflight/mount/dispatch/read-only audit evidence; final-green-v1-v4 source and CPU receipts; JSON/lock-only input metadata and checkpoint-volume manifests.",
+  "manifest_local_path": "/home/dflanag3/spatial-artifacts/q4-canonical-enospc-backup-work-20261016-v1/member-manifest.json",
+  "manifest_sha256": "6c3ccd0dee2c3ffe0a2e32e1da1473624beda8d848d40fe6306c3cffacd41521",
+  "modes": {
+    "archive": "0600",
+    "directory": "0700",
+    "receipt": "0600"
+  },
+  "payload_member_bytes": 22229614,
+  "payload_member_count": 217,
+  "primary_abort_audit_sha256": "be35df57b955505c471d389c8eee0da5420e1be5feed0b268bd611fb037f54f3",
+  "provenance_limitation": "Preparation reports provenance v3 overwritten; executed source 959 was not retained. This is retained as a limitation, not repaired by inference.",
+  "receiver_link_members": 0,
+  "receiver_receipt": "box-git:/srv/data/git/private_context_cow.evidence/20261016-canonical-enospc-attempt1-compact-v1/receiver.verify.json",
+  "receiver_receipt_sha256": "3decab796972ed4c106dc26faf69bdb9b051281be3cc378473659ceca09eacda",
+  "receiver_status": "PASS",
+  "receiver_verified_bytes": 22229614,
+  "receiver_verified_members": 217,
+  "schema": 1
+}

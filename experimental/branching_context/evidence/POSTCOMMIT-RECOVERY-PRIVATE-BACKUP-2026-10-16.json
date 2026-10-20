@@ -1,0 +1,67 @@
+{
+  "cleanup_receipt": {
+    "path": "/home/dflanag3/spatial-artifacts/q4-postcommit-package-state-cleanup-20261016-v1.json",
+    "raw_store_untouched": true,
+    "removed_only_verified_duplicate_package_state_files": 8,
+    "sha256": "50be492e31f30ad6fe65cc1b9d7bf5d35b539a901667b2bea3f29a069d0dd230"
+  },
+  "current_archive": {
+    "archive_sha256": "519cb49f81d47c4f550130df4a3df13f786555f00b949a40207446f8fc358b4f",
+    "archive_size_bytes": 15339520,
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-postcommit-restart-compact-v2/evidence.tar",
+    "included_file_count": 286,
+    "manifest_sha256": "2163ad7b47b7dfc71c4e6828537960b1b19cc6baf4db45940f0c5d75fa0b3851",
+    "member_bytes": 15043576,
+    "member_count": 288,
+    "modes": {
+      "archive": "0600",
+      "directory": "0700",
+      "receiver_receipt": "0600"
+    },
+    "raw_exclusions": [
+      "four .state checkpoints (1,312,902,252 bytes)",
+      "all .f32 vectors/streams",
+      "pycache",
+      "compiled objects/libraries/executables",
+      "model/weight blobs"
+    ],
+    "receiver_verify_path": "box-git:/srv/data/git/private_context_cow.evidence/20261016-q4-postcommit-restart-compact-v2/receiver.verify.json",
+    "receiver_verify_sha256": "3eb7e48435def7312349bf4364d8ead7b03445b185cecb2fd63ccd12765076ac",
+    "source_file_hashes_compared": 286,
+    "source_root": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1",
+    "status": "PASS",
+    "store_metadata": "Canonical Store JSON objects, manifests, references and operation receipts retained."
+  },
+  "previous_cpu_archive": {
+    "archive_sha256": "5924c298253e6ec1aca4503b226208db56ddbbcf762ade1878d4b3e241af74af",
+    "archive_size_bytes": 4464640,
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261016-postcommit-cpu-and-host-oom-compact-v1/evidence.tar",
+    "manifest_sha256": "05741a1f49d0743373301d47ca3c8120e4d42b22f3e04e351cbb8f7509581774",
+    "member_bytes": 4087058,
+    "member_count": 349,
+    "receiver_verify_sha256": "0f6a451ef5c8d9c5ce214e29e5c2112b55d98a01e234fcb7f2e4c28140cb09b0",
+    "status": "PASS, independently audited by parent"
+  },
+  "schema": 1,
+  "setup_attempts": [
+    {
+      "cause": "tar argv split the mtime value; the llm-60 Python/SSH/tar processes stalled. Exact owned PIDs 2758011, 2758014, 2758015 were SIGTERM-terminated and verified absent.",
+      "name": "q4-postcommit-restart-compact-v1",
+      "part_bytes": 0,
+      "runner_receipt": "none; direct launcher did not produce numeric runner receipt",
+      "status": "failed_setup_preserved"
+    },
+    {
+      "name": "q4-postcommit-restart-compact-v2-stream-attempt",
+      "part_bytes": 15339520,
+      "part_sha256": "519cb49f81d47c4f550130df4a3df13f786555f00b949a40207446f8fc358b4f",
+      "runner_receipt": "none for stream step; Python raised ValueError: flush of closed file after closing stdin then calling communicate()",
+      "status": "streamed_part_then_launcher_exception"
+    },
+    {
+      "cause": "Initial extraction used ./provenance/verify_archive.py, while the tar member name was provenance/verify_archive.py. Corrected extraction verified the existing streamed part (288 members) and atomically published it.",
+      "name": "q4-postcommit-restart-compact-v2-initial-verifier",
+      "status": "failed_lookup_preserved_then_corrected"
+    }
+  ]
+}

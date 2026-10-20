@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc06-cli-collected-v1/evidence.tar.gz",
+    "bytes": 426137823,
+    "sha256": "e122c274bbaf551959fff63d332761d748ad83a90bc33e17f4e37cf964e78cbd"
+  },
+  "members": 245,
+  "verification": "Every regular archive member sequentially SHA-256 checked after compression",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-cli-v1/evidence.tar.gz",
+  "destination_sha256": "e122c274bbaf551959fff63d332761d748ad83a90bc33e17f4e37cf964e78cbd",
+  "destination_bytes": 426137823
+}

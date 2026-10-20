@@ -1,0 +1,22 @@
+{
+  "status": "BOX_GIT_RECEIVER_VERIFIED",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-cow-pressure-audit-q4-three-context-v1/",
+  "archive_bytes": 5679953920,
+  "archive_sha256": "37186cadd4ecf514568ba3d9df5d97092724b65c0ffd0808073ea5cbb04d29ee",
+  "manifest_sha256": "e330462dad7a4beb378769f6087cc1764601429eab2aa9d10392aaf956c0a1d2",
+  "verified_regular_files": 412,
+  "verified_source_bytes": 5679033786,
+  "tar_members_including_manifest": 413,
+  "receiver_receipt_raw_sha256": "2175ac7bfded3da96d3d29a3d6e35d8f69d4397a255b9eea0551c7733d944ba7",
+  "scope": [
+    "Baseline Q4 browser numerical audit with nine fresh references",
+    "Corrected Q4 browser pressure output, request-bound spill/reload proof and completed numerical audit",
+    "CPU93/102 and G0 receipts, Q4/Q8 candidate profile and fixture provenance",
+    "Selected changed source only, including v2 auditor and tests"
+  ],
+  "excluded": ["Full repository mirrors", "Native executables", "Q8 pressure execution and later browser-readiness/recovery changes"],
+  "verification": "Receiver checked archive/manifest SHA and every regular member path, size and SHA. Primary independently read the receipt and verified its raw SHA and archive size.",
+  "permissions": {"directory": "0700", "files": "0600"},
+  "cleanup": "No files removed",
+  "publication": "Private box-git only"
+}

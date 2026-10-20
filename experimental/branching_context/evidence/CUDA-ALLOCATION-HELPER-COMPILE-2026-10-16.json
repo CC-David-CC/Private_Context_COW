@@ -1,0 +1,127 @@
+{
+  "schema": "q4-cuda-allocation-helper-compile-only-v2",
+  "status": "COMPILE_ONLY_PASS_FROZEN",
+  "artifact_root_remote": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1",
+  "source_checkout": {
+    "branch": "feat/model-free-fleet",
+    "commit": "6897b5f0cfc6b913fb14464f3f1c6bef3ec3f169",
+    "clean": true,
+    "files": {
+      "src/core/vmm.cpp": "b4cffbb8ca4299fd2a1729c3f0ec06e1257e683735cf2991bcdee107ea38c094",
+      "include/strata/core/vmm.hpp": "b537e8320f4f9d8f34bc533030b92db231f78db83949a34918c2c2a556ae35c3",
+      "tests/core/branch_pressure.hpp": "b768ebe8a7d0f27aaa186a2e1545aa3a212b3c19d881ca62659d74ac08917e17",
+      "tests/core/branch_pressure_helper.cpp": "2a509c30bf4a374aed8808749be49603f15af7717cff7aaf4d45d93deef9ecbe"
+    }
+  },
+  "staged_source_hashes_verified": true,
+  "build": {
+    "kind": "Standalone direct compile/link; no CMake project or Strata engine library build",
+    "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "run_directory": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/runs/compile-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "argv": [
+      "bash",
+      "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/source/build-helper.sh"
+    ],
+    "build_script_sha256": "59bd6927ca9d53c81c65f9e8d2936f5bb1aeb3d8567e64a4a61e63326fd3f76c",
+    "effective_compile_link_argv": "/usr/bin/g++ -std=c++20 -O3 -DNDEBUG -Wall -Wextra -pthread -I include -I /usr/local/cuda/include tests/core/branch_pressure_helper.cpp src/core/vmm.cpp -L /usr/local/cuda/lib64 -Wl,-rpath,/usr/local/cuda/lib64 -lcudart -o /home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/build-v1/branch_pressure_helper",
+    "compiler": {
+      "path": "/usr/bin/x86_64-linux-gnu-g++-13",
+      "version": "13.3.0",
+      "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769"
+    },
+    "cuda_toolkit": {
+      "root": "/usr/local/cuda-13.2",
+      "nvcc": "not installed/not used",
+      "headers": {
+        "cuda.h": "673873a292718591d75ea3c2e65330b1f8f8278eac3c96b32245418fb0817851",
+        "cuda_runtime.h": "945153fa0671b3a5015ce258a63972816a426309a12c4828146cf8e8b836336b"
+      }
+    },
+    "executable": {
+      "path": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/build-v1/branch_pressure_helper",
+      "sha256": "a3d2690d104f192ca0a25ee224db4b3f7fcef45d0cad4de4a491c755937cd61b",
+      "bytes": 43392,
+      "mode": "775",
+      "elf_build_id": "7be20252960727838083b53928702c3c736ff3ff"
+    },
+    "dynamic_dependencies": {
+      "libcudart.so.13": {
+        "resolved": "/usr/local/cuda/lib64/libcudart.so.13.2.86",
+        "sha256": "862020da24ec4db58470c8dfad08e8753b417c459c115326edf15e9f574c92e3"
+      },
+      "libstdc++.so.6": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      "libgcc_s.so.1": {
+        "resolved": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      "libc.so.6": {
+        "resolved": "/lib/x86_64-linux-gnu/libc.so.6",
+        "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      },
+      "libdl.so.2": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+        "sha256": "c2994527172cc23b7fb0f7d611b71e00a37da27af12c2e5e9e0dc1a742886c96"
+      },
+      "libpthread.so.0": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+        "sha256": "90491a21ce44efcf3bd4b65ec82501c091d7ebe7f8d9b341dd01d721001d9ecd"
+      },
+      "librt.so.1": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/librt.so.1",
+        "sha256": "6d072187d88e092e81561a44c03a4a41397319022c6d43519757cc051c576d82"
+      },
+      "libm.so.6": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      },
+      "ld-linux-x86-64.so.2": {
+        "resolved": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+      }
+    },
+    "readelf_needed": [
+      "libcudart.so.13",
+      "libstdc++.so.6",
+      "libgcc_s.so.1",
+      "libc.so.6"
+    ],
+    "runpath": "/usr/local/cuda/lib64",
+    "ldd_only_transitive_dependencies": [
+      "libdl.so.2",
+      "libpthread.so.0",
+      "librt.so.1",
+      "libm.so.6",
+      "ld-linux-x86-64.so.2"
+    ]
+  },
+  "scope": {
+    "compiled": true,
+    "binary_executed": false,
+    "helper_ready_message_observed": false,
+    "cuda_initialized": false,
+    "allocation_pressure_tested": false,
+    "oom_result": "UNRUN",
+    "ctest": "UNRUN"
+  },
+  "resource_note": "Pre-build df reported 19,319,975,936 bytes available on the artifact filesystem (above the 16 GiB floor); GPU was idle at 15 MiB / 0%.",
+  "interpretation": "A small real-CUDA-runtime-linked executable compiled cleanly. This does not demonstrate CUDA initialization, VMM availability, memory allocation, OOM, recovery, or runtime correctness.",
+  "freeze": {
+    "applied_to": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/source and /home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/build-v1",
+    "action": "chmod -R a-w on source and build-v1; source files became mode 0444, directories 0500 or 0555; binary became 0555 (execute preserved).",
+    "binary_sha256_after_freeze": "a3d2690d104f192ca0a25ee224db4b3f7fcef45d0cad4de4a491c755937cd61b",
+    "source_hashes_after_freeze_match_v1": true,
+    "compile_runner_terminal_receipts_rechecked": {
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "run_directory": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/runs/compile-v1"
+    },
+    "v1_receipt_path": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-artifacts\\q4-cuda-allocation-helper-20261016-v1\\compile-only-receipt.json",
+    "v1_receipt_sha256": "d95bb4c0d304fcc5f70c12b6a56a87f781908a8e9f612995c907ee4d357c8b16"
+  }
+}

@@ -1,0 +1,8 @@
+test_failed_serialization_or_admission_leaves_hot_image_and_reference (test_host_checkpoint_parking.HostCheckpointParkingTests.test_failed_serialization_or_admission_leaves_hot_image_and_reference) ... ok
+test_host_parking_preserves_history_controller_reference_and_frontier (test_host_checkpoint_parking.HostCheckpointParkingTests.test_host_parking_preserves_history_controller_reference_and_frontier) ... ok
+test_missing_work_witness_and_replay_are_rejected (test_host_checkpoint_parking.HostCheckpointParkingTests.test_missing_work_witness_and_replay_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.015s
+
+OK

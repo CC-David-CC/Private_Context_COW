@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py", line 289, in <module>
+    main()
+  File "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py", line 42, in main
+    _validate_execution(original)
+  File "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/src/context_time_travel/strata_backend.py", line 51, in _validate_execution
+    raise IntegrityError('Native executable/helper fingerprint mismatch: ' + name)
+context_time_travel.store.IntegrityError: Native executable/helper fingerprint mismatch: <measurement-home>/branching-g3/context-cow-public-20261013/CMakeLists.txt

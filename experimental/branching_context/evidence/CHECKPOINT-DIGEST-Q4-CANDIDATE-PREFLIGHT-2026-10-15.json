@@ -1,0 +1,179 @@
+{
+  "schema": "checkpoint-digest-q4-candidate-preflight-v1",
+  "status": "staged-and-profiled-awaiting-parent-review",
+  "scope": "Read-only source/profile preflight. No native inference, GPU workload, or build was launched.",
+  "captured_utc": "2026-10-15T09:37:48Z",
+  "candidate": {
+    "local_branch": "work/luna-checkpoint-digest-attestation",
+    "local_commit": "a60e1a2e4334856dba006c5280c35342e893597d",
+    "integrated_root_commit_prefix_reported_by_parent": "bf3f16e9",
+    "remote_stage_root": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red",
+    "profile_builder_stage_root": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/g0stage",
+    "module_runtime_path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel",
+    "module_count": 17,
+    "module_hashes_match_local_candidate": true,
+    "module_hashes_match_profile_builder_stage": true,
+    "modules": [
+      {"path": "__init__.py", "sha256": "9643d943ad663858a0132ad597715748727b3efd4720b2b87739156bc47b0929"},
+      {"path": "checkpoint_cache.py", "sha256": "3d7cc92b4207cbc2b8a1e16097019c324c9c834de0da71089d65100f4ce0b71a"},
+      {"path": "controller.py", "sha256": "a1fc62fef7a507f3571d221132afcef9e5f1c28c56d35fe6d2a74638d67620ed"},
+      {"path": "coordinator.py", "sha256": "fa4985406ed6f21e2791c2e1439cd93d337823f742dcf960440664d8a4ba0fac"},
+      {"path": "digest_attestation.py", "sha256": "8b2e89a35a9304e72e6a9eb1c121dfff901037f3f5920d1fda77b149ec83cb15"},
+      {"path": "evaluation.py", "sha256": "50eb565b92de2e5a52e8367d2f142b11d71b15d836cd6fca757c2bd0a7c0f1d8"},
+      {"path": "evaluation_worker.py", "sha256": "068fc01ef740e23e5bf8610f79ed6626323ead4a50b5f741ae43c4e7608f0688"},
+      {"path": "execution_receipt.py", "sha256": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215"},
+      {"path": "numerics.py", "sha256": "ed7edce5915bdd94aa87120ee104c1813028cd1a43d826ce757d87c81d3e6d70"},
+      {"path": "oracle.py", "sha256": "361501062020efa77f9380a0e42eaef704c45b57d5dc21202397ae78f2d94496"},
+      {"path": "pools.py", "sha256": "c70ca6ed952ebec8b69a55081c86aaa01143874f89f586c71090d17124dc6729"},
+      {"path": "presentation_binding.py", "sha256": "1dacebc0f4bdb412503dd34ed015db7691d0339c58c31d22b17b609eff2f4813"},
+      {"path": "presentation_request.py", "sha256": "28cf46c468b8f1ae9c287e9267dcd4966528ba99685266d4952da7f4dee0ed55"},
+      {"path": "real.py", "sha256": "0c0880943343981716ff18c0d1699b470c40b5e98ee27ad0d29533b60e23a34f"},
+      {"path": "slots.py", "sha256": "d53bc6fe3ba76f3b5d33db9e86764dfef55c70a14ff79c1e83e282ffdb5df3a5"},
+      {"path": "store.py", "sha256": "b7250e4776b59c03a162dc7997a0c52f033629baf15c74f5b5e59262aaa6719c"},
+      {"path": "strata_backend.py", "sha256": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692"}
+    ]
+  },
+  "runtime_script_closure": {
+    "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts",
+    "scripts": [
+      {"path": "pool_campaign.py", "sha256": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f"},
+      {"path": "native_request_probe.py", "sha256": "94e6935cddac17acca6c1d75e511ac241d394bba81707313d7fdec2e1b35968f"},
+      {"path": "durable_resume.py", "sha256": "78f26419ff389e70f6b219aa2c6fe88e8829b30ae260a402fecaa875f07f102c"}
+    ],
+    "profile_builder": {
+      "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/g0stage/scripts/prepare_native_request_profile.py",
+      "sha256": "1550dcac8db5bea22445f022922720bffd1de77e9ce025b0f8c0c79db01e172e"
+    },
+    "numeric_runner": {
+      "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/run-command.sh",
+      "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+    },
+    "campaign_runner": {
+      "path": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/pool_campaign.py",
+      "cli_verified": "campaign --help",
+      "flags": ["--config", "--output", "--fixture", "--generated", "--exercise-rewind", "--pressure-order"]
+    }
+  },
+  "profile_derivation": {
+    "base_executed_profile": {
+      "path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/profile.json",
+      "sha256": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+      "execution_profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763"
+    },
+    "unbound_base": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/base-unbound.json",
+      "sha256": "eddecbe0b4f88a08c8313244d20bd48c94c18a60599fd92cd4b6478cec6aa184",
+      "execution_profile_id": "ec58876026a17788eb3f8e7c0def97f05b8fc5ac21942d916aba8212af66a89b",
+      "change": "Removed only the existing --gpu 0 pair from oracle_command and recalculated the profile identity, as required by pool_campaign.config_and_profile()."
+    },
+    "derived_unbound_profile": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/derived-profile/profile.json",
+      "sha256": "dcba2359c7e625ef5d8494cfcaf2394e352201bb8f2eae104a757c73b5a55c54",
+      "execution_profile_id": "f32db26faea8de70f46246035c086cecfb4fbb350f8bafcfcdadd44d8c4781b6",
+      "settings": {"capacity": 98304, "prefill_chunk": 8192, "kv_dtype": "FP16", "checkpoint_cache_bytes": 8589934592, "checkpoint_cache_entries": 3},
+      "source_status": "PREPARED_NOT_EXECUTED"
+    },
+    "config": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/config.json",
+      "sha256": "8e8a5fa8a02f1b3a35d5ce2c2ff9e7f04ce0a27ca54a736d1ace629a1bb84fa4",
+      "status": "superseded pressure-budget draft; not for launch",
+      "profile_input_is_unbound": true,
+      "GPU": [0],
+      "ram_bytes": 17179869184,
+      "disk_bytes": 68719476736,
+      "min_available_bytes": 17179869184,
+      "trace_pool_transitions": true
+    },
+    "normal_candidate_config": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/config-normal.json",
+      "sha256": "b537fd71b4924adeafcfabe6b1bc499259c0347edc0dcce7c7241a6e013a2aa6",
+      "profile_input_is_unbound": true,
+      "GPU": [0],
+      "ram_bytes": 103079215104,
+      "disk_bytes": 137438953472,
+      "min_available_bytes": 17179869184,
+      "trace_pool_transitions": true,
+      "policy": "Match normal P4 resident budgets; separately enforce actual projected-output plus disk-floor preflight."
+    },
+    "candidate_path_config_binding": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/preflight-bound-candidate/profile.json",
+      "sha256": "a0ef7d70718ef06dfbfae7ec3e5a7dbff7f55ab252471804ba3cd5ee5cf655fb",
+      "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+      "result": "CPU-only config_and_profile binding succeeded with GPU [0], 98,304 context, 8,192 chunk, and oracle --gpu 0. This is not inference."
+    },
+    "candidate_path_normal_config_binding": {
+      "path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/preflight-bound-normal/profile.json",
+      "sha256": "a0ef7d70718ef06dfbfae7ec3e5a7dbff7f55ab252471804ba3cd5ee5cf655fb",
+      "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+      "result": "Candidate red/scripts config binding succeeded with GPU [0], 98,304 context, 8,192 chunk, and oracle --gpu 0. This is CPU-only, no inference."
+    },
+    "binary_build_receipt": {
+      "path": "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/build.json",
+      "sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+      "status": "previously built; binaries reused, no build run for this candidate"
+    }
+  },
+  "fixture": {
+    "raw_q4_fixture": {
+      "path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q4_64k.json",
+      "sha256": "9fb32731440a794234eae1f622b34415d6a80c433df79f30aea6c37d0f9cb5c2",
+      "contexts": 3,
+      "normalized_tree_roots": 6
+    },
+    "pilot_fixture_status": "No fixture file is used for the selected tiny pilot. pool_campaign's deterministic token IDs exercise primitive plumbing only and are not a source-backed workload."
+  },
+  "import_origin_check": {
+    "command_scope": "CPU-only import inspection from red/scripts with PYTHONPATH=red/src",
+    "result": "PASS",
+    "receipt_path": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/source-import-witness.json",
+    "receipt_sha256": "282dbf2af31ea60ba5bfa68d10022b19ae75f387b65ddf9f47063f145270f6a8",
+    "context_time_travel_module_count": 17,
+    "all_module_files_under": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel",
+    "campaign_script": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/pool_campaign.py",
+    "native_request_probe_script": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/native_request_probe.py",
+    "native_request_probe_api_root": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red",
+    "durable_resume_script": "/home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/scripts/durable_resume.py"
+  },
+  "profile_tamper_test": {
+    "result": "PASS_EXPECTED_REJECTION",
+    "tampered_pin": "native_build.sha256 entry for red/src/context_time_travel/digest_attestation.py changed to 64 zeroes in-memory",
+    "validator": "candidate red/src/context_time_travel/strata_backend.py::_validate_execution",
+    "observed_exit_code": 1,
+    "observed_exception": "IntegrityError: Native executable/helper fingerprint mismatch: /home/dflanag3/branching-g3/checkpoint-digest-candidate-luna-20261015/red/src/context_time_travel/digest_attestation.py",
+    "candidate_source_mutated": false
+  },
+  "native_operator_scope": {
+    "operator": "batched-input/native-greedy-request/per-write-sha256",
+    "resume_contract": "identical-native-operators-v1",
+    "request_protocol": "consumed-greedy-ack-v1",
+    "generation_mode": "normal-verifier-decode",
+    "native_build_json_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "native_build_or_model_flags_changed": false
+  },
+  "resource_observation": {
+    "observed_utc": "2026-10-15T09:37:48Z",
+    "GPU_compute_processes": [],
+    "gpu0_lock_path": "/home/dflanag3/branching-g3/native-client-speed.gpu0.lock",
+    "gpu0_lock_mode": "0600",
+    "root_filesystem_free_bytes": 29654245376,
+    "host_MemAvailable_bytes": 129739239424,
+    "note": "Full P4 Q4 64K storage floor is about 41,512,139,080 bytes, so it is not currently admitted. Only a bounded pilot can be considered after per-run space forecast and parent review. The 16 GiB minimum is host MemAvailable, not a disk reserve."
+  },
+  "future_pilot_contract": {
+    "campaign_argv_shape": "From candidate red: PYTHONPATH=red/src; run red/scripts/pool_campaign.py campaign --config /home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/config-normal.json --output <fresh-run-output> --prefix 128 --suffix 4 --generated 8 --trees 2 --roots 1. Omit --fixture and --exercise-rewind. Launch only under flock -n /home/dflanag3/branching-g3/native-client-speed.gpu0.lock and the verified numeric run-command.sh; set umask 077 before runner start. The worker subprocesses and fresh references remain inside the locked campaign lifetime.",
+    "phases": [
+      {"prefix_tokens": 128, "suffix_tokens": 4, "generated_limit": 8, "roots": 1, "trees": 2, "scope": "selected tiny deterministic-ID primitive pilot; no source-context claim; launch pending root review"},
+      {"prefix_tokens": 1024, "suffix_tokens": 64, "generated_limit": 16, "scope": "follow-up only after tiny results and separate root review"},
+      {"prefix_tokens": 8192, "suffix_tokens": 512, "generated_limit": 128, "scope": "follow-up only after tiny results and separate root review; still not full 64K qualification"}
+    ],
+    "expected_checks": ["exact source import closure", "zero prefix replay on resume", "native work counters", "root/sibling parent payload integrity", "independent same-schedule fresh output tokens and final frontier", "retained controller/snapshot checks"],
+    "known_gap": "The existing pool_campaign has no GPU-side disk-corruption injection. CPU corruption-before-publication tests exist; do not claim GPU corruption coverage.",
+    "no_claims": ["no GPU campaign executed by this worker", "no workload or latency result", "no full P4-sized capacity/residency qualification", "no disk corruption test on GPU"]
+  },
+  "setup_attempts": [
+    "First unbound-base helper invocation failed because the temporary base JSON ended with literal backslash-n; corrected the temporary file before successful derivation.",
+    "First config-binding call failed because its output directory was not created; created a fresh directory and reran successfully.",
+    "An exploratory config bind through the old P5 scripts path was discarded as an import-origin witness; the accepted preflight bind was rerun through candidate red/scripts.",
+    "The first 16 GiB RAM / 64 GiB disk config was a pressure-budget draft; it is retained but superseded by config-normal.json using the 96 GiB / 128 GiB normal P4 budget."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "Executed 1K matching-batch restart raw evidence; native state payload retained separately",
+  "archive_bytes": 230484233,
+  "sha256": "2d37320a7902a2b5a9064d3d6cfa73f056eddd294ca52f9436d566919555d52a",
+  "private_backup": "box-git:/srv/data/git/private_context_cow.evidence/20261014/medium-matching-resume.zip",
+  "local_copy": "C:/Users/dflanag3/Documents/fleet/output/durable-resume/medium-matching-resume.zip",
+  "source_copy": "/home/dflanag3/branching-g3/matching-resume-20261014-expanded/medium-package/raw-matching-resume.zip",
+  "backup_sha256_verified": true,
+  "github_publication": false
+}

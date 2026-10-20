@@ -1,0 +1,778 @@
+{
+  "status": "BOUNDED_Q4_OWNED_SCHEDULE_SPEEDUP_MEASURED_AND_INDEPENDENTLY_AUDITED",
+  "qualification": "Not full VC09 or original G1-G5 qualification; original whole timing runner FAIL retained, missing text-reference stage separately rerun PASS.",
+  "core_source_commit": "c2af920f1ad63651f05c9befda9e62a3faa2e1fd",
+  "harness_fix_commit": "90560f0c202539d63fdf73036da3f7efe5c71c95",
+  "profile_id": "61d56afbbb79519633ff937aa335bc81991c6d4de692587d5458ceb71346e341",
+  "profile_sha256": "e2037779760c24f3c19d5b3d0e68186286fd31acbf870ce052b4b00d28544635",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "model_files": {
+    "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin": {
+      "bytes": 196632,
+      "ctime_ns": 1791730607613639165,
+      "mtime_ns": 1791725436000000000,
+      "sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/compat-bf16.json": {
+      "bytes": 21093,
+      "ctime_ns": 1790910649822994426,
+      "mtime_ns": 1790910649822994426,
+      "sha256": "3ac5fe623709a8450bfd69610c640edbe357c725f1906817fe785b1f9ab4322e"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/conversions.json": {
+      "bytes": 167871,
+      "ctime_ns": 1790910649822539350,
+      "mtime_ns": 1790910649822539350,
+      "sha256": "722a102cb500b9097d1890cffebf142904fa6534c209ac44c6445f0aec3d0cc4"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/dense.bin": {
+      "bytes": 1485688320,
+      "ctime_ns": 1790910649822539350,
+      "mtime_ns": 1790910649818832013,
+      "sha256": "f53174059b262ed342b82e143af62056081948ef5e5f1903a1a70eeb73fa4a23"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/index.txt": {
+      "bytes": 93560,
+      "ctime_ns": 1790910649822539350,
+      "mtime_ns": 1790910649820708042,
+      "sha256": "cfc07e91c4d9b8e8c999fd1f70fa364e584748e70fa377b30e0fc85426f52711"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/native_experts.txt": {
+      "bytes": 5795,
+      "ctime_ns": 1790910650389590329,
+      "mtime_ns": 1790910650389590329,
+      "sha256": "5ed2c4a55910616db1efe16f0c989e9bec80cc8b9e95bf1c42f886aadfffd2d6"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/tokenizer/chat_template.jinja": {
+      "bytes": 9993,
+      "ctime_ns": 1790910650368036158,
+      "mtime_ns": 1790910650368036158,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/tokenizer/merges.txt": {
+      "bytes": 3353258,
+      "ctime_ns": 1790910650248844301,
+      "mtime_ns": 1790910650248844301,
+      "sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/tokenizer/token_type.json": {
+      "bytes": 744960,
+      "ctime_ns": 1790910650259188884,
+      "mtime_ns": 1790910650259188884,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/tokenizer/tokenizer.json": {
+      "bytes": 541,
+      "ctime_ns": 1790910650259353147,
+      "mtime_ns": 1790910650259353147,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf"
+    },
+    "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl/tokenizer/vocab.json": {
+      "bytes": 5737005,
+      "ctime_ns": 1790910650189842615,
+      "mtime_ns": 1790910650189842615,
+      "sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    },
+    "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf": {
+      "bytes": 10946624,
+      "ctime_ns": 1790697432761441759,
+      "mtime_ns": 1790697432756441617,
+      "sha256": "4448186216b3af4cc558bbce2c3213f01608f8f8b2e5267a9767971dd3ec8082"
+    },
+    "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf": {
+      "bytes": 49859583136,
+      "ctime_ns": 1790698231191000303,
+      "mtime_ns": 1790698229930873197,
+      "sha256": "3f342f1c1580473f1ee94ddd5b28206e8c07a70fa1a366f59d1d6c922919a6c9"
+    },
+    "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf": {
+      "bytes": 49376141504,
+      "ctime_ns": 1790698667210604904,
+      "mtime_ns": 1790698666599081239,
+      "sha256": "56758f40269cad5cd9b0d3d6fbae0f40f6d5be6de49e4ab392dbe83157d9cbd3"
+    },
+    "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf": {
+      "bytes": 12087983520,
+      "ctime_ns": 1790698777502508192,
+      "mtime_ns": 1790698775822131513,
+      "sha256": "753bda48b98ba4f1636134a90a967de1b2d3908a236c026e464777342e53510a"
+    }
+  },
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "native_build_sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow": "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow": "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+  },
+  "execution": {
+    "GPU": [
+      0
+    ],
+    "capacity": 98304,
+    "checkpoint_cache": {
+      "byte_limit": 17179869184,
+      "entry_limit": 256
+    },
+    "embedding_width": 2560,
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0"
+    },
+    "eos_tokens": [
+      248044,
+      248046
+    ],
+    "generated_operator": "normal-verifier-decode",
+    "grammar_selection_protocol": "finite-mask-argmax-v1",
+    "kv_dtype": "FP16",
+    "native_request_protocol": "consumed-greedy-ack-v1",
+    "operator": "batched-input/native-greedy-request/per-write-sha256",
+    "oracle_command": [
+      "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe-v3/strata-batched-fresh",
+      "--pack",
+      "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl",
+      "--native",
+      "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+      "--max-context",
+      "98304",
+      "--prefill",
+      "512",
+      "--spec",
+      "2",
+      "--suffix-draft",
+      "0",
+      "--kv",
+      "fp16",
+      "--expert-profile",
+      "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+      "--prompt-cache",
+      "0",
+      "--conversation-cache-mib",
+      "0",
+      "--stats",
+      "--no-prefill-borrow",
+      "--resident-budget-gib",
+      "40",
+      "--expert-cache",
+      "auto",
+      "--ple-io",
+      "direct",
+      "--ple-row-cache",
+      "1048576",
+      "--vram-reserve-mib",
+      "8192",
+      "--pcie-frac",
+      "0.55",
+      "--max-new",
+      "0",
+      "--gpu",
+      "0"
+    ],
+    "prefill_chunk": 512,
+    "resume_contract": "identical-mixed-native-operators-v1",
+    "sampling_protocol": "full-vocab-adaptive-p-u53-v7",
+    "selected_token_protocol": "consumed-selected-receipt-v1",
+    "sut_command": [
+      "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow",
+      "--pack",
+      "/home/dflanag3/fleet-downloads/q4-strata-0134-llm60/pack-ud-q4-k-xl",
+      "--native",
+      "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+      "--max-context",
+      "98304",
+      "--prefill",
+      "512",
+      "--spec",
+      "2",
+      "--suffix-draft",
+      "0",
+      "--kv",
+      "fp16",
+      "--expert-profile",
+      "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+      "--prompt-cache",
+      "0",
+      "--conversation-cache-mib",
+      "0",
+      "--stats",
+      "--no-prefill-borrow",
+      "--resident-budget-gib",
+      "40",
+      "--expert-cache",
+      "auto",
+      "--ple-io",
+      "direct",
+      "--ple-row-cache",
+      "1048576",
+      "--vram-reserve-mib",
+      "8192",
+      "--pcie-frac",
+      "0.55",
+      "--max-new",
+      "128",
+      "--tokens",
+      "1",
+      "--vision",
+      "--gpu",
+      "0"
+    ],
+    "text_template_kwargs": {
+      "enable_thinking": true
+    },
+    "vision_dry_protocol": "mixed-text-runs-dry-u53-v1",
+    "vision_protocol": "explicit-image-rows-mrope-v3"
+  },
+  "measurement_scope": {
+    "host": "llm-60",
+    "gpu": [
+      0
+    ],
+    "quant": "Q4",
+    "kv": "FP16",
+    "prefix_requested_code_tokens": 1024,
+    "prefix_actual_model_cells": 1393,
+    "suffix_actual_model_cells": 25,
+    "image_question_outputs": 186,
+    "outputs_include": "Thinking, final answer, and consumed end-of-turn token",
+    "text_only_outputs": 80,
+    "groups": 9,
+    "warmups_per_group": 1,
+    "measurements_per_group": 3,
+    "actual_requests": 36,
+    "prefix_recompute_on_question": 0,
+    "filesystem_cache": "Warm/uncontrolled; logical pool bytes are not measured physical NVMe traffic"
+  },
+  "cpu_validation": {
+    "status": "ACTUAL_RECEIPTS_CPU_COMPARISON_PASS_NOT_GPU_TIMING",
+    "scope": "Isolated CPU validation replay of actual 188-event image request,187 extensions. No inference. New path includes full entry/publication audits; both include prefix construction.",
+    "source_sha256": "89973d88e5f8c9d4736871a5eb4273c8e62b5ca8e9c3e2b16d57d0b976164e73",
+    "outputs": 186,
+    "runs": [
+      {
+        "mode": "incremental",
+        "seconds": 0.3355954240541905
+      },
+      {
+        "mode": "full-repeat",
+        "seconds": 13.606499501969665
+      },
+      {
+        "mode": "full-repeat",
+        "seconds": 13.60353742307052
+      },
+      {
+        "mode": "incremental",
+        "seconds": 0.29992774315178394
+      },
+      {
+        "mode": "incremental",
+        "seconds": 0.3054817470256239
+      },
+      {
+        "mode": "full-repeat",
+        "seconds": 13.536568850046024
+      }
+    ],
+    "medians": {
+      "incremental": 0.3054817470256239,
+      "full-repeat": 13.60353742307052
+    },
+    "speedup": 44.53142472675937,
+    "reduction_percent": 97.75439477596797
+  },
+  "comparison": {
+    "status": "INDEPENDENT_Q4_SPEED_MEASUREMENTS_AND_FOCUSED_REFERENCE_RECOVERY_PASS",
+    "scope": "Three measurements plus warmup per group. 24 paired baseline measurements only: previous overall campaign failed at text-root harness reporting. New36 measurements include text and return-to-image; original overall runner FAIL is retained. The zero-image reference command was fixed and only that missing text-reference stage was rerun successfully in a separate native process. Exact work/schedules/tokens/full frontiers checked; no claim that the entire corrected runner has rerun. Same native/model bytes, changed source/profile IDs. No long-context/Q8/full-G certification.",
+    "before_result_sha256": "89973d88e5f8c9d4736871a5eb4273c8e62b5ca8e9c3e2b16d57d0b976164e73",
+    "after_result_sha256": "ad961103a8e7e9ea8b7beeb3e2e81565c0bb0b96f23d03b5e253abdab2368869",
+    "before_profile": "0c0bc5464f45a3850ecb32b5d39d9538b5337f093e460e2d26bd9aa3480089d8",
+    "after_profile": "61d56afbbb79519633ff937aa335bc81991c6d4de692587d5458ceb71346e341",
+    "rows": [
+      {
+        "group": "cold-encode-prefill",
+        "before_seconds": 2.632801091996953,
+        "after_seconds": 2.639364056987688,
+        "whole_cli_speedup": 0.9975134294288203,
+        "whole_cli_reduction_percent": -0.24927690172587003,
+        "outputs": 0,
+        "before_individual_seconds": [
+          2.6259156048763543,
+          2.640450823120773,
+          2.632801091996953
+        ],
+        "after_individual_seconds": [
+          2.640570198884234,
+          2.639364056987688,
+          2.627333380980417
+        ]
+      },
+      {
+        "group": "disk",
+        "before_seconds": 17.622403925983235,
+        "after_seconds": 4.2715955739840865,
+        "whole_cli_speedup": 4.125485107558285,
+        "whole_cli_reduction_percent": 75.76042637584841,
+        "outputs": 186,
+        "before_individual_seconds": [
+          17.610405968967825,
+          18.05476493597962,
+          17.622403925983235
+        ],
+        "after_individual_seconds": [
+          4.2715955739840865,
+          4.285424803150818,
+          4.265981629025191
+        ],
+        "before_whole_cli_tps": 10.554746150481408,
+        "after_whole_cli_tps": 43.54344805786919,
+        "before_generation_seconds": 15.534565701847896,
+        "after_generation_seconds": 2.0196517079602927,
+        "before_native_compute_seconds": 1.406041108,
+        "after_native_compute_seconds": 1.406186717,
+        "captures": [
+          2,
+          2,
+          2
+        ],
+        "restores": [
+          0,
+          0,
+          0
+        ],
+        "before_stream_tps": 11.916055487441131,
+        "after_stream_tps": 91.9226173107548,
+        "before_ttft_ms": 755.770621,
+        "after_ttft_ms": 760.200249,
+        "before_tpot_ms": 83.92038800540541,
+        "after_tpot_ms": 10.878715481081082,
+        "after_last_token_to_durable_ms": 1399.407064
+      },
+      {
+        "group": "embedding-prefill",
+        "before_seconds": 1.5669678400736302,
+        "after_seconds": 1.572696124901995,
+        "whole_cli_speedup": 0.9963576658340645,
+        "whole_cli_reduction_percent": -0.3655649262141569,
+        "outputs": 0,
+        "before_individual_seconds": [
+          1.5669678400736302,
+          1.5599999190308154,
+          1.5711746790912002
+        ],
+        "after_individual_seconds": [
+          1.572696124901995,
+          1.576967203989625,
+          1.5621480830013752
+        ]
+      },
+      {
+        "group": "ram",
+        "before_seconds": 17.369044539052993,
+        "after_seconds": 4.028630547923967,
+        "whole_cli_speedup": 4.311401686611249,
+        "whole_cli_reduction_percent": 76.80568704360282,
+        "outputs": 186,
+        "before_individual_seconds": [
+          17.348205227870494,
+          17.369044539052993,
+          17.403386269928887
+        ],
+        "after_individual_seconds": [
+          4.023858692962676,
+          4.056898009032011,
+          4.028630547923967
+        ],
+        "before_whole_cli_tps": 10.708706491125229,
+        "after_whole_cli_tps": 46.169535227262145,
+        "before_generation_seconds": 15.542964529944584,
+        "after_generation_seconds": 2.021809414960444,
+        "before_native_compute_seconds": 1.405908494,
+        "after_native_compute_seconds": 1.406271975,
+        "captures": [
+          2,
+          2,
+          2
+        ],
+        "restores": [
+          0,
+          0,
+          0
+        ],
+        "before_stream_tps": 11.909543769750258,
+        "after_stream_tps": 91.8549328432052,
+        "before_ttft_ms": 503.832935,
+        "after_ttft_ms": 509.071743,
+        "before_tpot_ms": 83.96627270810811,
+        "after_tpot_ms": 10.8867316,
+        "after_last_token_to_durable_ms": 1395.043497
+      },
+      {
+        "group": "resident",
+        "before_seconds": 17.001846353989094,
+        "after_seconds": 3.7180690800305456,
+        "whole_cli_speedup": 4.572762363481804,
+        "whole_cli_reduction_percent": 78.13138054174813,
+        "outputs": 186,
+        "before_individual_seconds": [
+          17.001846353989094,
+          17.250670636072755,
+          16.961563553195447
+        ],
+        "after_individual_seconds": [
+          3.7133377250283957,
+          3.725098993862048,
+          3.7180690800305456
+        ],
+        "before_whole_cli_tps": 10.93998828876367,
+        "after_whole_cli_tps": 50.02596670379022,
+        "before_generation_seconds": 15.467646218137816,
+        "after_generation_seconds": 2.014984637964517,
+        "before_native_compute_seconds": 1.406086471,
+        "after_native_compute_seconds": 1.404410566,
+        "captures": [
+          1,
+          1,
+          1
+        ],
+        "restores": [
+          1,
+          1,
+          1
+        ],
+        "before_stream_tps": 11.963484396163071,
+        "after_stream_tps": 92.16113860776598,
+        "before_ttft_ms": 221.47398,
+        "after_ttft_ms": 222.429552,
+        "before_tpot_ms": 83.58768790810811,
+        "after_tpot_ms": 10.850560389189189,
+        "after_last_token_to_durable_ms": 1381.880273
+      },
+      {
+        "group": "resident-plain-cli",
+        "before_seconds": 17.12901036813855,
+        "after_seconds": 3.7174017659854144,
+        "whole_cli_speedup": 4.6077909912430375,
+        "whole_cli_reduction_percent": 78.29762673913663,
+        "outputs": 186,
+        "before_individual_seconds": [
+          17.23852373706177,
+          16.9515232660342,
+          17.12901036813855
+        ],
+        "after_individual_seconds": [
+          3.7174017659854144,
+          3.738231664057821,
+          3.6958479348104447
+        ],
+        "before_whole_cli_tps": 10.858770939036628,
+        "after_whole_cli_tps": 50.034946908864676,
+        "before_generation_seconds": 15.551128813065588,
+        "after_generation_seconds": 2.0179635190870613,
+        "before_native_compute_seconds": 1.4058536,
+        "after_native_compute_seconds": 1.40608767,
+        "captures": [
+          1,
+          1,
+          1
+        ],
+        "restores": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "paired_full_vectors": [
+      {
+        "operation": "latency-cold-encode-prefill-0",
+        "group": "cold-encode-prefill",
+        "warmup": true,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-cold-encode-prefill-1",
+        "group": "cold-encode-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-cold-encode-prefill-2",
+        "group": "cold-encode-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-cold-encode-prefill-3",
+        "group": "cold-encode-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-embedding-prefill-0",
+        "group": "embedding-prefill",
+        "warmup": true,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-embedding-prefill-1",
+        "group": "embedding-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-embedding-prefill-2",
+        "group": "embedding-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-embedding-prefill-3",
+        "group": "embedding-prefill",
+        "warmup": false,
+        "frontier_sha256": "fd15485a98b91fa7153541893fa238788ccef47281a47b0e0a9c4e0afd71aa81",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-0",
+        "group": "resident",
+        "warmup": true,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-1",
+        "group": "resident",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-2",
+        "group": "resident",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-3",
+        "group": "resident",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-plain-cli-0",
+        "group": "resident-plain-cli",
+        "warmup": true,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-plain-cli-1",
+        "group": "resident-plain-cli",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-plain-cli-2",
+        "group": "resident-plain-cli",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-resident-plain-cli-3",
+        "group": "resident-plain-cli",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-ram-0",
+        "group": "ram",
+        "warmup": true,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-ram-1",
+        "group": "ram",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-ram-2",
+        "group": "ram",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-ram-3",
+        "group": "ram",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-disk-0",
+        "group": "disk",
+        "warmup": true,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-disk-1",
+        "group": "disk",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-disk-2",
+        "group": "disk",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      },
+      {
+        "operation": "latency-disk-3",
+        "group": "disk",
+        "warmup": false,
+        "frontier_sha256": "ec29b7c14e62e0786278650ee35131902fb76e7d68115281ee760673ba6afb65",
+        "logits": 248320,
+        "max_abs_error": 0
+      }
+    ],
+    "numerical_max_error": 0,
+    "pids_absent": [
+      253941,
+      253998,
+      255444,
+      255376,
+      256774,
+      256758
+    ],
+    "new_reference_comparisons": [
+      {
+        "actual": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/reference-image/prefix.f32",
+        "bytes_identical": true,
+        "exact": true,
+        "expected": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/latency-embedding-prefill-3.f32",
+        "label": "image-prefix",
+        "max_abs_error": 0.0,
+        "values": 248320
+      },
+      {
+        "actual": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/reference-image/final.f32",
+        "bytes_identical": true,
+        "exact": true,
+        "expected": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/latency-resident-1.f32",
+        "label": "image-final",
+        "max_abs_error": 0.0,
+        "values": 248320
+      },
+      {
+        "label": "text-prefix",
+        "expected": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/latency-text-prefill-3.f32",
+        "actual": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-text-reference-v1/native/prefix.f32",
+        "values": 248320,
+        "max_abs_error": 0.0,
+        "bytes_identical": true,
+        "exact": true
+      },
+      {
+        "label": "text-final",
+        "expected": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-latency-1k-gpu-v1/latency-text-resident-1.f32",
+        "actual": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-owned-schedule-text-reference-v1/native/final.f32",
+        "values": 248320,
+        "max_abs_error": 0.0,
+        "bytes_identical": true,
+        "exact": true
+      }
+    ],
+    "original_runner_status": "FAIL_RETAINED",
+    "focused_recovery_status": "RECOVERED_TEXT_FRESH_REFERENCE_PASS_ORIGINAL_CAMPAIGN_FAIL_RETAINED",
+    "focused_recovery_result_sha256": "e8c4873ee2a2bea41a62aca9309ef3f8985e19d8f4034e3556493e49bec82e72"
+  },
+  "backup": {
+    "archive_bytes": 104272700,
+    "archive_sha256": "b6a8e29cb4518baf6f0945700ccad0d5953c734eedd01cb4ee57eeb59ea424e0",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-owned-schedule-latency-v2/evidence.tar.gz",
+    "individually_verified_data_files": 683,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 684,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "optional_state_retirement": {
+    "logical_bytes": 614345360,
+    "physical_free_delta": 614363136,
+    "canonical_originals_embeddings_and_vectors": "Retained; only inventoried optional state removed after verified archive"
+  },
+  "tests": {
+    "regression_union": 101,
+    "regression_failures": 0,
+    "regression_skips": 0,
+    "g0": 51,
+    "g0_failures": 0,
+    "tiny_full_vector_comparisons": 102,
+    "tiny_controller_comparisons": 7,
+    "tiny_numerical_max_error": 0
+  },
+  "integrity": "Per-new-step identity and boundary checks; unchanged full entry/publication/load/save validation and native byte-integrity checks. No hashes or tolerances removed.",
+  "failures": [
+    {
+      "stage": "Initial runtime freeze",
+      "reason": "Copied parent directory read-only; failure before override, detached target files then refroze; original source bytes reverified"
+    },
+    {
+      "stage": "Timing runner reference-text",
+      "reason": "Zero-image text prefix sent through image-only manifest; native rejected. Quit then raised BrokenPipeError. Original result and wrapper1 retained.",
+      "remedy": "Harness source routing/cleanup fixed test-first, 9 focused tests PASS, missing fresh text-reference stage independently executed PASS with2 exact full vectors. Corrected whole timing runner not rerun."
+    }
+  ],
+  "remaining": [
+    "Current-profile medium/8K every-frontier numerical campaign and longer-context throughput",
+    "Corrected whole timing runner end-to-end rerun",
+    "Thinking new-image suffix source2653a411 remains a separate CPU-only branch, not integrated",
+    "Supported format/EXIF/repeat/swap/auth matrix and complete VC09",
+    "Q8 deferred by owner; original cumulative G1-G5 unqualified"
+  ],
+  "later_local_vector_retirement": {
+    "report": "VISION-LATENCY-LOG-RETIREMENT-2026-10-18.json",
+    "scope": "Full numerical .f32 logs are now archive-only after exact remote archive+manifest re-verification and local ownership/inode/checksum validation. Original executed result unchanged. Canonical/originals/embeddings/manifests/controllers/non-numerical logs remain."
+  }
+}

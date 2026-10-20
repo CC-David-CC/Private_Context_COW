@@ -1,0 +1,12 @@
+{
+  "status": "BOUNDED_CPU_FIX_PASS_REAL_Q8_RERUN_PENDING",
+  "tests": 43,
+  "G0_tests": 51,
+  "failures": 0,
+  "skips": 0,
+  "observed_q8_failure": "Original root POST after process restart rejected with Committed request history differs from recorded inputs",
+  "cause": "Canonical typed-text history compared to legacy tuple expected input at root recovery",
+  "fix": "Use prior+job.ids so the existing empty canonical view supplies the correct representation; no flattening or weaker equality",
+  "controls": "Legacy tuple-root control passed before fix; new typed canonical text-root CPU fixture reproduced the exact failure",
+  "scope": "Real Q8 defect observed, corrected on actual Store/CPU backend; fixed real Q8 rerun remains pending"
+}

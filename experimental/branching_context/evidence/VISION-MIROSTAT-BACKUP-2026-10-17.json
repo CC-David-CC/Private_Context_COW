@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "archive": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-mirostat-collected-v2/evidence.tar.gz",
+    "bytes": 3620340328,
+    "sha256": "41ed5a4339ca3e6b1cfe4b158ad5115b5191119d20a6637d58e78a08e4d3025f"
+  },
+  "members": 1942,
+  "verification": "All regular archive members sequentially SHA256 verified",
+  "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-cow-vision-mirostat-v1/evidence.tar.gz",
+  "destination_sha256": "41ed5a4339ca3e6b1cfe4b158ad5115b5191119d20a6637d58e78a08e4d3025f",
+  "destination_bytes": 3620340328
+}

@@ -1,0 +1,961 @@
+{
+  "CPU": {
+    "errors": [],
+    "failures": [],
+    "skips": [],
+    "source_unchanged": true,
+    "tests": 304,
+    "xfails": []
+  },
+  "G0": {
+    "gates": [
+      {
+        "errors": 0,
+        "expected_failures": 0,
+        "failure_ids": [],
+        "failures": 0,
+        "found_tests": 51,
+        "gate": "G0",
+        "required_cases": 0,
+        "skipped": 0,
+        "skipped_ids": [],
+        "status": "PASS",
+        "test_count": 51,
+        "unexpected_successes": 0
+      }
+    ],
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "requested": "G0",
+    "schema": 1,
+    "source_tree_sha256": "32972c3a09b027087ec67de3798b95567c14a0316ec79046c90326f40af17836",
+    "status": "PASS",
+    "timestamp_utc": "2026-10-16T12:37:24.930154+00:00",
+    "tool": "scripts/verify.py"
+  },
+  "base_commit": "f9e979f4e132eef550c2a27124e0d6db9f96e26d",
+  "branch": "work/grammar-speed-20261016",
+  "derived_state_cleanup": {
+    "archive": "box-git:/srv/data/git/private_context_cow.evidence/20261016-grammar-first-v1/evidence.tar",
+    "archive_sha256_verified_on_controller": "b7be0910eb59c632e01e0186b3e31ed5038176631a677ce75791381fd814f1ab",
+    "bytes_freed": 923894265,
+    "evictions": [
+      {
+        "all_canonical_file_hashes_unchanged": true,
+        "canonical_after_sha256": "6462ab60a5714df8c4f829b90c1f3e2fba94f47b9453b2bc626150129f65bc61",
+        "canonical_before_sha256": "6462ab60a5714df8c4f829b90c1f3e2fba94f47b9453b2bc626150129f65bc61",
+        "canonical_file_hashes": {
+          "objects/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+          "ref-order.json": "c4d8d24db59a3aa6ee84cf4504ed71b6e69122350884f5b27e9db076f84a9a31",
+          "refs.json": "3d4a8c2c1b318d794d6c3d7de6122cae9eca7cccc32dc2d52131644166bde295",
+          "root-index/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "ecaf56277bb59fd8ca2e3f291bae63e79ff8e45a81aa634229756a3d4c83b485"
+        },
+        "canonical_snapshots_refs_controllers_histories_unchanged": true,
+        "checkpoint_directory_empty": true,
+        "evicted_files": [
+          {
+            "bytes": 891,
+            "relative_path": "checkpoints/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json",
+            "sha256": "f0979fb52a4db149bae5fd33d4901a3b3b7f2132da60958f2cca99a851ffacad"
+          },
+          {
+            "bytes": 307928820,
+            "relative_path": "checkpoints/c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6.state",
+            "sha256": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6"
+          }
+        ],
+        "expected_snapshots": [
+          "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206"
+        ],
+        "inventory_bytes": 307929711,
+        "inventory_file_count": 2,
+        "manifests": {
+          "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": {
+            "checksum": "82e2de28c9acb5f5d2a050263ec3092cfc0cfbc05998c7c4a81a5b18cfc14ca2",
+            "manifest": {
+              "consumed": 7231,
+              "execution_profile_id": "753a9a66ee4a4dcb72b26fefe4558b42e4e9e84263ef206bee3283c6e4302ee4",
+              "execution_schedule": [
+                {
+                  "chunks": [
+                    [
+                      0,
+                      7231
+                    ]
+                  ],
+                  "count": 7231,
+                  "operator": "batched-prefill",
+                  "position": 0,
+                  "tokens_sha256": "d1c8b9273a1715675fccf06bd75c4504d0b5808ed5d994a2255a525a8d0cdd2c"
+                }
+              ],
+              "input_identity": "8b042629cb8e5fbe3cfe24bf94f4761a6cea5f5469d0c8946cacd5db21bceb34",
+              "logits_count": 248320,
+              "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+              "payload_sha256": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6",
+              "positions": "absolute-zero-based",
+              "schedule_sha256": "4d0e8cfcbf3c97397d6e57e80637e00c37df8c1e649da58f5fa56075af265eb0",
+              "schema": 3,
+              "snapshot": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+              "state_bytes": 306935540
+            }
+          }
+        },
+        "method": "production-DiskCheckpointPool.reserve-pressure",
+        "metrics_after_release": {
+          "admission_waits": 0,
+          "byte_limit": 307929711,
+          "file_bytes": 0,
+          "files_evicted": 2,
+          "local_reserved_bytes": 0,
+          "recency_entries": 0,
+          "reserved_bytes": 0
+        },
+        "metrics_before": {
+          "admission_waits": 0,
+          "byte_limit": 307929711,
+          "file_bytes": 307929711,
+          "files_evicted": 0,
+          "local_reserved_bytes": 0,
+          "recency_entries": 1,
+          "reserved_bytes": 0
+        },
+        "metrics_during_reservation": {
+          "admission_waits": 0,
+          "byte_limit": 307929711,
+          "file_bytes": 0,
+          "files_evicted": 2,
+          "local_reserved_bytes": 307929711,
+          "recency_entries": 0,
+          "reserved_bytes": 307929711
+        },
+        "pressure_budget_bytes": 307929711,
+        "producer_receipt_unchanged": true,
+        "run": "gpu-q4-v1"
+      },
+      {
+        "all_canonical_file_hashes_unchanged": true,
+        "canonical_after_sha256": "dabfdc2079d76aca6cea9ebf6dd9fa55547ab2401e2584ce485b779ab27eb5f3",
+        "canonical_before_sha256": "dabfdc2079d76aca6cea9ebf6dd9fa55547ab2401e2584ce485b779ab27eb5f3",
+        "canonical_file_hashes": {
+          "objects/0784e2f90550b06f0ae80f28575cc75278f6cc8ecc4082d6e6334b977dab70e4.json": "0784e2f90550b06f0ae80f28575cc75278f6cc8ecc4082d6e6334b977dab70e4",
+          "objects/629fc4a180f40486722233d943166a0ee3c1626d6b1aea357e4e87278d668bb8.json": "629fc4a180f40486722233d943166a0ee3c1626d6b1aea357e4e87278d668bb8",
+          "objects/6ffe102ef95645af244b65973114c73402bde4b3b8a79c429d2504cf9d489b90.json": "6ffe102ef95645af244b65973114c73402bde4b3b8a79c429d2504cf9d489b90",
+          "objects/87d5a6cb40a8a21dcc2957941e0c64097fc01cfc328c726e0fb89f5c3f6c60bf.json": "87d5a6cb40a8a21dcc2957941e0c64097fc01cfc328c726e0fb89f5c3f6c60bf",
+          "objects/aade0e3367a749ad7bf1ae1a333b90ea51ed459c531c0e3148911f2fb6c88c7e.json": "aade0e3367a749ad7bf1ae1a333b90ea51ed459c531c0e3148911f2fb6c88c7e",
+          "objects/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+          "objects/caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319.json": "caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319",
+          "ref-order.json": "c4d8d24db59a3aa6ee84cf4504ed71b6e69122350884f5b27e9db076f84a9a31",
+          "refs.json": "3d4a8c2c1b318d794d6c3d7de6122cae9eca7cccc32dc2d52131644166bde295",
+          "root-index/0784e2f90550b06f0ae80f28575cc75278f6cc8ecc4082d6e6334b977dab70e4.json": "b4f5c839aca04582568552e5a2f21227df3735076550b85a3d91159fcabe2fb3",
+          "root-index/629fc4a180f40486722233d943166a0ee3c1626d6b1aea357e4e87278d668bb8.json": "59cbbce6449f7c4128eeeb271ac7765359067224ef7881d3d0ff12df864ba224",
+          "root-index/6ffe102ef95645af244b65973114c73402bde4b3b8a79c429d2504cf9d489b90.json": "326a2c62291a475b85016dbf1204cf6e13eeb48cc581a8b5800e7a8023a776c2",
+          "root-index/87d5a6cb40a8a21dcc2957941e0c64097fc01cfc328c726e0fb89f5c3f6c60bf.json": "000f125fba0f70436017f1f7374d223a10b8de217569a3cbb8af87c84e9ffb16",
+          "root-index/aade0e3367a749ad7bf1ae1a333b90ea51ed459c531c0e3148911f2fb6c88c7e.json": "e770b0bd5e88fbf3817c0f4777a8159d0fb04dd347b12b4073b4de12c38f3b28",
+          "root-index/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": "ecaf56277bb59fd8ca2e3f291bae63e79ff8e45a81aa634229756a3d4c83b485",
+          "root-index/caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319.json": "24f3bcb6623d30cf7fae154b8cf54158c5b5a409e614fbdf8fb1b9649e596059"
+        },
+        "canonical_snapshots_refs_controllers_histories_unchanged": true,
+        "checkpoint_directory_empty": true,
+        "evicted_files": [
+          {
+            "bytes": 308033284,
+            "relative_path": "checkpoints/5e22c757d7b14e7e6ee13d97c13f6d8380209217db407b1e25641fe09eabc140.state",
+            "sha256": "5e22c757d7b14e7e6ee13d97c13f6d8380209217db407b1e25641fe09eabc140"
+          },
+          {
+            "bytes": 891,
+            "relative_path": "checkpoints/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json",
+            "sha256": "27524d7b1a5c38b32541e8d8da9a5269012fdd2bf000a2be26cbecff0f261ce0"
+          },
+          {
+            "bytes": 307928820,
+            "relative_path": "checkpoints/c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6.state",
+            "sha256": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6"
+          },
+          {
+            "bytes": 1559,
+            "relative_path": "checkpoints/caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319.json",
+            "sha256": "dd3e53e1062e1c78f861d2c0592c4d925607909b22000ce1ce90fdbc66b2fa78"
+          }
+        ],
+        "expected_snapshots": [
+          "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+          "caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319"
+        ],
+        "inventory_bytes": 615964554,
+        "inventory_file_count": 4,
+        "manifests": {
+          "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json": {
+            "checksum": "2e56ba6db312c975e1041bf61bf8dada5e71bac5dd36dc33548db800eec34208",
+            "manifest": {
+              "consumed": 7231,
+              "execution_profile_id": "6142e706078a9bfce8748823bf60a9de538ec6a6898d6a717bfb0efffc5d1a17",
+              "execution_schedule": [
+                {
+                  "chunks": [
+                    [
+                      0,
+                      7231
+                    ]
+                  ],
+                  "count": 7231,
+                  "operator": "batched-prefill",
+                  "position": 0,
+                  "tokens_sha256": "d1c8b9273a1715675fccf06bd75c4504d0b5808ed5d994a2255a525a8d0cdd2c"
+                }
+              ],
+              "input_identity": "8b042629cb8e5fbe3cfe24bf94f4761a6cea5f5469d0c8946cacd5db21bceb34",
+              "logits_count": 248320,
+              "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+              "payload_sha256": "c80445d6ae710747d68409a8c2f7c6bf05dc60dc010ed8f0b079b1b37c0fe5a6",
+              "positions": "absolute-zero-based",
+              "schedule_sha256": "4d0e8cfcbf3c97397d6e57e80637e00c37df8c1e649da58f5fa56075af265eb0",
+              "schema": 3,
+              "snapshot": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+              "state_bytes": 306935540
+            }
+          },
+          "caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319.json": {
+            "checksum": "0dbd5395b628f7eddaee4e019c6061da088f9f0c9aaa04238eba97decc1a9405",
+            "manifest": {
+              "consumed": 7235,
+              "execution_profile_id": "6142e706078a9bfce8748823bf60a9de538ec6a6898d6a717bfb0efffc5d1a17",
+              "execution_schedule": [
+                {
+                  "chunks": [
+                    [
+                      0,
+                      7231
+                    ]
+                  ],
+                  "count": 7231,
+                  "operator": "batched-prefill",
+                  "position": 0,
+                  "tokens_sha256": "d1c8b9273a1715675fccf06bd75c4504d0b5808ed5d994a2255a525a8d0cdd2c"
+                },
+                {
+                  "chunks": [
+                    [
+                      7231,
+                      1
+                    ]
+                  ],
+                  "count": 1,
+                  "operator": "normal-verifier-decode",
+                  "position": 7231,
+                  "tokens_sha256": "aabc7365eddabcd3d2424e1a4798b9d79e5aa0dba0963c36621c36d8c29c3b65"
+                },
+                {
+                  "chunks": [
+                    [
+                      7232,
+                      1
+                    ]
+                  ],
+                  "count": 1,
+                  "operator": "normal-verifier-decode",
+                  "position": 7232,
+                  "tokens_sha256": "6ef716b879d175eb7aaec6773899f422a0956875747dcfdc3bc27539a1ad1766"
+                },
+                {
+                  "chunks": [
+                    [
+                      7233,
+                      1
+                    ]
+                  ],
+                  "count": 1,
+                  "operator": "normal-verifier-decode",
+                  "position": 7233,
+                  "tokens_sha256": "ff679d4efa1153f9cf9357d7e09c38f956635b9410598dc64de993aa844fd54e"
+                },
+                {
+                  "chunks": [
+                    [
+                      7234,
+                      1
+                    ]
+                  ],
+                  "count": 1,
+                  "operator": "normal-verifier-decode",
+                  "position": 7234,
+                  "tokens_sha256": "edb2009b24d0f4c0a4e59612f77883c01f12012b4794b78ae1bb4abd59345189"
+                }
+              ],
+              "input_identity": "dfa0dc76e5eb48f814ddb5bdc8f3f3247097c2226eb4c71f333bce82ebe8ae61",
+              "logits_count": 248320,
+              "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+              "payload_sha256": "5e22c757d7b14e7e6ee13d97c13f6d8380209217db407b1e25641fe09eabc140",
+              "positions": "absolute-zero-based",
+              "schedule_sha256": "3defb766e4886335660c17c93730eb491b0fa7490054b7f77790c116786f87af",
+              "schema": 3,
+              "snapshot": "caa22d289c1f763fdde68dfea17ef5eede9ac82333dbf61db86fb9f979afa319",
+              "state_bytes": 307040004
+            }
+          }
+        },
+        "method": "production-DiskCheckpointPool.reserve-pressure",
+        "metrics_after_release": {
+          "admission_waits": 0,
+          "byte_limit": 615964554,
+          "file_bytes": 0,
+          "files_evicted": 4,
+          "local_reserved_bytes": 0,
+          "recency_entries": 0,
+          "reserved_bytes": 0
+        },
+        "metrics_before": {
+          "admission_waits": 0,
+          "byte_limit": 615964554,
+          "file_bytes": 615964554,
+          "files_evicted": 0,
+          "local_reserved_bytes": 0,
+          "recency_entries": 2,
+          "reserved_bytes": 0
+        },
+        "metrics_during_reservation": {
+          "admission_waits": 0,
+          "byte_limit": 615964554,
+          "file_bytes": 0,
+          "files_evicted": 4,
+          "local_reserved_bytes": 615964554,
+          "recency_entries": 0,
+          "reserved_bytes": 615964554
+        },
+        "pressure_budget_bytes": 615964554,
+        "producer_receipt_unchanged": true,
+        "run": "gpu-q4-v2"
+      }
+    ],
+    "retention": "Archive retains source, manifests, full comparison vectors and failures, but excludes derived .state payloads. Final v3 checkpoint payloads remain on llm-60. Earlier three codebase roots untouched.",
+    "status": "PASS"
+  },
+  "fingerprints": {
+    "api_sha256": {
+      "experimental/branching_context/src/context_time_travel/grammar_first.py": "d8172112c085884696a98ae624c748469271e54ba3af7dd1a4e2384349748db6",
+      "experimental/branching_context/src/context_time_travel/real.py": "60ea9fb91b8bcd50787605c053ad17083099fd5f25d73d8f1e0cbce792e0add1"
+    },
+    "backend_revision": "private-llm60-20261012T0818",
+    "benchmark_script_sha256": "e8a151b05c64fdc7ee57369129b3d4019550b43ab6e90117d3659ae456777de9",
+    "execution_profile_id": "6178300d8adb160df429335e43e954039c8dcb527b63ee72d42d2df72f911417",
+    "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+    "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+    "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+    "native_binary_path": "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/native-receipt-build-v1/output-v4/strata-batched-branch-lazy-grammar",
+    "native_binary_sha256": "4fb6f7978d6af1e8a11d448e760799aa3207f4953dc78a75d76361af15121d61",
+    "profile_sha256": "cf5d6039718476d1c58aabf65d691d2290b6b93a632b52f3f299e1da93401559"
+  },
+  "host": "llm-60",
+  "limitations": [
+    "Static GBNF and greedy only; no Min-P implementation",
+    "No tool execution",
+    "No Q8, HIP, SYCL or serving-grammar qualification",
+    "Full-vector host selection remains dominant",
+    "Global peak RAM/VRAM not sampled",
+    "Final derived checkpoint payloads retained on llm-60; evidence archive excludes .state files"
+  ],
+  "performance": {
+    "baseline_instrumented": {
+      "EDIT": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 29,
+            "seconds": 0.27433775272220373
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06599706597626209
+          },
+          "backend.logits": {
+            "calls": 29,
+            "seconds": 0.11566950846463442
+          },
+          "grammar.choose": {
+            "calls": 29,
+            "seconds": 0.8416108107194304
+          },
+          "grammar.consume_checked": {
+            "calls": 29,
+            "seconds": 1.2558402502909303
+          },
+          "grammar.validate_controller": {
+            "calls": 31,
+            "seconds": 0.4192960481159389
+          },
+          "model.completed_schedule": {
+            "calls": 29,
+            "seconds": 0.00875316932797432
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05805576592683792
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.072051185881719
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 225947803,
+          "decode_finish_ns": 3084097,
+          "decode_prepare_ns": 21156406,
+          "decode_timed_tokens": 29,
+          "forward_tokens": 29,
+          "integrity_device_hashed_bytes": 4907335680,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 29
+      },
+      "FINISH": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 10,
+            "seconds": 0.09728495730087161
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06329021509736776
+          },
+          "backend.logits": {
+            "calls": 10,
+            "seconds": 0.03932006401009858
+          },
+          "grammar.choose": {
+            "calls": 10,
+            "seconds": 0.18598865903913975
+          },
+          "grammar.consume_checked": {
+            "calls": 10,
+            "seconds": 0.4359208659734577
+          },
+          "grammar.validate_controller": {
+            "calls": 12,
+            "seconds": 0.1607486023567617
+          },
+          "model.completed_schedule": {
+            "calls": 10,
+            "seconds": 0.0026143542490899563
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05380497802980244
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.06943749194033444
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 77775480,
+          "decode_finish_ns": 1135078,
+          "decode_prepare_ns": 10153999,
+          "decode_timed_tokens": 10,
+          "forward_tokens": 10,
+          "integrity_device_hashed_bytes": 2038431744,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 10
+      },
+      "READ": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 13,
+            "seconds": 0.12528313207440078
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.062415631022304296
+          },
+          "backend.logits": {
+            "calls": 13,
+            "seconds": 0.05098372790962458
+          },
+          "grammar.choose": {
+            "calls": 13,
+            "seconds": 0.2411574546713382
+          },
+          "grammar.consume_checked": {
+            "calls": 13,
+            "seconds": 0.5593445484992117
+          },
+          "grammar.validate_controller": {
+            "calls": 15,
+            "seconds": 0.20122027257457376
+          },
+          "model.completed_schedule": {
+            "calls": 13,
+            "seconds": 0.00363970547914505
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05450920690782368
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.06846457091160119
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 101128934,
+          "decode_finish_ns": 1387952,
+          "decode_prepare_ns": 11915782,
+          "decode_timed_tokens": 13,
+          "forward_tokens": 13,
+          "integrity_device_hashed_bytes": 2491416576,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 13
+      },
+      "TEST": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 11,
+            "seconds": 0.10652873711660504
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06590843689627945
+          },
+          "backend.logits": {
+            "calls": 11,
+            "seconds": 0.04404259077273309
+          },
+          "grammar.choose": {
+            "calls": 11,
+            "seconds": 0.2044767984189093
+          },
+          "grammar.consume_checked": {
+            "calls": 11,
+            "seconds": 0.47436737082898617
+          },
+          "grammar.validate_controller": {
+            "calls": 13,
+            "seconds": 0.175346220145002
+          },
+          "model.completed_schedule": {
+            "calls": 11,
+            "seconds": 0.0031104988884180784
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05438472121022642
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.07208331604488194
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 85586400,
+          "decode_finish_ns": 1138655,
+          "decode_prepare_ns": 10748173,
+          "decode_timed_tokens": 11,
+          "forward_tokens": 11,
+          "integrity_device_hashed_bytes": 2189426688,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 11
+      }
+    },
+    "candidate_instrumented": {
+      "EDIT": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 29,
+            "seconds": 0.26553878653794527
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06499826908111572
+          },
+          "backend.logits": {
+            "calls": 29,
+            "seconds": 0.10793722257949412
+          },
+          "grammar.choose": {
+            "calls": 29,
+            "seconds": 0.8581657616887242
+          },
+          "grammar.consume_owned": {
+            "calls": 29,
+            "seconds": 0.0014123076107352972
+          },
+          "grammar.validate_controller": {
+            "calls": 3,
+            "seconds": 0.040594642981886864
+          },
+          "model.completed_schedule": {
+            "calls": 29,
+            "seconds": 0.007942065363749862
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05428894096985459
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.07151835411787033
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 225474652,
+          "decode_finish_ns": 2756705,
+          "decode_prepare_ns": 19785167,
+          "decode_timed_tokens": 29,
+          "forward_tokens": 29,
+          "integrity_device_hashed_bytes": 4907335680,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 29
+      },
+      "FINISH": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 10,
+            "seconds": 0.09457731083966792
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06511327694170177
+          },
+          "backend.logits": {
+            "calls": 10,
+            "seconds": 0.03829772397875786
+          },
+          "grammar.choose": {
+            "calls": 10,
+            "seconds": 0.1899937593843788
+          },
+          "grammar.consume_owned": {
+            "calls": 10,
+            "seconds": 0.0004281878937035799
+          },
+          "grammar.validate_controller": {
+            "calls": 3,
+            "seconds": 0.04210805403999984
+          },
+          "model.completed_schedule": {
+            "calls": 10,
+            "seconds": 0.0027449638582766056
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.053445767145603895
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.07126687606796622
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 77699075,
+          "decode_finish_ns": 996175,
+          "decode_prepare_ns": 9357974,
+          "decode_timed_tokens": 10,
+          "forward_tokens": 10,
+          "integrity_device_hashed_bytes": 2038431744,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 10
+      },
+      "READ": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 13,
+            "seconds": 0.12009696033783257
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06527538597583771
+          },
+          "backend.logits": {
+            "calls": 13,
+            "seconds": 0.048545162193477154
+          },
+          "grammar.choose": {
+            "calls": 13,
+            "seconds": 0.24711411749012768
+          },
+          "grammar.consume_owned": {
+            "calls": 13,
+            "seconds": 0.0005771450232714415
+          },
+          "grammar.validate_controller": {
+            "calls": 3,
+            "seconds": 0.040377208730205894
+          },
+          "model.completed_schedule": {
+            "calls": 13,
+            "seconds": 0.0028801520820707083
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.05482639302499592
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.07142087910324335
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 101059756,
+          "decode_finish_ns": 1222408,
+          "decode_prepare_ns": 11101103,
+          "decode_timed_tokens": 13,
+          "forward_tokens": 13,
+          "integrity_device_hashed_bytes": 2491416576,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 13
+      },
+      "TEST": {
+        "costs": {
+          "backend.consume_generated": {
+            "calls": 11,
+            "seconds": 0.10332233062945306
+          },
+          "backend.export": {
+            "calls": 1,
+            "seconds": 0.06588200014084578
+          },
+          "backend.logits": {
+            "calls": 11,
+            "seconds": 0.04152178764343262
+          },
+          "grammar.choose": {
+            "calls": 11,
+            "seconds": 0.21072500990703702
+          },
+          "grammar.consume_owned": {
+            "calls": 11,
+            "seconds": 0.0005369600839912891
+          },
+          "grammar.validate_controller": {
+            "calls": 3,
+            "seconds": 0.04173026396892965
+          },
+          "model.completed_schedule": {
+            "calls": 11,
+            "seconds": 0.002408944070339203
+          },
+          "model.publish_feed": {
+            "calls": 1,
+            "seconds": 0.053786704782396555
+          },
+          "model.save": {
+            "calls": 1,
+            "seconds": 0.07189221703447402
+          }
+        },
+        "native_counter_deltas": {
+          "captures": 1,
+          "decode_compute_ns": 85545326,
+          "decode_finish_ns": 1023366,
+          "decode_prepare_ns": 10302933,
+          "decode_timed_tokens": 11,
+          "forward_tokens": 11,
+          "integrity_device_hashed_bytes": 2189426688,
+          "integrity_mismatches": 0,
+          "loaded_file_bytes": 0,
+          "prefill_tokens": 0,
+          "restores": 1,
+          "written_file_bytes": 0
+        },
+        "output_count": 11
+      }
+    },
+    "generation_timing": "Token selection through native consumption; excludes setup, final capture and publication",
+    "global_peak_ram_vram": "UNMEASURED in this focused probe; native memory counters are not whole-process/GPU peaks",
+    "instrumentation": "Inclusive nested wall timers; not additive and not CUDA-event GPU timings",
+    "numerical_comparisons": 40,
+    "numerical_max_error": 0,
+    "observed_native_memory_counters": {
+      "handle_peak_bytes": 240,
+      "live_bytes": 603979776,
+      "snapshot_peak_payload_capacity_bytes": 714512504
+    },
+    "prefix_tokens": 7231,
+    "repetitions": "one warmup; three measured; one separately instrumented per state and profile",
+    "request_timing": "Complete BranchingModel.run_state_request wall time; not CLI/HTTP or durable disk-save latency",
+    "states": {
+      "EDIT": {
+        "baseline": {
+          "generation_seconds": 2.5246438570320606,
+          "generation_tps": 11.486768685897754,
+          "request_seconds": 2.7512058690190315
+        },
+        "candidate": {
+          "generation_seconds": 1.2531269718892872,
+          "generation_tps": 23.14210822250351,
+          "request_seconds": 1.4996870029717684
+        },
+        "generation_speed_ratio": 2.0146752194039523,
+        "request_latency_reduction": 0.45489829755761024
+      },
+      "FINISH": {
+        "baseline": {
+          "generation_seconds": 0.7659173719584942,
+          "generation_tps": 13.056238657218902,
+          "request_seconds": 0.9892638451419771
+        },
+        "candidate": {
+          "generation_seconds": 0.3294821260496974,
+          "generation_tps": 30.35066004913314,
+          "request_seconds": 0.5622468700166792
+        },
+        "generation_speed_ratio": 2.3246097782037713,
+        "request_latency_reduction": 0.43165124978767755
+      },
+      "READ": {
+        "baseline": {
+          "generation_seconds": 1.002827774034813,
+          "generation_tps": 12.96334259640151,
+          "request_seconds": 1.2275164481252432
+        },
+        "candidate": {
+          "generation_seconds": 0.4285685170907527,
+          "generation_tps": 30.333539402865537,
+          "request_seconds": 0.6611447010654956
+        },
+        "generation_speed_ratio": 2.3399473690748414,
+        "request_latency_reduction": 0.46139646269078816
+      },
+      "TEST": {
+        "baseline": {
+          "generation_seconds": 0.8403209049720317,
+          "generation_tps": 13.090237235459602,
+          "request_seconds": 1.061738196061924
+        },
+        "candidate": {
+          "generation_seconds": 0.36128024104982615,
+          "generation_tps": 30.447278179497587,
+          "request_seconds": 0.5962230090517551
+        },
+        "generation_speed_ratio": 2.325953123066419,
+        "request_latency_reduction": 0.43844630318171074
+      }
+    }
+  },
+  "qualification": "Request-owned greedy-GBNF performance and bounded matching-operator restart only; original cumulative G1-G5 unqualified",
+  "raw_results": {
+    "baseline-v1/result.json": "fe5585ebe7904359498d5e59416933c41268ee7bf79f9a00982c353a3df068c6",
+    "candidate-v1/result.json": "a5faf568fbe2f38aaf33611e8453054961d24c58759534a485c51126af1e3e73",
+    "combined-cpu-v3.json": "68282a686e08bb66db22c17a4271b6a5315fbb3275c9bc456eaaae94f25596ef",
+    "restart-v1/campaign.json": "5d6eef5fda340e541d3cf8c934ed58bbb1454a840a216a88321e845cc7247855",
+    "restart-v1/prepare.json": "a813ab437f213b123c713ceb1f077b0212dabdaa000c5b630f63bfff69157ad3",
+    "restart-v1/resume.json": "a71fade489c716f4767335929d0e7b2b32743ae1cb309195be9ee005a975a2fe"
+  },
+  "red_reason": "New request-owned methods absent from the baseline; errors retained",
+  "red_tests": [
+    "test_grammar_owned.GrammarOwnedTests.test_exported_controller_cannot_mutate_session_or_sibling",
+    "test_grammar_owned.GrammarOwnedTests.test_foreign_thread_cannot_advance_or_read_owned_session",
+    "test_grammar_owned.GrammarOwnedTests.test_invalid_owned_token_preserves_state_and_valid_owner_can_continue",
+    "test_grammar_owned.GrammarOwnedTests.test_owned_and_checked_public_transitions_produce_identical_controllers",
+    "test_grammar_owned.GrammarOwnedTests.test_owned_transition_does_not_copy_or_validate_vocabulary_per_token",
+    "test_grammar_owned.GrammarOwnedTests.test_public_stale_controller_rejected_before_matcher_changes"
+  ],
+  "restart": {
+    "comparisons": 5,
+    "final_frontier_sampling": "Four completed actions and resumed READ final; no every-token independent oracle",
+    "numerical_max_error": 0,
+    "partial_restore_forward_tokens": 0,
+    "prefix_tokens": 7231,
+    "processes": [
+      {
+        "cleanup_needed": false,
+        "exit_code": 0,
+        "live_group_pids": [],
+        "pid": 3013947,
+        "pid_absent": true,
+        "stage": "prepare",
+        "timed_out": false
+      },
+      {
+        "cleanup_needed": false,
+        "exit_code": 0,
+        "live_group_pids": [],
+        "pid": 3014007,
+        "pid_absent": true,
+        "stage": "resume",
+        "timed_out": false
+      }
+    ],
+    "root_restore_forward_tokens": 0,
+    "save_after_generated_tokens": 4
+  },
+  "schema": "cow-grammar-owned-controller-v1",
+  "status": "FOCUSED-PASS",
+  "terminal_receipts": {
+    "baseline-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/baseline-command-v1",
+      "wrapper_exit": 0
+    },
+    "candidate-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/candidate-command-v1",
+      "wrapper_exit": 0
+    },
+    "combined-cpu-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/combined-cpu-command-v1",
+      "wrapper_exit": 0
+    },
+    "combined-cpu-command-v3": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/combined-cpu-command-v3",
+      "wrapper_exit": 0
+    },
+    "g0-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/g0-command-v1",
+      "wrapper_exit": 0
+    },
+    "green-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/green-command-v1",
+      "wrapper_exit": 0
+    },
+    "restart-command-v1": {
+      "command_exit": 0,
+      "directory": "/home/dflanag3/spatial-artifacts/grammar-speed-20261016-v1/restart-command-v1",
+      "wrapper_exit": 0
+    }
+  }
+}

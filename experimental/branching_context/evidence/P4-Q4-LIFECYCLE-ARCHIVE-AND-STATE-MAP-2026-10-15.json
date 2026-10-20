@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "status": "PASS_ARCHIVED_MAP_READ_ONLY_NO_DELETE",
+  "scope": "Raw terminal Q4 P4 lifecycle-attribution run plus source/reference provenance. This is not a standalone rerun bundle.",
+  "execution": {
+    "run": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1",
+    "result_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/result.json",
+    "result_sha256": "fa1f7b856f1808c8f8a109e248d5a5191f4fb0ab0b213a1ef4547c407976345c",
+    "result_status": "PASS",
+    "arm": "resident",
+    "measured_requests": 9,
+    "native_exit_codes": [0],
+    "source_checkpoints_unchanged": true,
+    "gpu": [0],
+    "capacity": 98304,
+    "prefill_chunk": 8192,
+    "execution_profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763"
+  },
+  "archive": {
+    "target": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar",
+    "receiver_receipt_path": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar.receipt.json",
+    "receiver_receipt_sha256": "513126b097fec519c993aac095c28f237ea29aa82b56ea2b2f4d0bfa3edaf00c",
+    "receiver_receipt_bytes": 815,
+    "receiver_receipt_mode": "600",
+    "receiver_receipt_status": "PASS",
+    "archive_bytes": 17866014720,
+    "archive_sha256": "d01af0087b43f4c8f3558ae64d49377d8f927c0ec31420035134644cd347684f",
+    "source_stream_bytes": 17866014720,
+    "source_stream_sha256": "d01af0087b43f4c8f3558ae64d49377d8f927c0ec31420035134644cd347684f",
+    "tar_source_member_count": 338,
+    "manifest_member_count": 1,
+    "tar_total_regular_member_count": 339,
+    "preflight_input_bytes": 17865625974,
+    "manifest_source_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-20261015-03/manifest.json",
+    "manifest_raw_sha256": "7f74320abfe33b2aa2e89b176c357b5544ac0dc2b9770e558076b7cbbd9c728d",
+    "receiver_canonical_manifest_sha256": "a3132396dbd2e0afe53e33a4f988d37cf18f2f307458ae38d2d60c453b2c9301",
+    "member_listing_sha256": "906bbbb2280b1e211a144e519254a539ad2684f96544cee548e5341b0d288be8",
+    "receiver_verification": "Every regular tar member matches the embedded sorted input manifest.",
+    "attempt03_command_exit": 0,
+    "attempt03_wrapper_exit": 0,
+    "attempt03_pids_terminal": true,
+    "attempt03_tmux": "p4-q4-lifecycle-archive-attempt03-20261015",
+    "attempt03_run_command_receipt_dir": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-command-20261015-03",
+    "attempt03_sender_sha256": "826bf07b2732accab37f136ee7525c722f1ae3211bd2cdd6b57b59d5fec10334",
+    "attempt03_start_sha256": "053b9325061c5e3aa462d0f60757e0315caba7f37daaac67519d61ef87aa336a",
+    "failed_attempts_preserved": [
+      {
+        "attempt": "01",
+        "sender_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-20261015-01/archive_p4_q4_lifecycle_attribution.py",
+        "sender_sha256": "baf302c39b4e7ee50934671de27fca6cbf266be09edc999f3f27fe4140658c12",
+        "start_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-20261015-01/start.sh",
+        "start_sha256": "44d6ae95cd5b158e797b14dee2f45ae4edbc7e32a7aff1071ea3ac76fac809fa",
+        "run_command_receipt_dir": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-command-20261015-01",
+        "command_exit": 2,
+        "wrapper_exit": 2,
+        "failure": "Refused unexpected external generated-build symlink before manifest or transfer."
+      },
+      {
+        "attempt": "02",
+        "sender_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-20261015-02/archive_p4_q4_lifecycle_attribution.py",
+        "sender_sha256": "2fe50f4c2bb05a60fcd47ca11a9fa4b71882209fc09bef3ea515219630628e49",
+        "start_path": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-20261015-02/start.sh",
+        "start_sha256": "392a169be0157349c677adc6ec235f1ed3f557b1492feb89278f800311ba8637",
+        "run_command_receipt_dir": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-archive-command-20261015-02",
+        "command_exit": 2,
+        "wrapper_exit": 2,
+        "failure": "After attempt 01's reviewed build-link rule, refused the separate native src/program source symlink before manifest or transfer."
+      }
+    ]
+  },
+  "source_links": {
+    "excluded_generated_build": {
+      "logical_path": "source/native-source-digest-v1/build",
+      "link_text": "/home/dflanag3/branching-g3/durable-resume-20261013/source/build",
+      "resolved_target": "/home/dflanag3/branching-g3/context-cow-public-20261013/build",
+      "handling": "Excluded the external generated build tree; its executed build receipt, driver, and generator are archived separately."
+    },
+    "resolved_native_program_source": {
+      "logical_path": "source/native-source-digest-v1/src/program",
+      "link_text": "/home/dflanag3/branching-g3/durable-resume-20261013/source/src/program",
+      "resolved_target": "/home/dflanag3/branching-g3/durable-resume-20261013/source/src/program",
+      "handling": "Resolved regular source files were archived under the logical src/program path; inventory found no nested symlinks."
+    }
+  },
+  "large_file_inventory": {
+    "observed_scope": "/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident",
+    "large_file_threshold_bytes": 104857600,
+    "large_file_count": 9,
+    "all_large_payload_bytes": 17789976604,
+    "candidate_run_output_bytes": 17789976604,
+    "non_root_copy_bytes": 12298169908,
+    "run_root_copy_bytes": 5491806696,
+    "all_files_mode_octal": "600",
+    "all_files_nlink": 1,
+    "all_large_files_are_state_payloads": true,
+    "state_files": [
+      {"payload_sha256":"0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea","bytes":2051119588,"inode":2515782,"classification":"measured_answer_payload","measured_snapshots":["4512c70774010ce7d461d9306aeb822d8c5c763cc90e03c361faf1018a1d8cdf","23fd1c93c65cb734242cc8376a859af788e824dbe900b87c5d6c254c9237a60d","930b66e55ce4b5810aa4cba4113449a68618bbc547790f2a0310acc669aaf44b"]},
+      {"payload_sha256":"3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca","bytes":2048403516,"inode":2515747,"classification":"output_state_not_referenced_by_measured_samples","checkpoint_metadata_snapshot":"e6919ebd7d59a56761ac40bc412389637fef49ca5d10ca99aef5a3dceac12b3e"},
+      {"payload_sha256":"43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7","bytes":1830602232,"inode":2515736,"classification":"run_copy_of_protected_source_root","source_root_snapshot":"bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a"},
+      {"payload_sha256":"4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd","bytes":2047782888,"inode":2515741,"classification":"output_state_not_referenced_by_measured_samples","checkpoint_metadata_snapshot":"22590bf2bb674937d6fa1c88ee985aff795d1e14d784e8211a53f992d9b86ab8"},
+      {"payload_sha256":"4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db","bytes":2051230200,"inode":2515775,"classification":"measured_answer_payload","measured_snapshots":["6ce7907b83c42e16bd9cc7d88bbb46bac974f5fc8b9285f6aa1bfd6fe4d68ed2","a5ca33697d2194f7e6a9f9f4be5e35706db1439e936c281d7a3510ffc5ca52d4","dc875dacdc51fa416bb23ffbe2bac4a2f8d105032b1c671b41b61df4b61b0e75"]},
+      {"payload_sha256":"9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7","bytes":1830602232,"inode":2515734,"classification":"run_copy_of_protected_source_root","source_root_snapshot":"c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316"},
+      {"payload_sha256":"a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba","bytes":2047985660,"inode":2515754,"classification":"output_state_not_referenced_by_measured_samples","checkpoint_metadata_snapshot":"6f2fe0a9fc033d148e1e554de3f2b76a4f266e52d2df796dcd2859bcb6824b99"},
+      {"payload_sha256":"cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca","bytes":1830602232,"inode":2515732,"classification":"run_copy_of_protected_source_root","source_root_snapshot":"e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286"},
+      {"payload_sha256":"e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0","bytes":2051648056,"inode":2515768,"classification":"measured_answer_payload","measured_snapshots":["0b1500d534c55330836984a8bbdee204509756e7fd79163a064a5e382752e961","dc9f9cb196423ed9ff160ed420d1d80f471397702ccf9646cb73e063eadc2864","181a4f9f739462ded9290f24b967a9dd6785c734b43c6f89ff5a969aea24c60d"]}
+    ],
+    "all_nine_run_local_states_are_mapped_for_potential_reclaim_review": true,
+    "no_deletion_performed": true,
+    "source_q4_root_copies_outside_run_are_excluded_from_any_reclaim_scope": true
+  },
+  "protected_q4_source_roots": [
+    {"snapshot":"e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286","metadata_sha256":"07a8d31e1d61e71e25f15322ea5ddd8608e9244a242863ad49e24ce389849a69","payload_sha256":"cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca","payload_bytes":1830602232,"payload_inode":2513724,"mode":"600","nlink":1,"fresh_payload_sha256_matches_content_address":true},
+    {"snapshot":"c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316","metadata_sha256":"e897d52f34c2cd445635e7c7002455ac8d93eeef7b581881d1b0de43b93cc9f2","payload_sha256":"9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7","payload_bytes":1830602232,"payload_inode":2513827,"mode":"600","nlink":1,"fresh_payload_sha256_matches_content_address":true},
+    {"snapshot":"bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a","metadata_sha256":"5c725a23cafa398c40c24e202cf6b8d23cee900d9f77bccb50b85b2e0605e8e4","payload_sha256":"43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7","payload_bytes":1830602232,"payload_inode":2513834,"mode":"600","nlink":1,"fresh_payload_sha256_matches_content_address":true}
+  ],
+  "protected_store_stat_fingerprints": {
+    "method": "SHA256 of sorted find rows relative-path, inode, link-count, mode, size, and mtime; read-only stat inventory.",
+    "q4_source_store": {"path":"/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store","regular_file_count":115,"stat_listing_sha256":"febba8336fd5e628599bfa6c3e766bd4f57af7dc410b30b8073266b520c33e6a"},
+    "lifecycle_output_store": {"path":"/home/dflanag3/spatial-artifacts/p4-q4-lifecycle-attribution-20261015-v1/output/resident/store","regular_file_count":97,"stat_listing_sha256":"aa84956ba0ce368985fa5b7dcc9968ab506bebed960b3a20fe076044e6a13602"}
+  },
+  "reclaim_status": "NO_RECLAIM_AUTHORIZED_OR_PERFORMED; map is for review only."
+}

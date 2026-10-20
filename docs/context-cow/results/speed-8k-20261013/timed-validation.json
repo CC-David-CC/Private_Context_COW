@@ -1,0 +1,44 @@
+[
+  {
+    "label": "ram-sequence",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/ram_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-timed",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/ram-sequence",
+      "--oracle-evidence",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 0,
+    "seconds": 141.15428072295617
+  },
+  {
+    "label": "cow-timed",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-timed",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/cow-timed",
+      "--oracle-evidence",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 0,
+    "seconds": 168.28761285508517
+  }
+]

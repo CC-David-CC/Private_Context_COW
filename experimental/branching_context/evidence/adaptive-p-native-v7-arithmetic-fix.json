@@ -1,0 +1,62 @@
+{
+  "ticket": "adaptive-p-native-v7-arithmetic-fix",
+  "worktree": "C:/Users/dflanag3/Documents/fleet/context-cow-adaptive-p-native",
+  "branch": "work/adaptive-p-native-20261016",
+  "base": "781004f183bb6b53c3acb999d5cdbaca1a742e38",
+  "change": "Prepared Adaptive-P transforms now preserve the reference binary64 left-associative order (10*d)*d before division and subtraction. The original selector already used this order.",
+  "adversarial_case": {
+    "distance": 0.823182772635959,
+    "reference_left_associative_bits": "3ff4883a3d00fb32",
+    "previous_regrouped_bits": "3ff4883a3d00fb34"
+  },
+  "changed_source_files": [
+    {
+      "path": "experimental/branching_context/native/adaptive_p_select.h",
+      "sha256": "7bd219ae098e5e0111190a244524d5bf7881efcfe18cdcba600801ace31ac0f2"
+    },
+    {
+      "path": "experimental/branching_context/scripts/build_min_p_selector_probe.py",
+      "sha256": "70e52f93faab1d95dabe16a86b6ede939c61d48eb3d8e767b9f2068bb1cfb269",
+      "note": "Unchanged from the valid-ready v7 build candidate; included in the immutable source stage because the builder is a pinned build input."
+    },
+    {
+      "path": "experimental/branching_context/tests/implementation/test_adaptive_p_pipeline_native.py",
+      "sha256": "94fe71861365943dba0f6ac28bce9dea1e36ca575fa28ad99d9e0f3c47a3441a"
+    }
+  ],
+  "red": {
+    "stage": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-native-transform-red-v1/source",
+    "runner": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-native-transform-red-command-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "tests_passed": 5,
+    "tests_failed": 1,
+    "skipped": 0,
+    "failure": "The new behavioral probe could not compile because transform_distance was absent from the production helper. The fixed witness independently confirms the old grouping differs from the reference by two ULPs."
+  },
+  "green": {
+    "stage": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-native-transform-green-v1/source",
+    "runner": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-native-transform-green-command-v1",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "tests_passed": 6,
+    "tests_failed": 0,
+    "skipped": 0,
+    "stderr_sha256": "940eb6ac01abeb0c3146cbb93948095ba9284ff07f365e2aa5e22c24e274ffe2"
+  },
+  "native_build": {
+    "source_stage": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-native-transform-green-v1/source",
+    "output": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/build-adaptive-p-transform-v1/output",
+    "receipt": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/build-adaptive-p-transform-v1/output/build.json",
+    "receipt_sha256": "4ced8082b52188dfd944a0ed6a1595d7669c472eae29002fc8bdceddcd855248",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "protocol": "full-vocab-adaptive-p-u53-v7",
+    "binary": "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/build-adaptive-p-transform-v1/output/strata-batched-branch-lazy-adaptive-p-v7",
+    "binary_bytes": 70725432,
+    "binary_sha256": "4db4a25de055faa495365153f48c5774c1338b7b6d07c2e25c2ec47fd20bfaab",
+    "numerical_qualification": "UNRUN",
+    "status": "BUILT_NOT_EXECUTED"
+  },
+  "unrun": ["GPU/inference", "binary execution", "HIP build", "SYCL build", "model qualification"]
+}

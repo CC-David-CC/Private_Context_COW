@@ -1,0 +1,58 @@
+{
+  "archive_sha256": "afea6d6117cc9d7df8c3fbc70225d01ceb3dc61a10224192cf5dd3e694b43a60",
+  "candidate_bytes": 17789976604,
+  "candidate_count": 9,
+  "checked_utc_epoch_ns": 1792053814590101628,
+  "map_sha256": "1d80892dc4deee21897b22dd37ddbfd14843e8af3fcbe0fd92dd241f80e001ea",
+  "operation": "explicit_unlink_requested",
+  "protected_file_count": 90,
+  "protected_fingerprint_sha256": "905c45ad3a575c792ddc47af59e1ab278a072f03d000b213beb96126ac9f53bc",
+  "removed": [
+    {
+      "bytes": 2051119588,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea.state",
+      "sha256": "0bb35ceaf12586db929c4664c39d1a9e5f774f7a5731ae2f177c8658348669ea"
+    },
+    {
+      "bytes": 2048403516,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca.state",
+      "sha256": "3d3ff630ac37b5c823c198ea892fd7102bc30215e568e7ea251bee57a46bc6ca"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+      "sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7"
+    },
+    {
+      "bytes": 2047782888,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd.state",
+      "sha256": "4a0f6795dc1427ae981a01ee5505a21c49361e4823bfe995f0a7f115695386bd"
+    },
+    {
+      "bytes": 2051230200,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db.state",
+      "sha256": "4f5386bb29cac43cc7e270333a923e2791b78a557db160063ae5ff74c2f7c8db"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+      "sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7"
+    },
+    {
+      "bytes": 2047985660,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba.state",
+      "sha256": "a72f1893376fe84c19a4c73a074999bb3dbc93e6532368a94b0f73e4779158ba"
+    },
+    {
+      "bytes": 1830602232,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+      "sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca"
+    },
+    {
+      "bytes": 2051648056,
+      "path": "/home/dflanag3/spatial-artifacts/p4-q4-three-root-return-20261015-01/resident-parent/output/store/checkpoints/e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0.state",
+      "sha256": "e4b0b4cd88b52f27ac839c02491eeb4cfcc0ec9b486dfa8d7f44405d485d56d0"
+    }
+  ],
+  "status": "UNLINK_PASS"
+}

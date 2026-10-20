@@ -1,0 +1,68 @@
+{
+  "integrated_commit": "0976dc7c85d6dc54097b54fbbbac015587ec1f3e",
+  "overlay_file_count": 9,
+  "overlay_file_manifest_sha256": "da5c36dea10b240efa61c4d1811fc49fa91ede1d63dff4682f4ee39aa61602f4",
+  "preserved_setup_failure": {
+    "command_exit": 1,
+    "reason": "Launcher incorrectly assumed -v was the last argument; no tests started.",
+    "run": "/home/dflanag3/spatial-artifacts/integrated-audit-timing-0976dc7c-v1/orchestration-red-v1",
+    "wrapper_exit": 1
+  },
+  "private_raw_backup": {
+    "bytes": 2216740,
+    "path": "box-git:/srv/data/git/private_context_cow.evidence/20261016-cow-publication-timing-cpu-merge-v1/evidence.tar.gz",
+    "sha256": "ad43903f26b72b0ea10661480a09cc06cc162ac067a2bf1459acb65c4f5589d2",
+    "source_receiver_hashes_match": true
+  },
+  "production_runtime_root": "/home/dflanag3/spatial-artifacts/sampler-integration-1538b8b3-v1/source",
+  "production_runtime_source_commit": "1538b8b39baae38a781a8fbe0d9ab0a2cda892cb",
+  "production_src_serve_tools_changes_since_runtime_commit": [],
+  "runs": {
+    "cpu-union-v1": {
+      "argv_sha256": "dc1326be6842dd2f696b43f62ff53c13318820c49332475e61edbdb38ef786f1",
+      "errors": 0,
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": 0,
+      "path": "/home/dflanag3/spatial-artifacts/integrated-audit-timing-0976dc7c-v1/cpu-union-v1",
+      "skips": 0,
+      "stderr_sha256": "4226f7cc8c8846b61cb903428158bb7ec4078f1270b45fd2a5f09428e351f982",
+      "stdout_sha256": "02e4e41634447ce2a2ccdc7e770b6a005dfbffd8f2ee4e412e35355ffb76a3a6",
+      "tests": 385
+    },
+    "g0-v1": {
+      "argv_sha256": "b6f7e527dc889b41840de9750cf848983d4dcb9b701c67a004801dca38020005",
+      "errors": 0,
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": 0,
+      "path": "/home/dflanag3/spatial-artifacts/integrated-audit-timing-0976dc7c-v1/g0-v1",
+      "skips": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "be9a3ea5a80df27e297c50bed3a53ba0df6ad9b915c050b7cf4f0f269691ca2f",
+      "tests": 51
+    },
+    "orchestration-green-v2": {
+      "argv_sha256": "f4b4e9360f3cb0f8907b68f4c0d1ccf9b5f37ad034aaaa936027372f77bde8ad",
+      "errors": 0,
+      "exits": {
+        "command.exit": 0,
+        "wrapper.exit": 0
+      },
+      "failures": 0,
+      "path": "/home/dflanag3/spatial-artifacts/integrated-audit-timing-0976dc7c-v1/orchestration-green-v2",
+      "skips": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests": null
+    }
+  },
+  "schema": "cow-integrated-audit-timing-cpu-evidence-v1",
+  "scope": "The previous 352 CPU checks plus 22 independent-audit controls and 11 timing-reader tests ran together. Fixture backends are CPU tests, not real-model acceptance passes.",
+  "status": "FOCUSED_PASS",
+  "test_and_audit_overlay_archive_sha256": "4124d1a9f034bee336fab9c380ba415f285c90d557a60f80298a5422207d8657"
+}

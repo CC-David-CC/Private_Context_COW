@@ -1,0 +1,242 @@
+{
+  "CPU_controls": 9,
+  "G0_tests": 51,
+  "active_requests_per_gpu": 1,
+  "actual_output_tokens": 3616,
+  "all_owned_pids_absent": true,
+  "all_tokens_exact": true,
+  "benchmark": {
+    "generations": 28,
+    "measured_generations": 24,
+    "median_paired_elapsed_reduction_percent": 12.783242216365176,
+    "natural_later_token_before_prior_durable": 0,
+    "natural_windows": 9,
+    "natural_windows_detail": [
+      {
+        "earlier_operation": "op-overlap-queued0-0-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued0-1-3476e3bcdb",
+        "overlap_seconds": -0.400449351
+      },
+      {
+        "earlier_operation": "op-overlap-queued0-1-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued0-2-3476e3bcdb",
+        "overlap_seconds": -0.394964393
+      },
+      {
+        "earlier_operation": "op-overlap-queued0-2-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued0-3-3476e3bcdb",
+        "overlap_seconds": -0.36552582
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-0-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued1-1-3476e3bcdb",
+        "overlap_seconds": -0.399309314
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-1-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued1-2-3476e3bcdb",
+        "overlap_seconds": -0.395215225
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-2-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued1-3-3476e3bcdb",
+        "overlap_seconds": -0.368873961
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-0-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued2-1-3476e3bcdb",
+        "overlap_seconds": -0.389228293
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-1-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued2-2-3476e3bcdb",
+        "overlap_seconds": -0.395904067
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-2-3476e3bcdb",
+        "later_first_token_before_earlier_durable": false,
+        "later_operation": "op-overlap-queued2-3-3476e3bcdb",
+        "overlap_seconds": -0.292806091
+      }
+    ],
+    "outputs_each": 128,
+    "pairs": [
+      {
+        "elapsed_reduction_percent": 12.077727493642698,
+        "queued_seconds": 11.059552233,
+        "repetition": 0,
+        "serial_seconds": 12.578783416
+      },
+      {
+        "elapsed_reduction_percent": 17.100082670626215,
+        "queued_seconds": 11.17591322,
+        "repetition": 1,
+        "serial_seconds": 13.481211538
+      },
+      {
+        "elapsed_reduction_percent": 12.783242216365176,
+        "queued_seconds": 11.932141146,
+        "repetition": 2,
+        "serial_seconds": 13.681018934
+      }
+    ],
+    "queued_median_observed_client_group_seconds": 11.17591322,
+    "queued_median_observed_client_tps": 45.8128109910288,
+    "ratio_of_median_elapsed_reduction_percent": 17.100082670626215,
+    "serial_median_observed_client_group_seconds": 13.481211538,
+    "serial_median_observed_client_tps": 37.97878243782514,
+    "source_acquisition_windows": [
+      {
+        "earlier_operation": "op-overlap-queued0-0-3476e3bcdb",
+        "later_operation": "op-overlap-queued0-1-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued0-1-3476e3bcdb",
+        "later_operation": "op-overlap-queued0-2-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued0-2-3476e3bcdb",
+        "later_operation": "op-overlap-queued0-3-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-0-3476e3bcdb",
+        "later_operation": "op-overlap-queued1-1-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-1-3476e3bcdb",
+        "later_operation": "op-overlap-queued1-2-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued1-2-3476e3bcdb",
+        "later_operation": "op-overlap-queued1-3-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-0-3476e3bcdb",
+        "later_operation": "op-overlap-queued2-1-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-1-3476e3bcdb",
+        "later_operation": "op-overlap-queued2-2-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      },
+      {
+        "earlier_operation": "op-overlap-queued2-2-3476e3bcdb",
+        "later_operation": "op-overlap-queued2-3-3476e3bcdb",
+        "later_source_acquired_before_prior_server_durable": true
+      }
+    ],
+    "timing_scope": "Actual instrumented CLI subprocess starts through all subprocess exits, including observer trace serialization/fsync; excludes startup, branch creation and parent numerical/controller audits",
+    "warmup_generations": 4
+  },
+  "benchmark_result_sha256": "5a4abe91b91368e4c579d4759aa5d6a2aaf9c37f50b85f1990acbb56eb5964c9",
+  "candidate_frontiers_checked": "Final consumed frontier for each request only; saved prefixes inherit prior byte-identical qualification",
+  "canonical_histories_exact": true,
+  "cli_sha256": "798fe8706b0e5bf8b6ebdf956d10d59ef6bc1e5647b98efe3590e098afb04b91",
+  "command_wrapper_exits": {
+    "benchmark-command-v1": [
+      0,
+      0
+    ],
+    "controlled-command-v1": [
+      0,
+      0
+    ],
+    "g0-command-v2": [
+      0,
+      0
+    ],
+    "guard-green-command-v1": [
+      0,
+      0
+    ],
+    "integrated-cpu-command-v1": [
+      0,
+      0
+    ]
+  },
+  "controlled": {
+    "all_heads_unchanged_until_release": true,
+    "deliberate_publication_hold": true,
+    "generations": 4,
+    "no_durable_ack_until_release": true,
+    "outputs_each": 8,
+    "speed_measurement": false,
+    "witness": {
+      "FIFO_source_order": [
+        "op-overlap-controlled-0-26cfa0c026",
+        "op-overlap-controlled-1-26cfa0c026",
+        "op-overlap-controlled-2-26cfa0c026",
+        "op-overlap-controlled-3-26cfa0c026"
+      ],
+      "first_publication_held_ns": 5940423502,
+      "later_first_token_monotonic_ns": 1189477479736059,
+      "later_gpu_token_before_first_publication_release": true,
+      "no_early_durable_ack": true,
+      "publication_release_monotonic_ns": 1189481507799989
+    }
+  },
+  "controlled_result_sha256": "bf04c25654ecd554fbc4ff3b2d825c2b903f7c10db4e75b9a9784ffa5381398f",
+  "execution_profile_id": "fed7e7d5e4b2405fc75e6d300deef7576fe4a0a8ddec88841331144568ada450",
+  "failures": 0,
+  "full_greedy_controllers_exact": true,
+  "full_vector_comparisons": 32,
+  "generations": 32,
+  "gpu": "RTX PRO 6000 Blackwell GPU0",
+  "host": "llm-60",
+  "limitations": [
+    "Only Q4, greedy, identical execution profile/operator arrangement",
+    "No new independently initialized oracle processes; exact prior references reused",
+    "Three source bundles from Strata, not unrelated repositories",
+    "No clean uninstrumented/native-only speed comparison",
+    "Natural run had no later generated token before previous durable receipt",
+    "No whole-validation-cost 8% qualification",
+    "No LAN timing, physical peak-memory, multi-GPU inference, power-loss or concurrent real-GPU save-failure qualification",
+    "Q8 deferred; original cumulative G1-G5 unqualified; chat stays off; private Git only"
+  ],
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "new_oracle_processes": 0,
+  "numerical_max_error": 0,
+  "numerical_tolerances": "Exact bytes; no widened tolerance",
+  "observer_sha256": "20149f9face52ffa0afa2962824f364b9765e7b954a3da90e6084a8c974d7b28",
+  "oracle_sha256": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129",
+  "owned_pids": [
+    2884316,
+    2884322,
+    2886376,
+    2886382
+  ],
+  "parent_bytes_unchanged": true,
+  "preserved_failures": [
+    "Root overlap guard RED: module absent",
+    "Luna first CPU test expected submit-time conflict; corrected to actual queued stale-revision behavior",
+    "First G0 source package omitted locked-references.json/spec; complete separately frozen package passes",
+    "Primary summary v1 passed a string path to a Path-only read helper; v2 accepts either without rerunning inference"
+  ],
+  "profile_sha256": "a7d53c45ebd7a1aa841ee10a7f5ef55472d5c761be928551a176b94f7d3f1755",
+  "qualification": "Correct consumed state, FIFO scheduling and controlled publication overlap; natural token overlap not demonstrated",
+  "reference_result_sha256": "9048df92e236e243bb152b64568cb767c3a80a60b2de6d168eef862cbac06d6d",
+  "reference_scope": "Reuses independently initialized uncached references from qualified identical fixtures/profile; no new oracle computation",
+  "runner_sha256": "9e146f3cc6abed0df2ef4d30ccf53b8f3289172ab7f60067a0866af3a2b41e3a",
+  "schema": "cow-q4-cli-publication-overlap-primary-v1",
+  "skips": 0,
+  "status": "FOCUSED-PASS",
+  "xfails": 0,
+  "zero_saved_prefix_work": true
+}

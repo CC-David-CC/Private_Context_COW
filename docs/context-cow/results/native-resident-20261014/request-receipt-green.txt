@@ -1,0 +1,13 @@
+test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries (test_native_request_protocol.NativeRequestProtocolTests.test_completed_receipt_binds_actual_tokens_and_absolute_native_boundaries) ... ok
+test_early_close_cancels_before_releasing_consumed_boundary (test_native_request_protocol.NativeRequestProtocolTests.test_early_close_cancels_before_releasing_consumed_boundary) ... ok
+test_false_or_missing_native_boundaries_poison_connection (test_native_request_protocol.NativeRequestProtocolTests.test_false_or_missing_native_boundaries_poison_connection) ... ok
+test_foreign_next_and_close_fail_without_sending_acknowledgment (test_native_request_protocol.NativeRequestProtocolTests.test_foreign_next_and_close_fail_without_sending_acknowledgment) ... ok
+test_incorrect_forward_work_is_rejected_and_connection_is_poisoned (test_native_request_protocol.NativeRequestProtocolTests.test_incorrect_forward_work_is_rejected_and_connection_is_poisoned) ... ok
+test_lease_cannot_be_released_while_request_is_waiting_for_ack (test_native_request_protocol.NativeRequestProtocolTests.test_lease_cannot_be_released_while_request_is_waiting_for_ack) ... ok
+test_one_request_consumes_all_outputs_without_capture_commands (test_native_request_protocol.NativeRequestProtocolTests.test_one_request_consumes_all_outputs_without_capture_commands) ... ok
+test_precreated_second_iterator_cannot_steal_active_request (test_native_request_protocol.NativeRequestProtocolTests.test_precreated_second_iterator_cannot_steal_active_request) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

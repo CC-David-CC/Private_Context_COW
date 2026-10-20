@@ -1,0 +1,11 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-entropy-selection-proposal-v1/evidence.tar",
+  "archive_bytes": 88821760,
+  "archive_sha256": "8066a1f309b9b31001d59bc7999318c8a909f0053d17b06187e0154e085776b6",
+  "extracted_files": 0,
+  "manifest_sha256": "802bc69b9e1e49546c993ce91358d99539d18e2d51e7e393eb8e0bd3936f1d4d",
+  "member_count": 5905,
+  "status": "PASS",
+  "total_member_bytes": 78856928,
+  "verification": "Full SSH-streamed readback, every regular member and complete archive byte stream verified"
+}

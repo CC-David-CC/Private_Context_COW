@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Compact diagnostic retention, not a complete computational-state backup or gate qualification",
+  "host": "box-git",
+  "directory": "/srv/data/git/private_context_cow.evidence/20261015-capacity-sized-summary-v1",
+  "archive": "evidence.tar.gz",
+  "archive_bytes": 35622590,
+  "archive_sha256": "057f81aa6ba967ddd8ad0cab0cb1e5cf9830161a605bbfec73f938f5252686cd",
+  "manifest_sha256": "391c8a42bc28e8679e2fed1f1035708589405f0790eae64e952edbabddeba556",
+  "receiver_receipt": "receiver.verify.json",
+  "receiver_receipt_sha256": "0c1469fb5ad27ea1ec37f3c58d1d4cf00232d04a39ed65b0e894acacd041bef1",
+  "receiver_verifier_sha256": "b87ac2bf186997b936c883118558f8b9484c86796e960b43ef260ec6328a2234",
+  "receiver_verified_payload_members": 1098,
+  "receiver_verified_payload_bytes": 124007069,
+  "primary_review": "Independently rehashed archive, manifest, receipt and verifier on box-git; read receiver PASS with all manifest members verified",
+  "retained": [
+    "Q4 1K and Q4/Q8 8K actual pool-eviction results, profiles, counters and logs",
+    "CPU integration, harness sizing, empty-stats diagnostic and cleanup records",
+    "Three request-logit streams and one selected final 248320-float vector from each decode stream",
+    "DERIVED_FRONTIERS.json binds original stream hashes, extraction offsets and selected-vector hashes"
+  ],
+  "excluded": [
+    "Native numerical .state payloads",
+    "Complete per-token decode .f32 streams (source hashes retained)",
+    "Duplicate source.zip bundles, model/build/cache directories"
+  ],
+  "permissions": {"directory": "0700", "files": "0600"},
+  "publication": "Private box-git only"
+}

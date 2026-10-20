@@ -1,0 +1,29 @@
+{
+  "schema": "cow-cli-package-evidence-v1",
+  "status": "PACKAGE_VERIFIED_RETAINED_WITH_WINDOWS_UNICODE_LIMITATION",
+  "source_commit": "712b7519e6601e9ad7ff1e9354e72d5d062d420c",
+  "source_worktree_dirty_at_build": false,
+  "local_file": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-cli-private-draft-20261015\\context-cow-cli-private-draft.zip",
+  "box_git_file": "/srv/data/git/private_context_cow.evidence/20261015-cli-client-package-v1/context-cow-cli-private-draft.zip",
+  "bytes": 281171,
+  "sha256": "187661a3c7cd81c2c605776bb3d9eb1f5ef44ac3c37b7ba5cf9de315c15df557",
+  "box_git_sha256_independently_read": true,
+  "box_git_permissions": {"directory": "0700", "file": "0600"},
+  "zip_members_including_manifest": 20,
+  "manifested_files": 19,
+  "validation": [
+    "ZIP CRC test passed; all manifested file lengths and SHA256 hashes match extracted payloads.",
+    "Extracted tools/cow_cli.py --help exited0 with local Windows Python3.13.15.",
+    "All local links in the four user guide documents resolve inside the extracted package."
+  ],
+  "scope": "Terminal client and documentation/compact linked evidence only; requires an existing compatible COW service",
+  "excluded": ["Model weights", "Native engine", "Execution profile installer", "Credentials"],
+  "real_model_validation": ["Q4-CLI-REAL-2026-10-15.json", "Q8-CLI-REAL-2026-10-15.json"],
+  "limitations": [
+    "Subsequent default-Windows redirected-output test failed on Japanese history text: child stdout/stderr cp1252, CLI exit2. This source/package is retained; UTF8 stdio correction and a new versioned package are required before friend handoff.",
+    "Independent-machine GPU engine installation is not supplied by this client package.",
+    "No original G1-G5 certification is established by ZIP verification.",
+    "A service owner must provide an authorized connection and running dedicated COW service."
+  ],
+  "publication": "Private box-git only; no GitHub publication"
+}

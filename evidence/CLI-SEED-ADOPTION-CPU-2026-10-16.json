@@ -1,0 +1,113 @@
+{
+  "ticket": "CLI seed/reseed plus branch-specific presentation provenance",
+  "branch": "work/cli-seed-stop-20261016",
+  "base": "df02950584575762c5c98eec4f881cd62917f358",
+  "qualification_scope": "CPU and synthetic FlowModel fixtures only; no GPU/model qualification was run by this worker",
+  "final_stage": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/source",
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "checks": [
+    {
+      "name": "focused-provenance-cli-and-retry",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/run-focused",
+      "tests": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "test_ids": [
+        "test_seed_presentation_flow.SeedPresentationFlowTests.test_adoption_requires_and_persists_source_for_ambiguous_same_snapshot",
+        "test_seed_presentation_flow.SeedPresentationFlowTests.test_legacy_pending_adoption_replays_exact_committed_move_without_new_provenance",
+        "test_seed_presentation_flow.SeedPresentationFlowTests.test_namespaced_fork_resolves_assistant_source_from_an_ancestor",
+        "test_cli_retry_native_probe.CliRetryNativeProbeFlowTests.test_complete_retry_workflow_against_canonical_retry_fixture"
+      ]
+    },
+    {
+      "name": "combined-regression-union",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/run-broad-v1",
+      "tests": 289,
+      "passed": 289,
+      "failed": 0,
+      "skipped": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "suite_scope": "Evaluation/store/presentation/pool/process/HTTP/text/retry/CLI/grammar/publication ownership plus seed and adoption tests"
+    },
+    {
+      "name": "G0-read-only",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v2/run-g0-v1",
+      "tests": 51,
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0,
+      "required_real_backend_cases": 0,
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "result": "G0: PASS"
+    }
+  ],
+  "test_first_and_preserved_failures": [
+    {
+      "name": "ambiguous-adoption-red",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-provenance-red-v3/run",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "meaning": "Expected RED: two seeded operations produced one snapshot with distinct message IDs, but adoption without an explicit source was accepted."
+    },
+    {
+      "name": "fork-ancestor-red",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-ancestor-red-v1/run",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "meaning": "Expected RED against the prior resolver: a fork from a later tip could not resolve the published assistant identity at an earlier canonical ancestor."
+    },
+    {
+      "name": "broad-v8-regression",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-provenance-green-v8/run-broad-v1",
+      "tests": 289,
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "meaning": "Found the ancestor-provenance gap: changed continuation retry failed HTTP 409 with no published annotation for the active source stream. Fixed by following a verified fork source only when the requested snapshot is its canonical ancestor."
+    },
+    {
+      "name": "broad-final-representation-fixture-failure",
+      "run_dir": "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-cli-green-v1/run-focused",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "meaning": "Test compared a direct Store BranchHead object with the JSON branch object returned by the real CLI. Corrected assertion to compare the same receipt fields; no production change."
+    },
+    {
+      "name": "preserved-setup-refusals",
+      "run_dirs": [
+        "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-provenance-green-v6/run-focused",
+        "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-provenance-green-v6/run-focused-v2",
+        "/home/dflanag3/spatial-artifacts/seed-controls-20261016-v1/seed-adoption-provenance-green-v7/run-focused"
+      ],
+      "meaning": "Runner refused already-existing run directories; a later stage attempt also lacked its source parent. No tests were started in these attempts."
+    }
+  ],
+  "source_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "735bddcb63ff994681377e89bc4a492befd19c0738d8c84338ffdd507fb8fff9",
+    "experimental/branching_context/src/context_time_travel/presentation_binding.py": "fcc33419bcfc2b0de1f049f5a82f8c55cb4fceb21fcb33aa2ad7c60b911ea98b",
+    "experimental/branching_context/src/context_time_travel/presentation_request.py": "06653a2211fce6bb29a50225726daba815676fdf5b76d689b2a36a6937c69ec7",
+    "experimental/branching_context/src/context_time_travel/real.py": "ef892724ca324192df6c77b87dfdb4c1a5447b892703c558923cd7cf8cff50cb",
+    "experimental/branching_context/src/context_time_travel/store.py": "03a80e060c6c99eee3475501e891fbc1e8fd425d453773d43da6361c5e58a91f",
+    "experimental/branching_context/src/context_time_travel/seed_controls.py": "8d6df067c06e691779f57bd1f6e55d3470b46306506dc5417d9c3b16c4f40f87",
+    "experimental/branching_context/tests/implementation/test_seed_controls.py": "70a9cc1cdf0e37bb682fa3d95f610b2fd2515d98959d3f486f1f050083da467b",
+    "experimental/branching_context/tests/implementation/test_seed_presentation_flow.py": "26e27dd8af8f5d56a54939b599d9e0f55497cc570d1138b816ac290d7e83c233",
+    "experimental/branching_context/plans/CLI-SEED-STOP-INITIAL-DESIGN-2026-10-16.md": "b0c45811f767cbeae16ae62134e2e9098ac1c88cf5df491c2cca4a6cc97d3caa",
+    "serve/cow_adapter.py": "19e8a29e2798fdfb2cf5fcdaa81711670fbc9a5a0db5c2a3f9e3932db2bd7d11",
+    "serve/cow_http.py": "3073a204942b3cfdab58719c18456e0d49d26a75af845de82da2d7de3537a833",
+    "serve/cow_text_adapter.py": "519cd52b7b694ef2cefd3d11d38efa7b6876442762810cacf3721043b9b90a2d",
+    "serve/cow_workspace.py": "38e530f270060f4ba8bd53cdd6b3ded4b0e0934778582a1fe2fcb79eb11fbce6",
+    "tools/cow_cli.py": "a4259ea8542248ea875899d9db3c4d17ac01a7c09f4fccfe92cbf20400269490"
+  },
+  "integration_notes": {
+    "generation_descriptor": "Seed work uses the composable generation descriptor schema 7 with controls={schema:1, seed:uint64, text_stops:[]}; omitted seed keeps legacy descriptors unchanged.",
+    "stop_worker_merge": "Combine seed and STOP controls under the agreed schema-7 controls object: seed is null or uint64 and text_stops is a list of UTF-8 strings. Preserve strict legacy schema-1/2 validators and the separate outer-intent schema domain.",
+    "gpu": "UNRUN by this worker; root remains sole GPU launcher."
+  }
+}

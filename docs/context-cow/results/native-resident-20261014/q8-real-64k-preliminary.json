@@ -1,0 +1,44 @@
+{
+  "case": "/home/dflanag3/branching-g3/client-stream-v1-20261014/q8-real-64k",
+  "qualification": "PENDING unless terminal result is PASS",
+  "phases": {
+    "result": {
+      "status": "RUNNING",
+      "branches": {},
+      "checked_boundaries": {}
+    },
+    "prepare": {
+      "status": "RUNNING",
+      "python_pid": 1549050,
+      "native_pid": 1549053,
+      "branches": {
+        "A": {
+          "outputs": 2048,
+          "generation_seconds": 44.598366437945515,
+          "request_seconds": 48.177669723983854,
+          "generation_tps": 45.920964456166836,
+          "request_tps": 42.50932043274942
+        },
+        "B": {
+          "outputs": 2048,
+          "generation_seconds": 54.3192549450323,
+          "request_seconds": 57.73650984989945,
+          "generation_tps": 37.70302081780113,
+          "request_tps": 35.47148944964443
+        }
+      },
+      "checked_boundaries": {
+        "A": [
+          "1",
+          "16",
+          "64",
+          "2048"
+        ],
+        "B": [
+          "1"
+        ]
+      }
+    }
+  },
+  "completed_fresh_native_runs": {}
+}

@@ -1,0 +1,1 @@
+Continue this ledger codebase. Implement the optional min_count filter documented in the CURRENT README, including validating it for empty input. Preserve prior casefold/default behavior and record validation. Inspect the changed files/tests, edit only ledger.py, run the required tests, and report the actual outcomes.

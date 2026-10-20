@@ -1,0 +1,69 @@
+[
+  {
+    "label": "prepare-regressions",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-R",
+      "^(branch_prepare_test|branch_page_batch_test|branch_pages_test|branch_session_test|branch_integrity_test|branch_lifecycle_test)$",
+      "--output-on-failure"
+    ],
+    "exit_code": 0,
+    "seconds": 3.9209452539216727
+  },
+  {
+    "label": "prepare-sha",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/tests/core/branch_digest_test.py"
+    ],
+    "exit_code": 0,
+    "seconds": 8.42230829806067
+  },
+  {
+    "label": "prepare-memcheck",
+    "argv": [
+      "/usr/local/cuda/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "99",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build/branch_prepare_test"
+    ],
+    "exit_code": 0,
+    "seconds": 1.8266415219986811
+  },
+  {
+    "label": "prepare-G0",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/verify.py",
+      "--gate",
+      "G0"
+    ],
+    "exit_code": 0,
+    "seconds": 0.28727786196395755
+  },
+  {
+    "label": "prepare-mutations",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/mutation_smoke.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.04572355700656772
+  },
+  {
+    "label": "prepare-probes",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/build_fast_prefill_probe.py",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-prepare",
+      "--long-demo"
+    ],
+    "exit_code": 0,
+    "seconds": 10.392771660001017
+  }
+]

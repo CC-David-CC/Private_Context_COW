@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "task": "root-presentation-query",
+  "date": "2026-10-16",
+  "qualification": "CPU-only; no GPU/model execution",
+  "repository": {
+    "worktree": "C:/Users/dflanag3/Documents/fleet/context-cow-root-metadata",
+    "branch": "work/root-presentation-query-20261016",
+    "base_commit": "40ac335dffa44b38817d665acdbfd3a19763682c",
+    "commit_created": false,
+    "diff_check": "PASS"
+  },
+  "change": {
+    "summary": "Root-only presentation lookup now hash-reads descriptors targeting the root and filters non-root kinds before loading their source snapshots/controllers. Selected root descriptors still receive full validation; full presentation_catalog remains unchanged.",
+    "files": {
+      "experimental/branching_context/src/context_time_travel/store.py": "db2e595f2b54e43b99ea6ae3de27f4790be4ce423475f289da33e75d7288db27",
+      "serve/cow_adapter.py": "3acda1602f2100cf1e8058ef4f619f9ece0245ea42eb78e1e1e7ee42781ac6dc",
+      "serve/cow_text_adapter.py": "8ed365c573d3a3db441205fbc33f24f7d879e1f3325d78ce3369650a0dc79726",
+      "experimental/branching_context/tests/implementation/test_root_presentation_query.py": "90bd98d0e3e02401c3bb10ff38e4a8e45c0120b244168acd6b28120570957d6f",
+      "serve/chat_template.jinja": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce"
+    }
+  },
+  "remote_environment": {
+    "host": "llm-60",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "runner": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "runner_sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537",
+    "artifact_root": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1"
+  },
+  "red_green": {
+    "red": {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/rewind-red-v2",
+      "stage": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/checkouts/source-rewind-red-v2",
+      "case": "RootPresentationQueryTests.test_rewind_to_root_does_not_load_its_large_future_source",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "result": "Expected regression failure: root lookup read/snapshotted the 2,048-token source of a rewind receipt whose result was the root."
+    },
+    "green_focused": {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/green-focused-v2",
+      "stage": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/checkouts/source-green-v3",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "test_ids": [
+        "test_cow_adapter_exposes_store_root_query",
+        "test_future_corruption_is_outside_targeted_query_but_catalog_still_rejects",
+        "test_large_future_receipts_are_not_opened_or_snapshotted",
+        "test_namespace_root_filter_duplicates_and_authorization",
+        "test_nonroot_snapshot_is_not_a_root_query_key",
+        "test_query_is_one_history_snapshot_against_concurrent_move",
+        "test_query_matches_full_catalog_root_projection",
+        "test_rewind_to_root_does_not_load_its_large_future_source",
+        "test_selected_root_blob_corruption_and_symlink_fail_closed",
+        "test_text_root_mode_prefers_bounded_query_and_uses_legacy_fallback",
+        "test_unannotated_root_returns_empty_not_inferred_metadata"
+      ]
+    },
+    "serving_regressions": {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/serving-regressions-v4",
+      "stage": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/checkouts/source-green-v4",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "passed": 84,
+      "failed": 0,
+      "skipped": 0,
+      "composition": "83 previously-qualified serving/Store tests plus the new rewind-to-root regression",
+      "modules": [
+        "serve.test_cow_context_root_capability",
+        "serve.test_cow_text_adapter",
+        "serve.test_cow_presentation_adapter",
+        "serve.test_cow_presentation_flow",
+        "serve.test_cow_namespace_http",
+        "serve.test_cow_http",
+        "serve.test_cow_disconnect_durability",
+        "serve.test_cow_workspace",
+        "test_store_presentation_catalog",
+        "test_root_presentation_query"
+      ]
+    },
+    "g0": {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/g0-v2",
+      "stage": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/checkouts/g0-source-v2",
+      "evidence": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/g0-evidence-v2/20261016T105245300505Z-G0.json",
+      "evidence_sha256": "09586c2058a2d2fdc6823f422b944ee04c994daa91133e75bbeb95983ba554a4",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "preserved_setup_failures": [
+    {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/rewind-red-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "fixture setup error, not behavioral RED",
+      "reason": "The initial rewind fixture set turn_complete=true although its idle root controller required false; corrected before rewind-red-v2."
+    },
+    {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/serving-regressions-v1",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "stage closure failure, not implementation failure",
+      "reason": "The compact source stage omitted unchanged serve/chat_template.jinja; added to fresh green stage with its SHA-256 recorded above."
+    },
+    {
+      "run": "/home/dflanag3/spatial-artifacts/root-presentation-query-20261016-v1/runs/serving-regressions-v3",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "launch PYTHONPATH typo, not implementation failure",
+      "reason": "The API source path contained an incorrect v3 artifact-root component, causing imports to fail; rerun on a fresh stage with corrected v4 paths."
+    }
+  ],
+  "scope_limits": [
+    "No GPU, model, performance, or production-server qualification was run in this ticket.",
+    "The targeted query hash-validates descriptors whose committed result is the requested root, then fully validates only root-kind descriptors. Full presentation_catalog continues validating the full history, including rewind source snapshots."
+  ],
+  "log_sha256": {
+    "red_stderr": "9156d5d2e3ec3e4ad2c87cd6978b46c515379f9ded0621d4df120aa539170c6c",
+    "focused_stderr": "cb7d3f3cce9e87d84f50a08103ad2c48f0e743d2a9e3dd4bcff0adb4a1a7ee41",
+    "serving_stderr": "63d9c10bfc9a9a65ce0b8597df42f48ee9888e8f49b2d6ff52447fe053c7ff8b",
+    "g0_stdout": "748eab4de18d0c85706395dcacb9f58b79521685e0ed9533692a91154b96d377"
+  }
+}

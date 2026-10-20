@@ -1,0 +1,32 @@
+{
+  "status": "NUMERICAL_CHECKS_PASS_NATIVE_EXIT_CODES_UNQUALIFIED",
+  "scope": "Bounded greedy matching-profile resident/disk restart; not gate certification",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/case-q8-code8k128-v1",
+  "run_directory": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/q8-code8k128-v1",
+  "raw_result_sha256": "9fcc84b1042f5678257c540fd7d45681ed2eda1ba41acc6f6ed2673bc5a8de71",
+  "raw_reported_status": "PASS",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "execution_profile_id": "3e3bf375e730d87b220a1516f5d8480fe18a46ccab93e272969aa530e6398529",
+  "profile_fingerprints_reference": "COMBINED-Q8-PROFILE-READY-2026-10-15.json",
+  "prefix_tokens": 8192,
+  "suffix_tokens": {"A": 527, "B": 527},
+  "output_limit_per_branch": 128,
+  "frontier_comparisons": 13,
+  "numerical_max_error": 0.0,
+  "sampling": "Prefix and generated A checkpoint at four; each branch outputs 1/16/64/final, with final comparisons repeated by harness",
+  "input_fixture_sha256": "d0d99d70f4d200df69fb4c1a9acba1aa4a0dbcd1ad97f8034bfda12390a2fb3d",
+  "normalized_case_fixture_sha256": "71d58bac30d4cc4cfb406adf72a3962abfef063bb40955eb70ce79cc07d99431",
+  "harness_sha256": "992e565b96850ad0e902f4c356a83282865b9de7f4f33deaafe6cc7a4a4214e7",
+  "phases": [
+    {"phase": "prepare", "python_pid": 2233704, "python_exit": 0, "native_exit_observed": true, "native_exit_code": null},
+    {"phase": "resume", "python_pid": 2236098, "python_exit": 0, "native_exit_observed": true, "native_exit_code": null}
+  ],
+  "limitations": [
+    "Harness records observed native termination, not numeric native exit codes; correction and repeat required for that claim",
+    "Actual output lengths and detailed work/controller audit are not inferred from requested limits in this receipt",
+    "No speed claim from audited campaign timing",
+    "No cross-boundary equivalence, non-greedy controller qualification or cumulative G2 claim",
+    "Raw Q8 evidence is retained on llm-60; latest private raw backup excludes this campaign"
+  ]
+}

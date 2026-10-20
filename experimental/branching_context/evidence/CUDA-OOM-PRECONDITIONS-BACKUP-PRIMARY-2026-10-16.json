@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 133120,
+  "archive_sha256": "4ebb7a2db828f5938df97bcc9911ec6fa91531a6a24c52a6391009305e924b33",
+  "extracted_files": 0,
+  "manifest_sha256": "ffb7fd674306a9ed0b154c78a449db2572812ae72ff9f8f7bdb892b768910846",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-cuda-oom-preconditions-compact-v7/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 77820,
+  "verified_regular_files": 47
+}

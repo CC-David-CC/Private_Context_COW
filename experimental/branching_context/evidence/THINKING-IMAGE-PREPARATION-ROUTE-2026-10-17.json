@@ -1,0 +1,40 @@
+{
+  "actual_first_role": "system",
+  "actual_model_outputs": 74,
+  "actual_suffix_cells": 372,
+  "after_removing_exact_duplicate_remainder_matches": true,
+  "bad_child_snapshot": "3e98c4c244d9ebe6d276422a553256cec76c4ea3027125b11ecea7b7a326be9b",
+  "bad_profile": "8e7fa4f7a25a97c03adc8b2e28dd8adc203d2a8d7c8b05409a9209fe18660682",
+  "cause": "CowVisionPreparer.prepare used renderer.encode for schema2 while committed retry used the corrected render_suffix helper.",
+  "changed_production_file": "serve/cow_vision_preparer.py",
+  "changed_production_sha256": "d1de11d62a10e8cced55a93b2df618eaabc86643c28760c58cefa51a25ca1148",
+  "cpu": {
+    "api_harness_union": 115,
+    "correct_red_errors": 1,
+    "correct_red_failures": 2,
+    "g0": 51,
+    "green": 3,
+    "green_errors": 0,
+    "green_failures": 0,
+    "green_skips": 0,
+    "new_methods": 3,
+    "serving_unique": 424
+  },
+  "duplicated_reasoning_system_tokens": 42,
+  "executed_followup": {
+    "evidence": "THINKING-NEW-IMAGE-FLOW-Q4-2026-10-17.json",
+    "profile_id": "92df1837bd97ec5f4e3ebcc9aedc0cad34a51b83a1f8a84d03dc239de2322633",
+    "scope": "Old profile8e remains FAIL; corrected profile92df passed bounded live flow. Historical preceding record preserved.",
+    "status": "BOUNDED_Q4_THINKING_NEW_IMAGE_SUFFIX_RESTART_INDEPENDENT_AUDIT_PASS"
+  },
+  "expected_first_role": "user",
+  "expected_suffix_cells": 330,
+  "fix": "Schema2 first-time CowVisionPreparer.prepare now calls the same render_suffix path as committed replay. Retain early source-boundary rejection before encoding; schema1 root rendering unchanged.",
+  "gpu": "UNRUN on corrected new profile; old8e profile must retain FAIL; no speculative source compatibility or numerical pass claim.",
+  "initial_cpu_fixture_error": "First new CPU fixture used its old128-token bound despite emitting a whole larger thinking request as one chunk. Fixture now truthfully declares2048 for that synthetic single request; real GPU512/chunks, equations, registered tests and tolerances unchanged. Correct RED then reproduced2 failures+1 retry error.",
+  "prefix_cells": 370,
+  "scope": "Renderer/admission defect, not a proven CUDA snapshot-corruption or numerical-equivalence failure. No fresh raw numerical comparison ran in this failed attempt.",
+  "source_result_sha256": "0b0a5db30b00b0ce0285a5187583df6696bb3df4f0a8ff07aa7a1e46fe1b91ea",
+  "source_snapshot": "294a4ec1fa909a30119809277f90ffd38355df9ccc88883ca987ad184e7f0e12",
+  "status": "LIVE_ROUTE_DEFECT_REPRODUCED_CPU_FIX_PASS_GPU_RERUN_PENDING"
+}

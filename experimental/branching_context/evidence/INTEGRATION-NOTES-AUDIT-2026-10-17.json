@@ -1,0 +1,48 @@
+{
+  "status": "PASS_COMMENT_ONLY_AST_IDENTICAL",
+  "files": [
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-source-v8/experimental/branching_context/src/context_time_travel/coordinator.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/integration-notes-source-v1/experimental/branching_context/src/context_time_travel/coordinator.py",
+      "before_sha256": "47ba2d432b1bbdc5d8e0973649497e2a856a297c7c111886aab304132c79d1e5",
+      "after_sha256": "5891fd32da6831825ffcfc4721b74bcf6c7e0f973f908aced62ad4e4e176c7eb",
+      "ast_identical": true
+    },
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-source-v8/experimental/branching_context/src/context_time_travel/real.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/integration-notes-source-v1/experimental/branching_context/src/context_time_travel/real.py",
+      "before_sha256": "412491800d34734ee8b4898b4813be43235235aeb914d0a31cfaff8a3b0bbc07",
+      "after_sha256": "f793fa31a013af6edadf048b87bab6315386240fde67e2e9d04b585874bf57d8",
+      "ast_identical": true
+    },
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-source-v8/experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/integration-notes-source-v1/experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "before_sha256": "70f762479452cac9f88cbdd0d6b37dc0c799c7754834105414faf31d57338c0d",
+      "after_sha256": "892346fe4b41950b28b5b18839618300f0e2146397206fc849d99a47f518a9b6",
+      "ast_identical": true
+    },
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-source-v8/experimental/branching_context/src/context_time_travel/vision_controllers.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/integration-notes-source-v1/experimental/branching_context/src/context_time_travel/vision_controllers.py",
+      "before_sha256": "f331177a771fe3fc7b307ef218a35aa6f40009dbeafd5fbe0b228833a0871030",
+      "after_sha256": "fb221582b86e212f5e32c83a856737945355824d6321899cd4bd059b8c78ef4a",
+      "ast_identical": true
+    },
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-source-v8/experimental/branching_context/src/context_time_travel/vision_dry.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/integration-notes-source-v1/experimental/branching_context/src/context_time_travel/vision_dry.py",
+      "before_sha256": "8879d5bab64f0983ae6dc83b62a02922872b2d22949f6c2bf11f8163ba05315a",
+      "after_sha256": "bfad5b13a7dc2a1f7a47128a99b72d9f6f774205e125145876c7e27182c87e10",
+      "ast_identical": true
+    },
+    {
+      "before": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-xtc-source-v3/experimental/branching_context/scripts/build_vision_dry_xtc_probe.py",
+      "after": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-xtc-source-v4/experimental/branching_context/scripts/build_vision_dry_xtc_probe.py",
+      "before_sha256": "3065757af964c69da5005e1fbf41fd976df6e825cdfc7978c682ad57601245db",
+      "after_sha256": "30fdd6f9b3a5691bda60b9f819649ec4eedcf3842f3d4bc49ce302ddef4e7406",
+      "ast_identical": true
+    }
+  ],
+  "scope": "Documentation comments add no executable or docstring changes"
+}

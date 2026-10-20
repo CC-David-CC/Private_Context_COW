@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "scope": "Executed browser math reports, screenshots and source profile; both failed attempts retained",
+  "files": {
+    "dual/chromium/chromium-dual-results.json": {
+      "bytes": 695,
+      "sha256": "3bdcbda7bfc2612471492f7678e2f6073832a5b549b22e498ec60ed553171f48"
+    },
+    "dual-green/chromium/chromium-dual-math.png": {
+      "bytes": 25890,
+      "sha256": "20893e52e7b33cf56ef2078f7f4879513924981f79c12b5bf09f1771767c020a"
+    },
+    "dual-green/chromium/chromium-dual-results.json": {
+      "bytes": 1350,
+      "sha256": "0854045b3c12e2d221729f2e8a7a34e798dc73cbff62b4129077b37b6c16f314"
+    },
+    "dual-green/firefox/firefox-dual-math.png": {
+      "bytes": 28131,
+      "sha256": "576754ac94db68cd1eb7354a9c2d605d9cc05a2f88d94a60b219d6744c0ad9ea"
+    },
+    "dual-green/firefox/firefox-dual-results.json": {
+      "bytes": 1349,
+      "sha256": "3bd0e6d668ebc56ff64fe10c5acfbbfc585662b16d4efe6a0680cedaadc6b07f"
+    },
+    "dual-green/webkit/webkit-dual-math.png": {
+      "bytes": 24087,
+      "sha256": "c913ea94b523f2f7d8d9a50cbaab2e36f2e9ef4e377d7b31b57fcd0278d7938e"
+    },
+    "dual-green/webkit/webkit-dual-results.json": {
+      "bytes": 1348,
+      "sha256": "8e93b07e6f5fa27a113b9256df011637ea6d915e8b34fe05d438355e7219c533"
+    },
+    "integration-profile.json": {
+      "bytes": 38768,
+      "sha256": "5dbacf092cec7550f4e0ec061fe99118ea2a605e54271501770a0bc099a0c024"
+    },
+    "katex/chromium/chromium-math.png": {
+      "bytes": 27853,
+      "sha256": "1e1f5948402355ae255b570b86777a9ebc29c31a49b86e9ef8f85c4628e9f1f8"
+    },
+    "katex/chromium/chromium-results.json": {
+      "bytes": 1688,
+      "sha256": "2a1df0db663090412b612fb86e82a03f93fddf324b9bba2277bf477d8843a63c"
+    },
+    "katex/firefox/firefox-math.png": {
+      "bytes": 30864,
+      "sha256": "2cc17b65d999c10d52418beda0f7e26c3b02fb8aa65a0045f303f5fedd54bb45"
+    },
+    "katex/firefox/firefox-results.json": {
+      "bytes": 1397,
+      "sha256": "c835a1dcbf0e34577903d3c8fd8d3945ed6d5fa8af9e91fa5f8470d5899bf482"
+    },
+    "katex/webkit/webkit-math.png": {
+      "bytes": 25642,
+      "sha256": "ba03550e97e4bc3af364e587d73c637fe4e16f307628e8735ec25b8921820e86"
+    },
+    "katex/webkit/webkit-results.json": {
+      "bytes": 1396,
+      "sha256": "f5549f3c6247a4c52da5d5d8964f7b49508a31f8cd14875faba4aff09f33048c"
+    },
+    "mathjax/chromium/chromium-math.png": {
+      "bytes": 27476,
+      "sha256": "b795ae958ffd488e31d867274399a9ef22a7cbbb6f66802f6100a08acb323870"
+    },
+    "mathjax/chromium/chromium-results.json": {
+      "bytes": 1531,
+      "sha256": "6e3db33129f7fdc79dedfbf38a866592ecbe8d89eb85879dc9d8c5efa67d68a6"
+    },
+    "mathjax/firefox/firefox-math.png": {
+      "bytes": 30523,
+      "sha256": "0b7875403df25ab46004e2a4e370e6f500d0c9919f15ca9d4079c3edc6cb3ce2"
+    },
+    "mathjax/firefox/firefox-results.json": {
+      "bytes": 1402,
+      "sha256": "7a6ca0250c52e2e1ea5ef1147e01bf6cb5f6b1bc13b32eb6f29c9bbc0882dfc6"
+    },
+    "mathjax/webkit/webkit-math.png": {
+      "bytes": 25306,
+      "sha256": "a7b469c8b820e28f728631d35905e70b842c77ef750a8d2a0ae956bedfb53ec2"
+    },
+    "mathjax/webkit/webkit-results.json": {
+      "bytes": 1413,
+      "sha256": "b9fdab62697aa3705bbf943c76a467675b51643e22344f5b3e5f2a2c4039e71f"
+    },
+    "red/chromium-dual-results.json": {
+      "bytes": 265,
+      "sha256": "7e0b579d624ba3a940a90d9d4af1f15f1d4fc2e0be6f2a17da5cd2eb23ce7491"
+    },
+    "SUMMARY.json": {
+      "bytes": 6868,
+      "sha256": "af0ead5cd942051af0bab2f6736e670148d54f8ebc5ba6ab78e945fa093df24b"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "old_native_pid": 616853,
+  "execution_profile_id": "15ef2e771faf1b5858fb138b5a03201105bd467361ef033ce3b07ec7fc77fce8",
+  "restores": [],
+  "scope": "Exact saved-frontier/controller restore only;not fresh full-history or continuation qualification",
+  "error": {
+    "type": "IntegrityError",
+    "message": "Execution environment differs from pinned Strata profile"
+  },
+  "elapsed_seconds": 0.041957005858421326
+}

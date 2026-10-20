@@ -1,0 +1,46 @@
+{
+    "schema":  "cow-mirostat2-cpu-integration-v1",
+    "status":  "CPU_PASS_GPU_UNRUN",
+    "source_base_commit":  "d80be6ed046ea42640383a9e53f94b0ce2d1a33a",
+    "source_stage":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-v1/source",
+    "stage_sha256":  "27841f01949daae01dd9a082ca5745fa3d7ddee9e0ad6c7f3774739024ac818f",
+    "cpu":  {
+                "failures":  0,
+                "wrapper_exit":  0,
+                "command_exit":  0,
+                "result":  "MIROSTAT2-INTEGRATED-CPU-2026-10-16.json",
+                "tests":  688,
+                "command":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-command-v1",
+                "skips":  0,
+                "sha256":  "9aba65ab50abe9d4cb71f38880f8c4df04952016dc0f300c7c372593cb13929a"
+            },
+    "g0":  {
+               "wrapper_exit":  0,
+               "status":  "PASS",
+               "command":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-integrated-g0-command-v1",
+               "command_exit":  0,
+               "tests":  51
+           },
+    "native":  {
+                   "status":  "BUILT_NOT_EXECUTED",
+                   "build_receipt_sha256":  "e809cf3f79e64a732bee15569ed6a5d029c734a08b1d4a64e5501f82804068d2",
+                   "binary_sha256":  "d0689fea92962109e19d3a74e3f0c78ed9e422915f718d4c5502b1c15d0f581e",
+                   "protocol":  "full-vocab-mirostat2-u53-v6",
+                   "binary":  "/home/dflanag3/spatial-artifacts/mirostat2-native-20261016-v1/native-build-v4/output/strata-batched-branch-lazy-mirostat2-v6"
+               },
+    "preserved_reds":  [
+                           "mirostat-routing-red-v1",
+                           "mirostat-observer-red-v1",
+                           "mirostat-resume-red-v1",
+                           "mirostat-receipts-red-v1",
+                           "mirostat2-controller-20261016-v1/red-v9",
+                           "mirostat2-native-20261016-v1/red-v2"
+                       ],
+    "limits":  [
+                   "CPU fixtures do not qualify GPU execution.",
+                   "Native numerical objects unchanged; new host command compiled but GPU runtime unrun.",
+                   "Same-model/profile/operator/batch boundaries only.",
+                   "Original cumulative G1-G5 remain unqualified.",
+                   "Private PC and box-git only; chat remains off."
+               ]
+}

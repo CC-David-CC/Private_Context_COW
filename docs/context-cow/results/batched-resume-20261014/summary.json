@@ -1,0 +1,231 @@
+{
+  "status": "BLOCKED",
+  "milestone": "batches-only durable resume",
+  "blocker": "Native dense projection does not preserve per-row results across batch sizes 1 and 5 at frozen tolerance",
+  "gates": {
+    "G0": {
+      "gates": [
+        {
+          "errors": 0,
+          "expected_failures": 0,
+          "failure_ids": [],
+          "failures": 0,
+          "found_tests": 51,
+          "gate": "G0",
+          "required_cases": 0,
+          "skipped": 0,
+          "skipped_ids": [],
+          "status": "PASS",
+          "test_count": 51,
+          "unexpected_successes": 0
+        }
+      ],
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "requested": "G0",
+      "schema": 1,
+      "source_tree_sha256": "ffcd29578dbeca19cf7d32dd880c653f02a7437113b055cab1bc3bce76aed2a8",
+      "status": "PASS",
+      "timestamp_utc": "2026-10-14T02:33:38.326680+00:00",
+      "tool": "scripts/verify.py"
+    },
+    "G1": "NOT_QUALIFIED",
+    "G2": "BLOCKED_BEFORE_CURRENT_PROFILE_RESTART",
+    "G3": "NOT_QUALIFIED"
+  },
+  "executed_methods": {
+    "control-tests.log": [
+      [
+        "test_dr_001_missing_disk_even_with_hot_image",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_001_missing_disk_even_with_hot_image",
+        "ok"
+      ],
+      [
+        "test_dr_002_valid_receipt_and_frontier",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_002_valid_receipt_and_frontier",
+        "ok"
+      ],
+      [
+        "test_dr_005_process_kills_at_publication_boundaries",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_005_process_kills_at_publication_boundaries",
+        "ok"
+      ],
+      [
+        "test_dr_006_durable_move_retry_and_stale_revision",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_006_durable_move_retry_and_stale_revision",
+        "ok"
+      ],
+      [
+        "test_dr_006_reader_pins_released_candidate_during_gc",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_006_reader_pins_released_candidate_during_gc",
+        "ok"
+      ],
+      [
+        "test_dr_007_corruption_and_compatibility_matrix",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_007_corruption_and_compatibility_matrix",
+        "ok"
+      ],
+      [
+        "test_dr_007_nonfinite_frontier_rejected",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_007_nonfinite_frontier_rejected",
+        "ok"
+      ],
+      [
+        "test_dr_007_unknown_controller_rejected_before_import",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_007_unknown_controller_rejected_before_import",
+        "ok"
+      ],
+      [
+        "test_dr_008_replay_is_failure",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_008_replay_is_failure",
+        "ok"
+      ],
+      [
+        "test_dr_011_failed_write_keeps_old_head",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_011_failed_write_keeps_old_head",
+        "ok"
+      ],
+      [
+        "test_dr_011_retry_must_flush_visible_manifest_before_ack",
+        "test_durable_restore.DurableRestoreControlTests.test_dr_011_retry_must_flush_visible_manifest_before_ack",
+        "ok"
+      ],
+      [
+        "test_exact_comparison_remains_numeric_zero",
+        "test_resume_report.ResumeReportTests.test_exact_comparison_remains_numeric_zero",
+        "ok"
+      ],
+      [
+        "test_nonzero_error_at_zero_tolerance_is_preserved",
+        "test_resume_report.ResumeReportTests.test_nonzero_error_at_zero_tolerance_is_preserved",
+        "ok"
+      ],
+      [
+        "test_decode_and_replay_cannot_qualify_batch_consumption",
+        "test_batched_resume_work.BatchedResumeWorkTests.test_decode_and_replay_cannot_qualify_batch_consumption",
+        "ok"
+      ]
+    ],
+    "batch-audit.log": [
+      [
+        "test_bp_001_actual_batched_work",
+        "test_batched_preflight.BatchedPreflightTests.test_bp_001_actual_batched_work",
+        "ok"
+      ],
+      [
+        "test_bp_002_identical_projection_inputs_and_unchanged_outputs",
+        "test_batched_preflight.BatchedPreflightTests.test_bp_002_identical_projection_inputs_and_unchanged_outputs",
+        "ok"
+      ],
+      [
+        "test_bp_003_batched_partition_invariance",
+        "test_batched_preflight.BatchedPreflightTests.test_bp_003_batched_partition_invariance",
+        "FAIL"
+      ]
+    ]
+  },
+  "supplemental": {
+    "passed": 14,
+    "failures": 0,
+    "skips": 0
+  },
+  "real_artifact_audit": {
+    "passed": 2,
+    "failed": 1,
+    "skips": 0
+  },
+  "preflight": {
+    "status": "FAIL",
+    "max_logit_error": 1.4495954513549805,
+    "fresh_repeat_error": 0.0,
+    "atol": 0.0,
+    "rtol": 0,
+    "work": [
+      {
+        "consumed": 133,
+        "prompt_consumed": 132,
+        "decode_tokens": 1,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 132,
+        "total_prefill_tokens": 133,
+        "continuation_operator": "batched-prefill",
+        "prefill_chunks": 3,
+        "prefill_seconds": 0.417446,
+        "decode_seconds": 0.0224457,
+        "generated": [
+          198
+        ]
+      },
+      {
+        "consumed": 134,
+        "prompt_consumed": 133,
+        "decode_tokens": 1,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 133,
+        "total_prefill_tokens": 134,
+        "continuation_operator": "batched-prefill",
+        "prefill_chunks": 3,
+        "prefill_seconds": 0.421377,
+        "decode_seconds": 0.0210277,
+        "generated": [
+          309
+        ]
+      },
+      {
+        "consumed": 134,
+        "prompt_consumed": 133,
+        "decode_tokens": 1,
+        "stopping_reason": "output_bound",
+        "prefill_tokens": 133,
+        "total_prefill_tokens": 134,
+        "continuation_operator": "batched-prefill",
+        "prefill_chunks": 3,
+        "prefill_seconds": 0.421132,
+        "decode_seconds": 0.0209839,
+        "generated": [
+          309
+        ]
+      }
+    ]
+  },
+  "projection_input_images": {
+    "bit_identical": true,
+    "bytes_per_trace": 10240,
+    "sha256": {
+      "0.trace.input-f16-bf16": "5373e0d2da128b2be72aefa538f756294902db629afbcd3f98b5c6152a04e177",
+      "1.trace.input-f16-bf16": "5373e0d2da128b2be72aefa538f756294902db629afbcd3f98b5c6152a04e177"
+    }
+  },
+  "first_projection_difference": {
+    "layer": 0,
+    "half": 2,
+    "count": 10240,
+    "max_absolute_error": 1.1444091796875e-05,
+    "worst_index": 3097,
+    "actual": -26.772117614746094,
+    "reference": -26.77212905883789
+  },
+  "instrumentation_preserved_frontiers": true,
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "execution_profile_id": "0135e6dcd0125825520ae3500c1588baa8deb7d24a40d0b6bb3e9235e14639ae",
+  "backend_binaries_sha256": {
+    "strata-batched-fresh": "62562c953721bf212e264363765a5dd237d3ae34db0c4877fca6f1fba197c1b7",
+    "strata-batched-branch": "60cc228fd160700bfc7f54fd0a2147ed0888cf02b97dd36760e33d215f43d4a4"
+  },
+  "diagnostic_binary_sha256": "9549b6c9dd5aba03f57260e648db7d3c46cde4c4961cb71dfacb090cf6cc1cd0",
+  "model_hash_verification": "Earlier full hash receipt reused; no model content rehash in this campaign",
+  "current_profile_restore_performed": false,
+  "unexecuted": [
+    "current-profile restart",
+    "1K/8K fixtures",
+    "nonzero RNG/grammar/decoder continuation",
+    "real GPU crash/OOM/eviction matrix",
+    "power-loss qualification",
+    "peak RAM/VRAM measurements"
+  ],
+  "normal_decode": "Excluded; further research/fixes not started. Earlier exploratory measurements retained.",
+  "remote": "box-git:/srv/data/git/private_context_cow.git",
+  "archive_sha256": "f3457342ced1c7a09e7a233612cdc625aa4f98b29df754cf40884d49f199af8a"
+}

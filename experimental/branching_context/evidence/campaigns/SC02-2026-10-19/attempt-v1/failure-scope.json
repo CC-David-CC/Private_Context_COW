@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED_BY_ABSENT_DERIVED_CHECKPOINT",
+  "model_failure": false,
+  "native_forward_tokens": 0,
+  "checkpoint_payloads_remaining": 0,
+  "configured_idle_seconds": 1800,
+  "observed_error": "History reconstruction supports the tested greedy controller only",
+  "scope": "Canonical history and parent tip retained. Disk checkpoint absent when continuation requested. Idle expiry was enabled; per-eviction trace was not enabled, so exact deletion events are not independently recorded. No restored continuation measured. New controlled campaign must retain its checkpoint and verify availability before loading model.",
+  "native_exit_code": 0,
+  "ssh_cleanup": {
+    "owned_key_revoked": true,
+    "original_keys_byte_exact": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "base": "5c8c9ee2ea590595a95917db4975f48d2565fbd4",
+  "boundaries": "No C++/CUDA/HIP/SYCL engine changes, no public option, no history/checkpoint schema or numerical/reference/tolerance/registered-gate changes. Python rendering only. Existing materialization/inference/source profiles are not relabelled.",
+  "branch": "work/vision-thinking-user-suffix-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "current_numerical_campaign": "8K job uses independent frozen old runtime/profile2e5e0a02, unaffected by this checkout edit; do not attribute its numerical results to this source before qualification",
+  "executed_artifacts": [
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-focused-run-v1",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-serving-union-run-v2",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-serving-union-v2.json",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-real-tokenizer-v1.json",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-g0-run-v1"
+  ],
+  "host": "llm-60",
+  "implementation": "Use a constant synthetic system anchor and require identical rendered/text token prefixes, then extract only the new user+assistant frame. Never render canonical old history. Keep strict EOS/stopped guards, literal-data protection and byte-identical non-thinking frames.",
+  "manual_git_exception": "Installed helper pins unrelated Spatial repository; explicit paths/identity/private ref and full SHA checked manually",
+  "owned_paths": [
+    "serve/cow_prompt_encoder.py",
+    "serve/test_cow_thinking_user_suffix.py",
+    "experimental/branching_context/evidence/THINKING-USER-SUFFIX-CPU-2026-10-17.json"
+  ],
+  "pending": [
+    "Freeze a new source-bound runtime/profile, retaining the unchanged native binary/model",
+    "Actual CLI context/fork/new-question/retry/restart on Q4 GPU after the running8K campaign exits",
+    "End-to-end timing/current text/supported matrix"
+  ],
+  "problem": "Current thinking-template standalone render inserts a reasoning-system message; old user-suffix path rejects that profile. Appending the standalone render would duplicate system context.",
+  "production_sha256": "ccfdebd6114ff22aee39671325f57c0bbd40b5198c4db786cdc2ed43c84c06dc",
+  "publication": "Private LAN only; not canonical feature integration until reviewed live evidence",
+  "retained_failures": [
+    {
+      "kind": "test-first RED: thinking suffix unsupported",
+      "note": "7 methods,1 failure/7 subtest errors; original controller/grammar/math tests untouched",
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-red-run-v1"
+    },
+    {
+      "kind": "Initial broad discovery lacked implementation fixture paths and exposed stale namespace callback assertion",
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-serving-run-v1"
+    },
+    {
+      "kind": "Existing namespace callback assertion also fails on frozen core; corrected independently in5c8c9ee2",
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-suffix-namespace-baseline-run-v1"
+    },
+    {
+      "kind": "First deduplicated union child lacked context_time_travel in inherited PYTHONPATH; launcher only corrected",
+      "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-serving-union-run-v1",
+      "proof": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-user-suffix-child-import-baseline-v1.json"
+    }
+  ],
+  "schema": 1,
+  "source_test_sha256": "c933ecebb2fddcd0b13ad8f51ee2e99bb0eca0b7ac712050f846f911309e8aa4",
+  "status": "CPU_COMPONENT_PASS_REAL_GPU_UNRUN",
+  "tests": {
+    "G0": 51,
+    "deduplicated_ids": 20,
+    "errors": 0,
+    "failures": 0,
+    "focused_subset": 15,
+    "new_regressions": 7,
+    "raw_discovered": 436,
+    "real_GGUF_tokenizer_CPU_cases": 12,
+    "serving_unique": 416,
+    "skips": 0
+  }
+}

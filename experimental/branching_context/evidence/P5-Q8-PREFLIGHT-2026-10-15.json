@@ -1,0 +1,268 @@
+{
+  "capacity": {
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "cpu_affinity_count": 32,
+    "disk_free_bytes_observed": 55382208512,
+    "gpu_job_started": false,
+    "gpu_nvidia_smi": "0, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 97887 MiB, 15 MiB, 97235 MiB, 0 %",
+    "historical_full_output_bytes": 41659712189,
+    "host_mem_available_bytes": 129856548864,
+    "host_min_available_bytes": 17179869184,
+    "host_min_available_pass": true,
+    "margin_bytes": 2985078083,
+    "required_free_bytes": 52397130429,
+    "separate_disk_floor_bytes": 10737418240,
+    "swap_free_bytes": 3819130880
+  },
+  "created_at_epoch": 1792043038.144591,
+  "execution": {
+    "launch_authorized": false,
+    "launch_requires_root_review": true,
+    "planned_command": [
+      "python3",
+      "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/pool_campaign.py",
+      "campaign",
+      "--config",
+      "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/campaign-config.json",
+      "--output",
+      "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v1/q8-64k-pressure",
+      "--fixture",
+      "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/fixture.json",
+      "--generated",
+      "2048",
+      "--exercise-rewind",
+      "--pressure-order",
+      "interleaved-roots"
+    ],
+    "planned_output": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v1/q8-64k-pressure",
+    "source_and_profile_frozen": true
+  },
+  "fixture": {
+    "builder_input": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/fixtures/q8_64k.json",
+    "builder_input_sha256": "d8f44b8706a982b491b91848d4eb59ee2029de9f934e613de529337cbbb2ce09",
+    "builder_pinned_profile": "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json",
+    "builder_pinned_profile_sha256": "9ca098986ef330669deb32e4ad1e6c3d65b98761cf53edd449893618dac55119",
+    "builder_script": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/build_q8_64k_source_contexts.py",
+    "builder_script_sha256": "bc1cc5e291400f89d6ccbd0ced2449b06a9361c86043eb8cb78455eb959151e6",
+    "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+    "normalized_campaign_fixture": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/fixture.json",
+    "normalized_campaign_fixture_sha256": "c661084b390720c1cbb1ca2465734cd5a099d366f2811704b4661251f5ca1903",
+    "old_result_path": "/home/dflanag3/branching-g3/multi-code-contexts-20261014/q8-64k-full-v1/result.json",
+    "old_result_sha256": "9fc4be34441e77bf990df656e729d25e8339d683382fb1a43758b5e8cc9ac199",
+    "output_limit": 2048,
+    "prefix_tokens_each": 65536,
+    "rewinds_requested": true,
+    "roots": 3,
+    "suffix_tokens": [
+      8336,
+      8311,
+      8320,
+      8311,
+      8315,
+      8318
+    ],
+    "tokenizer_identity": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "tree_roots": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "trees": 6
+  },
+  "model": {
+    "model_hash_receipt_path": "/home/dflanag3/branching-g3/llm60-model-hashes.json",
+    "model_hash_receipt_sha256": "99dfc43d8b1cc1117f136bf1e1c22d2d7611f511e8d3642ea3be3502c43c1469",
+    "model_hashes_reused_from_executed_run": true,
+    "model_pack_expert_stat_records": [
+      {
+        "bytes": 10946624,
+        "ctime_ns": 1790729589392419008,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790729589381418726,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 682434912,
+        "ctime_ns": 1790729599645681742,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790729599307673074,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00002-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 54400261312,
+        "ctime_ns": 1790730345246444894,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790730317598697581,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00003-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 49446841216,
+        "ctime_ns": 1790731295972374122,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790731275566815044,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00004-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 49668930400,
+        "ctime_ns": 1790732103090440103,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790732080147774654,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00005-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 34015618784,
+        "ctime_ns": 1790732799161348712,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1790732782539877339,
+        "path": "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00006-of-00006.gguf",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 1485688320,
+        "ctime_ns": 1791730871926571857,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1791730871926571857,
+        "path": "/home/dflanag3/branching-g3/q8-pack/dense.bin",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 93554,
+        "ctime_ns": 1791730872135578546,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1791730872135578546,
+        "path": "/home/dflanag3/branching-g3/q8-pack/index.txt",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 5545,
+        "ctime_ns": 1791730595738728521,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1791730595738728521,
+        "path": "/home/dflanag3/branching-g3/q8-pack/native_experts.txt",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 168994,
+        "ctime_ns": 1791730872350585428,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1791730872350585428,
+        "path": "/home/dflanag3/branching-g3/q8-pack/conversions.json",
+        "stat_matches_receipt": true
+      },
+      {
+        "bytes": 196632,
+        "ctime_ns": 1791730607613639165,
+        "hash_reused_from_executed_run": true,
+        "mtime_ns": 1791725436000000000,
+        "path": "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+        "stat_matches_receipt": true
+      }
+    ],
+    "model_weights_sha256": "846b74d30a22552ad8cc2fabe5b17103049fe68ffdacf56daa457db8ecaa356f",
+    "weights_rehashed_for_this_preflight": false
+  },
+  "pool_config": {
+    "bound_profile_path": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/gpu0-bound-profile/profile.json",
+    "path": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/campaign-config.json",
+    "sha256": "4304864c5484d70192d3ba8175a6f7a6e73f2851ea3c073d8893d600831bdf45",
+    "values": {
+      "GPU": [
+        0
+      ],
+      "disk_bytes": 68719476736,
+      "min_available_bytes": 17179869184,
+      "profile": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/profile.json",
+      "ram_bytes": 17179869184,
+      "require_clean_evictions": true,
+      "require_spill_reload_same_process": true,
+      "trace_pool_transitions": true
+    }
+  },
+  "profile": {
+    "GPU": [
+      0
+    ],
+    "bound_gpu0_execution_profile_id": "9572549eb5adab9d5573fbb632af2212657798914ad3ad2d453e704ad58e9e83",
+    "bound_gpu0_path": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/gpu0-bound-profile/profile.json",
+    "bound_gpu0_sha256": "2a891ac2aba133cd3bbb2e14f9257b54bcaa28c97b701c67cbe9ccb03c9ea237",
+    "capacity": 98304,
+    "checkpoint_cache": {
+      "byte_limit": 8589934592,
+      "entry_limit": 3
+    },
+    "derived_unbound_execution_profile_id": "7c020f3de56d73c69d1a5af54d50f34d45770ae65dabd369c6356dbc223ba5a9",
+    "derived_unbound_path": "/home/dflanag3/spatial-artifacts/q8-p5-profile-preflight-20261015-v2/profile.json",
+    "derived_unbound_sha256": "3c62ee193163f77e715a898af395a089508f30086e9483b833a97bc7d410aa73",
+    "input_base": "/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json",
+    "input_execution_profile_id": "2cd8857a454d5645e8caf5a0551213bcfbf99ee3b57622ef738f60b62f4f25ee",
+    "input_sha256": "9ca098986ef330669deb32e4ad1e6c3d65b98761cf53edd449893618dac55119",
+    "kv_dtype": "FP16",
+    "native_binary_sha256": {
+      "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-branch": "7bb17b47d2dc8b6252530f377891380613fc2c43352c34ea6f0319f386bf4a2b",
+      "/home/dflanag3/branching-g3/native-request-probe-20261014/binaries-digest-v1/strata-batched-fresh": "a60314b8aff6c3954ec55aabce18c58196231b57f7cf99b340b68b747689100c"
+    },
+    "native_build_receipt_sha256": "e1b151aa37ddc4a75b9f6e121ccd7d73412e9a545105f1ffbe8cfc6ba053898f",
+    "native_build_source_status": "staged driver over pinned base; exact file hashes authoritative",
+    "prefill_chunk": 8192,
+    "profile_derivation_script": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/prepare_native_request_profile.py",
+    "profile_derivation_script_sha256": "1550dcac8db5bea22445f022922720bffd1de77e9ce025b0f8c0c79db01e172e"
+  },
+  "runner": {
+    "expected_native_usage": "one GPU0 worker; no separate model copy; full fresh-reference pass",
+    "independent_fresh_matching_operator_reference": true,
+    "mode": "campaign",
+    "path": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015/experimental/branching_context/scripts/pool_campaign.py",
+    "pressure_order": "interleaved-roots",
+    "sha256": "2a946ae7f1d0502f68f01ac9e0e13c5d6231935f17b63e68d6aae7ea009c5f8f"
+  },
+  "schema": "q8-p5-profile-capacity-preflight-v1",
+  "source": {
+    "authorized_source_commit": "24b4fbbf85deec2b3c4beb8cc8af389c730ea32c",
+    "authorized_source_digest_prefix": "44f8729d",
+    "frozen_root": "/home/dflanag3/branching-g3/p5-q4-root24b4-source-20261015",
+    "full_source_copy_created": false,
+    "read_only_mode": "0o500"
+  },
+  "status": "PREPARED_NOT_EXECUTED_READY_FOR_ROOT_REVIEW"
+}

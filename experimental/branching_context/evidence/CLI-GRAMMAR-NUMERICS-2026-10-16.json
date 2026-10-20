@@ -1,0 +1,787 @@
+{
+  "campaign_sha256": "8111ea6fccef702e80c4c537400f25f3d82e489295ba676e44c73330ca801230",
+  "exact_frontier_comparisons": 38,
+  "frontier_comparisons": [
+    {
+      "label": "READ repeated fresh trajectory prompt_frontier",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory final_prefill_frontier",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[0]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[1]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[2]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[3]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[4]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[5]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[6]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[7]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[8]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[9]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[10]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[11]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory decode_frontiers[12]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory segment_frontiers[0]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ repeated fresh trajectory segment_frontiers[1]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory prompt_frontier",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory final_prefill_frontier",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[0]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[1]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[2]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[3]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[4]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[5]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[6]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[7]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[8]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[9]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory decode_frontiers[10]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST repeated fresh trajectory segment_frontiers[0]",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "SUT root / read-1 raw Prefill",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "SUT root / read-2 raw Prefill",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "SUT root / test-1 raw Prefill",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "SUT root / test-2 raw Prefill",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ partial SUT / raw boundary",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "READ final SUT / raw boundary",
+      "max_abs_error": 0.0
+    },
+    {
+      "label": "TEST final SUT / raw boundary",
+      "max_abs_error": 0.0
+    }
+  ],
+  "frontier_max_abs_error": 0.0,
+  "grammar_dependency": {
+    "grammar_engine_id": "52065925b7421d50ab84b38cbf081b906d53e4a78ab58a185f904d74618ffb7b",
+    "grammar_registry_path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/runs/cli-grammar-q4-tiny-v2/campaign/grammar-registry.json",
+    "grammar_spec_sha256": "f69e3bf2f59b9003e1cb94870c2c23d27fa20fc4b30ca437fa0455abf2d3fdbd",
+    "llguidance_native_path": "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps/llguidance/_lib.abi3.so",
+    "llguidance_native_sha256": "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a",
+    "llguidance_python_path": "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps/llguidance/__init__.py",
+    "llguidance_version": "1.9.1",
+    "states": [
+      "READ",
+      "TEST"
+    ],
+    "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+  },
+  "model_oracle_executed": true,
+  "oracle_binary_sha256": "f1de0bd01afe7e695e663180c4e2dd5c9931dd8b6b5257e20d333910a9eafcc6",
+  "oracle_branch_sessions": 0,
+  "oracle_build_sha256": "d0fd5cc7981e29677f08c0bffadb1c951581d7e67cc8c3149562c83aab9f898f",
+  "oracle_checkpoint_imports": 0,
+  "profile_sha256": "3551eeb132aeb7642cd3868acb9c940210ec0e9be97018bebff82a907f88b32a",
+  "raw_controller_sha256": {
+    "read-1": {
+      "boundary": [
+        "2ffa1af37ab6ce207586a1f36a711f9f72d4e1164721ab753e16be1002e988c6",
+        "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8"
+      ],
+      "final": "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8"
+    },
+    "read-2": {
+      "boundary": [
+        "2ffa1af37ab6ce207586a1f36a711f9f72d4e1164721ab753e16be1002e988c6",
+        "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8"
+      ],
+      "final": "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8"
+    },
+    "test-1": {
+      "boundary": [
+        "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed"
+      ],
+      "final": "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed"
+    },
+    "test-2": {
+      "boundary": [
+        "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed"
+      ],
+      "final": "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed"
+    }
+  },
+  "raw_operation_ids": {
+    "READ": "grammar-read-first-cbcd6289f59e",
+    "TEST": "grammar-test-answer-cbcd6289f59e"
+  },
+  "raw_processes": {
+    "read-1": {
+      "exit_code": 0,
+      "heartbeat_count": 0,
+      "pid": 3593137,
+      "schedule": {
+        "completed_segments": [
+          {
+            "count": 1,
+            "generated_start": 0,
+            "native_start_position": 22
+          },
+          {
+            "count": 12,
+            "generated_start": 1,
+            "native_start_position": 23
+          }
+        ],
+        "decode_operator": "normal-verifier-decode",
+        "prefill_chunks": [
+          [
+            0,
+            22
+          ]
+        ],
+        "prefill_operator": "batched-prefill",
+        "prefill_requests": [
+          22
+        ],
+        "requested_segments": [
+          1,
+          12
+        ]
+      },
+      "timings": {
+        "decode_seconds": 0.101854,
+        "prefill_seconds": 0.193905
+      },
+      "work": {
+        "consumed": 35,
+        "decode_tokens": 13,
+        "generated": [
+          4754,
+          13766,
+          3147,
+          851,
+          2378,
+          2129,
+          2267,
+          3147,
+          3431,
+          14905,
+          6971,
+          8934,
+          248046
+        ],
+        "normal_decode_windows": 13,
+        "normal_forward_tokens": 13,
+        "prefill_chunks": 1,
+        "prefill_tokens": 22,
+        "prompt_consumed": 22,
+        "stopping_reason": "eos"
+      }
+    },
+    "read-2": {
+      "exit_code": 0,
+      "heartbeat_count": 0,
+      "pid": 3594323,
+      "schedule": {
+        "completed_segments": [
+          {
+            "count": 1,
+            "generated_start": 0,
+            "native_start_position": 22
+          },
+          {
+            "count": 12,
+            "generated_start": 1,
+            "native_start_position": 23
+          }
+        ],
+        "decode_operator": "normal-verifier-decode",
+        "prefill_chunks": [
+          [
+            0,
+            22
+          ]
+        ],
+        "prefill_operator": "batched-prefill",
+        "prefill_requests": [
+          22
+        ],
+        "requested_segments": [
+          1,
+          12
+        ]
+      },
+      "timings": {
+        "decode_seconds": 0.103933,
+        "prefill_seconds": 0.215781
+      },
+      "work": {
+        "consumed": 35,
+        "decode_tokens": 13,
+        "generated": [
+          4754,
+          13766,
+          3147,
+          851,
+          2378,
+          2129,
+          2267,
+          3147,
+          3431,
+          14905,
+          6971,
+          8934,
+          248046
+        ],
+        "normal_decode_windows": 13,
+        "normal_forward_tokens": 13,
+        "prefill_chunks": 1,
+        "prefill_tokens": 22,
+        "prompt_consumed": 22,
+        "stopping_reason": "eos"
+      }
+    },
+    "test-1": {
+      "exit_code": 0,
+      "heartbeat_count": 0,
+      "pid": 3594487,
+      "schedule": {
+        "completed_segments": [
+          {
+            "count": 11,
+            "generated_start": 0,
+            "native_start_position": 22
+          }
+        ],
+        "decode_operator": "normal-verifier-decode",
+        "prefill_chunks": [
+          [
+            0,
+            22
+          ]
+        ],
+        "prefill_operator": "batched-prefill",
+        "prefill_requests": [
+          22
+        ],
+        "requested_segments": [
+          11
+        ]
+      },
+      "timings": {
+        "decode_seconds": 0.0887287,
+        "prefill_seconds": 0.206665
+      },
+      "work": {
+        "consumed": 33,
+        "decode_tokens": 11,
+        "generated": [
+          4754,
+          13766,
+          3147,
+          5917,
+          31436,
+          2129,
+          48310,
+          3147,
+          3715,
+          8934,
+          248046
+        ],
+        "normal_decode_windows": 11,
+        "normal_forward_tokens": 11,
+        "prefill_chunks": 1,
+        "prefill_tokens": 22,
+        "prompt_consumed": 22,
+        "stopping_reason": "eos"
+      }
+    },
+    "test-2": {
+      "exit_code": 0,
+      "heartbeat_count": 0,
+      "pid": 3594617,
+      "schedule": {
+        "completed_segments": [
+          {
+            "count": 11,
+            "generated_start": 0,
+            "native_start_position": 22
+          }
+        ],
+        "decode_operator": "normal-verifier-decode",
+        "prefill_chunks": [
+          [
+            0,
+            22
+          ]
+        ],
+        "prefill_operator": "batched-prefill",
+        "prefill_requests": [
+          22
+        ],
+        "requested_segments": [
+          11
+        ]
+      },
+      "timings": {
+        "decode_seconds": 0.0881274,
+        "prefill_seconds": 0.193974
+      },
+      "work": {
+        "consumed": 33,
+        "decode_tokens": 11,
+        "generated": [
+          4754,
+          13766,
+          3147,
+          5917,
+          31436,
+          2129,
+          48310,
+          3147,
+          3715,
+          8934,
+          248046
+        ],
+        "normal_decode_windows": 11,
+        "normal_forward_tokens": 11,
+        "prefill_chunks": 1,
+        "prefill_tokens": 22,
+        "prompt_consumed": 22,
+        "stopping_reason": "eos"
+      }
+    }
+  },
+  "read_greedy_legal_checks": [
+    {
+      "eos": false,
+      "index": 0,
+      "legal_count": 1,
+      "selected": 4754,
+      "token": 4754
+    },
+    {
+      "eos": false,
+      "index": 1,
+      "legal_count": 1,
+      "selected": 13766,
+      "token": 13766
+    },
+    {
+      "eos": false,
+      "index": 2,
+      "legal_count": 1,
+      "selected": 3147,
+      "token": 3147
+    },
+    {
+      "eos": false,
+      "index": 3,
+      "legal_count": 1,
+      "selected": 851,
+      "token": 851
+    },
+    {
+      "eos": false,
+      "index": 4,
+      "legal_count": 1,
+      "selected": 2378,
+      "token": 2378
+    },
+    {
+      "eos": false,
+      "index": 5,
+      "legal_count": 1,
+      "selected": 2129,
+      "token": 2129
+    },
+    {
+      "eos": false,
+      "index": 6,
+      "legal_count": 1,
+      "selected": 2267,
+      "token": 2267
+    },
+    {
+      "eos": false,
+      "index": 7,
+      "legal_count": 1,
+      "selected": 3147,
+      "token": 3147
+    },
+    {
+      "eos": false,
+      "index": 8,
+      "legal_count": 1,
+      "selected": 3431,
+      "token": 3431
+    },
+    {
+      "eos": false,
+      "index": 9,
+      "legal_count": 1,
+      "selected": 14905,
+      "token": 14905
+    },
+    {
+      "eos": false,
+      "index": 10,
+      "legal_count": 1,
+      "selected": 6971,
+      "token": 6971
+    },
+    {
+      "eos": false,
+      "index": 11,
+      "legal_count": 1,
+      "selected": 8934,
+      "token": 8934
+    },
+    {
+      "eos": true,
+      "index": 12,
+      "legal_count": 2,
+      "selected": 248046,
+      "token": 248046
+    }
+  ],
+  "read_output_ids": [
+    4754,
+    13766,
+    3147,
+    851,
+    2378,
+    2129,
+    2267,
+    3147,
+    3431,
+    14905,
+    6971,
+    8934,
+    248046
+  ],
+  "read_segments": [
+    1,
+    12
+  ],
+  "registry_sha256": "8443070884f6e35347d9720d585bcbb67fc95d0725c11fa30bfd1b1c886dfee6",
+  "root_token_count": 22,
+  "runtime_imports": [
+    {
+      "module": "context_time_travel.coordinator",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/experimental/branching_context/src/context_time_travel/coordinator.py",
+      "sha256": "a64799f5c41e2821130e33d61e8d864196ea23f9a4fdb228359a59880a1bb69c"
+    },
+    {
+      "module": "context_time_travel.grammar_first",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/experimental/branching_context/src/context_time_travel/grammar_first.py",
+      "sha256": "192a3b53046969e3eef8410d3ca3e30d9e86597e32437abfffb6fb34ec8ae956"
+    },
+    {
+      "module": "context_time_travel.real",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/experimental/branching_context/src/context_time_travel/real.py",
+      "sha256": "ad23bf1416693a5627a54f06b8b87cf2a2536d29736ba8a0312179e19be5d645"
+    },
+    {
+      "module": "context_time_travel.store",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/experimental/branching_context/src/context_time_travel/store.py",
+      "sha256": "d2ceec40a53ab0f4d94b9f28782e041983c085a763f88fc05c6d4c907c735ba7"
+    },
+    {
+      "module": "context_time_travel.strata_backend",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/experimental/branching_context/src/context_time_travel/strata_backend.py",
+      "sha256": "2a9cfc8bc95b386d6542fcbd246e6aee2ed12391f487befa916ea347c73c177b"
+    },
+    {
+      "module": "serve.cow_grammar",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/serve/cow_grammar.py",
+      "sha256": "a56b760963fe2672cdb7ab293b63bfbe49ae66d301130acf2bf5a95ccd67e042"
+    },
+    {
+      "module": "serve.cow_http",
+      "path": "/home/dflanag3/spatial-artifacts/cli-grammar-probe-20261016-v1/source-v3-green6/serve/cow_http.py",
+      "sha256": "7cd185046e4c4eeaa0522906116acd323683f048ad1f9397e70386cacb8d8a58"
+    }
+  ],
+  "schema": "independent-cli-grammar-raw-numerical-audit-v1",
+  "scope": "Four fresh raw Prefill+Verifier trajectories (two each for READ and TEST); every forced canonical ID is independently checked as the grammar-legal greedy choice before ordinary Verifier consumption. Full controller state is regenerated with the original operation stream and compared at saved boundaries. No SUT checkpoint is passed into the oracle.",
+  "status": "PASS",
+  "sut_controller_sha256": {
+    "read_final": "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8",
+    "read_partial": "2ffa1af37ab6ce207586a1f36a711f9f72d4e1164721ab753e16be1002e988c6",
+    "test_final": "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed"
+  },
+  "sut_snapshots": {
+    "read_final": {
+      "controller": {
+        "controller_sha256": "82414dfbf60471754b101606f593974890ed7209fc9808f3f69041ca93c3f8e8",
+        "progress": {
+          "accepted_in_scope": 13,
+          "constraint": {
+            "agent_state": "READ",
+            "engine_id": "52065925b7421d50ab84b38cbf081b906d53e4a78ab58a185f904d74618ffb7b",
+            "scope_start": 22,
+            "spec_sha256": "f69e3bf2f59b9003e1cb94870c2c23d27fa20fc4b30ca437fa0455abf2d3fdbd",
+            "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+          },
+          "output_pending_hex": "",
+          "schema": 2,
+          "status": "stopped"
+        },
+        "seen_token_count": 27
+      },
+      "parent": "0849de3c27cd6bc952330d16e7425359729ea28bbf5e475d4eefe2956e1ef63c",
+      "payload_sha256": "46e6ba22093d0d1eb34a4e87e08efb4cd36e0f426722341a32c0000adda730b6",
+      "snapshot": "9bcdba47834b53c1559305d436df616b02660c8d4ae665f3bc3241fc84c4e39f"
+    },
+    "read_partial": {
+      "controller": {
+        "controller_sha256": "2ffa1af37ab6ce207586a1f36a711f9f72d4e1164721ab753e16be1002e988c6",
+        "progress": {
+          "accepted_in_scope": 1,
+          "constraint": {
+            "agent_state": "READ",
+            "engine_id": "52065925b7421d50ab84b38cbf081b906d53e4a78ab58a185f904d74618ffb7b",
+            "scope_start": 22,
+            "spec_sha256": "f69e3bf2f59b9003e1cb94870c2c23d27fa20fc4b30ca437fa0455abf2d3fdbd",
+            "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+          },
+          "output_pending_hex": "",
+          "schema": 2,
+          "status": "active"
+        },
+        "seen_token_count": 19
+      },
+      "parent": "f4253f99410b818b7016ae8277dc5ea0c1e46cd359503da6296488417ca4f464",
+      "payload_sha256": "f782c127c57fe34610e1ffe2a449b376689ae09446484f0668345ec7a9056e07",
+      "snapshot": "0849de3c27cd6bc952330d16e7425359729ea28bbf5e475d4eefe2956e1ef63c"
+    },
+    "root": {
+      "controller": {
+        "controller_sha256": "adcdf212c7b960f5d5c4e44c1ada3fae88145572fb555bca77d879da66ec42ae",
+        "progress": {
+          "accepted_in_scope": null,
+          "constraint": null,
+          "output_pending_hex": null,
+          "schema": null,
+          "status": "idle"
+        },
+        "seen_token_count": 0
+      },
+      "parent": null,
+      "payload_sha256": "62603a02956fc6e2e57b55cc4c3eaef3e2533703f4c9e33785428c6f59bc9fe8",
+      "snapshot": "f4253f99410b818b7016ae8277dc5ea0c1e46cd359503da6296488417ca4f464"
+    },
+    "test_final": {
+      "controller": {
+        "controller_sha256": "9e7b1814b0014ce5f340e00cfd67bd8630576d3d28cd3bd3b5210b23109d94ed",
+        "progress": {
+          "accepted_in_scope": 11,
+          "constraint": {
+            "agent_state": "TEST",
+            "engine_id": "52065925b7421d50ab84b38cbf081b906d53e4a78ab58a185f904d74618ffb7b",
+            "scope_start": 22,
+            "spec_sha256": "f69e3bf2f59b9003e1cb94870c2c23d27fa20fc4b30ca437fa0455abf2d3fdbd",
+            "tokenizer_sha256": "4c991dd52567f203838d6dc3c2cf5950fa219b3d2efbc9e99f50ba753ec14abd"
+          },
+          "output_pending_hex": "",
+          "schema": 2,
+          "status": "stopped"
+        },
+        "seen_token_count": 27
+      },
+      "parent": "f4253f99410b818b7016ae8277dc5ea0c1e46cd359503da6296488417ca4f464",
+      "payload_sha256": "88ab3e2915dfac57ed509cc1063a92774d8d650a743f97c523735e7716ebfadc",
+      "snapshot": "1a4edbb3bb66c12114a57ed42b171a5d248721f04c0807c8f8c52e55cfc8ca9e"
+    }
+  },
+  "test_greedy_legal_checks": [
+    {
+      "eos": false,
+      "index": 0,
+      "legal_count": 1,
+      "selected": 4754,
+      "token": 4754
+    },
+    {
+      "eos": false,
+      "index": 1,
+      "legal_count": 1,
+      "selected": 13766,
+      "token": 13766
+    },
+    {
+      "eos": false,
+      "index": 2,
+      "legal_count": 1,
+      "selected": 3147,
+      "token": 3147
+    },
+    {
+      "eos": false,
+      "index": 3,
+      "legal_count": 1,
+      "selected": 5917,
+      "token": 5917
+    },
+    {
+      "eos": false,
+      "index": 4,
+      "legal_count": 1,
+      "selected": 31436,
+      "token": 31436
+    },
+    {
+      "eos": false,
+      "index": 5,
+      "legal_count": 1,
+      "selected": 2129,
+      "token": 2129
+    },
+    {
+      "eos": false,
+      "index": 6,
+      "legal_count": 1,
+      "selected": 48310,
+      "token": 48310
+    },
+    {
+      "eos": false,
+      "index": 7,
+      "legal_count": 1,
+      "selected": 3147,
+      "token": 3147
+    },
+    {
+      "eos": false,
+      "index": 8,
+      "legal_count": 1,
+      "selected": 3715,
+      "token": 3715
+    },
+    {
+      "eos": false,
+      "index": 9,
+      "legal_count": 1,
+      "selected": 8934,
+      "token": 8934
+    },
+    {
+      "eos": true,
+      "index": 10,
+      "legal_count": 2,
+      "selected": 248046,
+      "token": 248046
+    }
+  ],
+  "test_output_ids": [
+    4754,
+    13766,
+    3147,
+    5917,
+    31436,
+    2129,
+    48310,
+    3147,
+    3715,
+    8934,
+    248046
+  ],
+  "test_segments": [
+    11
+  ]
+}

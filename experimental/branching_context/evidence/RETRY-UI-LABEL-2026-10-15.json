@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "host": "llm-60",
+  "scope": "Headless Chromium DOM fixture, not a live inference service",
+  "title": "9/9 PASS native graph controls",
+  "existing_graph_checks": 9,
+  "retry_accessible_labels": 1,
+  "old_accessible_labels": 0,
+  "dom_sha256": "737de4f2c13f99a70a59eebd4314bf2a45948921f8e785be9f61c334392ccb0f",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/retry-ui-label-20261015-v1",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "limits": [
+    "Existing nine graph DOM checks passed in headless Chromium, with the new accessible label present.",
+    "Underlying rewind routes, methods, icon keys and CLI commands are unchanged.",
+    "The native socket test selector was updated for the requested label; its live service run was not repeated.",
+    "The ordinary chat server remains off; this does not claim deployment to a running service."
+  ],
+  "source_sha256": {
+    "serve/web/workspace.js": "e4eb68167a122be0d8d858e8a546eea38289fc4b1bf874ae683635a41bfe62da",
+    "serve/web/test_cow_native_socket.js": "818407677fe7598a5d9c9aff30a9addb6aaa5ddeecfa28d55583d58a5e10bb17"
+  }
+}

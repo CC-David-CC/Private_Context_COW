@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "result": "/home/dflanag3/spatial-artifacts/branch-digest-native-candidate-20261015-v1/runs/q4-hash-v1-tiny-v1/runner/probe/result.json",
+  "result_sha256": "8ca46b04a44d91cc48072c48a51f2b11d1ede510857ca2ec8407f448db5eda9a",
+  "sizes": {
+    "generated_limit": 8,
+    "prefix": 128,
+    "suffix": 4
+  },
+  "comparisons": 3,
+  "numerical_max_error": 0,
+  "root_work": [
+    {
+      "operation": "root-A-process-1",
+      "coordinator_forward_tokens": 128,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 1.7472463729791343,
+      "capture_seconds": 0.6492309211753309,
+      "durable_wait_seconds": 1.6284728769678622
+    },
+    {
+      "operation": "root-B-process-1",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 0,
+      "request_wall_seconds": 0.8924733130261302,
+      "capture_seconds": 0.6463434849865735,
+      "durable_wait_seconds": 0.775006655137986
+    },
+    {
+      "operation": "root-A-process-2",
+      "coordinator_forward_tokens": 0,
+      "loaded_file_bytes_after_capture": 121413624,
+      "request_wall_seconds": 1.4495068059768528,
+      "capture_seconds": 0.973538878839463,
+      "durable_wait_seconds": 1.3211456730496138
+    }
+  ],
+  "actual_output_counts": {
+    "A": 8,
+    "B": 8
+  },
+  "runtime_source_sha256": {
+    "context_time_travel.coordinator": "2e0e0fd3abe8e1e9735790252c2c600c90825982c5960d9593cbf117d6f01bc0",
+    "context_time_travel.execution_receipt": "045f7699c7d3da80718f25206471d88a53d2c423ce11f8ba0c9fd115057cb215",
+    "context_time_travel.pools": "f074817dc7253db5ae5e8a80dad0b894e8a959a2d466e831597f864a8125d70d",
+    "context_time_travel.real": "efe7b3b594690ae362b43944a635e74a5dcb4d6a067901e62d79f5a5434a493c",
+    "context_time_travel.store": "71f0067c8dd39546a4ade03012d538bff11b1a74abb2cd6d2ed113072d514518",
+    "context_time_travel.strata_backend": "20d94f46a7b4d66fe110265219deef7f39fac400adb730b25fbe3eabb01ea692",
+    "native_request_probe": "30e8204ac2086d2a36a0f20702c14c1823b41257909f1b0f24d89faf4d5a454c",
+    "pool_campaign": "0130bd942bc965e6d0ad1eef603e5cacac177717181b0f0e5ee3cdd2a0a336e2"
+  },
+  "profile_sha256": "188048211ecef3d4cbbf38c458106b7611acaa819829e85f8b9a42f1042ddb53",
+  "execution_profile_id": "16a014685d1fa9f33e51c7bd6f989867905a7e4373fed0a7214158c4a9f831a4",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "probe_sha256": "a7bb7877f5afcd60e107861167a94a7dfddcf17186dc4141ab69ac339cc2eb9d",
+  "process_ids": [
+    {
+      "python": 2595589,
+      "native": {
+        "0": 2595594
+      }
+    },
+    {
+      "python": 2595835,
+      "native": {
+        "0": 2595840
+      }
+    }
+  ],
+  "pool_peak_accounted_bytes": [
+    8380524352,
+    8257804056
+  ],
+  "suffix_frontier_coverage": "not captured: no canonical checkpoint is published between suffix prefill and first generated token",
+  "schema": "cow-focused-native-qualification-v1",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "primary_audit_sha256": "082a7a5cbc773211290363550f8e8bc7291fceff2ea92714edb5e2b4e377c4d0",
+  "native_binary_sha256": "458287376736362176d5cd965777aa2cb5deef2695d76ad5c546b7026ac4d356",
+  "source_commit": "96d70a459af124bc7fc1b86722aba579c311e6a3",
+  "source_sha256": "4bd9f147eaf4963d21ae23c60267829d25f4a0a77550483639d4d0a90696213b",
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "xfails": 0,
+  "limitations": [
+    "Actual coordinator2e0e0fd3 is the earlier qualified runtime, not requested recovery coordinatorf6f81749. Combined recovery/native qualification remains unrun.",
+    "Prefix/final full-vector sampling only; suffix and intermediate generated frontiers are not compared.",
+    "Greedy Q4 tiny128/4/8 fixture only, native normal-verifier-decode generation; not the earlier batches-only milestone.",
+    "No whole-request speed gain inferred from this correctness run. No Q8/new large-context qualification.",
+    "Original cumulative G1-G5 remains unqualified; CUDA/SM120 only."
+  ]
+}

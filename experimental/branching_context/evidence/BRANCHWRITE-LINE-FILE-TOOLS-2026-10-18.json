@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "status": "BOUNDED_LINE_FILE_TOOLS_PASS",
+    "source_commit": "17d728209541f4b90d85174e67a8f88820fbe2d5",
+    "cpu_distinct_methods": 120,
+    "new_methods": 23,
+    "q4_mask_checks": 45,
+    "attempts": [
+      {
+        "attempt": 7,
+        "status": "BOUNDED_AUTONOMOUS_L02_PASS",
+        "tools": [
+          "create_text_file",
+          "read_file",
+          "finish"
+        ],
+        "model_calls": 3,
+        "output_tokens": 503,
+        "whole_cli_seconds": 36.459422077052295,
+        "actual_bytes": 37,
+        "sampler": {
+          "temperature": 0.7,
+          "min_p": 0.05,
+          "top_k": 60,
+          "top_p": 0.95,
+          "dry_multiplier": 0.8,
+          "dry_base": 1.75,
+          "dry_allowed_length": 2,
+          "dry_penalty_last_n": 256
+        }
+      },
+      {
+        "attempt": 9,
+        "status": "BOUNDED_LINE_REPAIR_PASS",
+        "tools": [
+          "read_file",
+          "replace_text_file",
+          "read_file",
+          "finish"
+        ],
+        "model_calls": 4,
+        "output_tokens": 428,
+        "whole_cli_seconds": 45.07925857708324,
+        "actual_bytes": 39,
+        "sampler": {
+          "temperature": 0.7,
+          "min_p": 0.05,
+          "top_k": 60,
+          "top_p": 0.95,
+          "dry_multiplier": 0.8,
+          "dry_base": 1.75,
+          "dry_allowed_length": 2,
+          "dry_penalty_last_n": 256
+        }
+      }
+    ],
+    "limits": [
+      "One successful stochastic trajectory per task,not broad robustness or a speed benchmark.",
+      "No numerical/full-state/native-restart oracle in these file-tool trials.",
+      "Original G1-G5 and full VC00-VC09 remain unqualified.",
+      "Existing workspace copier changes0700 source directories to0755;v8 setup failed before inference. Directory-mode cloning is not qualified."
+    ]
+  },
+  "backup": {
+    "status": "PRIVATE_ALL_OUTER_AND_CLIENT_MEMBERS_VERIFIED",
+    "archive": "/srv/data/git/private_context_cow.evidence/20261018-line-file-tools-v1/evidence.tar.gz",
+    "sha256": "c3a8a67fc1fb87adf0fcf88106a82c4547bdf5c0448b45d97bb4d15630697588",
+    "bytes": 6303093,
+    "verified_files": 317,
+    "verified_client_files": 352
+  },
+  "integrated_branchwrite_commit": "c08869c99742f00e1fc72df9ade3f6adef343840",
+  "cow_runtime_unchanged": true,
+  "current28_numerical_oracle": "UNRUN"
+}

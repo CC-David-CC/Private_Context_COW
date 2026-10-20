@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_L01_PASS_DRY_OFF_NOT_VC_OR_G_CERTIFICATION",
+  "branchwrite_source": "f41727c81578b9339bd9acdaed7f08f83ff222b5",
+  "cow_runtime_source": "9a289063450759c8da8c3ca875327808fbaf0e3f",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "execution_profile_id": "b8102d412bd1eb5957446832549ceda89277fd10dd6a7bddabd13eef041ca0a6",
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "native_build_sha256": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+  "source_profile_sha256": "2370721cba501f5091a42136138282fd125ea674362618e7bcb12331b0ad2ce5",
+  "cpu": {
+    "client_passed": 95,
+    "server_passed": 107,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "teaching_examples": {
+    "cases": 10,
+    "real_sandboxed_shell_invocations": 15,
+    "bytes": 39145,
+    "sha256": "2a33b84781509f23d117c1502691a8cab1e767a8bf0bde3f0552bfca2ed9bfbe",
+    "host_authored_final_reports": true
+  },
+  "same_bootstrap_sha256": "9abfab11ee95d02117fc72797152e322c4c59d86adcb4ffc8ac35206fa2071fb",
+  "attempts": [
+    {
+      "attempt": "bw-terminal-l01-examples-collected-v3",
+      "status": "FAIL_FINAL_REPORT",
+      "model_calls": 7,
+      "native_requests": 7,
+      "output_tokens": 619,
+      "whole_cli_seconds": 54.08822433196474,
+      "final_thinking": {
+        "close_reason": "natural",
+        "closing_tokens": 1,
+        "final_tokens": 307,
+        "max_tokens": 4096,
+        "phase": "final",
+        "reasoning_tokens": 91,
+        "schema": 1
+      },
+      "raw_backup": {
+        "status": "PRIVATE_ARCHIVE_ALL_MASTER_FILES_VERIFIED",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-examples-q4-v3/evidence.tar.gz",
+        "sha256": "ba0a838947e534e0ea9ee3f95e9376f491193ee7827e24753d6d33fbe9f5bb6a",
+        "bytes": 5706718,
+        "master_data_files": 96,
+        "nested_client_data_files_preverified": 873,
+        "github_touched": false
+      },
+      "postrun_backup": {
+        "status": "PRIVATE_POSTRUN_VERIFIED",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-examples-postrun-v3/evidence.tar.gz",
+        "sha256": "8282b3c24c1e961157bc295cbf3f97bc71adf2dc555c4a8f9d4a20b8694cda45",
+        "bytes": 86661,
+        "data_files": 28
+      },
+      "prefix_work": {
+        "status": "PASS_NATIVE_COUNTER_ACCOUNTING",
+        "root_tokens": 12749,
+        "new_input_prefill_per_request": [
+          229,
+          555,
+          413,
+          406,
+          415,
+          573,
+          420
+        ],
+        "new_input_tokens": 3011,
+        "native_total_prefill_tokens": 15760,
+        "native_forward_tokens": 16379,
+        "generated_tokens": 619,
+        "scope": "Single native process and this seven-call workflow. The root prefix was evaluated once; this does not claim zero checkpoint restores, a numerical oracle or broad performance certification."
+      },
+      "retirement": {
+        "status": "HOUSEKEEPING_NOT_ACCEPTANCE_TEST",
+        "private_archive_sha256": "ba0a838947e534e0ea9ee3f95e9376f491193ee7827e24753d6d33fbe9f5bb6a",
+        "canonical_files_unchanged": 36,
+        "metrics_before": {
+          "file_bytes": 3952292092,
+          "reserved_bytes": 0,
+          "local_reserved_bytes": 0,
+          "byte_limit": 1,
+          "files_evicted": 0,
+          "admission_waits": 0,
+          "idle_evictions": 0,
+          "recency_entries": 8
+        },
+        "metrics_after": {
+          "file_bytes": 0,
+          "reserved_bytes": 0,
+          "local_reserved_bytes": 0,
+          "byte_limit": 1,
+          "files_evicted": 16,
+          "admission_waits": 0,
+          "idle_evictions": 0,
+          "recency_entries": 0
+        }
+      }
+    },
+    {
+      "attempt": "bw-terminal-l01-dryoff-collected-v4",
+      "status": "BOUNDED_L01_PASS_DRY_OFF",
+      "model_calls": 7,
+      "native_requests": 7,
+      "output_tokens": 1523,
+      "whole_cli_seconds": 87.14494058408309,
+      "final_thinking": {
+        "close_reason": "natural",
+        "closing_tokens": 1,
+        "final_tokens": 815,
+        "max_tokens": 4096,
+        "phase": "final",
+        "reasoning_tokens": 281,
+        "schema": 1
+      },
+      "raw_backup": {
+        "status": "PRIVATE_ARCHIVE_ALL_MASTER_FILES_VERIFIED",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-dryoff-q4-v4/evidence.tar.gz",
+        "sha256": "b4616b50cca117043adaeeb18f083dadcbdd08c24b5033597129ad20045959b2",
+        "bytes": 6252133,
+        "master_data_files": 96,
+        "nested_client_data_files_preverified": 873,
+        "github_touched": false
+      },
+      "postrun_backup": {
+        "status": "PRIVATE_POSTRUN_VERIFIED",
+        "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-bw-terminal-l01-dryoff-postrun-v4/evidence.tar.gz",
+        "sha256": "fbe8cd3b22302c25b5a478266eb21f55d35c00fed156d86af78bc60b29bc6e57",
+        "bytes": 108313,
+        "data_files": 36
+      },
+      "prefix_work": {
+        "status": "PASS_NATIVE_COUNTER_ACCOUNTING",
+        "root_tokens": 12749,
+        "new_input_prefill_per_request": [
+          229,
+          559,
+          408,
+          404,
+          409,
+          568,
+          418
+        ],
+        "new_input_tokens": 2995,
+        "native_total_prefill_tokens": 15744,
+        "native_forward_tokens": 17267,
+        "generated_tokens": 1523,
+        "dry_penalized_candidates": 0,
+        "scope": "This one process and seven-call workflow;not a numerical or general performance qualification."
+      },
+      "retirement": {
+        "status": "HOUSEKEEPING_NOT_ACCEPTANCE_TEST",
+        "private_archive_sha256": "b4616b50cca117043adaeeb18f083dadcbdd08c24b5033597129ad20045959b2",
+        "canonical_files_unchanged": 36,
+        "metrics_before": {
+          "file_bytes": 3987155840,
+          "reserved_bytes": 0,
+          "local_reserved_bytes": 0,
+          "byte_limit": 1,
+          "files_evicted": 0,
+          "admission_waits": 0,
+          "idle_evictions": 0,
+          "recency_entries": 8
+        },
+        "metrics_after": {
+          "file_bytes": 0,
+          "reserved_bytes": 0,
+          "local_reserved_bytes": 0,
+          "byte_limit": 1,
+          "files_evicted": 16,
+          "admission_waits": 0,
+          "idle_evictions": 0,
+          "recency_entries": 0
+        }
+      }
+    }
+  ],
+  "first_two_failure_thinking": [
+    {
+      "allowed": 4096,
+      "used": 4096,
+      "closed": "budget"
+    },
+    {
+      "allowed": 4096,
+      "used": 219,
+      "closed": "natural"
+    }
+  ],
+  "global_default_dry_multiplier": 0.8,
+  "per_run_control_dry_multiplier": 0,
+  "numerical_oracle": "NOT_RUN",
+  "numerical_max_error": null,
+  "limits": [
+    "Single sampled pair; no causal or general reliability claim.",
+    "File-readback verifier does not judge semantic report completeness; passing report independently reviewed.",
+    "No numerical or inference-process restart oracle or full VC09/G1-G5 qualification.",
+    "Whole CLI timings differ in generated token count;not an isolated sampler speed comparison."
+  ],
+  "next": "L02 literal UTF-8 then L03; owner has requested private web-viewer overflow fix first.",
+  "cleanup": "All owned test processes and scoped keys retired;chat OFF,Q8 deferred,private LAN only."
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "cow-cli-package-evidence-v1",
+  "status": "PRIVATE_SERVER_FIRST_CLIENT_DRAFT_READY",
+  "source_commit": "5ac6de3d7ffb42cfaa7bea3cb16c20c062cf5c95",
+  "source_worktree_dirty_at_build": false,
+  "local_file": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-cli-private-draft-20261015\\context-cow-cli-private-draft-v3.zip",
+  "box_git_file": "/srv/data/git/private_context_cow.evidence/20261015-cli-client-package-v1/context-cow-cli-private-draft-v3.zip",
+  "bytes": 285118,
+  "sha256": "1b4fb0948c2da39cc92587ff31a2bbe6fcfb2af7632b6d4286881f3bae0926cb",
+  "cli_sha256": "8b6ed68280aed798a099c05062184ff1070a7b676aeb60b4cab9a25bd309ab8e",
+  "box_git_sha256_independently_read": true,
+  "box_git_permissions": {"directory": "0700", "file": "0600"},
+  "zip_members_including_manifest": 21,
+  "manifested_files": 20,
+  "validation": [
+    "CRC and every manifested length/SHA match; extracted client hash matches the Windows SSH-tested client.",
+    "Extracted CLI --help exits0 with local Windows Python3.13.15.",
+    "Local links in root README plus all four main guides resolve inside the extracted package.",
+    "Actual default-Windows SSH fixture passes12 commands and14 assertions; no environment encoding override.",
+    "Corrected stdout/stderr behavior passes integrated30 controls and G0 51."
+  ],
+  "native_scope": "Q4/Q8 actual CLI campaigns passed at the earlier C8f client hash. The later9-line client change only configures UTF8 stdio; requests, engine, history, controllers and execution profiles unchanged. Those numerical/flow campaigns were not rerun or relabelled.",
+  "retained_earlier_packages": [
+    {"name": "context-cow-cli-private-draft.zip", "limitation": "Default Windows redirected Unicode display failure; retained with original source/hash."},
+    {"name": "context-cow-cli-private-draft-v2.zip", "limitation": "Extracted root README server-guide link missing; assertion failed. Packager link corrected before v3."}
+  ],
+  "scope": "Client, guides and compact linked evidence only. User chose connection to existing inference server; no model download or independent engine install.",
+  "operation": "GPU and temporary test services/tunnels are stopped. Owner uses CLI-SERVER.md to start the dedicated loopback COW service; ordinary chat server stays off.",
+  "disk_limit": "llm-60 had about12GiB free at inspection.128GiB disk pool is a logical limit, not free capacity.",
+  "qualification": "Bounded private trial, not original G1-G5 certification",
+  "publication": "Private box-git only; no GitHub publication"
+}

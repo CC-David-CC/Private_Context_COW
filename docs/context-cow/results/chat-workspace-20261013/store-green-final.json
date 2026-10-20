@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "seconds": 3.5138427000201773,
+  "executed_ids": [
+    "serve.test_chat_workspace.WorkspaceTests.test_cas_rejects_stale_writer_and_aba",
+    "serve.test_chat_workspace.WorkspaceTests.test_cross_chat_node_is_refused",
+    "serve.test_chat_workspace.WorkspaceTests.test_fork_shares_prefix_and_keeps_suffixes_isolated",
+    "serve.test_chat_workspace.WorkspaceTests.test_generation_reservation_blocks_only_its_branch",
+    "serve.test_chat_workspace.WorkspaceTests.test_message_and_node_rows_cannot_be_updated_or_deleted",
+    "serve.test_chat_workspace.WorkspaceTests.test_ordered_attachments_and_tools_survive_without_branch_copies",
+    "serve.test_chat_workspace.WorkspaceTests.test_rename_and_archive_are_metadata_only",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_marks_interrupted_request_and_retains_input",
+    "serve.test_chat_workspace.WorkspaceTests.test_restart_preserves_chats_branches_and_source",
+    "serve.test_chat_workspace.WorkspaceTests.test_retry_is_idempotent_even_after_later_move",
+    "serve.test_chat_workspace.WorkspaceTests.test_rewind_and_clear_leave_old_history_recoverable",
+    "serve.test_chat_workspace.WorkspaceTests.test_second_server_cannot_recover_a_live_request",
+    "serve.test_chat_workspace.WorkspaceTests.test_sql_constraints_and_foreign_keys_are_enabled"
+  ],
+  "executed_methods": 13,
+  "failures": [],
+  "errors": [],
+  "skips": []
+}

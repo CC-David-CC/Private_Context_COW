@@ -1,0 +1,447 @@
+{
+  "allocation_helper": {
+    "executed": false,
+    "path": "/home/dflanag3/spatial-artifacts/q4-cuda-allocation-helper-20261016-v1/build-v1/branch_pressure_helper",
+    "sha256": "a3d2690d104f192ca0a25ee224db4b3f7fcef45d0cad4de4a491c755937cd61b"
+  },
+  "checkpoint_files": [
+    "checkpoints/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.json",
+    "checkpoints/423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810.state"
+  ],
+  "copied_metadata_files": 53,
+  "copied_metadata_total_bytes": 9974693,
+  "created_by": "CPU-only input fixture preparation; no Store constructor, launcher, helper, model, inference, mount, or GPU operation was invoked.",
+  "disk_preflight": {
+    "available_bytes_after": 19267731456,
+    "available_bytes_before": 19277885440,
+    "minimum_required_bytes": 18253611008,
+    "passed_before_and_after": true
+  },
+  "metadata_hashes": [
+    {
+      "relative_path": "objects/226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1.json",
+      "sha256": "226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1",
+      "size_bytes": 1639466,
+      "source_inode": 5250505,
+      "target_inode": 5256262
+    },
+    {
+      "relative_path": "objects/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.json",
+      "sha256": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85",
+      "size_bytes": 1640040,
+      "source_inode": 5247583,
+      "target_inode": 5256263
+    },
+    {
+      "relative_path": "objects/95d3457aa7366de302b3daf9424d14061f96da54536004001c8a067d393ef6bb.json",
+      "sha256": "95d3457aa7366de302b3daf9424d14061f96da54536004001c8a067d393ef6bb",
+      "size_bytes": 1639820,
+      "source_inode": 5251320,
+      "target_inode": 5256264
+    },
+    {
+      "relative_path": "objects/9e4fb43545b1b0426c8d9f9384445b99f864201b6bec1e55182180b3b0f893b1.json",
+      "sha256": "9e4fb43545b1b0426c8d9f9384445b99f864201b6bec1e55182180b3b0f893b1",
+      "size_bytes": 1640355,
+      "source_inode": 5250508,
+      "target_inode": 5256265
+    },
+    {
+      "relative_path": "objects/a251681ec7c3e3cfd42c0193bd5ec5df6ff960a5fe3e79c7f554bf0bc038fa5c.json",
+      "sha256": "a251681ec7c3e3cfd42c0193bd5ec5df6ff960a5fe3e79c7f554bf0bc038fa5c",
+      "size_bytes": 1642304,
+      "source_inode": 5247580,
+      "target_inode": 5256266
+    },
+    {
+      "relative_path": "objects/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json",
+      "sha256": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206",
+      "size_bytes": 32209,
+      "source_inode": 5247581,
+      "target_inode": 5256267
+    },
+    {
+      "relative_path": "objects/cde164f91d57bfb706bc456452629ba5354f7c3d67818086622d816651a64c59.json",
+      "sha256": "cde164f91d57bfb706bc456452629ba5354f7c3d67818086622d816651a64c59",
+      "size_bytes": 1641990,
+      "source_inode": 5247582,
+      "target_inode": 5256268
+    },
+    {
+      "relative_path": "pool-operations/op-cli-ask-a.json",
+      "sha256": "38de03a58191bcaf8863154be4dd7559755be4918dd85c7b9e6fefff229e4b95",
+      "size_bytes": 3480,
+      "source_inode": 5247596,
+      "target_inode": 5256270
+    },
+    {
+      "relative_path": "pool-operations/op-cli-ask-b.json",
+      "sha256": "ea4dbb3d6798bb307a1db411e7a98e5289e7ae25f1ccac0b80d6db73d9df8318",
+      "size_bytes": 3318,
+      "source_inode": 5247598,
+      "target_inode": 5256271
+    },
+    {
+      "relative_path": "pool-operations/op-cli-load.json",
+      "sha256": "3bbf01d67c9f2ac03cf475a66a4de5164861b8d6666f629822fe01e765225816",
+      "size_bytes": 28452,
+      "source_inode": 5247597,
+      "target_inode": 5256272
+    },
+    {
+      "relative_path": "pool-operations/op-cli-resume-after-restart.json",
+      "sha256": "e60ec91ba1eff9cd9639bba9c438f50ace64bc730b097adf4445faeb90213fd3",
+      "size_bytes": 608,
+      "source_inode": 5247599,
+      "target_inode": 5256273
+    },
+    {
+      "relative_path": "pool-operations/op-cli-resume-before-restart.json",
+      "sha256": "95c13a53601bb8d8343619dad064e867970df75ec0682b5fd257741bedaa3ae5",
+      "size_bytes": 608,
+      "source_inode": 5247600,
+      "target_inode": 5256274
+    },
+    {
+      "relative_path": "pool-operations/op-follow-20aa810d2de642c59e272102ec363a23.json",
+      "sha256": "d309e1e674d0b4c6859a13b699c8318926a29b5d8ef409a3ec6d671b3e015c6e",
+      "size_bytes": 627,
+      "source_inode": 5250503,
+      "target_inode": 5256275
+    },
+    {
+      "relative_path": "pool-operations/op-q4-fault-20aa810d2de642c59e272102ec363a23.json",
+      "sha256": "ba95c67f7bda9c2ed02fb6d65c774ef63d478a43c0ffde7ccf924d043b8e0a86",
+      "size_bytes": 627,
+      "source_inode": 5251319,
+      "target_inode": 5256276
+    },
+    {
+      "relative_path": "pool-operations/op-q4-fault-6d88b4d1b8be41529cea6f8ddd0cbcd7.json",
+      "sha256": "28af30e9467a2089eedde8c40b7899f99bc6ced6feaea2aaf2521c3e8ebfeefb",
+      "size_bytes": 627,
+      "source_inode": 5250504,
+      "target_inode": 5256277
+    },
+    {
+      "relative_path": "pool-operations/op-warm-20aa810d2de642c59e272102ec363a23.json",
+      "sha256": "ef3fafaa6989201c5786684e9d96acbd097597c7c8faa9801ec6d63629d417d8",
+      "size_bytes": 627,
+      "source_inode": 5251316,
+      "target_inode": 5256278
+    },
+    {
+      "relative_path": "pool-operations/op-warm-6d88b4d1b8be41529cea6f8ddd0cbcd7.json",
+      "sha256": "06c260f36c5ffacb8eaeb93398abb0e0f3f2535cbfdf8eeed16ee27efdecec48",
+      "size_bytes": 627,
+      "source_inode": 5250501,
+      "target_inode": 5256279
+    },
+    {
+      "relative_path": "pool.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247603,
+      "target_inode": 5256280
+    },
+    {
+      "relative_path": "presentation-bindings/1121750d8802b072aea2b2efc59f4ddadb438c40912838959dab260d13445a32.json",
+      "sha256": "1121750d8802b072aea2b2efc59f4ddadb438c40912838959dab260d13445a32",
+      "size_bytes": 528,
+      "source_inode": 5250511,
+      "target_inode": 5256282
+    },
+    {
+      "relative_path": "presentation-bindings/3d41f559a654ce9ab3823470b9bc783ad6684993c8cba68aecfb1ecebc88f96c.json",
+      "sha256": "3d41f559a654ce9ab3823470b9bc783ad6684993c8cba68aecfb1ecebc88f96c",
+      "size_bytes": 530,
+      "source_inode": 5247609,
+      "target_inode": 5256283
+    },
+    {
+      "relative_path": "presentation-bindings/5cfb0c3342594c4c375680fc037fc85055972da5bf76b35116abdb876a3d78ee.json",
+      "sha256": "5cfb0c3342594c4c375680fc037fc85055972da5bf76b35116abdb876a3d78ee",
+      "size_bytes": 3242,
+      "source_inode": 5247611,
+      "target_inode": 5256284
+    },
+    {
+      "relative_path": "presentation-bindings/95fd2daf4505f1a36a8ae45b5e5619aa0b7a89e1428b3b541ddba36d670bc943.json",
+      "sha256": "95fd2daf4505f1a36a8ae45b5e5619aa0b7a89e1428b3b541ddba36d670bc943",
+      "size_bytes": 528,
+      "source_inode": 5251331,
+      "target_inode": 5256285
+    },
+    {
+      "relative_path": "presentation-bindings/aa5e626c7c7edf30c45052c02d3e8d887a451d480ad79ea9feb2c9c913d13c3c.json",
+      "sha256": "aa5e626c7c7edf30c45052c02d3e8d887a451d480ad79ea9feb2c9c913d13c3c",
+      "size_bytes": 28440,
+      "source_inode": 5247606,
+      "target_inode": 5256286
+    },
+    {
+      "relative_path": "presentation-bindings/abac7b418d81f56e77b011cb9702c0e2f1aec8b05eb32e4ef6571fd23a298111.json",
+      "sha256": "abac7b418d81f56e77b011cb9702c0e2f1aec8b05eb32e4ef6571fd23a298111",
+      "size_bytes": 354,
+      "source_inode": 5247610,
+      "target_inode": 5256287
+    },
+    {
+      "relative_path": "presentation-bindings/d053509a3831b0c0bcf8fe4105792a720d265429334cc3c2be98eaf1cba385cf.json",
+      "sha256": "d053509a3831b0c0bcf8fe4105792a720d265429334cc3c2be98eaf1cba385cf",
+      "size_bytes": 3404,
+      "source_inode": 5247607,
+      "target_inode": 5256288
+    },
+    {
+      "relative_path": "presentation-bindings/d4abe0cfcf788576c9f9b7ebaba8866d3e413597b69dbbbedba8cd7c398d6625.json",
+      "sha256": "d4abe0cfcf788576c9f9b7ebaba8866d3e413597b69dbbbedba8cd7c398d6625",
+      "size_bytes": 530,
+      "source_inode": 5251324,
+      "target_inode": 5256289
+    },
+    {
+      "relative_path": "presentation-bindings/e9a13f47e15b508b813cda5f7dee0e45e577f8ac16458f512fd3c90aa614ed1e.json",
+      "sha256": "e9a13f47e15b508b813cda5f7dee0e45e577f8ac16458f512fd3c90aa614ed1e",
+      "size_bytes": 530,
+      "source_inode": 5247608,
+      "target_inode": 5256290
+    },
+    {
+      "relative_path": "presentation-namespaces/7ad1b85cb58e14dcfd1a9d6e690ce234.json",
+      "sha256": "48b2837b729afa6f979aa6a02add795ce7ba78ed64f871a7113e1371c30008a8",
+      "size_bytes": 336,
+      "source_inode": 5247602,
+      "target_inode": 5256292
+    },
+    {
+      "relative_path": "read-leases/226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5250507,
+      "target_inode": 5256294
+    },
+    {
+      "relative_path": "read-leases/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247621,
+      "target_inode": 5256295
+    },
+    {
+      "relative_path": "read-leases/95d3457aa7366de302b3daf9424d14061f96da54536004001c8a067d393ef6bb.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5251327,
+      "target_inode": 5256296
+    },
+    {
+      "relative_path": "read-leases/9e4fb43545b1b0426c8d9f9384445b99f864201b6bec1e55182180b3b0f893b1.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5250514,
+      "target_inode": 5256297
+    },
+    {
+      "relative_path": "read-leases/a251681ec7c3e3cfd42c0193bd5ec5df6ff960a5fe3e79c7f554bf0bc038fa5c.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247622,
+      "target_inode": 5256298
+    },
+    {
+      "relative_path": "read-leases/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247620,
+      "target_inode": 5256299
+    },
+    {
+      "relative_path": "read-leases/cde164f91d57bfb706bc456452629ba5354f7c3d67818086622d816651a64c59.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247623,
+      "target_inode": 5256300
+    },
+    {
+      "relative_path": "ref-order.json",
+      "sha256": "394ce40da87ba4ad8021d62bc188804d5f0cb5b87d07e4965213b93a4970515c",
+      "size_bytes": 23,
+      "source_inode": 5251332,
+      "target_inode": 5256301
+    },
+    {
+      "relative_path": "references/CliA.json",
+      "sha256": "b42d9ef3ef19278a69bdd68717c47345ed593041e61ee014223adf07ddb9dad6",
+      "size_bytes": 5627,
+      "source_inode": 5247627,
+      "target_inode": 5256303
+    },
+    {
+      "relative_path": "references/CliB.json",
+      "sha256": "a3dd756eb206e0054ebbed91ee02815327a1eed1373a6dc7d8dfd081ea828861",
+      "size_bytes": 2183,
+      "source_inode": 5247628,
+      "target_inode": 5256304
+    },
+    {
+      "relative_path": "references/CliBase.json",
+      "sha256": "38225619463562f992ccd44bba36ee2fd9c60ce1d3f1d75815fec300d162cc0c",
+      "size_bytes": 2122,
+      "source_inode": 5247626,
+      "target_inode": 5256305
+    },
+    {
+      "relative_path": "references/Q4Fault20aa810d2de642c5.json",
+      "sha256": "f0a7baf018324cf8a1c56ec2287f6db3e9365268594c51d4d8ed4133f148c5b8",
+      "size_bytes": 5209,
+      "source_inode": 5251325,
+      "target_inode": 5256306
+    },
+    {
+      "relative_path": "references/Q4Fault6d88b4d1b8be4152.json",
+      "sha256": "60211e6f44b1ea53857ebaafc8f5dda38b6214fafaa433a8ce4f4c7bb8b99650",
+      "size_bytes": 2381,
+      "source_inode": 5250459,
+      "target_inode": 5256307
+    },
+    {
+      "relative_path": "references/Q4Fault8aa4e97a8f5d4513.json",
+      "sha256": "01b00939cf3e5d9940f204314feb5b72db68e46390c69762ce30f5b68c115c4c",
+      "size_bytes": 972,
+      "source_inode": 5247594,
+      "target_inode": 5256308
+    },
+    {
+      "relative_path": "refs.json",
+      "sha256": "3d4a8c2c1b318d794d6c3d7de6122cae9eca7cccc32dc2d52131644166bde295",
+      "size_bytes": 38,
+      "source_inode": 5247624,
+      "target_inode": 5256309
+    },
+    {
+      "relative_path": "refs.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_inode": 5247593,
+      "target_inode": 5256310
+    },
+    {
+      "relative_path": "retained/fork-gIzGAarj4Kn2-Kvq_ASk5gDvHQTIryYSgK_1fCVofIU.json",
+      "sha256": "542ef5aacc98e17b7b991d3a7eaa7d7af3b081972fd266234d0a89feaeaa9e88",
+      "size_bytes": 80,
+      "source_inode": 5251318,
+      "target_inode": 5256312
+    },
+    {
+      "relative_path": "retained/fork-sUYj0anqAmvhJAKWFZaL0W2YWrl3rHCdOxpwzqLFYgY.json",
+      "sha256": "d82e013b52d28cf22f88f40582b2c4fb689a3e6d07b45fc1f8f5091d2e6e7e4d",
+      "size_bytes": 80,
+      "source_inode": 5247613,
+      "target_inode": 5256313
+    },
+    {
+      "relative_path": "root-index/226c773960e8f5f9ddd1ba7093c82b755938942cd3dddc20b1448b72c94619f1.json",
+      "sha256": "f45a96d00ac93c27f3b855bc5f3be19f865697bad64614fdcb6d04a8576ff5cb",
+      "size_bytes": 253,
+      "source_inode": 5250506,
+      "target_inode": 5256315
+    },
+    {
+      "relative_path": "root-index/808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85.json",
+      "sha256": "fe3fe4816708075b9d604beb078c2a1f7a63dc48166284f600f96fca053dd94b",
+      "size_bytes": 253,
+      "source_inode": 5247618,
+      "target_inode": 5256316
+    },
+    {
+      "relative_path": "root-index/95d3457aa7366de302b3daf9424d14061f96da54536004001c8a067d393ef6bb.json",
+      "sha256": "75f2deeaf92106992caffeefbf5d66e23063088b6bb51eb0ccb3af437b2d97d6",
+      "size_bytes": 253,
+      "source_inode": 5251326,
+      "target_inode": 5256317
+    },
+    {
+      "relative_path": "root-index/9e4fb43545b1b0426c8d9f9384445b99f864201b6bec1e55182180b3b0f893b1.json",
+      "sha256": "815d1e5221aa44e986d14523d2b678f4a1b63074e516e9cbfed25405e5118b51",
+      "size_bytes": 253,
+      "source_inode": 5250513,
+      "target_inode": 5256318
+    },
+    {
+      "relative_path": "root-index/a251681ec7c3e3cfd42c0193bd5ec5df6ff960a5fe3e79c7f554bf0bc038fa5c.json",
+      "sha256": "4774807c125ab6905ab7b7b56b5d0e281e6678dd318a0484144d47fca3752293",
+      "size_bytes": 253,
+      "source_inode": 5247615,
+      "target_inode": 5256319
+    },
+    {
+      "relative_path": "root-index/b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206.json",
+      "sha256": "ecaf56277bb59fd8ca2e3f291bae63e79ff8e45a81aa634229756a3d4c83b485",
+      "size_bytes": 253,
+      "source_inode": 5247616,
+      "target_inode": 5256320
+    },
+    {
+      "relative_path": "root-index/cde164f91d57bfb706bc456452629ba5354f7c3d67818086622d816651a64c59.json",
+      "sha256": "6c6c4d362f6d5f0ba13e5107f9ef63fbfd0f266ba5d204e2a4f50ba959349673",
+      "size_bytes": 253,
+      "source_inode": 5247617,
+      "target_inode": 5256321
+    }
+  ],
+  "native_binary": {
+    "executed": false,
+    "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/build-green-v1/strata-batched-branch-lazy",
+    "sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451"
+  },
+  "paths": {
+    "artifact_root": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1",
+    "campaign_directory_absent": true,
+    "campaign_output_parent": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1/gpu-q4-v1",
+    "input_store": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1/input-store-v1"
+  },
+  "payload_link": {
+    "destination": "/home/dflanag3/spatial-artifacts/q4-cuda-oom-20261016-v1/input-store-v1/checkpoints/423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810.state",
+    "mode_octal": "0o600",
+    "same_device": true,
+    "same_inode": true,
+    "sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+    "size_bytes": 327985908,
+    "source": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/input-store-v1/checkpoints/423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810.state",
+    "source_nlink_after": 4
+  },
+  "postcopy_audit": {
+    "available_disk_bytes": 19267665920,
+    "campaign_parent_empty": true,
+    "manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+    "metadata_hashes_rechecked": 53,
+    "metadata_independent_inodes": true,
+    "minimum_available_bytes": 18253611008,
+    "only_target_state_payload": true,
+    "profile_native_helper_hashes_reverified": true,
+    "status": "PASS"
+  },
+  "profile": {
+    "execution_profile_id": "ec13d7eead2200f3f8a93f4bbcf598907899dd1be5090ef61c706bb9ae86579f",
+    "path": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1/profiles-v2/q4/profile.json",
+    "sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c"
+  },
+  "schema": 1,
+  "source_content_unchanged": {
+    "expected_inode_link_count_change": "The one explicit hard link increases nlink on the source payload inode; bytes remain hash-identical.",
+    "metadata_files_verified": 53,
+    "payload_content_sha256_verified": true,
+    "source_store_was_not_opened": true
+  },
+  "source_snapshot": {
+    "branch": "CliA",
+    "manifest_sha256": "f97f7fcb8834d0dd3e69e6a3dc705e131a1fe2b62bf62f5506766b2f86f3e177",
+    "payload_sha256": "423c332989865bff62838ebed5a444f1d7ae402c1db59a69f0310b4c78734810",
+    "payload_size_bytes": 327985908,
+    "revision": 4,
+    "snapshot": "808cc601aae3e0a9f6f8abeafc04a4e600ef1d04c8af261280aff57c25687c85"
+  },
+  "source_store": "/home/dflanag3/spatial-artifacts/q4-publication-fault-20261015-v1/input-store-v1",
+  "status": "PREPARED_NOT_RUN"
+}

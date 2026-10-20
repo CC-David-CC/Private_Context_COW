@@ -1,0 +1,47 @@
+{
+  "base": "b1c4fa2d733455c476ec91a41201b34af7c46892",
+  "files_sha256": {
+    "experimental/branching_context/scripts/run_vision_latency.py": "cc85104d25f0afc1f86a1edca80a8c4b9d3868dc49bb300ff7cc3c80badf7949",
+    "experimental/branching_context/tests/implementation/test_vision_latency_accounting.py": "8e40087a02b274b16378a85642ae3d54e857ed56cfa6b9e8aece87681f6214d9"
+  },
+  "frozen_source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-latency-source-v1",
+  "host": "llm-60",
+  "limits": [
+    "Tier preparation is test-only actual eligible eviction; whole CLI timing includes it and separate setup/worker values are reported.",
+    "Current native has tmpfs state transport when available; report actual staging type, logical native transferred bytes and pool disk reads separately.",
+    "Independent fresh raw image/text prefix/final references force observed tokens; not an every-token selection oracle.",
+    "Q8 deferred/chat OFF/private LAN only; no engine/profile/tolerance changes."
+  ],
+  "measurement_paths": [
+    "cold encoder+prefill",
+    "cached embedding+prefill",
+    "resident question",
+    "plain CLI observer control",
+    "RAM-sourced question",
+    "disk-sourced question",
+    "text-only prefill",
+    "text-only question",
+    "image return after text"
+  ],
+  "red": "vision-latency-red-run-v1: absent module; preserved",
+  "repetitions": "One warm-up plus3 measured repetitions per path, raw individual values retained",
+  "resources": {
+    "GPU": [
+      0
+    ],
+    "available_CPUs": 32,
+    "disk_pool_gib": 1.5,
+    "native": "Unchanged pinned98K capacity/40GiB expert-residency/8GiB vision headroom; no2-CPU/small-VRAM fixture",
+    "ram_pool_gib": 96
+  },
+  "schema": 1,
+  "status": "CPU_PASS_GPU_UNRUN",
+  "tests": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "new_focused": 6,
+    "related_unique": 23,
+    "skips": 0
+  }
+}

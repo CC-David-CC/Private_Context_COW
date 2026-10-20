@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "same-host subprocess client; not HTTP or remote network speed",
+  "tpot_scope": "received gaps after first token; p95 uses nearest rank; startup excluded from request TTFT",
+  "requests": {
+    "A-0": {
+      "outputs": 128,
+      "time_to_first_token_seconds": 0.6512628680793568,
+      "steady_received_tps": 107.1918611876073,
+      "token_gap_count": 127,
+      "mean_tpot_seconds": 0.00932906648807785,
+      "median_tpot_seconds": 0.009342572069726884,
+      "p95_tpot_seconds": 0.00948553392663598,
+      "max_tpot_seconds": 0.010093531920574605,
+      "request_seconds": 1.985073882038705,
+      "request_tps": 64.4812272017512,
+      "durable": true,
+      "durable_request_seconds": 3.5537960820365697,
+      "durable_request_tps": 36.01782348936779,
+      "warmup": false,
+      "mode": "resident"
+    },
+    "B-0": {
+      "outputs": 128,
+      "time_to_first_token_seconds": 0.49376743799075484,
+      "steady_received_tps": 105.56507610913505,
+      "token_gap_count": 127,
+      "mean_tpot_seconds": 0.009472829811311671,
+      "median_tpot_seconds": 0.009507225942797959,
+      "p95_tpot_seconds": 0.009654986090026796,
+      "max_tpot_seconds": 0.009728776989504695,
+      "request_seconds": 1.8436601010616869,
+      "request_tps": 69.42711399259015,
+      "durable": true,
+      "durable_request_seconds": 3.2011605340521783,
+      "durable_request_tps": 39.9854985835314,
+      "warmup": false,
+      "mode": "resident"
+    }
+  },
+  "worker_sha256": "6afca49115713cda634d3a37b13a3181be137da7fef1a798fa30f28085a0bc56"
+}

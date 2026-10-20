@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "name":"q8-client-resident-64k",
+      "argv":["python3","scripts/client_stream_speed.py","client","--case","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q8-real-64k-restart","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-client-v1-20261014/q8-client-resident-64k","--mode","resident","--warmup","--repetitions","3"]
+    },
+    {
+      "name":"q8-client-disk-64k",
+      "argv":["python3","scripts/client_stream_speed.py","client","--case","/home/dflanag3/branching-g3/digest-reuse-v1-20261014/q8-real-64k-restart","--profile","/home/dflanag3/branching-g3/native-request-probe-20261014/q8-96k-profile-digest-v1/profile.json","--output","/home/dflanag3/branching-g3/digest-client-v1-20261014/q8-client-disk-64k","--mode","disk","--warmup","--repetitions","3"]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+test_altered_tokens_and_native_boundaries_rejected_before_import (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_altered_tokens_and_native_boundaries_rejected_before_import) ... ok
+test_batch_only_version_is_not_interchangeable (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_batch_only_version_is_not_interchangeable) ... ok
+test_exact_mixed_schedule_restores_and_roundtrips_version_three (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_exact_mixed_schedule_restores_and_roundtrips_version_three) ... ERROR
+test_missing_receipts_rejected_before_native_import (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_missing_receipts_rejected_before_native_import) ... FAIL
+
+======================================================================
+ERROR: test_exact_mixed_schedule_restores_and_roundtrips_version_three (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_exact_mixed_schedule_restores_and_roundtrips_version_three)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_operator_bound_checkpoint.py", line 37, in test_exact_mixed_schedule_restores_and_roundtrips_version_three
+    receipt = self.model.restore_checkpoint(self.sid,expected_schedule_sha256=schedule_digest(self.schedule))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/src/context_time_travel/real.py", line 502, in restore_checkpoint
+    saved = self._load_checkpoint(snapshot, history)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/src/context_time_travel/real.py", line 558, in _load_checkpoint
+    manifest = validate_manifest(envelope, required)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/src/context_time_travel/checkpoint_cache.py", line 21, in validate_manifest
+    raise IntegrityError('Unknown checkpoint manifest layout')
+context_time_travel.store.IntegrityError: Unknown checkpoint manifest layout
+
+======================================================================
+FAIL: test_missing_receipts_rejected_before_native_import (test_operator_bound_checkpoint.OperatorBoundCheckpointTests.test_missing_receipts_rejected_before_native_import)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_operator_bound_checkpoint.py", line 32, in test_missing_receipts_rejected_before_native_import
+    with self.assertRaises(IntegrityError): self.model.restore_checkpoint(self.sid)
+AssertionError: IntegrityError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.045s
+
+FAILED (failures=1, errors=1)

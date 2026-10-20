@@ -1,0 +1,344 @@
+{
+  "GPU": [
+    0
+  ],
+  "actual_saved_checkpoint": {
+    "files": {
+      "c7d7f89ab16487a7dd607527eaca3a198a8694dffa12c1e5df88e3c821d20197.state": {
+        "bytes": 129608784,
+        "sha256": "c7d7f89ab16487a7dd607527eaca3a198a8694dffa12c1e5df88e3c821d20197"
+      },
+      "e4f78bdf18c61b7d99ee321e6991760d56ab9b2a50becfd0233362e95a7b0e1c.json": {
+        "bytes": 17262,
+        "sha256": "9d6b5eb12b890e05bd77f44b07a26064a15ee8494f46683210e861b9d0caf2ff"
+      }
+    },
+    "manifest_sha256": "9d6b5eb12b890e05bd77f44b07a26064a15ee8494f46683210e861b9d0caf2ff",
+    "payload_bytes": 129608784,
+    "payload_sha256": "c7d7f89ab16487a7dd607527eaca3a198a8694dffa12c1e5df88e3c821d20197",
+    "snapshot": "e4f78bdf18c61b7d99ee321e6991760d56ab9b2a50becfd0233362e95a7b0e1c"
+  },
+  "core_source_commit": "aa17edfe741ae096514a49d676713def5ec21b4d",
+  "cpu": {
+    "errors": 0,
+    "failures": 0,
+    "focused_unique": 64,
+    "g0": 51,
+    "new_harness_methods": 5,
+    "skips": 0
+  },
+  "elapsed_seconds": 29.297,
+  "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+  "fault_witness": {
+    "checkpoint_device": 1803,
+    "cli_exit": 2,
+    "controller_exact": true,
+    "durable": false,
+    "errno": 28,
+    "final_text": "OK",
+    "frontier_exact": true,
+    "manifest_published": false,
+    "max_abs_error": 0.0,
+    "old_reference_unchanged": true,
+    "operation_id": "vc08-image-checkpoint-enospc-original",
+    "parent_controller_unchanged": true,
+    "parent_payload_unchanged": true,
+    "payload_published": false,
+    "publication_retryable": true,
+    "replay_native_trace_unchanged": true,
+    "requested_payload_bytes": 129608784,
+    "retained_root_usable": true,
+    "retry_native_trace_unchanged": true,
+    "retry_payload_matches_prepared": true,
+    "retry_revision_delta": 1,
+    "retry_same_receipt": true,
+    "stage_allocated_bytes": 4198400,
+    "stage_device": 1803,
+    "stage_existed_during_error": true,
+    "stage_files_after": [],
+    "stage_logical_bytes": 4194304,
+    "state": "failed",
+    "tokens_exact": true
+  },
+  "filler": {
+    "attempted_bytes": 369098752,
+    "available_after": 4501504,
+    "available_before": 368361472,
+    "errno": 28,
+    "filesystem_capacity_bytes": 510873600,
+    "filler_path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store/checkpoints/.q4-enospc-filler",
+    "filler_retained_bytes": 363855872,
+    "message": "[Errno 28] No space left on device",
+    "mount_device": "1803",
+    "staged_bytes": 368050176
+  },
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "harness_sha256": "5e7e45aa3e7f6e8929bd9c0583c2834f44e0892857f37f3b75935e90eacc454c",
+  "harness_source_commit": "55fd158a9bb16f2e94dde0c4e3635774e714bacf",
+  "host": "dflanag3-B650-GAMING-X-AX",
+  "limitations": [
+    "One366-cell image prefix:66 text/control tokens+300 image rows, greedy+512 thinking/fixed final grammar; not image-answer quality",
+    "Private512MiB loop ext4 mounted only at checkpoint directory; canonical metadata/image originals/evidence outside full volume; normal96/128GiB pool settings and98,304 model capacity retained",
+    "Complete pre-save frontier vs retried saved vector:248,320 FP32 values, error0; this is not a fresh full-history numerical oracle or every-token campaign",
+    "No production changes; no complete VC08/09 or cumulative G1-G5 qualification",
+    "Combined RAM/disk/idle pressure, bounded host allocation failures and deeper cancellation remain",
+    "Temporary loop/checkpoint payloads are optional test artifacts, retained only through verified evidence backup then retired; canonical histories and numerical audit vectors remain",
+    "Q8 deferred, chat OFF, Linux/private LAN only"
+  ],
+  "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "mount_cleanup": {
+    "child_exit": 0,
+    "cleanup": [
+      {
+        "exit": 0,
+        "stderr": "",
+        "target": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store/checkpoints"
+      },
+      {
+        "exit": 0,
+        "loop": "/dev/loop11",
+        "stderr": ""
+      }
+    ],
+    "elapsed_seconds": 29.455477952957153,
+    "failure": null,
+    "image_sha256": "6a9d653502261ccf280158902ce258214c6ebc16103eb22504f460e01541e796",
+    "kind": "gpu",
+    "mountpoint_empty": true,
+    "parent_namespace": "mnt:[4026531832]",
+    "private_namespace": "mnt:[4026532945]",
+    "remaining_loop": "",
+    "schema": 1
+  },
+  "native_sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-cow": "36b8c3b4d7938c14864fcf739551f97f1fc7f085cc69d7972ca33dec552ba176",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc05-native-build-v1/strata-vision-reference": "fcada206515ae1816979151571982edab562ae9112394f5d07bd7d3fc7ac7081",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow": "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e",
+    "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-native-build-v2/strata-vision-dry-cow": "414ffd9390da0db10d0600118be4ba7266c1a9f82122d262b0567644e0c5d2f9"
+  },
+  "partial_stage": {
+    "allocated_bytes": 4198400,
+    "device": 1803,
+    "errno": 28,
+    "existed": true,
+    "inode": 16,
+    "logical_bytes": 4194304,
+    "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store/checkpoints/.stage-5gm0a3qt"
+  },
+  "prepared_payload": {
+    "payload_bytes": 129608784,
+    "payload_sha256": "c7d7f89ab16487a7dd607527eaca3a198a8694dffa12c1e5df88e3c821d20197",
+    "snapshot": "e4f78bdf18c61b7d99ee321e6991760d56ab9b2a50becfd0233362e95a7b0e1c"
+  },
+  "private_backup": {
+    "archive_bytes": 29739565,
+    "archive_sha256": "6b350c2cae663cc383695b0edb062161e4b74417c70ef1a570a538b52942608f",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-checkpoint-enospc-v1/evidence.tar.gz",
+    "individually_verified_data_files": 216,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 217,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "production_changes": false,
+  "profile_sha256": "79abf9b98d12561fb3ffecfdcdeea5c181716e5670d0cc28df6d18366c201756",
+  "qualification": "Bounded real-Q4 checkpoint-volume ENOSPC and exact prepared retry PASS; not full VC08/09 or cumulative G1-G5",
+  "raw_result": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/result.json",
+  "retirement": {
+    "free_bytes_after": 4072890368,
+    "meaning": "Numerical checkpoints within this disposable test loop are intentionally evicted. Strict restore of that fixture requires recreating checkpoints; production data untouched.",
+    "physical_free_delta": 516960256,
+    "removed_image_bytes": 536870912
+  },
+  "root_receipt": {
+    "branch": {
+      "name": "kept",
+      "revision": 1,
+      "root": "c905a2ff1d3764229416f55b205a7c2372f74f19b7777dbe76f651f5d11c7d14",
+      "tip": "c905a2ff1d3764229416f55b205a7c2372f74f19b7777dbe76f651f5d11c7d14"
+    },
+    "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06",
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "payload_sha256": "898ed103c232a5e4d08686cc49ebd35073dafcc0f69e079a483101fd113c0dee",
+    "snapshot": "c905a2ff1d3764229416f55b205a7c2372f74f19b7777dbe76f651f5d11c7d14"
+  },
+  "schema": 1,
+  "services": [
+    {
+      "argv_redacted": [
+        "/home/dflanag3/src/Strata/.venv/bin/python",
+        "-B",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/server_bootstrap-1.py",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/registry.json",
+        "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+        "--profile",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+        "--store",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "0",
+        "--text",
+        "--grammar-registry",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/registry.json",
+        "--api-key=<REDACTED>",
+        "--ram-gib",
+        "96",
+        "--disk-gib",
+        "128",
+        "--pool-trace-output",
+        "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/pool-1.json"
+      ],
+      "grammar_registry": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/registry.json",
+      "grammar_registry_sha256": "4f4a579952f12e575b30c4054d3bf4b4c5bee42a578b073afe18fc333827acd4",
+      "native_trace": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/native-1.jsonl",
+      "ordinal": 1,
+      "pid": 193503,
+      "pool_trace": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/pool-1.json",
+      "ready": {
+        "address": [
+          "127.0.0.1",
+          39003
+        ],
+        "event": "ready",
+        "execution_profile_id": "2e5e0a02c33365d5728a4dcb66f4e63ba699ebc2e7e4040d8eb6254179e93b06"
+      },
+      "source_imports": {
+        "context_time_travel.coordinator": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/experimental/branching_context/src/context_time_travel/coordinator.py",
+          "sha256": "a8e3a163cb36796dca4d53d9edf8baa9093ab22776b0435a167a736d5be24fcc"
+        },
+        "context_time_travel.grammar_first": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/experimental/branching_context/src/context_time_travel/grammar_first.py",
+          "sha256": "91ba4fd8630ad315dc42798e940fba9849c2977d4dd890820e092df35d0e4c62"
+        },
+        "context_time_travel.real": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/experimental/branching_context/src/context_time_travel/real.py",
+          "sha256": "9d05350d7543b7d5bb0c568689df76433b6d1aaf7d62ec135dbaa15506576599"
+        },
+        "context_time_travel.store": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/experimental/branching_context/src/context_time_travel/store.py",
+          "sha256": "b62901c1215d2d406ff1caa8bad2b39e2ea48fe6921f7bb9ffd76b276a8686d8"
+        },
+        "context_time_travel.strata_backend": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/experimental/branching_context/src/context_time_travel/strata_backend.py",
+          "sha256": "892346fe4b41950b28b5b18839618300f0e2146397206fc849d99a47f518a9b6"
+        },
+        "serve.cow_grammar": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/serve/cow_grammar.py",
+          "sha256": "2abb244ecf7e7048d63269d3ede2e2de11010bf6d43e8a82246bcc072e6d1139"
+        },
+        "serve.cow_http": {
+          "path": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1/serve/cow_http.py",
+          "sha256": "14fa5b2a25ae6514b480daf1fb9ec1b5a127e6d1723cdb3a4fa1752a5da65b28"
+        }
+      },
+      "startup_seconds": 19.84368356387131,
+      "stop": {
+        "command": [
+          "/home/dflanag3/src/Strata/.venv/bin/python",
+          "-B",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/server_bootstrap-1.py",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/registry.json",
+          "/home/dflanag3/spatial-artifacts/grammar-first-20261016-v1/deps",
+          "--profile",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+          "--store",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "0",
+          "--text",
+          "--grammar-registry",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/registry.json",
+          "--api-key=<REDACTED>",
+          "--ram-gib",
+          "96",
+          "--disk-gib",
+          "128",
+          "--pool-trace-output",
+          "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-cli-gpu-v1/pool-1.json"
+        ],
+        "exit_code": 0,
+        "forced_process_group_cleanup": false,
+        "graceful": true,
+        "pid": 193503
+      },
+      "worker_shutdown": {
+        "close_succeeded": true,
+        "event_count": 8,
+        "native_exit_code": 0,
+        "native_pid": 193509,
+        "trace_sha256": "526a59954bdbe13ebff75dddd65b09860c2e24e591273146f4230f1f157bc89a"
+      }
+    }
+  ],
+  "status": "BOUNDED_REAL_Q4_IMAGE_CHECKPOINT_ENOSPC_PASS",
+  "terminal_audit": {
+    "audited_pids_absent": [
+      193503,
+      193509
+    ],
+    "control_output_count": 36,
+    "controller_and_tokens_exact": true,
+    "limitations": "No additional model run or fresh full-history oracle; exact retry/frontier and evidence audit only",
+    "logits_count": 248320,
+    "max_abs_error": 0.0,
+    "mount_cleanup": {
+      "child_exit": 0,
+      "cleanup": [
+        {
+          "exit": 0,
+          "stderr": "",
+          "target": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store/checkpoints"
+        },
+        {
+          "exit": 0,
+          "loop": "/dev/loop11",
+          "stderr": ""
+        }
+      ],
+      "elapsed_seconds": 29.455477952957153,
+      "failure": null,
+      "image_sha256": "6a9d653502261ccf280158902ce258214c6ebc16103eb22504f460e01541e796",
+      "kind": "gpu",
+      "mountpoint_empty": true,
+      "parent_namespace": "mnt:[4026531832]",
+      "private_namespace": "mnt:[4026532945]",
+      "remaining_loop": "",
+      "schema": 1
+    },
+    "native_prefix_forward": 366,
+    "native_total_forward": 438,
+    "original_output_count": 36,
+    "prepared_payload_bytes": 129608784,
+    "raw_result_sha256": "fb8f410df0502053cf6104ca5466ffa7fac0df61221f8d3a5f78aa17100b8ecd",
+    "retained_root_control_payload_byte_hash_exact": true,
+    "retained_root_control_tokens_exact": true,
+    "schema": 1,
+    "stage_allocated_bytes": 4198400,
+    "stage_logical_bytes": 4194304,
+    "status": "READ_ONLY_TERMINAL_AUDIT_PASS"
+  },
+  "writer_failure": {
+    "branch": "fault",
+    "destination_directory": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-checkpoint-enospc-fixture-v1/store/checkpoints",
+    "destination_kind": "checkpoint-payload-state",
+    "errno": 28,
+    "exception_type": "OSError",
+    "message": "[Errno 28] No space left on device",
+    "operation_id": "vc08-image-checkpoint-enospc-original",
+    "payload_name": "c7d7f89ab16487a7dd607527eaca3a198a8694dffa12c1e5df88e3c821d20197.state",
+    "published_manifest_exists": false,
+    "published_payload_exists": false,
+    "requested_payload_bytes": 129608784,
+    "snapshot": "e4f78bdf18c61b7d99ee321e6991760d56ab9b2a50becfd0233362e95a7b0e1c",
+    "staging_files_after": []
+  }
+}

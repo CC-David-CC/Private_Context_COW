@@ -1,0 +1,45 @@
+{
+  "base": "80cdc24afafbbc7a8eff159fcb86030998cac070",
+  "branch": "work/vision-deep-cancel-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "new_harness_methods": 6,
+    "related_unique": 44,
+    "skips": 0
+  },
+  "diagnostic": "Observer gates pause real create/on-token/writer transitions. Only existing HTTP disconnect callbacks supply cancellation; no fabricated stop signal/counters.",
+  "final_evidence": "VISION-DEEP-CANCEL-2026-10-17.json",
+  "host": "llm-60",
+  "invariant": "Actual disconnect after real root prefill or4 consumed tokens cancels without moving branch; after writer handoff durable completion may finish, original journal retry reconciles without inference.",
+  "limits": "Greedy seed11,512 thinking/fixed final grammar; full final reference vectors, not every-token or fresh-full-history oracle. No production/native/API/reference/tolerance changes.",
+  "manual_git_exception": "Installed Git helper pins unrelated Spatial repository; explicit paths/identity/private refs and full SHAs reviewed manually.",
+  "owned_paths": [
+    "experimental/branching_context/scripts/run_vision_deep_cancel.py",
+    "experimental/branching_context/tests/implementation/test_vision_deep_cancel.py",
+    "experimental/branching_context/evidence/VISION-DEEP-CANCEL-HARNESS-2026-10-17.json"
+  ],
+  "profile": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-profile-v1/profile.json",
+  "publication": "Private LAN only",
+  "red": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-deep-cancel-red-run-v1",
+  "retained_failure": {
+    "backup": {
+      "archive_bytes": 34850768,
+      "archive_sha256": "aa177fd811370d01bf31f315e83f0782d76c4302f686968f6437fa6e7aea9a06",
+      "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261017-vision-deep-cancel-v1/evidence.tar.gz",
+      "individually_verified_data_files": 207,
+      "manifest_note": "Inventory itself covered by archive SHA256",
+      "regular_members": 208,
+      "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+    },
+    "correction": "Compare exact name/revision/tip/root identities across client and Store head types; reject any field change. New distinguishing RED against frozen original harness retained.",
+    "raw": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-deep-cancel-cli-gpu-v1/result.json",
+    "result": "Harness cross-dataclass head equality failure, not a verified branch move",
+    "root_and_four": "Both passed cancellation with exact subsequent controls"
+  },
+  "runtime": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/cow-reference-stage-green-source-v1",
+  "schema": 1,
+  "status": "VC08_BOUNDED_Q4_DEEP_DISCONNECT_PASS"
+}

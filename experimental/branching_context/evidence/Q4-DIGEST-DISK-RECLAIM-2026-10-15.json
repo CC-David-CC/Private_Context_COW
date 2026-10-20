@@ -1,0 +1,26 @@
+{
+  "status": "PASS_EXACT_NINE_DERIVED_PAYLOADS_RECLAIMED",
+  "host": "llm-60",
+  "scope": "Remove redundant, archived payload bytes from an older completed P4 disk timing run; retain its metadata",
+  "source_root": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/p4-disk-v1/output",
+  "script": "reclaim-q4-digest-disk-payloads-2026-10-15.py",
+  "script_sha256": "09d62736e787544861a1243cf8762ccc9d0489be6d861199afeb10179b994043",
+  "receipts": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/disk-reclaim-command-v1",
+  "command_exit": 0, "wrapper_exit": 0,
+  "result": "/home/dflanag3/spatial-artifacts/checkpoint-digest-q4-attestation-20261015/disk-reclaim-v1/result/result.json",
+  "result_sha256": "ddf54e8e21401e8b518d1bdf5d593d9bd9b7d4a5fdda95fea54debce26a13af5",
+  "deleted_files": 9,
+  "reclaimed_logical_bytes": 17789976604,
+  "free_bytes_before": 16996290560,
+  "free_bytes_after": 34786299904,
+  "verification": [
+    "Rehashed the actual private lifecycle archive and current-run metadata archive before reclaim.",
+    "Rehashed all nine current payload files against the pinned archive-member mapping and content-addressed filenames.",
+    "Checked regular path scope, symlinks, file identities and open file descriptors before unlinking.",
+    "Retained metadata file hash inventory is identical before and after; checkpoint directory was fsynced."
+  ],
+  "payload_archive": {"path": "/srv/data/git/private_context_cow.evidence/20261015-p4-q4-lifecycle-attribution/lifecycle-attribution-20261015.tar", "sha256": "d01af0087b43f4c8f3558ae64d49377d8f927c0ec31420035134644cd347684f"},
+  "metadata_archive": {"path": "/srv/data/git/private_context_cow.evidence/20261015-checkpoint-digest-q4-p4-disk/disk.tar", "sha256": "0faff80456ccf29b59797b70773a1028024b2f908b75741baf9839690849d961"},
+  "restore_map": "Pinned payload proof f996c02cb99b8ec8fd633328435e86f528dfc2e17bee6021f271d188bbdd0db3 maps each exact old output path to its archived lifecycle member. Metadata archive contains that proof. Do not retag payloads to a different execution profile.",
+  "limits": "Only these nine old payload files were removed by this operation. The user's later independent disk cleanup is separate and is not included in reclaimed byte counts."
+}

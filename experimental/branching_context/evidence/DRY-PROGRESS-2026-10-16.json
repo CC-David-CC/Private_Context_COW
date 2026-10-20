@@ -1,0 +1,14 @@
+{
+  "status": "CPU-PASS; GPU-DRY-RUNNING",
+  "scope": "Optional DRY with per-generation temperature, Min-P, Top-K and Top-P",
+  "checkout": "C:\\Users\\dflanag3\\Documents\\fleet\\context-cow-dry-integration",
+  "branch": "work/dry-integration-20261016",
+  "base_commit": "12890d05dc2ffcf94446932255b7f6e5156dbd42",
+  "runtime": "/home/dflanag3/spatial-artifacts/dry-integration-20261016-v1/green-v3/source",
+  "cpu": {"tests": 524, "failures": 0, "errors": 0, "skips": 0, "xfails": 0, "source_unchanged": true, "result": "combined-cpu-v2.json"},
+  "G0": {"status": "PASS", "tests": 51, "command_receipt": "g0-command-v2"},
+  "gpu": {"host": "llm-60", "GPU": [0], "q4_tiny": "RUNNING", "q4_serving": "NOT_RUN", "q8": "NOT_RUN"},
+  "native": {"protocol": "full-vocab-dry-min-p-u53-v3", "sha256": "10d507914c876a4f4436b10c96db2726bf990aad7642e7ac39811058aeb7a31e", "build_receipt_sha256": "a1343bbf2c68d5c934eeec2d3eab9d71b9b12903972d5a83cca8b7c0ae1ce9ef", "HIP": "UNRUN", "SYCL": "UNRUN"},
+  "cumulative_G1_G5": "NOT_QUALIFIED",
+  "publication": "Private PC and box-git only; normal chat server stays off"
+}

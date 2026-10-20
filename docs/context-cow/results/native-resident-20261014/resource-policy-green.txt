@@ -1,0 +1,8 @@
+test_absent_policy_preserves_previous_bound (test_checkpoint_resource_policy.CheckpointResourceTests.test_absent_policy_preserves_previous_bound) ... ok
+test_explicit_reference_extent_budget_admits_and_evicts_without_unbounded_retention (test_checkpoint_resource_policy.CheckpointResourceTests.test_explicit_reference_extent_budget_admits_and_evicts_without_unbounded_retention) ... ok
+test_unknown_incomplete_and_invalid_budgets_fail_before_model_execution (test_checkpoint_resource_policy.CheckpointResourceTests.test_unknown_incomplete_and_invalid_budgets_fail_before_model_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

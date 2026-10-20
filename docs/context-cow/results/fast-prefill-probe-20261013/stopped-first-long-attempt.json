@@ -1,0 +1,9 @@
+{
+  "status": "STOPPED_CONFIGURATION_CORRECTION",
+  "pids": [
+    1055006,
+    1055009
+  ],
+  "reason": "Insufficient capacity for 64K+8K+outputs; profile runner source changed during startup race; replace fixed-length EOS suppression with normal stopping at user request. No result qualified.",
+  "utc": "2026-10-13T05:24:23Z"
+}

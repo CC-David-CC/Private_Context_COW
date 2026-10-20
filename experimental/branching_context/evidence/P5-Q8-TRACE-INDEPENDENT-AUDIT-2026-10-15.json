@@ -1,0 +1,41 @@
+{
+  "schema": "root-independent-pool-trace-audit-v1",
+  "status": "PASS",
+  "scope": "retained identity-keyed accounting events only; not numerical correctness or OS physical-memory reclamation",
+  "auditor": "Windows PowerShell root review; no campaign validator imported",
+  "trace_sha256": "6410e951b42eef66f2909239b6b0917387f3896fc7c5537a4ca50be396f469e4",
+  "trace_path": "/home/dflanag3/spatial-artifacts/p5-q8-full96-run-20261015-v2/q8-64k-pressure/prepare-pool-transitions.json",
+  "phase": "prepare",
+  "phase_id": "bfed806af85145cc831d1679daf3de94",
+  "process_id": 1927706,
+  "event_count": 13,
+  "validated_chains": [
+    {
+      "snapshot": "982c5164a2000e804e67a9dd8534860c51822494e70bbe27e8f3a86c0f4281ec",
+      "eviction_sequence": 0,
+      "read_start_sequence": 1,
+      "read_success_sequence": 4,
+      "load_id": 1,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "snapshot": "8d7c53db7bfafc1a1faa83f145418467968442cdbbb9d4514f4706c22e3f1141",
+      "eviction_sequence": 3,
+      "read_start_sequence": 5,
+      "read_success_sequence": 6,
+      "load_id": 5,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    },
+    {
+      "snapshot": "fa2f24bd7dbf3be9e212ef13d7eb96dccbb0ec7cb3470c114d02db5de67aa8a1",
+      "eviction_sequence": 8,
+      "read_start_sequence": 9,
+      "read_success_sequence": 12,
+      "load_id": 9,
+      "freed_bytes": 1830602232,
+      "loaded_bytes": 1830602232
+    }
+  ]
+}

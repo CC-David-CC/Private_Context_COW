@@ -1,0 +1,42 @@
+{
+  "status": "PASS_PERSISTED_ROOT_AND_FIRST_ASK_ONLY",
+  "overall_browser_workflow": "FAIL",
+  "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "branch": "b-op0245790fb1934ff49b3827f812511ddb",
+  "revision": 2,
+  "snapshots": [
+    {
+      "snapshot": "d42beffbfea7e79282248f72ab130928a09a0eecf26b21b4f9863db664491d04",
+      "root": "d42beffbfea7e79282248f72ab130928a09a0eecf26b21b4f9863db664491d04",
+      "history_tokens": 8189,
+      "controller_status": "idle",
+      "checkpoint_bytes": 333000172,
+      "payload_sha256": "9ec2baebd27a134e16bcd57dd56cd3dc382cf8fed3f7303221bff60cb9ef2701"
+    },
+    {
+      "snapshot": "ac2eba6d8245e9afeb9a313885f31a698ef53475e93ed81f8c6d88fdfb859555",
+      "root": "d42beffbfea7e79282248f72ab130928a09a0eecf26b21b4f9863db664491d04",
+      "history_tokens": 8911,
+      "controller_status": "active",
+      "checkpoint_bytes": 351803700,
+      "payload_sha256": "74f74a2b090fbdf3e368f73b7c882bedbf0b1a6eec9e87211a2e81e0448a1082"
+    }
+  ],
+  "store_write_counters_zero": true,
+  "browser_exit": 1,
+  "server_exit": 0,
+  "native_exits": [
+    {
+      "pid": 1972804,
+      "returncode": -2
+    }
+  ],
+  "numerical_comparisons": 0,
+  "numerical_max_error": null,
+  "limitations": [
+    "No independent numerical reference in this failed UI run.",
+    "The client failure detail was not retained by the original smoke harness.",
+    "Native exit -2 resulted from terminal process-group SIGINT."
+  ]
+}

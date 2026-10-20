@@ -1,0 +1,28 @@
+{
+  "schema": "native-multiturn-cpu-test-receipt-v1",
+  "host": "llm-60",
+  "working_directory": "/home/dflanag3/spatial-artifacts/native-multiturn-luna-20261014/scripts",
+  "command": "python3 test_native_multiturn_oracle.py",
+  "test_source_sha256": "c396c29b70a0a35ed1bd0ae42a5e15696ea74b01b3177584d30fa9b7b68eb736",
+  "status": "PASS",
+  "executed": 13,
+  "passed": 13,
+  "failed": 0,
+  "skipped": 0,
+  "test_ids": [
+    "StoppedTurnGuardTests.test_accepts_only_recorded_actual_eos",
+    "StoppedTurnGuardTests.test_dump_stem_and_pinned_environment_are_exact",
+    "StoppedTurnGuardTests.test_first_frontier_uses_bare_output_stem",
+    "StoppedTurnGuardTests.test_full_fixture_keeps_root_and_first_user_as_distinct_prefills",
+    "StoppedTurnGuardTests.test_generated_oracle_uses_fresh_prefill_decode_operators",
+    "StoppedTurnGuardTests.test_loaded_pinned_profile_command_shape",
+    "StoppedTurnGuardTests.test_profile_rejects_duplicate_or_missing_option_values",
+    "StoppedTurnGuardTests.test_profile_without_token_argument_gets_file_prompt",
+    "StoppedTurnGuardTests.test_rejection_fixture_is_small_and_has_no_expected_generated_output",
+    "StoppedTurnGuardTests.test_rejects_empty_first_turn",
+    "StoppedTurnGuardTests.test_rejects_invalid_eos_contract",
+    "StoppedTurnGuardTests.test_rejects_max_bound_before_suffix_prefill",
+    "StoppedTurnGuardTests.test_rejects_non_eos_terminal_token"
+  ],
+  "scope": "CPU contract tests only; native GPU qualification is recorded separately"
+}

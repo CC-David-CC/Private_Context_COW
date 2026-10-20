@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "roots": [
+    "/home/dflanag3/spatial-artifacts/sparse-cli-20261015-v1",
+    "/home/dflanag3/spatial-artifacts/sparse-cli-20261015-v2"
+  ],
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-sparse-cli-q4-compact-v1",
+  "qualification_summary_sha256": "309803e9978caf54aae10746e0be424229ecf77de8e8a8d1590497135503ba3b",
+  "q4_primary_audit_sha256": "1a1ec0bc6872fab6ae646515e662373938f2bf9b4cc6e49c6938164c53693fff",
+  "scope_limits": [
+    "Q4 CLI campaign completed 13 commands and four durable generation calls with 512 actual output tokens; no fresh numerical oracle, so numerical_max_error is null.",
+    "Both A resume calls loaded 323649780 serialized checkpoint bytes; this is not a pure RAM-only reuse comparison. Individual whole-call timings are retained in the primary audit.",
+    "Q8 was deferred and is not included or claimed."
+  ],
+  "compact_selection": {
+    "manifest_sha256": "7e949f906ee5236a2a31a0819f406c960727c7e4b6cff0adc9387fcfcd1604be",
+    "payload_members": 1080,
+    "payload_bytes": 21548679,
+    "excluded_state_files": 4,
+    "excluded_pycache_files": 58,
+    "excluded_lock_files": 6,
+    "v1_runtime_retained": true,
+    "note": "v1 and v2 runtime trees are distinct; both were retained with the failed v1 staging inputs and corrected v2 evidence."
+  },
+  "receiver": {
+    "archive": "evidence.tar.gz",
+    "archive_bytes": 8657461,
+    "archive_sha256": "d60f28240add10c0c815e2d5882f8b701da74469aa309c240e018b9b8fdd8499",
+    "receiver_verify_sha256": "e2467ee2c93d53a93246d61b496fdc3d56e8969745b939b4260db78882b6bf5a",
+    "verifier_sha256": "f4ede37792bfb9bedced3fb97eb081cb73d0eeebee7cc578a5e29245b844a63a",
+    "verified_members_including_embedded_manifest": 1081,
+    "all_manifest_members_verified": true,
+    "directory_mode_octal": "0700",
+    "files_mode_octal": "0600"
+  }
+}

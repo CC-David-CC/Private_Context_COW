@@ -1,0 +1,279 @@
+{
+  "base": "b1c4fa2d733455c476ec91a41201b34af7c46892",
+  "baseline": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/thinking-new-image-suffix-real-tokenizer-baseline-v1.json",
+  "boundaries": "No native/model/operator/history/checkpoint/reference/tolerance/registered-gate changes. Renderer identity changes; new profile required before GPU qualification.",
+  "branch": "work/vision-thinking-image-suffix-20261017",
+  "checkout": "/home/dflanag3/src/context-cow-vision-active-20261017",
+  "concurrent_campaign": "Latency campaign used frozen e01/profile0c0bc546 and is unaffected by this checkout. It ended FAIL on plaintext-root measurement metadata after24 completed measurements; exact native profiling follow-up separate.",
+  "cpu": {
+    "G0": 51,
+    "errors": 0,
+    "failures": 0,
+    "focused": 54,
+    "new_methods": 5,
+    "real_model_tokenizer_cases": 16,
+    "serving_unique": 421,
+    "skips": 0
+  },
+  "files_sha256": {
+    "serve/cow_vision.py": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af",
+    "serve/cow_vision_preparer.py": "27add74991d5eb0fccb3e8efb081084e622572aed0575d3ca548562d044aafc3",
+    "serve/test_cow_vision_thinking_suffix.py": "43dd1ebb2425f4140f7456865cc63c5237e81897c3e2bf3ea8f1e1346edc5e3e"
+  },
+  "fix": "Single-user encode_user_suffix removes only a constant trusted anchor exact token prefix from the normal mixed renderer. Non-thinking path remains exactly original encode. Existing slot/literal/image identity validation retained.",
+  "host": "llm-60",
+  "problem": "Actual GGUF tokenizer confirmed old standalone mixed suffix inserted42 reasoning-system tokens: composed732 cells vs fresh690, first mismatch371; canonical root prefix itself matched.",
+  "publication": "Private task branch only; not integrated until GPU evidence",
+  "real_tokenizer": {
+    "cases": [
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "initial_turn",
+        "literal": false,
+        "prefix_cells": 328,
+        "source_unchanged": true,
+        "suffix_cells": 319,
+        "thinking": false,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "initial_turn",
+        "literal": true,
+        "prefix_cells": 328,
+        "source_unchanged": true,
+        "suffix_cells": 334,
+        "thinking": false,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "initial_turn",
+        "literal": false,
+        "prefix_cells": 328,
+        "source_unchanged": true,
+        "suffix_cells": 621,
+        "thinking": false,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "initial_turn",
+        "literal": true,
+        "prefix_cells": 328,
+        "source_unchanged": true,
+        "suffix_cells": 636,
+        "thinking": false,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "user_turn",
+        "literal": false,
+        "prefix_cells": 338,
+        "source_unchanged": true,
+        "suffix_cells": 320,
+        "thinking": false,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "user_turn",
+        "literal": true,
+        "prefix_cells": 338,
+        "source_unchanged": true,
+        "suffix_cells": 335,
+        "thinking": false,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "user_turn",
+        "literal": false,
+        "prefix_cells": 338,
+        "source_unchanged": true,
+        "suffix_cells": 622,
+        "thinking": false,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "user_turn",
+        "literal": true,
+        "prefix_cells": 338,
+        "source_unchanged": true,
+        "suffix_cells": 637,
+        "thinking": false,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "initial_turn",
+        "literal": false,
+        "prefix_cells": 370,
+        "source_unchanged": true,
+        "suffix_cells": 317,
+        "thinking": true,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "initial_turn",
+        "literal": true,
+        "prefix_cells": 370,
+        "source_unchanged": true,
+        "suffix_cells": 332,
+        "thinking": true,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "initial_turn",
+        "literal": false,
+        "prefix_cells": 370,
+        "source_unchanged": true,
+        "suffix_cells": 619,
+        "thinking": true,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "initial_turn",
+        "literal": true,
+        "prefix_cells": 370,
+        "source_unchanged": true,
+        "suffix_cells": 634,
+        "thinking": true,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "user_turn",
+        "literal": false,
+        "prefix_cells": 380,
+        "source_unchanged": true,
+        "suffix_cells": 318,
+        "thinking": true,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 1,
+        "kind": "user_turn",
+        "literal": true,
+        "prefix_cells": 380,
+        "source_unchanged": true,
+        "suffix_cells": 333,
+        "thinking": true,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "user_turn",
+        "literal": false,
+        "prefix_cells": 380,
+        "source_unchanged": true,
+        "suffix_cells": 620,
+        "thinking": true,
+        "unicode_codepoints": []
+      },
+      {
+        "control_ends": 1,
+        "control_starts": 2,
+        "exact_full_render": true,
+        "image_placements": 2,
+        "kind": "user_turn",
+        "literal": true,
+        "prefix_cells": 380,
+        "source_unchanged": true,
+        "suffix_cells": 635,
+        "thinking": true,
+        "unicode_codepoints": [
+          "0x3c0",
+          "0x1f404"
+        ]
+      }
+    ],
+    "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "scope": "CPU renderer/tokenizer only; no native model forward/checkpoint restore. Current GPU profile remains old source until a separately bound candidate is qualified.",
+    "source_sha256": {
+      "serve/cow_vision.py": "4494484d89b2987d181753720c257fc7e0288d8ab9321e7ad94be0fe494023af",
+      "serve/cow_vision_preparer.py": "27add74991d5eb0fccb3e8efb081084e622572aed0575d3ca548562d044aafc3",
+      "serve/test_cow_vision_thinking_suffix.py": "43dd1ebb2425f4140f7456865cc63c5237e81897c3e2bf3ea8f1e1346edc5e3e"
+    },
+    "status": "REAL_GGUF_TOKENIZER_THINKING_IMAGE_SUFFIX16_CASES_PASS"
+  },
+  "remaining": [
+    "Freeze source-bound runtime/profile and actual new-image initial/completed-turn CLI/GPU/reference/restart tests",
+    "Incremental mixed-schedule validation optimization after real CPU profiling",
+    "Complete current latency/text/supported matrix; original G1-G5 unqualified/Q8 deferred"
+  ],
+  "schema": 1,
+  "status": "CPU_THINKING_NEW_IMAGE_SUFFIX_PASS_GPU_UNRUN",
+  "testfirst_red": "5 methods:3 assertion failures/4 subtest errors; original RED retained"
+}

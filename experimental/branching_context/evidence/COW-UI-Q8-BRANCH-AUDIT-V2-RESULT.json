@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "status": "PASS_READ_ONLY_CONTEXT_AND_AB_BRANCH_AUDIT",
+  "scope": "post-shutdown canonical read-only audit of context root and actual A/B saved branch tips; no model load, GPU work, or independent continuation-equivalence claim",
+  "host": "llm-60",
+  "source_run": "/home/dflanag3/spatial-artifacts/cow-ui-q8-8189-retry-20261015-v2",
+  "input_report_sha256": "6671fa088bb42f257b9eaf971289522a8c5fd7390f5825bb3f9ddadd4c8ba679",
+  "fixture_sha256": "384984f5ef1f30a22edc3a1a80ed2830e59b8a56331e8c397181f482f8ecd16b",
+  "execution_profile_id": "f39df09d619ee55032a199c0a089fa964ef1b27f48929bca11f6e70aff9a07c7",
+  "model_contract_id": "fc6d0d643e4b9ae020964f8c4e5006c0da7199b19cce5285c573023dbe82ca46",
+  "auditor_sha256": "ea3e8038a55f3c72098de57bedb34614b465fa0755fd4edeeb9a131ed2882497",
+  "test_module_sha256": "ae49a6274b1d1ab80c0c3a1b993450b65e9f4e21dbacdd5268e336b756ad761a",
+  "tests": {
+    "red_receipt": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/branch-audit-red",
+    "red_tests": 11,
+    "red_failures": 3,
+    "red_errors": 0,
+    "green_receipt": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/branch-audit-green-final3",
+    "green_tests": 11,
+    "green_failures": 0,
+    "green_errors": 0,
+    "green_command_exit": 0,
+    "green_wrapper_exit": 0
+  },
+  "audit": {
+    "receipt": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/canonical-branches-v2-final3",
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "report_path": "/home/dflanag3/spatial-artifacts/cow-ui-q8-8189-retry-20261015-v2/canonical-branch-audit.json",
+    "report_sha256": "88992a43cb2407e1567ed4f037366c978881901bea32352f0d0053d3b8b7710f",
+    "status": "PASS_READ_ONLY_DURABLE_CONTEXT_AND_BRANCH_AUDIT",
+    "root": {
+      "snapshot": "d42beffbfea7e79282248f72ab130928a09a0eecf26b21b4f9863db664491d04",
+      "tokens": 8189,
+      "controller_status": "idle",
+      "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+      "payload_bytes": 333000172,
+      "payload_sha256": "9ec2baebd27a134e16bcd57dd56cd3dc382cf8fed3f7303221bff60cb9ef2701"
+    },
+    "branch_a": {
+      "branch": "b-op4660cdd9c6184d94968ebc93daf2a49f",
+      "snapshot": "be8f4739d18875adb8a00f7407ea5ac47483cff245017ffcf43e2aba74ec650c",
+      "root_matches_context": true,
+      "tokens": 8911,
+      "suffix_tokens": 594,
+      "generated_tokens": 128,
+      "controller_status": "active",
+      "controller_sha256": "b704d220c78d7eb16df388521079f231cbaa45b30dfea4140bdaa154c53928ab",
+      "payload_bytes": 351803700,
+      "payload_sha256": "74f74a2b090fbdf3e368f73b7c882bedbf0b1a6eec9e87211a2e81e0448a1082",
+      "schedule_sha256": "fdbd024879a0293d63dce514f734d4fa554cd4dbba284e06bbc8ef87d89c683a"
+    },
+    "branch_b": {
+      "branch": "b-46a8b2d93f3645f986520976ccfb964f",
+      "snapshot": "d527451f88b27aa7529d0b42b9aa4fbe88b4c432c903bd0f65564eec761b1497",
+      "root_matches_context": true,
+      "tokens": 8913,
+      "suffix_tokens": 596,
+      "generated_tokens": 128,
+      "controller_status": "active",
+      "controller_sha256": "cc2cdae533619def66e0de48399f7f377e33dd010c6efc66a49f72b8101be8cd",
+      "payload_bytes": 351908156,
+      "payload_sha256": "f1dca12572a8195683545cf552694164ce73a0d7be3c30823e328746c740b4d2",
+      "schedule_sha256": "d83ee0f6403d0444a4bc676966fef015a9d23a1cc4ecc723366b56dc6023097b"
+    },
+    "canonical_store_fingerprint_unchanged": true,
+    "native_forward_work": 0,
+    "independent_controller_continuation_equivalence": "not_claimed"
+  },
+  "preserved_intermediate_failure": {
+    "receipt": "/home/dflanag3/spatial-artifacts/cow-ui-launcher-tests-20261015/canonical-branches-v2",
+    "command_exit": 1,
+    "cause": "audit initially assumed branch name was on request object instead of reading the branch head in the actual durable receipt"
+  }
+}

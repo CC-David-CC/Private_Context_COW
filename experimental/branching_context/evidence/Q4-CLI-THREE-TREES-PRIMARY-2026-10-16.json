@@ -1,0 +1,155 @@
+{
+  "G0_tests": 51,
+  "actual_output_tokens": 4096,
+  "all_owned_pids_absent": true,
+  "all_tokens_exact": true,
+  "audit_sha256": "9048df92e236e243bb152b64568cb767c3a80a60b2de6d168eef862cbac06d6d",
+  "backup": {
+    "archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-cli-trees-v1/evidence.tar",
+    "archive_bytes": 194344960,
+    "archive_sha256": "d9baaa04ca96ae6b22818a7e3716e8c679021615aa61ca218ff3d72e78ca6efa",
+    "extracted_files": 0,
+    "manifest_sha256": "48b0ae7fc13ced1d364df9ae8bf4242e6314890af2b50c74ff51dd377d35d36a",
+    "schema": "cow-q4-cli-private-backup-readback-v1",
+    "ssh_exit_code": 0,
+    "status": "PASS",
+    "symlinks_or_hardlinks": 0,
+    "verified_member_bytes": 193190380,
+    "verified_members": 1010
+  },
+  "cli_sha256": "798fe8706b0e5bf8b6ebdf956d10d59ef6bc1e5647b98efe3590e098afb04b91",
+  "combined_cpu_tests": 22,
+  "command_wrapper_exits": {
+    "backup-command-v2": [
+      0,
+      0
+    ],
+    "backup-readback-command-v1": [
+      0,
+      0
+    ],
+    "campaign-command-v1": [
+      0,
+      0
+    ],
+    "campaign-reference-command-v1": [
+      0,
+      0
+    ],
+    "chart-command-v3": [
+      0,
+      0
+    ],
+    "g0-command-v2": [
+      0,
+      0
+    ],
+    "integrated-harness-command-v1": [
+      0,
+      0
+    ],
+    "qualified-summary-command-v1": [
+      0,
+      0
+    ]
+  },
+  "comparison_breakdown": {
+    "candidate_final": 32,
+    "candidate_saved_prefix": 6,
+    "fresh_repeat": 780
+  },
+  "context_capacity": 98304,
+  "disk_pool_limit_gib": 128,
+  "every_candidate_intermediate_logit_checked": false,
+  "execution_profile_id": "fed7e7d5e4b2405fc75e6d300deef7576fe4a0a8ddec88841331144568ada450",
+  "failures": 0,
+  "full_greedy_controllers_exact": true,
+  "full_vector_comparisons": 818,
+  "generation_requests": 32,
+  "host": "llm-60",
+  "kv_layout": "FP16",
+  "local_completed_operation_retry_scope": "Earlier eight-output smoke; local journal, not server lost-ack replay",
+  "logical_retry_previous_future_retained": true,
+  "measured_disk_pool_max_file_bytes": 3302817655,
+  "measured_ram_pool_peak_accounted_bytes": 4170959892,
+  "measurements_sha256": "f553a80c351bcff7237a798e9f20510973b0da38e0be1c27064014a88c55392b",
+  "memory_scope": "Internal checkpoint pool accounting; not peak system RAM or VRAM",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 15
+  },
+  "model_weights_sha256": "32759e8867f3e52a7fa559761d003950dd4449e7e970a6de1550bc11c02b8827",
+  "native_forward_work_excludes_saved_prefix": true,
+  "native_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "numerical_max_error": 0,
+  "numerical_scope": "Independent fresh repeat checks every dumped frontier; candidate prefix/final checks only. No arbitrary arrangement equivalence.",
+  "observer_sha256": "20149f9face52ffa0afa2962824f364b9765e7b954a3da90e6084a8c974d7b28",
+  "oracle_sha256": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129",
+  "output_limit": 128,
+  "owned_pids": [
+    2875177,
+    2875183,
+    2876340,
+    2876346,
+    2876917,
+    2876976,
+    2877083,
+    2877190,
+    2877460,
+    2877568,
+    2877885,
+    2877993,
+    2878161,
+    2878268,
+    2878378,
+    2878550
+  ],
+  "parent_checkpoint_bytes_unchanged": true,
+  "png_sha256": "fad72cef50852929e9e66c1a2918a6c60f6b06c528b491974b32ac1003feb505",
+  "prefill_chunk": 8192,
+  "prefix_tokens": [
+    7231,
+    7845,
+    8087
+  ],
+  "preserved_harness_failures": [
+    "Initial revision-zero assumption in smoke harness",
+    "Read-lease snapshot argument omitted in first audit",
+    "Verifier absent from reduced runtime package; full frozen source G0 succeeds",
+    "Summary expected an unexported preloads counter; corrected to direct timed pool traces",
+    "Plot environment lacked matplotlib; isolated plotting environment used without changing inference environment",
+    "First chart labels overlapped; revised chart visually checked",
+    "Backup v1 had a syntax error before execution; v2 transfers and independently verifies every member"
+  ],
+  "profile_sha256": "a7d53c45ebd7a1aa841ee10a7f5ef55472d5c761be928551a176b94f7d3f1755",
+  "ram_pool_limit_gib": 96,
+  "remaining": [
+    "Longer histories/questions/outputs on this combined client version",
+    "Pressure/crash/controller expansions",
+    "Clean native-without-COW baseline and LAN measurements",
+    "Q8 deferred",
+    "Cumulative G1-G5 unqualified"
+  ],
+  "schema": "cow-q4-cli-three-tree-primary-v1",
+  "scope": "Actual CLI/HTTP/native three saved source-tree workload, greedy matching profile, one active GPU request",
+  "script_sha256": "321b9846377c6aafb201fe76cef3cc66875f82ede27fdf7ad622d74fc957b0cb",
+  "skips": 0,
+  "source_tier_counts": {
+    "RAM pool": 20,
+    "disk to RAM": 4,
+    "native snapshot": 8
+  },
+  "source_tier_proof": "Bounded nonoverflowing pool trace bound by operation/branch/snapshot and request monotonic interval",
+  "status": "FOCUSED-PASS",
+  "suffix_tokens": [
+    512,
+    488,
+    461,
+    448,
+    478,
+    464
+  ],
+  "svg_sha256": "ed6bd75920cefb3da48742bb291c6cce1b241b1ed6b5f0a12db35d783a7573bc",
+  "xfails": 0
+}

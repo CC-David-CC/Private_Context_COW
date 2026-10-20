@@ -1,0 +1,46 @@
+{
+  "schema": "cow-focused-evidence-v1",
+  "status": "FOCUSED_CPU_PASS",
+  "host": "llm-60",
+  "interpreter": "/home/dflanag3/src/Strata/.venv/bin/python",
+  "computation": "Synthetic fixture only; actual HTTP, files, subprocesses and process-group signals",
+  "source_sha256": {
+    "tools/cow_cli.py": "c8f517a63217801cec97881e653055319f53175b915ede40cd95246e69ab757a",
+    "tools/test_cow_cli.py": "f333fc31ccd420291033fb07338741b6018ad24f4c7cdfd490c89a67210c9ab1",
+    "scripts/run_cow_client_recovery.py": "4752c3b62c65a4811f6ab0661dbcdbd8f8b700f5d64c9ae4fc4d59d8f20ec960",
+    "tests/implementation/test_cow_client_recovery.py": "ceda0c1fb6b7c8851b339682af899179593f02bf1ac53f5a018ccdc3a926e06b"
+  },
+  "integrated_run": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/cli-integrated-cpu-v1",
+    "command": "python -m unittest test_cow_client_recovery test_cow_multi_client tools.test_cow_cli -v",
+    "tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 6.212,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "g0": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/runs/g0-cli-v1",
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "assertions": [
+    "CLI rejects incomplete, empty, mismatched-branch, wrong-tip and malformed-revision completion receipts without claiming durable success.",
+    "Operation identity is printed before mutation; no automatic mutation retry; output and metadata remain separate.",
+    "Actual synthetic COW HTTP fixture exercises context, ask, prepared answer, continue, append, fork, rewind, history, auth and stale revisions.",
+    "Health/profile/readiness startup failures stop the owned service; launch failures close log handles; cleanup errors preserve the original cause.",
+    "Graceful SIGINT reaches only the HTTP leader; its worker is closed by the parent. Forced cleanup removes owned descendants without signalling a separate-session control process."
+  ],
+  "test_first_evidence": [
+    "/home/dflanag3/spatial-artifacts/cow-cli-20261015-v1/runs/red-missing-client-v1",
+    "/home/dflanag3/spatial-artifacts/cow-client-recovery-cpu-20261015-v1/runs/helper-cleanup-red-v1",
+    "/home/dflanag3/spatial-artifacts/cow-client-recovery-cpu-20261015-v1/runs/helper-cleanup-launch-red-v1",
+    "/home/dflanag3/spatial-artifacts/cow-client-recovery-cpu-20261015-v1/helper-cleanup-graceful-red-v1/runs/graceful-red-v3"
+  ],
+  "qualification": "No original real-backend gate promotion. Real CLI campaigns are recorded separately."
+}

@@ -1,0 +1,9 @@
+[  6%] Built target strata_core
+[ 17%] Built target ggml-base
+[ 31%] Built target ggml-cpu
+[ 41%] Built target strata_kernels_cpu
+[ 82%] Built target strata_kernels
+[100%] Built target strata_engine
+[100%] Building CXX object CMakeFiles/branch_prepare_test.dir/tests/core/branch_prepare_test.cpp.o
+[100%] Linking CXX executable branch_prepare_test
+[100%] Built target branch_prepare_test

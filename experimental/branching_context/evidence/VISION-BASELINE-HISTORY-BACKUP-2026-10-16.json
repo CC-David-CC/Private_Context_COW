@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "status": "PRIVATE_BACKUP_VERIFIED",
+  "source": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-baseline-history-v1.tar.gz",
+  "target": "box-git:/srv/data/git/private_context_cow.evidence/20261016-cow-vision-baseline-history-v1/evidence.tar.gz",
+  "bytes": 49179986,
+  "sha256": "89418c36325243a333efe3542a8a0fabb1b217a2d40d7aa184c628df32a7ce9e",
+  "destination_readback_sha256": "89418c36325243a333efe3542a8a0fabb1b217a2d40d7aa184c628df32a7ce9e",
+  "transport": "llm-60 direct to box-git",
+  "includes": "242 files: executed scripts, build/command receipts, raw failure/success logs, encoder ELF, image/SVE fixtures, candidate source and summaries",
+  "excludes": "model weights, pack payloads, intermediate compiler objects, unrelated KV artifacts",
+  "github_publication": false
+}

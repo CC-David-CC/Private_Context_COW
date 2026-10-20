@@ -1,0 +1,10 @@
+{
+  "status": "PASS_REAL_Q8_RESTART_BOOTSTRAP_RECONCILIATION",
+  "native_trace_byte_unchanged": true,
+  "native_commands_during_reconciliation": 0,
+  "forward_tokens": 0,
+  "prefill_tokens": 0,
+  "decode_timed_tokens": 0,
+  "loaded_file_bytes": 0,
+  "scope": "Exact original root receipt/output recovery; new-generation state restore measured next"
+}

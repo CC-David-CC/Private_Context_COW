@@ -1,0 +1,25 @@
+{"phase": "independent fresh batch and decode", "prefix_tokens": 32768}
+{"phase": "prepare immutable prefix", "prefix_tokens": 32768}
+{"phase": "resident prefill", "prefix_tokens": 32768, "request_index": 0}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 0}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 16}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 32}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 48}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 64}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 80}
+{"phase": "resident prefill", "prefix_tokens": 32768, "request_index": 1}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 0}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 16}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 32}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 48}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 64}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 80}
+{"phase": "resident prefill", "prefix_tokens": 32768, "request_index": 2}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 0}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 16}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 32}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 48}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 64}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 80}
+{"phase": "resident prefill", "prefix_tokens": 32768, "request_index": 3}
+{"phase": "resident decode", "prefix_tokens": 32768, "accepted_outputs": 0}

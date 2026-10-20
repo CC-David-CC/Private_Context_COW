@@ -1,0 +1,1404 @@
+{
+  "status": "SETTLED_FAILURE_FORENSICS",
+  "ledger_unchanged": true,
+  "model_calls": 14,
+  "output_tokens": 5179,
+  "whole_cli_seconds": 1114.4121310920455,
+  "installed_modules": [
+    {
+      "name": "branchwrite",
+      "sha256": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c"
+    },
+    {
+      "name": "branchwrite.language",
+      "sha256": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985"
+    },
+    {
+      "name": "branchwrite.records",
+      "sha256": "cbc34ddb6b510217a2a1995e2c31ea092f1b0c211b2daa1039dca18a2093d09b"
+    },
+    {
+      "name": "branchwrite.kernel",
+      "sha256": "cb6a345521f496ead177c9cfbb908929af8c268ce50a440a78086a66d5343e10"
+    },
+    {
+      "name": "branchwrite.execution",
+      "sha256": "31abda723bf8712c52189195cc3da4af132c930adc4ca2524523003082390ec2"
+    },
+    {
+      "name": "branchwrite.text_file_codec",
+      "sha256": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8"
+    },
+    {
+      "name": "branchwrite.tool_registry",
+      "sha256": "54c5b6625f5b975523b8830332f027186077e7a724dc22a4748f67b7da414568"
+    },
+    {
+      "name": "branchwrite.tool_dispatch",
+      "sha256": "92b386ce99805dccb063d840af35f9d1a9efcc773705a8563a6eec861b5a8bd6"
+    },
+    {
+      "name": "branchwrite.cow_client",
+      "sha256": "a08bd70de75399583cfc19229dc6e0a6ff5447286d5b8856b5322e5eda2f86d7"
+    },
+    {
+      "name": "branchwrite.cow_actions",
+      "sha256": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4"
+    },
+    {
+      "name": "branchwrite.model_inputs",
+      "sha256": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea"
+    },
+    {
+      "name": "branchwrite.thinking_ladder",
+      "sha256": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc"
+    },
+    {
+      "name": "branchwrite.model_dispatch",
+      "sha256": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007"
+    },
+    {
+      "name": "branchwrite.cow_fork",
+      "sha256": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0"
+    },
+    {
+      "name": "branchwrite.planning_retry",
+      "sha256": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946"
+    },
+    {
+      "name": "branchwrite.verification",
+      "sha256": "f2ca101512c0501639012f39c411d353421677a63790ea185e406917e7fea7e0"
+    },
+    {
+      "name": "branchwrite.image_feedback",
+      "sha256": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe"
+    },
+    {
+      "name": "branchwrite.interpreter",
+      "sha256": "cbb7a20a1d9015968c2b81aa4c61ac2a17d9a4f33b8496199f586a7593852d94"
+    },
+    {
+      "name": "branchwrite.coding_defaults",
+      "sha256": "e11f62a6b8c49c644afeeb154908137c5a415de55b67529cd39c0e0a97a0c34c"
+    },
+    {
+      "name": "branchwrite.run_cli",
+      "sha256": "8cfbfdacb4729d725f80c0bbca8daa062b30a47e4b4fbe6530bdba554ea80f95"
+    },
+    {
+      "name": "branchwrite.coding_cli",
+      "sha256": "866ab705baef8aa00d04a4f5b6256100bf6bdcce6adbdf3d7ebf05587b333a3d"
+    },
+    {
+      "name": "branchwrite.__main__",
+      "sha256": "01b8450ef67c026f663d726ca17bcf8bf90a699650d18d6a22a509b68b3002bb"
+    },
+    {
+      "name": "branchwrite.terminal",
+      "sha256": "b7c711312c2076f423fef08f5d54a507d3822c73fbae616a1089b4f9b9358495"
+    },
+    {
+      "name": "branchwrite.browser_assets",
+      "sha256": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31"
+    },
+    {
+      "name": "branchwrite.command_outputs",
+      "sha256": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9"
+    },
+    {
+      "name": "branchwrite.browser_isolation",
+      "sha256": "782fb456cc47fe0f8a4c92a9e0729814a9bf9676d76b28246d99b8751b5fad10"
+    },
+    {
+      "name": "branchwrite.terminal_worker",
+      "sha256": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996"
+    }
+  ],
+  "wheel_sha256": "516a3629bdcb63f2d2f78ea27bc0a1c2cb759912dc2aa220257f7543f7f37e2a",
+  "tools": [
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "tests/test_connection_admission.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Real launcher admission: reject ambiguous JSON before any effects.\"\"\"\nimport argparse,json,tempfile,unittest\nfrom pathlib import Path\nfrom unittest.mock import patch\nfrom branchwrite.coding_cli import start\nclass ConnectionAdmissionTests(unittest.TestCase):\n def setUp(self):\n  self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)\n  self.root=Path(self.tmp.name);self.project=self.root/'project';self.project.mkdir()\n  (self.project/'app.py').write_text('pass\\n')\n  self.task=self.root/'task.txt';self.task.write_text('Repair the project')\n  self.connection=dict(endpoint_url='http://127.0.0.1:1',endpoint_pin='owned',model_contract_id='model',execution_profile_id='profile',eos_tokens=[256])\n  self.path=self.root/'connection.json'\n  self.args=argparse.Namespace(max_steps=10,connection=str(self.path),project=str(self.project),task_file=str(self.task),branch='new',read=[],edit=['app.py'],create=[],test_command=['python3 -m unittest'],from_branch=None,from_snapshot=None,shell_timeout=120,state=str(self.root/'state'))\n def test_each_duplicate_identity_is_rejected_before_effects(self):\n  for field,value in self.connection.items():\n   with self.subTest(field=field):\n    self.path.write_text(json.dumps(self.connection)[:-1]+','+json.dumps(field)+':'+json.dumps(value)+'}')\n    with patch('branchwrite.coding_cli.run_saved') as run,patch('branchwrite.coding_cli._client') as client:\n     with self.assertRaises(ValueError):start(self.args)\n     run.assert_not_called();client.assert_not_called()\n    self.assertFalse(Path(self.args.state).exists())\n def test_valid_connection_still_prepares_exact_launch(self):\n  self.path.write_text(json.dumps(self.connection))\n  with patch('branchwrite.coding_cli.run_saved',return_value={'ok':True}) as run:\n   self.assertEqual(start(self.args),{'ok':True});run.assert_called_once()\n  from branchwrite.coding_cli import read_launch\n  cfg=read_launch(self.args.state)['config']['cow']\n  for k,v in self.connection.items():self.assertEqual(cfg[k],v)\n def test_expression_is_not_executed(self):\n  marker=self.root/'executed'\n  self.path.write_text(\"__import__('pathlib').Path(\"+repr(str(marker))+\").touch()\")\n  with patch('branchwrite.coding_cli.run_saved') as run:\n   with self.assertRaises(ValueError):start(self.args)\n   run.assert_not_called()\n  self.assertFalse(marker.exists());self.assertFalse(Path(self.args.state).exists())\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "tests/test_coding_launcher.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Project/task admission; launcher never owns another workflow or history.\"\"\"\nimport json,tempfile,unittest\nfrom pathlib import Path\nclass CodingLauncherTests(unittest.TestCase):\n def setUp(self):\n  self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)\n  self.base=Path(self.tmp.name);self.project=self.base/'project';self.project.mkdir()\n  (self.project/'app.py').write_text('broken')\n  self.connection=dict(endpoint_url='http://127.0.0.1:1',endpoint_pin='owned',model_contract_id='model',execution_profile_id='profile',eos_tokens=[256])\n def build(self,**kwargs):\n  from branchwrite.coding_cli import build_launch\n  return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n def test_fresh_launch_uses_existing_workflow_and_explicit_grants(self):\n  launch=self.build()\n  cfg=launch['config']\n  self.assertEqual(cfg['source'],str(self.project))\n  self.assertEqual(cfg['cow']['bootstrap'],'coding')\n  self.assertEqual(cfg['cow']['grammar_registration'],'inline')\n  self.assertEqual(cfg['grant']['edit_paths'],['app.py'])\n  self.assertEqual(set(cfg['grant']['read_paths']),{'app.py','new.py','tests/test_app.py'})\n  self.assertIn('command-evidence-and-finish',launch['program'])\n  self.assertEqual(cfg['verification']['commands'][0]['exit_code'],0)\n def test_retained_launch_does_not_bootstrap_or_rebase(self):\n  launch=self.build(from_branch='parent',from_snapshot='a'*64)\n  self.assertNotIn('bootstrap',launch['config']['cow'])\n  self.assertEqual(launch['config']['cow']['mode'],'append_user')\n  self.assertEqual(launch['fork'],dict(source_branch='parent',snapshot='a'*64))\n def test_connection_cannot_contain_credentials_or_unknown_fields(self):\n  self.connection['api_key']='must-not-be-written'\n  with self.assertRaises(ValueError):self.build()\n def test_manifest_reopens_exactly_and_cannot_be_replaced(self):\n  from branchwrite.coding_cli import save_launch,read_launch\n  launch=self.build();state=self.base/'run'\n  save_launch(state,launch)\n  self.assertEqual(read_launch(state),launch)\n  changed=self.build();changed['config']['bindings']['task']['value']='Different task'\n  with self.assertRaises(ValueError):save_launch(state,changed)\n  self.assertEqual(read_launch(state),launch)\n def test_state_cannot_be_inside_source_or_a_symlink(self):\n  from branchwrite.coding_cli import save_launch\n  with self.assertRaises(ValueError):save_launch(self.project/'run',self.build())\n  alias=self.base/'alias';alias.symlink_to(self.project,target_is_directory=True)\n  with self.assertRaises(ValueError):save_launch(alias,self.build())\n def test_tampered_manifest_rejected(self):\n  from branchwrite.coding_cli import save_launch,read_launch\n  state=self.base/'run';save_launch(state,self.build())\n  p=state/'coding-launch.json';raw=json.loads(p.read_text())\n  raw['launch']['config']['bindings']['task']['value']='tampered'\n  p.write_text(json.dumps(raw))\n  with self.assertRaises(ValueError):read_launch(state)\n def test_interrupted_stage_cleanup_cannot_strand_a_published_manifest(self):\n  from branchwrite.coding_cli import save_launch,read_launch\n  from unittest.mock import patch\n  original=Path.unlink\n  def interrupted(path,*args,**kwargs):\n   if path.name.startswith('.coding-launch-'):raise OSError('stage cleanup interrupted')\n   return original(path,*args,**kwargs)\n  state=self.base/'run';launch=self.build()\n  with patch.object(Path,'unlink',interrupted):\n   try:save_launch(state,launch)\n   except OSError:pass\n  self.assertEqual(read_launch(state),launch)\n def test_uncertain_fork_reports_original_id_and_never_starts_interpreter(self):\n  from branchwrite.coding_cli import save_launch,run_saved\n  from branchwrite.cow_client import OperationIndeterminate\n  from unittest.mock import patch,Mock\n  state=self.base/'run';launch=self.build(from_branch='parent',from_snapshot='a'*64);save_launch(state,launch)\n  client=Mock();client.fork.side_effect=OperationIndeterminate('lost acknowledgment')\n  with patch('branchwrite.coding_cli._client',return_value=client),patch('branchwrite.coding_cli.execute') as execute:\n   with self.assertRaisesRegex(OperationIndeterminate,'bw-code-fork-'):\n    run_saved(state)\n   execute.assert_not_called()\n  self.assertEqual(client.fork.call_args.args[:3],('parent','a'*64,'coding'))\n def test_unresolved_fork_cannot_be_published(self):\n  from branchwrite.coding_cli import save_launch\n  with self.assertRaises(ValueError):save_launch(self.base/'run',self.build(from_branch='parent'))\n\nclass CodingLauncherCommandTests(unittest.TestCase):\n setUp=CodingLauncherTests.setUp\n build=CodingLauncherTests.build\n def cli(self,*args):\n  import os,subprocess,sys\n  env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1')\n  return subprocess.run([sys.executable,'-B','-m','branchwrite',*map(str,args)],capture_output=True,text=True,env=env,timeout=15)\n def test_code_and_resume_are_public_commands(self):\n  r=self.cli('--help')\n  self.assertEqual(r.returncode,0,r.stderr)\n  self.assertIn('code',r.stdout);self.assertIn('resume',r.stdout)\n def test_invalid_connection_does_not_create_a_run(self):\n  connection=self.base/'connection.json';connection.write_text(json.dumps(dict(self.connection,api_key='not-allowed')))\n  task=self.base/'task.txt';task.write_text('Repair app')\n  state=self.base/'run'\n  r=self.cli('code',self.project,'--task-file',task,'--connection',connection,'--state',state,'--branch','new','--edit','app.py','--test-command','python3 -m unittest')\n  self.assertEqual(r.returncode,2,r.stderr)\n  self.assertIn('credentials',r.stderr)\n  self.assertFalse(state.exists())\n def test_tampered_resume_does_not_create_a_world(self):\n  from branchwrite.coding_cli import save_launch\n  state=self.base/'run';save_launch(state,self.build())\n  p=state/'coding-launch.json';value=json.loads(p.read_text());value['sha256']='0'*64;p.write_text(json.dumps(value))\n  r=self.cli('resume',state)\n  self.assertEqual(r.returncode,2)\n  self.assertIn('integrity',r.stderr)\n  self.assertFalse((state/'world').exists())\n\n def test_invalid_budget_fails_before_transport_or_state_creation(self):\n  connection=self.base/'connection.json';connection.write_text(json.dumps(self.connection))\n  task=self.base/'task.txt';task.write_text('Repair app')\n  state=self.base/'run'\n  r=self.cli('code',self.project,'--task-file',task,'--connection',connection,'--state',state,'--branch','new','--edit','app.py','--test-command','python3 -m unittest','--max-steps','0')\n  self.assertEqual(r.returncode,2)\n  self.assertIn('step budget',r.stderr)\n  self.assertFalse(state.exists())\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/coding_cli.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Prepare the existing coding workflow; COW and RuntimeLog remain authoritative.\"\"\"\nimport hashlib,json,os,re,stat,tempfile\nfrom pathlib import Path\nfrom .run_cli import _config,execute,_source_notice\nfrom .cow_client import CowClient,HTTPTransport,OperationJournal,OperationIndeterminate\nPROGRAM=\"\"\"FLOW coding\nREPEAT attempts exhausted=stop max=32 until=verified\nEXPAND decide from=current profile=control task=task -> proposed\nPLAN freeze against=world from=proposed -> plan\nACT perform plan=plan -> outcome\nTRANSFORM advance contract=cow-source input=proposed -> current\nTRANSFORM feedback contract=tool-feedback input=outcome -> task\nVERIFY check contract=command-evidence-and-finish input=outcome -> verified\nEND\nEND\n\"\"\"\nMAX_LAUNCH_BYTES=1024*1024\ndef _bytes(value):\n    return json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False).encode()\ndef build_launch(project,task,connection,*,branch,read_paths=(),edit_paths=(),create_paths=(),test_commands=(),from_branch=None,from_snapshot=None,shell_timeout=120):\n    project=Path(project).resolve(strict=True)\n    if not project.is_dir():raise ValueError('project must be a directory')\n    keys={'endpoint_url','endpoint_pin','model_contract_id','execution_profile_id','eos_tokens'}\n    if type(connection) is not dict or set(connection)!=keys:\n        raise ValueError('connection needs only endpoint/profile identities and EOS IDs; credentials belong in BW_COW_API_KEY')\n    HTTPTransport(connection['endpoint_url'])\n    if type(task) is not str or not task.strip() or len(task.encode('utf8'))>262144:raise ValueError('bounded nonempty task text required')\n    if type(branch) is not str or not 1<=len(branch)<=128:raise ValueError('bounded branch name required')\n    if not test_commands or any(type(c) is not str or not c.strip() for c in test_commands):\n        raise ValueError('at least one explicit verification command is required')\n    if from_snapshot is not None and from_branch is None:raise ValueError('a snapshot requires its source branch')\n    if from_branch is not None and (type(from_branch) is not str or not from_branch):raise ValueError('source branch required')\n    if from_snapshot is not None and (type(from_snapshot) is not str or not re.fullmatch('[0-9a-f]{64}',from_snapshot)):raise ValueError('invalid source snapshot')\n    cow=dict(connection,branch=branch,mode='ask',bootstrap='coding',grammar_registration='inline')\n    fork=None\n    if from_branch is not None:\n        cow.pop('bootstrap');cow['mode']='append_user'\n        fork=dict(source_branch=from_branch,snapshot=from_snapshot)\n    config=dict(schema=1,source=str(project),run_id=branch,\n        grant=dict(read_paths=sorted(set(read_paths)|set(edit_paths)|set(create_paths)),\n                   edit_paths=list(edit_paths),create_paths=list(create_paths),allow_tests=False,allow_shell=True),\n        bindings=dict(task=dict(type='Text',value=task)),cow=cow,\n        shell=dict(timeout=shell_timeout),\n        verification=dict(schema=1,commands=[dict(command=c,disposition='exited',exit_code=0) for c in test_commands]))\n    config=_config(_bytes(config).decode())\n    return dict(schema=1,program=PROGRAM,config=config,fork=fork)\ndef _validate(launch):\n    if type(launch) is not dict or set(launch)!={'schema','program','config','fork'} or type(launch['schema']) is not int or launch['schema']!=1 or launch['program']!=PROGRAM:\n        raise ValueError('unsupported coding launch')\n    _config(_bytes(launch['config']).decode())\n    fork=launch['fork']\n    if fork is not None:\n        if (type(fork) is not dict or set(fork)!={'source_branch','snapshot'}\n                or type(fork['source_branch']) is not str or not fork['source_branch']\n                or type(fork['snapshot']) is not str or not re.fullmatch('[0-9a-f]{64}',fork['snapshot'])\n                or launch['config']['cow'].get('mode')!='append_user'\n                or 'bootstrap' in launch['config']['cow']):\n            raise ValueError('retained launch must pin an exact source snapshot')\n    elif launch['config']['cow'].get('bootstrap')!='coding':\n        raise ValueError('new coding launch requires its bootstrap')\ndef _state(state,*,create=False,source=None):\n    state=Path(state).absolute()\n    if state.is_symlink():raise ValueError('state must be a real owned directory')\n    if source is not None and state.resolve().is_relative_to(Path(source).resolve()):\n        raise ValueError('run state must be outside the source project')\n    if create and not state.exists():state.mkdir(mode=0o700)\n    info=state.lstat()\n    if not stat.S_ISDIR(info.st_mode) or stat.S_IMODE(info.st_mode)!=0o700 or info.st_uid!=os.getuid():\n        raise ValueError('state must be an owned directory with mode0700')\n    return state\ndef save_launch(state,launch):\n    import fcntl\n    _validate(launch)\n    state=_state(state,create=True,source=launch['config']['source'])\n    raw=_bytes(dict(launch=launch,sha256=hashlib.sha256(_bytes(launch)).hexdigest()))+b'\\n'\n    if len(raw)>MAX_LAUNCH_BYTES:raise ValueError('coding launch is too large')\n    path=state/'coding-launch.json'\n    # Serialize trusted setup publishers; atomic rename leaves one file link\n    # even if the process stops before staging cleanup. No workflow lives here.\n    lockfd=os.open(state/'.coding-launch.lock',os.O_RDWR|os.O_CREAT|getattr(os,'O_NOFOLLOW',0),0o600)\n    with os.fdopen(lockfd,'r+b') as lock:\n        info=os.fstat(lock.fileno())\n        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1 or info.st_uid!=os.getuid() or stat.S_IMODE(info.st_mode)!=0o600:\n            raise ValueError('invalid coding setup lock')\n        fcntl.flock(lock.fileno(),fcntl.LOCK_EX)\n        if path.exists() or path.is_symlink():\n            if read_launch(state)!=launch:raise ValueError('run setup changed; use a new run state')\n            return\n        fd,name=tempfile.mkstemp(prefix='.coding-launch-',dir=state);temporary=Path(name)\n        try:\n            with os.fdopen(fd,'wb') as stream:\n                os.fchmod(stream.fileno(),0o600);stream.write(raw);stream.flush();os.fsync(stream.fileno())\n            os.replace(temporary,path)\n            directory=os.open(state,os.O_RDONLY|getattr(os,'O_DIRECTORY',0))\n            try:os.fsync(directory)\n            finally:os.close(directory)\n        finally:\n            if temporary.exists():temporary.unlink()\ndef read_launch(state):\n    state=_state(state)\n    fd=os.open(state/'coding-launch.json',os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_NONBLOCK',0))\n    with os.fdopen(fd,'rb') as stream:\n        info=os.fstat(stream.fileno())\n        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1 or info.st_uid!=os.getuid() or stat.S_IMODE(info.st_mode)!=0o600:\n            raise ValueError('coding launch must be a private owned regular file')\n        raw=stream.read(MAX_LAUNCH_BYTES+1)\n    if len(raw)>MAX_LAUNCH_BYTES:raise ValueError('coding launch is too large')\n    envelope=json.loads(raw)\n    if type(envelope) is not dict or set(envelope)!={'launch','sha256'} or envelope['sha256']!=hashlib.sha256(_bytes(envelope['launch'])).hexdigest():\n        raise ValueError('coding launch integrity check failed')\n    _validate(envelope['launch'])\n    return envelope['launch']\ndef _client(state,launch):\n    cow=launch['config']['cow']\n    return CowClient.http(cow['endpoint_url'],journal=OperationJournal(Path(state)/'cow-operations'),api_key=os.environ.get('BW_COW_API_KEY'),endpoint_pin=cow['endpoint_pin'],notice_handler=_source_notice)\ndef run_saved(state,*,max_steps=1024):\n    if type(max_steps) is not int or max_steps<=0:raise ValueError('finite positive step budget required')\n    launch=read_launch(state)\n    if launch['fork'] is not None:\n        fork=launch['fork'];operation='bw-code-fork-'+hashlib.sha256(_bytes(launch)).hexdigest()[:40]\n        # The original pinned source and journal ID survive retries. An uncertain\n        # fork remains uncertain; never select a newer head or invent a new ID.\n        try:\n            _client(state,launch).fork(fork['source_branch'],fork['snapshot'],launch['config']['cow']['branch'],operation)\n        except OperationIndeterminate as exc:\n            raise OperationIndeterminate('Original fork operation '+operation+' is unresolved; reconcile its original journal intent before continuing') from exc\n    return execute('run',launch['program'],_bytes(launch['config']).decode(),state,max_steps=max_steps)\ndef start(args):\n    if type(args.max_steps) is not int or args.max_steps<=0:raise ValueError('finite positive step budget required')\n    from .__main__ import _source\n    connection=json.loads(_source(args.connection))\n    launch=build_launch(args.project,_source(args.task_file),connection,branch=args.branch,\n        read_paths=args.read,edit_paths=args.edit,create_paths=args.create,\n        test_commands=args.test_command,from_branch=args.from_branch,\n        from_snapshot=args.from_snapshot,shell_timeout=args.shell_timeout)\n    existing=Path(args.state)/'coding-launch.json'\n    if launch['fork'] is not None and launch['fork']['snapshot'] is None:\n        if existing.exists():\n            prior=read_launch(args.state)\n            if prior['fork'] is not None and prior['fork']['source_branch']==args.from_branch:\n                launch['fork']['snapshot']=prior['fork']['snapshot']\n        if launch['fork']['snapshot'] is None:\n            # Read-only selection before publication. The snapshot,not a live\n            # branch name,is saved before any mutating setup/inference request.\n            launch['fork']['snapshot']=_client(args.state,launch).head(args.from_branch).tip\n    save_launch(args.state,launch)\n    return run_saved(args.state,max_steps=args.max_steps)\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/__main__.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Inspect or execute .bw programs through the one production interpreter.\"\"\"\nimport argparse\nimport hashlib\nimport os\nimport stat\nfrom pathlib import Path\nimport sys\nfrom .language import parse,render,ProgramSyntaxError,MAX_SOURCE_BYTES\n\ndef _source(path):\n    # Nonblocking open avoids a FIFO waiting for its writer before fstat can\n    # reject it. Read the opened descriptor, not a separately checked path.\n    flags=os.O_RDONLY|getattr(os,'O_NONBLOCK',0)\n    fd=os.open(path,flags)\n    with os.fdopen(fd,'rb') as stream:\n        if not stat.S_ISREG(os.fstat(stream.fileno()).st_mode):\n            raise ProgramSyntaxError('program source must be a regular file')\n        raw=stream.read(MAX_SOURCE_BYTES+1)\n    if len(raw)>MAX_SOURCE_BYTES:raise ProgramSyntaxError('source byte limit exceeded')\n    try:return raw.decode('utf8')\n    except UnicodeError as exc:raise ProgramSyntaxError('source must be valid UTF-8') from exc\n\ndef _run_result(action):\n    from .kernel import TransitionError\n    from .cow_client import CowClientError\n    from .tool_registry import EffectIndeterminate\n    from .tool_dispatch import ReconciliationRequired\n    from .model_dispatch import ModelReconciliationRequired\n    import json\n    try:\n        code,result=action()\n        print(json.dumps(result,sort_keys=True));return code\n    except (EffectIndeterminate,ReconciliationRequired,ModelReconciliationRequired) as exc:\n        print('branchwrite: unresolved original operation '+ascii(str(getattr(exc,'operation_id','unknown')))+'; reconcile before continuing',file=sys.stderr);return 4\n    except (TransitionError,CowClientError,ValueError,KeyError,TypeError) as exc:\n        print('branchwrite: '+ascii(str(exc)),file=sys.stderr);return 2\n\ndef main(argv=None):\n    parser=argparse.ArgumentParser(prog='branchwrite',description='Inspect .bw syntax or execute a host-authorized workflow.')\n    commands=parser.add_subparsers(dest='command',required=True)\n    for name in ['check','canonicalize']:\n        child=commands.add_parser(name);child.add_argument('program',type=Path)\n    for name in ['run','step']:\n        child=commands.add_parser(name);child.add_argument('program',type=Path)\n        child.add_argument('--config',type=Path,required=True);child.add_argument('--state',type=Path,required=True)\n        child.add_argument('--max-steps',type=int,default=1024)\n    code=commands.add_parser('code',help='Start coding in an owned copy with explicit file grants.')\n    code.add_argument('project',type=Path)\n    for name in ('task-file','connection','state'):\n        code.add_argument('--'+name,type=Path,required=True)\n    code.add_argument('--branch',required=True)\n    for name in ('read','edit','create','test-command'):\n        code.add_argument('--'+name,action='append',default=[])\n    code.add_argument('--from-branch');code.add_argument('--from-snapshot')\n    code.add_argument('--shell-timeout',type=float,default=120)\n    code.add_argument('--max-steps',type=int,default=1024)\n    resume=commands.add_parser('resume',help='Resume a saved coding setup without changing its task or source.')\n    resume.add_argument('state',type=Path);resume.add_argument('--max-steps',type=int,default=1024)\n    args=parser.parse_args(argv)\n    try:\n        if args.command in ('code','resume'):\n            from .coding_cli import start,run_saved\n            return _run_result(lambda:start(args) if args.command=='code' else run_saved(args.state,max_steps=args.max_steps))\n        source=_source(args.program)\n        if args.command in ('run','step'):\n            # Lazy import: inspection commands remain read-only and dispatch-free.\n            from .run_cli import execute\n            return _run_result(lambda:execute(args.command,source,_source(args.config),args.state,max_steps=args.max_steps))\n        nodes=parse(source);canonical=render(nodes)\n        if args.command=='canonicalize':sys.stdout.buffer.write(canonical.encode('utf8'))\n        else:\n            count=0;pending=list(nodes)\n            while pending:\n                node=pending.pop();count+=1;pending.extend(node.body)\n            print('Syntax OK: '+str(count)+' statements; canonical SHA256 '+hashlib.sha256(canonical.encode('utf8')).hexdigest())\n            print('Execution: NOT_RUN (names, types, grants and effects are not admitted by syntax checking)')\n        return 0\n    except (OSError,ProgramSyntaxError) as exc:\n        # Controlled syntax reasons contain no source text. Escape OS filename\n        # data as a representation so it cannot become terminal control codes.\n        print('branchwrite: '+ascii(str(exc)),file=sys.stderr);return 2\n\nif __name__=='__main__':raise SystemExit(main())\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/run_cli.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"CLI bindings for the one Interpreter. JSON here is host configuration only.\n\nNo model/tool loop lives here. CLI restart reopens the canonical RuntimeLog and\nuses original source bindings; it never rebases a resumed workflow on a new tip.\n\"\"\"\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport stat\nimport time\nfrom .records import RuntimeLog,Artifact,decode\nfrom .kernel import FrameKernel\nfrom .execution import Executor,Grant\nfrom .tool_registry import ToolRegistry\nfrom .interpreter import Interpreter,Value,AdmissionError,_SUPPORTED\nfrom .cow_client import CowClient,OperationJournal\nfrom .model_dispatch import ModelAdapter\nfrom .language import parse\nfrom .coding_defaults import generation_profile,system_prefix\nfrom .model_inputs import model_content\n\ndef _source_notice(event):\n    \"\"\"Display provisional work observations; stdout stays machine-readable.\"\"\"\n    import sys\n    kind=event['event']\n    field='history_tokens' if kind=='source_recomputation_started' else 'prefix_forward_tokens'\n    count=event.get(field)\n    shown=str(count) if type(count) is int and count>=0 else 'unknown'\n    if kind=='source_recomputation_started':\n        message='Recomputing retained context: '+shown+' input positions.'\n    elif kind=='source_recomputed':\n        message='Recomputed '+shown+' input positions; this request paid the prefix cost.'\n    else:\n        message='Context recomputation failed: '+json.dumps(event.get('error','unknown'),ensure_ascii=True)\n    print('[COW] '+message,file=sys.stderr,flush=True)\n\ndef _pairs(items):\n    result={}\n    for key,value in items:\n        if key in result:raise AdmissionError('duplicate host configuration field')\n        result[key]=value\n    return result\n\ndef _browser_config(spec):\n    \"\"\"Admit the host geometry menu once for validation and actual execution.\"\"\"\n    from .browser_capture import BrowserConfig\n    required={'executable','width','height','timeout'}\n    if (type(spec) is not dict or not required<=set(spec) or set(spec)-required-{'viewports'}\n            or type(spec['executable']) is not str):\n        raise AdmissionError('closed host browser configuration required')\n    menu=()\n    if 'viewports' in spec:\n        choices=spec['viewports']\n        if type(choices) is not dict or not 1<=len(choices)<=8:\n            raise AdmissionError('bounded named host viewport mapping required')\n        rows=[]\n        for name,size in choices.items():\n            if type(size) is not list or len(size)!=2:\n                raise AdmissionError('viewport geometry must be a two-integer list')\n            rows.append((name,*size))\n        menu=tuple(rows)\n    return BrowserConfig(Path(spec['executable']),spec['width'],spec['height'],spec['timeout'],viewports=menu)\n\ndef _shell_config(spec):\n    from .terminal import ShellConfig\n    if type(spec) is not dict or 'timeout' not in spec or set(spec)-{'timeout','expected_hostname'}:raise AdmissionError('closed host shell configuration required')\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n\ndef _config(text):\n    try:config=json.loads(text,object_pairs_hook=_pairs,parse_constant=lambda _: (_ for _ in ()).throw(AdmissionError('nonfinite host configuration value')))\n    except (ValueError,TypeError) as exc:raise AdmissionError('invalid host configuration') from exc\n    required={'schema','source','run_id','grant','bindings'}\n    if type(config) is not dict or (not required<=set(config) or set(config)-required-{'cow','profiles','verification','browser','shell','context_pack'}) or type(config['schema']) is not int or config['schema']!=1:\n        raise AdmissionError('unsupported host configuration fields/schema; credentials belong in BW_COW_API_KEY')\n    if type(config['source']) is not str or not Path(config['source']).is_absolute():raise AdmissionError('absolute source path required')\n    if type(config['run_id']) is not str or not config['run_id'] or len(config['run_id'])>128:raise AdmissionError('bounded run ID required')\n    grant=config['grant']\n    required_grant={'edit_paths','read_paths','create_paths','allow_tests'}\n    if (type(grant) is not dict or not required_grant<=set(grant)\n            or set(grant)-required_grant-{'capture_paths','interact_paths','asset_paths','allow_shell','mode_paths','mode_mask','output_paths'} or type(grant['allow_tests']) is not bool):\n        raise AdmissionError('explicit closed host grant required')\n    for name in ('edit_paths','read_paths','create_paths','capture_paths','interact_paths','asset_paths','mode_paths','output_paths'):\n        if name not in grant:continue\n        if type(grant[name]) is not list or any(type(v) is not str for v in grant[name]):raise AdmissionError('grant paths must be string lists')\n    if 'allow_shell' in grant and type(grant['allow_shell']) is not bool:raise AdmissionError('shell grant must be an exact boolean')\n    if 'shell' in config:_shell_config(config['shell'])\n    if grant.get('allow_shell',False) and 'shell' not in config:raise AdmissionError('shell grant requires explicit host shell configuration')\n    captures=grant.get('capture_paths',[])\n    if any(path not in grant['read_paths'] for path in captures):raise AdmissionError('capture paths require explicit read grants')\n    if any(path not in captures or path not in grant['read_paths'] for path in grant.get('interact_paths',[])):\n        raise AdmissionError('interaction paths require explicit capture and read grants')\n    assets=grant.get('asset_paths',[])\n    if any(path not in grant['read_paths'] for path in assets):\n        raise AdmissionError('assets require explicit read grants')\n    # Grant admission owns canonical paths, bounds, duplicates and resource types.\n    Grant(tuple(grant['edit_paths']),grant['allow_tests'],\n          read_paths=tuple(grant['read_paths']),create_paths=tuple(grant['create_paths']),\n          capture_paths=tuple(captures),interact_paths=tuple(grant.get('interact_paths',[])),\n          asset_paths=tuple(assets),allow_shell=grant.get('allow_shell',False),mode_paths=tuple(grant.get('mode_paths',[])),mode_mask=grant.get('mode_mask',0),output_paths=tuple(grant.get('output_paths',[])))\n    browser=config.get('browser')\n    if browser is not None:\n        _browser_config(browser)\n    if captures and browser is None:raise AdmissionError('capture grants require a host browser configuration')\n    if 'profiles' not in config:config['profiles']={'control':generation_profile()}\n    if type(config['bindings']) is not dict or type(config['profiles']) is not dict:raise AdmissionError('named bindings/profiles required')\n    for name,value in config['bindings'].items():\n        if type(value) is not dict or set(value)!={'type','value'} or value['type'] not in ('Text','ToolProposal','ModelInput'):\n            raise AdmissionError('CLI initial data must be explicitly typed text/proposal/model-input values')\n        if value['type']=='ModelInput':\n            if type(value['value']) not in (str,list):raise AdmissionError('typed ModelInput requires text or ordered parts')\n            try:model_content(value['value'])\n            except ValueError as exc:raise AdmissionError('invalid model input: '+str(exc)) from exc\n        elif type(value['value']) is not str:raise AdmissionError('text/proposal value must be text')\n    if any(name in config['bindings'] for name in ('world','current','host-config-sha256')):raise AdmissionError('reserved initial binding name')\n    cow=config.get('cow')\n    if cow is not None:\n        keys={'endpoint_url','endpoint_pin','model_contract_id','execution_profile_id','eos_tokens','branch','mode'}\n        if type(cow) is not dict or not keys<=set(cow) or set(cow)-keys-{'bootstrap','grammar_registration'} or cow['mode'] not in ('ask','append_user') or any(type(cow[k]) is not str or not cow[k] for k in keys-{'eos_tokens'}):\n            raise AdmissionError('explicit closed COW source/profile configuration required')\n        if 'bootstrap' in cow and (cow['bootstrap']!='coding' or cow['mode']!='ask'):raise AdmissionError('coding bootstrap requires a new context-only ask boundary')\n        if 'grammar_registration' in cow and (cow['grammar_registration']!='inline' or not (cow.get('bootstrap')=='coding' or ('bootstrap' not in cow and cow['mode']=='append_user'))):\n            raise AdmissionError('inline grammar registration requires coding bootstrap or explicit user continuation')\n        if type(cow['eos_tokens']) is not list or not cow['eos_tokens'] or any(type(t) is not int or t<0 for t in cow['eos_tokens']):raise AdmissionError('actual EOS token IDs required')\n    if 'context_pack' in config:\n        import re\n        pack=config['context_pack']\n        if (type(pack) is not dict or set(pack)!={'path','pack_id'}\n                or type(pack['path']) is not str or not Path(pack['path']).is_absolute()\n                or type(pack['pack_id']) is not str or not re.fullmatch('[0-9a-f]{64}',pack['pack_id'])):\n            raise AdmissionError('context_pack requires an absolute path and SHA-256 pack_id pin')\n        if cow is None or cow.get('bootstrap')!='coding':\n            raise AdmissionError('reference packs require a new coding bootstrap; saved roots stay immutable')\n    return config\n\ndef execute(command,source,config_text,state,*,max_steps):\n    config=_config(config_text)\n    nodes=parse(source);pending=list(nodes)\n    while pending:\n        node=pending.pop()\n        if node.opcode not in _SUPPORTED|{'FLOW'}:raise AdmissionError('unsupported execution operation: '+node.opcode)\n        pending.extend(node.body)\n    state=Path(state).absolute()\n    if state.exists() or state.is_symlink():\n        info=state.lstat()\n        if not stat.S_ISDIR(info.st_mode) or stat.S_IMODE(info.st_mode)!=0o700:raise AdmissionError('state must be an owned real directory with mode0700')\n    else:state.mkdir(mode=0o700,parents=False)\n    with RuntimeLog(state/'ledger') as log:\n        kernel=FrameKernel(log)\n        world=state/'world';source_dir=Path(config['source'])\n        browser=None\n        if 'browser' in config:\n            browser=_browser_config(config['browser'])\n        shell=_shell_config(config['shell']) if 'shell' in config else None\n        if not world.exists():\n            if kernel.frames():raise AdmissionError('owned workspace missing; do not recreate under a saved workflow')\n            executor=Executor.create(source_dir,world,browser=browser,shell=shell)\n        else:\n            if world.is_symlink() or not world.is_dir():raise AdmissionError('owned world must be a real directory')\n            executor=Executor(source_dir,world,world/'workspace',browser=browser,shell=shell)\n        spec=config['grant'];grant=Grant(tuple(spec['edit_paths']),spec['allow_tests'],create_paths=tuple(spec['create_paths']),read_paths=tuple(spec['read_paths']),capture_paths=tuple(spec.get('capture_paths',[])),interact_paths=tuple(spec.get('interact_paths',[])),asset_paths=tuple(spec.get('asset_paths',[])),allow_shell=spec.get('allow_shell',False),mode_paths=tuple(spec.get('mode_paths',[])),mode_mask=spec.get('mode_mask',0),output_paths=tuple(spec.get('output_paths',[])))\n        # Candidate tests need their own sandbox even when the trusted CLI is\n        # isolated. Reject an unusable execution boundary before any COW call.\n        # A completed workflow replays locally without launching a new process.\n        frames=kernel.frames()\n        if grant.allow_tests and (not frames or kernel.frame('program')['state']!='Closed'):\n            executor.check_test_boundary()\n        if grant.allow_shell and (not frames or kernel.frame('program')['state']!='Closed'):\n            executor.check_shell_boundary()\n        registry=ToolRegistry(executor,grant);adapter=None\n        bindings={k:Value(v['type'],v['value']) for k,v in config['bindings'].items()}\n        # This digest prevents changed source/grants/endpoint/branch declarations\n        # being treated as continuation of an already admitted run. No secret.\n        canonical=json.dumps(config,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()\n        bindings['host-config-sha256']=Value('Text',hashlib.sha256(canonical).hexdigest())\n        if config.get('cow',{}).get('grammar_registration')=='inline' and 'bootstrap' not in config['cow']:\n            from .coding_defaults import continuation_input\n            task=bindings.get('task')\n            if task is None or task.type not in ('Text','ModelInput'):\n                raise AdmissionError('coding continuation requires an explicit task input')\n            requirements=tuple((row['command'],row['disposition'],row['exit_code'])\n                for row in config.get('verification',{}).get('commands',[]))\n            bindings['task']=Value(task.type,continuation_input(task.data,registry.model_schema(),command_requirements=requirements))\n\n        if 'cow' in config:\n            cow=config['cow'];client=CowClient.http(cow['endpoint_url'],journal=OperationJournal(state/'cow-operations'),api_key=os.environ.get('BW_COW_API_KEY'),endpoint_pin=cow['endpoint_pin'],notice_handler=_source_notice)\n            adapter=ModelAdapter(client,run_id=config['run_id'],model_contract_id=cow['model_contract_id'],execution_profile_id=cow['execution_profile_id'],eos_tokens=tuple(cow['eos_tokens']))\n            runtime=Interpreter(kernel,registry,adapter=adapter,profiles=config['profiles'],verification=config.get('verification'))\n            runtime.preflight(source,{**{name:value.type for name,value in bindings.items()},'world':'World','current':'COWSource'})\n            if cow.get('grammar_registration')=='inline':\n                # Full pure preflight above must succeed before publishing metadata.\n                # This operation is immutable registration,not model execution.\n                # A lost acknowledgment replays only the original journaled bytes.\n                from .coding_defaults import grammar_registry\n                from .cow_client import OperationIndeterminate\n                registration_id='bw-grammar-'+hashlib.sha256(canonical+source.encode('utf8')).hexdigest()[:40]\n                try:registered=client.register_grammars(grammar_registry(registry),registration_id)\n                except OperationIndeterminate:registered=client.replay_original(registration_id)\n                adapter=ModelAdapter(client,run_id=config['run_id'],model_contract_id=cow['model_contract_id'],\n                    execution_profile_id=cow['execution_profile_id'],eos_tokens=tuple(cow['eos_tokens']),\n                    grammar_mapping=registered['states'])\n                runtime=Interpreter(kernel,registry,adapter=adapter,profiles=config['profiles'],verification=config.get('verification'))\n                runtime.preflight(source,{**{name:value.type for name,value in bindings.items()},'world':'World','current':'COWSource'})\n            if kernel.frames():\n                root=kernel.frame('program');original=decode(log.read_artifact(Artifact(*root['inputs'])))\n                old=original['bindings']['current'];bindings['current']=Value(*old)\n            else:\n                if cow.get('bootstrap')=='coding':\n                    # Context creation uses the existing original-intent journal.\n                    # Retrying setup reuses these IDs/bytes; it never overwrites\n                    # a foreign branch or reconstructs a saved model context.\n                    seed=hashlib.sha256(canonical+source.encode('utf8')).hexdigest()[:40]\n                    pack=config.get('context_pack')\n                    # Verify recorded-source freshness before any root publication.\n                    # Resumed frames above retain their original immutable COW root.\n                    prefix=system_prefix(registry.model_schema(),command_output_paths=grant.output_paths,command_requirements=getattr(runtime._file_policy,\"commands\",()),**({} if pack is None else dict(context_pack=pack['path'],context_pack_id=pack['pack_id'])))\n                    namespace=client.create_namespace('BranchWrite coding','bw-ns-'+seed)['namespace_id']\n                    prepared=client.load_context(cow['branch'],namespace,[dict(role='system',content=prefix)],'bw-root-'+seed)\n                    head=prepared.receipt.branch\n                else:head=client.head(cow['branch'])\n                bindings['current']=Value('COWSource',dict(head=dict(name=head.name,revision=head.revision,tip=head.tip,root=head.root),mode=cow['mode']))\n        if adapter is None:runtime=Interpreter(kernel,registry,profiles=config['profiles'],verification=config.get('verification'))\n        runtime.start(source,bindings)\n        limit=1 if command=='step' else max_steps\n        report=runtime.run(max_steps=limit)\n        root=kernel.frame('program')\n        result=dict(status=report.status,frame=report.frame,verified=bool(report.value and report.frame=='program' and report.value.get('verified')),state=str(state),result_artifact=None if root['result'] is None else root['result'][0])\n        # Return actual immutable capture artifacts from resumed canonical tool\n        # results. They remain in the existing ledger, not an export/cache copy.\n        artifacts=[]\n        for frame,value in runtime._visible_tool_outcomes(root):\n            if value['tool'] not in ('capture_page','interact_page') or value['image'] is None:continue\n            ref=Artifact(*value['image']);log.read_artifact(ref)\n            artifacts.append(dict(media_type='image/png',sha256=ref.sha256,bytes=ref.size_bytes,path=str(log.artifacts/ref.sha256),\n                source_path=value['observation'][1],source_sha256=value['observation'][2],tool_frame=frame['id']))\n        result['artifacts']=artifacts\n        code=0 if result['verified'] else (1 if report.frame=='program' and report.status=='complete' else 3)\n        return code,result\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/interpreter.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"The owner-thread .bw interpreter, on the existing FrameKernel only.\n\nCOW owns native state. ToolRegistry owns grants and frozen effects. This driver\nadmits dependent work only after its input returns; no transcript or second log.\nAdvanced language forms remain explicit preflight refusals until implemented.\n\"\"\"\nfrom dataclasses import dataclass\nfrom hashlib import sha256\nfrom pathlib import Path\nimport json\nimport re\nfrom .records import Artifact,encode,decode\nfrom .kernel import CallSpec,ResultContract,TransitionError\nfrom .language import parse,render\nfrom .tool_registry import ToolRegistry,FrozenToolPlan,FileObservation,ToolOutcome\nfrom .tool_dispatch import tool_call,dispatch_tool\nfrom .model_dispatch import model_call,step_model,FrozenModelCall\nfrom . import planning_retry as retry_module\nfrom .cow_client import BranchHead\nfrom .execution import ToolRejected\nfrom .verification import FileReadbackPolicy,PageCapturePolicy,InspectedPagePolicy,InteractivePagePolicy,CommandEvidencePolicy\nfrom .model_inputs import model_content\nfrom . import thinking_ladder as ladder_module\nfrom . import model_inputs as inputs_module\nfrom . import image_feedback as image_feedback_module\nfrom .image_feedback import image_feedback_call,step_image_feedback,feedback_definition\n\nclass AdmissionError(TransitionError):pass\nclass ThinkingLadderExhausted(AdmissionError):pass\n\n@dataclass(frozen=True)\nclass Value:\n    type: str\n    data: object\n    @property\n    def wire(self):return (self.type,self.data)\n\n@dataclass(frozen=True)\nclass Step:\n    status: str\n    frame: str\n    value: dict|None=None\n\n_TYPES={'Text':str,'ToolProposal':str,'ModelInput':(str,list),'COWSource':dict,'World':str,\n        'ModelOutput':dict,'ToolPlan':dict,'ToolOutcome':dict,'Verification':dict,'RepeatResult':dict}\n_INITIAL={'Text','ToolProposal','ModelInput','COWSource'}\n_SUPPORTED={'TEXT','VALUE','EXPAND','PLAN','ACT','TRANSFORM','VERIFY','REPEAT'}\n_TRANSFORMS={'cow-source':('ModelOutput','COWSource'),'tool-feedback':('ToolOutcome','Text')}\n\ndef _value(wire):\n    if type(wire) is not tuple or len(wire)!=2:raise AdmissionError('typed value required')\n    name,data=wire\n    allowed=_TYPES.get(name)\n    if allowed is None or type(data) not in (allowed if type(allowed) is tuple else (allowed,)):raise AdmissionError('value has a different registered type')\n    encode(wire)\n    if name=='ModelInput':\n        try:data=model_content(data)\n        except ValueError as exc:raise AdmissionError('invalid typed model input: '+str(exc)) from exc\n    if name=='COWSource':\n        if set(data)!={'head','mode'} or data['mode'] not in ('ask','append_user'):raise AdmissionError('explicit context-only ask or stopped append_user boundary required')\n        BranchHead.parse(data['head'])\n    return Value(name,data)\n\ndef _output(statement):return statement.output or statement.label\n\ndef _reference(log,wire):return log.read_artifact(Artifact(*wire))\n\ndef _returned(kernel,frame):\n    return decode(_reference(kernel.log,frame['result']))[2]\n\nclass Interpreter:\n    def __init__(self,kernel,registry,*,adapter=None,profiles=None,verification=None):\n        if not isinstance(registry,ToolRegistry):raise AdmissionError('actual host ToolRegistry required')\n        self.kernel=kernel;self.registry=registry;self.adapter=adapter\n        try:\n            policy=FileReadbackPolicy\n            if type(verification) is dict:\n                if 'commands' in verification:policy=CommandEvidencePolicy\n                elif 'interactive_captures' in verification:policy=InteractivePagePolicy\n                elif 'inspected_captures' in verification:policy=InspectedPagePolicy\n                elif 'captures' in verification:policy=PageCapturePolicy\n            self._file_policy=None if verification is None else policy.admit(verification,registry)\n        except (ValueError,ToolRejected) as exc:raise AdmissionError('invalid host file verification policy: '+str(exc)) from exc\n        self._profile_data=encode({} if profiles is None else profiles)\n        if type(self.profiles) is not dict or any(type(k) is not str or type(v) is not dict for k,v in self.profiles.items()):raise AdmissionError('host model profiles must be named mappings')\n        for profile in self.profiles.values():\n            if profile.get('kind')=='image-feedback':\n                if (set(profile)!={'kind','source'} or type(profile['source']) is not str\n                    or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.-]*',profile['source'])):\n                    raise AdmissionError('image feedback profile requires one named source binding')\n            elif set(profile)-{'settings','grammar_state','output_format','request_tokens','max_requests','max_output_tokens','max_result_bytes','thinking_ladder'}:\n                raise AdmissionError('unknown model profile field')\n        for profile in self.profiles.values():\n            if 'thinking_ladder' not in profile:continue\n            try:rungs=ladder_module.ladder(profile['thinking_ladder'])\n            except ValueError as exc:raise AdmissionError('unknown thinking ladder mode') from exc\n            if profile.get('output_format')!='thinking' or profile.get('grammar_state')!=rungs[0].grammar_state:\n                raise AdmissionError('thinking ladder requires its initial immutable budget grammar')\n        from . import kernel as kernel_module, language as language_module, records as records_module, tool_dispatch as tool_module, verification as verification_module\n        sources=tuple(sha256(Path(module).read_bytes()).hexdigest() for module in [__file__,kernel_module.__file__,language_module.__file__,records_module.__file__,tool_module.__file__,verification_module.__file__,inputs_module.__file__,image_feedback_module.__file__,ladder_module.__file__,retry_module.__file__])\n        self.identity=sha256(encode(('bw.interpreter.v1',registry.identity,None if adapter is None else adapter.identity,\n            self.profiles,None if self._file_policy is None else self._file_policy.identity,sources))).hexdigest()\n\n    @property\n    def profiles(self):\n        # Caller mutations cannot silently change the frozen execution identity.\n        return decode(self._profile_data)\n\n    def _check_program(self,source,bindings):\n        return self.preflight(source,{name:value.type for name,value in bindings.items()})\n\n    def preflight(self,source,binding_types):\n        # Lexical types are compile-time inputs, not invented native snapshots.\n        if type(binding_types) is not dict or any(t not in _TYPES for t in binding_types.values()):raise AdmissionError('registered lexical types required')\n        program=parse(source)\n        if len(program)!=1 or program[0].opcode!='FLOW' or program[0].output is not None or program[0].attributes:\n            raise AdmissionError('one root FLOW with no parameters required')\n        env=dict(binding_types)\n        def require(name,types):\n            if env.get(name) not in types:raise AdmissionError('missing or incompatible typed binding: '+name)\n        def check(body):\n            for statement in body:\n                op=statement.opcode;a=dict(statement.attributes)\n                if op not in _SUPPORTED:raise AdmissionError('unsupported execution operation: '+op)\n                if op=='TEXT':typ='Text'\n                elif op=='VALUE':\n                    require(a['ref'],{a['type']});typ=a['type']\n                elif op=='EXPAND':\n                    require(a['from'],{'COWSource'});require(a['task'],{'Text','ModelInput'})\n                    if self.adapter is None or a['profile'] not in self.profiles or 'kind' in self.profiles[a['profile']]:raise AdmissionError('registered model profile required')\n                    typ='ModelOutput'\n                elif op=='PLAN':\n                    require(a['from'],{'ModelOutput','ToolProposal'});require(a['against'],{'World'});typ='ToolPlan'\n                elif op=='ACT':require(a['plan'],{'ToolPlan'});typ='ToolOutcome'\n                elif op=='TRANSFORM':\n                    if a['contract'] not in _TRANSFORMS:raise AdmissionError('unsupported transform contract')\n                    source_type,typ=_TRANSFORMS[a['contract']];require(a['input'],{source_type})\n                    if 'profile' in a:\n                        selected=self.profiles.get(a['profile'],{})\n                        if a['contract']!='tool-feedback' or self.adapter is None or selected.get('kind')!='image-feedback':\n                            raise AdmissionError('registered image feedback profile required')\n                        require(selected['source'],{'COWSource'});typ='ModelInput'\n                elif op=='VERIFY':\n                    contracts={'command-evidence-and-finish':CommandEvidencePolicy,'file-readback-and-finish':FileReadbackPolicy,\n                        'page-capture-and-finish':PageCapturePolicy,'page-inspection-and-finish':InspectedPagePolicy,\n                        'interactive-page-inspection-and-finish':InteractivePagePolicy}\n                    if a['contract'] not in ('unit-tests-and-finish',*contracts) or 'profile' in a:raise AdmissionError('unsupported verifier contract')\n                    if a['contract'] in contracts:\n                        if self._file_policy is None:raise AdmissionError('host file verification policy required')\n                        if type(self._file_policy) is not contracts[a['contract']]:\n                            raise AdmissionError('matching host capture policy required')\n                    elif not self.registry._grant.allow_tests or any(p=='tests' or p.startswith('tests/') for p in (*self.registry._grant.edit_paths,*self.registry._grant.create_paths)):\n                        raise AdmissionError('verification requires granted tests with protected test paths')\n                    require(a['input'],{'ToolOutcome'});typ='Verification'\n                elif op=='REPEAT':\n                    if a['exhausted'] not in ('stop','abandon'):raise AdmissionError('unsupported exhausted disposition')\n                    check(statement.body);require(a['until'],{'Verification'});typ='RepeatResult'\n                env[_output(statement)]=typ\n        check(program[0].body)\n        return program[0]\n\n    def start(self,source,bindings=None):\n        supplied={} if bindings is None else bindings\n        if type(supplied) is not dict:raise AdmissionError('named host bindings required')\n        frozen={}\n        for name,value in supplied.items():\n            if type(name) is not str or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.-]*',name) or name=='world' or not isinstance(value,Value) or value.type not in _INITIAL:\n                raise AdmissionError('invalid initial host binding')\n            frozen[name]=_value(decode(encode(value.wire)))\n        frozen['world']=Value('World',self.registry.world)\n        root=self._check_program(source,frozen);canonical=render((root,))\n        inputs=encode(dict(schema=1,identity=self.identity,bindings={k:v.wire for k,v in frozen.items()}))\n        frames=self.kernel.frames()\n        if frames:\n            old=self.kernel.frame('program')\n            if _reference(self.kernel.log,old['definition'])!=canonical.encode() or _reference(self.kernel.log,old['inputs'])!=inputs:raise AdmissionError('run already owns a different program or inputs')\n            return old\n        return self.kernel.create_root('program','program-attempt',self.kernel.log.put_artifact(canonical.encode()),self.kernel.log.put_artifact(inputs),ResultContract('ProgramResult','record'))\n\n    def _load(self,frame):\n        inputs=decode(_reference(self.kernel.log,frame['inputs']))\n        if type(inputs) is not dict or inputs.get('schema')!=1 or inputs.get('identity')!=self.identity:raise AdmissionError('interpreter identity changed; no automatic migration')\n        source=_reference(self.kernel.log,frame['definition']).decode('utf8')\n        nodes=parse(source)\n        if len(nodes)!=1:raise AdmissionError('scope definition must have one node')\n        return nodes[0],inputs\n\n    def _children(self,frame):\n        return sorted((f for f in self.kernel.frames() if f['parent']==frame['id']),key=lambda f:f['parent_epoch'])\n\n    def _environment(self,frame,inputs,node):\n        env={k:_value(v) for k,v in inputs['bindings'].items()}\n        # Only resumed predecessors enter lexical scope, never an early result.\n        for child in self._children(frame):\n            if child['parent_epoch']>frame['pc']:continue\n            statement=node.body[child['parent_epoch']-1];value=_returned(self.kernel,child)\n            if child['contract']==('RepeatResult','record'):\n                env.update({k:_value(v) for k,v in value['bindings'].items()})\n                env[_output(statement)]=Value('RepeatResult',dict(disposition=value['disposition'],iterations=value['iterations']))\n            elif child['contract']==('BindingResult','record'):env[_output(statement)]=_value(value['value'])\n            else:env[_output(statement)]=Value(child['contract'][0],value)\n        return env\n\n    def _visible_results(self,frame,contract):\n        # A rejected proposal must not erase a read the model already saw. Derive\n        # witnesses from resumed predecessor subtrees on this lexical ancestry;\n        # never from an unsettled/unjoined sibling or another run. No read cache\n        # or second history is persisted. Freshness is still checked at dispatch.\n        frames={f['id']:f for f in self.kernel.frames()};children={}\n        for value in frames.values():children.setdefault(value['parent'],[]).append(value)\n        outcomes=[]\n        def collect(value):\n            if value['state']!='Closed':raise AdmissionError('visible predecessor is not closed')\n            if value['contract']==contract:\n                outcomes.append((value,_returned(self.kernel,value)))\n            for child in children.get(value['id'],()):collect(child)\n        cursor=frame\n        while True:\n            for prior in children.get(cursor['id'],()):\n                if prior['parent_epoch']<=cursor['pc']:collect(prior)\n            if cursor['parent'] is None:break\n            cursor=frames[cursor['parent']]\n        completed={entry['event']['frame']:index for index,entry in enumerate(self.kernel.log.events)\n            if entry['event']['kind'] in ('returned','finished')}\n        return tuple(sorted(outcomes,key=lambda item:completed[item[0]['id']]))\n\n    def _visible_tool_outcomes(self,frame):\n        return self._visible_results(frame,('ToolOutcome','record'))\n\n    def _planning_model_for_tool(self,frame,operation_id):\n        # Follow the actual ACT's lexical PLAN binding, not the last model\n        # output in the log. Two equal tool proposals can have different origins.\n        matches=[f for f,value in self._visible_tool_outcomes(frame) if value.get('operation_id')==operation_id]\n        if not matches:return None\n        if len(matches)!=1:raise AdmissionError('tool operation has ambiguous workflow ownership')\n        tool=matches[0]\n        parent=self.kernel.frame(tool['parent']);node,inputs=self._load(parent)\n        index=tool['parent_epoch']-1\n        if not 0<=index<len(node.body) or node.body[index].opcode!='ACT':\n            raise AdmissionError('tool result does not belong to an admitted ACT')\n        before={**parent,'pc':index}\n        env=self._environment(before,inputs,node)\n        plan=env[dict(node.body[index].attributes)['plan']]\n        if plan.type!='ToolPlan' or plan.data.get('valid') is not True or plan.data['data']!=_reference(self.kernel.log,tool['inputs']):\n            raise AdmissionError('tool result does not bind its lexical PLAN')\n        identifier=plan.data.get('model_frame')\n        if identifier is None:return None\n        model=self.kernel.frame(identifier)\n        if model['contract']!=('ModelOutput','record') or model['state']!='Closed' or _returned(self.kernel,model).get('model_frame')!=identifier:\n            raise AdmissionError('tool PLAN has no settled original model output')\n        return identifier\n\n    def _observations(self,frame):\n        return tuple(FileObservation(*value['observation']) for _,value in self._visible_tool_outcomes(frame)\n            if value['observation'] is not None)\n\n    def _pure(self,value,identifier,provenance=()):\n        data=encode(dict(schema=1,value=value.wire,provenance=tuple((a.sha256,a.size_bytes) for a in provenance)))\n        return CallSpec(identifier,'attempt-'+identifier[5:],'result','FLOW',self.kernel.log.put_artifact(encode(('bw.binding.v1',self.identity))),\n            self.kernel.log.put_artifact(data),ResultContract('BindingResult','record'))\n\n    def _verification(self,outcome,*,policy='unit-tests-and-finish',frame=None):\n        result=self._verification_result(outcome,policy=policy,frame=frame)\n        return dict(result,task_verdict=ladder_module.task_verdict(outcome,result),\n                    outcome_operation_id=outcome.get('operation_id'))\n\n    def _verification_result(self,outcome,*,policy='unit-tests-and-finish',frame=None):\n        if policy in ('command-evidence-and-finish','file-readback-and-finish','page-capture-and-finish','page-inspection-and-finish','interactive-page-inspection-and-finish'):\n            if self._file_policy is None or frame is None:raise AdmissionError('host file verification policy and visible scope required')\n            if outcome.get('requested_finish') is not True:\n                return dict(status='fail',policy=policy,reason='explicit finish request required')\n            return self._file_policy.verify(self.registry,self.kernel.log,self._visible_tool_outcomes(frame))\n        if policy!='unit-tests-and-finish':raise AdmissionError('unsupported verifier contract')\n        # This explicitly named policy checks the actual registered unit-test\n        # receipt and current bytes. It is not universal semantic acceptance or\n        # protection against hostile test-output forgery by candidate code.\n        if frame is None:raise AdmissionError('visible unit-test verification scope required')\n        latest=None\n        # A settled tool elsewhere in the log is not an observation available\n        # to this continuation. Reuse lexical, resumed predecessor visibility.\n        for candidate,value in self._visible_tool_outcomes(frame):\n            if value['tool']=='run_tests':latest=(candidate,value)\n        reason='finish request and successful current unit-test receipt required';passed=False\n        if outcome.get('requested_finish') is True and latest:\n            frame,value=latest\n            if value['disposition']=='exited' and value['exit_code']==0:\n                stderr=_reference(self.kernel.log,value['stderr'])\n                count=re.search(rb'\\nRan ([1-9][0-9]*) tests? in ',stderr)\n                plan=decode(_reference(self.kernel.log,frame['inputs']))\n                bound=(type(plan) is tuple and len(plan)==8\n                    and plan[:4]==('bw.tool-plan.v2',self.registry.identity,self.registry.world,'run_tests')\n                    and value.get('plan_sha256')==frame['inputs'][0]\n                    and frame['dispatch'] is not None\n                    and value.get('operation_id')==frame['dispatch'][0]\n                    and frame['operation']==self.registry.operation_kind('run_tests')\n                    and _reference(self.kernel.log,frame['definition'])==self.registry.definition_bytes('run_tests'))\n                with self.registry.executor._lock:\n                    self.registry._world_check();current=self.registry._inventory()\n                passed=bound and count is not None and plan[6]==current\n                reason='current unit-test receipt matched' if passed else 'empty test suite or workspace changed since tests'\n        return dict(status='pass' if passed else 'fail',policy='unit-tests-and-finish',reason=reason)\n\n    def _thinking_call(self,frame,identifier,profile_name,profile,source,content):\n        mode=profile.pop('thinking_ladder')\n        models={}\n        for candidate,value in self._visible_results(frame,('ModelOutput','record')):\n            owner=value.get('model_frame')\n            if owner in models:continue\n            actual=self.kernel.frame(owner)\n            if (actual['state']!='Closed' or actual['contract']!=('ModelOutput','record')\n                    or _reference(self.kernel.log,actual['definition'])!=self.adapter.definition):\n                raise AdmissionError('planning origin is not a completed registered model FLOW')\n            plan=self.adapter.plan(FrozenModelCall(_reference(self.kernel.log,actual['inputs'])))\n            context=plan.get('planning')\n            if context is None or context['profile']!=profile_name or context['mode']!=mode:continue\n            returned=_returned(self.kernel,actual)\n            if (value['plan_sha256']!=actual['inputs'][0] or returned['native_receipt']!=value['native_receipt']\n                    or returned.get('model_frame')!=owner or returned.get('text')!=value.get('text')\n                    or value['source_snapshot']!=plan['source']['tip']):\n                raise AdmissionError('planning result changed its original model source')\n            head=BranchHead.parse(value['native_receipt']['branch'])\n            if head.root!=plan['source']['root']:\n                raise AdmissionError('planning model result changed canonical root')\n            models[owner]=dict(frame=actual,plan=plan,context=context,value=value,head=head)\n        previous=next((m for m in reversed(tuple(models.values())) if m['head']==source),None)\n        origin=identifier if previous is None else previous['context']['origin_model_frame']\n        failures=[]\n        if previous is not None:\n            first=models.get(origin)\n            if (first is None or first['context']['origin_model_frame']!=origin\n                    or first['context']['rung']!=0 or first['context']['handled_failures']\n                    or first['plan']['source']['root']!=source.root):\n                raise AdmissionError('original thinking model is not visible in this root/profile')\n            seen=set()\n            outcomes={v['operation_id']:(f,v) for f,v in self._visible_tool_outcomes(frame)}\n            for witness,value in self._visible_results(frame,('BindingResult','record')):\n                wire=value.get('value')\n                if type(wire) is not tuple or len(wire)!=2 or wire[0]!='Verification':continue\n                verdict=wire[1];owner=verdict.get('planning_model_frame');model=models.get(owner)\n                if verdict.get('task_verdict')!='verified_failure' or model is None or model['context']['origin_model_frame']!=origin:continue\n                if _reference(self.kernel.log,witness['definition'])!=encode(('bw.binding.v1',self.identity)):\n                    raise AdmissionError('thinking failure is not a registered host verification')\n                operation=verdict.get('outcome_operation_id');observed=outcomes.get(operation)\n                if (observed is None or ladder_module.task_verdict(observed[1],verdict)!='verified_failure'\n                        or self._planning_model_for_tool(frame,operation)!=owner):\n                    raise AdmissionError('thinking failure does not bind its original ACT/PLAN')\n                tool_plan=decode(_reference(self.kernel.log,observed[0]['inputs']))\n                proposed_tool,proposed_args=self.registry.parse(model['value']['text'])\n                if (tool_plan[:4]!=('bw.tool-plan.v2',self.registry.identity,self.registry.world,'finish')\n                        or proposed_tool!='finish' or proposed_args!=tool_plan[4]):\n                    raise AdmissionError('failed finish differs from its original model proposal')\n                if operation not in seen:\n                    seen.add(operation);failures.append((operation,witness,model))\n        handled=() if previous is None else previous['context']['handled_failures']\n        failure_ids=tuple(row[0] for row in failures)\n        if handled!=failure_ids[:len(handled)]:\n            raise AdmissionError('thinking plan handled failures are not visible predecessors')\n        rung=0 if previous is None else previous['context']['rung']\n        retry=len(failure_ids)>len(handled)\n        if retry:\n            if len(failure_ids)!=len(handled)+1 or failures[-1][2]['frame']['id']!=previous['frame']['id']:\n                raise AdmissionError('retry requires one newly failed current planning attempt')\n            rung=ladder_module.next_attempt(mode,rung,'verified_failure')\n            if rung is None:raise ThinkingLadderExhausted('all configured thinking rungs failed host verification')\n        context=ladder_module.planning_context(dict(schema=1,profile=profile_name,mode=mode,rung=rung,\n            origin_model_frame=origin,handled_failures=failure_ids))\n        profile={**profile,'grammar_state':ladder_module.ladder(mode)[rung].grammar_state,'planning':context}\n        if not retry:\n            plan=self.adapter.freeze(source,mode=content[0],content=content[1],**profile)\n            return model_call(self.kernel,self.adapter,child_id=identifier,attempt_id='attempt-'+identifier[5:],slot='result',plan=plan)\n        # Reuse the failed call's exact input and boundary. Its prefix may not\n        # yet contain the last tool/image feedback; do not discard that input.\n        failed=previous['plan'];original=models[origin]['plan']['config']['content']\n        def text(value):\n            return value if type(value) is str else '\\n'.join(v['text'] for v in value if v['type']=='text')\n        goal=text(original)\n        if len(goal.encode('utf8'))>32768:goal='Complete the original task retained in this branch and the preserved input.'\n        observations=text(content[1])\n        if len(observations.encode('utf8'))>32768:\n            observations='[Tail of already-visible observations]\\n'+observations.encode('utf8')[-32000:].decode('utf8',errors='replace')\n        guidance=ladder_module.recovery_guidance(goal,observations)\n        prior=failed['config']['content']\n        if type(prior) is str:new_content=prior+'\\n\\n'+guidance\n        else:\n            new_content=model_content(prior)\n            index=next(i for i in reversed(range(len(new_content))) if new_content[i]['type']=='text')\n            new_content[index]['text']+='\\n\\n'+guidance\n        with self.registry.executor._lock:\n            self.registry._world_check()\n            world=self.kernel.log.put_artifact(encode(('bw.planning-world.v1',self.registry.world,self.registry._inventory())))\n        provenance=(Artifact(*failures[-1][1]['result']),Artifact(*previous['frame']['result']),\n                    Artifact(*models[origin]['frame']['inputs']),world)\n        return retry_module.retry_model_call(self.kernel,self.adapter,child_id=identifier,\n            attempt_id='attempt-'+identifier[5:],slot='result',source=source,snapshot=failed['source']['tip'],\n            mode=failed['config']['mode'],content=new_content,profile=profile,provenance=provenance)\n\n    def _admit(self,frame,node,env):\n        statement=node.body[frame['pc']];op=statement.opcode;a=dict(statement.attributes)\n        identifier='call-'+sha256(encode((self.identity,frame['id'],frame['epoch'],frame['pc']))).hexdigest()[:48]\n        provenance=()\n        if op=='TEXT':value=Value('Text',statement.literal)\n        elif op=='VALUE':value=env[a['ref']]\n        elif op=='EXPAND':\n            source=env[a['from']].data;profile=self.profiles[a['profile']]\n            if 'thinking_ladder' in profile:\n                return self._thinking_call(frame,identifier,a['profile'],profile,BranchHead.parse(source['head']),\n                    (source['mode'],env[a['task']].data))\n            plan=self.adapter.freeze(BranchHead.parse(source['head']),mode=source['mode'],content=env[a['task']].data,**profile)\n            return model_call(self.kernel,self.adapter,child_id=identifier,attempt_id='attempt-'+identifier[5:],slot='result',plan=plan)\n        elif op=='PLAN':\n            if env[a['against']].data!=self.registry.world:raise AdmissionError('wrong world binding')\n            proposed=env[a['from']];text=proposed.data['text'] if proposed.type=='ModelOutput' else proposed.data\n            try:\n                plan=self.registry.freeze(text,observations=self._observations(frame))\n                value=Value('ToolPlan',dict(valid=True,data=plan.data,model_frame=proposed.data['model_frame'] if proposed.type=='ModelOutput' else None))\n            except ToolRejected as exc:\n                value=Value('ToolPlan',dict(valid=False,error=str(exc)[:1024],proposal_sha256=sha256(text.encode()).hexdigest()))\n        elif op=='ACT':\n            data=env[a['plan']].data\n            if data['valid']:\n                return tool_call(self.kernel,self.registry,child_id=identifier,attempt_id='attempt-'+identifier[5:],slot='result',plan=FrozenToolPlan(data['data']))\n            outcome=ToolOutcome('rejected_before_admission',None,0.0,b'',data['error'].encode(),identifier,data['proposal_sha256'],'unadmitted')\n            result,provenance=outcome.publish(self.kernel.log);value=Value('ToolOutcome',result)\n        elif op=='TRANSFORM':\n            source=env[a['input']]\n            if a['contract']=='cow-source':\n                value=Value('COWSource',dict(head=source.data['native_receipt']['branch'],mode='append_user'))\n                value=_value(value.wire)\n            else:\n                data=source.data;observed=data['observation']\n                observation=None if observed is None else dict(world=observed[0],path=observed[1],source_sha256=observed[2])\n                feedback=dict(tool=data['tool'],operation_id=data['operation_id'],plan_sha256=data['plan_sha256'],disposition=data['disposition'],exit_code=data['exit_code'],observation=observation)\n                if data['tool']=='run_shell':\n                    # The accepted native argv already binds the exact program.\n                    # Keep it beside its status so the model need not reconstruct\n                    # quoting from an earlier proposal. This grants no new work.\n                    feedback['command']=data['details']['argv'][-1]\n                for field in ('stdout','stderr'):\n                    raw=_reference(self.kernel.log,data[field]);shown=raw[:32768]\n                    try:display=shown.decode('utf-8');lossy=False\n                    except UnicodeDecodeError:display=shown.decode('utf-8',errors='replace');lossy=True\n                    # A bounded text view is not the original output. Preserve\n                    # the existing raw artifact and expose its exact identity;\n                    # even a truncated valid stream can end inside a code point.\n                    feedback[field]=display\n                    feedback[field+'_truncated']=len(raw)>len(shown)\n                    feedback[field+'_artifact']=dict(sha256=data[field][0],bytes=data[field][1])\n                    feedback[field+'_display']=dict(encoding='utf-8',errors='replace',lossy=lossy,source_bytes=len(shown))\n                if data['image'] is not None:\n                    feedback['image']=dict(sha256=data['image'][0],bytes=data['image'][1],media_type='image/png')\n                    feedback['capture']=data['details']\n                text=json.dumps(feedback,ensure_ascii=True,sort_keys=True)\n                if 'profile' in a:\n                    if data['image'] is not None:\n                        source_name=self.profiles[a['profile']]['source']\n                        return image_feedback_call(self.kernel,self.adapter,identifier=identifier,\n                            source=BranchHead.parse(env[source_name].data['head']),image=Artifact(*data['image']),text=text)\n                    value=Value('ModelInput',text)\n                else:value=Value('Text',text)\n        elif op=='VERIFY':\n            outcome=env[a['input']].data\n            result=self._verification(outcome,policy=a['contract'],frame=frame)\n            origin=self._planning_model_for_tool(frame,outcome.get('operation_id'))\n            if origin is not None:result['planning_model_frame']=origin\n            value=Value('Verification',result)\n        elif op=='REPEAT':\n            return CallSpec(identifier,'attempt-'+identifier[5:],'result','FLOW',self.kernel.log.put_artifact(render((statement,)).encode()),\n                self.kernel.log.put_artifact(encode(dict(schema=1,identity=self.identity,bindings={k:v.wire for k,v in env.items()}))),ResultContract('RepeatResult','record'))\n        else:raise AdmissionError('unsupported execution operation: '+op)\n        return self._pure(value,identifier,provenance)\n\n    def _scope(self,identifier):\n        frame=self.kernel.frame(identifier);node,inputs=self._load(frame)\n        if frame['state']=='Closed':return Step('complete',identifier,_returned(self.kernel,frame))\n        if frame['state']=='Waiting':return self._wait(frame)\n        if frame['state']!='Ready':raise AdmissionError('scope has unresolved settlement')\n        env=self._environment(frame,inputs,node)\n        if frame['pc']==len(node.body):\n            verified=any(v.type=='Verification' and v.data.get('status')=='pass' for v in env.values())\n            # Verification is meaningful only at the byte revision it checked.\n            if verified:\n                finishes=[v.data for v in env.values() if v.type=='ToolOutcome' and v.data.get('requested_finish') is True]\n                verified=bool(finishes) and any(self._verification(finishes[-1],policy=v.data['policy'],frame=frame)['status']=='pass'\n                    for v in env.values() if v.type=='Verification' and v.data.get('status')=='pass')\n            value=dict(schema=1,bindings={k:v.wire for k,v in env.items()},verified=verified)\n            self.kernel.finish(identifier,value);return Step('complete',identifier,value)\n        try:call=self._admit(frame,node,env)\n        except ThinkingLadderExhausted as exc:\n            return Step('thinking_ladder_exhausted',identifier,dict(reason=str(exc)))\n        self.kernel.spawn(identifier,expected_epoch=frame['epoch'],calls=(call,),next_pc=frame['pc']+1)\n        return Step('admitted',call.child_id)\n\n    def _repeat(self,identifier):\n        frame=self.kernel.frame(identifier);node,inputs=self._load(frame);attrs=dict(node.attributes)\n        if frame['state']=='Closed':return Step('complete',identifier,_returned(self.kernel,frame))\n        if frame['state']=='Waiting':return self._wait(frame)\n        if frame['state']!='Ready':raise AdmissionError('repeat has unresolved settlement')\n        prior=None\n        if frame['pc']:\n            child=self._children(frame)[-1];prior=_returned(self.kernel,child)\n            inputs=dict(inputs,bindings=prior['bindings'])\n        tested=inputs['bindings'].get(attrs['until'])\n        passed=bool(prior and tested and tested[0]=='Verification' and tested[1]['status']=='pass' and prior['verified'])\n        if passed or frame['pc']>=int(attrs['max']):\n            result=dict(schema=1,bindings=inputs['bindings'],iterations=frame['pc'],disposition='verified' if passed else 'exhausted')\n            self.kernel.finish(identifier,result);return Step('complete',identifier,result)\n        from .language import Statement\n        definition=render((Statement('FLOW','iteration',body=node.body),)).encode()\n        child_id='call-'+sha256(encode((self.identity,identifier,frame['epoch']))).hexdigest()[:48]\n        call=CallSpec(child_id,'attempt-'+child_id[5:],'result','FLOW',self.kernel.log.put_artifact(definition),\n            self.kernel.log.put_artifact(encode(inputs)),ResultContract('ProgramResult','record'))\n        self.kernel.spawn(identifier,expected_epoch=frame['epoch'],calls=(call,),next_pc=frame['pc']+1)\n        return Step('admitted',child_id)\n\n    def _wait(self,frame):\n        children=[c for c in self._children(frame) if c['parent_epoch']==frame['epoch']]\n        if len(children)!=1:raise AdmissionError('sequential interpreter requires exactly one admitted child')\n        child=children[0]\n        if child['state']=='Closed':\n            self.kernel.resume(frame['id'],frame['epoch']);return Step('resumed',frame['id'])\n        contract=child['contract'][0]\n        if contract=='ProgramResult':return self._scope(child['id'])\n        if contract=='RepeatResult':return self._repeat(child['id'])\n        if contract=='ModelOutput':\n            if _reference(self.kernel.log,child['definition'])==retry_module.retry_definition(self.adapter):\n                report=retry_module.step_retry_model(self.kernel,self.adapter,child['id'])\n            else:report=step_model(self.kernel,self.adapter,child['id'])\n            return Step('model_'+report.status,child['id'],report.value)\n        if contract=='ToolOutcome':\n            value=dispatch_tool(self.kernel,self.registry,child['id']);return Step('tool_returned',child['id'],value)\n        if contract=='BindingResult':\n            if self.adapter is not None and _reference(self.kernel.log,child['definition'])==feedback_definition(self.adapter):\n                value=step_image_feedback(self.kernel,self.adapter,child['id'])\n                return Step('image_uploaded',child['id'],value)\n            if _reference(self.kernel.log,child['definition'])!=encode(('bw.binding.v1',self.identity)):raise AdmissionError('pure definition changed')\n            value=decode(_reference(self.kernel.log,child['inputs']));_value(value['value'])\n            self.kernel.finish(child['id'],dict(value=value['value']),provenance=tuple(Artifact(*a) for a in value['provenance']))\n            return Step('binding_returned',child['id'])\n        raise AdmissionError('unsupported admitted result contract')\n\n    def step(self):\n        root=self.kernel.frame('program');node,inputs=self._load(root)\n        self._check_program(render((node,)),{k:_value(v) for k,v in inputs['bindings'].items()})\n        return self._scope('program')\n\n    def run(self,*,max_steps=1024):\n        if type(max_steps) is not int or not 0<max_steps<=1000000:raise AdmissionError('finite positive step budget required')\n        for _ in range(max_steps):\n            report=self.step()\n            if report.frame=='program' and report.status=='complete':return report\n            if report.status in ('model_budget_exhausted','thinking_ladder_exhausted'):return report\n        return Step('step_budget_exhausted','program')\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/kernel.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"One production frame/return controller on the canonical RuntimeLog.\n\nThis owns durable state transitions, not model tokens, world grants or an\nalternative agent loop. Dispatch adapters and the general CLI are next.\n\"\"\"\nfrom copy import deepcopy\nfrom dataclasses import dataclass\nfrom decimal import Decimal\nimport hashlib\nimport re\nfrom .records import Artifact, CorruptLog, decode, encode\n\n\nclass TransitionError(ValueError): pass\n\n\ndef _name(value):\n    if type(value) is not str or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.:-]{0,127}',value):\n        raise TransitionError('invalid host-owned identity')\n    return value\n\n\ndef _integer(value):\n    if type(value) is not int or value<0: raise TransitionError('nonnegative exact integer required')\n    return value\n\n\ndef _ref(value):\n    if type(value) is not tuple or len(value)!=2: raise TransitionError('invalid artifact binding')\n    return Artifact(*value)\n\n\ndef _wire(ref):\n    if not isinstance(ref,Artifact): raise TransitionError('typed artifact required')\n    return (ref.sha256,ref.size_bytes)\n\n\n@dataclass(frozen=True)\nclass ResultContract:\n    name: str\n    shape: str\n    def __post_init__(self):\n        _name(self.name)\n        if self.shape not in ('bool','int','float','decimal','text','bytes','record','list','tuple','none'):\n            raise TransitionError('unsupported result shape')\n    @property\n    def wire(self): return (self.name,self.shape)\n    @property\n    def digest(self):return hashlib.sha256(encode(('bw.result-contract.v1',*self.wire))).hexdigest()\n    def check(self,value):\n        typ={'bool':bool,'int':int,'float':float,'decimal':Decimal,'text':str,'bytes':bytes,\n             'record':dict,'list':list,'tuple':tuple,'none':type(None)}[self.shape]\n        if type(value) is not typ: raise TransitionError('result does not match the frozen contract')\n        encode(value)\n\n\n@dataclass(frozen=True)\nclass CallSpec:\n    child_id: str\n    attempt_id: str\n    slot: str\n    operation: str\n    definition: Artifact\n    inputs: Artifact\n    result_contract: ResultContract\n    def __post_init__(self):\n        for value in (self.child_id,self.attempt_id,self.slot,self.operation):_name(value)\n        _wire(self.definition);_wire(self.inputs)\n        if not isinstance(self.result_contract,ResultContract):raise TransitionError('result contract required')\n    @property\n    def wire(self):\n        return (self.child_id,self.attempt_id,self.slot,self.operation,\n                _wire(self.definition),_wire(self.inputs),self.result_contract.wire)\n\n\n_FIELDS={\n 'root':{'frame','attempt','definition','inputs','contract'},\n 'spawn':{'parent','source_epoch','calls','next_pc'},\n 'dispatched':{'frame','operation_id','request'},\n 'returned':{'frame','operation_id','result','provenance','settled'},\n 'settled':{'frame','operation_id','receipt'},\n 'resumed':{'parent','epoch'},\n 'finished':{'frame','result','provenance'},\n}\n\n\nclass FrameKernel:\n    def __init__(self,log):\n        self.log=log;self._seen=0;self._state=dict(frames={},groups={},operations={})\n        try:\n            for row in log.events:\n                expected=self._references(row['event'])\n                if set(row['artifacts'])!={_wire(a) for a in expected}:\n                    raise TransitionError('event artifact roots do not match its bindings')\n                self._apply(self._state,row['event']);self._seen+=1\n        except (ValueError,TypeError,KeyError,IndexError) as exc:\n            raise CorruptLog('invalid production frame transition') from exc\n\n    def _check(self):\n        if self.log.event_count!=self._seen:raise TransitionError('stale controller projection; reopen/replay')\n\n    def _references(self,event):\n        if (type(event) is not dict or type(event.get('schema')) is not int or event['schema']!=1\n                or event.get('kind') not in _FIELDS\n                or set(event)!=_FIELDS[event['kind']]|{'schema','kind'}):\n            raise TransitionError('invalid frame event schema')\n        kind=event['kind'];refs=[]\n        if kind=='root':refs=[event['definition'],event['inputs']]\n        elif kind=='spawn':\n            if type(event['calls']) is not tuple or not 1<=len(event['calls'])<=256:\n                raise TransitionError('bounded nonempty call tuple required')\n            for call in event['calls']:\n                if type(call) is not tuple or len(call)!=7:raise TransitionError('invalid call binding')\n                refs.extend(call[4:6])\n        elif kind=='dispatched':refs=[event['request']]\n        elif kind in ('returned','finished'):\n            if type(event['provenance']) is not tuple:raise TransitionError('provenance tuple required')\n            refs=[event['result'],*event['provenance']]\n        elif kind=='settled':refs=[event['receipt']]\n        result=tuple(_ref(r) for r in refs)\n        for ref in result:self.log.read_artifact(ref)\n        return tuple(dict.fromkeys(result))\n\n    @staticmethod\n    def _frame(identifier,attempt,parent,parent_epoch,slot,operation,definition,inputs,contract):\n        _name(identifier);_name(attempt);_name(operation)\n        contract=ResultContract(*contract)\n        return dict(id=identifier,attempt=attempt,parent=parent,parent_epoch=parent_epoch,slot=slot,\n            operation=operation,definition=definition,inputs=inputs,contract=contract.wire,\n            contract_id=contract.digest,state='Ready',pc=0,epoch=0,dispatch=None,result=None,\n            result_settled=False,settlement_receipt=None)\n\n    def _apply(self,state,event):\n        kind=event['kind'];frames=state['frames'];groups=state['groups'];operations=state['operations']\n        if kind=='root':\n            candidate=self._frame(event['frame'],event['attempt'],None,None,None,'FLOW',\n                                  event['definition'],event['inputs'],event['contract'])\n            if candidate['id'] in frames:\n                prior=frames[candidate['id']]\n                if any(prior[k]!=candidate[k] for k in ('attempt','parent','operation','definition','inputs','contract')):\n                    raise TransitionError('root identity reused for different work')\n                return False\n            if frames:raise TransitionError('one root per run; use child scopes')\n            frames[candidate['id']]=candidate\n        elif kind=='spawn':\n            parent=frames[event['parent']];old=_integer(event['source_epoch']);epoch=old+1\n            key=(event['parent'],epoch)\n            if key in groups:\n                if groups[key]['admission']!=event:raise TransitionError('changed wait admission')\n                return False\n            if parent['state']!='Ready' or parent['epoch']!=old:raise TransitionError('parent is not ready at this epoch')\n            _integer(event['next_pc']);children=[];slots=set();ids=set()\n            for call in event['calls']:\n                child,attempt,slot,op,definition,inputs,contract=call;_name(slot)\n                if slot in slots or child in ids or child in frames:raise TransitionError('duplicate slot/child')\n                slots.add(slot);ids.add(child)\n                children.append(self._frame(child,attempt,parent['id'],epoch,slot,op,definition,inputs,contract))\n            for child in children:frames[child['id']]=child\n            groups[key]=dict(admission=deepcopy(event),expected={c['slot']:c['id'] for c in children},filled={},resumed=False)\n            parent.update(state='Waiting',epoch=epoch)\n        elif kind=='dispatched':\n            frame=frames[event['frame']];op=_name(event['operation_id']);binding=(op,event['request'])\n            if frame['dispatch'] is not None:\n                if frame['dispatch']!=binding:raise TransitionError('unresolved/dispatched operation cannot be replaced')\n                return False\n            if frame['state']!='Ready' or op in operations:raise TransitionError('dispatch identity/state conflict')\n            operations[op]=frame['id'];frame.update(state='Waiting',dispatch=binding)\n        elif kind=='returned':\n            frame=frames[event['frame']]\n            if frame['dispatch'] is None or event['operation_id']!=frame['dispatch'][0]:\n                raise TransitionError('return has no matching dispatched operation')\n            if type(event['settled']) is not bool:raise TransitionError('settlement is a host boolean')\n            payload=decode(self.log.read_artifact(_ref(event['result'])))\n            if (type(payload) is not tuple or len(payload)!=4 or payload[0]!='bw.result.v1'\n                    or payload[1]!=frame['contract'] or payload[3]!=event['provenance']):\n                raise TransitionError('result artifact has a different contract/provenance')\n            ResultContract(*frame['contract']).check(payload[2])\n            if frame['result'] is not None:\n                if frame['result']!=event['result']:raise TransitionError('conflicting return')\n                if frame['state']=='Settling' and event['settled']:\n                    raise TransitionError('explicit resource settlement receipt required')\n                return False\n            if frame['state']!='Waiting':raise TransitionError('frame cannot return now')\n            frame.update(result=event['result'],result_settled=event['settled'],\n                         state='Closed' if event['settled'] else 'Settling')\n            if event['settled']:self._deliver(state,frame)\n        elif kind=='finished':\n            frame=frames[event['frame']]\n            if frame['operation']!='FLOW':raise TransitionError('only a FLOW may return without external dispatch')\n            payload=decode(self.log.read_artifact(_ref(event['result'])))\n            if (type(payload) is not tuple or len(payload)!=4 or payload[0]!='bw.result.v1'\n                    or payload[1]!=frame['contract'] or payload[3]!=event['provenance']):\n                raise TransitionError('FLOW result contract/provenance mismatch')\n            ResultContract(*frame['contract']).check(payload[2])\n            if frame['state']=='Closed':\n                if frame['result']!=event['result']:raise TransitionError('conflicting FLOW return')\n                return False\n            if frame['state']!='Ready':raise TransitionError('FLOW has unresolved waits/effects')\n            frame.update(state='Closed',result=event['result'],result_settled=True);self._deliver(state,frame)\n        elif kind=='settled':\n            frame=frames[event['frame']]\n            if frame['dispatch'] is None or event['operation_id']!=frame['dispatch'][0]:\n                raise TransitionError('settlement owner mismatch')\n            if frame['settlement_receipt'] is not None:\n                if frame['settlement_receipt']!=event['receipt']:raise TransitionError('changed settlement proof')\n                return False\n            if frame['state']!='Settling' or frame['result'] is None:raise TransitionError('no result awaiting settlement')\n            frame.update(state='Closed',result_settled=True,settlement_receipt=event['receipt']);self._deliver(state,frame)\n        elif kind=='resumed':\n            parent=frames[event['parent']];epoch=_integer(event['epoch']);group=groups[(parent['id'],epoch)]\n            if group['resumed']:return False\n            if (parent['state']!='Waiting' or parent['epoch']!=epoch\n                    or set(group['filled'])!=set(group['expected'])):raise TransitionError('wait is not completely settled')\n            group['resumed']=True;parent.update(state='Ready',pc=group['admission']['next_pc'])\n        return True\n\n    @staticmethod\n    def _deliver(state,frame):\n        if frame['parent'] is None:return\n        group=state['groups'][(frame['parent'],frame['parent_epoch'])]\n        if group['expected'].get(frame['slot'])!=frame['id']:raise TransitionError('return slot owner mismatch')\n        existing=group['filled'].get(frame['slot'])\n        if existing is not None and existing!=frame['result']:raise TransitionError('conflicting slot delivery')\n        group['filled'][frame['slot']]=frame['result']\n\n    def _commit(self,kind,**fields):\n        self._check();event=dict(schema=1,kind=kind,**fields)\n        try:\n            refs=self._references(event);candidate=deepcopy(self._state)\n            changed=self._apply(candidate,event)\n        except (KeyError,TypeError,IndexError) as exc:raise TransitionError('unknown/malformed frame binding') from exc\n        if changed:\n            self.log.append(event,artifacts=refs);self._state=candidate;self._seen+=1\n        return changed\n\n    def create_root(self,frame_id,attempt_id,definition,inputs,contract):\n        self._commit('root',frame=frame_id,attempt=attempt_id,definition=_wire(definition),\n                     inputs=_wire(inputs),contract=contract.wire)\n        return self.frame(frame_id)\n\n    def spawn(self,parent,*,expected_epoch,calls,next_pc):\n        if type(calls) is not tuple or any(not isinstance(c,CallSpec) for c in calls):\n            raise TransitionError('host call specifications required')\n        self._commit('spawn',parent=parent,source_epoch=expected_epoch,calls=tuple(c.wire for c in calls),next_pc=next_pc)\n        return expected_epoch+1\n\n    def dispatch(self,frame,operation_id,request):\n        return self._commit('dispatched',frame=frame,operation_id=operation_id,request=_wire(request))\n\n    def record_result(self,frame,operation_id,value,*,provenance=(),settled=True):\n        self._check();current=self.frame(frame);ResultContract(*current['contract']).check(value)\n        refs=tuple(_wire(a) for a in provenance)\n        result=self.log.put_artifact(encode(('bw.result.v1',current['contract'],value,refs)))\n        self._commit('returned',frame=frame,operation_id=operation_id,result=_wire(result),provenance=refs,settled=settled)\n        return result\n\n    def finish(self,frame,value,*,provenance=()):\n        self._check();current=self.frame(frame);ResultContract(*current['contract']).check(value)\n        refs=tuple(_wire(a) for a in provenance)\n        result=self.log.put_artifact(encode(('bw.result.v1',current['contract'],value,refs)))\n        self._commit('finished',frame=frame,result=_wire(result),provenance=refs)\n        return result\n\n    def settle(self,frame,operation_id,receipt):\n        return self._commit('settled',frame=frame,operation_id=operation_id,receipt=_wire(receipt))\n\n    def resume(self,parent,epoch):return self._commit('resumed',parent=parent,epoch=epoch)\n\n    def frame(self,identifier):\n        self._check();return deepcopy(self._state['frames'][identifier])\n\n    def frames(self):\n        \"\"\"Detached inventory for the owning interpreter, never worker authority.\"\"\"\n        self._check();return tuple(deepcopy(v) for v in self._state['frames'].values())\n\n    def ready(self):\n        self._check();return tuple(k for k,v in self._state['frames'].items() if v['state']=='Ready')\n\n    def slot_value(self,parent,epoch,slot):\n        self._check();ref=self._state['groups'][(parent,epoch)]['filled'][slot]\n        return decode(self.log.read_artifact(_ref(ref)))[2]\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "replace",
+      "arguments": {
+        "after": "from .run_cli import _config,_pairs,execute,_source_notice",
+        "before": "from .run_cli import _config,execute,_source_notice",
+        "path": "branchwrite/coding_cli.py",
+        "source_sha256": "866ab705baef8aa00d04a4f5b6256100bf6bdcce6adbdf3d7ebf05587b333a3d"
+      },
+      "disposition": "applied",
+      "exit_code": 0,
+      "stdout": "replacement applied\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "replace",
+      "arguments": {
+        "after": "    connection=json.loads(_source(args.connection),object_pairs_hook=_pairs)",
+        "before": "    connection=json.loads(_source(args.connection))",
+        "path": "branchwrite/coding_cli.py",
+        "source_sha256": "76ea64dc90a3cebb77b66c25271867f588ae3081811d2366c0571584b3a8f79a"
+      },
+      "disposition": "applied",
+      "exit_code": 0,
+      "stdout": "replacement applied\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/coding_cli.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Prepare the existing coding workflow; COW and RuntimeLog remain authoritative.\"\"\"\nimport hashlib,json,os,re,stat,tempfile\nfrom pathlib import Path\nfrom .run_cli import _config,_pairs,execute,_source_notice\nfrom .cow_client import CowClient,HTTPTransport,OperationJournal,OperationIndeterminate\nPROGRAM=\"\"\"FLOW coding\nREPEAT attempts exhausted=stop max=32 until=verified\nEXPAND decide from=current profile=control task=task -> proposed\nPLAN freeze against=world from=proposed -> plan\nACT perform plan=plan -> outcome\nTRANSFORM advance contract=cow-source input=proposed -> current\nTRANSFORM feedback contract=tool-feedback input=outcome -> task\nVERIFY check contract=command-evidence-and-finish input=outcome -> verified\nEND\nEND\n\"\"\"\nMAX_LAUNCH_BYTES=1024*1024\ndef _bytes(value):\n    return json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False).encode()\ndef build_launch(project,task,connection,*,branch,read_paths=(),edit_paths=(),create_paths=(),test_commands=(),from_branch=None,from_snapshot=None,shell_timeout=120):\n    project=Path(project).resolve(strict=True)\n    if not project.is_dir():raise ValueError('project must be a directory')\n    keys={'endpoint_url','endpoint_pin','model_contract_id','execution_profile_id','eos_tokens'}\n    if type(connection) is not dict or set(connection)!=keys:\n        raise ValueError('connection needs only endpoint/profile identities and EOS IDs; credentials belong in BW_COW_API_KEY')\n    HTTPTransport(connection['endpoint_url'])\n    if type(task) is not str or not task.strip() or len(task.encode('utf8'))>262144:raise ValueError('bounded nonempty task text required')\n    if type(branch) is not str or not 1<=len(branch)<=128:raise ValueError('bounded branch name required')\n    if not test_commands or any(type(c) is not str or not c.strip() for c in test_commands):\n        raise ValueError('at least one explicit verification command is required')\n    if from_snapshot is not None and from_branch is None:raise ValueError('a snapshot requires its source branch')\n    if from_branch is not None and (type(from_branch) is not str or not from_branch):raise ValueError('source branch required')\n    if from_snapshot is not None and (type(from_snapshot) is not str or not re.fullmatch('[0-9a-f]{64}',from_snapshot)):raise ValueError('invalid source snapshot')\n    cow=dict(connection,branch=branch,mode='ask',bootstrap='coding',grammar_registration='inline')\n    fork=None\n    if from_branch is not None:\n        cow.pop('bootstrap');cow['mode']='append_user'\n        fork=dict(source_branch=from_branch,snapshot=from_snapshot)\n    config=dict(schema=1,source=str(project),run_id=branch,\n        grant=dict(read_paths=sorted(set(read_paths)|set(edit_paths)|set(create_paths)),\n                   edit_paths=list(edit_paths),create_paths=list(create_paths),allow_tests=False,allow_shell=True),\n        bindings=dict(task=dict(type='Text',value=task)),cow=cow,\n        shell=dict(timeout=shell_timeout),\n        verification=dict(schema=1,commands=[dict(command=c,disposition='exited',exit_code=0) for c in test_commands]))\n    config=_config(_bytes(config).decode())\n    return dict(schema=1,program=PROGRAM,config=config,fork=fork)\ndef _validate(launch):\n    if type(launch) is not dict or set(launch)!={'schema','program','config','fork'} or type(launch['schema']) is not int or launch['schema']!=1 or launch['program']!=PROGRAM:\n        raise ValueError('unsupported coding launch')\n    _config(_bytes(launch['config']).decode())\n    fork=launch['fork']\n    if fork is not None:\n        if (type(fork) is not dict or set(fork)!={'source_branch','snapshot'}\n                or type(fork['source_branch']) is not str or not fork['source_branch']\n                or type(fork['snapshot']) is not str or not re.fullmatch('[0-9a-f]{64}',fork['snapshot'])\n                or launch['config']['cow'].get('mode')!='append_user'\n                or 'bootstrap' in launch['config']['cow']):\n            raise ValueError('retained launch must pin an exact source snapshot')\n    elif launch['config']['cow'].get('bootstrap')!='coding':\n        raise ValueError('new coding launch requires its bootstrap')\ndef _state(state,*,create=False,source=None):\n    state=Path(state).absolute()\n    if state.is_symlink():raise ValueError('state must be a real owned directory')\n    if source is not None and state.resolve().is_relative_to(Path(source).resolve()):\n        raise ValueError('run state must be outside the source project')\n    if create and not state.exists():state.mkdir(mode=0o700)\n    info=state.lstat()\n    if not stat.S_ISDIR(info.st_mode) or stat.S_IMODE(info.st_mode)!=0o700 or info.st_uid!=os.getuid():\n        raise ValueError('state must be an owned directory with mode0700')\n    return state\ndef save_launch(state,launch):\n    import fcntl\n    _validate(launch)\n    state=_state(state,create=True,source=launch['config']['source'])\n    raw=_bytes(dict(launch=launch,sha256=hashlib.sha256(_bytes(launch)).hexdigest()))+b'\\n'\n    if len(raw)>MAX_LAUNCH_BYTES:raise ValueError('coding launch is too large')\n    path=state/'coding-launch.json'\n    # Serialize trusted setup publishers; atomic rename leaves one file link\n    # even if the process stops before staging cleanup. No workflow lives here.\n    lockfd=os.open(state/'.coding-launch.lock',os.O_RDWR|os.O_CREAT|getattr(os,'O_NOFOLLOW',0),0o600)\n    with os.fdopen(lockfd,'r+b') as lock:\n        info=os.fstat(lock.fileno())\n        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1 or info.st_uid!=os.getuid() or stat.S_IMODE(info.st_mode)!=0o600:\n            raise ValueError('invalid coding setup lock')\n        fcntl.flock(lock.fileno(),fcntl.LOCK_EX)\n        if path.exists() or path.is_symlink():\n            if read_launch(state)!=launch:raise ValueError('run setup changed; use a new run state')\n            return\n        fd,name=tempfile.mkstemp(prefix='.coding-launch-',dir=state);temporary=Path(name)\n        try:\n            with os.fdopen(fd,'wb') as stream:\n                os.fchmod(stream.fileno(),0o600);stream.write(raw);stream.flush();os.fsync(stream.fileno())\n            os.replace(temporary,path)\n            directory=os.open(state,os.O_RDONLY|getattr(os,'O_DIRECTORY',0))\n            try:os.fsync(directory)\n            finally:os.close(directory)\n        finally:\n            if temporary.exists():temporary.unlink()\ndef read_launch(state):\n    state=_state(state)\n    fd=os.open(state/'coding-launch.json',os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_NONBLOCK',0))\n    with os.fdopen(fd,'rb') as stream:\n        info=os.fstat(stream.fileno())\n        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1 or info.st_uid!=os.getuid() or stat.S_IMODE(info.st_mode)!=0o600:\n            raise ValueError('coding launch must be a private owned regular file')\n        raw=stream.read(MAX_LAUNCH_BYTES+1)\n    if len(raw)>MAX_LAUNCH_BYTES:raise ValueError('coding launch is too large')\n    envelope=json.loads(raw)\n    if type(envelope) is not dict or set(envelope)!={'launch','sha256'} or envelope['sha256']!=hashlib.sha256(_bytes(envelope['launch'])).hexdigest():\n        raise ValueError('coding launch integrity check failed')\n    _validate(envelope['launch'])\n    return envelope['launch']\ndef _client(state,launch):\n    cow=launch['config']['cow']\n    return CowClient.http(cow['endpoint_url'],journal=OperationJournal(Path(state)/'cow-operations'),api_key=os.environ.get('BW_COW_API_KEY'),endpoint_pin=cow['endpoint_pin'],notice_handler=_source_notice)\ndef run_saved(state,*,max_steps=1024):\n    if type(max_steps) is not int or max_steps<=0:raise ValueError('finite positive step budget required')\n    launch=read_launch(state)\n    if launch['fork'] is not None:\n        fork=launch['fork'];operation='bw-code-fork-'+hashlib.sha256(_bytes(launch)).hexdigest()[:40]\n        # The original pinned source and journal ID survive retries. An uncertain\n        # fork remains uncertain; never select a newer head or invent a new ID.\n        try:\n            _client(state,launch).fork(fork['source_branch'],fork['snapshot'],launch['config']['cow']['branch'],operation)\n        except OperationIndeterminate as exc:\n            raise OperationIndeterminate('Original fork operation '+operation+' is unresolved; reconcile its original journal intent before continuing') from exc\n    return execute('run',launch['program'],_bytes(launch['config']).decode(),state,max_steps=max_steps)\ndef start(args):\n    if type(args.max_steps) is not int or args.max_steps<=0:raise ValueError('finite positive step budget required')\n    from .__main__ import _source\n    connection=json.loads(_source(args.connection),object_pairs_hook=_pairs)\n    launch=build_launch(args.project,_source(args.task_file),connection,branch=args.branch,\n        read_paths=args.read,edit_paths=args.edit,create_paths=args.create,\n        test_commands=args.test_command,from_branch=args.from_branch,\n        from_snapshot=args.from_snapshot,shell_timeout=args.shell_timeout)\n    existing=Path(args.state)/'coding-launch.json'\n    if launch['fork'] is not None and launch['fork']['snapshot'] is None:\n        if existing.exists():\n            prior=read_launch(args.state)\n            if prior['fork'] is not None and prior['fork']['source_branch']==args.from_branch:\n                launch['fork']['snapshot']=prior['fork']['snapshot']\n        if launch['fork']['snapshot'] is None:\n            # Read-only selection before publication. The snapshot,not a live\n            # branch name,is saved before any mutating setup/inference request.\n            launch['fork']['snapshot']=_client(args.state,launch).head(args.from_branch).tip\n    save_launch(args.state,launch)\n    return run_saved(args.state,max_steps=args.max_steps)\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "run_shell",
+      "arguments": {
+        "command": "python3 -m unittest discover -s tests -p test_connection_admission.py -v"
+      },
+      "disposition": "exited",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_each_duplicate_identity_is_rejected_before_effects (test_connection_admission.ConnectionAdmissionTests.test_each_duplicate_identity_is_rejected_before_effects) ... ok\ntest_expression_is_not_executed (test_connection_admission.ConnectionAdmissionTests.test_expression_is_not_executed) ... ok\ntest_valid_connection_still_prepares_exact_launch (test_connection_admission.ConnectionAdmissionTests.test_valid_connection_still_prepares_exact_launch) ... ERROR\n\n======================================================================\nERROR: test_valid_connection_still_prepares_exact_launch (test_connection_admission.ConnectionAdmissionTests.test_valid_connection_still_prepares_exact_launch)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_connection_admission.py\", line 26, in test_valid_connection_still_prepares_exact_launch\n    self.assertEqual(start(self.args),{'ok':True});run.assert_called_once()\n                     ~~~~~^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 132, in start\n    launch=build_launch(args.project,_source(args.task_file),connection,branch=args.branch,\n        read_paths=args.read,edit_paths=args.edit,create_paths=args.create,\n        test_commands=args.test_command,from_branch=args.from_branch,\n        from_snapshot=args.from_snapshot,shell_timeout=args.shell_timeout)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n----------------------------------------------------------------------\nRan 3 tests in 0.008s\n\nFAILED (errors=1)\n",
+      "details": {
+        "argv": [
+          "/usr/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-c",
+          "python3 -m unittest discover -s tests -p test_connection_admission.py -v"
+        ],
+        "binary_sha256": "3efccc187bafa75ff1e37d246270ab3e7aa559f242c7a52bf3ec2a1b5450bdbd",
+        "command": "shell",
+        "cwd": "/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace",
+        "execution_host": {
+          "euid": 1000,
+          "gid": 1000,
+          "hostname": "r4090",
+          "uid": 1000
+        },
+        "inputs": [
+          {
+            "bytes": 5543,
+            "mode": "0644",
+            "path": "AGENTS.md",
+            "sha256": "935676582e4d262540ff3da251b6b5f5c7395ab97dd625d82bfd73e1d734338e"
+          },
+          {
+            "bytes": 6404,
+            "mode": "0644",
+            "path": "README.md",
+            "sha256": "6a7d648a9523ff7feada4e285c868f4904fc79961ba0cbfb3d7c834ff47c2490"
+          },
+          {
+            "bytes": 42,
+            "mode": "0644",
+            "path": "branchwrite/__init__.py",
+            "sha256": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c"
+          },
+          {
+            "bytes": 4674,
+            "mode": "0644",
+            "path": "branchwrite/__main__.py",
+            "sha256": "01b8450ef67c026f663d726ca17bcf8bf90a699650d18d6a22a509b68b3002bb"
+          },
+          {
+            "bytes": 2711,
+            "mode": "0644",
+            "path": "branchwrite/browser_assets.py",
+            "sha256": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31"
+          },
+          {
+            "bytes": 19255,
+            "mode": "0644",
+            "path": "branchwrite/browser_capture.py",
+            "sha256": "fe2cf850c0fda370fd286e5e9907aaeaa8607d3bb1bb21c88b5efb03160dfdec"
+          },
+          {
+            "bytes": 9288,
+            "mode": "0644",
+            "path": "branchwrite/browser_isolation.py",
+            "sha256": "782fb456cc47fe0f8a4c92a9e0729814a9bf9676d76b28246d99b8751b5fad10"
+          },
+          {
+            "bytes": 4088,
+            "mode": "0644",
+            "path": "branchwrite/browser_worker.py",
+            "sha256": "d37e44545734c614c053a37c2dc77a57f90c9dbc26b8789d26022c8cad6b1fe1"
+          },
+          {
+            "bytes": 9762,
+            "mode": "0644",
+            "path": "branchwrite/coding_cli.py",
+            "sha256": "629b5d0e29ac347bd56e4549c7c02d098478061b0d6c2a98a088970df72b241f"
+          },
+          {
+            "bytes": 4716,
+            "mode": "0644",
+            "path": "branchwrite/coding_contract.py",
+            "sha256": "4c0f0435523dbc8d8f4e45553ac5068dd09bd2f549e99d6b1732ca747f952eac"
+          },
+          {
+            "bytes": 10781,
+            "mode": "0644",
+            "path": "branchwrite/coding_defaults.py",
+            "sha256": "e11f62a6b8c49c644afeeb154908137c5a415de55b67529cd39c0e0a97a0c34c"
+          },
+          {
+            "bytes": 11868,
+            "mode": "0644",
+            "path": "branchwrite/command_outputs.py",
+            "sha256": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9"
+          },
+          {
+            "bytes": 8369,
+            "mode": "0644",
+            "path": "branchwrite/component_model.py",
+            "sha256": "cdfa18438cff524f9a37a3e44dac0351eda736fb6222c93a7fb37f36c4901b5b"
+          },
+          {
+            "bytes": 22832,
+            "mode": "0644",
+            "path": "branchwrite/context_pack.py",
+            "sha256": "eef9e480df1cc1561bafbd1c25a5b3b4e2f3cf31c8a724defab671afdc3b2c75"
+          },
+          {
+            "bytes": 2125,
+            "mode": "0644",
+            "path": "branchwrite/control_contract.py",
+            "sha256": "69982583752013c32270932b7e5cf1cb5e03d0afb9691d7c3dc88948bb9270e6"
+          },
+          {
+            "bytes": 3351,
+            "mode": "0644",
+            "path": "branchwrite/cow_actions.py",
+            "sha256": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4"
+          },
+          {
+            "bytes": 77648,
+            "mode": "0644",
+            "path": "branchwrite/cow_client.py",
+            "sha256": "a08bd70de75399583cfc19229dc6e0a6ff5447286d5b8856b5322e5eda2f86d7"
+          },
+          {
+            "bytes": 6080,
+            "mode": "0644",
+            "path": "branchwrite/cow_fork.py",
+            "sha256": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0"
+          },
+          {
+            "bytes": 49049,
+            "mode": "0644",
+            "path": "branchwrite/execution.py",
+            "sha256": "31abda723bf8712c52189195cc3da4af132c930adc4ca2524523003082390ec2"
+          },
+          {
+            "bytes": 9645,
+            "mode": "0644",
+            "path": "branchwrite/golden_path.py",
+            "sha256": "084ea3467edbbc3b57f65c41c93693f76c0447350f5d4bc30264190491ec9316"
+          },
+          {
+            "bytes": 5412,
+            "mode": "0644",
+            "path": "branchwrite/image_feedback.py",
+            "sha256": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe"
+          },
+          {
+            "bytes": 38353,
+            "mode": "0644",
+            "path": "branchwrite/interpreter.py",
+            "sha256": "cbb7a20a1d9015968c2b81aa4c61ac2a17d9a4f33b8496199f586a7593852d94"
+          },
+          {
+            "bytes": 14996,
+            "mode": "0644",
+            "path": "branchwrite/kernel.py",
+            "sha256": "cb6a345521f496ead177c9cfbb908929af8c268ce50a440a78086a66d5343e10"
+          },
+          {
+            "bytes": 9266,
+            "mode": "0644",
+            "path": "branchwrite/language.py",
+            "sha256": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985"
+          },
+          {
+            "bytes": 21138,
+            "mode": "0644",
+            "path": "branchwrite/model_dispatch.py",
+            "sha256": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007"
+          },
+          {
+            "bytes": 1730,
+            "mode": "0644",
+            "path": "branchwrite/model_inputs.py",
+            "sha256": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea"
+          },
+          {
+            "bytes": 7728,
+            "mode": "0644",
+            "path": "branchwrite/planning_retry.py",
+            "sha256": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946"
+          },
+          {
+            "bytes": 13119,
+            "mode": "0644",
+            "path": "branchwrite/records.py",
+            "sha256": "cbc34ddb6b510217a2a1995e2c31ea092f1b0c211b2daa1039dca18a2093d09b"
+          },
+          {
+            "bytes": 17845,
+            "mode": "0644",
+            "path": "branchwrite/run_cli.py",
+            "sha256": "8cfbfdacb4729d725f80c0bbca8daa062b30a47e4b4fbe6530bdba554ea80f95"
+          },
+          {
+            "bytes": 14375,
+            "mode": "0644",
+            "path": "branchwrite/terminal.py",
+            "sha256": "b7c711312c2076f423fef08f5d54a507d3822c73fbae616a1089b4f9b9358495"
+          },
+          {
+            "bytes": 12786,
+            "mode": "0644",
+            "path": "branchwrite/terminal_components.py",
+            "sha256": "e583db55b25ae9171581ba3234e984d574b6aeaa3733de43211735fb1225e5e8"
+          },
+          {
+            "bytes": 2388,
+            "mode": "0644",
+            "path": "branchwrite/terminal_worker.py",
+            "sha256": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996"
+          },
+          {
+            "bytes": 1800,
+            "mode": "0644",
+            "path": "branchwrite/text_file_codec.py",
+            "sha256": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8"
+          },
+          {
+            "bytes": 5119,
+            "mode": "0644",
+            "path": "branchwrite/thinking_ladder.py",
+            "sha256": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc"
+          },
+          {
+            "bytes": 4205,
+            "mode": "0644",
+            "path": "branchwrite/tool_dispatch.py",
+            "sha256": "92b386ce99805dccb063d840af35f9d1a9efcc773705a8563a6eec861b5a8bd6"
+          },
+          {
+            "bytes": 32148,
+            "mode": "0644",
+            "path": "branchwrite/tool_registry.py",
+            "sha256": "54c5b6625f5b975523b8830332f027186077e7a724dc22a4748f67b7da414568"
+          },
+          {
+            "bytes": 30228,
+            "mode": "0644",
+            "path": "branchwrite/verification.py",
+            "sha256": "f2ca101512c0501639012f39c411d353421677a63790ea185e406917e7fea7e0"
+          },
+          {
+            "bytes": 1691,
+            "mode": "0644",
+            "path": "examples/README.md",
+            "sha256": "a196a50617a4e29369efd668db5c7bf5cc0a7ae142fb579fa47cea6691bb7042"
+          },
+          {
+            "bytes": 576,
+            "mode": "0644",
+            "path": "examples/bounded-revision.bw",
+            "sha256": "4d85d62b158e147da82bf166e79acd5c147174cc8c177377e3bc416bb6e16e87"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/coding.bw",
+            "sha256": "cdfac36f6fe9d1b7571ee5437e39c2ced28bfed330f2487e4a0feeb3b55c9238"
+          },
+          {
+            "bytes": 779,
+            "mode": "0644",
+            "path": "examples/continue-and-compose.bw",
+            "sha256": "77a3d447c2441df991a029218117cdb237aa887de865c0c13627bd2633d64b1c"
+          },
+          {
+            "bytes": 419,
+            "mode": "0644",
+            "path": "examples/file-task.bw",
+            "sha256": "20029c79318bccf4ed9a9d9b7cc86985cdcaeb6003e994032b71899746c107bd"
+          },
+          {
+            "bytes": 443,
+            "mode": "0644",
+            "path": "examples/generated-page-task.bw",
+            "sha256": "0e83e4fdbb5ac40cf431f28e8f7b7d0a9309af22d7a7f433ae48ebf79b8f1699"
+          },
+          {
+            "bytes": 455,
+            "mode": "0644",
+            "path": "examples/interactive-page-task.bw",
+            "sha256": "1c522dfd100902648d94ed6160f609862dee2c561236f737f191716f85b97fde"
+          },
+          {
+            "bytes": 7372,
+            "mode": "0644",
+            "path": "examples/line-file-worked-examples.txt",
+            "sha256": "ac811099e2d58f8f1a8ee0e88626048d24552ed2b927ac9b5398889a9a9d7776"
+          },
+          {
+            "bytes": 6489,
+            "mode": "0644",
+            "path": "examples/literal-file-worked-examples.txt",
+            "sha256": "f8891dbb0980a5578ed7436c1ae5b212e853b280a57c41bffbb4588c61d95251"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/page-task.bw",
+            "sha256": "eb1429be03c079b10196d4737dbdb169a46727769af111e92a967a678f2aae0b"
+          },
+          {
+            "bytes": 1734,
+            "mode": "0644",
+            "path": "examples/parallel-repair.bw",
+            "sha256": "a31dd48696096137862573a3fffdfb4e69aebba76c28ccc5744c17c284794520"
+          },
+          {
+            "bytes": 39145,
+            "mode": "0644",
+            "path": "examples/terminal-worked-examples.txt",
+            "sha256": "2a33b84781509f23d117c1502691a8cab1e767a8bf0bde3f0552bfca2ed9bfbe"
+          },
+          {
+            "bytes": 45809,
+            "mode": "0644",
+            "path": "examples/tool-worked-examples.txt",
+            "sha256": "410e5092a535372d80e712acbe784aedfde28782a8f920dea9d6ad7936ee656c"
+          },
+          {
+            "bytes": 395,
+            "mode": "0644",
+            "path": "pyproject.toml",
+            "sha256": "6347ecc9212c9abfc12b86877c244d30ae7823b138402b0d040c97cf9ff9d86f"
+          },
+          {
+            "bytes": 610,
+            "mode": "0644",
+            "path": "setup.py",
+            "sha256": "4441787767380a630c009c32f53671ce758a8b2f5ccdb57d902d53c0ff177b20"
+          },
+          {
+            "bytes": 6649,
+            "mode": "0644",
+            "path": "tests/test_coding_launcher.py",
+            "sha256": "1f21a6440a6eea7f8d22553be11a6491ccc538574f6d35754ef186f31f698177"
+          },
+          {
+            "bytes": 2394,
+            "mode": "0664",
+            "path": "tests/test_connection_admission.py",
+            "sha256": "de824cadd44193e16f7e76dc363d89285fcf72cc7ef5452927d79f85cabb11ce"
+          }
+        ],
+        "isolation": {
+          "kind": "bubblewrap-terminal-v1",
+          "launcher_pid": 2254230,
+          "mount_ns": "mnt:[4026532775]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532781]",
+          "pid_ns": "pid:[4026532778]",
+          "worker_exited": true
+        },
+        "os_release_sha256": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+        "scope": "model-written Bash; read-only captured readable files; no network or host home",
+        "workspace_after_sha256": "8ac9a2c25e794322c9b48de9b529a4507ba094a86639e1fda6e384bede53a60b"
+      }
+    },
+    {
+      "tool": "run_shell",
+      "arguments": {
+        "command": "python3 -m unittest discover -s tests -p test_coding_launcher.py -v"
+      },
+      "disposition": "exited",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_code_and_resume_are_public_commands (test_coding_launcher.CodingLauncherCommandTests.test_code_and_resume_are_public_commands) ... ok\ntest_invalid_budget_fails_before_transport_or_state_creation (test_coding_launcher.CodingLauncherCommandTests.test_invalid_budget_fails_before_transport_or_state_creation) ... ok\ntest_invalid_connection_does_not_create_a_run (test_coding_launcher.CodingLauncherCommandTests.test_invalid_connection_does_not_create_a_run) ... ok\ntest_tampered_resume_does_not_create_a_world (test_coding_launcher.CodingLauncherCommandTests.test_tampered_resume_does_not_create_a_world) ... ERROR\ntest_connection_cannot_contain_credentials_or_unknown_fields (test_coding_launcher.CodingLauncherTests.test_connection_cannot_contain_credentials_or_unknown_fields) ... ok\ntest_fresh_launch_uses_existing_workflow_and_explicit_grants (test_coding_launcher.CodingLauncherTests.test_fresh_launch_uses_existing_workflow_and_explicit_grants) ... ERROR\ntest_interrupted_stage_cleanup_cannot_strand_a_published_manifest (test_coding_launcher.CodingLauncherTests.test_interrupted_stage_cleanup_cannot_strand_a_published_manifest) ... ERROR\ntest_manifest_reopens_exactly_and_cannot_be_replaced (test_coding_launcher.CodingLauncherTests.test_manifest_reopens_exactly_and_cannot_be_replaced) ... ERROR\ntest_retained_launch_does_not_bootstrap_or_rebase (test_coding_launcher.CodingLauncherTests.test_retained_launch_does_not_bootstrap_or_rebase) ... ERROR\ntest_state_cannot_be_inside_source_or_a_symlink (test_coding_launcher.CodingLauncherTests.test_state_cannot_be_inside_source_or_a_symlink) ... ok\ntest_tampered_manifest_rejected (test_coding_launcher.CodingLauncherTests.test_tampered_manifest_rejected) ... ERROR\ntest_uncertain_fork_reports_original_id_and_never_starts_interpreter (test_coding_launcher.CodingLauncherTests.test_uncertain_fork_reports_original_id_and_never_starts_interpreter) ... ERROR\ntest_unresolved_fork_cannot_be_published (test_coding_launcher.CodingLauncherTests.test_unresolved_fork_cannot_be_published) ... ok\n\n======================================================================\nERROR: test_tampered_resume_does_not_create_a_world (test_coding_launcher.CodingLauncherCommandTests.test_tampered_resume_does_not_create_a_world)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 99, in test_tampered_resume_does_not_create_a_world\n    state=self.base/'run';save_launch(state,self.build())\n                                            ~~~~~~~~~~^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_fresh_launch_uses_existing_workflow_and_explicit_grants (test_coding_launcher.CodingLauncherTests.test_fresh_launch_uses_existing_workflow_and_explicit_grants)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 14, in test_fresh_launch_uses_existing_workflow_and_explicit_grants\n    launch=self.build()\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_interrupted_stage_cleanup_cannot_strand_a_published_manifest (test_coding_launcher.CodingLauncherTests.test_interrupted_stage_cleanup_cannot_strand_a_published_manifest)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 58, in test_interrupted_stage_cleanup_cannot_strand_a_published_manifest\n    state=self.base/'run';launch=self.build()\n                                 ~~~~~~~~~~^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_manifest_reopens_exactly_and_cannot_be_replaced (test_coding_launcher.CodingLauncherTests.test_manifest_reopens_exactly_and_cannot_be_replaced)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 33, in test_manifest_reopens_exactly_and_cannot_be_replaced\n    launch=self.build();state=self.base/'run'\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_retained_launch_does_not_bootstrap_or_rebase (test_coding_launcher.CodingLauncherTests.test_retained_launch_does_not_bootstrap_or_rebase)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 24, in test_retained_launch_does_not_bootstrap_or_rebase\n    launch=self.build(from_branch='parent',from_snapshot='a'*64)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_tampered_manifest_rejected (test_coding_launcher.CodingLauncherTests.test_tampered_manifest_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 46, in test_tampered_manifest_rejected\n    state=self.base/'run';save_launch(state,self.build())\n                                            ~~~~~~~~~~^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n======================================================================\nERROR: test_uncertain_fork_reports_original_id_and_never_starts_interpreter (test_coding_launcher.CodingLauncherTests.test_uncertain_fork_reports_original_id_and_never_starts_interpreter)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 67, in test_uncertain_fork_reports_original_id_and_never_starts_interpreter\n    state=self.base/'run';launch=self.build(from_branch='parent',from_snapshot='a'*64);save_launch(state,launch)\n                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/tests/test_coding_launcher.py\", line 12, in build\n    return build_launch(self.project,'Repair app.',self.connection,branch='coding',read_paths=['tests/test_app.py'],edit_paths=['app.py'],create_paths=['new.py'],test_commands=['python3 -m unittest'],**kwargs)\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/coding_cli.py\", line 45, in build_launch\n    config=_config(_bytes(config).decode())\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 87, in _config\n    if 'shell' in config:_shell_config(config['shell'])\n                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/run_cli.py\", line 68, in _shell_config\n    return ShellConfig(timeout=spec['timeout'],expected_hostname=spec.get('expected_hostname'))\n  File \"<string>\", line 5, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 207, in __post_init__\n    command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n  File \"<string>\", line 6, in __init__\n  File \"/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace/branchwrite/terminal.py\", line 45, in __post_init__\n    raise ToolRejected('command target has writable or non-root ownership')\nbranchwrite.execution.ToolRejected: command target has writable or non-root ownership\n\n----------------------------------------------------------------------\nRan 13 tests in 0.359s\n\nFAILED (errors=7)\n",
+      "details": {
+        "argv": [
+          "/usr/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-c",
+          "python3 -m unittest discover -s tests -p test_coding_launcher.py -v"
+        ],
+        "binary_sha256": "3efccc187bafa75ff1e37d246270ab3e7aa559f242c7a52bf3ec2a1b5450bdbd",
+        "command": "shell",
+        "cwd": "/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace",
+        "execution_host": {
+          "euid": 1000,
+          "gid": 1000,
+          "hostname": "r4090",
+          "uid": 1000
+        },
+        "inputs": [
+          {
+            "bytes": 5543,
+            "mode": "0644",
+            "path": "AGENTS.md",
+            "sha256": "935676582e4d262540ff3da251b6b5f5c7395ab97dd625d82bfd73e1d734338e"
+          },
+          {
+            "bytes": 6404,
+            "mode": "0644",
+            "path": "README.md",
+            "sha256": "6a7d648a9523ff7feada4e285c868f4904fc79961ba0cbfb3d7c834ff47c2490"
+          },
+          {
+            "bytes": 42,
+            "mode": "0644",
+            "path": "branchwrite/__init__.py",
+            "sha256": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c"
+          },
+          {
+            "bytes": 4674,
+            "mode": "0644",
+            "path": "branchwrite/__main__.py",
+            "sha256": "01b8450ef67c026f663d726ca17bcf8bf90a699650d18d6a22a509b68b3002bb"
+          },
+          {
+            "bytes": 2711,
+            "mode": "0644",
+            "path": "branchwrite/browser_assets.py",
+            "sha256": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31"
+          },
+          {
+            "bytes": 19255,
+            "mode": "0644",
+            "path": "branchwrite/browser_capture.py",
+            "sha256": "fe2cf850c0fda370fd286e5e9907aaeaa8607d3bb1bb21c88b5efb03160dfdec"
+          },
+          {
+            "bytes": 9288,
+            "mode": "0644",
+            "path": "branchwrite/browser_isolation.py",
+            "sha256": "782fb456cc47fe0f8a4c92a9e0729814a9bf9676d76b28246d99b8751b5fad10"
+          },
+          {
+            "bytes": 4088,
+            "mode": "0644",
+            "path": "branchwrite/browser_worker.py",
+            "sha256": "d37e44545734c614c053a37c2dc77a57f90c9dbc26b8789d26022c8cad6b1fe1"
+          },
+          {
+            "bytes": 9762,
+            "mode": "0644",
+            "path": "branchwrite/coding_cli.py",
+            "sha256": "629b5d0e29ac347bd56e4549c7c02d098478061b0d6c2a98a088970df72b241f"
+          },
+          {
+            "bytes": 4716,
+            "mode": "0644",
+            "path": "branchwrite/coding_contract.py",
+            "sha256": "4c0f0435523dbc8d8f4e45553ac5068dd09bd2f549e99d6b1732ca747f952eac"
+          },
+          {
+            "bytes": 10781,
+            "mode": "0644",
+            "path": "branchwrite/coding_defaults.py",
+            "sha256": "e11f62a6b8c49c644afeeb154908137c5a415de55b67529cd39c0e0a97a0c34c"
+          },
+          {
+            "bytes": 11868,
+            "mode": "0644",
+            "path": "branchwrite/command_outputs.py",
+            "sha256": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9"
+          },
+          {
+            "bytes": 8369,
+            "mode": "0644",
+            "path": "branchwrite/component_model.py",
+            "sha256": "cdfa18438cff524f9a37a3e44dac0351eda736fb6222c93a7fb37f36c4901b5b"
+          },
+          {
+            "bytes": 22832,
+            "mode": "0644",
+            "path": "branchwrite/context_pack.py",
+            "sha256": "eef9e480df1cc1561bafbd1c25a5b3b4e2f3cf31c8a724defab671afdc3b2c75"
+          },
+          {
+            "bytes": 2125,
+            "mode": "0644",
+            "path": "branchwrite/control_contract.py",
+            "sha256": "69982583752013c32270932b7e5cf1cb5e03d0afb9691d7c3dc88948bb9270e6"
+          },
+          {
+            "bytes": 3351,
+            "mode": "0644",
+            "path": "branchwrite/cow_actions.py",
+            "sha256": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4"
+          },
+          {
+            "bytes": 77648,
+            "mode": "0644",
+            "path": "branchwrite/cow_client.py",
+            "sha256": "a08bd70de75399583cfc19229dc6e0a6ff5447286d5b8856b5322e5eda2f86d7"
+          },
+          {
+            "bytes": 6080,
+            "mode": "0644",
+            "path": "branchwrite/cow_fork.py",
+            "sha256": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0"
+          },
+          {
+            "bytes": 49049,
+            "mode": "0644",
+            "path": "branchwrite/execution.py",
+            "sha256": "31abda723bf8712c52189195cc3da4af132c930adc4ca2524523003082390ec2"
+          },
+          {
+            "bytes": 9645,
+            "mode": "0644",
+            "path": "branchwrite/golden_path.py",
+            "sha256": "084ea3467edbbc3b57f65c41c93693f76c0447350f5d4bc30264190491ec9316"
+          },
+          {
+            "bytes": 5412,
+            "mode": "0644",
+            "path": "branchwrite/image_feedback.py",
+            "sha256": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe"
+          },
+          {
+            "bytes": 38353,
+            "mode": "0644",
+            "path": "branchwrite/interpreter.py",
+            "sha256": "cbb7a20a1d9015968c2b81aa4c61ac2a17d9a4f33b8496199f586a7593852d94"
+          },
+          {
+            "bytes": 14996,
+            "mode": "0644",
+            "path": "branchwrite/kernel.py",
+            "sha256": "cb6a345521f496ead177c9cfbb908929af8c268ce50a440a78086a66d5343e10"
+          },
+          {
+            "bytes": 9266,
+            "mode": "0644",
+            "path": "branchwrite/language.py",
+            "sha256": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985"
+          },
+          {
+            "bytes": 21138,
+            "mode": "0644",
+            "path": "branchwrite/model_dispatch.py",
+            "sha256": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007"
+          },
+          {
+            "bytes": 1730,
+            "mode": "0644",
+            "path": "branchwrite/model_inputs.py",
+            "sha256": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea"
+          },
+          {
+            "bytes": 7728,
+            "mode": "0644",
+            "path": "branchwrite/planning_retry.py",
+            "sha256": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946"
+          },
+          {
+            "bytes": 13119,
+            "mode": "0644",
+            "path": "branchwrite/records.py",
+            "sha256": "cbc34ddb6b510217a2a1995e2c31ea092f1b0c211b2daa1039dca18a2093d09b"
+          },
+          {
+            "bytes": 17845,
+            "mode": "0644",
+            "path": "branchwrite/run_cli.py",
+            "sha256": "8cfbfdacb4729d725f80c0bbca8daa062b30a47e4b4fbe6530bdba554ea80f95"
+          },
+          {
+            "bytes": 14375,
+            "mode": "0644",
+            "path": "branchwrite/terminal.py",
+            "sha256": "b7c711312c2076f423fef08f5d54a507d3822c73fbae616a1089b4f9b9358495"
+          },
+          {
+            "bytes": 12786,
+            "mode": "0644",
+            "path": "branchwrite/terminal_components.py",
+            "sha256": "e583db55b25ae9171581ba3234e984d574b6aeaa3733de43211735fb1225e5e8"
+          },
+          {
+            "bytes": 2388,
+            "mode": "0644",
+            "path": "branchwrite/terminal_worker.py",
+            "sha256": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996"
+          },
+          {
+            "bytes": 1800,
+            "mode": "0644",
+            "path": "branchwrite/text_file_codec.py",
+            "sha256": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8"
+          },
+          {
+            "bytes": 5119,
+            "mode": "0644",
+            "path": "branchwrite/thinking_ladder.py",
+            "sha256": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc"
+          },
+          {
+            "bytes": 4205,
+            "mode": "0644",
+            "path": "branchwrite/tool_dispatch.py",
+            "sha256": "92b386ce99805dccb063d840af35f9d1a9efcc773705a8563a6eec861b5a8bd6"
+          },
+          {
+            "bytes": 32148,
+            "mode": "0644",
+            "path": "branchwrite/tool_registry.py",
+            "sha256": "54c5b6625f5b975523b8830332f027186077e7a724dc22a4748f67b7da414568"
+          },
+          {
+            "bytes": 30228,
+            "mode": "0644",
+            "path": "branchwrite/verification.py",
+            "sha256": "f2ca101512c0501639012f39c411d353421677a63790ea185e406917e7fea7e0"
+          },
+          {
+            "bytes": 1691,
+            "mode": "0644",
+            "path": "examples/README.md",
+            "sha256": "a196a50617a4e29369efd668db5c7bf5cc0a7ae142fb579fa47cea6691bb7042"
+          },
+          {
+            "bytes": 576,
+            "mode": "0644",
+            "path": "examples/bounded-revision.bw",
+            "sha256": "4d85d62b158e147da82bf166e79acd5c147174cc8c177377e3bc416bb6e16e87"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/coding.bw",
+            "sha256": "cdfac36f6fe9d1b7571ee5437e39c2ced28bfed330f2487e4a0feeb3b55c9238"
+          },
+          {
+            "bytes": 779,
+            "mode": "0644",
+            "path": "examples/continue-and-compose.bw",
+            "sha256": "77a3d447c2441df991a029218117cdb237aa887de865c0c13627bd2633d64b1c"
+          },
+          {
+            "bytes": 419,
+            "mode": "0644",
+            "path": "examples/file-task.bw",
+            "sha256": "20029c79318bccf4ed9a9d9b7cc86985cdcaeb6003e994032b71899746c107bd"
+          },
+          {
+            "bytes": 443,
+            "mode": "0644",
+            "path": "examples/generated-page-task.bw",
+            "sha256": "0e83e4fdbb5ac40cf431f28e8f7b7d0a9309af22d7a7f433ae48ebf79b8f1699"
+          },
+          {
+            "bytes": 455,
+            "mode": "0644",
+            "path": "examples/interactive-page-task.bw",
+            "sha256": "1c522dfd100902648d94ed6160f609862dee2c561236f737f191716f85b97fde"
+          },
+          {
+            "bytes": 7372,
+            "mode": "0644",
+            "path": "examples/line-file-worked-examples.txt",
+            "sha256": "ac811099e2d58f8f1a8ee0e88626048d24552ed2b927ac9b5398889a9a9d7776"
+          },
+          {
+            "bytes": 6489,
+            "mode": "0644",
+            "path": "examples/literal-file-worked-examples.txt",
+            "sha256": "f8891dbb0980a5578ed7436c1ae5b212e853b280a57c41bffbb4588c61d95251"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/page-task.bw",
+            "sha256": "eb1429be03c079b10196d4737dbdb169a46727769af111e92a967a678f2aae0b"
+          },
+          {
+            "bytes": 1734,
+            "mode": "0644",
+            "path": "examples/parallel-repair.bw",
+            "sha256": "a31dd48696096137862573a3fffdfb4e69aebba76c28ccc5744c17c284794520"
+          },
+          {
+            "bytes": 39145,
+            "mode": "0644",
+            "path": "examples/terminal-worked-examples.txt",
+            "sha256": "2a33b84781509f23d117c1502691a8cab1e767a8bf0bde3f0552bfca2ed9bfbe"
+          },
+          {
+            "bytes": 45809,
+            "mode": "0644",
+            "path": "examples/tool-worked-examples.txt",
+            "sha256": "410e5092a535372d80e712acbe784aedfde28782a8f920dea9d6ad7936ee656c"
+          },
+          {
+            "bytes": 395,
+            "mode": "0644",
+            "path": "pyproject.toml",
+            "sha256": "6347ecc9212c9abfc12b86877c244d30ae7823b138402b0d040c97cf9ff9d86f"
+          },
+          {
+            "bytes": 610,
+            "mode": "0644",
+            "path": "setup.py",
+            "sha256": "4441787767380a630c009c32f53671ce758a8b2f5ccdb57d902d53c0ff177b20"
+          },
+          {
+            "bytes": 6649,
+            "mode": "0644",
+            "path": "tests/test_coding_launcher.py",
+            "sha256": "1f21a6440a6eea7f8d22553be11a6491ccc538574f6d35754ef186f31f698177"
+          },
+          {
+            "bytes": 2394,
+            "mode": "0664",
+            "path": "tests/test_connection_admission.py",
+            "sha256": "de824cadd44193e16f7e76dc363d89285fcf72cc7ef5452927d79f85cabb11ce"
+          }
+        ],
+        "isolation": {
+          "kind": "bubblewrap-terminal-v1",
+          "launcher_pid": 2254236,
+          "mount_ns": "mnt:[4026532775]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532781]",
+          "pid_ns": "pid:[4026532778]",
+          "worker_exited": true
+        },
+        "os_release_sha256": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+        "scope": "model-written Bash; read-only captured readable files; no network or host home",
+        "workspace_after_sha256": "8ac9a2c25e794322c9b48de9b529a4507ba094a86639e1fda6e384bede53a60b"
+      }
+    },
+    {
+      "tool": "read_file",
+      "arguments": {
+        "path": "branchwrite/terminal.py"
+      },
+      "disposition": "read",
+      "exit_code": 0,
+      "stdout": "\"\"\"Pinned Linux commands and opt-in model shell in read-only namespaces.\n\nThe model can compose shell commands only with an explicit host grant/config.\nBoth forms use one worker and the same file projection, process retirement and\nreceipt boundary. Writes use separate granted file tools; this is not an admin\ncapability or persistent terminal session. Writable shells need separate scopes.\n\"\"\"\nfrom dataclasses import dataclass,field\nimport base64,hashlib,json,math,os,re,stat,subprocess,tempfile,time\nfrom pathlib import Path\nfrom .execution import ToolRejected,ToolResult,Executor,_operation_id,_MAX_CAPTURE_BYTES\n\ndef _stat_key(info):\n    return (info.st_dev,info.st_ino,info.st_size,info.st_mtime_ns,info.st_ctime_ns,stat.S_IMODE(info.st_mode))\n\n@dataclass(frozen=True)\nclass NamedCommand:\n    name: str\n    argv: tuple[str,...]\n    timeout: float=10.0\n    _binary_key: tuple=field(init=False,repr=False)\n    binary_sha256: str=field(init=False)\n    def __post_init__(self):\n        if (type(self.name) is not str or re.fullmatch('[A-Za-z][A-Za-z0-9_-]{0,31}',self.name) is None\n                or type(self.argv) is not tuple or not 1<=len(self.argv)<=64\n                or any(type(v) is not str or '\\0' in v for v in self.argv)\n                or sum(len(v.encode('utf8')) for v in self.argv)>32768\n                or type(self.timeout) not in (int,float) or not math.isfinite(self.timeout)\n                or not 0<self.timeout<=120):\n            raise ToolRejected('bounded immutable host command definition required')\n        executable=Path(self.argv[0])\n        if (not executable.is_absolute() or str(executable)!=self.argv[0]\n                or executable.parent not in (Path('/usr/bin'),Path('/bin'))\n                or not executable.is_file() or not os.access(executable,os.X_OK)):\n            raise ToolRejected('command executable must be a host system binary')\n        # Ubuntu 26 packages coreutils as /usr/bin aliases into /usr/lib/cargo.\n        # Admit root-owned, non-writable packaged targets throughout /usr;\n        # a /usr/bin spelling must not grant a link to user-owned code.\n        target=executable.resolve(strict=True)\n        if not target.is_relative_to('/usr'):\n            raise ToolRejected('command target is outside the system runtime')\n        for path in (target,*target.parents):\n            info=path.stat()\n            if info.st_uid!=0 or info.st_mode&0o022:\n                raise ToolRejected('command target has writable or non-root ownership')\n            if path==Path('/usr'):break\n        with executable.open('rb') as stream:\n            info=os.fstat(stream.fileno());digest=hashlib.file_digest(stream,'sha256').hexdigest()\n            if _stat_key(os.fstat(stream.fileno()))!=_stat_key(info):raise ToolRejected('command executable changed')\n        object.__setattr__(self,'timeout',float(self.timeout))\n        object.__setattr__(self,'_binary_key',_stat_key(info))\n        object.__setattr__(self,'binary_sha256',digest)\n    def check(self):\n        if _stat_key(Path(self.argv[0]).stat())!=self._binary_key:raise ToolRejected('registered command executable changed')\n    @property\n    def wire(self):return (self.name,self.argv,self.timeout,self.binary_sha256,self._binary_key)\n\ndef command_table(commands):\n    if type(commands) is not tuple or len(commands)>32 or any(not isinstance(v,NamedCommand) for v in commands):\n        raise ToolRejected('bounded immutable host command tuple required')\n    if len({v.name for v in commands})!=len(commands):raise ToolRejected('duplicate host command name')\n    return tuple(sorted(commands,key=lambda v:v.name))\n\n@dataclass(frozen=True)\nclass CommandResult(ToolResult):\n    details: dict\n    assets: tuple = ()\n\ndef _release_bytes():\n    path=Path('/etc/os-release').resolve(strict=True)\n    with path.open('rb') as stream:\n        before=os.fstat(stream.fileno())\n        if not stat.S_ISREG(before.st_mode) or before.st_size>65536:raise ToolRejected('bounded host OS release unavailable')\n        body=stream.read(65537)\n        if len(body)!=before.st_size or _stat_key(os.fstat(stream.fileno()))!=_stat_key(before):\n            raise ToolRejected('host OS release changed')\n    return body\n\ndef execute_command(executor,operation_id,grant,name):\n    operation_id=_operation_id(operation_id)\n    if name not in grant.command_names:raise ToolRejected('command is not granted')\n    command=next((v for v in executor._commands if v.name==name),None)\n    if command is None:raise ToolRejected('unknown host command')\n    return _execute_argv(executor,operation_id,grant,command,command.argv)\n\ndef _execute_argv(executor,operation_id,grant,command,command_argv):\n    command.check()\n    info=executor.workspace.lstat()\n    if not stat.S_ISDIR(info.st_mode) or (info.st_dev,info.st_ino)!=executor._workspace_identity:\n        raise ToolRejected('owned workspace is stale/replaced')\n    # Snapshot only readable files. The child cannot read neighboring workspace\n    # files, the caller's home, credentials, protected checks, or the live source.\n    outputs=grant.output_paths\n    from .command_outputs import initial_state,configure_namespace,publish,OUTPUT_LIMIT\n    output_preimages=initial_state(executor,outputs) if outputs else ()\n    inputs=[];bodies=[];total=0\n    for path in grant.read_paths:\n        if path in grant.create_paths:\n            # A readable future output need not exist yet. Project absence,\n            # not an empty/fabricated file; tests may legitimately fail before\n            # the model creates it. Links/unsafe paths still fail closed.\n            try:executor._workspace_file(path)\n            except FileNotFoundError:continue\n        if path in outputs:\n            try:executor._workspace_file(path)\n            except FileNotFoundError:continue\n        body=executor._read_private_bytes(path);total+=len(body)\n        if total>64*1024**2:raise ToolRejected('command readable inputs exceed bound')\n        mode=stat.S_IMODE(executor._workspace_file(path).stat(follow_symlinks=False).st_mode)&0o777\n        inputs.append(dict(path=path,bytes=len(body),sha256=hashlib.sha256(body).hexdigest(),mode=format(mode,'04o')))\n        bodies.append((path,body,mode))\n    release=_release_bytes()\n    started=time.monotonic()\n    with tempfile.TemporaryDirectory(prefix='command-',dir=executor.run_dir) as temporary:\n        stage=Path(temporary);projection=stage/'input';projection.mkdir(mode=0o700)\n        for path,body,mode in bodies:\n            destination=projection/path;destination.parent.mkdir(mode=0o700,parents=True,exist_ok=True)\n            # Preserve execution/read semantics. The namespace mount below\n            # remains read-only even when the copied basic mode includes write.\n            destination.write_bytes(body);destination.chmod(mode)\n        release_file=stage/'os-release';release_file.write_bytes(release);release_file.chmod(0o400)\n        package=Path(__file__).resolve().parent\n        argv=['/usr/bin/prlimit','--core=0','--fsize=16777216','--as=2147483648',\n            '--cpu='+str(math.ceil(command.timeout)+2),'--','/usr/bin/bwrap',\n            '--die-with-parent','--new-session','--unshare-all','--unshare-user',\n            '--disable-userns','--cap-drop','ALL','--clearenv']\n        for path in ['/usr','/lib','/lib64']:argv+=['--ro-bind',path,path]\n        argv+=['--proc','/proc','--dev','/dev','--size','67108864','--tmpfs','/tmp','--chmod','1777','/tmp',\n            '--dir','/etc','--ro-bind',str(release_file),'/etc/os-release',\n            '--ro-bind',str(package),'/app/branchwrite',\n            '--ro-bind',str(projection),str(executor.workspace)]\n        output_capacity=configure_namespace(argv,projection,executor.workspace,outputs) if outputs else {}\n        argv+=['--chdir',str(executor.workspace),\n            '--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8',\n            '--','/usr/bin/python3','-I','-B','/app/branchwrite/terminal_worker.py']\n        request_row=dict(argv=command_argv,timeout=command.timeout)\n        if outputs:request_row.update(schema=2,outputs=list(outputs))\n        request=json.dumps(request_row,separators=(',',':')).encode()\n        if len(request)>1024**2:raise ToolRejected('command request exceeds framing bound')\n        if not hasattr(os,'memfd_create'):raise ToolRejected('terminal isolation requires Linux memfd')\n        descriptor=os.memfd_create('bw-command-request',os.MFD_CLOEXEC)\n        process=None\n        try:\n            with os.fdopen(descriptor,'w+b') as stream:\n                stream.write(request);stream.seek(0)\n                process=subprocess.Popen(argv,stdin=stream,stdout=subprocess.PIPE,stderr=subprocess.PIPE,\n                    close_fds=True,start_new_session=True,env={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8'})\n            out,err,timed_out,limited,_=Executor._capture(process,time.monotonic()+command.timeout+3,((OUTPUT_LIMIT+2*_MAX_CAPTURE_BYTES)*4//3+1024**2) if outputs else 3*1024**2)\n        finally:\n            if process is not None and process.poll() is None:\n                import signal\n                Executor._signal_group(process,signal.SIGKILL);process.wait(timeout=3)\n        if timed_out or limited or process.returncode!=0:\n            raise ValueError('terminal worker did not settle: '+err.decode('utf8','replace')[-512:])\n        row=json.loads(out)\n        fields={'schema','argv','cwd','disposition','exit_code','stdout','stderr','isolation'}\n        if outputs:fields|={'outputs','output_error'}\n        if (type(row) is not dict or set(row)!=fields or row['schema']!=(2 if outputs else 1)\n                or row['argv']!=list(command_argv) or row['cwd']!=str(executor.workspace)\n                or row['disposition'] not in ('exited','timeout','output_limit','spawn_error')\n                or (row['exit_code'] is not None and type(row['exit_code']) is not int)):\n            raise ValueError('invalid terminal worker receipt')\n        witness=row['isolation']\n        if (type(witness) is not dict or witness.get('kind')!='bubblewrap-terminal-v1'\n                or any(type(witness.get(name)) is not str\n                    or witness[name]==os.readlink('/proc/self/ns/'+suffix)\n                    for name,suffix in [('pid_ns','pid'),('net_ns','net'),('mount_ns','mnt')])):\n            raise ValueError('terminal namespace isolation is not proven')\n        from .browser_isolation import await_namespace_retirement\n        members=await_namespace_retirement(witness['pid_ns'])\n        if members:raise ValueError('terminal namespace retirement is not proven')\n        witness.update(worker_exited=True,launcher_pid=process.pid,namespace_members_after=members)\n        stdout=base64.b64decode(row['stdout'],validate=True);stderr=base64.b64decode(row['stderr'],validate=True)\n        if max(len(stdout),len(stderr))>_MAX_CAPTURE_BYTES:raise ValueError('terminal output exceeds capture bound')\n        details=dict(command=command.name,argv=list(command_argv),binary_sha256=command.binary_sha256,\n            cwd=row['cwd'],inputs=inputs,os_release_sha256=hashlib.sha256(release).hexdigest(),\n            execution_host=dict(hostname=os.uname().nodename,uid=os.getuid(),euid=os.geteuid(),gid=os.getgid()),\n            isolation=witness,scope='host-fixed argv;read-only captured readable files;no network or host home')\n        assets=()\n        if outputs:\n            if row['output_error'] is not None:\n                if type(row['output_error']) is not str or len(row['output_error'])>512:raise ValueError('invalid output rejection')\n                details.update(outputs=[],output_error=row['output_error'],output_capacity=output_capacity)\n                row['disposition']='output_rejected'\n            else:\n                receipts,assets=publish(executor,outputs,output_preimages,row['outputs'],operation_id)\n                details.update(outputs=receipts,output_capacity=output_capacity)\n        # Only publish after actual namespace retirement. Upstream publication\n        # uncertainty keeps the original intent unresolved; it is not resend.\n        result=executor._result(operation_id,row['disposition'],row['exit_code'],started,stdout,stderr)\n        return CommandResult(result.operation_id,result.disposition,result.exit_code,result.elapsed_seconds,\n            result.stdout,result.stderr,details,assets)\n\nMAX_SHELL_BYTES=16384\n\n@dataclass(frozen=True)\nclass ShellConfig:\n    \"\"\"Host selects pinned Bash, timeout and optional executor hostname.\"\"\"\n    timeout: float=10.0\n    expected_hostname: str|None=None\n    _command: NamedCommand=field(init=False,repr=False)\n    def __post_init__(self):\n        if self.expected_hostname is not None and (type(self.expected_hostname) is not str\n                or re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,252}',self.expected_hostname) is None):\n            raise ToolRejected('bounded executor hostname required')\n        self.check_host()\n        command=NamedCommand('shell',('/usr/bin/bash','--noprofile','--norc'),self.timeout)\n        object.__setattr__(self,'timeout',command.timeout)\n        object.__setattr__(self,'_command',command)\n    @property\n    def wire(self):return ('bw.readonly-shell.v1',self._command.wire,MAX_SHELL_BYTES,self.expected_hostname)\n    def check_host(self):\n        actual=os.uname().nodename\n        if self.expected_hostname is not None and actual!=self.expected_hostname:\n            raise ToolRejected('executor host mismatch: expected '+self.expected_hostname+', observed '+actual)\n    def validate(self,text):\n        self.check_host()\n        if type(text) is not str or not text or '\\0' in text or len(text.encode('utf8'))>MAX_SHELL_BYTES:\n            raise ToolRejected('bounded nonempty shell command required')\n        self._command.check()\n        return self._command.argv+('-c',text)\n\ndef execute_shell(executor,operation_id,grant,text):\n    operation_id=_operation_id(operation_id)\n    if not grant.allow_shell or executor._shell is None:raise ToolRejected('shell is not granted/configured')\n    config=executor._shell;argv=config.validate(text)\n    result=_execute_argv(executor,operation_id,grant,config._command,argv)\n    result.details['scope']=('model-written Bash; protected inputs; bounded declared outputs; no network or host home' if grant.output_paths else 'model-written Bash; read-only captured readable files; no network or host home')\n    return result\n",
+      "stderr": "",
+      "details": {}
+    },
+    {
+      "tool": "run_shell",
+      "arguments": {
+        "command": "stat -c '%n %u %a' /usr /usr/bin /usr/bin/bash $(readlink -f /usr/bin/bash) 2>&1"
+      },
+      "disposition": "exited",
+      "exit_code": 0,
+      "stdout": "/usr 65534 755\n/usr/bin 65534 755\n/usr/bin/bash 65534 755\n/usr/bin/bash 65534 755\n",
+      "stderr": "",
+      "details": {
+        "argv": [
+          "/usr/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-c",
+          "stat -c '%n %u %a' /usr /usr/bin /usr/bin/bash $(readlink -f /usr/bin/bash) 2>&1"
+        ],
+        "binary_sha256": "3efccc187bafa75ff1e37d246270ab3e7aa559f242c7a52bf3ec2a1b5450bdbd",
+        "command": "shell",
+        "cwd": "/home/dflanag3/spatial-artifacts/branchwrite-real-repository-20261019-v1/state/world/workspace",
+        "execution_host": {
+          "euid": 1000,
+          "gid": 1000,
+          "hostname": "r4090",
+          "uid": 1000
+        },
+        "inputs": [
+          {
+            "bytes": 5543,
+            "mode": "0644",
+            "path": "AGENTS.md",
+            "sha256": "935676582e4d262540ff3da251b6b5f5c7395ab97dd625d82bfd73e1d734338e"
+          },
+          {
+            "bytes": 6404,
+            "mode": "0644",
+            "path": "README.md",
+            "sha256": "6a7d648a9523ff7feada4e285c868f4904fc79961ba0cbfb3d7c834ff47c2490"
+          },
+          {
+            "bytes": 42,
+            "mode": "0644",
+            "path": "branchwrite/__init__.py",
+            "sha256": "fb7c95827f77766f0bf1aec234c000c9bb74990463dc8a135898e8ff24a7f11c"
+          },
+          {
+            "bytes": 4674,
+            "mode": "0644",
+            "path": "branchwrite/__main__.py",
+            "sha256": "01b8450ef67c026f663d726ca17bcf8bf90a699650d18d6a22a509b68b3002bb"
+          },
+          {
+            "bytes": 2711,
+            "mode": "0644",
+            "path": "branchwrite/browser_assets.py",
+            "sha256": "281be85bd17b275a3510560c11535e4dc8efbbe695098c498d633ca26f40ed31"
+          },
+          {
+            "bytes": 19255,
+            "mode": "0644",
+            "path": "branchwrite/browser_capture.py",
+            "sha256": "fe2cf850c0fda370fd286e5e9907aaeaa8607d3bb1bb21c88b5efb03160dfdec"
+          },
+          {
+            "bytes": 9288,
+            "mode": "0644",
+            "path": "branchwrite/browser_isolation.py",
+            "sha256": "782fb456cc47fe0f8a4c92a9e0729814a9bf9676d76b28246d99b8751b5fad10"
+          },
+          {
+            "bytes": 4088,
+            "mode": "0644",
+            "path": "branchwrite/browser_worker.py",
+            "sha256": "d37e44545734c614c053a37c2dc77a57f90c9dbc26b8789d26022c8cad6b1fe1"
+          },
+          {
+            "bytes": 9762,
+            "mode": "0644",
+            "path": "branchwrite/coding_cli.py",
+            "sha256": "629b5d0e29ac347bd56e4549c7c02d098478061b0d6c2a98a088970df72b241f"
+          },
+          {
+            "bytes": 4716,
+            "mode": "0644",
+            "path": "branchwrite/coding_contract.py",
+            "sha256": "4c0f0435523dbc8d8f4e45553ac5068dd09bd2f549e99d6b1732ca747f952eac"
+          },
+          {
+            "bytes": 10781,
+            "mode": "0644",
+            "path": "branchwrite/coding_defaults.py",
+            "sha256": "e11f62a6b8c49c644afeeb154908137c5a415de55b67529cd39c0e0a97a0c34c"
+          },
+          {
+            "bytes": 11868,
+            "mode": "0644",
+            "path": "branchwrite/command_outputs.py",
+            "sha256": "3bbc00140bbd4da2dbf71b927d2c6261e3f58473bd4ae4202933ea1e4c8d54d9"
+          },
+          {
+            "bytes": 8369,
+            "mode": "0644",
+            "path": "branchwrite/component_model.py",
+            "sha256": "cdfa18438cff524f9a37a3e44dac0351eda736fb6222c93a7fb37f36c4901b5b"
+          },
+          {
+            "bytes": 22832,
+            "mode": "0644",
+            "path": "branchwrite/context_pack.py",
+            "sha256": "eef9e480df1cc1561bafbd1c25a5b3b4e2f3cf31c8a724defab671afdc3b2c75"
+          },
+          {
+            "bytes": 2125,
+            "mode": "0644",
+            "path": "branchwrite/control_contract.py",
+            "sha256": "69982583752013c32270932b7e5cf1cb5e03d0afb9691d7c3dc88948bb9270e6"
+          },
+          {
+            "bytes": 3351,
+            "mode": "0644",
+            "path": "branchwrite/cow_actions.py",
+            "sha256": "81d141bb5d898069cc53cc65312d6461974c14e6d5cb1a7a2fbdd059d1d8b4d4"
+          },
+          {
+            "bytes": 77648,
+            "mode": "0644",
+            "path": "branchwrite/cow_client.py",
+            "sha256": "a08bd70de75399583cfc19229dc6e0a6ff5447286d5b8856b5322e5eda2f86d7"
+          },
+          {
+            "bytes": 6080,
+            "mode": "0644",
+            "path": "branchwrite/cow_fork.py",
+            "sha256": "0c06476f31eaac5c83e216ba6b1003c4e0ed3533b662532f077a9a6124a29fe0"
+          },
+          {
+            "bytes": 49049,
+            "mode": "0644",
+            "path": "branchwrite/execution.py",
+            "sha256": "31abda723bf8712c52189195cc3da4af132c930adc4ca2524523003082390ec2"
+          },
+          {
+            "bytes": 9645,
+            "mode": "0644",
+            "path": "branchwrite/golden_path.py",
+            "sha256": "084ea3467edbbc3b57f65c41c93693f76c0447350f5d4bc30264190491ec9316"
+          },
+          {
+            "bytes": 5412,
+            "mode": "0644",
+            "path": "branchwrite/image_feedback.py",
+            "sha256": "b26e8c6c70260a2264a302fe7a6e55c483e6a7084579d8fb0762c7bdeef6bcfe"
+          },
+          {
+            "bytes": 38353,
+            "mode": "0644",
+            "path": "branchwrite/interpreter.py",
+            "sha256": "cbb7a20a1d9015968c2b81aa4c61ac2a17d9a4f33b8496199f586a7593852d94"
+          },
+          {
+            "bytes": 14996,
+            "mode": "0644",
+            "path": "branchwrite/kernel.py",
+            "sha256": "cb6a345521f496ead177c9cfbb908929af8c268ce50a440a78086a66d5343e10"
+          },
+          {
+            "bytes": 9266,
+            "mode": "0644",
+            "path": "branchwrite/language.py",
+            "sha256": "c0bb2454e6f999e5f94f8eb63544e7f6ab35fd5731894f866074137a9a5f9985"
+          },
+          {
+            "bytes": 21138,
+            "mode": "0644",
+            "path": "branchwrite/model_dispatch.py",
+            "sha256": "a0a8899ad9c4e400159e90c388b574866040dea420d6ff251fe2e5c1be2b9007"
+          },
+          {
+            "bytes": 1730,
+            "mode": "0644",
+            "path": "branchwrite/model_inputs.py",
+            "sha256": "5ed2c9721862582c4553720130ef09a27b6e3668304b31b19af24cdacdd0f5ea"
+          },
+          {
+            "bytes": 7728,
+            "mode": "0644",
+            "path": "branchwrite/planning_retry.py",
+            "sha256": "ef5609571126cc74bd186b3a59d0ad7f9d53aa8202647711d3ccdca445f44946"
+          },
+          {
+            "bytes": 13119,
+            "mode": "0644",
+            "path": "branchwrite/records.py",
+            "sha256": "cbc34ddb6b510217a2a1995e2c31ea092f1b0c211b2daa1039dca18a2093d09b"
+          },
+          {
+            "bytes": 17845,
+            "mode": "0644",
+            "path": "branchwrite/run_cli.py",
+            "sha256": "8cfbfdacb4729d725f80c0bbca8daa062b30a47e4b4fbe6530bdba554ea80f95"
+          },
+          {
+            "bytes": 14375,
+            "mode": "0644",
+            "path": "branchwrite/terminal.py",
+            "sha256": "b7c711312c2076f423fef08f5d54a507d3822c73fbae616a1089b4f9b9358495"
+          },
+          {
+            "bytes": 12786,
+            "mode": "0644",
+            "path": "branchwrite/terminal_components.py",
+            "sha256": "e583db55b25ae9171581ba3234e984d574b6aeaa3733de43211735fb1225e5e8"
+          },
+          {
+            "bytes": 2388,
+            "mode": "0644",
+            "path": "branchwrite/terminal_worker.py",
+            "sha256": "6bf6cf80c667a5fff3fdbcc8644a09cc925abc9ee6cdd06b10cd3cb634bf7996"
+          },
+          {
+            "bytes": 1800,
+            "mode": "0644",
+            "path": "branchwrite/text_file_codec.py",
+            "sha256": "e91be4c888837203dae028c31ab22f30b4f709e7d350c908cf5a4dd421c9cbb8"
+          },
+          {
+            "bytes": 5119,
+            "mode": "0644",
+            "path": "branchwrite/thinking_ladder.py",
+            "sha256": "fa7b12cab3736be03275c37c34f5d53eb6d7fdb274e003001ee4a8dfece075fc"
+          },
+          {
+            "bytes": 4205,
+            "mode": "0644",
+            "path": "branchwrite/tool_dispatch.py",
+            "sha256": "92b386ce99805dccb063d840af35f9d1a9efcc773705a8563a6eec861b5a8bd6"
+          },
+          {
+            "bytes": 32148,
+            "mode": "0644",
+            "path": "branchwrite/tool_registry.py",
+            "sha256": "54c5b6625f5b975523b8830332f027186077e7a724dc22a4748f67b7da414568"
+          },
+          {
+            "bytes": 30228,
+            "mode": "0644",
+            "path": "branchwrite/verification.py",
+            "sha256": "f2ca101512c0501639012f39c411d353421677a63790ea185e406917e7fea7e0"
+          },
+          {
+            "bytes": 1691,
+            "mode": "0644",
+            "path": "examples/README.md",
+            "sha256": "a196a50617a4e29369efd668db5c7bf5cc0a7ae142fb579fa47cea6691bb7042"
+          },
+          {
+            "bytes": 576,
+            "mode": "0644",
+            "path": "examples/bounded-revision.bw",
+            "sha256": "4d85d62b158e147da82bf166e79acd5c147174cc8c177377e3bc416bb6e16e87"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/coding.bw",
+            "sha256": "cdfac36f6fe9d1b7571ee5437e39c2ced28bfed330f2487e4a0feeb3b55c9238"
+          },
+          {
+            "bytes": 779,
+            "mode": "0644",
+            "path": "examples/continue-and-compose.bw",
+            "sha256": "77a3d447c2441df991a029218117cdb237aa887de865c0c13627bd2633d64b1c"
+          },
+          {
+            "bytes": 419,
+            "mode": "0644",
+            "path": "examples/file-task.bw",
+            "sha256": "20029c79318bccf4ed9a9d9b7cc86985cdcaeb6003e994032b71899746c107bd"
+          },
+          {
+            "bytes": 443,
+            "mode": "0644",
+            "path": "examples/generated-page-task.bw",
+            "sha256": "0e83e4fdbb5ac40cf431f28e8f7b7d0a9309af22d7a7f433ae48ebf79b8f1699"
+          },
+          {
+            "bytes": 455,
+            "mode": "0644",
+            "path": "examples/interactive-page-task.bw",
+            "sha256": "1c522dfd100902648d94ed6160f609862dee2c561236f737f191716f85b97fde"
+          },
+          {
+            "bytes": 7372,
+            "mode": "0644",
+            "path": "examples/line-file-worked-examples.txt",
+            "sha256": "ac811099e2d58f8f1a8ee0e88626048d24552ed2b927ac9b5398889a9a9d7776"
+          },
+          {
+            "bytes": 6489,
+            "mode": "0644",
+            "path": "examples/literal-file-worked-examples.txt",
+            "sha256": "f8891dbb0980a5578ed7436c1ae5b212e853b280a57c41bffbb4588c61d95251"
+          },
+          {
+            "bytes": 417,
+            "mode": "0644",
+            "path": "examples/page-task.bw",
+            "sha256": "eb1429be03c079b10196d4737dbdb169a46727769af111e92a967a678f2aae0b"
+          },
+          {
+            "bytes": 1734,
+            "mode": "0644",
+            "path": "examples/parallel-repair.bw",
+            "sha256": "a31dd48696096137862573a3fffdfb4e69aebba76c28ccc5744c17c284794520"
+          },
+          {
+            "bytes": 39145,
+            "mode": "0644",
+            "path": "examples/terminal-worked-examples.txt",
+            "sha256": "2a33b84781509f23d117c1502691a8cab1e767a8bf0bde3f0552bfca2ed9bfbe"
+          },
+          {
+            "bytes": 45809,
+            "mode": "0644",
+            "path": "examples/tool-worked-examples.txt",
+            "sha256": "410e5092a535372d80e712acbe784aedfde28782a8f920dea9d6ad7936ee656c"
+          },
+          {
+            "bytes": 395,
+            "mode": "0644",
+            "path": "pyproject.toml",
+            "sha256": "6347ecc9212c9abfc12b86877c244d30ae7823b138402b0d040c97cf9ff9d86f"
+          },
+          {
+            "bytes": 610,
+            "mode": "0644",
+            "path": "setup.py",
+            "sha256": "4441787767380a630c009c32f53671ce758a8b2f5ccdb57d902d53c0ff177b20"
+          },
+          {
+            "bytes": 6649,
+            "mode": "0644",
+            "path": "tests/test_coding_launcher.py",
+            "sha256": "1f21a6440a6eea7f8d22553be11a6491ccc538574f6d35754ef186f31f698177"
+          },
+          {
+            "bytes": 2394,
+            "mode": "0664",
+            "path": "tests/test_connection_admission.py",
+            "sha256": "de824cadd44193e16f7e76dc363d89285fcf72cc7ef5452927d79f85cabb11ce"
+          }
+        ],
+        "isolation": {
+          "kind": "bubblewrap-terminal-v1",
+          "launcher_pid": 2254945,
+          "mount_ns": "mnt:[4026532775]",
+          "namespace_members_after": [],
+          "net_ns": "net:[4026532781]",
+          "pid_ns": "pid:[4026532778]",
+          "worker_exited": true
+        },
+        "os_release_sha256": "cf72627ff81aef345d0a9f3807eb80f1035e0f80fe2932d12d94efc02fd68104",
+        "scope": "model-written Bash; read-only captured readable files; no network or host home",
+        "workspace_after_sha256": "8ac9a2c25e794322c9b48de9b529a4507ba094a86639e1fda6e384bede53a60b"
+      }
+    }
+  ],
+  "model_requests": [
+    {
+      "tokens": 97,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 32,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 30,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 380,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 313,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 92,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 64,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 1756,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 62,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 43,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 45,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 274,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 1012,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    },
+    {
+      "tokens": 979,
+      "grammar_state": "g36f28f68009580c9ae3931553aa7f2175b16d22640f0b8b96ea520ad54ae4d24_s0"
+    }
+  ],
+  "numerical_oracle": "NOT_RUN"
+}

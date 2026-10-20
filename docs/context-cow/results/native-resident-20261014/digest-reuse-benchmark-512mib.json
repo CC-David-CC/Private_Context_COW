@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "scope": "isolated CUDA SHA-256; not inference; three passes after warm-up per process",
+  "bytes_per_pass": 536870912,
+  "fixture_sha256": "977ca80cc5bb5d1b04229c71c8916280ce03a91b297637e7c1f7e3078fe299b7",
+  "binary_sha256": "34a151f4abeb381593e7216fc5da74027997142b8cdf2c66653daff4297ac153",
+  "harness_sha256": "16a627501e9b40731014f39fdae9c433c89382b7df432636d451823323dd5d91",
+  "repetitions": [
+    {
+      "wall_ns": 4453409,
+      "plan_upload_ns": 16912,
+      "page_hash_ns": 3462473,
+      "page_digest_download_ns": 865718,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "host_allocations_during_measurement": 0,
+      "fresh_mutation_detected": true,
+      "workspace_live_bytes": 0,
+      "host_workspace_live_bytes": 0,
+      "repetition": 0,
+      "process_seconds": 29.1607626240002,
+      "ms_per_pass": {
+        "wall_ns": 1.4844696666666666,
+        "plan_upload_ns": 0.005637333333333334,
+        "page_hash_ns": 1.1541576666666666,
+        "page_digest_download_ns": 0.28857266666666664
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    },
+    {
+      "wall_ns": 4456905,
+      "plan_upload_ns": 17744,
+      "page_hash_ns": 3458504,
+      "page_digest_download_ns": 871028,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "host_allocations_during_measurement": 0,
+      "fresh_mutation_detected": true,
+      "workspace_live_bytes": 0,
+      "host_workspace_live_bytes": 0,
+      "repetition": 1,
+      "process_seconds": 29.163710457039997,
+      "ms_per_pass": {
+        "wall_ns": 1.485635,
+        "plan_upload_ns": 0.005914666666666667,
+        "page_hash_ns": 1.1528346666666667,
+        "page_digest_download_ns": 0.2903426666666667
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    },
+    {
+      "wall_ns": 4438590,
+      "plan_upload_ns": 17142,
+      "page_hash_ns": 3461741,
+      "page_digest_download_ns": 850951,
+      "device_hashed_bytes": 1610612736,
+      "kernel_calls": 3,
+      "host_allocations_during_measurement": 0,
+      "fresh_mutation_detected": true,
+      "workspace_live_bytes": 0,
+      "host_workspace_live_bytes": 0,
+      "repetition": 2,
+      "process_seconds": 29.279743561986834,
+      "ms_per_pass": {
+        "wall_ns": 1.47953,
+        "plan_upload_ns": 0.005714,
+        "page_hash_ns": 1.1539136666666667,
+        "page_digest_download_ns": 0.28365033333333334
+      },
+      "ordered_digest_sha256": "9c8b06cd013147c401dd96c1c8548c80b49e9133a88bae0e64a50af37a77a1a4"
+    }
+  ]
+}

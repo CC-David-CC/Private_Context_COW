@@ -1,0 +1,10 @@
+FLOW coding
+REPEAT attempts exhausted=stop max=16 until=verified
+EXPAND decide from=current profile=control task=task -> proposed
+PLAN freeze against=world from=proposed -> plan
+ACT perform plan=plan -> outcome
+TRANSFORM advance contract=cow-source input=proposed -> current
+TRANSFORM feedback contract=tool-feedback input=outcome -> task
+VERIFY check contract=command-evidence-and-finish input=outcome -> verified
+END
+END

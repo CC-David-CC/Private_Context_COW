@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "work_branch": "work/state-gbnf-wiring-20261016",
+  "base_commit": "5143e44786083ff135315abc92b6f93d2faccadb",
+  "retry_fix_merge_commit": "cb0be4f5a56feadd20f598b5f060fdd01ca7a933",
+  "date_utc": "2026-10-16",
+  "qualification_scope": "CPU-only named-state GBNF registry and HTTP/CLI routing; native/GPU integration is not qualified",
+  "runtime": {
+    "host": "llm-60",
+    "python": "/home/dflanag3/src/Strata/.venv/bin/python",
+    "llguidance_version": "1.9.1",
+    "llguidance_dependency_sha256": "131282df4f51cc55e938a7501789a51d2b3a25ab2abc7c6676b951ba908c924a"
+  },
+  "runner": {
+    "path": "/home/dflanag3/spatial-artifacts/cow-client-pipeline-integration-20261015-v1/run-command.sh",
+    "sha256": "7053d5ffe05e7050b035d6b715b794dd742b68ee29b9198a703979391323f537"
+  },
+  "runs": [
+    {
+      "name": "canonical-grammar-flow",
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v9/canonical-v2",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_passed": 9,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "coverage": "real CPU coordinator, Store, BranchingModel, GrammarEngine and controller with deterministic test backend"
+    },
+    {
+      "name": "http-cli-retry-and-text-focused",
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v10/focused-v1",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_passed": 45,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "modules": [
+        "serve.test_cow_grammar_http",
+        "tools.test_cow_cli_grammar",
+        "serve.test_cow_answer_retry",
+        "tools.test_cow_cli_retry",
+        "serve.test_cow_text_adapter"
+      ],
+      "coverage": "CLI subprocess to local HTTP fixture and retry/text adapter regressions; deterministic CPU test adapters"
+    },
+    {
+      "name": "g0",
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v11/g0-v1",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_passed": 51,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "receipt": "evidence/runs/20261016T223429020075Z-G0.json",
+      "base_input_archive": "/home/dflanag3/spatial-artifacts/g4-cli-20261016-v1/g0-base5143-exact-inputs-v1.tar",
+      "base_input_archive_sha256": "4bb3145e1bdd0c5ddaeb623be64dd025d77674b16986ccc4bea80c2b809e075e"
+    }
+  ],
+  "retained_failed_runs": [
+    {
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v8/canonical-v1",
+      "status": "7 passed, 2 errors",
+      "cause": "fixture head lookup used a non-existent branch name; sampled resume lacked a bound generation-settings descriptor"
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v9/focused-v1",
+      "status": "44 passed, 1 failed, 1 loader error",
+      "cause": "legacy adapter assertion caught forwarding grammar_state=None; command also named a nonexistent test module. The compatibility fix passes in focused-v1 on v10."
+    },
+    {
+      "path": "/home/dflanag3/spatial-artifacts/state-gbnf-wiring-20261016-v1/production-wiring-v7/g0",
+      "status": "not used as qualification for this final source",
+      "cause": "sparse stage lacked base verifier inputs; G0 was rerun after applying the exact archived base inputs in v11"
+    }
+  ],
+  "authored_file_sha256": {
+    "experimental/branching_context/src/context_time_travel/coordinator.py": "a64799f5c41e2821130e33d61e8d864196ea23f9a4fdb228359a59880a1bb69c",
+    "serve/cow_adapter.py": "2a683fef6dc5b4dedbcd4232fe1fd2f6056c4c932fdecbd3381377c932ddb3db",
+    "serve/cow_grammar.py": "a56b760963fe2672cdb7ab293b63bfbe49ae66d301130acf2bf5a95ccd67e042",
+    "serve/cow_http.py": "7cd185046e4c4eeaa0522906116acd323683f048ad1f9397e70386cacb8d8a58",
+    "serve/cow_text_adapter.py": "0f4919858b4c27db511deda479ef5e5d01036ef194a0c184ac4d0af121df72c8",
+    "serve/test_cow_grammar_canonical_flow.py": "79ff54012feabb60e49149d15fb28f83df5eb4357f78f8fa92d8ad896a6d9d15",
+    "serve/test_cow_grammar_http.py": "0db2c605b4a617ee22c1fb44c2853458998cadff19665c2a1e55c919041cbcf1",
+    "tools/cow_cli.py": "944bd8a191f1c1b1026e415595d306c2fcfd6e6c2123730c78634c9fb82ad2bf",
+    "tools/test_cow_cli_grammar.py": "57ff88b797d30150775f1c75d95cdbb42eb23f740d78ee45dc69f65ab189e545",
+    "docs/context-cow/GRAMMAR.md": "0f8ed9dc692c632d2674257c1172c6f90c4c5692026157796222ec1372133692",
+    "serve/requirements-grammar.txt": "cccfff47f0f160565b12b80f8dc157d0d1f75fb6e55930bc1f65271889659198"
+  },
+  "known_limits": [
+    "No native model or GPU run was performed for this branch.",
+    "CLI tests exercise the real CLI subprocess and HTTP route with deterministic CPU fixtures; the canonical coordinator test exercises real Store/BranchingModel/GrammarEngine with a deterministic CPU backend.",
+    "The existing G0 gate does not cover the new optional GBNF server path."
+  ]
+}

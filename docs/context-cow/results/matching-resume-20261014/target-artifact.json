@@ -1,0 +1,11 @@
+{
+  "scope": "Executed 8K matching-batch restart raw evidence; native state payloads retained separately on llm-60",
+  "archive_bytes": 884572034,
+  "sha256": "362dbea9393384b021f820b9035bc05abf1890c06faf51a07ecf905d7f9958cc",
+  "private_backup": "box-git:/srv/data/git/private_context_cow.evidence/20261014/target-matching-resume.zip",
+  "local_copy": "C:/Users/dflanag3/Documents/fleet/output/durable-resume/target-matching-resume.zip",
+  "source_copy": "/home/dflanag3/branching-g3/matching-resume-20261014-expanded/target-package/raw-matching-resume.zip",
+  "local_sha256_verified": true,
+  "backup_sha256_verified": true,
+  "github_publication": false
+}

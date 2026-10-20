@@ -1,0 +1,36 @@
+{
+  "schema": "q4-postcommit-precheck-failure-v1",
+  "status": "FAIL",
+  "classification": "test harness error after real native warmup, before target request or crash injection",
+  "host": "llm-60 GPU0",
+  "artifact_root": "/home/dflanag3/spatial-artifacts/q4-postcommit-restart-20261016-v1/gpu-q4-v1",
+  "error": "UnboundLocalError: cannot access local variable 'store' where it is not associated with a value",
+  "site": "pre_target_record = store._read_branch(target_branch)",
+  "result_sha256": "5f3c28c657fa5bc73c322d49c0e6ec55ef034c11369c04be82243154d432284d",
+  "native_trace_sha256": "ad0d01f95a867f241354185be02370adab64bed8fee76973a75a32e73cc0dd77",
+  "harness_sha256": "0d8b264c1e1885a257b1ce32ff09145c9d5701e7f5dd5dbc0232a8e5deee394b",
+  "profile_sha256": "f3f54a13f20d91c9035600c9434b321e81d05b27c91dd992db67ddfadd58243c",
+  "native_binary_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "executed": {
+    "warmup_outputs": 1,
+    "native_forward_tokens": 1,
+    "native_prefill_tokens": 0,
+    "native_state_file_load_bytes": 326992628,
+    "pool_full_checkpoint_preload_bytes": 327985908,
+    "integrity_mismatches": 0,
+    "target_request_started": false,
+    "postcommit_crash_injected": false,
+    "numerical_max_error": null
+  },
+  "terminal": {
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "http_pid": 2744379,
+    "native_pid": 2744385,
+    "native_worker_returncode": 0,
+    "http_returncode": null,
+    "both_processes_absent_on_primary_ps_readback": true,
+    "limitation": "The original harness discarded the HTTP stop receipt; do not infer its exit code from absence"
+  },
+  "remaining": "Correct the harness, retain cleanup receipts and rerun the same real Q4 postcommit crash contract; no engine fix or tolerance change is justified by this failure"
+}

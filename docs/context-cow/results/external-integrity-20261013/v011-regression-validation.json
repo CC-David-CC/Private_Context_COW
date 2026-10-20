@@ -1,0 +1,65 @@
+[
+  {
+    "label": "v011-native-regressions",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "-R",
+      "^(branch_prepare_test|branch_page_batch_test|branch_pages_test|branch_session_test|branch_integrity_test|branch_lifecycle_test)$",
+      "--output-on-failure"
+    ],
+    "exit_code": 0,
+    "seconds": 3.6558239279547706
+  },
+  {
+    "label": "v011-digests",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/tests/core/branch_digest_test.py"
+    ],
+    "exit_code": 0,
+    "seconds": 7.130381556926295
+  },
+  {
+    "label": "v011-page-digests",
+    "argv": [
+      "python3",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/tests/core/branch_digest_pages_test.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.7490457620006055
+  },
+  {
+    "label": "v011-controller",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/tests/implementation",
+      "-p",
+      "test_controller_copy.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.03831591992639005
+  },
+  {
+    "label": "v011-profile-inputs",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/tests/implementation",
+      "-p",
+      "test_speed_profile.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.03689943498466164
+  }
+]

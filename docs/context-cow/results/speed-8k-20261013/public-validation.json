@@ -1,0 +1,106 @@
+[
+  {
+    "label": "profile",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/prepare_speed_profile.py",
+      "--source",
+      "<measurement-home>/branching-g3/context-cow-public-20261013",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-batched",
+      "--model",
+      "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+      "--pack",
+      "<measurement-home>/branching-g3/q8-pack",
+      "--expert-profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/data/expert-profile.bin",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile",
+      "--model-receipt",
+      "<measurement-home>/branching-g3/llm60-model-hashes.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.7956766160205007
+  },
+  {
+    "label": "reference",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "scripts/verify.py",
+      "--gate",
+      "G0"
+    ],
+    "exit_code": 0,
+    "seconds": 0.28929258801508695
+  },
+  {
+    "label": "demo",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "examples/branching_demo.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.060082020005211234
+  },
+  {
+    "label": "mutations",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "scripts/mutation_smoke.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.043837541015818715
+  },
+  {
+    "label": "controller",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "tests/implementation/test_controller_copy.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.036769706988707185
+  },
+  {
+    "label": "profile-inputs",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "tests/implementation/test_speed_profile.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.03397786302957684
+  },
+  {
+    "label": "native",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build",
+      "--output-on-failure",
+      "-R",
+      "^branch_(page_batch|pages|session|integrity)_test$"
+    ],
+    "exit_code": 0,
+    "seconds": 1.2698611059458926
+  },
+  {
+    "label": "gpu-demo",
+    "argv": [
+      "<measurement-home>/src/Strata/.venv/bin/python",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context/scripts/cow_speed_8k.py",
+      "--api",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/experimental/branching_context",
+      "--profile",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/profile.json",
+      "--binaries",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/build-batched",
+      "--fixture",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-profile/fixture.json",
+      "--output",
+      "<measurement-home>/branching-g3/context-cow-public-20261013/demo-results"
+    ],
+    "exit_code": 0,
+    "seconds": 329.24967343197204
+  }
+]

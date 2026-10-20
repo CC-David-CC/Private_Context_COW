@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "SUPPLEMENTAL_CONTROL_PLANE_TESTS_PASS",
+  "qualification_scope": "Synthetic exact-token-prefix helper only; not actual Q8 tokenizer/template-prefix parity, model execution, GPU correctness, or serving-adapter qualification.",
+  "source_revision": "26aa7143aea843dbd2c9e208db8d8bd161b26d2f",
+  "host": "llm-49",
+  "python": "Python 3.14.4",
+  "scratch_directory": "/home/dflanag3/spatial-artifacts/cow-prefix-prework-20261014",
+  "test_command": "cd /home/dflanag3/spatial-artifacts/cow-prefix-prework-20261014 && PYTHONPATH=. python3 -m unittest discover -s serve -p 'test_cow_prefix.py' -v",
+  "source_sha256": {
+    "serve/cow_prefix.py": "3bf872924c3609840e0118c83ebaffb790e788404797e0ed45e3252be4c962e3",
+    "serve/test_cow_prefix.py": "8f64a55106d98d990077f7bcb9a8535f52366ee48feb30e6e1bc5a49795e6362"
+  },
+  "unittest": {
+    "tests_run": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "executed": [
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_empty_canonical_history_returns_complete_prompt", "result": "PASS"},
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_equal_history_has_empty_suffix", "result": "PASS"},
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_exact_prefix_returns_only_new_rendered_token_ids", "result": "PASS"},
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_character_prefix_when_reencoding_changes_bpe_boundary", "result": "PASS"},
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_non_token_ids_instead_of_coercing_them", "result": "PASS"},
+      {"id": "test_cow_prefix.ExactRenderedPrefixTests.test_rejects_short_or_divergent_rendered_history", "result": "PASS"}
+    ]
+  },
+  "interpretation": "The pure helper returns a suffix only for exact token-ID prefix equality. Its boundary-merging tokenizer is synthetic and demonstrates why character-prefix equality cannot establish safe BPE reuse.",
+  "next_adapter_design": {
+    "entrypoint": "Add an explicit opt-in branch in Handler._workspace_post for /workspace/generate, before the ordinary _openai path; retain existing default routing unchanged.",
+    "prompt_check": "Render and encode the complete current prompt using Service.encode_prompt and the active request template/options, then call exact_append_suffix(canonical_store_history, rendered_ids). Reject RenderedPrefixMismatch; never infer reusable context from text or SQLite display history alone.",
+    "authority": "ContextCoordinator Store branch refs/revisions remain canonical. Do not let ChatWorkspace SQLite heads independently commit the same native branch move; its data can serve as a presentation projection keyed by the COW durable receipt and retried idempotently.",
+    "request_flow": "Submit the verified suffix with the COW branch revision, stable operation ID, and cancellation predicate; expose provisional token events separately from the durable receipt and report success only after COW publication.",
+    "initial_limit": "One physical GPU, deterministic greedy only, text-only, with unsupported tools/images/force/stop/sampling options rejected before admission. Add route tests for exact suffix submission, BPE mismatch rejection, stale revision/duplicate operation behavior, cancellation and durable-publication failure before claiming model qualification."
+  },
+  "unrun": [
+    "Actual Q8 tokenizer and chat-template prefix parity",
+    "Serving endpoint integration",
+    "GPU/model execution",
+    "Native COW adapter behavior"
+  ]
+}

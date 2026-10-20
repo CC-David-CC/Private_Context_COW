@@ -1,0 +1,2155 @@
+{
+  "schema": 1,
+  "status": "RUNNING",
+  "gate_status": "NOT_QUALIFIED",
+  "scope": "fixed aligned prefix/chunk prototype; no full acceptance qualification",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition, GPU-2d2b1358-9abf-ef75-fc3b-892135ea6e58, 595.91.07, 97887 MiB",
+  "model_verification": {
+    "model_bytes_hashed_this_process": 0,
+    "model_file_hash_receipts_reused": 11
+  },
+  "profile_sha256": "c450b1be8278bbb5f2d33efe9f5d850e287afe17dda6deca53be9aaa53300f00",
+  "model_contract_id": "1f0e5093b636d90c85637022c8f04dd8fff3ba1e3113ee04dfa3ffd90ac78ec1",
+  "execution_profile_id": "07b36ce9723febc425b5855b95af19d996498ee031da34faa8b83328a159dcfd",
+  "sampling": {
+    "temperature": 0,
+    "output_work_bound": 128,
+    "eos_tokens": [
+      248044,
+      248046
+    ],
+    "excluded_ids": []
+  },
+  "cases": [
+    {
+      "id": "LONG-32768",
+      "prefix_tokens": 32768,
+      "added_tokens": 8192,
+      "requested_output_bound": 128,
+      "status": "RUNNING",
+      "paths": [
+        {
+          "lane": "resident",
+          "request_index": 0,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.3703845860436559,
+          "added_prefill_seconds": 20.912665031966753,
+          "prompt_frontier_seconds": 21.28304961801041,
+          "prefill_counter_delta": 8192,
+          "native_load_bytes": 0,
+          "decode_seconds": 64.84904661995824,
+          "actual_generated_tokens": 93,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 91.27797607902903,
+          "outputs": [
+            73,
+            81,
+            82,
+            83,
+            71,
+            271,
+            248068,
+            271,
+            248069,
+            271,
+            760,
+            1414,
+            488,
+            3766,
+            7701,
+            310,
+            381,
+            264,
+            1248,
+            886,
+            314,
+            11173,
+            4055,
+            5587,
+            321,
+            17210,
+            11,
+            4222,
+            12571,
+            494,
+            264,
+            2880,
+            2195,
+            5352,
+            1412,
+            11,
+            264,
+            4011,
+            16000,
+            11,
+            466,
+            264,
+            328,
+            5882,
+            1554,
+            1,
+            2376,
+            13,
+            1049,
+            1503,
+            524,
+            6435,
+            264,
+            53916,
+            3296,
+            466,
+            1622,
+            13,
+            271,
+            2592,
+            488,
+            599,
+            264,
+            3050,
+            3296,
+            11,
+            1144,
+            1438,
+            440,
+            1970,
+            11,
+            466,
+            1318,
+            310,
+            4123,
+            264,
+            8282,
+            11,
+            4338,
+            2579,
+            1845,
+            310,
+            2466,
+            0,
+            353,
+            2688,
+            1532,
+            310,
+            1438,
+            13,
+            25677,
+            232,
+            248044
+          ],
+          "snapshot": "9a33ae2ac749c189e73500f03816f29785eb9305f3c6cf996c1fce31cc86dc25",
+          "counters": {
+            "forward_tokens": 8285,
+            "prefill_tokens": 8192,
+            "windows": 93,
+            "loaded_file_bytes": 0,
+            "cow_pages": 132,
+            "copied_bytes": 276824064
+          },
+          "parent_audit": {
+            "bytes": 2283448368,
+            "sha256": "30221233fb94142c45160941c1399875e8583f99dc0d9df22c8e9fbbd2e050eb"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 135389184,
+            "native_rss_bytes": 123441250304,
+            "gpu_used_mib": 17045
+          }
+        },
+        {
+          "lane": "resident",
+          "request_index": 1,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.37125946395099163,
+          "added_prefill_seconds": 21.420707151992247,
+          "prompt_frontier_seconds": 21.791966615943238,
+          "prefill_counter_delta": 8192,
+          "native_load_bytes": 0,
+          "decode_seconds": 66.06313187791966,
+          "actual_generated_tokens": 93,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 92.85805678798351,
+          "outputs": [
+            73,
+            81,
+            82,
+            83,
+            71,
+            271,
+            248068,
+            271,
+            248069,
+            271,
+            760,
+            1414,
+            488,
+            3766,
+            7701,
+            310,
+            381,
+            264,
+            1248,
+            886,
+            314,
+            11173,
+            4055,
+            5587,
+            321,
+            17210,
+            11,
+            4222,
+            12571,
+            494,
+            264,
+            2880,
+            2195,
+            5352,
+            1412,
+            11,
+            264,
+            4011,
+            16000,
+            11,
+            466,
+            264,
+            328,
+            5882,
+            1554,
+            1,
+            2376,
+            13,
+            1049,
+            1503,
+            524,
+            6435,
+            264,
+            53916,
+            3296,
+            466,
+            1622,
+            13,
+            271,
+            2592,
+            488,
+            599,
+            264,
+            3050,
+            3296,
+            11,
+            1144,
+            1438,
+            440,
+            1970,
+            11,
+            466,
+            1318,
+            310,
+            4123,
+            264,
+            8282,
+            11,
+            4338,
+            2579,
+            1845,
+            310,
+            2466,
+            0,
+            353,
+            2688,
+            1532,
+            310,
+            1438,
+            13,
+            25677,
+            232,
+            248044
+          ],
+          "snapshot": "9a33ae2ac749c189e73500f03816f29785eb9305f3c6cf996c1fce31cc86dc25",
+          "counters": {
+            "forward_tokens": 8285,
+            "prefill_tokens": 8192,
+            "windows": 93,
+            "loaded_file_bytes": 0,
+            "cow_pages": 132,
+            "copied_bytes": 276824064
+          },
+          "parent_audit": {
+            "bytes": 2283448368,
+            "sha256": "30221233fb94142c45160941c1399875e8583f99dc0d9df22c8e9fbbd2e050eb"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 137019392,
+            "native_rss_bytes": 120151236608,
+            "gpu_used_mib": 17309
+          }
+        },
+        {
+          "lane": "resident",
+          "request_index": 2,
+          "status": "PASS",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 9",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 10",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 11",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 12",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 13",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 14",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 15",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 16",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 17",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 18",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 19",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 20",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 21",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 22",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 23",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 24",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 25",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 26",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 27",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 28",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 29",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 30",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 31",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 32",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 33",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 34",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 35",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 36",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 37",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 38",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 39",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 40",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 41",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 42",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 43",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 44",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 45",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 46",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 47",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 48",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 49",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 50",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 51",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 52",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 53",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 54",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 55",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 56",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 57",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 58",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 59",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 60",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 61",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 62",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 63",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 64",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 65",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 66",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 67",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 68",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 69",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 70",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 71",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 72",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 73",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 74",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 75",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 76",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 77",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 78",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 79",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 80",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 81",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 82",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 83",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 84",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 85",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 86",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 87",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 88",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 89",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 90",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 91",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 92",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.3777708680136129,
+          "added_prefill_seconds": 22.628070755978115,
+          "prompt_frontier_seconds": 23.005841623991728,
+          "prefill_counter_delta": 8192,
+          "native_load_bytes": 0,
+          "decode_seconds": 65.47278563096188,
+          "actual_generated_tokens": 93,
+          "controller_status": "stopped",
+          "stopping_reason": "eos",
+          "total_seconds": 94.67455671005882,
+          "outputs": [
+            73,
+            81,
+            82,
+            83,
+            71,
+            271,
+            248068,
+            271,
+            248069,
+            271,
+            760,
+            1414,
+            488,
+            3766,
+            7701,
+            310,
+            381,
+            264,
+            1248,
+            886,
+            314,
+            11173,
+            4055,
+            5587,
+            321,
+            17210,
+            11,
+            4222,
+            12571,
+            494,
+            264,
+            2880,
+            2195,
+            5352,
+            1412,
+            11,
+            264,
+            4011,
+            16000,
+            11,
+            466,
+            264,
+            328,
+            5882,
+            1554,
+            1,
+            2376,
+            13,
+            1049,
+            1503,
+            524,
+            6435,
+            264,
+            53916,
+            3296,
+            466,
+            1622,
+            13,
+            271,
+            2592,
+            488,
+            599,
+            264,
+            3050,
+            3296,
+            11,
+            1144,
+            1438,
+            440,
+            1970,
+            11,
+            466,
+            1318,
+            310,
+            4123,
+            264,
+            8282,
+            11,
+            4338,
+            2579,
+            1845,
+            310,
+            2466,
+            0,
+            353,
+            2688,
+            1532,
+            310,
+            1438,
+            13,
+            25677,
+            232,
+            248044
+          ],
+          "snapshot": "9a33ae2ac749c189e73500f03816f29785eb9305f3c6cf996c1fce31cc86dc25",
+          "counters": {
+            "forward_tokens": 8285,
+            "prefill_tokens": 8192,
+            "windows": 93,
+            "loaded_file_bytes": 0,
+            "cow_pages": 132,
+            "copied_bytes": 276824064
+          },
+          "parent_audit": {
+            "bytes": 2283448368,
+            "sha256": "30221233fb94142c45160941c1399875e8583f99dc0d9df22c8e9fbbd2e050eb"
+          },
+          "sampled_memory": {
+            "sample": "after completed request; not peak",
+            "python_rss_bytes": 98004992,
+            "native_rss_bytes": 120979546112,
+            "gpu_used_mib": 17309
+          }
+        },
+        {
+          "lane": "resident",
+          "request_index": 3,
+          "status": "RUNNING",
+          "comparisons": [
+            {
+              "label": "resident prompt frontier",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 0",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 1",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 2",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 3",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 4",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 5",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 6",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 7",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            },
+            {
+              "label": "resident output 8",
+              "max_absolute_error": 0.0,
+              "logits": 248320
+            }
+          ],
+          "restore_or_recompute_seconds": 0.37664572906214744,
+          "added_prefill_seconds": 23.378934515989386,
+          "prompt_frontier_seconds": 23.755580245051533,
+          "prefill_counter_delta": 8192,
+          "native_load_bytes": 0
+        }
+      ],
+      "actual_generated_tokens": 93,
+      "oracle": {
+        "command": [
+          "<measurement-home>/branching-g3/long-prefill-natural-build-20261013/strata-batched-fresh",
+          "--pack",
+          "<measurement-home>/branching-g3/q8-pack",
+          "--native",
+          "<measurement-home>/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+          "--mmap-experts",
+          "--max-new",
+          "128",
+          "--max-context",
+          "81920",
+          "--pool-workers",
+          "2",
+          "--spec",
+          "2",
+          "--prefill",
+          "8192",
+          "--suffix-draft",
+          "0",
+          "--expert-profile",
+          "<measurement-home>/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+          "--expert-cache",
+          "512",
+          "--pcie-frac",
+          "0.55",
+          "--tokens-file",
+          "<measurement-home>/branching-g3/long-prefill-natural-32k64k-20261013/prefix-32768/prompt.tokens"
+        ],
+        "prompt_tokens": 40960,
+        "outputs": [
+          73,
+          81,
+          82,
+          83,
+          71,
+          271,
+          248068,
+          271,
+          248069,
+          271,
+          760,
+          1414,
+          488,
+          3766,
+          7701,
+          310,
+          381,
+          264,
+          1248,
+          886,
+          314,
+          11173,
+          4055,
+          5587,
+          321,
+          17210,
+          11,
+          4222,
+          12571,
+          494,
+          264,
+          2880,
+          2195,
+          5352,
+          1412,
+          11,
+          264,
+          4011,
+          16000,
+          11,
+          466,
+          264,
+          328,
+          5882,
+          1554,
+          1,
+          2376,
+          13,
+          1049,
+          1503,
+          524,
+          6435,
+          264,
+          53916,
+          3296,
+          466,
+          1622,
+          13,
+          271,
+          2592,
+          488,
+          599,
+          264,
+          3050,
+          3296,
+          11,
+          1144,
+          1438,
+          440,
+          1970,
+          11,
+          466,
+          1318,
+          310,
+          4123,
+          264,
+          8282,
+          11,
+          4338,
+          2579,
+          1845,
+          310,
+          2466,
+          0,
+          353,
+          2688,
+          1532,
+          310,
+          1438,
+          13,
+          25677,
+          232,
+          248044
+        ],
+        "counters": {
+          "consumed": 41053,
+          "prompt_consumed": 40960,
+          "decode_tokens": 93,
+          "stopping_reason": "eos",
+          "prefill_tokens": 40960,
+          "prefill_chunks": 5,
+          "prefill_seconds": 77.1213,
+          "decode_seconds": 30.3873,
+          "generated": [
+            73,
+            81,
+            82,
+            83,
+            71,
+            271,
+            248068,
+            271,
+            248069,
+            271,
+            760,
+            1414,
+            488,
+            3766,
+            7701,
+            310,
+            381,
+            264,
+            1248,
+            886,
+            314,
+            11173,
+            4055,
+            5587,
+            321,
+            17210,
+            11,
+            4222,
+            12571,
+            494,
+            264,
+            2880,
+            2195,
+            5352,
+            1412,
+            11,
+            264,
+            4011,
+            16000,
+            11,
+            466,
+            264,
+            328,
+            5882,
+            1554,
+            1,
+            2376,
+            13,
+            1049,
+            1503,
+            524,
+            6435,
+            264,
+            53916,
+            3296,
+            466,
+            1622,
+            13,
+            271,
+            2592,
+            488,
+            599,
+            264,
+            3050,
+            3296,
+            11,
+            1144,
+            1438,
+            440,
+            1970,
+            11,
+            466,
+            1318,
+            310,
+            4123,
+            264,
+            8282,
+            11,
+            4338,
+            2579,
+            1845,
+            310,
+            2466,
+            0,
+            353,
+            2688,
+            1532,
+            310,
+            1438,
+            13,
+            25677,
+            232,
+            248044
+          ]
+        },
+        "process_seconds": 114.21135146101005,
+        "frontier_sha256": "a8139ff9537cf116c177f08c755e496469a7f87b9df208497758af7c1740ea70",
+        "trace_sha256": "7811643b6c539ee12666c9b8304c1ad0bdaf41cf68de13e19c48e9d4c96ef75d"
+      },
+      "recompute_baseline": {
+        "measured_requests": 1,
+        "extrapolated_requests": 8,
+        "measured_prefill_seconds": 77.1213,
+        "measured_decode_seconds": 30.3873,
+        "extrapolated_prefill_seconds": 616.9704,
+        "extrapolated_decode_seconds": 243.0984,
+        "limitation": "Single uncached native run multiplied by eight; excludes loading, canonical publication and checkpoint capture."
+      },
+      "prepare_seconds": 89.2232280530734,
+      "save_seconds": 1.956183537025936,
+      "checkpoint": {
+        "bytes": 974833144,
+        "sha256": "7002a9a67dd8f801aec0947af83844fed818edb0b2dc8ce7ae144fc421a6da0a",
+        "manifest_sha256": "83a261b3aa6d9adfa6d2d511ee8ec3bd7006cdeb679993b871a66354c85e31df"
+      }
+    }
+  ],
+  "phase": "resident decode",
+  "updated_utc": "2026-10-13T05:41:31Z",
+  "prefix_tokens": 32768,
+  "request_index": 3,
+  "accepted_outputs": 0
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "Full-profile probe build closure; no model execution or numerical result",
+  "failed_native_build": {"command_exit": 1, "wrapper_exit": 1, "receipts": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/runs/native-probe-build-v1", "link_stderr": "/home/dflanag3/spatial-artifacts/cow-seal-stream-candidate-20261015-v1/native-probe/7.stderr", "cause": "Old core archive lacks vmm_current_device and vmm_chunk_device"},
+  "abi_review": {
+    "old_vmm_header_sha256": "35422629c631edad0b2cb6d467f8f5cff163aef8eb6b93dbda407f44b5dd64d8",
+    "new_vmm_header_sha256": "b537e8320f4f9d8f34bc533030b92db231f78db83949a34918c2c2a556ae35c3",
+    "finding": "Both VmmMapping and VmmRange gained device/granularity fields. Replacing only vmm.cpp would mix incompatible layouts with old allocation/embedded consumers.",
+    "consumers_rebuilt": ["branch_pages.cpp", "branch_session.cpp", "generate.cpp", "vmm.cpp", "layer.cpp", "expert_cache.cpp"],
+    "layer_body_sha256_unchanged_from_baseline": "d6354b8cd22972537687427b9f4e067cf3e6db90cfc8da5b8ffca61fa107f1c2",
+    "expert_cache_body_sha256_unchanged_from_baseline": "91eb2373d1893ff2e6fe88887a121f525549ad0d66184dee190e1ad8d07946d2",
+    "compile_configuration": "Use the selected strata_engine CXX flags for its replacement objects; retain original full-feature archive/link recipe. No inference feature disabled."
+  },
+  "cpu_recipe_red": {"tests": 9, "failures": 1, "errors": 0, "command_exit": 1, "wrapper_exit": 1, "receipts": "/home/dflanag3/spatial-artifacts/probe-build-closure-20261015-v1/vmm-red-run", "failed_id": "test_vmm_layout_consumers_are_rebuilt_with_engine_flags"},
+  "cpu_recipe_green": {"tests": 9, "failures": 0, "errors": 0, "command_exit": 0, "wrapper_exit": 0, "receipts": "/home/dflanag3/spatial-artifacts/probe-build-closure-20261015-v1/vmm-green-run"},
+  "test_limit": "Recipe tests use mock compiler outputs only; actual corrected native link and model execution remain unrun at this checkpoint.",
+  "next": "Use versioned corrected helper overlay and new output directory; retain frozen failed v1 source/objects/logs."
+}

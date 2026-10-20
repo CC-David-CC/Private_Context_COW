@@ -1,0 +1,92 @@
+{
+  "browser": "chromium",
+  "status": "PASS",
+  "scope": "real SQLite and browser; mock model; no GPU qualification",
+  "checks": [
+    "vertical_viewer_is_beside_chat",
+    "four_branch_badges_are_fully_visible",
+    "same_tip_branches_use_one_point",
+    "same_tip_badges_are_grouped",
+    "chat_has_room_to_read",
+    "selected_fork_is_not_clipped",
+    "new_fork_reflows_without_clipping",
+    "connecting_lines_execute_motion_frames",
+    "fork_keeps_original_messages",
+    "new_ending_reflows_graph",
+    "active_ending_is_in_view",
+    "zoom_in_changes_scale",
+    "background_drag_pans_without_editing",
+    "unchanged_refresh_preserves_pan",
+    "fit_shows_all_branch_badges",
+    "tablet_viewer_moves_above_chat",
+    "phone_does_not_overflow",
+    "phone_composer_is_visible",
+    "phone_active_branch_is_in_view",
+    "phone_keeps_readable_chat_space",
+    "reduced_motion_has_no_layout_animation",
+    "reduced_motion_has_no_svg_motion_frames",
+    "no_browser_errors"
+  ],
+  "desktop_geometry": {
+    "branch-viewer": {
+      "top": 189,
+      "bottom": 934,
+      "width": 360,
+      "height": 745
+    },
+    "graph-scroll": {
+      "top": 298,
+      "bottom": 933,
+      "width": 358,
+      "height": 635
+    },
+    "chat-scroll": {
+      "top": 189,
+      "bottom": 794,
+      "width": 898,
+      "height": 605
+    },
+    "composer": {
+      "top": 794,
+      "bottom": 926,
+      "width": 850,
+      "height": 132
+    },
+    "scale": 1,
+    "model": {
+      "width": 329,
+      "height": 458
+    }
+  },
+  "phone_geometry": {
+    "branch-viewer": {
+      "top": 322.890625,
+      "bottom": 533.6875,
+      "width": 374,
+      "height": 210.796875
+    },
+    "graph-scroll": {
+      "top": 402.6875,
+      "bottom": 532.6875,
+      "width": 372,
+      "height": 130
+    },
+    "chat-scroll": {
+      "top": 539.6875,
+      "bottom": 700,
+      "width": 390,
+      "height": 160.3125
+    },
+    "composer": {
+      "top": 700,
+      "bottom": 832,
+      "width": 366,
+      "height": 132
+    },
+    "scale": 0.85,
+    "model": {
+      "width": 826,
+      "height": 316
+    }
+  }
+}

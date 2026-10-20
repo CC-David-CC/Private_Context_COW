@@ -1,0 +1,23 @@
+test_changed_bytes_invalidate_reused_receipt (__main__.SpeedProfileInputs.test_changed_bytes_invalidate_reused_receipt) ... {"event": "hash", "file": "expert-profile.bin", "bytes": 7}
+{"event": "hash", "file": "model.gguf", "bytes": 20}
+{"event": "hash", "file": "conversions.json", "bytes": 55}
+{"event": "hash", "file": "dense.bin", "bytes": 9}
+{"event": "hash", "file": "index.txt", "bytes": 9}
+{"event": "hash", "file": "native_experts.txt", "bytes": 18}
+{"event": "hash", "file": "model.gguf", "bytes": 25}
+ok
+test_every_weight_pack_and_tokenizer_file_is_bound (__main__.SpeedProfileInputs.test_every_weight_pack_and_tokenizer_file_is_bound) ... {"event": "hash", "file": "expert-profile.bin", "bytes": 7}
+{"event": "hash", "file": "model.gguf", "bytes": 20}
+{"event": "hash", "file": "conversions.json", "bytes": 55}
+{"event": "hash", "file": "dense.bin", "bytes": 9}
+{"event": "hash", "file": "index.txt", "bytes": 9}
+{"event": "hash", "file": "native_experts.txt", "bytes": 18}
+{"event": "hash", "file": "vocab.json", "bytes": 11}
+ok
+test_missing_shard_or_wrong_size_is_rejected (__main__.SpeedProfileInputs.test_missing_shard_or_wrong_size_is_rejected) ... ok
+test_shard_path_cannot_escape_manifest_directory (__main__.SpeedProfileInputs.test_shard_path_cannot_escape_manifest_directory) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK

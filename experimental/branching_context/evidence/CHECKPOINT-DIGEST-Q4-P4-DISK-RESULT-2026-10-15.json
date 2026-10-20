@@ -1,0 +1,108 @@
+{
+  "status": "PASS_BOUNDED_Q4_DISK_RETURN",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "execution_profile_id": "4ac77a63cfb8bd0d153c8cb5fb340ab79ae4d3cc23e554d39bd967d693adfdd1",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "source_output": "/dev/shm/context-cow-digest-q4-64k-source-20261015-v1/store",
+  "source_checkpoints_unchanged": true,
+  "validation_enabled": true,
+  "command_exit": 0,
+  "wrapper_exit": 0,
+  "native_exit_codes": [
+    0
+  ],
+  "executed_test_ids": [
+    "P4-RETURN-IMPORT-IDENTITY",
+    "P4-RETURN-ROOT-CHECKPOINT-IMMUTABLE",
+    "P4-RETURN-SUFFIX-ONLY-WORK",
+    "P4-RETURN-REFERENCE-OUTPUT",
+    "P4-RETURN-CONTROLLED-DISK-PRELOAD"
+  ],
+  "measured_requests": 9,
+  "measured_outputs_each": 128,
+  "independently_compared_output_ids": 1152,
+  "warmup_output_counts": [
+    1,
+    1,
+    1
+  ],
+  "warmup_output_ids_recorded": false,
+  "failures": [],
+  "skips": [],
+  "numerical_max_error": null,
+  "numerical_scope": "This timing arm compares output IDs, not new full-logit vectors. Prior same-profile source campaign reports zero logit error at sampled frontiers.",
+  "tiers": [
+    "disk_preload"
+  ],
+  "new_prefix_forward_tokens": 0,
+  "actual_suffix_prefill_tokens": 74913,
+  "actual_generated_forward_tokens": 1152,
+  "historical_comparison": {
+    "basis": "same model/hardware/execution/input identities; source hashes differ; sequential historical baseline rather than randomized control",
+    "metrics": {
+      "submit_to_first_token_seconds": {
+        "baseline_median": 7.560233869124204,
+        "candidate_median": 6.962418511044234,
+        "reduction_percent": 7.907365941699662,
+        "candidate_p95": 10.373746924102306
+      },
+      "submit_to_durable_seconds": {
+        "baseline_median": 15.773836754029617,
+        "candidate_median": 13.695307499030605,
+        "reduction_percent": 13.177068378547954,
+        "candidate_p95": 17.182116691954434
+      },
+      "submit_to_snapshot_seconds": {
+        "baseline_median": 13.383329275995493,
+        "candidate_median": 11.888333411188796,
+        "reduction_percent": 11.170582700136805,
+        "candidate_p95": 15.300290055107325
+      }
+    },
+    "baseline_median_received_tps": 67.51461586858383,
+    "candidate_median_received_tps": 67.70129574965301,
+    "throughput_difference_claim": "Essentially unchanged; no speedup claim for the small TPS difference"
+  },
+  "candidate_tpot": {
+    "median": 0.014764389954507351,
+    "p95": 0.015128680970519781
+  },
+  "candidate_capture_median_seconds": 2.9160395979415625,
+  "native_stage_medians_seconds_per_128": {
+    "decode_prepare_ns": 0.839464093,
+    "decode_compute_ns": 1.006937724,
+    "decode_finish_ns": 0.01331912,
+    "integrity_page_hash_ns": 0.595251017,
+    "integrity_page_digest_download_ns": 0.15628659
+  },
+  "integrity_per_measured_request": {
+    "integrity_device_hashed_bytes": 304128983040,
+    "integrity_digest_copy_bytes": 2376007680,
+    "integrity_kernel_calls": 1593
+  },
+  "throughput_loss_target_percent": 8,
+  "throughput_target_is_rejection_gate": false,
+  "matched_whole_serving_native_baseline_status": "NOT_QUALIFIED; fresh-oracle computation timings are diagnostic, not whole-serving TPS",
+  "raw_sha256": {
+    "p4-disk-result.json": "a10cdeb23d3abea39b82d894b9e4190c71e8409aa2720d28f417605e5b3b0b03",
+    "baseline-p4-disk-result.json": "76438074db2af7117f79764de759cb71363d08185bf24353225783ccc5ccd9f0",
+    "source64k-result.json": "d6378ca796ffdac1516add3705755312fecc8c65dbf94fdae4d1c1c9d1556221"
+  },
+  "limitations": [
+    "Warm filesystem, not cold-device latency",
+    "RAM arm and candidate Q8 tests outstanding",
+    "No new full-logit comparisons in timing arm",
+    "No new cumulative G1-G5 qualification"
+  ],
+  "measured_pool_memory": {
+    "peak_accounted_ram_bytes": 25926260076,
+    "max_disk_file_bytes_at_sample_boundaries": 17790007000,
+    "scope": "Pool-accounted bytes; not whole-process RSS or VRAM peak",
+    "ram_pool_limit_bytes": 103079215104,
+    "disk_pool_limit_bytes": 137438953472,
+    "min_mem_available_bytes": 17179869184
+  }
+}

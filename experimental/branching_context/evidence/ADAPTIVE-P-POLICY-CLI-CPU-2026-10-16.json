@@ -1,0 +1,80 @@
+{
+    "status":  "CPU_ONLY_PASS_NOT_FULL_INTEGRATION",
+    "tests":  42,
+    "test_ids":  [
+                     "serve.test_cow_adaptive_p_settings.AdaptiveGenerationRoutingTests.test_adapter_accepts_terminal_policy_and_rejects_other_terminal_samplers",
+                     "serve.test_cow_adaptive_p_settings.AdaptiveGenerationRoutingTests.test_cli_knobs_apply_to_all_generation_actions_and_continue_sends_only_changes",
+                     "serve.test_cow_adaptive_p_settings.AdaptiveGenerationRoutingTests.test_invalid_target_decay_fail_before_generation",
+                     "serve.test_cow_adaptive_p_settings.AdaptiveGenerationRoutingTests.test_text_resume_preserves_ema_and_output_pending_bytes",
+                     "serve.test_cow_adaptive_p_settings.AdaptiveGenerationRoutingTests.test_token_partial_resume_preserves_ema_and_inherits_other_settings",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_active_adaptive_rejects_zero_temperature_mirostat_and_active_xtc",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_active_target_requires_v7_but_allows_preceding_filters",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_any_adaptive_field_normalizes_the_complete_group",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_disabled_target_preserves_old_protocols_and_explicit_parameters",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_legacy_policy_shape_is_byte_compatible_and_v7_accepts_old_sampler",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_old_protocol_support_remains_for_mirostat2_and_v7_supports_it_too",
+                     "test_adaptive_p_generation.AdaptivePGenerationPolicyTests.test_target_and_decay_reject_bool_nonfinite_and_out_of_range",
+                     "test_adaptive_p_reference.AdaptivePInitializationTests.test_cold_start_ema_prior_equals_target",
+                     "test_adaptive_p_reference.AdaptivePInitializationTests.test_validates_target_decay_and_state_without_bool_coercion",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_accept_updates_from_original_probability_and_is_detached",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_adaptive_transform_selects_near_adapted_target_but_reports_original_p",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_disabled_target_is_ordinary_distribution_and_preserves_state",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_equal_scores_tie_selection_follows_lowest_id_order",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_invalid_logits_mask_draw_and_proposal_fail_closed",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_masked_scores_do_not_enter_softmax_or_adaptive_feedback",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_separate_branch_states_accept_independently",
+                     "test_adaptive_p_reference.AdaptivePSelectionTests.test_wrong_accepted_token_rejects_without_mutating_state_or_proposal",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_adapter_accepts_standalone_mode_and_explicit_filter_conflict_rejects",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_cli_partial_continuation_does_not_reset_feedback_or_other_knobs",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_cli_registers_mode_and_parameters_for_every_generation_action",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_invalid_mode_and_feedback_parameters_fail_before_generation",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_legacy_cli_defaults_remain_unchanged",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_text_resume_preserves_feedback_policy_and_pending_decoder_bytes",
+                     "serve.test_cow_mirostat2_settings.MirostatGenerationRoutingTests.test_token_resume_preserves_feedback_and_only_changes_requested_policy",
+                     "serve.test_cow_xtc_settings.XtcGenerationRoutingTests.test_adapter_accepts_pair_and_normalizes_partial_new_policy",
+                     "serve.test_cow_xtc_settings.XtcGenerationRoutingTests.test_cli_registers_pair_for_each_generation_action",
+                     "serve.test_cow_xtc_settings.XtcGenerationRoutingTests.test_invalid_xtc_settings_reject_before_generation",
+                     "serve.test_cow_xtc_settings.XtcGenerationRoutingTests.test_schema4_text_resume_preserves_omitted_settings",
+                     "serve.test_cow_xtc_settings.XtcGenerationRoutingTests.test_schema4_token_resume_preserves_omitted_settings",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempCliTests.test_cli_adds_flags_defaults_new_sampling_and_keeps_continue_partial",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempCliTests.test_cli_registers_settings_for_all_generation_actions_and_rejects_bad_values",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempHttpTests.test_text_generation_routes_forward_policy_settings_unchanged",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempPolicyTests.test_adapter_normalizes_typical_and_dyna_defaults",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempPolicyTests.test_explicit_dyna_settings_upgrade_active_legacy_greedy_without_resetting_progress",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempPolicyTests.test_policy_rejects_out_of_domain_or_nonfinite_values",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempPolicyTests.test_text_resume_inherits_omitted_typical_and_dynatemp_fields",
+                     "serve.test_cow_typical_dynatemp_settings.TypicalDynaTempPolicyTests.test_token_adapter_resume_merges_partial_settings_from_intent_source"
+                 ],
+    "failures":  [
+
+                 ],
+    "errors":  [
+
+               ],
+    "skips":  [
+
+              ],
+    "source_unchanged":  true,
+    "executed_source_sha256":  {
+                                   "experimental/branching_context/src/context_time_travel/adaptive_p.py":  "c756845f283e1db42f4c66079d0d78ca45e2ed066d3b869b5b67cef3ec54c9fd",
+                                   "experimental/branching_context/src/context_time_travel/min_p.py":  "651a7c0bc2623b2f7b223fa82597e89119fae3ab1b9e2a2bdcc625868d1884fd",
+                                   "experimental/branching_context/tests/implementation/test_adaptive_p_generation.py":  "83bce3998b34a4c63605af9782ec54b85d63f8f3da171866d127f72cb3e320ed",
+                                   "experimental/branching_context/tests/implementation/test_adaptive_p_reference.py":  "a5fa4ece3d80cbe3fbeddeee72bafa550221a686f4cb5f54646e305ae66c0170",
+                                   "serve/cow_adapter.py":  "39eee57ddd6f62f2d89ac1147acfd1084fb613f7e0b544aa3838756787f01ef4",
+                                   "serve/cow_text_adapter.py":  "5b4304cd604fb580fa4eff887674b79ad1435138cfecd53fa37845c6284c955f",
+                                   "serve/test_cow_adaptive_p_settings.py":  "891d2b5248b3ccb5625038a6e5fe3baadd02e164ae66b656ec99cd5bb44c393a",
+                                   "tools/cow_cli.py":  "e5efc693179c525a61f8b4d1b3d75a99b15ced1dd5950b4e45cc573a3ce3840f"
+                               },
+    "host":  "llm-60",
+    "result_path":  "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/adaptive-routing-green-v1.json",
+    "result_sha256":  "a57df351f6139ef7c070f02a087d9eea8ebf87c435b16c2d2b9f9ce910964cc3",
+    "G0":  "51 PASS at adaptive-routing-g0-command-v1",
+    "scope":  "Adaptive-P independent policy/reference plus CLI/token/text settings routing only",
+    "unrun":  [
+                  "Combined Adaptive-P controller/backend/native integration",
+                  "GPU qualification",
+                  "Throughput with Adaptive-P"
+              ],
+    "controller_status":  "Separate worktree; review found over-restrictive preceding-filter guard; correction under test",
+    "native_status":  "Separate worktree; review found invalid ready JSON; rebuild required"
+}

@@ -1,0 +1,36 @@
+{
+    "status":  "PASS",
+    "scope":  "Chromium DOM/control tests with a synthetic graph; no HTTP, model or GPU qualification",
+    "host":  "llm-60",
+    "checks":  9,
+    "failures":  0,
+    "executed_checks":  [
+                            "PASS native graph uses authenticated COW workspace route",
+                            "PASS continuation versions do not increase saved message counts",
+                            "PASS shared answer prefix is distinguished from a complete shared message",
+                            "PASS unavailable message boundary exposes no state action",
+                            "PASS snapshot actions use canonical snapshot rather than graph ID",
+                            "PASS sibling path cannot mutate the selected branch",
+                            "PASS selected branch previous tip exposes restore only",
+                            "PASS graph branch selection uses native selection",
+                            "PASS stale graph disables mutations"
+                        ],
+    "source_sha256":  {
+                          "serve/web/workspace.js":  "f2b13bd8a708d1b51ca24e96b53b837aab45792785ef9fc311ad8f50d69a50df",
+                          "serve/web/workspace-graph.js":  "2f5931c21f1629835a847a7bd56c6f7ca774a83ff3df701d022cc37e090c370b",
+                          "serve/web/test_cow_native_graph.html":  "f9f811217e6523ac190aa60bc720564492c94e4b0a7b60378d4e69c0788a83d8"
+                      },
+    "raw_directory":  "/home/dflanag3/branching-g3/native-graph-ui-root-20261014",
+    "initial_red":  "red.html: 4 failures in 6 checks",
+    "scope_red":  "scope-red.html: 2 failures in 8 checks",
+    "green":  "partial-final-green.html: 9/9 PASS",
+    "command":  "chromium --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --dump-dom --timeout=15000 file:///home/dflanag3/branching-g3/native-graph-ui-root-20261014/web/test_cow_native_graph.html",
+    "command_exit":  0,
+    "limits":  [
+                   "app.js busy hook and full native graph endpoint need integrated real-HTTP browser regression",
+                   "No original G1-G5 promotion",
+                   "No large-history scalability, Firefox or WebKit qualification"
+               ],
+    "partial_red":  "partial-red.html: shared-prefix label regression failed before correction",
+    "syntax_failure":  "partial-diagnostic-v2.html and parse-diagnostic.stderr retain a label-edit syntax failure; corrected quote, added harness error reporting, reran 9/9"
+}

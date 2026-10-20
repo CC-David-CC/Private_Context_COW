@@ -1,0 +1,9 @@
+test_changed_tokens_missing_work_and_unknown_operators_are_rejected (test_native_operator_receipts.NativeOperatorReceiptTests.test_changed_tokens_missing_work_and_unknown_operators_are_rejected) ... ok
+test_mixed_receipt_covers_exact_history (test_native_operator_receipts.NativeOperatorReceiptTests.test_mixed_receipt_covers_exact_history) ... ok
+test_native_generation_cannot_claim_an_unexecuted_multi_token_window (test_native_operator_receipts.NativeOperatorReceiptTests.test_native_generation_cannot_claim_an_unexecuted_multi_token_window) ... ok
+test_original_batch_only_contract_still_rejects_normal_operator (test_native_operator_receipts.NativeOperatorReceiptTests.test_original_batch_only_contract_still_rejects_normal_operator) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

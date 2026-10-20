@@ -1,0 +1,35 @@
+{
+  "schema": "cow-private-backup-v1",
+  "status": "BOX_GIT_RECEIVER_VERIFIED",
+  "destination": "/srv/data/git/private_context_cow.evidence/20261015-cow-three-context-ui-v1-v4-cpu77-oracle-preflight-v1/",
+  "archive": {
+    "name": "evidence.tar",
+    "bytes": 10598184960,
+    "sha256": "8b928cde774c24f041803c8815438bf9102bfc930e717e20ebadf5eb7341b199",
+    "regular_source_files": 549,
+    "regular_source_bytes": 10596945798,
+    "members_including_manifest": 550
+  },
+  "manifest_sha256": "8f2dbd95c717aec1f98eacbe0f8659d341b43403ccdff792a4eba61b64769a1d",
+  "receiver_receipt": {
+    "name": "receiver-receipt.json",
+    "bytes": 1425,
+    "raw_sha256": "50ecdb2b511d61d7739c8bbeabaf5b0d9a45f90852335fd729d033eb3859a239",
+    "encoding_note": "Original receiver receipt includes a UTF-8 BOM; preserve raw bytes and use utf-8-sig when parsing.",
+    "verification": "Receiver hashed archive and manifest, then checked every regular member path, size and SHA-256. Primary independently read the receiver receipt, verified its raw SHA and archive size."
+  },
+  "scope": [
+    "Q4 three-context browser runs v1-v3 FAIL and v4 PASS_CLIENT_FLOW_ONLY, including raw stores, browser artifacts and runner receipts",
+    "Combined CPU77 terminal receipts: 77 tests, no failures or skips",
+    "Failed first numerical preflight: zero branches completed, runner exits 1/1",
+    "Frozen Q4-v4 fixture inputs and Q4-v2 profile admission"
+  ],
+  "excluded": [
+    "Source repository and native executables",
+    "Previously backed-up single-context store",
+    "Later corrected numerical audit and cold-cache ownership runs"
+  ],
+  "permissions": {"directory": "0700", "files": "0600"},
+  "cleanup": "No source or evidence removed",
+  "publication": "Private box-git only"
+}

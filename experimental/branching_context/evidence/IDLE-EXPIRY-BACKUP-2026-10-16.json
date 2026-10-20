@@ -1,0 +1,12 @@
+{
+  "archive": "/srv/data/git/private_context_cow.evidence/20261016-pool-idle-integration-v1/evidence.tar",
+  "archive_bytes": 27002880,
+  "archive_sha256": "e62efbdacb97f5c23fa1375a4ac6db319bd8c95d3e2d482901e9ecf0a7dbc8a1",
+  "extracted_files": 0,
+  "manifest_sha256": "e3e29c85d4432ce79315d8e34d6ae72bd2ece00480da79dc4bd5978a53551272",
+  "schema": "cow-pool-idle-backup-readback-v1",
+  "ssh_exit_code": 0,
+  "status": "PASS",
+  "verified_member_bytes": 25067340,
+  "verified_members": 1912
+}

@@ -1,0 +1,242 @@
+{
+    "schema":  1,
+    "status":  "BOUNDED_GOLDEN_PATH_CLI_Q4_PASS",
+    "host":  "llm-60",
+    "gpu":  [
+                0
+            ],
+    "bw_base":  "7f7160ba6483a0363322b9c17536ec552a8e9c3f",
+    "cow_base":  "d4c236700e4748237ce52c7651f75f3faa097bcb",
+    "bw_changed_sha256":  {
+                              "branchwrite/cow_client.py":  "cf5637010a84af33e0511373c763c6eebf6087b76569622329f27924aecd6e05",
+                              "branchwrite/golden_path.py":  "084ea3467edbbc3b57f65c41c93693f76c0447350f5d4bc30264190491ec9316",
+                              "tests/test_cow_structured_load.py":  "a787ddce0fb356214d306007260a820a3b168d6f2f8777e365f0e60d831ebd5e",
+                              "tests/test_golden_path.py":  "b475d3e8be54cf7210acfbf0769546c3ef04bb8bc27f92e2cf7f6963b1ea33a9",
+                              "validation/run_golden_path_probe.py":  "852453797a17c119cf1d9e3553b6ce58c6341018a9190c8bd0e10f77798562be"
+                          },
+    "cow_changed_sha256":  {
+                               "tools/cow_cli.py":  "a37616b4f1cf91b7c92c763179aa057bf613e2741298ae07d285431b85e23e67",
+                               "tools/test_cow_cli_structured_load.py":  "a35e8b88b1930e5c035b398348aea62237897650a59261298392ce8569e7c351"
+                           },
+    "model_contract_id":  "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+    "execution_profile_id":  "e98e6438dad2e158e1ea8ce9ed2847212111d3feb9e567dc825d57895e8413df",
+    "profile_sha256":  "d7f8c26a0a8e591c94560c68dba7798ccfd18f4d7c2ff286911bd16eecc79dd9",
+    "native_executable":  {
+                              "path":  "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vc07-dry-entropy-native-build-v1/strata-vision-dry-combinations-cow",
+                              "sha256":  "ae62045f75a8e11ba9d01b4da301d3bb87fe4ff342bab0ea7edc57276377824e"
+                          },
+    "numerical_max_error":  null,
+    "runs":  [
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "cow-structured-red-run-v1",
+                     "test_summary":  [
+                                          "Ran 3 tests in 1.609s",
+                                          "FAILED (errors=9)"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "branchwrite-structured-red-run-v1",
+                     "test_summary":  [
+                                          "Ran 1 test in 0.763s",
+                                          "FAILED (failures=1)"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "cow-structured-green-run-v1",
+                     "test_summary":  [
+                                          "Ran 32 tests in 14.461s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-structured-full-run-v1",
+                     "test_summary":  [
+                                          "Ran 324 tests in 15.686s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "cow-structured-g0-run-v1",
+                     "test_summary":  [
+
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "branchwrite-golden-red-run-v1",
+                     "test_summary":  [
+                                          "Ran 6 tests in 0.001s",
+                                          "FAILED (errors=6)"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "branchwrite-golden-green-run-v1",
+                     "test_summary":  [
+                                          "Ran 6 tests in 6.248s",
+                                          "FAILED (errors=1)"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-golden-green-run-v2",
+                     "test_summary":  [
+                                          "Ran 7 tests in 7.737s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-golden-full-run-v1",
+                     "test_summary":  [
+                                          "Ran 331 tests in 23.311s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "branchwrite-golden-audit-red-run-v1",
+                     "test_summary":  [
+                                          "Ran 9 tests in 7.760s",
+                                          "FAILED (errors=2)"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-golden-green-run-v4",
+                     "test_summary":  [
+                                          "Ran 9 tests in 7.827s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-golden-full-run-v2",
+                     "test_summary":  [
+                                          "Ran 333 tests in 23.474s",
+                                          "OK"
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  1,
+                                        "wrapper.exit":  1
+                                    },
+                     "run":  "branchwrite-golden-gpu-run-v1",
+                     "test_summary":  [
+
+                                      ]
+                 },
+                 {
+                     "exit_codes":  {
+                                        "command.exit":  0,
+                                        "wrapper.exit":  0
+                                    },
+                     "run":  "branchwrite-golden-gpu-run-v2",
+                     "test_summary":  [
+
+                                      ]
+                 }
+             ],
+    "prefix_work_audits":  [
+                               {
+                                   "actual_native_forward_tokens":  123,
+                                   "destination_cells":  123,
+                                   "expected_added_cells":  123,
+                                   "loaded_file_bytes":  0,
+                                   "operation_id":  "golden-purpose-op",
+                                   "saved_prefix_replay_tokens":  0,
+                                   "source_cells":  0
+                               },
+                               {
+                                   "actual_native_forward_tokens":  359,
+                                   "destination_cells":  482,
+                                   "expected_added_cells":  359,
+                                   "loaded_file_bytes":  0,
+                                   "operation_id":  "golden-v1-summary",
+                                   "saved_prefix_replay_tokens":  0,
+                                   "source_cells":  123
+                               },
+                               {
+                                   "actual_native_forward_tokens":  493,
+                                   "destination_cells":  975,
+                                   "expected_added_cells":  493,
+                                   "loaded_file_bytes":  0,
+                                   "operation_id":  "golden-v2-summary",
+                                   "saved_prefix_replay_tokens":  0,
+                                   "source_cells":  482
+                               },
+                               {
+                                   "actual_native_forward_tokens":  40,
+                                   "destination_cells":  522,
+                                   "expected_added_cells":  40,
+                                   "loaded_file_bytes":  0,
+                                   "operation_id":  "golden-worker-proposal",
+                                   "saved_prefix_replay_tokens":  0,
+                                   "source_cells":  482
+                               }
+                           ],
+    "confirmed_absent_processes":  [
+                                       40761,
+                                       40767,
+                                       44944,
+                                       44950
+                                   ],
+    "archive":  {
+                    "path":  "/srv/data/git/private_context_cow.evidence/20261017-branchwrite-golden-v1/evidence.tar.gz",
+                    "size_bytes":  5229714,
+                    "members":  526,
+                    "sha256":  "926a893264eef4a4cf20aaec24ad1673f32ca6cdc0d4281312fa6285fd406b91",
+                    "receiver_verified":  true
+                },
+    "excluded_native_payload_bytes":  1062568304,
+    "limits":  [
+                   "No automatic whole-project fact harvesting, summary adoption or semantic truth oracle.",
+                   "No numerical/restart/eviction qualification in this bounded probe.",
+                   "No thinking_length or unrestricted tool execution."
+               ],
+    "thinking":  "Disabled; budget sweep not implemented/run",
+    "controller_scope":  "Greedy completed EOS, existing grammar/controller, no bounded reasoning phase",
+    "semantic_summary_truth":  "HOST_REVIEW_REQUIRED"
+}

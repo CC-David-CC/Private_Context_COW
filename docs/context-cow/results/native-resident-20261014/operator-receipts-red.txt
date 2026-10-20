@@ -1,0 +1,36 @@
+test_changed_tokens_missing_work_and_unknown_operators_are_rejected (test_native_operator_receipts.NativeOperatorReceiptTests.test_changed_tokens_missing_work_and_unknown_operators_are_rejected) ... ERROR
+test_mixed_receipt_covers_exact_history (test_native_operator_receipts.NativeOperatorReceiptTests.test_mixed_receipt_covers_exact_history) ... ERROR
+test_native_generation_cannot_claim_an_unexecuted_multi_token_window (test_native_operator_receipts.NativeOperatorReceiptTests.test_native_generation_cannot_claim_an_unexecuted_multi_token_window) ... ERROR
+test_original_batch_only_contract_still_rejects_normal_operator (test_native_operator_receipts.NativeOperatorReceiptTests.test_original_batch_only_contract_still_rejects_normal_operator) ... ok
+
+======================================================================
+ERROR: test_changed_tokens_missing_work_and_unknown_operators_are_rejected (test_native_operator_receipts.NativeOperatorReceiptTests.test_changed_tokens_missing_work_and_unknown_operators_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_operator_receipts.py", line 34, in test_changed_tokens_missing_work_and_unknown_operators_are_rejected
+    receipt.validate_operator_schedule(events,[1,2,3,4],8)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.execution_receipt' has no attribute 'validate_operator_schedule'
+
+======================================================================
+ERROR: test_mixed_receipt_covers_exact_history (test_native_operator_receipts.NativeOperatorReceiptTests.test_mixed_receipt_covers_exact_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_operator_receipts.py", line 15, in test_mixed_receipt_covers_exact_history
+    self.assertEqual(receipt.validate_operator_schedule(events,[1,2,3,4],8), receipt.schedule_digest(events))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.execution_receipt' has no attribute 'validate_operator_schedule'
+
+======================================================================
+ERROR: test_native_generation_cannot_claim_an_unexecuted_multi_token_window (test_native_operator_receipts.NativeOperatorReceiptTests.test_native_generation_cannot_claim_an_unexecuted_multi_token_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dflanag3/branching-g3/native-request-probe-20261014/api-next/tests/implementation/test_native_operator_receipts.py", line 25, in test_native_generation_cannot_claim_an_unexecuted_multi_token_window
+    receipt.validate_operator_schedule(events,[1,2,3,4],8)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'context_time_travel.execution_receipt' has no attribute 'validate_operator_schedule'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+FAILED (errors=3)

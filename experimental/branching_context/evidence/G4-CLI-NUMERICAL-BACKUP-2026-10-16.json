@@ -1,0 +1,35 @@
+{
+  "schema": "private-evidence-backup-v1",
+  "scope": "Bounded G4 CLI independent numerical audit; no model weights or checkpoint payloads in archive",
+  "source_commit": "20d06478643ea5dcace3cd1fc2792b9f18c5bc24",
+  "integration_commit": "a75648e56387f58f51489f3e0a88d07a088002c2",
+  "result_sha256": "d688c88b61d4b7b7744a68a5cd7f8b9fabe0b318ae982c736168c602da793039",
+  "archive": {
+    "sender": "llm-60:/home/dflanag3/spatial-artifacts/cli-workflow-harness-20261016-v1/g4-cli-numerics-v3-evidence.tar",
+    "receiver": "box-git:/srv/data/git/private_context_cow.evidence/20261016-g4-cli-numerics-v3/evidence.tar",
+    "bytes": 155166720,
+    "sha256": "d99348ac020b375b5d162507cc0818ca0a934c957ab8ab5b42e47b1b243fb055",
+    "sender_receiver_hashes_match": true,
+    "members": 198,
+    "receiver_full_payload_read": "tar -xOf archive >/dev/null exited 0; no extraction to disk"
+  },
+  "contents": [
+    "47-comparison audit result and raw fresh-reference frontier files",
+    "Pinned segmented oracle ELF, object, source and compile/input receipts",
+    "CPU validator and real-store sentinel preflight records",
+    "Failed root-receipt lookup attempt and malformed prior CPU exit artifact",
+    "Original build receipt and fresh-prefill source",
+    "Producer profile and recursively redacted workflow result"
+  ],
+  "qualification": {
+    "status": "BOUNDED_G4_CLI_NUMERICAL_PASS",
+    "full_frontier_comparisons": 47,
+    "max_abs_error": 0,
+    "independent_reference_processes": 6,
+    "trajectories": 3,
+    "command_exit": 0,
+    "wrapper_exit": 0,
+    "all_reference_pids_absent": true,
+    "original_cumulative_gates": "NOT_QUALIFIED"
+  }
+}

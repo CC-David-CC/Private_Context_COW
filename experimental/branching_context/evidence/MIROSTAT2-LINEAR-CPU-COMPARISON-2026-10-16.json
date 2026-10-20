@@ -1,0 +1,30 @@
+{
+  "comparison_source_sha256": "6c4cff34b9bae4180a65a707eb627cdde552729423eb0e515ffb0e61527b7544",
+  "comparisons": 144,
+  "compiler_argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O3",
+    "-fno-fast-math",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-comparison-v2/compare.cpp",
+    "-o",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/mirostat-linear-comparison-v2/compare"
+  ],
+  "fixtures": 8,
+  "new_header_sha256": "23e16ff0bcaf9b33d571a941a52c444b3b4c46c523353ba36084d8b8a5d7f898",
+  "new_median_ms": 2.991531,
+  "old_header_sha256": "116ea661e06dbfc89363eadbd2dc3390db30099f71a26671e7155d0d6817f34c",
+  "old_median_ms": 22.775137,
+  "scope": "C++ helper only, not inference throughput",
+  "sink": 3286,
+  "status": "CPU_ONLY_PASS",
+  "vectors": {
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/prepare/A-generated-1.f32": "9c43863a383000df6b13c66b4219fca484090474a39333bd199b4c640262bda8",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/reference-A/generated-95.f32": "7dec18cbf85001d84f2aa844e2b79a8c60faf2d51feff5af04b6d7c17273d372",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/reference-B/generated-95.f32": "ef45e2557aa10a4e0d225a1d467dec2c643bd8488fe96c02107947434f807d3f",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/resume/A-continued-generated-99.f32": "987d9eff65bdfccbcd76797a88365a6ddca895ad42f17d066c9f9258eb7c64dd",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/resume/A-suffix.f32": "01242615452edd49f30721646028f4eba0f7d86edf0b55461f7582d2cd3e918c",
+    "/home/dflanag3/spatial-artifacts/sampler-extensions-20261016-v1/gpu-mirostat2-q4-8k-timing-v1/resume/B-suffix.f32": "7a1d522152bf95e9de63bf5bb9efcca7c9b317d32e81a8aab25942c9bf7923cd"
+  },
+  "vocabulary": 248320
+}

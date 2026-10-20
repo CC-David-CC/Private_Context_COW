@@ -1,0 +1,88 @@
+{
+  "scope": "real archived request with client checkpoint=true; canonical settings force=false; native protocol mapping covered by source and unit tests",
+  "response": {
+    "id": "chatcmpl-701de9697c9a419e8e7c761c",
+    "object": "chat.completion",
+    "created": 1791890499,
+    "model": "Context COW Qwen3.8 Q8 (GPU review)",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "ARCHIVE_OK"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1068,
+      "completion_tokens": 4,
+      "total_tokens": 1072,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 1068,
+      "prompt_ms": 1641.6,
+      "prompt_per_token_ms": 1.537,
+      "prompt_per_second": 650.6,
+      "predicted_n": 4,
+      "predicted_ms": 56.7,
+      "predicted_per_token_ms": 14.175,
+      "predicted_per_second": 70.5,
+      "draft_n": 0,
+      "draft_n_accepted": 0
+    }
+  },
+  "stored_effective_settings": {
+    "max_tokens": 32,
+    "reasoning_effort": "none",
+    "strata_checkpoint": false,
+    "stream": false,
+    "temperature": 0
+  },
+  "request_status": "completed",
+  "backend_sha256": "497d7e4c32b8922210dfb1510ed5f101d151c1995f01946a3ac62830fa85719c",
+  "engine_args": [
+    "--pack",
+    "/home/dflanag3/branching-g3/q8-pack",
+    "--native",
+    "/home/dflanag3/models/qwen38-flash-next-unsloth-gguf/Q8_0/Qwen3.8-Flash-Next-Q8_0-00001-of-00006.gguf",
+    "--max-context",
+    "16384",
+    "--prefill",
+    "4096",
+    "--spec",
+    "2",
+    "--suffix-draft",
+    "0",
+    "--kv",
+    "fp16",
+    "--expert-profile",
+    "/home/dflanag3/branching-g3/strata-immutable-branch-kv/data/expert-profile.bin",
+    "--prompt-cache",
+    "6",
+    "--conversation-cache-mib",
+    "8192",
+    "--stats",
+    "--no-prefill-borrow",
+    "--resident-budget-gib",
+    "40",
+    "--expert-cache",
+    "auto",
+    "--ple-io",
+    "direct",
+    "--ple-row-cache",
+    "1048576",
+    "--vram-reserve-mib",
+    "2048",
+    "--conversation-cache-slots",
+    "8",
+    "--prompt-cache-every",
+    "1024"
+  ],
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+}

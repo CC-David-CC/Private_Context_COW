@@ -1,0 +1,56 @@
+{
+  "schema": "p4-q4-retained-inputs-v1",
+  "status": "READ_ONLY_INPUTS_VALIDATED",
+  "scope": "retained receipt/manifest validation only; payloads require verified archive restore; no native work",
+  "source_case": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure",
+  "source_result_sha256": "40965f747ebda3fc87eb61cd274c96e2847d46dba65d346eef99e6d25c3d1cfa",
+  "prepare_sha256": "784978eb9e290b1ba02c2bbdd852e495189619b0ddb7811f17559d339522fc5a",
+  "profile_sha256": "f3c69ad908786548cdd325f33af03a623553134d9406483e7622edd62135ea4b",
+  "model_contract_id": "ff923fd4e0fb068eea3a39a79f130860fdbdda8f686ecb0c470fa09a27808827",
+  "execution_profile_id": "9b23df373eb42687a2eca77fb99a22409ada0ab4c3edac732da2674bd23d3763",
+  "roots": [
+    {
+      "root_index": 0,
+      "snapshot": "e3ecceb2ade807fdf33d87e66d9f5f4c4e901ae6a5c14ec49b36ca11ee1e5286",
+      "manifest_sha256": "07a8d31e1d61e71e25f15322ea5ddd8608e9244a242863ad49e24ce389849a69",
+      "payload_sha256": "cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca",
+      "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state",
+      "payload_bytes": 1830602232,
+      "payload_present": false,
+      "consumed": 65536,
+      "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/cbc82b900ab53e37a0b823b59d48a7c6a202455b87584a3c4b7b4a1868afe4ca.state"
+    },
+    {
+      "root_index": 1,
+      "snapshot": "c4386e8b4c4ffe8793ab0dfc34e899b52e7185b74114c455268b22b9bf84b316",
+      "manifest_sha256": "e897d52f34c2cd445635e7c7002455ac8d93eeef7b581881d1b0de43b93cc9f2",
+      "payload_sha256": "9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7",
+      "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state",
+      "payload_bytes": 1830602232,
+      "payload_present": false,
+      "consumed": 65536,
+      "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/9e05cf1b02251f5f70ef7fe3f55cd928b5784b9f537bd663c0f02502eecea9f7.state"
+    },
+    {
+      "root_index": 2,
+      "snapshot": "bb974fb5a77c22a4c4ee3e9067a404fa937b70fee53cc469c54273aa02fc584a",
+      "manifest_sha256": "5c725a23cafa398c40c24e202cf6b8d23cee900d9f77bccb50b85b2e0605e8e4",
+      "payload_sha256": "43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7",
+      "payload_path": "/home/dflanag3/spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state",
+      "payload_bytes": 1830602232,
+      "payload_present": false,
+      "consumed": 65536,
+      "archive_member": "spatial-artifacts/p5-q4-full96-run-20261015-v1/q4-64k-pressure/store/checkpoints/43d65bdc1877e01b9d3bbf9fb7d6b88e594bc946607fc61cd70961cf4721a3a7.state"
+    }
+  ],
+  "required_restore_bytes": 5491806696,
+  "archive": {
+    "bytes": 41838049280,
+    "member_listing_sha256": "d766cb7a4d84c2db07c2fc32c17657f442b30374f7636d36173e619bd66333b3",
+    "member_listing_verified": true,
+    "path": "/srv/data/git/private_context_cow.evidence/20261015-p5-q4-full96/p5-q4-full96-20261015.tar",
+    "sha256": "5e7339ce9d751afe64e5bf166c5c3f0ea6b7cc62255cacca7021ee0f8771d0ce"
+  },
+  "execution_status": "NOT_EXECUTED; wait for Q8 backup/reclaim and fresh disk preflight",
+  "source_reader_sha256": "4cce02a12aa5128713734d0b9b640d5433d68387e933f4b871a358015c2b9cdc"
+}

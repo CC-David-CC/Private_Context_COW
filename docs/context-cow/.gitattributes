@@ -1,0 +1,3 @@
+# Evidence hashes describe exact exported bytes. Logs retain original spacing.
+results/** -text -whitespace
+figures/*.svg -text

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "restored_consumed": 16442,
+  "prefix_forward_tokens": 0,
+  "first_new_feed_position": 16442,
+  "first_new_feed_count": 1383,
+  "scope": "Native work counters and positions; no fresh numerical oracle"
+}

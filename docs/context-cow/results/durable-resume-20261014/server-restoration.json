@@ -1,0 +1,21 @@
+{
+  "pid": 1426679,
+  "config_sha256": "4083878345d5cd966e187d3da9eae26ec538a7cfe8858c17880903af9d968227",
+  "command": [
+    "/home/dflanag3/branching-g3/web-review-20261013/.venv/bin/python",
+    "-m",
+    "serve.server",
+    "--engine",
+    "strata",
+    "--config",
+    "/home/dflanag3/branching-g3/web-review-20261013/config.json",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8097"
+  ],
+  "log": "/home/dflanag3/branching-g3/web-review-20261013/server-durable-resume-restored.log",
+  "status": "RESTORED",
+  "http_status": 200,
+  "response_bytes": 567
+}

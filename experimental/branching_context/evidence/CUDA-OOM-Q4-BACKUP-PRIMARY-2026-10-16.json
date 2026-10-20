@@ -1,0 +1,12 @@
+{
+  "archive_bytes": 17111040,
+  "archive_sha256": "936220614c44346d4a9e5d168d206b4670e0dfce81913fe9d9aa20b52e8d31b1",
+  "extracted_files": 0,
+  "manifest_sha256": "29da932c69d63fe1ac174741f7bcf923f9b12b7c0ae623e7c1907ae3585f47de",
+  "remote_archive": "/srv/data/git/private_context_cow.evidence/20261016-q4-cuda-oom-baseline-cpu-replacement-v1/evidence.tar",
+  "schema": "compact-receiver-primary-readback-v1",
+  "status": "PASS",
+  "symlinks_or_hardlinks": 0,
+  "verified_member_bytes": 16490885,
+  "verified_regular_files": 588
+}

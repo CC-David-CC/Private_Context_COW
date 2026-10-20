@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "FOCUSED_CPU_PASS",
+  "scope": "STOP CLI/HTTP FlowModel path, request display replay, append-after-stop replay, prompt suffix boundary, and selected compatibility regressions",
+  "source": {
+    "worktree": "C:/Users/dflanag3/Documents/fleet/context-cow-cli-stops",
+    "branch": "work/cli-stop-controls-20261016",
+    "base_head": "4a9d8a611318e5b52a4f3737d63b58dadf4d9308",
+    "remote_stage": "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/checkouts/cli-git-archive-v8/source",
+    "stage_method": "git archive HEAD of the isolated worktree plus exact owned dirty/untracked overlays; production module __file__ paths were preflighted under this stage",
+    "owned_file_sha256": {
+      "experimental/branching_context/src/context_time_travel/coordinator.py": "9803bfccb6f472c3fcbfd10efc95c49477a7605636ed525f3fee200a921d643c",
+      "serve/cow_adapter.py": "6833f7bde675a4df047b1f9a10308034c66e87df5405a678c42e1c8583cbbdc3",
+      "serve/cow_http.py": "5e0fc4f87ca9a1e1bd0db9deca8b204d7a145406c4445dc01689f063323c2545",
+      "serve/cow_prompt_encoder.py": "1a9b7aa021a72f69bf022f47b6e25bdefffdc88c849955071b5368c473aacfc8",
+      "serve/cow_text_adapter.py": "d47d45234656b6f021130f52f19c8047a888165f308e97987fbaf2ef3373ffd0",
+      "serve/cow_workspace.py": "de911ea57989f41363894cff0048425087c3b8a1d5d5c0a5454762724e6ac921",
+      "tools/cow_cli.py": "64c95e7d174ace92e14ffb0fd38fa8b9a5315821eba8818fedc278fc20ec8542",
+      "serve/test_cow_prompt_stop_boundary.py": "a2209f72f2fd6cb321636df2b189f9ea838d12418eeaca73432eaa1c620221d2",
+      "serve/test_cow_text_stops_cli.py": "876674af2f6d629a87a3a8663c18cb709f423a07cfa741cd3f8265b89711ea80"
+    }
+  },
+  "runs": [
+    {
+      "name": "cli-flow-green-v18",
+      "path": "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/cli-flow-green-v18",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_passed": 4,
+      "tests_failed": 0,
+      "coverage": "Two CLI subprocess/HTTP FlowModel tests cover consumed-but-hidden markers, partial stop and UTF-8 state across continuation, zero-work active-stop mismatch rejection, exact replay, changed-stop retry, append-user after a stopped turn, and exact retry of that new turn. A direct CowTextRequest.text_result assertion ensures an ambiguous marker and pending UTF-8 byte remain hidden during an active partial response. Two separate prompt encoder tests use the real CowPromptEncoder and verify the next suffix inserts EOT without rewriting canonical history."
+    },
+    {
+      "name": "cli-stop-regressions-v2",
+      "path": "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/cli-stop-regressions-v2",
+      "command_exit": 0,
+      "wrapper_exit": 0,
+      "tests_passed": 86,
+      "tests_failed": 0,
+      "modules": [
+        "serve.test_cow_answer_retry",
+        "serve.test_cow_text_adapter",
+        "serve.test_cow_workspace",
+        "test_sampled_controller",
+        "test_grammar_first",
+        "test_text_stop_controller",
+        "test_text_stop_grammar",
+        "test_text_stops"
+      ]
+    },
+    {
+      "name": "cli-append-after-stop-red-v2",
+      "path": "/home/dflanag3/spatial-artifacts/cli-stop-controls-20261016-v1/runs/cli-append-after-stop-red-v2",
+      "command_exit": 1,
+      "wrapper_exit": 1,
+      "classification": "behavioral RED",
+      "finding": "Exact retry of a new user turn with the same stop list failed by restoring the prior stopped matcher (HTTP 400: Cannot feed a stopped text matcher). Fixed by restoring prior matcher state only for resume bindings; new turns begin with a fresh matcher."
+    }
+  ],
+  "limitations": [
+    "The CLI HTTP workflow uses a synthetic CPU FlowModel and is not a native/GPU serving qualification.",
+    "The CLI FlowModel's append-user path uses the existing synthetic presentation-flow suffix callback. Real CowPromptEncoder behavior is checked separately by the two prompt-boundary tests in the same run.",
+    "Combined seed plus STOP schema-7/reseed continuity is pending the seed worker's frozen integration; it is not covered by this candidate run.",
+    "No GPU, native inference, numerical frontier, or registered full-suite qualification is claimed."
+  ]
+}

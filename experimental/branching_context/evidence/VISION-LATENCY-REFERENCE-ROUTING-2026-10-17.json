@@ -1,0 +1,31 @@
+{
+  "status": "FOCUSED_TEXT_REFERENCE_RECOVERY_PASS",
+  "scope": "Harness-only fix; original full timing runner FAIL retained. No product numerical or reference-equation changes.",
+  "failure": "Zero-image text prefix sent to feed_image, whose parser requires positive image count. Native refused before computation; Native.close then masked the rejection with BrokenPipeError.",
+  "fix": "Use the actual adapter rule: zero images uses ordinary batched feed; image prefixes use feed_image. Cleanup records dead-process error without hiding primary failure; live process cannot be declared retired.",
+  "red": {
+    "methods": 9,
+    "errors": 3,
+    "run": "vision-latency-reference-routing-red-run-v1"
+  },
+  "green": {
+    "methods": 9,
+    "errors": 0,
+    "skips": 0,
+    "run": "vision-latency-reference-routing-green-run-v1"
+  },
+  "regression_union": 101,
+  "g0": 51,
+  "gpu_reference": {
+    "status": "PASS",
+    "prefix_cells": 1091,
+    "suffix_cells": 25,
+    "outputs": 80,
+    "full_vectors": 2,
+    "max_abs_error": 0,
+    "forward_tokens": 1196,
+    "processes_exited": true,
+    "run": "vision-owned-schedule-text-reference-run-v1"
+  },
+  "limitation": "Corrected whole36-case runner has not rerun; retained36 measured requests are audited with this separately executed missing reference stage. Does not qualify full VC09 or original G gates."
+}

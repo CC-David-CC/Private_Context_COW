@@ -1,0 +1,56 @@
+{
+  "additional_orientation_normalization_regression": 22,
+  "additional_regression_scope": "Earlier four fixture methods plus eighteen orientation/normalization methods; five-method final fixture run also PASS. Counts overlap, do not sum as disjoint tests.",
+  "errors": 0,
+  "executed_g0": 51,
+  "failures": 0,
+  "final_g0_tests": 51,
+  "final_regression_errors": 0,
+  "final_regression_failures": 0,
+  "final_regression_skips": 0,
+  "final_regression_tests": 23,
+  "fixtures": "16 PNG/JPEG EXIF cases with independent literal pixel permutations plus both orders of two distinct images; malformed pixel output rejected. CPU only; no GPU image-answer or encoder-normalization coverage claimed.",
+  "frozen_harness": "/home/dflanag3/spatial-artifacts/cow-vision-20261016-v1/vision-format-matrix-source-v1",
+  "green_tests": 5,
+  "import_preflight": {
+    "files": {
+      "run_thinking_suffix_flow.py": "5ade51bdd510ca64aa1c0126ee739d262b0261cd2b57719e397fcfd34ea59e6c",
+      "run_vision_format_matrix.py": "b59deafad9e7fc6466cfeac5d75a055cf60de526b6f63f2746ee463242098a85",
+      "run_vision_latency.py": "99d7a0571d0a33acced3e3279e6ecb6561c9fd3e54694a5121abb86e7a5ff9ea",
+      "run_vision_pool_pressure.py": "e01e07fc9516cb5aa379a9b3f8e8f4fac843ee2bd691e2f4b892dd57904338e2",
+      "vision_format_fixture.py": "0532beace114245c043b6e9e6872e906634c3dcc39f88ab70afddcf7090e620f"
+    },
+    "status": "FROZEN_COMPILE_AND_IMPORT_PREFLIGHT_PASS_GPU_UNRUN",
+    "stdout": "exact format harness imports PASS; no model instantiated\n"
+  },
+  "initial_red_errors": 4,
+  "initial_status_preserved": "Original CPU-only status above describes that checkpoint; later GPU followup now passes.",
+  "live_gpu_followup": "VISION-FORMAT-MATRIX-Q4-2026-10-18.json",
+  "new_test_methods": 5,
+  "plan_extension_red_errors": 1,
+  "planned_gpu_scope": "18 actual CLI/HTTP image contexts, ordinary thinking512/greedy constrained final OK, raw independent prefix/final references. Optional parent copy eviction recorded separately from corruption; no authorization/restart/performance claim from this matrix.",
+  "private_archive": {
+    "archive_bytes": 44521,
+    "archive_sha256": "36b77daaf3814a6e37f2e8449c689e0dc483b6cf1d0590450baed1a188914dfc",
+    "destination": "box-git:/srv/data/git/private_context_cow.evidence/20261018-vision-format-cpu-v1/evidence.tar.gz",
+    "individually_verified_data_files": 76,
+    "manifest_note": "Inventory itself covered by archive SHA256",
+    "regular_members": 77,
+    "status": "PRIVATE_ARCHIVE_ALL_MEMBERS_VERIFIED"
+  },
+  "retained_preflight_failure": "Missing audit-only run_vision_pool_pressure import detected before any model startup; frozen bundle now includes all three audit helpers and passes exact imports.",
+  "skips": 0,
+  "source_files": {
+    "experimental/branching_context/scripts/run_vision_format_matrix.py": "b59deafad9e7fc6466cfeac5d75a055cf60de526b6f63f2746ee463242098a85",
+    "experimental/branching_context/scripts/vision_format_fixture.py": "0532beace114245c043b6e9e6872e906634c3dcc39f88ab70afddcf7090e620f",
+    "experimental/branching_context/tests/implementation/test_vision_format_fixture.py": "a4fa27606aed82a2ce166dfda8aedfeb5b356a23416fa493b00089d8358b8fb7"
+  },
+  "status": "CPU_FORMAT_FIXTURE_PASS_GPU_MATRIX_UNRUN",
+  "test_ids": [
+    "test_vision_format_fixture.VisionFormatFixtureTests.test_all_sixteen_cases_have_independent_exact_pixel_witnesses",
+    "test_vision_format_fixture.VisionFormatFixtureTests.test_oracle_rejects_corruption_and_does_not_use_production_transpose",
+    "test_vision_format_fixture.VisionFormatFixtureTests.test_normalizer_output_matches_all_literal_oracles",
+    "test_vision_format_fixture.VisionFormatFixtureTests.test_matrix_adds_both_ordered_two_image_controls",
+    "test_vision_format_fixture.VisionFormatFixtureTests.test_fixture_output_is_reproducible_and_refuses_overwrite"
+  ]
+}

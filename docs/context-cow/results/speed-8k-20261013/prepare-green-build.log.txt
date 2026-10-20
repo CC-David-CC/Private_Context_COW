@@ -1,0 +1,108 @@
+[ 10%] Built target ggml-base
+[ 17%] Built target strata_core
+[ 31%] Built target ggml-cpu
+[ 72%] Built target strata_kernels
+[ 82%] Built target strata_kernels_cpu
+[ 86%] Building CXX object CMakeFiles/strata_engine.dir/src/core/branch_pages.cpp.o
+[ 86%] Building CXX object CMakeFiles/strata_engine.dir/src/core/branch_session.cpp.o
+[ 86%] Building CUDA object CMakeFiles/strata_engine.dir/src/core/branch_digest.cu.o
+[ 86%] Linking CXX static library libstrata_engine.a
+[100%] Built target strata_engine
+[100%] Building CXX object CMakeFiles/branch_prepare_test.dir/tests/core/branch_prepare_test.cpp.o
+[100%] Linking CXX executable branch_prepare_test
+[100%] Built target branch_prepare_test
+[  6%] Built target strata_core
+[ 16%] Built target ggml-base
+[ 30%] Built target ggml-cpu
+[ 70%] Built target strata_kernels
+[ 80%] Built target strata_kernels_cpu
+[ 96%] Built target strata_engine
+[ 96%] Building CXX object CMakeFiles/branch_page_batch_test.dir/tests/core/branch_page_batch_test.cpp.o
+[100%] Linking CXX executable branch_page_batch_test
+[100%] Built target branch_page_batch_test
+[  6%] Built target strata_core
+[ 16%] Built target ggml-base
+[ 30%] Built target ggml-cpu
+[ 70%] Built target strata_kernels
+[ 80%] Built target strata_kernels_cpu
+[ 96%] Built target strata_engine
+[ 96%] Building CXX object CMakeFiles/branch_pages_test.dir/tests/core/branch_pages_test.cpp.o
+[100%] Linking CXX executable branch_pages_test
+[100%] Built target branch_pages_test
+[ 10%] Built target ggml-base
+[ 16%] Built target strata_core
+[ 30%] Built target ggml-cpu
+[ 70%] Built target strata_kernels
+[ 80%] Built target strata_kernels_cpu
+[ 96%] Built target strata_engine
+[ 96%] Building CXX object CMakeFiles/branch_session_test.dir/tests/core/branch_session_test.cpp.o
+[100%] Linking CXX executable branch_session_test
+[100%] Built target branch_session_test
+[ 10%] Built target ggml-base
+[ 16%] Built target strata_core
+[ 30%] Built target ggml-cpu
+[ 70%] Built target strata_kernels
+[ 80%] Built target strata_kernels_cpu
+[ 96%] Built target strata_engine
+[ 96%] Building CXX object CMakeFiles/branch_integrity_test.dir/tests/core/branch_integrity_test.cpp.o
+[100%] Linking CXX executable branch_integrity_test
+[100%] Built target branch_integrity_test
+[  6%] Built target strata_core
+[ 17%] Built target ggml-base
+[ 31%] Built target ggml-cpu
+[ 72%] Built target strata_kernels
+[ 82%] Built target strata_kernels_cpu
+[100%] Built target strata_engine
+[100%] Building CXX object CMakeFiles/branch_lifecycle_test.dir/tests/core/branch_lifecycle_test.cpp.o
+[100%] Linking CXX executable branch_lifecycle_test
+[100%] Built target branch_lifecycle_test
+[  6%] Built target strata_core
+[ 17%] Built target ggml-base
+[ 31%] Built target ggml-cpu
+[ 72%] Built target strata_kernels
+[ 82%] Built target strata_kernels_cpu
+[100%] Built target strata_engine
+[100%] Building CXX object CMakeFiles/branch_digest_gpu.dir/tests/core/branch_digest_gpu.cpp.o
+[100%] Linking CXX executable branch_digest_gpu
+[100%] Built target branch_digest_gpu
+[  0%] Building CXX object CMakeFiles/branch_digest_host.dir/tests/core/branch_digest_host.cpp.o
+[100%] Linking CXX executable branch_digest_host
+[100%] Built target branch_digest_host
+[  2%] Built target strata_spec
+[  8%] Built target strata_core
+[ 16%] Built target ggml-base
+[ 27%] Built target ggml-cpu
+[ 61%] Built target strata_kernels
+[ 72%] Built target strata_mmq
+[ 80%] Built target strata_kernels_cpu
+[ 94%] Built target strata_engine
+[ 97%] Built target strata_prefill
+[100%] Linking CXX executable strata
+[100%] Built target strata
+[  2%] Built target strata_spec
+[ 11%] Built target ggml-base
+[ 17%] Built target strata_core
+[ 28%] Built target ggml-cpu
+[ 40%] Built target strata_mmq
+[ 74%] Built target strata_kernels
+[ 82%] Built target strata_kernels_cpu
+[ 97%] Built target strata_engine
+[100%] Built target strata_prefill
+[100%] Building CXX object CMakeFiles/strata-branch.dir/src/core/branch_driver.cpp.o
+<measurement-home>/branching-g3/context-cow-public-20261013/src/core/branch_driver.cpp: In function ‘int strata::core::branch_driver(const WeightTable&, const ModelGeometry&, SessionState&, const VerifyHits&, const NativeHead*, PoolMultiFn, void*, ExpertDispatch&, int)’:
+<measurement-home>/branching-g3/context-cow-public-20261013/src/core/branch_driver.cpp:193:89: warning: comparison of integer expressions of different signedness: ‘std::streamoff’ {aka ‘long int’} and ‘const long unsigned int’ [-Wsign-compare]
+  193 |             if (!valid || !inputs.eof() || ids.empty() || !frontier || frontier.tellg() != bytes) {
+      |                                                                        ~~~~~~~~~~~~~~~~~^~~~~~~~
+[100%] Linking CXX executable strata-branch
+[100%] Built target strata-branch
+[  8%] Built target ggml-base
+[ 11%] Built target strata_spec
+[ 17%] Built target strata_core
+[ 28%] Built target ggml-cpu
+[ 40%] Built target strata_mmq
+[ 74%] Built target strata_kernels
+[ 82%] Built target strata_kernels_cpu
+[ 97%] Built target strata_engine
+[100%] Built target strata_prefill
+[100%] Linking CXX executable strata-fresh
+[100%] Built target strata-fresh

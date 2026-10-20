@@ -1,0 +1,35 @@
+{
+  "schema": "cow-cli-windows-synthetic-cleanup-v1",
+  "status": "PASS",
+  "cli_sha256": "8b6ed68280aed798a099c05062184ff1070a7b676aeb60b4cab9a25bd309ab8e",
+  "client_report": "report.json",
+  "client_report_sha256": "02ded64ae8dda657590b0ad1b5159611d8a80eecc4a692cbd3b699e65484ad28",
+  "post_audit": "post-audit.json",
+  "post_audit_sha256": "15708a7382360150114ac0767d59bd6b90348b1a41bf6bf25852905f272bb4ed",
+  "client_commands": 12,
+  "client_command_exits_all_zero": true,
+  "client_assertions": 14,
+  "client_assertions_all_passed": true,
+  "default_environment": true,
+  "pythonioencoding_override": false,
+  "synthetic_only": true,
+  "remote_service": {
+    "host": "llm-60",
+    "pid": 2434126,
+    "exit_code": 0,
+    "tmux_session": "cow-cli-win-synthetic-v1",
+    "tmux_session_gone": true,
+    "listener": "127.0.0.1:18234",
+    "listener_closed": true,
+    "server_stdout_sha256": "75d8bbf1a2521f52fdce371359590da1c64c344d0b2975dfb60c2c72c821bbad",
+    "server_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture_source_sha256": "8068e278867bf61017138cd31a03a88736220fe90cf4bd50ac6592f44221a183"
+  },
+  "local_tunnels": [
+    {"pid": 11868, "exit_code": 1, "process_gone": true, "run": "v1 default failure"},
+    {"pid": 24440, "exit_code": 1, "process_gone": true, "run": "v2 UTF-8 environment diagnostic"},
+    {"pid": 32356, "exit_code": 1, "process_gone": true, "run": "v3 fixed CLI default environment"}
+  ],
+  "local_forward_port_18234_free": true,
+  "api_key_used": false
+}

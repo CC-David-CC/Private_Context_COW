@@ -1,0 +1,38 @@
+{
+  "scope": "actual CUDA VMM ownership; no model",
+  "started": 1792000433.6682322,
+  "source_sha256": {
+    "tests/model_free/device_ownership_test.cpp": "898461af0084fe18a7466b237e7880026baec086be792f570891cc2fdf5ea14f",
+    "src/core/vmm.cpp": "97bbe3fffe76581dd1f7862144cc7d88a4212c1bb17e393b3a73940ec5fb377b",
+    "include/strata/core/vmm.hpp": "35422629c631edad0b2cb6d467f8f5cff163aef8eb6b93dbda407f44b5dd64d8"
+  },
+  "commands": [
+    {
+      "stage": "build",
+      "argv": [
+        "/usr/bin/nvcc",
+        "-std=c++17",
+        "-ccbin",
+        "/usr/bin/g++-12",
+        "-I/home/dflanag3/branching-g3/model-free-fleet-20261014/ownership-red-v1/include",
+        "/home/dflanag3/branching-g3/model-free-fleet-20261014/ownership-red-v1/tests/model_free/device_ownership_test.cpp",
+        "/home/dflanag3/branching-g3/model-free-fleet-20261014/ownership-red-v1/src/core/vmm.cpp",
+        "-lcuda",
+        "-o",
+        "/home/dflanag3/branching-g3/model-free-fleet-20261014/ownership-red-v1/result/device_ownership_test"
+      ],
+      "exit_code": 0
+    },
+    {
+      "stage": "run",
+      "argv": [
+        "/home/dflanag3/branching-g3/model-free-fleet-20261014/ownership-red-v1/result/device_ownership_test",
+        "0",
+        "1"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "status": "FAIL",
+  "binary_sha256": "9638de662861e7317e1b9b09d8a003d6728edc2b6b5d417de7e88ce3c1ac3d63"
+}

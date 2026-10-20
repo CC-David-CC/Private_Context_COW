@@ -1,0 +1,1486 @@
+{
+  "canonical_file_metadata_unchanged": true,
+  "contexts": [
+    {
+      "arm": "candidate",
+      "context": 0,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.722419005818665,
+        "root": 0.018916029017418623
+      },
+      "namespace": "3f0727eb23f70b3155f83f2e0a7dcd3a",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 64,
+                "ancestry_metadata_misses": 28,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 65,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.8133143701124936
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414879,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.01900250487960875
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 92,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 38,
+                "snapshot_parse_misses": 27,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7365406309254467
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414879,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.018816220108419657
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 92,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 38,
+                "snapshot_parse_misses": 27,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.722419005818665
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414879,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.019161586882546544
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 92,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 92,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 424929,
+                "reference_reads": 350,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 26059,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 38,
+                "snapshot_parse_misses": 27,
+                "snapshot_read_bytes": 106479960,
+                "snapshot_reads": 157,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7133222538977861
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414879,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.018916029017418623
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206"
+    },
+    {
+      "arm": "candidate",
+      "context": 1,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.07876949897035956,
+        "root": 0.019100520992651582
+      },
+      "namespace": "69456112894b631d72a5d08e62ae6243",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 41,
+                "ancestry_metadata_misses": 21,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 21,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.5371047290973365
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414883,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.019332953030243516
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 62,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.09479111013934016
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414883,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.019100520992651582
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 62,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.07857368607074022
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414883,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.019377266988158226
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 62,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 62,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 421623,
+                "reference_reads": 340,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 25047,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 42,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 68057758,
+                "snapshot_reads": 104,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.07876949897035956
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414883,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.018778858007863164
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "56adf31b45ad9c78181dfa1053a52285d7a51ffc34d7192d05877e238bb6477b"
+    },
+    {
+      "arm": "candidate",
+      "context": 2,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.8539783030282706,
+        "root": 0.019197304965928197
+      },
+      "namespace": "faf04e3a2215dee85a2bb70d8f70ce3f",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 69,
+                "ancestry_metadata_misses": 35,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 70,
+                "snapshot_parse_misses": 35,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.8744876440614462
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414893,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.01940155401825905
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 104,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 36,
+                "snapshot_parse_misses": 34,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.8524866139050573
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414893,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.01915616705082357
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 104,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 36,
+                "snapshot_parse_misses": 34,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.8539783030282706
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414893,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.01958847907371819
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 104,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 104,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 426521,
+                "reference_reads": 354,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 28589,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 36,
+                "snapshot_parse_misses": 34,
+                "snapshot_read_bytes": 115681412,
+                "snapshot_reads": 174,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.8550826259888709
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 249,
+                "reference_publications": 0,
+                "reference_read_bytes": 414893,
+                "reference_reads": 320,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19734,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.019197304965928197
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607"
+    },
+    {
+      "arm": "control",
+      "context": 0,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.08111323998309672,
+        "root": 0.015478197019547224
+      },
+      "namespace": "e59293c206feeb72ab6e0ce2643fe6f4",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 47,
+                "ancestry_metadata_misses": 21,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 21,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.515996458940208
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330512,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015659633092582226
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 68,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.08659968106076121
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330512,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015478197019547224
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 68,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.0810659290291369
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330512,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015640045050531626
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 68,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 68,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 337882,
+                "reference_reads": 278,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 20493,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 48,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 77792450,
+                "snapshot_reads": 116,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.08111323998309672
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330512,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 161045,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015380972065031528
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "b14623d1a9ea026be124029615968bd16d985ab977ac709d3b1a70cea2c56206"
+    },
+    {
+      "arm": "control",
+      "context": 1,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.0641983279492706,
+        "root": 0.015614255797117949
+      },
+      "namespace": "233271eb3e6a9074812abc58e1a400fb",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 33,
+                "ancestry_metadata_misses": 17,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 17,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.4173536100424826
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330516,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015633041970431805
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 50,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.06407840899191797
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330516,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015558791114017367
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 50,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.0641983279492706
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330516,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015614255797117949
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 50,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 50,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 335908,
+                "reference_reads": 272,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 19987,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 34,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 54474744,
+                "snapshot_reads": 84,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.06439161603339016
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330516,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 178655,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015686963917687535
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "56adf31b45ad9c78181dfa1053a52285d7a51ffc34d7192d05877e238bb6477b"
+    },
+    {
+      "arm": "control",
+      "context": 2,
+      "descriptor_count": 1,
+      "medians": {
+        "catalog": 0.7226905680727214,
+        "root": 0.015744894975796342
+      },
+      "namespace": "ca8019af25b5402ca2f5afc97cf17c1b",
+      "observations": [
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 0,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 57,
+                "ancestry_metadata_misses": 29,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 58,
+                "snapshot_parse_misses": 29,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7505862468387932
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330526,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015801292145624757
+            }
+          },
+          "warmup": true
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 1,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 86,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 30,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7226905680727214
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330526,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015744894975796342
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "catalog",
+            "root"
+          ],
+          "repetition": 2,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 86,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 30,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7242764560505748
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330526,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.01575821009464562
+            }
+          },
+          "warmup": false
+        },
+        {
+          "order": [
+            "root",
+            "catalog"
+          ],
+          "repetition": 3,
+          "values": {
+            "catalog": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 86,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 86,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 340102,
+                "reference_reads": 284,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 23023,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 30,
+                "snapshot_parse_misses": 28,
+                "snapshot_read_bytes": 95292368,
+                "snapshot_reads": 144,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.7188847758807242
+            },
+            "root": {
+              "counter_deltas": {
+                "ancestry_metadata_hits": 2,
+                "ancestry_metadata_misses": 0,
+                "ancestry_nodes_visited": 2,
+                "evaluation_read_bytes": 0,
+                "evaluation_reads": 0,
+                "evaluation_written_bytes": 0,
+                "reference_entries_scanned": 199,
+                "reference_publications": 0,
+                "reference_read_bytes": 330526,
+                "reference_reads": 256,
+                "reference_written_bytes": 0,
+                "root_index_read_bytes": 15686,
+                "root_index_repairs": 0,
+                "root_index_written_bytes": 0,
+                "snapshot_parse_hits": 3,
+                "snapshot_parse_misses": 0,
+                "snapshot_read_bytes": 180070,
+                "snapshot_reads": 5,
+                "snapshot_written_bytes": 0
+              },
+              "seconds": 0.015644313069060445
+            }
+          },
+          "warmup": false
+        }
+      ],
+      "root": "698d4afd7c865e9820000ff6475b7a17431efbd68bf967469f75fbc983a14607"
+    }
+  ],
+  "limitations": [
+    "CPU metadata query only, not inference or whole-request throughput",
+    "One warmup plus three alternating-order pairs per context; filesystem cache uncontrolled",
+    "Compares queries on the same current Store implementation; old full-catalog implementation is unchanged",
+    "Guard excludes OS lock files and numerical checkpoints; metadata guard is inode/size/mtime, not a byte hash"
+  ],
+  "native_executions": 0,
+  "producer_sha256": "09555a1d6d863a9ba37c5d1058c89816f0bddba97def3a3b282f87501a81aa12",
+  "schema": "cow-root-query-readonly-comparison-v1",
+  "source_sha256": "db2e595f2b54e43b99ea6ae3de27f4790be4ce423475f289da33e75d7288db27",
+  "status": "PASS"
+}

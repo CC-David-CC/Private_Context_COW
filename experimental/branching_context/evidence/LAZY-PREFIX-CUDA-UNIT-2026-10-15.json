@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "status": "FOCUSED_PASS",
+  "qualification": "Native CUDA unit and bounded Q4/Q8-small exactness only; no original gate upgrade or performance qualification",
+  "host": "llm-60",
+  "GPU": [
+    0
+  ],
+  "artifact_root": "/home/dflanag3/spatial-artifacts/lazy-prefix-20261015-v1",
+  "native_binary_sha256": "4bd5d715d460371458be8cadad28d881977dbeea57219039187d05aa12148451",
+  "native_reference_sha256": "f946253dfd05f58d93585d9436dae5076e306aa5feef3eca1f4b4a1b3766b129",
+  "original_test_red": {
+    "test_source_sha256": "08cc58dedee10ec95b1e0db4536ad2f12802a9292f871631c4d26a6763e24fd4",
+    "run": "red-v1",
+    "command_exit": 1,
+    "wrapper_exit": 1,
+    "failure": "checkpoint owns only the page-rounded consumed prefix, not max capacity"
+  },
+  "unit_programs_passed": 10,
+  "unit_programs_failed": 0,
+  "unit_results_sha256": "cf33c2b6da3039cbf0b74acf9d11b8aad1a91d393da13ae97c7745fe42a2baa7",
+  "unit_programs": [
+    {
+      "test": "branch_lazy_prefix_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "030156244214b1ef9c59ae2fd27cdf52eb448cc46243152397d5901c3cfa57fa",
+      "stdout": "{\"event\":\"first-prefix-extent\",\"capacity_cells\":32768,\"consumed\":4097,\"mapped_bytes\":14680064,\"expected_prefix_bytes\":14680064,\"full_capacity_bytes\":73400320}\n{\"status\":\"PASS\",\"checks\":73,\"model_forward\":false,\"qualification\":\"native-unit-only\"}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_session_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "24662214157fd116737c5d0e120644bf9693d59de2048a293277ae4e6b05d0a4",
+      "stdout": "{\"status\":\"PASS\",\"checks\":493,\"formats\":4,\"model_forward\":false}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_prepare_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "2c3ce61bc6acb931f589132f47dc98144b5642382936a52589685919bdafceb6",
+      "stdout": "{\"format\":0,\"prepare_seconds\":0.002400697,\"hashed_bytes\":81788928,\"launches\":9}\n{\"format\":1,\"prepare_seconds\":0.002576545,\"hashed_bytes\":48234496,\"launches\":9}\n{\"format\":2,\"prepare_seconds\":0.000547963,\"hashed_bytes\":6291456,\"launches\":1}\n{\"format\":3,\"prepare_seconds\":0.002488097,\"hashed_bytes\":27262976,\"launches\":9}\n{\"status\":\"PASS\",\"checks\":560,\"failures\":0,\"model_forward\":false}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_integrity_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "d4cee092e0fdb06d4ecb5a49554a7fc8398c35a97ced051b397f92c2eea701e8",
+      "stdout": "{\"status\":\"PASS\",\"checks\":30,\"failures\":0,\"granularity\":2097152}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_lifecycle_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "12bda744ef5ad759fdd29e0e5097c9fae9611c83adc5911cb13cb6044e2eca7f",
+      "stdout": "{\"format\":0,\"cycles\":64,\"children\":128,\"images_allocated\":129,\"images_released\":129,\"live_images\":0,\"payload_capacity_bytes\":0,\"page_allocations\":387,\"page_releases\":387,\"live_page_bytes\":0,\"handle_peak_bytes\":80,\"handle_live_bytes\":0}\n{\"format\":1,\"cycles\":64,\"children\":128,\"images_allocated\":129,\"images_released\":129,\"live_images\":0,\"payload_capacity_bytes\":0,\"page_allocations\":645,\"page_releases\":645,\"live_page_bytes\":0,\"handle_peak_bytes\":80,\"handle_live_bytes\":0}\n{\"format\":2,\"cycles\":64,\"children\":128,\"images_allocated\":129,\"images_released\":129,\"live_images\":0,\"payload_capacity_bytes\":0,\"page_allocations\":387,\"page_releases\":387,\"live_page_bytes\":0,\"handle_peak_bytes\":80,\"handle_live_bytes\":0}\n{\"format\":3,\"cycles\":64,\"children\":128,\"images_allocated\":129,\"images_released\":129,\"live_images\":0,\"payload_capacity_bytes\":0,\"page_allocations\":516,\"page_releases\":516,\"live_page_bytes\":0,\"handle_peak_bytes\":80,\"handle_live_bytes\":0}\n{\"status\":\"PASS\",\"checks\":14728,\"formats\":4,\"model_forward\":false,\"gpu_used\":true}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_session_apply_failure_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "abd9af9f244e69034a2b8395f3fb78e558c2b7a79ecb15033a0c926319e2515a",
+      "stdout": "{\"status\":\"PASS\",\"checks\":64,\"apply_copy_successes\":1,\"injected_apply_failures\":1,\"model_forward\":false}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_audit_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "d891cee48690059398781c6508db97acc15dec61859cc1d0dba3e0020622a57d",
+      "stdout": "{\"status\":\"PASS\",\"checks\":375,\"formats\":4,\"model_forward\":false}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_page_batch_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "fae0893b321a34495a737b9cd986798bdcfb000999898aaf5deae175997d7ccb",
+      "stdout": "{\"status\":\"PASS\",\"failures\":0}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_pages_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "f2e55eb1d92e7cd13250e7449647a59ea54aeb58d13ba44a44fdacad9d2ff571",
+      "stdout": "{\"status\":\"PASS\",\"granularity\":2097152,\"allocations\":6,\"releases\":6,\"cow_pages\":3,\"copied_bytes\":6291456,\"live_bytes\":0,\"failures\":0}\n",
+      "stderr": "",
+      "status": "PASS"
+    },
+    {
+      "test": "branch_device_seal_test",
+      "launcher_exit": 0,
+      "receipts": {
+        "command.exit": "0",
+        "wrapper.exit": "0"
+      },
+      "binary_sha256": "701836fc38a4ed1034ea4beb38300685b8abe702adae2466f5038d2daf48afcd",
+      "stdout": "{\"status\":\"PASS\",\"checks\":3673,\"failures\":0,\"model_forward\":false}\n",
+      "stderr": "",
+      "status": "PASS"
+    }
+  ],
+  "initial_unchanged_fixture_results": {
+    "sha256": "86f4cab448b091fcedda03e9e3d22d981b236bc9579286649d41f5f9bc8c8bdf",
+    "passed": 5,
+    "failed": 5,
+    "failures": [
+      {
+        "test": "branch_session_test",
+        "launcher_exit": 1,
+        "receipts": {
+          "command.exit": "1",
+          "wrapper.exit": "1"
+        },
+        "binary_sha256": "68e035b7e674009a70ffeeb5112b814f89ac3a56706c9e3810b62bee236c64f2",
+        "stdout": "",
+        "stderr": "FAIL: invalid argument\n",
+        "status": "FAIL"
+      },
+      {
+        "test": "branch_prepare_test",
+        "launcher_exit": 2,
+        "receipts": {
+          "command.exit": "2",
+          "wrapper.exit": "2"
+        },
+        "binary_sha256": "ffb5f47d4258744cd0e74335213226fba029aa5eab32e253876dc96613d55d71",
+        "stdout": "",
+        "stderr": "FAIL: invalid argument\n",
+        "status": "FAIL"
+      },
+      {
+        "test": "branch_session_apply_failure_test",
+        "launcher_exit": 1,
+        "receipts": {
+          "command.exit": "1",
+          "wrapper.exit": "1"
+        },
+        "binary_sha256": "c1a3907aa08dfe858b00d0e569a39898994a606ea96cca8d7eeb423d7c542389",
+        "stdout": "",
+        "stderr": "FAIL: fill parent pools: invalid argument\n",
+        "status": "FAIL"
+      },
+      {
+        "test": "branch_audit_test",
+        "launcher_exit": 1,
+        "receipts": {
+          "command.exit": "1",
+          "wrapper.exit": "1"
+        },
+        "binary_sha256": "f3f1c3ef3fc4a77b40d806ba31c2ebc6929d49ef0168f1f83fb2227df9c219c0",
+        "stdout": "",
+        "stderr": "FAIL: invalid argument\n",
+        "status": "FAIL"
+      },
+      {
+        "test": "branch_device_seal_test",
+        "launcher_exit": 2,
+        "receipts": {
+          "command.exit": "2",
+          "wrapper.exit": "2"
+        },
+        "binary_sha256": "ad170669b1841a1eaf5e418f2bb629d999b09c00d8cd30321e3c4b5f7411f338",
+        "stdout": "",
+        "stderr": "FAIL: CUDA line 54 `cudaMemset(base, static_cast<int>((seed + pool_index * 37) & 0xff), pool.bytes)`: invalid argument\n",
+        "status": "FAIL"
+      }
+    ]
+  },
+  "fixture_correction": "Old raw accesses crossed into future unmapped capacity. Seed/read every allocated full physical page (including tail padding), use exact VMM-rounded virtual bounds, test zeroing after remapping; retain corruption, copy failure and consumed-state assertions. No registered tests, tolerances or equations changed.",
+  "build_final_receipt_sha256": "785749cefb98bcc899debaeeaa7c4abc67d24d8ae40283c3f7519a3260134f55",
+  "latest_source_build_is_byte_identical_to_tested_sut": true,
+  "source_sha256": {
+    "src/core/branch_session.cpp": "00b12a76e1173c4fefe799c866a0d82033e8b2ef6b2d473ca5b486dce9f83a8a",
+    "src/core/branch_pages.cpp": "ff3a99b3e08fc839c6f20ff9977227fcce38e28b36f1c64da0b2480dc3247d1f",
+    "include/strata/core/branch_session.hpp": "d38d8ccb3c0e5eb60cb46bf78945fa4bb8371027bed5426a08a122302bc7a41b",
+    "tests/core/branch_lazy_prefix_test.cpp": "1b4d8e846dbe1ef6ad14128a34d420ea3ce2dd276749635e7bc18ed30b3bb1bd",
+    "tests/core/branch_test_extent.hpp": "198b5f769a1688c87ea25702dbdcb45fde9d325b9ebf9b387e1319fb99d49202"
+  },
+  "allocation_fixture": {
+    "capacity_cells": 32768,
+    "consumed": 4097,
+    "mapped_bytes": 14680064,
+    "prior_full_capacity_bytes": 73400320,
+    "virtual_capacity_preserved": true
+  },
+  "full_integrity_policy": "Every allocated sealed page is freshly hashed before any growth or tail detach; complete physical tail padding remains checked",
+  "cases": [
+    {
+      "fixture": "q4-tiny-v2",
+      "evidence_file": "LAZY-PREFIX-Q4-128-2026-10-15.json",
+      "audit_sha256": "9d5d666b4dd69d473eb581ab4ea822d07d56560cd4391385fb8b93039be98ae6"
+    },
+    {
+      "fixture": "q4-medium-v1",
+      "evidence_file": "LAZY-PREFIX-Q4-1K-2026-10-15.json",
+      "audit_sha256": "6bf6677f37a22260d9309dd19e017f5c1e4667785d0c3211a44dbee425724cc5"
+    },
+    {
+      "fixture": "q4-target-v1",
+      "evidence_file": "LAZY-PREFIX-Q4-8K-2026-10-15.json",
+      "audit_sha256": "1619441a72c3d76be8e8fe5b4f7351d6f047e5f9e52eed6f29615ba48d98a2a7"
+    },
+    {
+      "fixture": "q8-tiny-v1",
+      "evidence_file": "LAZY-PREFIX-Q8-128-2026-10-15.json",
+      "audit_sha256": "c031f677c407db9f46a79d1e4d2d718dfa697e8d52e559977ad9730b0c475f98"
+    }
+  ],
+  "G0": {
+    "status": "PASS",
+    "tests": 51,
+    "failures": 0,
+    "skips": 0,
+    "run": "g0-v1",
+    "source": "capacity-main-integration-20261015-v2/source; unchanged logical/reference sources"
+  },
+  "limitations": [
+    "Q8 8K fixture currently running; not counted here",
+    "Paired speed measurements not executed yet",
+    "Prefix/final frontier sampling only in model fixtures",
+    "Original arena and full-capacity integrity scratch still allocated",
+    "Standalone pinned-closure builds; HIP and SYCL not qualified"
+  ],
+  "preserved_setup_failures": [
+    "Prelaunch rejected run directory inside checkout",
+    "First link included generate.o main; duplicate-main link failure preserved",
+    "First model smoke used older Python imports; rerun with coherent current runtime before qualification"
+  ]
+}
