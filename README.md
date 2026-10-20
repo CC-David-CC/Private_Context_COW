@@ -1,3 +1,5 @@
+Start with [Linux server setup](docs/CONTEXT-COW-SERVER.md) and the [BranchWrite client guide](https://github.com/CC-David-CC/BranchWrite/blob/main/docs/LINUX-QUICKSTART.md).
+
 # Context COW
 
 Experimental source preview,2026-10-20. Context COW keeps immutable model

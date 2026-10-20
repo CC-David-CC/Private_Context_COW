@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "id": "no-key",
+      "http_status": 401
+    },
+    {
+      "id": "wrong-key",
+      "http_status": 401
+    }
+  ]
+}

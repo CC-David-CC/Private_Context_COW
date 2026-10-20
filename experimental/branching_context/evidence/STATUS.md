@@ -8026,3 +8026,8 @@ Evidence: evidence/runs/bw-conversation-integration-20261020/.
 
 
 2026-10-20 consumed pause coordinator/HTTP CPU PASS:205focusedCOW,18HTTP,18decoder/recovery,363combinedclient/server,andG0 51/51,0skips. Authenticated stream control usesoriginalID/transientEvent;normalpartialpublication only. Unsupportedroot/legacyrequestrejects. Coordinatorpause1+resume7andlostackreplay preserveRNG/controller withno extraforwardwork. Clientwatcher/GPU pause notyetimplemented/qualified. See runs/CONSUMED-PAUSE-20261020/HTTP-HANDOFF.md.
+
+
+## Linux LAN preview, 2026-10-20
+
+Source-built CUDA server on llm-60 and fresh GitHub BW installation in the llm-49 Ubuntu VM passed a website and a follow-up across Python/native process restart. G0 passed 51/51. No new numerical oracle, zero-prefix-work trace or cumulative qualification was performed. See docs/CONTEXT-COW-SERVER.md and validation/linux-lan-install-20261020. Strata head was not updated.

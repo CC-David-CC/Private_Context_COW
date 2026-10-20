@@ -10,7 +10,7 @@ certification. The original mathematical gates remain separate.
 
 ## 1. Check the server computer
 
-You need 64-bit Linux, an NVIDIA GPU, enough system RAM for your model, and
+You need 64-bit Linux, Python 3.12 or newer, an NVIDIA GPU, enough system RAM for your model, and
 space for model files and the checkpoint pool. The client needs none of those
 model files. Model downloads and model packing are separate preparation steps.
 
@@ -34,12 +34,12 @@ sudo apt update
 sudo apt install -y git build-essential cmake python3-venv
 ```
 
-Download the reviewed preview source. The exact tested ref will be recorded
-when the clean server/client campaign finishes.
+Download the reviewed Linux preview:
 
 ```sh
 git clone https://github.com/CC-David-CC/Private_Context_COW.git
 cd Private_Context_COW
+git checkout lan-preview-2026-10-20
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-cow-server.txt
 cmake -S . -B build -DSTRATA_ENABLE_CUDA=ON -DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc -DCMAKE_CUDA_ARCHITECTURES=native -DCMAKE_BUILD_TYPE=Release
@@ -109,3 +109,18 @@ Execution profiles bind the actual model, executable, source and settings.
 Changing batch boundaries or operators is not promised to give the same logits.
 This installation does not create a numerical oracle or grant certification.
 Keep the source/runtime used by saved work; updating in place can invalidate it.
+
+## Executed preview scope
+
+A fresh GitHub-installed BW client in the owned llm-49 Ubuntu VM created a
+website through this source-built server on llm-60. Both server processes exited
+before restart. The reopened BW session changed the website successfully.
+Independent desktop and phone browser checks passed. G0 passed 51/51.
+The tuned trial supplied --expert-profile data/expert-profile.bin and explicitly
+reused unchanged prior model-file hash receipts. Normal setup hashes the files.
+
+No new numerical oracle, logit-error measurement, zero-prefix-work trace, Q8
+trial, TPS comparison or G1-G5 qualification was performed. CUDA built; HIP/SYCL
+were not built. The original export manifests describe the initial prototype
+export. Later commits intentionally change that baseline; see the native source
+promotion receipt in validation/linux-lan-install-20261020.
