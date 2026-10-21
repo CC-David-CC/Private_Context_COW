@@ -5,6 +5,7 @@ and configures the existing native COW path. It verifies pinned model files and
 keeps API keys outside the source checkout.
 
 - Final automatic setup on RTX 4090 /32 GB system RAM: PASS, 375 seconds with existing pinned model files; native CUDA13.3 build, real packing, full hashes and new settings/key. Model transfer took1006.6 seconds separately. No full111 GB Internet download was claimed.
+- Fresh published BW tag installation for another VM user: PASS in 6.13 seconds; `bw --help` passed, source revision `9e96ebdf`, routine runtime receipt stays off the terminal. Download caches/network conditions affect this time.
 - Repeat setup: PASS, settings and key unchanged.
 - Final wrapper startup: PASS, authenticated info ready in25.0 seconds.
 - Setup policy17/17, model resources9/9, G0 51/51, HTTP fixture regressions16/16, BW connection16/16 and interactive6/6. Fixture tests are not GPU gate qualification.
