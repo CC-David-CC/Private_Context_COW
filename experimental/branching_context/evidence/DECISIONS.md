@@ -5442,3 +5442,26 @@ Independent canonical-token/work-counter audit: saved prefix 24,340 tokens,
 new work 2,333 tokens, saved-prefix forward work zero. See
 `qwen35-9b-20261021/interactive-restart/`. PDF/CAD model baselines remain failed;
 interactive fork/retry remains outstanding. No cumulative gate qualification.
+
+
+## Interactive CLI branch flow completed, 2026-10-21
+
+The dev72 separate-VM CLI completed website creation, server restart follow-up,
+client restart/history recovery, explore into separate files, selection of a saved
+turn and editing an earlier request. Independent browser checks passed for both
+the green original and yellow alternative. The repeated edit produced the same
+final HTML SHA-256; the alternative stayed unchanged. CLI exit code was zero.
+Details: `qwen35-9b-20261021/interactive-restart/branch-flow-summary.json`.
+This supersedes the earlier outstanding status for this bounded CLI branch flow.
+CLI edit creates a new workflow and is distinct from exact COW receipt retry.
+
+A separate BranchWrite startup guard fixes false empty-history notices before the
+ledger opens: 48 focused and six configured outcome regressions passed. Twelve
+browser-policy fixture tests remain unqualified in this environment; their missing
+fixture errors are retained. The frozen GPU run used dev72 without this guard.
+
+CAD baseline still has no accepted artifact. A separate assisted greedy trial adds
+one verified, unrelated export-function example with unchanged requirements. It
+advanced to candidate execution but still hit placement API errors; reaching the
+inspect_cad tool does not prove export, numerical geometry or rendered-view success.
+No operator modified its candidate source. PDF/CAD competence remains incomplete.
