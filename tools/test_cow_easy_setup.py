@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(ROOT/'tools'))
 import cow_easy_setup as setup
 G=1024**3
@@ -17,6 +18,7 @@ class SetupPolicyTests(unittest.TestCase):
         p=setup.plan_for(self.hardware())
         self.assertLessEqual(p.resident_gib+p.ram_gib+8,24)
         self.assertEqual(p.context,32768)
+        self.assertEqual(p.prefill,8192)
         self.assertGreaterEqual(p.resident_gib,4)
         self.assertGreaterEqual(p.ram_gib,2)
         self.assertLess(p.vram_reserve_mib,24*1024)
@@ -25,6 +27,8 @@ class SetupPolicyTests(unittest.TestCase):
         self.assertLess(p.vram_reserve_mib,32*1024)
         self.assertGreater(p.resident_gib,setup.plan_for(self.hardware()).resident_gib)
         self.assertLessEqual(p.resident_gib+p.ram_gib+8,110)
+    def test_smaller_gpu_uses_a_smaller_prefill_batch(self):
+        self.assertEqual(setup.plan_for(self.hardware(vram=16)).prefill,2048)
     def test_memory_pressure_reduces_jobs_and_residency(self):
         a=setup.plan_for(self.hardware(available=24));b=setup.plan_for(self.hardware(available=17))
         self.assertLess(b.resident_gib,a.resident_gib)
@@ -66,6 +70,24 @@ class SetupInteractionTests(unittest.TestCase):
             with patch.object(setup,'inspect_host',return_value=hardware),patch.object(setup.shutil,'disk_usage',return_value=__import__('collections').namedtuple('Disk','total used free')(1024*G,0,1024*G)),patch('builtins.input',side_effect=AssertionError('must not prompt')):
                 self.assertEqual(setup.main(['--check','--data-dir',str(data)]),0)
             self.assertFalse(data.exists())
+
+class HeadroomPolicyTests(unittest.TestCase):
+    def test_small_server_reserves_guard_and_native_overhead(self):
+        h=setup.Hardware(32*G,24*G,24*G,24*G,12,'Example','/cuda/nvcc')
+        p=setup.plan_for(h)
+        self.assertEqual(p.min_available_gib,8)
+        self.assertLessEqual(p.resident_gib+p.ram_gib+p.min_available_gib+6,24)
+    def test_large_server_retains_sixteen_gib_guard(self):
+        p=setup.plan_for(setup.Hardware(128*G,110*G,32*G,32*G,12,'Example','/cuda/nvcc'))
+        self.assertEqual(p.min_available_gib,16)
+    def test_http_pool_receives_positive_configured_guard(self):
+        from types import SimpleNamespace
+        sys.path.insert(0,str(ROOT/'experimental/branching_context/src'))
+        from serve.cow_http import pool_config_from_args
+        args=SimpleNamespace(ram_gib=2,disk_gib=16,min_available_gib=8,checkpoint_idle_seconds=1800)
+        self.assertEqual(pool_config_from_args(args).min_available_bytes,8*G)
+        args.min_available_gib=0
+        with self.assertRaisesRegex(ValueError,'positive'):pool_config_from_args(args)
 
 class ConfigurationRetryTests(unittest.TestCase):
     def test_failed_configuration_leaves_no_unusable_server_folder(self):

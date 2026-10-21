@@ -131,7 +131,7 @@ def _make_profile(args,output):
     key.chmod(0o600)
     write_json(output/"server.json",dict(profile=str(output/"profile.json"),store=str(output/"store"),
         api_key_file=str(key),host=args.host,port=args.port,ram_gib=args.ram_gib,
-        disk_gib=args.disk_gib,checkpoint_idle_seconds=1800))
+        disk_gib=args.disk_gib,min_available_gib=getattr(args,"min_available_gib",16),checkpoint_idle_seconds=1800))
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
     print("Start the server with: "+str(sys.executable)+" "+str(ROOT/"tools/cow_server.py")+" "+str(output))
@@ -162,10 +162,11 @@ def main():
     parser.add_argument("--vram-reserve-mib",type=int,default=8192)
     parser.add_argument("--ram-gib",type=int,default=48)
     parser.add_argument("--disk-gib",type=int,default=64)
+    parser.add_argument("--min-available-gib",type=int,default=16)
     parser.add_argument("--host",default="127.0.0.1")
     parser.add_argument("--port",type=int,default=8099)
     args=parser.parse_args()
-    if min(args.context,args.prefill,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib)<=0:
+    if min(args.context,args.prefill,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib,args.min_available_gib)<=0:
         parser.error("Context, batch and pool sizes must be positive.")
     if not 1<=args.port<=65535: parser.error("Invalid port.")
     os.umask(0o077)

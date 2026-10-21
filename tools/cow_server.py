@@ -32,6 +32,7 @@ def main():
         sys.argv=["cow-http","--profile",config["profile"],"--store",config["store"],
                   "--host",config["host"],"--port",str(config["port"]),"--api-key",key,
                   "--ram-gib",str(config["ram_gib"]),"--disk-gib",str(config["disk_gib"]),
+                  "--min-available-gib",str(config.get("min_available_gib",16)),
                   "--checkpoint-idle-seconds",str(config["checkpoint_idle_seconds"]),
                   "--text","--grammar-store",str(directory/"grammars")]
         try: runpy.run_module("serve.cow_http",run_name="__main__")

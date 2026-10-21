@@ -782,6 +782,15 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
     return server
 
 
+def pool_config_from_args(args):
+    from context_time_travel.pools import PoolConfig
+    if args.min_available_gib<=0:
+        raise ValueError('The serving memory-headroom guard must be positive')
+    return PoolConfig(gpus=(0,),ram_bytes=args.ram_gib*1024**3,
+        disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
+        checkpoint_idle_seconds=args.checkpoint_idle_seconds)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile',type=Path,required=True)
@@ -789,6 +798,7 @@ def main():
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=8099)
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
+    parser.add_argument('--min-available-gib',type=int,default=16,help='Positive host RAM headroom; guided setup sizes this for the server.')
     parser.add_argument('--checkpoint-idle-seconds',type=float,
         help='Expire unused eligible RAM/disk checkpoint copies; testing: 1800, production example: 10800. Omit to disable.')
     parser.add_argument('--text',action='store_true',help='Enable literal-safe model-template text endpoints')
@@ -840,8 +850,7 @@ def main():
     if args.vision_config is not None:
         from context_time_travel.store import Store
         preparer=vision_preparer_from_config(Store(args.store),components['mixed_renderer'],profile,args.vision_config)
-    config=PoolConfig(gpus=(0,),ram_bytes=args.ram_gib*1024**3,disk_bytes=args.disk_gib*1024**3,
-                      min_available_bytes=16*1024**3,checkpoint_idle_seconds=args.checkpoint_idle_seconds)
+    config=pool_config_from_args(args)
     def factory(gpu): return BranchingModel(args.store,StrataBackend(profile,gpu_id=gpu),profile)
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
     coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer)

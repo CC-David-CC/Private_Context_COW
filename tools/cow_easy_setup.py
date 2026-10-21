@@ -45,21 +45,24 @@ class Plan:
     context:int
     prefill:int
     build_jobs:int
+    min_available_gib:int
 
 def plan_for(hardware):
     values=[hardware.ram_total,hardware.ram_available,hardware.gpu_total,hardware.gpu_free,hardware.cpus]
     if any(not math.isfinite(x) or x<=0 for x in values):
         raise ValueError('Invalid hardware resource measurements')
     available=int(hardware.ram_available//G)
-    if available<14:raise ValueError('Not enough available RAM: close other programs; at least 14 GiB must be available for this initial profile.')
+    headroom=16 if hardware.ram_total>=64*G else 8
+    if available<headroom+9:raise ValueError(f'Not enough available RAM: close other programs; at least {headroom+9} GiB must be available for this initial profile.')
     if hardware.gpu_free<12*G:raise ValueError('Not enough free GPU memory: this initial profile requires at least 12 GiB free; this is a preflight floor, not a qualified minimum.')
     ram=max(2,min(16,available//12))
-    resident=max(4,min(72,available-ram-8))
+    resident=max(1,min(72,available-ram-headroom-6))
     reserve=min(8192,max(4096,int(hardware.gpu_free/G)*128))
     # Compilation and serving occur separately. Keep headroom for the OS and
     # cap compiler concurrency by available memory, not only the CPU count.
     jobs=max(1,min(hardware.cpus,(available-6)//3))
-    return Plan(resident,ram,16,reserve,32768,512,jobs)
+    prefill=8192 if hardware.gpu_free>=20*G else 2048
+    return Plan(resident,ram,16,reserve,32768,prefill,jobs,headroom)
 
 def inspect_host():
     if platform.system()!='Linux' or platform.machine() not in ('x86_64','amd64'):
@@ -142,7 +145,10 @@ def main(argv=None):
     print(f'GPU 0: {hardware.gpu_name}; {hardware.gpu_free/G:.1f} GiB free')
     print(f'RAM: {hardware.ram_total/G:.1f} GiB total; {hardware.ram_available/G:.1f} GiB available')
     print(f'Initial settings: {plan.context:,} context tokens, FP16 KV, {plan.resident_gib} GiB expert RAM, {plan.ram_gib} GiB context RAM, {plan.disk_gib} GiB disk pool.')
+    print(f'Prefill batch: {plan.prefill:,} tokens; host memory guard: {plan.min_available_gib} GiB.')
     print(f'Build jobs: {plan.build_jobs}; model files: {sum(a.size for a in assets)/1e9:.1f} GB; missing download: {missing/1e9:.1f} GB.')
+    if hardware.ram_available+hardware.gpu_free<sum(a.size for a in assets):
+        print('These model files exceed this PC\'s combined free RAM and GPU memory. Expect SSD reads during inference; the first question can be slow.')
     print('Settings are initial budgets, not numerical or performance qualification. GPU 0 serves one request at a time.')
     print('Server listens on your trusted LAN with an API key. Do not forward it to the Internet.')
     if disk.free<required:raise SetupError(f'Not enough disk space: allow {required/G:.1f} GiB free here, including missing model files and the disk-pool budget.')
@@ -164,7 +170,7 @@ def main(argv=None):
         command=[str(python),str(ROOT/'tools/cow_prepare_model.py'),'--data-dir',str(data),'--yes']
         if args.existing_models:command+=['--existing-models',str(models)]
         run_step('Prepare Q4 model',command,logs/'model.log',ROOT)
-        run_step('Configure server',[str(python),str(ROOT/'tools/cow_server_setup.py'),'--model',str(models/assets[0].name),'--pack',str(data/PACK_NAME),'--native',str(build/'strata-branch'),'--expert-profile',str(ROOT/'data/expert-profile.bin'),'--output',str(data/'server'),'--host','0.0.0.0','--port',str(args.port),'--context',str(plan.context),'--prefill',str(plan.prefill),'--resident-gib',str(plan.resident_gib),'--ram-gib',str(plan.ram_gib),'--disk-gib',str(plan.disk_gib),'--vram-reserve-mib',str(plan.vram_reserve_mib)],logs/'server.log',ROOT)
+        run_step('Configure server',[str(python),str(ROOT/'tools/cow_server_setup.py'),'--model',str(models/assets[0].name),'--pack',str(data/PACK_NAME),'--native',str(build/'strata-branch'),'--expert-profile',str(ROOT/'data/expert-profile.bin'),'--output',str(data/'server'),'--host','0.0.0.0','--port',str(args.port),'--context',str(plan.context),'--prefill',str(plan.prefill),'--resident-gib',str(plan.resident_gib),'--ram-gib',str(plan.ram_gib),'--disk-gib',str(plan.disk_gib),'--vram-reserve-mib',str(plan.vram_reserve_mib),'--min-available-gib',str(plan.min_available_gib)],logs/'server.log',ROOT)
     print('Context COW setup complete. The model server has not been started.')
     print('Start: '+shlex.join([str(ROOT/'cow-start'),str(data)]))
     print('API key: '+shlex.join(['cat',str(data/'server/api-key.txt')]))
