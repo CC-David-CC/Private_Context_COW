@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import re
 import secrets
+import shutil
 import subprocess
 import sys
 import time
@@ -46,11 +47,10 @@ def write_json(path,value):
         stream.write("\n")
     Path(path).chmod(0o600)
 
-def make_profile(args):
+def _make_profile(args,output):
     sys.path[:0]=[str(ROOT),str(ROOT/"experimental/branching_context/src")]
     from tools.gguf_reader import GGUFFile
     from context_time_travel.strata_backend import _digest
-    output=new_output(args.output)
     model=args.model.resolve(strict=True)
     pack=args.pack.resolve(strict=True)
     binary=args.native.resolve(strict=True)
@@ -94,7 +94,7 @@ def make_profile(args):
         "--prompt-cache","0","--conversation-cache-mib","0","--stats","--no-prefill-borrow",
         "--resident-budget-gib",str(args.resident_gib),"--expert-cache","auto",
         "--ple-io","direct","--ple-row-cache","1048576",
-        "--vram-reserve-mib","8192","--pcie-frac","0.55",
+        "--vram-reserve-mib",str(args.vram_reserve_mib),"--pcie-frac","0.55",
         "--max-new","128","--tokens","1","--vision","--gpu","0"]
     if args.expert_profile: command+=["--expert-profile",str(args.expert_profile.resolve())]
     execution=dict(GPU=[0],capacity=args.context,kv_dtype="FP16",
@@ -137,6 +137,17 @@ def make_profile(args):
     print("Start the server with: "+str(sys.executable)+" "+str(ROOT/"tools/cow_server.py")+" "+str(output))
     return profile
 
+def make_profile(args):
+    output=new_output(args.output)
+    try:
+        return _make_profile(args,output)
+    except BaseException:
+        # Only this invocation's newly created, unpublished configuration.
+        # A pre-existing folder is rejected by new_output before entering here.
+        shutil.rmtree(output)
+        raise
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model",type=Path,required=True)
@@ -148,12 +159,13 @@ def main():
     parser.add_argument("--context",type=int,default=98304)
     parser.add_argument("--prefill",type=int,default=512)
     parser.add_argument("--resident-gib",type=int,default=40)
+    parser.add_argument("--vram-reserve-mib",type=int,default=8192)
     parser.add_argument("--ram-gib",type=int,default=48)
     parser.add_argument("--disk-gib",type=int,default=64)
     parser.add_argument("--host",default="127.0.0.1")
     parser.add_argument("--port",type=int,default=8099)
     args=parser.parse_args()
-    if min(args.context,args.prefill,args.resident_gib,args.ram_gib,args.disk_gib)<=0:
+    if min(args.context,args.prefill,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib)<=0:
         parser.error("Context, batch and pool sizes must be positive.")
     if not 1<=args.port<=65535: parser.error("Invalid port.")
     os.umask(0o077)

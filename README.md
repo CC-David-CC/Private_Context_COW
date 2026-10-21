@@ -1,8 +1,14 @@
+<!-- Guided setup uses the existing COW runtime, not ordinary Strata serving. -->
 **New here? [Set up a desktop server and a laptop client](docs/TWO-COMPUTER-SETUP.md).**
 This step-by-step Linux guide includes automatic Q4 model download, server setup
 and the BranchWrite client. No AI assistant is needed to follow it.
 
 # Context COW
+
+**Linux server:** clone this repository, then run `./cow-setup`. It detects
+the server and prepares its engine, model and settings. Run `./cow-start` afterward.
+[Desktop + laptop instructions](docs/TWO-COMPUTER-SETUP.md).
+
 
 Experimental source preview,2026-10-20. Context COW keeps immutable model
 histories with independent continuations and optional RAM/disk checkpoints.

@@ -60,94 +60,65 @@ sudo apt install -y git curl ca-certificates build-essential cmake python3-venv
 `sudo` lets Linux install system packages. Type your Linux password if asked.
 You will not see letters while you type the password. That is normal.
 
-### 3. Get Context COW and its Python packages
+### 3. Download Context COW
 
 ```sh
 mkdir -p ~/Apps
 cd ~/Apps
-git clone --branch lan-preview-2026-10-20.1 https://github.com/CC-David-CC/Private_Context_COW.git ContextCOW
+git clone https://github.com/CC-David-CC/Private_Context_COW.git ContextCOW
 cd ContextCOW
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-cow-server.txt
 ```
 
-A **virtual environment** is a separate folder for this app's Python packages.
-You do not need to activate it. Commands beginning with `.venv/bin/python` use it.
-The repository name contains “Private”, but this is the public download URL.
-
-### 4. Build the COW engine
+### 4. Run automatic setup
 
 ```sh
-cmake -S . -B build -DSTRATA_ENABLE_CUDA=ON -DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc -DCMAKE_CUDA_ARCHITECTURES=native -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target strata-branch -j "$(nproc)"
+./cow-setup
 ```
 
-Wait for the build to finish without errors. It downloads the pinned native build
-dependency. It builds the COW engine from this checkout, not an ordinary Strata
-server downloaded from elsewhere.
+Setup reads the server's available RAM, GPU memory and CPU count. It shows
+its starting settings and download size. Type `YES` to continue. It creates
+its own Python environment, installs the packages, builds the engine, downloads
+and verifies the pinned Q4 model, prepares the model pack, and makes a server
+configuration and API key. A **Python environment** is a separate folder that
+holds this app's Python packages. You do not need to activate it.
 
-### 5. Download and prepare the model automatically
+The initial context limit is 8,192 tokens with FP16 KV. The RAM pool and expert
+RAM budget are separate and are chosen from available RAM. The disk checkpoint
+pool initially allows 16 GiB. These are starting budgets, not a promise of
+performance on every PC. Model size is unchanged: the current supported model
+still needs about 111.3 GB of files. A disk-backed engine can read model data
+that is not resident in RAM; that can be much slower on a small machine.
+
+Setup does not replace your graphics driver or install CUDA. It reports missing
+build tools before starting the large model download. Long steps print a
+heartbeat and a log path. If installation stops, read the named log and run
+`./cow-setup` again after fixing the cause. Complete model files are checked;
+partial downloads resume. Existing completed server settings and keys are kept.
+
+For a preview without installing or downloading anything, use:
 
 ```sh
-.venv/bin/python tools/cow_prepare_model.py --yes
+./cow-setup --check
 ```
 
-This command uses the existing Strata downloader and native model packer. It:
-
-1. Downloads the four pinned Q4 files into `~/ContextCOW-data/models/UD-Q4_K_XL`.
-2. Checks each file against its expected size and SHA-256 hash. A hash is a
-   fingerprint used to detect a wrong or damaged file.
-3. Gets the pinned GGUF packing tools.
-4. Builds the matching pack in `~/ContextCOW-data/pack-ud-q4-k-xl`.
-5. Checks the prepared pack and prints **Model preparation complete**.
-
-It does not download MTP or start a model server. `--yes` approves the displayed
-large download. If the connection drops, run the same command again. Downloads
-resume; finished model files are still checked. Hash checks can take several
-minutes. Progress is printed during a long hash check.
-
-### 6. Make your server settings and API key
-
-Copy this whole command. The home-folder paths work without replacing a username:
+### 5. Start your server
 
 ```sh
-.venv/bin/python tools/cow_server_setup.py --model "$HOME/ContextCOW-data/models/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf" --pack "$HOME/ContextCOW-data/pack-ud-q4-k-xl" --native build/strata-branch --expert-profile data/expert-profile.bin --output "$HOME/cow-server" --host 0.0.0.0 --port 8099 --ram-gib 48 --disk-gib 64
+./cow-start
 ```
 
-This creates a new server folder and a random API key. The key is a password for
-this service. Setup hashes the model and runtime files; allow time for that.
-These pool sizes belong to the reference server above. Setup will not replace an
-existing `~/cow-server` folder. To start it again later, use step 7, not step 6.
-
-The **RAM pool** keeps reusable context in memory. The **disk pool** keeps saved
-computational checkpoints. Their 48/64 GiB limits are additional budgets, not the
-size of the model. Expiring a checkpoint may require computation to be repeated;
-it does not turn your saved conversation into an empty chat.
-
-### 7. Start the server
-
-```sh
-.venv/bin/python tools/cow_server.py "$HOME/cow-server"
-```
-
-Keep this terminal open. Wait for the ready message. Open a second desktop
-terminal and run:
+Keep this terminal open. Setup completion does not mean the model is running.
+Wait for the server's ready message. In a second desktop terminal, run:
 
 ```sh
 hostname -I
-cat "$HOME/cow-server/api-key.txt"
+cat "$HOME/ContextCOW-data/server/api-key.txt"
 ```
 
-Write down the desktop's LAN IP address and copy its key privately. For example,
-if the address is `192.168.1.50`, the laptop will use:
-
-```text
-http://192.168.1.50:8099
-```
-
-Use your own address, not that example. `0.0.0.0` is a server listening setting;
-it is not the address to type on the laptop. `127.0.0.1` means “this computer”,
-so it would point at the laptop itself.
+The API key is the password for this service. Copy it privately. If the desktop's
+LAN address is `192.168.1.50`, the laptop will use `http://192.168.1.50:8099`.
+Use your own address. `127.0.0.1` means “this computer”; on the laptop it points
+at the laptop. `0.0.0.0` is a listening setting, not a client connection address.
 
 Keep this HTTP service on your trusted LAN. Do not forward port 8099 through your
 router to the Internet. Only project content sent to this server is used by it;
@@ -155,7 +126,7 @@ choose a server you trust.
 
 ## Part B — on the laptop
 
-### 8. Install BranchWrite
+### 6. Install BranchWrite
 
 Open Terminal on the laptop. Install its small system tools:
 
@@ -173,7 +144,7 @@ curl -fsSL https://raw.githubusercontent.com/CC-David-CC/BranchWrite/lan-preview
 Wait for **BranchWrite is installed**. It downloads its own Python and client
 packages. It does not install a GPU engine or download the model onto the laptop.
 
-### 9. Open a project folder and connect
+### 7. Open a project folder and connect
 
 ```sh
 mkdir -p ~/my-first-website
@@ -181,14 +152,14 @@ cd ~/my-first-website
 ~/.local/bin/bw
 ```
 
-At **Server address**, type the desktop address from step 7, including `http://`
+At **Server address**, type the desktop address from step 5, including `http://`
 and `:8099`. At **API key**, paste the desktop's key and press Enter. The key
 stays in memory for this session. It is not saved unless you choose `--save-api`.
 
 BW works on the folder where you started it. It can read, create and change the
 project files. Keep passwords and private keys outside this project folder.
 
-### 10. Make something and change your mind
+### 8. Make something and change your mind
 
 Type:
 
@@ -204,7 +175,7 @@ You do not need to know HTML or choose exact file names. Work mode makes the
 changes and keeps saved file versions. Open the same folder and run BW again to
 return to its saved session.
 
-### 11. Talk while it works
+### 9. Talk while it works
 
 - **Enter:** send a request or add new information while it is working.
 - **Tab:** queue a note for the next turn. Queued follow-ups are combined.
@@ -228,7 +199,7 @@ you inspect the result in your own browser.
 5. If a desktop firewall is enabled, allow TCP port 8099 from the laptop's LAN
    address. Do not open the port to the entire Internet.
 
-If a download stops, rerun step 5. If a hash fails, the preparation command names
+If a download stops, rerun automatic setup. If a hash fails, the preparation command names
 the bad file and stops; it does not silently accept it. If a build or model load
 fails, keep its error text. “Setup installed” and “the model is running” are
 different results.
@@ -240,7 +211,7 @@ To return, open the desktop terminal and run:
 
 ```sh
 cd ~/Apps/ContextCOW
-.venv/bin/python tools/cow_server.py "$HOME/cow-server"
+./cow-start
 ```
 
 Then start `~/.local/bin/bw` from the same laptop project folder. Do not delete the

@@ -60,3 +60,9 @@ Do not substitute that server for the COW API expected by BranchWrite.
 
 Keep existing512-token successes, frozen registries and persisted controller budgets unchanged.
 Natural-cutoff research and broader end-to-end data collection are deferred.
+
+## Git identity
+
+Use `David <David@code.contractors>` for both Git author and committer.
+Verify the effective identity before committing. Do not use placeholder Codex
+identities.
