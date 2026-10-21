@@ -8072,3 +8072,8 @@ for this extension. The running VM baseline uses the previous committed adapter.
 
 
 2026-10-21 ? Real separate-VM BranchWrite text workflow passed with Qwen35 Q8 FP16: greedy website creation (45.0 s), desktop/mobile interaction and clean-page audits, observed server process restart, then forked follow-up (65.0 s) preserving the parent. First restarted request restored the 21,492-token saved history, imported 758,450,730 native bytes and evaluated exactly 2,253 new history/output tokens, with zero prefix work. See qwen35-9b-20261021/cli-website/summary.json. Native generation throughput was 69.69 TPS initial and 58.29 TPS follow-up; these exclude tool/state/publication time. CLI receipt replay also worked; changed-policy retry is not yet exercised. PDF/CAD/vision remain outstanding.
+
+
+## 2026-10-21 ? English Research model restart
+
+The user-provided research-model.gguf was loaded unchanged through the existing pinned Qwen35 adapter with its own model identity and 127,991-entry tokenizer. Tiny 128/4/8, medium 1024/64/16 and 8192/512/16 text campaigns passed 178 exact full-logit comparisons, nine process-separated strict restores with zero saved-prefix work, canonical controller equality and checkpoint byte integrity. These are matching-native-schedule greedy results, not task-quality or vision qualification and not cumulative G1?G5. Qwen Q8 versus research BF16 is a whole-configuration comparison. See runs/english-research-restart-20261021.json.

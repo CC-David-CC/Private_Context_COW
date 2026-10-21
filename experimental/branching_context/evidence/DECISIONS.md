@@ -5418,3 +5418,8 @@ and request schedule. Do not relabel llama forwards as Flash verifier execution.
 
 
 2026-10-21 ? Preserve the failed greedy and old-grammar Min-P website runs. A completed CLI and its chosen checks did not establish artifact quality: the Min-P page included literal control-field names after HTML. BranchWrite fix/text-file-metadata-order emits finite controls before the lines payload and adds teaching; its 25 focused tests and actual greedy rerun passed. Do not generalize this single task to autonomous coding qualification. Restart ownership refusal was retained; no lock deletion or global policy change was used.
+
+
+## 2026-10-21 ? English Research model restart
+
+The user-provided research-model.gguf was loaded unchanged through the existing pinned Qwen35 adapter with its own model identity and 127,991-entry tokenizer. Tiny 128/4/8, medium 1024/64/16 and 8192/512/16 text campaigns passed 178 exact full-logit comparisons, nine process-separated strict restores with zero saved-prefix work, canonical controller equality and checkpoint byte integrity. These are matching-native-schedule greedy results, not task-quality or vision qualification and not cumulative G1?G5. Qwen Q8 versus research BF16 is a whole-configuration comparison. See runs/english-research-restart-20261021.json.
