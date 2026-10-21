@@ -50,7 +50,7 @@ For restart, stop the owned server cleanly and launch the SAME server directory 
 
 ## BranchWrite client
 
-Install the selected BranchWrite source/wheel on another Linux client. Keep its configured server/model/execution identities together; use the actual server discovery rather than guessed IDs. The validated website path used `branchwrite code PROJECT --project-files --connection CONNECTION.json --state RUN_STATE --task-file PROMPT.txt`. The normal interactive path is `branchwrite session PROJECT`; `BW_COW_CONNECTION` selects a connection file without changing another user's default. Keep `BW_COW_API_KEY` in process memory unless saving it is explicitly requested.
+Install the selected BranchWrite source/wheel on another Linux client. To use this integration from a BranchWrite checkout of `main`, run `BW_REF=main sh install.sh`. The installer otherwise selects its older frozen preview tag; updating a source branch does not move that tag. Keep its configured server/model/execution identities together; use the actual server discovery rather than guessed IDs. The validated website path used `branchwrite code PROJECT --project-files --connection CONNECTION.json --state RUN_STATE --task-file PROMPT.txt`. The normal interactive path is `branchwrite session PROJECT`; `BW_COW_CONNECTION` selects a connection file without changing another user's default. Keep `BW_COW_API_KEY` in process memory unless saving it is explicitly requested.
 
 The unchanged-answer retry is a read of the original durable result. It must retain the source receipt and must not move the branch or compute another answer. Lost acknowledgments require reconciliation under the original operation ID. A cancelled request without a durable result is not silently resent.
 
