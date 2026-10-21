@@ -16,7 +16,7 @@ class SetupPolicyTests(unittest.TestCase):
     def test_small_server_budgets_fit_available_ram(self):
         p=setup.plan_for(self.hardware())
         self.assertLessEqual(p.resident_gib+p.ram_gib+8,24)
-        self.assertEqual(p.context,8192)
+        self.assertEqual(p.context,32768)
         self.assertGreaterEqual(p.resident_gib,4)
         self.assertGreater(p.ram_gib,0)
         self.assertLess(p.vram_reserve_mib,24*1024)

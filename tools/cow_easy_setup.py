@@ -59,7 +59,7 @@ def plan_for(hardware):
     # Compilation and serving occur separately. Keep headroom for the OS and
     # cap compiler concurrency by available memory, not only the CPU count.
     jobs=max(1,min(hardware.cpus,(available-6)//3))
-    return Plan(resident,ram,16,reserve,8192,512,jobs)
+    return Plan(resident,ram,16,reserve,32768,512,jobs)
 
 def inspect_host():
     if platform.system()!='Linux' or platform.machine() not in ('x86_64','amd64'):

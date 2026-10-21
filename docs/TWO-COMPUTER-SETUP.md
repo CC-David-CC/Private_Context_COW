@@ -82,7 +82,7 @@ and verifies the pinned Q4 model, prepares the model pack, and makes a server
 configuration and API key. A **Python environment** is a separate folder that
 holds this app's Python packages. You do not need to activate it.
 
-The initial context limit is 8,192 tokens with FP16 KV. The RAM pool and expert
+The initial context limit is 32,768 tokens with FP16 KV. The RAM pool and expert
 RAM budget are separate and are chosen from available RAM. The disk checkpoint
 pool initially allows 16 GiB. These are starting budgets, not a promise of
 performance on every PC. Model size is unchanged: the current supported model
