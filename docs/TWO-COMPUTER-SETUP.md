@@ -71,6 +71,12 @@ For IQ3, use `--model IQ3_XXS` and a folder such as
 smaller model, its build and its default disk pool. Setup checks the measured
 space before it downloads. It verifies the files against pinned SHA-256 hashes.
 
+The corrected IQ2 setup completed a 22K shared-context test and a simple
+BranchWrite chat on the 32 GB RAM / RTX 4090 machine. This does not prove that
+it can finish a coding project there. The earlier coding runs timed out or
+stopped at a memory-pool limit. Resuming one failed request still needs a fix.
+[Read the measured results and limits](https://github.com/CC-David-CC/Private_Context_COW/tree/main/validation/lower-quants-llm49-20261021).
+
 Keep each model in a separate data folder. Changing the model creates a new
 model identity; an old model's saved computation cannot be restored into it.
 Setup refuses to replace a configured server with an explicitly different model.

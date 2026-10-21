@@ -19,6 +19,7 @@ Optional smaller downloads use the pinned GSQ-RCO models:
 Use `--model IQ3_XXS` for the 3-bit configuration. Q4 remains the default.
 Use a separate data folder for each model. Models cannot share computational
 checkpoints. These options do not add AMD COW inference support.
+[Executed IQ3/IQ2 trials, timings and remaining failures](validation/lower-quants-llm49-20261021/README.md).
 
 
 Experimental source preview,2026-10-20. Context COW keeps immutable model

@@ -1,0 +1,8 @@
+{
+  "seed": 20261021,
+  "functions": 787,
+  "plaintext_tokens": 21991,
+  "utf8_bytes": 48010,
+  "sha256": "3bfc31f320a2169c595f9dee301d99d237a20c178f8f7655ff28392fb87f24f8",
+  "purpose": "Exercise checkpoint staging beyond the old 2 GiB budget; no numerical-oracle claim"
+}

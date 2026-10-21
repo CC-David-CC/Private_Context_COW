@@ -1,0 +1,42 @@
+{
+  "consumed": 22092,
+  "execution_profile_id": "3b02ff192a941e38cfd7a009af598d3f6abf368bc8830c0ada85a72fc72e5eb4",
+  "execution_schedule": [
+    {
+      "chunks": [
+        [
+          0,
+          8192
+        ],
+        [
+          8192,
+          8192
+        ],
+        [
+          16384,
+          5708
+        ]
+      ],
+      "count": 22092,
+      "inputs_sha256": "c6ae12d433dff40f172218135f18754d80748668edc6941afb4cb7ea7a227264",
+      "native_input_sha256": "083b8b5028050ec46716cd2cfd2fe0d98e7b146a02f7a50fb92da1375b3e078d",
+      "operator": "batched-prefill",
+      "position": 0,
+      "position_sha256": "cc93f852dcff66b72b2761bac55126289a95d435d85eded15c6c3ab815b95a44",
+      "rotary_cursor": 22092,
+      "tokens_sha256": "43410338e1d09db2d3a5c39ae682e8baef030a475cba8a9cb2c2505cbb2e7632"
+    }
+  ],
+  "input_identity": "c6ae12d433dff40f172218135f18754d80748668edc6941afb4cb7ea7a227264",
+  "logits_count": 248320,
+  "model_contract_id": "8032d89e9729beabb756d559d9baebbf86388fadccb75001ed1640407cb411c7",
+  "native_input_sha256": "083b8b5028050ec46716cd2cfd2fe0d98e7b146a02f7a50fb92da1375b3e078d",
+  "payload_sha256": "4b108f695db7994b01daa8f3ba28af2b05037df55891588cefc128077bb32051",
+  "position_sha256": "cc93f852dcff66b72b2761bac55126289a95d435d85eded15c6c3ab815b95a44",
+  "positions": "qwen-image-grid-mrope-v1",
+  "rotary_cursor": 22092,
+  "schedule_sha256": "5b2920ee12c3cf8ed6c62f794a709fc79119b9b4aa64b66fc78e5482cfe2d00b",
+  "schema": 4,
+  "snapshot": "64648240888a357b38a9735aec2c693011407dad3538e779d6759cbe03854d1c",
+  "state_bytes": 695025448
+}

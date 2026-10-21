@@ -1,0 +1,2362 @@
+# Synthetic project notes for a checkpoint capacity probe.
+
+def transform_0000(value):
+    return (value + 81591) % 411
+
+def transform_0001(value):
+    return (value + 86065) % 889
+
+def transform_0002(value):
+    return (value + 11418) % 407
+
+def transform_0003(value):
+    return (value + 63003) % 338
+
+def transform_0004(value):
+    return (value + 93646) % 675
+
+def transform_0005(value):
+    return (value + 40567) % 510
+
+def transform_0006(value):
+    return (value + 62301) % 432
+
+def transform_0007(value):
+    return (value + 10016) % 947
+
+def transform_0008(value):
+    return (value + 38796) % 35
+
+def transform_0009(value):
+    return (value + 17064) % 714
+
+def transform_0010(value):
+    return (value + 91877) % 617
+
+def transform_0011(value):
+    return (value + 92475) % 80
+
+def transform_0012(value):
+    return (value + 25751) % 489
+
+def transform_0013(value):
+    return (value + 63550) % 109
+
+def transform_0014(value):
+    return (value + 24299) % 332
+
+def transform_0015(value):
+    return (value + 98271) % 282
+
+def transform_0016(value):
+    return (value + 33429) % 161
+
+def transform_0017(value):
+    return (value + 29998) % 138
+
+def transform_0018(value):
+    return (value + 95467) % 73
+
+def transform_0019(value):
+    return (value + 24976) % 740
+
+def transform_0020(value):
+    return (value + 16564) % 769
+
+def transform_0021(value):
+    return (value + 43187) % 191
+
+def transform_0022(value):
+    return (value + 56904) % 780
+
+def transform_0023(value):
+    return (value + 11674) % 900
+
+def transform_0024(value):
+    return (value + 87059) % 588
+
+def transform_0025(value):
+    return (value + 57986) % 303
+
+def transform_0026(value):
+    return (value + 79291) % 125
+
+def transform_0027(value):
+    return (value + 29969) % 122
+
+def transform_0028(value):
+    return (value + 49725) % 842
+
+def transform_0029(value):
+    return (value + 70425) % 104
+
+def transform_0030(value):
+    return (value + 23213) % 594
+
+def transform_0031(value):
+    return (value + 38240) % 598
+
+def transform_0032(value):
+    return (value + 61963) % 673
+
+def transform_0033(value):
+    return (value + 22467) % 843
+
+def transform_0034(value):
+    return (value + 60176) % 451
+
+def transform_0035(value):
+    return (value + 36680) % 686
+
+def transform_0036(value):
+    return (value + 11983) % 177
+
+def transform_0037(value):
+    return (value + 53118) % 587
+
+def transform_0038(value):
+    return (value + 97735) % 716
+
+def transform_0039(value):
+    return (value + 44993) % 676
+
+def transform_0040(value):
+    return (value + 90397) % 629
+
+def transform_0041(value):
+    return (value + 13950) % 833
+
+def transform_0042(value):
+    return (value + 19639) % 735
+
+def transform_0043(value):
+    return (value + 44535) % 556
+
+def transform_0044(value):
+    return (value + 41677) % 777
+
+def transform_0045(value):
+    return (value + 91174) % 350
+
+def transform_0046(value):
+    return (value + 43444) % 338
+
+def transform_0047(value):
+    return (value + 33224) % 64
+
+def transform_0048(value):
+    return (value + 79043) % 294
+
+def transform_0049(value):
+    return (value + 43013) % 104
+
+def transform_0050(value):
+    return (value + 77786) % 398
+
+def transform_0051(value):
+    return (value + 18705) % 638
+
+def transform_0052(value):
+    return (value + 82963) % 228
+
+def transform_0053(value):
+    return (value + 46865) % 702
+
+def transform_0054(value):
+    return (value + 40030) % 239
+
+def transform_0055(value):
+    return (value + 17350) % 850
+
+def transform_0056(value):
+    return (value + 10717) % 583
+
+def transform_0057(value):
+    return (value + 71130) % 240
+
+def transform_0058(value):
+    return (value + 33758) % 171
+
+def transform_0059(value):
+    return (value + 27397) % 756
+
+def transform_0060(value):
+    return (value + 77544) % 867
+
+def transform_0061(value):
+    return (value + 71491) % 537
+
+def transform_0062(value):
+    return (value + 55374) % 193
+
+def transform_0063(value):
+    return (value + 83451) % 334
+
+def transform_0064(value):
+    return (value + 66901) % 907
+
+def transform_0065(value):
+    return (value + 39194) % 508
+
+def transform_0066(value):
+    return (value + 88056) % 538
+
+def transform_0067(value):
+    return (value + 58782) % 988
+
+def transform_0068(value):
+    return (value + 68996) % 75
+
+def transform_0069(value):
+    return (value + 30389) % 416
+
+def transform_0070(value):
+    return (value + 42716) % 802
+
+def transform_0071(value):
+    return (value + 46642) % 313
+
+def transform_0072(value):
+    return (value + 29832) % 391
+
+def transform_0073(value):
+    return (value + 68792) % 667
+
+def transform_0074(value):
+    return (value + 21839) % 298
+
+def transform_0075(value):
+    return (value + 70306) % 915
+
+def transform_0076(value):
+    return (value + 95497) % 352
+
+def transform_0077(value):
+    return (value + 32293) % 769
+
+def transform_0078(value):
+    return (value + 39349) % 351
+
+def transform_0079(value):
+    return (value + 16210) % 234
+
+def transform_0080(value):
+    return (value + 58143) % 704
+
+def transform_0081(value):
+    return (value + 95677) % 279
+
+def transform_0082(value):
+    return (value + 77854) % 828
+
+def transform_0083(value):
+    return (value + 10562) % 827
+
+def transform_0084(value):
+    return (value + 82508) % 813
+
+def transform_0085(value):
+    return (value + 93929) % 168
+
+def transform_0086(value):
+    return (value + 98836) % 744
+
+def transform_0087(value):
+    return (value + 92910) % 748
+
+def transform_0088(value):
+    return (value + 36692) % 144
+
+def transform_0089(value):
+    return (value + 46049) % 63
+
+def transform_0090(value):
+    return (value + 76950) % 88
+
+def transform_0091(value):
+    return (value + 40834) % 860
+
+def transform_0092(value):
+    return (value + 84930) % 129
+
+def transform_0093(value):
+    return (value + 23581) % 803
+
+def transform_0094(value):
+    return (value + 63947) % 624
+
+def transform_0095(value):
+    return (value + 89007) % 585
+
+def transform_0096(value):
+    return (value + 51623) % 606
+
+def transform_0097(value):
+    return (value + 60057) % 355
+
+def transform_0098(value):
+    return (value + 78049) % 281
+
+def transform_0099(value):
+    return (value + 52244) % 957
+
+def transform_0100(value):
+    return (value + 53924) % 828
+
+def transform_0101(value):
+    return (value + 24579) % 869
+
+def transform_0102(value):
+    return (value + 14742) % 279
+
+def transform_0103(value):
+    return (value + 15143) % 582
+
+def transform_0104(value):
+    return (value + 59488) % 215
+
+def transform_0105(value):
+    return (value + 75203) % 994
+
+def transform_0106(value):
+    return (value + 47215) % 640
+
+def transform_0107(value):
+    return (value + 40912) % 25
+
+def transform_0108(value):
+    return (value + 53132) % 650
+
+def transform_0109(value):
+    return (value + 96592) % 406
+
+def transform_0110(value):
+    return (value + 18328) % 91
+
+def transform_0111(value):
+    return (value + 25464) % 146
+
+def transform_0112(value):
+    return (value + 26017) % 24
+
+def transform_0113(value):
+    return (value + 29993) % 569
+
+def transform_0114(value):
+    return (value + 32485) % 137
+
+def transform_0115(value):
+    return (value + 89440) % 820
+
+def transform_0116(value):
+    return (value + 44938) % 437
+
+def transform_0117(value):
+    return (value + 73015) % 198
+
+def transform_0118(value):
+    return (value + 16430) % 771
+
+def transform_0119(value):
+    return (value + 46532) % 453
+
+def transform_0120(value):
+    return (value + 40900) % 34
+
+def transform_0121(value):
+    return (value + 32059) % 670
+
+def transform_0122(value):
+    return (value + 69873) % 458
+
+def transform_0123(value):
+    return (value + 38949) % 171
+
+def transform_0124(value):
+    return (value + 68032) % 509
+
+def transform_0125(value):
+    return (value + 40667) % 655
+
+def transform_0126(value):
+    return (value + 84297) % 872
+
+def transform_0127(value):
+    return (value + 54371) % 135
+
+def transform_0128(value):
+    return (value + 95894) % 171
+
+def transform_0129(value):
+    return (value + 83576) % 457
+
+def transform_0130(value):
+    return (value + 52559) % 104
+
+def transform_0131(value):
+    return (value + 93779) % 915
+
+def transform_0132(value):
+    return (value + 69567) % 257
+
+def transform_0133(value):
+    return (value + 95402) % 416
+
+def transform_0134(value):
+    return (value + 56720) % 458
+
+def transform_0135(value):
+    return (value + 89350) % 92
+
+def transform_0136(value):
+    return (value + 29745) % 769
+
+def transform_0137(value):
+    return (value + 45896) % 455
+
+def transform_0138(value):
+    return (value + 54321) % 569
+
+def transform_0139(value):
+    return (value + 38894) % 682
+
+def transform_0140(value):
+    return (value + 97226) % 910
+
+def transform_0141(value):
+    return (value + 90949) % 130
+
+def transform_0142(value):
+    return (value + 48698) % 138
+
+def transform_0143(value):
+    return (value + 30067) % 706
+
+def transform_0144(value):
+    return (value + 15634) % 414
+
+def transform_0145(value):
+    return (value + 83580) % 287
+
+def transform_0146(value):
+    return (value + 47294) % 584
+
+def transform_0147(value):
+    return (value + 85452) % 109
+
+def transform_0148(value):
+    return (value + 38505) % 587
+
+def transform_0149(value):
+    return (value + 79326) % 246
+
+def transform_0150(value):
+    return (value + 98606) % 830
+
+def transform_0151(value):
+    return (value + 78711) % 529
+
+def transform_0152(value):
+    return (value + 84756) % 943
+
+def transform_0153(value):
+    return (value + 82397) % 972
+
+def transform_0154(value):
+    return (value + 13758) % 908
+
+def transform_0155(value):
+    return (value + 25166) % 666
+
+def transform_0156(value):
+    return (value + 65910) % 159
+
+def transform_0157(value):
+    return (value + 45241) % 44
+
+def transform_0158(value):
+    return (value + 62290) % 398
+
+def transform_0159(value):
+    return (value + 26194) % 618
+
+def transform_0160(value):
+    return (value + 69428) % 947
+
+def transform_0161(value):
+    return (value + 46280) % 614
+
+def transform_0162(value):
+    return (value + 54505) % 544
+
+def transform_0163(value):
+    return (value + 99123) % 619
+
+def transform_0164(value):
+    return (value + 24399) % 248
+
+def transform_0165(value):
+    return (value + 67055) % 271
+
+def transform_0166(value):
+    return (value + 48190) % 834
+
+def transform_0167(value):
+    return (value + 45572) % 96
+
+def transform_0168(value):
+    return (value + 80716) % 528
+
+def transform_0169(value):
+    return (value + 38393) % 347
+
+def transform_0170(value):
+    return (value + 68674) % 884
+
+def transform_0171(value):
+    return (value + 97303) % 830
+
+def transform_0172(value):
+    return (value + 89588) % 718
+
+def transform_0173(value):
+    return (value + 98747) % 783
+
+def transform_0174(value):
+    return (value + 93313) % 295
+
+def transform_0175(value):
+    return (value + 76091) % 915
+
+def transform_0176(value):
+    return (value + 63180) % 950
+
+def transform_0177(value):
+    return (value + 34176) % 301
+
+def transform_0178(value):
+    return (value + 85833) % 441
+
+def transform_0179(value):
+    return (value + 20092) % 100
+
+def transform_0180(value):
+    return (value + 45876) % 117
+
+def transform_0181(value):
+    return (value + 31355) % 702
+
+def transform_0182(value):
+    return (value + 51657) % 622
+
+def transform_0183(value):
+    return (value + 17484) % 571
+
+def transform_0184(value):
+    return (value + 56582) % 183
+
+def transform_0185(value):
+    return (value + 51507) % 422
+
+def transform_0186(value):
+    return (value + 67378) % 35
+
+def transform_0187(value):
+    return (value + 60802) % 355
+
+def transform_0188(value):
+    return (value + 43870) % 513
+
+def transform_0189(value):
+    return (value + 84234) % 168
+
+def transform_0190(value):
+    return (value + 43855) % 834
+
+def transform_0191(value):
+    return (value + 12938) % 680
+
+def transform_0192(value):
+    return (value + 42067) % 176
+
+def transform_0193(value):
+    return (value + 89281) % 845
+
+def transform_0194(value):
+    return (value + 85275) % 19
+
+def transform_0195(value):
+    return (value + 81534) % 677
+
+def transform_0196(value):
+    return (value + 33921) % 144
+
+def transform_0197(value):
+    return (value + 81922) % 806
+
+def transform_0198(value):
+    return (value + 21524) % 59
+
+def transform_0199(value):
+    return (value + 51109) % 987
+
+def transform_0200(value):
+    return (value + 87665) % 486
+
+def transform_0201(value):
+    return (value + 82101) % 693
+
+def transform_0202(value):
+    return (value + 48999) % 974
+
+def transform_0203(value):
+    return (value + 59731) % 375
+
+def transform_0204(value):
+    return (value + 73498) % 982
+
+def transform_0205(value):
+    return (value + 25233) % 121
+
+def transform_0206(value):
+    return (value + 27213) % 368
+
+def transform_0207(value):
+    return (value + 53474) % 744
+
+def transform_0208(value):
+    return (value + 34035) % 459
+
+def transform_0209(value):
+    return (value + 87671) % 989
+
+def transform_0210(value):
+    return (value + 73701) % 977
+
+def transform_0211(value):
+    return (value + 95648) % 500
+
+def transform_0212(value):
+    return (value + 34427) % 800
+
+def transform_0213(value):
+    return (value + 38483) % 989
+
+def transform_0214(value):
+    return (value + 55445) % 944
+
+def transform_0215(value):
+    return (value + 43609) % 429
+
+def transform_0216(value):
+    return (value + 28432) % 704
+
+def transform_0217(value):
+    return (value + 87946) % 637
+
+def transform_0218(value):
+    return (value + 62730) % 302
+
+def transform_0219(value):
+    return (value + 80646) % 865
+
+def transform_0220(value):
+    return (value + 70604) % 610
+
+def transform_0221(value):
+    return (value + 37886) % 171
+
+def transform_0222(value):
+    return (value + 78644) % 384
+
+def transform_0223(value):
+    return (value + 19735) % 669
+
+def transform_0224(value):
+    return (value + 72963) % 98
+
+def transform_0225(value):
+    return (value + 18335) % 669
+
+def transform_0226(value):
+    return (value + 18727) % 757
+
+def transform_0227(value):
+    return (value + 67294) % 188
+
+def transform_0228(value):
+    return (value + 13611) % 708
+
+def transform_0229(value):
+    return (value + 59625) % 906
+
+def transform_0230(value):
+    return (value + 32792) % 808
+
+def transform_0231(value):
+    return (value + 60434) % 142
+
+def transform_0232(value):
+    return (value + 71696) % 113
+
+def transform_0233(value):
+    return (value + 32450) % 94
+
+def transform_0234(value):
+    return (value + 92689) % 126
+
+def transform_0235(value):
+    return (value + 49199) % 275
+
+def transform_0236(value):
+    return (value + 11310) % 849
+
+def transform_0237(value):
+    return (value + 93109) % 945
+
+def transform_0238(value):
+    return (value + 60081) % 249
+
+def transform_0239(value):
+    return (value + 15282) % 972
+
+def transform_0240(value):
+    return (value + 17831) % 515
+
+def transform_0241(value):
+    return (value + 28936) % 474
+
+def transform_0242(value):
+    return (value + 43787) % 913
+
+def transform_0243(value):
+    return (value + 42991) % 23
+
+def transform_0244(value):
+    return (value + 14718) % 643
+
+def transform_0245(value):
+    return (value + 41398) % 190
+
+def transform_0246(value):
+    return (value + 80090) % 528
+
+def transform_0247(value):
+    return (value + 34472) % 317
+
+def transform_0248(value):
+    return (value + 39986) % 477
+
+def transform_0249(value):
+    return (value + 83145) % 394
+
+def transform_0250(value):
+    return (value + 69771) % 755
+
+def transform_0251(value):
+    return (value + 83039) % 697
+
+def transform_0252(value):
+    return (value + 80843) % 472
+
+def transform_0253(value):
+    return (value + 80822) % 289
+
+def transform_0254(value):
+    return (value + 42829) % 522
+
+def transform_0255(value):
+    return (value + 90819) % 827
+
+def transform_0256(value):
+    return (value + 76495) % 102
+
+def transform_0257(value):
+    return (value + 18102) % 791
+
+def transform_0258(value):
+    return (value + 51857) % 243
+
+def transform_0259(value):
+    return (value + 28480) % 107
+
+def transform_0260(value):
+    return (value + 53326) % 553
+
+def transform_0261(value):
+    return (value + 93000) % 889
+
+def transform_0262(value):
+    return (value + 78682) % 264
+
+def transform_0263(value):
+    return (value + 83280) % 59
+
+def transform_0264(value):
+    return (value + 27321) % 693
+
+def transform_0265(value):
+    return (value + 94005) % 185
+
+def transform_0266(value):
+    return (value + 91399) % 35
+
+def transform_0267(value):
+    return (value + 87120) % 590
+
+def transform_0268(value):
+    return (value + 15158) % 409
+
+def transform_0269(value):
+    return (value + 95420) % 517
+
+def transform_0270(value):
+    return (value + 66462) % 661
+
+def transform_0271(value):
+    return (value + 45117) % 971
+
+def transform_0272(value):
+    return (value + 78206) % 542
+
+def transform_0273(value):
+    return (value + 47916) % 729
+
+def transform_0274(value):
+    return (value + 23383) % 558
+
+def transform_0275(value):
+    return (value + 31555) % 273
+
+def transform_0276(value):
+    return (value + 64662) % 745
+
+def transform_0277(value):
+    return (value + 29358) % 237
+
+def transform_0278(value):
+    return (value + 70655) % 517
+
+def transform_0279(value):
+    return (value + 21901) % 201
+
+def transform_0280(value):
+    return (value + 43062) % 536
+
+def transform_0281(value):
+    return (value + 50865) % 627
+
+def transform_0282(value):
+    return (value + 15779) % 232
+
+def transform_0283(value):
+    return (value + 36418) % 551
+
+def transform_0284(value):
+    return (value + 84709) % 930
+
+def transform_0285(value):
+    return (value + 57557) % 50
+
+def transform_0286(value):
+    return (value + 89313) % 458
+
+def transform_0287(value):
+    return (value + 48589) % 428
+
+def transform_0288(value):
+    return (value + 74166) % 151
+
+def transform_0289(value):
+    return (value + 22218) % 868
+
+def transform_0290(value):
+    return (value + 24384) % 117
+
+def transform_0291(value):
+    return (value + 21097) % 511
+
+def transform_0292(value):
+    return (value + 21937) % 85
+
+def transform_0293(value):
+    return (value + 71412) % 354
+
+def transform_0294(value):
+    return (value + 14388) % 604
+
+def transform_0295(value):
+    return (value + 12277) % 51
+
+def transform_0296(value):
+    return (value + 46098) % 937
+
+def transform_0297(value):
+    return (value + 52201) % 326
+
+def transform_0298(value):
+    return (value + 70682) % 779
+
+def transform_0299(value):
+    return (value + 73927) % 928
+
+def transform_0300(value):
+    return (value + 46850) % 429
+
+def transform_0301(value):
+    return (value + 37640) % 213
+
+def transform_0302(value):
+    return (value + 27283) % 465
+
+def transform_0303(value):
+    return (value + 58658) % 48
+
+def transform_0304(value):
+    return (value + 78593) % 794
+
+def transform_0305(value):
+    return (value + 87345) % 919
+
+def transform_0306(value):
+    return (value + 63546) % 150
+
+def transform_0307(value):
+    return (value + 76342) % 352
+
+def transform_0308(value):
+    return (value + 96610) % 200
+
+def transform_0309(value):
+    return (value + 81578) % 720
+
+def transform_0310(value):
+    return (value + 10103) % 992
+
+def transform_0311(value):
+    return (value + 56936) % 947
+
+def transform_0312(value):
+    return (value + 68223) % 937
+
+def transform_0313(value):
+    return (value + 73201) % 81
+
+def transform_0314(value):
+    return (value + 56307) % 201
+
+def transform_0315(value):
+    return (value + 89051) % 602
+
+def transform_0316(value):
+    return (value + 13792) % 291
+
+def transform_0317(value):
+    return (value + 30145) % 556
+
+def transform_0318(value):
+    return (value + 74775) % 227
+
+def transform_0319(value):
+    return (value + 52915) % 822
+
+def transform_0320(value):
+    return (value + 67596) % 739
+
+def transform_0321(value):
+    return (value + 97863) % 931
+
+def transform_0322(value):
+    return (value + 71206) % 771
+
+def transform_0323(value):
+    return (value + 65762) % 933
+
+def transform_0324(value):
+    return (value + 23612) % 101
+
+def transform_0325(value):
+    return (value + 19769) % 973
+
+def transform_0326(value):
+    return (value + 51734) % 478
+
+def transform_0327(value):
+    return (value + 33609) % 378
+
+def transform_0328(value):
+    return (value + 32259) % 853
+
+def transform_0329(value):
+    return (value + 25329) % 758
+
+def transform_0330(value):
+    return (value + 78595) % 500
+
+def transform_0331(value):
+    return (value + 63535) % 234
+
+def transform_0332(value):
+    return (value + 77501) % 967
+
+def transform_0333(value):
+    return (value + 46127) % 648
+
+def transform_0334(value):
+    return (value + 27516) % 161
+
+def transform_0335(value):
+    return (value + 40672) % 856
+
+def transform_0336(value):
+    return (value + 60566) % 29
+
+def transform_0337(value):
+    return (value + 79536) % 252
+
+def transform_0338(value):
+    return (value + 63782) % 26
+
+def transform_0339(value):
+    return (value + 59268) % 915
+
+def transform_0340(value):
+    return (value + 31808) % 712
+
+def transform_0341(value):
+    return (value + 48472) % 872
+
+def transform_0342(value):
+    return (value + 87814) % 765
+
+def transform_0343(value):
+    return (value + 12615) % 626
+
+def transform_0344(value):
+    return (value + 60932) % 499
+
+def transform_0345(value):
+    return (value + 79635) % 653
+
+def transform_0346(value):
+    return (value + 70061) % 964
+
+def transform_0347(value):
+    return (value + 13870) % 43
+
+def transform_0348(value):
+    return (value + 83936) % 990
+
+def transform_0349(value):
+    return (value + 83956) % 150
+
+def transform_0350(value):
+    return (value + 92837) % 314
+
+def transform_0351(value):
+    return (value + 41762) % 480
+
+def transform_0352(value):
+    return (value + 10832) % 830
+
+def transform_0353(value):
+    return (value + 25174) % 616
+
+def transform_0354(value):
+    return (value + 42291) % 402
+
+def transform_0355(value):
+    return (value + 85721) % 295
+
+def transform_0356(value):
+    return (value + 89245) % 235
+
+def transform_0357(value):
+    return (value + 21607) % 621
+
+def transform_0358(value):
+    return (value + 49331) % 408
+
+def transform_0359(value):
+    return (value + 21991) % 100
+
+def transform_0360(value):
+    return (value + 41075) % 67
+
+def transform_0361(value):
+    return (value + 81417) % 99
+
+def transform_0362(value):
+    return (value + 98446) % 837
+
+def transform_0363(value):
+    return (value + 91508) % 477
+
+def transform_0364(value):
+    return (value + 46018) % 983
+
+def transform_0365(value):
+    return (value + 83940) % 286
+
+def transform_0366(value):
+    return (value + 85506) % 542
+
+def transform_0367(value):
+    return (value + 73959) % 768
+
+def transform_0368(value):
+    return (value + 98477) % 200
+
+def transform_0369(value):
+    return (value + 76334) % 153
+
+def transform_0370(value):
+    return (value + 44510) % 991
+
+def transform_0371(value):
+    return (value + 21064) % 561
+
+def transform_0372(value):
+    return (value + 65300) % 348
+
+def transform_0373(value):
+    return (value + 57994) % 708
+
+def transform_0374(value):
+    return (value + 23926) % 765
+
+def transform_0375(value):
+    return (value + 26001) % 858
+
+def transform_0376(value):
+    return (value + 57409) % 256
+
+def transform_0377(value):
+    return (value + 45827) % 606
+
+def transform_0378(value):
+    return (value + 28856) % 984
+
+def transform_0379(value):
+    return (value + 22608) % 321
+
+def transform_0380(value):
+    return (value + 33009) % 376
+
+def transform_0381(value):
+    return (value + 64994) % 769
+
+def transform_0382(value):
+    return (value + 13783) % 702
+
+def transform_0383(value):
+    return (value + 79488) % 439
+
+def transform_0384(value):
+    return (value + 16721) % 852
+
+def transform_0385(value):
+    return (value + 96108) % 760
+
+def transform_0386(value):
+    return (value + 78548) % 869
+
+def transform_0387(value):
+    return (value + 47314) % 845
+
+def transform_0388(value):
+    return (value + 60670) % 658
+
+def transform_0389(value):
+    return (value + 59196) % 719
+
+def transform_0390(value):
+    return (value + 20031) % 150
+
+def transform_0391(value):
+    return (value + 84669) % 284
+
+def transform_0392(value):
+    return (value + 16605) % 453
+
+def transform_0393(value):
+    return (value + 86150) % 91
+
+def transform_0394(value):
+    return (value + 22484) % 290
+
+def transform_0395(value):
+    return (value + 12707) % 166
+
+def transform_0396(value):
+    return (value + 41251) % 300
+
+def transform_0397(value):
+    return (value + 62767) % 331
+
+def transform_0398(value):
+    return (value + 38340) % 102
+
+def transform_0399(value):
+    return (value + 18884) % 74
+
+def transform_0400(value):
+    return (value + 16921) % 211
+
+def transform_0401(value):
+    return (value + 27825) % 837
+
+def transform_0402(value):
+    return (value + 10304) % 286
+
+def transform_0403(value):
+    return (value + 44095) % 822
+
+def transform_0404(value):
+    return (value + 26697) % 967
+
+def transform_0405(value):
+    return (value + 43623) % 28
+
+def transform_0406(value):
+    return (value + 82154) % 682
+
+def transform_0407(value):
+    return (value + 74318) % 58
+
+def transform_0408(value):
+    return (value + 65136) % 241
+
+def transform_0409(value):
+    return (value + 24687) % 229
+
+def transform_0410(value):
+    return (value + 30472) % 117
+
+def transform_0411(value):
+    return (value + 74837) % 548
+
+def transform_0412(value):
+    return (value + 97160) % 734
+
+def transform_0413(value):
+    return (value + 79124) % 851
+
+def transform_0414(value):
+    return (value + 12657) % 184
+
+def transform_0415(value):
+    return (value + 15017) % 265
+
+def transform_0416(value):
+    return (value + 68375) % 958
+
+def transform_0417(value):
+    return (value + 45467) % 655
+
+def transform_0418(value):
+    return (value + 45498) % 391
+
+def transform_0419(value):
+    return (value + 59765) % 637
+
+def transform_0420(value):
+    return (value + 93929) % 344
+
+def transform_0421(value):
+    return (value + 69373) % 938
+
+def transform_0422(value):
+    return (value + 50038) % 753
+
+def transform_0423(value):
+    return (value + 72381) % 677
+
+def transform_0424(value):
+    return (value + 90794) % 576
+
+def transform_0425(value):
+    return (value + 53771) % 344
+
+def transform_0426(value):
+    return (value + 82856) % 630
+
+def transform_0427(value):
+    return (value + 77250) % 634
+
+def transform_0428(value):
+    return (value + 82306) % 698
+
+def transform_0429(value):
+    return (value + 99942) % 229
+
+def transform_0430(value):
+    return (value + 64926) % 967
+
+def transform_0431(value):
+    return (value + 34491) % 86
+
+def transform_0432(value):
+    return (value + 84573) % 192
+
+def transform_0433(value):
+    return (value + 83739) % 963
+
+def transform_0434(value):
+    return (value + 89391) % 732
+
+def transform_0435(value):
+    return (value + 33352) % 347
+
+def transform_0436(value):
+    return (value + 31106) % 43
+
+def transform_0437(value):
+    return (value + 53090) % 380
+
+def transform_0438(value):
+    return (value + 45984) % 548
+
+def transform_0439(value):
+    return (value + 79034) % 640
+
+def transform_0440(value):
+    return (value + 11048) % 861
+
+def transform_0441(value):
+    return (value + 76663) % 551
+
+def transform_0442(value):
+    return (value + 44393) % 48
+
+def transform_0443(value):
+    return (value + 20278) % 229
+
+def transform_0444(value):
+    return (value + 56577) % 231
+
+def transform_0445(value):
+    return (value + 85784) % 631
+
+def transform_0446(value):
+    return (value + 30014) % 352
+
+def transform_0447(value):
+    return (value + 40878) % 300
+
+def transform_0448(value):
+    return (value + 36676) % 24
+
+def transform_0449(value):
+    return (value + 92104) % 715
+
+def transform_0450(value):
+    return (value + 92522) % 77
+
+def transform_0451(value):
+    return (value + 27228) % 330
+
+def transform_0452(value):
+    return (value + 46678) % 700
+
+def transform_0453(value):
+    return (value + 17912) % 205
+
+def transform_0454(value):
+    return (value + 40363) % 317
+
+def transform_0455(value):
+    return (value + 92552) % 62
+
+def transform_0456(value):
+    return (value + 91824) % 702
+
+def transform_0457(value):
+    return (value + 63928) % 130
+
+def transform_0458(value):
+    return (value + 65452) % 279
+
+def transform_0459(value):
+    return (value + 64890) % 645
+
+def transform_0460(value):
+    return (value + 78090) % 769
+
+def transform_0461(value):
+    return (value + 21513) % 702
+
+def transform_0462(value):
+    return (value + 89754) % 172
+
+def transform_0463(value):
+    return (value + 23468) % 169
+
+def transform_0464(value):
+    return (value + 42140) % 933
+
+def transform_0465(value):
+    return (value + 83664) % 229
+
+def transform_0466(value):
+    return (value + 50366) % 120
+
+def transform_0467(value):
+    return (value + 52720) % 438
+
+def transform_0468(value):
+    return (value + 74017) % 640
+
+def transform_0469(value):
+    return (value + 49474) % 118
+
+def transform_0470(value):
+    return (value + 39416) % 628
+
+def transform_0471(value):
+    return (value + 71643) % 534
+
+def transform_0472(value):
+    return (value + 28281) % 285
+
+def transform_0473(value):
+    return (value + 94204) % 749
+
+def transform_0474(value):
+    return (value + 94338) % 652
+
+def transform_0475(value):
+    return (value + 66857) % 980
+
+def transform_0476(value):
+    return (value + 56664) % 284
+
+def transform_0477(value):
+    return (value + 55118) % 805
+
+def transform_0478(value):
+    return (value + 49725) % 542
+
+def transform_0479(value):
+    return (value + 81052) % 332
+
+def transform_0480(value):
+    return (value + 21966) % 733
+
+def transform_0481(value):
+    return (value + 18036) % 849
+
+def transform_0482(value):
+    return (value + 37234) % 747
+
+def transform_0483(value):
+    return (value + 33605) % 805
+
+def transform_0484(value):
+    return (value + 62196) % 66
+
+def transform_0485(value):
+    return (value + 53833) % 697
+
+def transform_0486(value):
+    return (value + 75991) % 931
+
+def transform_0487(value):
+    return (value + 75006) % 906
+
+def transform_0488(value):
+    return (value + 28058) % 773
+
+def transform_0489(value):
+    return (value + 72524) % 704
+
+def transform_0490(value):
+    return (value + 29542) % 404
+
+def transform_0491(value):
+    return (value + 34341) % 524
+
+def transform_0492(value):
+    return (value + 38552) % 738
+
+def transform_0493(value):
+    return (value + 85186) % 852
+
+def transform_0494(value):
+    return (value + 70770) % 685
+
+def transform_0495(value):
+    return (value + 16807) % 577
+
+def transform_0496(value):
+    return (value + 62123) % 983
+
+def transform_0497(value):
+    return (value + 10679) % 229
+
+def transform_0498(value):
+    return (value + 62832) % 607
+
+def transform_0499(value):
+    return (value + 20665) % 179
+
+def transform_0500(value):
+    return (value + 27312) % 661
+
+def transform_0501(value):
+    return (value + 10807) % 162
+
+def transform_0502(value):
+    return (value + 25718) % 251
+
+def transform_0503(value):
+    return (value + 12984) % 318
+
+def transform_0504(value):
+    return (value + 57958) % 737
+
+def transform_0505(value):
+    return (value + 21372) % 392
+
+def transform_0506(value):
+    return (value + 46257) % 523
+
+def transform_0507(value):
+    return (value + 71630) % 330
+
+def transform_0508(value):
+    return (value + 42759) % 770
+
+def transform_0509(value):
+    return (value + 95261) % 469
+
+def transform_0510(value):
+    return (value + 47401) % 804
+
+def transform_0511(value):
+    return (value + 78525) % 808
+
+def transform_0512(value):
+    return (value + 89257) % 98
+
+def transform_0513(value):
+    return (value + 83012) % 320
+
+def transform_0514(value):
+    return (value + 49407) % 979
+
+def transform_0515(value):
+    return (value + 26960) % 341
+
+def transform_0516(value):
+    return (value + 39725) % 295
+
+def transform_0517(value):
+    return (value + 84148) % 805
+
+def transform_0518(value):
+    return (value + 52052) % 693
+
+def transform_0519(value):
+    return (value + 12652) % 926
+
+def transform_0520(value):
+    return (value + 84554) % 488
+
+def transform_0521(value):
+    return (value + 16185) % 719
+
+def transform_0522(value):
+    return (value + 14128) % 891
+
+def transform_0523(value):
+    return (value + 61603) % 162
+
+def transform_0524(value):
+    return (value + 18382) % 281
+
+def transform_0525(value):
+    return (value + 62077) % 531
+
+def transform_0526(value):
+    return (value + 90749) % 422
+
+def transform_0527(value):
+    return (value + 55997) % 404
+
+def transform_0528(value):
+    return (value + 15968) % 385
+
+def transform_0529(value):
+    return (value + 43833) % 519
+
+def transform_0530(value):
+    return (value + 97749) % 967
+
+def transform_0531(value):
+    return (value + 36880) % 328
+
+def transform_0532(value):
+    return (value + 51938) % 216
+
+def transform_0533(value):
+    return (value + 77609) % 248
+
+def transform_0534(value):
+    return (value + 94339) % 642
+
+def transform_0535(value):
+    return (value + 56258) % 429
+
+def transform_0536(value):
+    return (value + 86482) % 576
+
+def transform_0537(value):
+    return (value + 40732) % 286
+
+def transform_0538(value):
+    return (value + 34649) % 711
+
+def transform_0539(value):
+    return (value + 52614) % 848
+
+def transform_0540(value):
+    return (value + 52825) % 431
+
+def transform_0541(value):
+    return (value + 36207) % 179
+
+def transform_0542(value):
+    return (value + 95759) % 374
+
+def transform_0543(value):
+    return (value + 48809) % 700
+
+def transform_0544(value):
+    return (value + 84122) % 287
+
+def transform_0545(value):
+    return (value + 39466) % 514
+
+def transform_0546(value):
+    return (value + 63072) % 940
+
+def transform_0547(value):
+    return (value + 73417) % 449
+
+def transform_0548(value):
+    return (value + 56071) % 759
+
+def transform_0549(value):
+    return (value + 35926) % 244
+
+def transform_0550(value):
+    return (value + 85395) % 488
+
+def transform_0551(value):
+    return (value + 13566) % 828
+
+def transform_0552(value):
+    return (value + 60904) % 927
+
+def transform_0553(value):
+    return (value + 80862) % 847
+
+def transform_0554(value):
+    return (value + 96150) % 601
+
+def transform_0555(value):
+    return (value + 81454) % 979
+
+def transform_0556(value):
+    return (value + 76821) % 903
+
+def transform_0557(value):
+    return (value + 33207) % 516
+
+def transform_0558(value):
+    return (value + 64905) % 641
+
+def transform_0559(value):
+    return (value + 59002) % 858
+
+def transform_0560(value):
+    return (value + 99824) % 118
+
+def transform_0561(value):
+    return (value + 30825) % 728
+
+def transform_0562(value):
+    return (value + 54241) % 789
+
+def transform_0563(value):
+    return (value + 41119) % 773
+
+def transform_0564(value):
+    return (value + 27946) % 986
+
+def transform_0565(value):
+    return (value + 71344) % 412
+
+def transform_0566(value):
+    return (value + 75751) % 761
+
+def transform_0567(value):
+    return (value + 92326) % 989
+
+def transform_0568(value):
+    return (value + 45819) % 412
+
+def transform_0569(value):
+    return (value + 60959) % 407
+
+def transform_0570(value):
+    return (value + 11566) % 430
+
+def transform_0571(value):
+    return (value + 14195) % 846
+
+def transform_0572(value):
+    return (value + 33786) % 129
+
+def transform_0573(value):
+    return (value + 65020) % 868
+
+def transform_0574(value):
+    return (value + 26422) % 545
+
+def transform_0575(value):
+    return (value + 61071) % 619
+
+def transform_0576(value):
+    return (value + 97856) % 219
+
+def transform_0577(value):
+    return (value + 66148) % 984
+
+def transform_0578(value):
+    return (value + 95998) % 221
+
+def transform_0579(value):
+    return (value + 99742) % 361
+
+def transform_0580(value):
+    return (value + 16419) % 348
+
+def transform_0581(value):
+    return (value + 21340) % 636
+
+def transform_0582(value):
+    return (value + 82751) % 779
+
+def transform_0583(value):
+    return (value + 21588) % 568
+
+def transform_0584(value):
+    return (value + 75249) % 432
+
+def transform_0585(value):
+    return (value + 89420) % 775
+
+def transform_0586(value):
+    return (value + 64511) % 558
+
+def transform_0587(value):
+    return (value + 71020) % 915
+
+def transform_0588(value):
+    return (value + 65965) % 361
+
+def transform_0589(value):
+    return (value + 98771) % 518
+
+def transform_0590(value):
+    return (value + 13224) % 560
+
+def transform_0591(value):
+    return (value + 86159) % 553
+
+def transform_0592(value):
+    return (value + 64248) % 940
+
+def transform_0593(value):
+    return (value + 35785) % 113
+
+def transform_0594(value):
+    return (value + 24371) % 103
+
+def transform_0595(value):
+    return (value + 34017) % 872
+
+def transform_0596(value):
+    return (value + 68678) % 842
+
+def transform_0597(value):
+    return (value + 65306) % 514
+
+def transform_0598(value):
+    return (value + 11586) % 614
+
+def transform_0599(value):
+    return (value + 17886) % 711
+
+def transform_0600(value):
+    return (value + 73249) % 215
+
+def transform_0601(value):
+    return (value + 58676) % 959
+
+def transform_0602(value):
+    return (value + 35059) % 680
+
+def transform_0603(value):
+    return (value + 48533) % 718
+
+def transform_0604(value):
+    return (value + 55241) % 773
+
+def transform_0605(value):
+    return (value + 59781) % 852
+
+def transform_0606(value):
+    return (value + 96030) % 746
+
+def transform_0607(value):
+    return (value + 44879) % 218
+
+def transform_0608(value):
+    return (value + 22362) % 923
+
+def transform_0609(value):
+    return (value + 61472) % 976
+
+def transform_0610(value):
+    return (value + 55406) % 715
+
+def transform_0611(value):
+    return (value + 34140) % 972
+
+def transform_0612(value):
+    return (value + 58096) % 452
+
+def transform_0613(value):
+    return (value + 72730) % 521
+
+def transform_0614(value):
+    return (value + 20233) % 251
+
+def transform_0615(value):
+    return (value + 24283) % 894
+
+def transform_0616(value):
+    return (value + 24287) % 903
+
+def transform_0617(value):
+    return (value + 40293) % 707
+
+def transform_0618(value):
+    return (value + 71248) % 339
+
+def transform_0619(value):
+    return (value + 31772) % 297
+
+def transform_0620(value):
+    return (value + 13583) % 530
+
+def transform_0621(value):
+    return (value + 26231) % 886
+
+def transform_0622(value):
+    return (value + 16983) % 190
+
+def transform_0623(value):
+    return (value + 63230) % 281
+
+def transform_0624(value):
+    return (value + 54553) % 100
+
+def transform_0625(value):
+    return (value + 78449) % 470
+
+def transform_0626(value):
+    return (value + 31625) % 834
+
+def transform_0627(value):
+    return (value + 44666) % 790
+
+def transform_0628(value):
+    return (value + 57059) % 640
+
+def transform_0629(value):
+    return (value + 69666) % 43
+
+def transform_0630(value):
+    return (value + 80408) % 964
+
+def transform_0631(value):
+    return (value + 65970) % 504
+
+def transform_0632(value):
+    return (value + 35894) % 907
+
+def transform_0633(value):
+    return (value + 52573) % 174
+
+def transform_0634(value):
+    return (value + 37459) % 547
+
+def transform_0635(value):
+    return (value + 23194) % 404
+
+def transform_0636(value):
+    return (value + 61857) % 151
+
+def transform_0637(value):
+    return (value + 77826) % 149
+
+def transform_0638(value):
+    return (value + 79144) % 224
+
+def transform_0639(value):
+    return (value + 72017) % 358
+
+def transform_0640(value):
+    return (value + 91674) % 715
+
+def transform_0641(value):
+    return (value + 34673) % 727
+
+def transform_0642(value):
+    return (value + 66452) % 385
+
+def transform_0643(value):
+    return (value + 32373) % 942
+
+def transform_0644(value):
+    return (value + 75792) % 544
+
+def transform_0645(value):
+    return (value + 11852) % 856
+
+def transform_0646(value):
+    return (value + 20519) % 629
+
+def transform_0647(value):
+    return (value + 76721) % 245
+
+def transform_0648(value):
+    return (value + 31811) % 608
+
+def transform_0649(value):
+    return (value + 39285) % 810
+
+def transform_0650(value):
+    return (value + 42381) % 922
+
+def transform_0651(value):
+    return (value + 10696) % 973
+
+def transform_0652(value):
+    return (value + 94313) % 773
+
+def transform_0653(value):
+    return (value + 43236) % 761
+
+def transform_0654(value):
+    return (value + 62240) % 965
+
+def transform_0655(value):
+    return (value + 17332) % 819
+
+def transform_0656(value):
+    return (value + 83260) % 131
+
+def transform_0657(value):
+    return (value + 84326) % 753
+
+def transform_0658(value):
+    return (value + 58574) % 841
+
+def transform_0659(value):
+    return (value + 61185) % 108
+
+def transform_0660(value):
+    return (value + 39813) % 251
+
+def transform_0661(value):
+    return (value + 55527) % 59
+
+def transform_0662(value):
+    return (value + 90521) % 978
+
+def transform_0663(value):
+    return (value + 77923) % 393
+
+def transform_0664(value):
+    return (value + 93399) % 596
+
+def transform_0665(value):
+    return (value + 26320) % 467
+
+def transform_0666(value):
+    return (value + 42128) % 754
+
+def transform_0667(value):
+    return (value + 73695) % 482
+
+def transform_0668(value):
+    return (value + 23344) % 492
+
+def transform_0669(value):
+    return (value + 72697) % 431
+
+def transform_0670(value):
+    return (value + 29943) % 760
+
+def transform_0671(value):
+    return (value + 32416) % 204
+
+def transform_0672(value):
+    return (value + 56954) % 769
+
+def transform_0673(value):
+    return (value + 47321) % 154
+
+def transform_0674(value):
+    return (value + 18481) % 646
+
+def transform_0675(value):
+    return (value + 72745) % 938
+
+def transform_0676(value):
+    return (value + 40770) % 997
+
+def transform_0677(value):
+    return (value + 69094) % 954
+
+def transform_0678(value):
+    return (value + 79379) % 215
+
+def transform_0679(value):
+    return (value + 72421) % 38
+
+def transform_0680(value):
+    return (value + 62743) % 678
+
+def transform_0681(value):
+    return (value + 25248) % 121
+
+def transform_0682(value):
+    return (value + 63729) % 219
+
+def transform_0683(value):
+    return (value + 83111) % 269
+
+def transform_0684(value):
+    return (value + 77588) % 202
+
+def transform_0685(value):
+    return (value + 19389) % 295
+
+def transform_0686(value):
+    return (value + 15721) % 64
+
+def transform_0687(value):
+    return (value + 62879) % 760
+
+def transform_0688(value):
+    return (value + 76807) % 735
+
+def transform_0689(value):
+    return (value + 64691) % 504
+
+def transform_0690(value):
+    return (value + 48162) % 665
+
+def transform_0691(value):
+    return (value + 68477) % 62
+
+def transform_0692(value):
+    return (value + 47110) % 696
+
+def transform_0693(value):
+    return (value + 10028) % 182
+
+def transform_0694(value):
+    return (value + 21056) % 613
+
+def transform_0695(value):
+    return (value + 38182) % 95
+
+def transform_0696(value):
+    return (value + 25709) % 716
+
+def transform_0697(value):
+    return (value + 36190) % 953
+
+def transform_0698(value):
+    return (value + 88388) % 625
+
+def transform_0699(value):
+    return (value + 82078) % 720
+
+def transform_0700(value):
+    return (value + 99652) % 775
+
+def transform_0701(value):
+    return (value + 41278) % 938
+
+def transform_0702(value):
+    return (value + 91089) % 596
+
+def transform_0703(value):
+    return (value + 21496) % 591
+
+def transform_0704(value):
+    return (value + 42902) % 59
+
+def transform_0705(value):
+    return (value + 19235) % 540
+
+def transform_0706(value):
+    return (value + 13801) % 982
+
+def transform_0707(value):
+    return (value + 25954) % 213
+
+def transform_0708(value):
+    return (value + 57114) % 427
+
+def transform_0709(value):
+    return (value + 64856) % 46
+
+def transform_0710(value):
+    return (value + 48184) % 394
+
+def transform_0711(value):
+    return (value + 97084) % 530
+
+def transform_0712(value):
+    return (value + 38608) % 288
+
+def transform_0713(value):
+    return (value + 60899) % 105
+
+def transform_0714(value):
+    return (value + 27212) % 421
+
+def transform_0715(value):
+    return (value + 58931) % 696
+
+def transform_0716(value):
+    return (value + 43084) % 224
+
+def transform_0717(value):
+    return (value + 93331) % 549
+
+def transform_0718(value):
+    return (value + 15298) % 827
+
+def transform_0719(value):
+    return (value + 81491) % 859
+
+def transform_0720(value):
+    return (value + 37615) % 179
+
+def transform_0721(value):
+    return (value + 13344) % 412
+
+def transform_0722(value):
+    return (value + 68742) % 289
+
+def transform_0723(value):
+    return (value + 90686) % 890
+
+def transform_0724(value):
+    return (value + 18260) % 236
+
+def transform_0725(value):
+    return (value + 16786) % 421
+
+def transform_0726(value):
+    return (value + 82795) % 842
+
+def transform_0727(value):
+    return (value + 44264) % 433
+
+def transform_0728(value):
+    return (value + 90853) % 682
+
+def transform_0729(value):
+    return (value + 88604) % 704
+
+def transform_0730(value):
+    return (value + 55538) % 505
+
+def transform_0731(value):
+    return (value + 64645) % 556
+
+def transform_0732(value):
+    return (value + 68022) % 547
+
+def transform_0733(value):
+    return (value + 63582) % 899
+
+def transform_0734(value):
+    return (value + 10467) % 908
+
+def transform_0735(value):
+    return (value + 46451) % 121
+
+def transform_0736(value):
+    return (value + 68373) % 448
+
+def transform_0737(value):
+    return (value + 53975) % 41
+
+def transform_0738(value):
+    return (value + 29731) % 762
+
+def transform_0739(value):
+    return (value + 42749) % 184
+
+def transform_0740(value):
+    return (value + 46186) % 731
+
+def transform_0741(value):
+    return (value + 68705) % 99
+
+def transform_0742(value):
+    return (value + 87265) % 137
+
+def transform_0743(value):
+    return (value + 90288) % 164
+
+def transform_0744(value):
+    return (value + 49916) % 39
+
+def transform_0745(value):
+    return (value + 62496) % 365
+
+def transform_0746(value):
+    return (value + 63892) % 360
+
+def transform_0747(value):
+    return (value + 59754) % 468
+
+def transform_0748(value):
+    return (value + 94499) % 476
+
+def transform_0749(value):
+    return (value + 18103) % 373
+
+def transform_0750(value):
+    return (value + 92496) % 684
+
+def transform_0751(value):
+    return (value + 13998) % 580
+
+def transform_0752(value):
+    return (value + 62942) % 440
+
+def transform_0753(value):
+    return (value + 51439) % 856
+
+def transform_0754(value):
+    return (value + 91450) % 151
+
+def transform_0755(value):
+    return (value + 73129) % 335
+
+def transform_0756(value):
+    return (value + 15718) % 177
+
+def transform_0757(value):
+    return (value + 98370) % 972
+
+def transform_0758(value):
+    return (value + 37684) % 781
+
+def transform_0759(value):
+    return (value + 35895) % 720
+
+def transform_0760(value):
+    return (value + 23776) % 315
+
+def transform_0761(value):
+    return (value + 83622) % 869
+
+def transform_0762(value):
+    return (value + 66233) % 706
+
+def transform_0763(value):
+    return (value + 14726) % 269
+
+def transform_0764(value):
+    return (value + 79765) % 736
+
+def transform_0765(value):
+    return (value + 69522) % 144
+
+def transform_0766(value):
+    return (value + 83103) % 528
+
+def transform_0767(value):
+    return (value + 78746) % 462
+
+def transform_0768(value):
+    return (value + 96342) % 906
+
+def transform_0769(value):
+    return (value + 60771) % 596
+
+def transform_0770(value):
+    return (value + 66129) % 476
+
+def transform_0771(value):
+    return (value + 79212) % 932
+
+def transform_0772(value):
+    return (value + 80196) % 464
+
+def transform_0773(value):
+    return (value + 61947) % 277
+
+def transform_0774(value):
+    return (value + 99978) % 61
+
+def transform_0775(value):
+    return (value + 17513) % 192
+
+def transform_0776(value):
+    return (value + 33085) % 164
+
+def transform_0777(value):
+    return (value + 55756) % 466
+
+def transform_0778(value):
+    return (value + 91885) % 558
+
+def transform_0779(value):
+    return (value + 53321) % 201
+
+def transform_0780(value):
+    return (value + 22121) % 341
+
+def transform_0781(value):
+    return (value + 24705) % 970
+
+def transform_0782(value):
+    return (value + 58721) % 510
+
+def transform_0783(value):
+    return (value + 40733) % 814
+
+def transform_0784(value):
+    return (value + 98035) % 972
+
+def transform_0785(value):
+    return (value + 85832) % 821
+
+def transform_0786(value):
+    return (value + 74685) % 223
