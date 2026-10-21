@@ -51,9 +51,9 @@ def plan_for(hardware):
     if any(not math.isfinite(x) or x<=0 for x in values):
         raise ValueError('Invalid hardware resource measurements')
     available=int(hardware.ram_available//G)
-    if available<12:raise ValueError('Not enough available RAM: close other programs; at least 12 GiB must be available for this initial profile.')
+    if available<14:raise ValueError('Not enough available RAM: close other programs; at least 14 GiB must be available for this initial profile.')
     if hardware.gpu_free<12*G:raise ValueError('Not enough free GPU memory: this initial profile requires at least 12 GiB free; this is a preflight floor, not a qualified minimum.')
-    ram=max(1,min(16,available//12))
+    ram=max(2,min(16,available//12))
     resident=max(4,min(72,available-ram-8))
     reserve=min(8192,max(4096,int(hardware.gpu_free/G)*128))
     # Compilation and serving occur separately. Keep headroom for the OS and

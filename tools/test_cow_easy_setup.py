@@ -18,7 +18,7 @@ class SetupPolicyTests(unittest.TestCase):
         self.assertLessEqual(p.resident_gib+p.ram_gib+8,24)
         self.assertEqual(p.context,32768)
         self.assertGreaterEqual(p.resident_gib,4)
-        self.assertGreater(p.ram_gib,0)
+        self.assertGreaterEqual(p.ram_gib,2)
         self.assertLess(p.vram_reserve_mib,24*1024)
     def test_friend_5090_is_not_given_reference_server_vram(self):
         p=setup.plan_for(self.hardware(ram=128,available=110,vram=32))
@@ -26,7 +26,7 @@ class SetupPolicyTests(unittest.TestCase):
         self.assertGreater(p.resident_gib,setup.plan_for(self.hardware()).resident_gib)
         self.assertLessEqual(p.resident_gib+p.ram_gib+8,110)
     def test_memory_pressure_reduces_jobs_and_residency(self):
-        a=setup.plan_for(self.hardware(available=24));b=setup.plan_for(self.hardware(available=13))
+        a=setup.plan_for(self.hardware(available=24));b=setup.plan_for(self.hardware(available=17))
         self.assertLess(b.resident_gib,a.resident_gib)
         self.assertLessEqual(b.build_jobs,a.build_jobs)
     def test_insufficient_ram_fails_before_setup(self):
