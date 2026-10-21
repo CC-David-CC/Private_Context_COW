@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "first interactive CLI follow-up after server process restart; text-only greedy",
+  "source_snapshot": "a83f15704637a1825fce6739d9aeeb5445629c7f89b812e91c3bb5d92edcbc62",
+  "result_snapshot": "3e24fac4ed2c69b40c550edf9d71744d12dd456e6a5131776b62e2660f2a7a6c",
+  "saved_prefix_tokens": 24340,
+  "new_canonical_tokens": 2333,
+  "native_forward_tokens": 2333,
+  "saved_prefix_forward_tokens": 0,
+  "canonical_objects_hash_checked": 6,
+  "native_state_bytes": 851842570,
+  "next_logits_bytes": 993280,
+  "total_checkpoint_file_bytes": 852835850,
+  "checkpoint_sha256": "54843f4c489bba1a0b780e891ee450dfe83f70ab9e79fc7a56c82b321a009b57",
+  "checkpoint_import_bytes": 851842570,
+  "model_contract_id": "c2d7c59b5b56d4b8656b6d1292570b5eb2b12c5e46bae9eed81fcec41b6e1ef4",
+  "execution_profile_id": "19b64498e25f11348572e3aa3ac2bd7ceac3df0ef3f4a6e14f475ddf477f977c",
+  "timing": {
+    "counter_deltas": {
+      "checkpoint_export_bytes": 928346306,
+      "checkpoint_import_bytes": 851842570,
+      "consumed_tokens": 2333,
+      "forward_calls": 102,
+      "forward_tokens": 2333,
+      "sampling_calls": 97
+    },
+    "snapshot": "3e24fac4ed2c69b40c550edf9d71744d12dd456e6a5131776b62e2660f2a7a6c",
+    "generation_seconds": 3.935383041156456,
+    "capture_seconds": 1.0347637601662427,
+    "request_seconds": 6.373623659135774
+  },
+  "limitations": [
+    "No fresh 24K full-history numerical comparison in this CLI trial; matching-schedule numerical qualification is separate",
+    "Greedy only; no broad sampler/controller qualification",
+    "Initial audit incorrectly equated native state bytes with total payload bytes; source real.py confirms file also stores FP32 next logits"
+  ]
+}

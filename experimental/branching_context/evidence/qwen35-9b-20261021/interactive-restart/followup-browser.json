@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "desktop": {
+      "light_green_background": true,
+      "italic_descriptions": true,
+      "names_present": true,
+      "greeting_hidden_before_click": true,
+      "greeting_shown_after_click": true,
+      "no_overflow": true,
+      "no_external_requests": true
+    },
+    "mobile": {
+      "light_green_background": true,
+      "italic_descriptions": true,
+      "names_present": true,
+      "greeting_hidden_before_click": true,
+      "greeting_shown_after_click": true,
+      "no_overflow": true,
+      "no_external_requests": true
+    }
+  },
+  "source_sha256": "b1f1464fbd2ece92d980a12df6c1aa955028095631c8b26474c01b1ec6df9e48",
+  "chromium_sandbox_requested": true,
+  "browser_version": "155.0.8059.79",
+  "status": "PASS"
+}

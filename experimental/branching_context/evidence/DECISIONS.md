@@ -5433,3 +5433,12 @@ Actual separate-VM image upload and prefill succeeded, but the first plain greed
 ### Separate model capability from execution/recovery correctness (2026-10-21)
 
 Preserve failed domain trials and exact prompts/outputs for training review. Keep baseline, example-assisted and post-training results separate. Do not turn a parsed PDF, successful script exit or a reference CAD fixture into a model task-success claim. Model-domain limitations do not waive native snapshot/restart checks, and working restore does not certify domain competence.
+
+
+## Qwen interactive CLI restart audit, 2026-10-21
+
+Real CLI website follow-up passed desktop/mobile browser checks after server restart.
+Independent canonical-token/work-counter audit: saved prefix 24,340 tokens,
+new work 2,333 tokens, saved-prefix forward work zero. See
+`qwen35-9b-20261021/interactive-restart/`. PDF/CAD model baselines remain failed;
+interactive fork/retry remains outstanding. No cumulative gate qualification.

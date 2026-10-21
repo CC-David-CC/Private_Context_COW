@@ -8091,3 +8091,12 @@ The requested feat/qwen35-9b-backend worktree now contains the mixed-input and p
 Separate-VM unchanged image-answer retry recovered the original pending journal, matched 183 tokens/text, preserved the branch, and left the idle server completed-work counter at 86 before/after the independent control. Its local receipt reopened without network. A harness dictionary-access error after the first recovery was retained; the completed original receipt was audited without resending.
 
 PDF domain trials remain NOT VERIFIED. One greedy two-page artifact retained 43 out-of-page text characters on page 1 and 139 on page 2 at independent audit. Min-P also exhibited syntax-repair and wrapping failures. The CAD model baseline repeatedly guessed nonexistent build123d export APIs and did not export an accepted STEP; the same installation independently passed a reference build/geometry/render preflight. These are observed task failures, not proof of a pretraining distribution or a backend numerical defect. No operator source repairs or model training occurred. Raw baseline/candidate evidence stays private.
+
+
+## Qwen interactive CLI restart audit, 2026-10-21
+
+Real CLI website follow-up passed desktop/mobile browser checks after server restart.
+Independent canonical-token/work-counter audit: saved prefix 24,340 tokens,
+new work 2,333 tokens, saved-prefix forward work zero. See
+`qwen35-9b-20261021/interactive-restart/`. PDF/CAD model baselines remain failed;
+interactive fork/retry remains outstanding. No cumulative gate qualification.
