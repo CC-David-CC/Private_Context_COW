@@ -1,0 +1,13 @@
+{
+  "phase": "reference",
+  "status": "PASS",
+  "pid": 1228735,
+  "prefix": 1024,
+  "suffix": 64,
+  "output_limit": 16,
+  "branch": "B",
+  "generated": 16,
+  "fresh_forwards": 36,
+  "fresh_forward_tokens": 39312,
+  "seconds": 9.496405337937176
+}

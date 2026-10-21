@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "Matching-native-batch Q8 FP16 KV whole-state resume; deterministic greedy controller only",
+  "execution_profile_id": "5b51aaebf4ca318d422be723db4e283776f42d008c73301676ef21ae110a183a",
+  "comparisons": 178,
+  "max_logit_error": 0,
+  "strict_restore_count": 9,
+  "physical_sharing": false,
+  "runs": [
+    {
+      "name": "tiny",
+      "prefix": 128,
+      "suffix": 4,
+      "output_limit": 8,
+      "prepare_seconds": 11.887154310941696,
+      "resume_seconds": 20.07441491202917
+    },
+    {
+      "name": "medium",
+      "prefix": 1024,
+      "suffix": 64,
+      "output_limit": 16,
+      "prepare_seconds": 13.116543533047661,
+      "resume_seconds": 43.61089021200314
+    },
+    {
+      "name": "target8k",
+      "prefix": 8192,
+      "suffix": 512,
+      "output_limit": 16,
+      "prepare_seconds": 26.826503860997036,
+      "resume_seconds": 88.87333154201042
+    }
+  ],
+  "limitations": [
+    "Not cumulative G1-G5 qualification",
+    "Not arbitrary-batch equivalence",
+    "Generated output limit is 16 at 8K, not 128",
+    "No stochastic controller restart qualification yet",
+    "No physical KV page sharing",
+    "First full greedy CLI coding trial looped inside a text-file argument and was cancelled; task completion remains unproven"
+  ]
+}

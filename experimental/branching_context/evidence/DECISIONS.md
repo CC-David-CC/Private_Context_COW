@@ -5412,3 +5412,6 @@ grammar and controller progress stay canonical in Store. Whole-state copies are
 a correctness fallback, not evidence of physical COW sharing. Execution uses
 FP16 KV and actual native batch receipts; checkpoints bind the exact model/profile
 and request schedule. Do not relabel llama forwards as Flash verifier execution.
+
+
+2026-10-21 ? Qwen35 native CPU selector GPU validation: tiny 128/4/8, medium 1024/64/16 and target 8192/512/16 all passed. 178 complete 248320-value frontier comparisons were byte-identical; nine strict restores reported zero prefix forward work. Native greedy and greedy sampler calls also matched reference tokens. See qwen35-9b-20261021/native-selection-gpu/summary.json. This qualifies the bounded greedy matching-batch test only, not G1-G5 or physical sharing. The first separate-VM greedy website trial failed to close a lines array and repeated HTML; it was cancelled and retained as private unapproved failure-class evidence. Min-P mitigation is being tested separately.
