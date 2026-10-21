@@ -5,3 +5,13 @@ regex==2026.9.10
 numpy==2.5.3
 llguidance==1.9.1
 pillow==12.3.0
+
+# Pinned GGUF model preparation dependencies (same pins as requirements.txt).
+pyyaml==6.0.3
+tqdm==4.70.1
+requests==2.34.2
+certifi==2026.7.22
+charset-normalizer==3.5.1
+idna==3.20
+urllib3==2.8.0
+markupsafe==3.0.3

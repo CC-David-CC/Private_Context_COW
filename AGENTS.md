@@ -1,48 +1,33 @@
 # AGENTS.md
 
-## Context COW publication boundary
+## Publication
 
-- Routine commits and backups go to private LAN box-git:
-  `box-git:/srv/data/git/private_context_cow.git` and its private evidence area.
-- Workers commit locally. The primary agent reviews and pushes explicit private
-  refs; never infer a publication destination from `origin`.
-- Any GitHub push, pull request, release or other publication requires the
-  owner's explicit approval and the applicable review/checks first. Existing
-  public repositories and working GitHub credentials are not authorization.
-- Strata upstream publication additionally waits for Niko's approval, confirmed
-  by the owner. The owner handles that conversation; do not message Niko.
+This is a public source project. Publish reviewed changes only to the explicitly
+authorized repository and branch. Preserve existing remotes and unpublished
+history. Keep credentials, protected diagnostic answers and machine-specific
+operational handoffs out of public commits. Contributions to other projects
+require separate owner authorization; do not contact maintainers on the owner's
+behalf.
 
 Strata runs the Qwen3.8-Flash-Next mixture-of-experts model (and its Coder, Swift 1.5 and Unsloth variants) on a
 normal PC: one NVIDIA or AMD graphics card plus system RAM, on Windows or Linux. It has a C++/CUDA/HIP engine
 (`src/`, `include/`), a Python server with an OpenAI- and Anthropic-compatible API and a web app (`serve/`), and a
 one-click installer (`setup.py`, started by `START-HERE.bat` / `setup.sh`).
 
-## Installing Strata for a user
+## Installing Context COW for a user
 
-Follow **[docs/AI_SETUP.md](docs/AI_SETUP.md)**: check the PC, pick the model by RAM, run setup non-interactively,
-start and verify the server, and connect the user's apps. Never expose the server beyond `127.0.0.1` without
-`--api-key`. As an alternative to shell commands, Strata's MCP server ([docs/MCP_SERVER.md](docs/MCP_SERVER.md))
-offers the same steps as tools.
+Use [docs/TWO-COMPUTER-SETUP.md](docs/TWO-COMPUTER-SETUP.md) for the Linux desktop
+server and BranchWrite laptop client. The pinned Q4 resources are prepared by
+`tools/cow_prepare_model.py`; the server is configured and started with
+`tools/cow_server_setup.py` and `tools/cow_server.py`. Ordinary Strata serving
+setup is a separate path and downloads additional resources not used by this
+COW installation. Keep the model server on an authenticated trusted-LAN boundary.
+
+The original engine's separate setup documentation remains in
+[docs/AI_SETUP.md](docs/AI_SETUP.md) and [UPSTREAM_README.md](UPSTREAM_README.md).
+Do not substitute that server for the COW API expected by BranchWrite.
 
 ## Working on the code
-
-## Execution placement and thinking policy (owner, 2026-10-17)
-
-Windows is the steering wheel: use it only to drive SSH/read status/transport.
-Do source editing, builds, tests, packaging, logs, checkpoint storage and evidence
-collection on the authorized Linux hosts. Do not stage generated artifacts or
-archives on the Windows controller. Existing Windows repositories, workloads and
-curated LoRA examples are preserved; do not refresh them with bulk outputs.
-Private box-git is the backup destination, never GitHub without fresh approval.
-
-New model task admissions use4096 thinking tokens (owner update2026-10-18).
-The owner's newer thinking ladder advances on a verified task failure,including
-natural early closure;tool progress,infrastructure faults and unresolved effects
-do not trigger retries. Standard4K/8K/16K/32K and opt-in Lite starting256 have
-definitions;live Lite testing is deferred. Keep saved controllers unchanged.
-Do not run no-thinking arms unless explicitly requested. Earlier experiments remain historical evidence. Harness defaults for
-reproducing those old experiments do not override this operational instruction.
-
 
 - Capture generalizable model failures in the sibling
   `branchwrite-lora-examples/candidates/` collection, even when more examples,

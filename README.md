@@ -1,4 +1,6 @@
-Start with [Linux server setup](docs/CONTEXT-COW-SERVER.md) and the [BranchWrite client guide](https://github.com/CC-David-CC/BranchWrite/blob/main/docs/LINUX-QUICKSTART.md).
+**New here? [Set up a desktop server and a laptop client](docs/TWO-COMPUTER-SETUP.md).**
+This step-by-step Linux guide includes automatic Q4 model download, server setup
+and the BranchWrite client. No AI assistant is needed to follow it.
 
 # Context COW
 
@@ -17,9 +19,9 @@ client and workflow/tool harness using this server through authenticated HTTP.
 - [Earlier public publication](https://github.com/CC-David-CC/Public_Context_COW).
 - [Original Strata setup/readme](UPSTREAM_README.md).
 
-This is source, not a turnkey prebuilt server. Operators must provision the
-pinned model, build/probe executables and a compatible measured execution
-profile. Do not import checkpoints across incompatible profiles. Cross-batch
+The Linux guide builds the server from source and prepares the pinned Q4 model.
+It requires a working NVIDIA driver and CUDA compiler. Other hardware and model
+configurations need their own checks. Do not import checkpoints across incompatible profiles. Cross-batch
 arrangement equivalence is an accepted prototype limitation; cumulative G1-G5
 certification is incomplete. See the preserved mathematical specification for
 the broader original contract. An HTTP/client smoke pass is not certification.

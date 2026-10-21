@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "bounded resource preparation and documentation checks; not a new inference campaign",
+  "unit_tests": {
+    "executed_ids": [
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_default_plan_has_four_pinned_q4_shards_and_no_mtp",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_cached_model_is_rehashed_without_network_or_deletion",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_same_size_corruption_with_a_done_marker_is_rejected",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_symlink_model_is_rejected",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_real_http_download_resumes_partial_bytes",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_pack_publishes_complete_receipt_and_reuses_verified_bytes",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_failed_pack_builder_publishes_no_final_pack",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_extra_nested_receipt_named_file_is_not_exempt_from_integrity",
+      "tools.test_cow_prepare_model.ModelPreparationTests.test_altered_pack_is_rejected_without_rebuilding_or_deleting"
+    ],
+    "passed": 9,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "g0": {
+    "status": "PASS",
+    "executed": 51
+  },
+  "model_preparation": {
+    "exit_code": 0,
+    "elapsed_seconds": 68.0842277710326,
+    "model_shards": 4,
+    "verified_model_bytes": 111334654784,
+    "source_inputs": "existing complete pinned model files; no copy or model redownload",
+    "gguf_tooling": "automatically fetched pinned source",
+    "full_model_internet_download_executed": false,
+    "mtp_downloaded": false
+  },
+  "repeat_preparation": {
+    "schema": 1,
+    "exit_code": 0,
+    "elapsed_seconds": 59.96701283706352,
+    "pack_file_count": 11,
+    "pack_inodes_sizes_mtimes_unchanged": true,
+    "native_packer_invoked": false,
+    "scope": "repeat real Q4 preparation; verifies full model hashes and pack bytes; no GPU inference"
+  },
+  "pack_byte_audit": {
+    "schema": 1,
+    "files": [
+      {
+        "path": "compat-bf16.json",
+        "bytes": 21093,
+        "reference_sha256": "3ac5fe623709a8450bfd69610c640edbe357c725f1906817fe785b1f9ab4322e",
+        "prepared_sha256": "3ac5fe623709a8450bfd69610c640edbe357c725f1906817fe785b1f9ab4322e",
+        "identical": true
+      },
+      {
+        "path": "conversions.json",
+        "bytes": 167871,
+        "reference_sha256": "722a102cb500b9097d1890cffebf142904fa6534c209ac44c6445f0aec3d0cc4",
+        "prepared_sha256": "722a102cb500b9097d1890cffebf142904fa6534c209ac44c6445f0aec3d0cc4",
+        "identical": true
+      },
+      {
+        "path": "dense.bin",
+        "bytes": 1485688320,
+        "reference_sha256": "f53174059b262ed342b82e143af62056081948ef5e5f1903a1a70eeb73fa4a23",
+        "prepared_sha256": "f53174059b262ed342b82e143af62056081948ef5e5f1903a1a70eeb73fa4a23",
+        "identical": true
+      },
+      {
+        "path": "index.txt",
+        "bytes": 93560,
+        "reference_sha256": "cfc07e91c4d9b8e8c999fd1f70fa364e584748e70fa377b30e0fc85426f52711",
+        "prepared_sha256": "cfc07e91c4d9b8e8c999fd1f70fa364e584748e70fa377b30e0fc85426f52711",
+        "identical": true
+      },
+      {
+        "path": "native_experts.txt",
+        "bytes": 5795,
+        "reference_sha256": "5ed2c4a55910616db1efe16f0c989e9bec80cc8b9e95bf1c42f886aadfffd2d6",
+        "prepared_sha256": "5ed2c4a55910616db1efe16f0c989e9bec80cc8b9e95bf1c42f886aadfffd2d6",
+        "identical": true
+      },
+      {
+        "path": "tokenizer/chat_template.jinja",
+        "bytes": 9993,
+        "reference_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+        "prepared_sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce",
+        "identical": true
+      },
+      {
+        "path": "tokenizer/merges.txt",
+        "bytes": 3353258,
+        "reference_sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332",
+        "prepared_sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332",
+        "identical": true
+      },
+      {
+        "path": "tokenizer/token_type.json",
+        "bytes": 744960,
+        "reference_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+        "prepared_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+        "identical": true
+      },
+      {
+        "path": "tokenizer/tokenizer.json",
+        "bytes": 541,
+        "reference_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+        "prepared_sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf",
+        "identical": true
+      },
+      {
+        "path": "tokenizer/vocab.json",
+        "bytes": 5737005,
+        "reference_sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4",
+        "prepared_sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4",
+        "identical": true
+      }
+    ],
+    "all_existing_pack_files_identical": true,
+    "extra_files": [
+      "cow-prepared.json"
+    ],
+    "scope": "Byte audit of prepared files versus the pack used by the running tested server; no logit comparison"
+  },
+  "packing_recipe": {
+    "model": "UD-Q4_K_XL",
+    "arguments": [
+      "--compat-bf16"
+    ],
+    "gguf_py_revision": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+    "gguf_python_sha256": {
+      "examples/reader.py": "ce0846a9968f3cd63a6d93032502a9c7c4a4c4526d65a2afe5bf32644a58c3a3",
+      "examples/writer.py": "d96ade060e50cfe8a2f371217a388d70f1cd4bc3124fe5c65a75cb960d930a92",
+      "gguf/__init__.py": "3ccfc0104cd7ea88c6028743b7bf3f2c89b5f474425de03a217a6072320d7c2f",
+      "gguf/constants.py": "df0078c283a48061260ca4b3f35df36611230c3e7c2ac271bb8a11d2632839ba",
+      "gguf/gguf.py": "f0c0eeedad0911784b52ffed8e162a0eb5ae6d535ce35705bc16196e46597a72",
+      "gguf/gguf_reader.py": "d0ea743200e19d7ef0a4c969edcc4a6dba8e3656a790b217e3bdc7b31170718e",
+      "gguf/gguf_writer.py": "7e3ff8d04b290dde083ae30d1091b67c95299f6865958fe1cdcb7e35dd201766",
+      "gguf/lazy.py": "dbc98e3ee9ef8606df34e9d91f98ab29c2697e6824995f1dd8952938c135ad85",
+      "gguf/metadata.py": "7cedac3b8457271a3f58e5531a7e6958fdecb9ea072f7895ba5d7f6693c9db29",
+      "gguf/quants.py": "2c927a1b3d9f0920dcf4007fb686e1b0999333e9f65ce43dcc689900c0beae8b",
+      "gguf/scripts/gguf_convert_endian.py": "6be91de3af4d9b3fc2c90dafb3d1d8eed7e9dd72b3d6b52d245f005c76ece280",
+      "gguf/scripts/gguf_dump.py": "d8b8fc28e96d15d8a4d6f05cdff4a747f5a06f31172efee9dfc971998ed0203f",
+      "gguf/scripts/gguf_editor_gui.py": "6e9d70e850268fff5d4108d9ecbc2b4d90e70b61f08e71f7d37ac20916d854bb",
+      "gguf/scripts/gguf_hash.py": "9f277c9338d12a73857a4e54683d7da4d5de01531751f14401267c9289e4197f",
+      "gguf/scripts/gguf_new_metadata.py": "972499d35957b4721b9243828d5547d1c84def8d4e6fc641887c6578bf765255",
+      "gguf/scripts/gguf_set_metadata.py": "c8612a7109428a677ea55976dd5eeed6088934ddef7ef01246a5bc7a6e585b3b",
+      "gguf/tensor_mapping.py": "df97c2291dc1d8e8992ae91b800e0cf139f94d5173b9ed4705f5ef75a371d924",
+      "gguf/utility.py": "da920e2c62166ec9f30e407e9fb35ec29fda671310ffbf0f8ce856b62f1c70d7",
+      "gguf/vocab.py": "16cddd93700f86c8b72e6f9e741e2362189155b9f96aa9e3bbb0995060095f1a",
+      "tests/__init__.py": "11ed0f04731b689a1f5e62114fa6cf5ae2ada2f6ebcae44622ec1d89a52043b5",
+      "tests/test_gguf_reader_validation.py": "0e91360e206c00dd815f85c17a4b88d3c33025b14441290a33b61f2d9d9e1c0f",
+      "tests/test_metadata.py": "8577b24ebd407055e384a7b755178db73f9186da5f854ceebf56ed509c98fc95",
+      "tests/test_quants.py": "7ed495f1371e9858750fd9c8c5e5a31a4491613c33d5af76508b24113313d86f"
+    },
+    "python_packages": {
+      "numpy": "2.5.3",
+      "pyyaml": "6.0.3"
+    },
+    "source_sha256": {
+      "tools/iq_pack.py": "81b59dd1d71484106cddec9418ef933a2e55a1fd28a57b955715cf0e2e9e4878",
+      "tools/gguf_reader.py": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e",
+      "tools/strata_tokenizer.py": "40595124e02c198e464c12cbe5fe6d4fb079daa3238263fc71ea8d2cf279ca12"
+    }
+  },
+  "inference_executed": false,
+  "numerical_max_error": null,
+  "native_source_changed": false,
+  "limitations": [
+    "No new GPU inference or speed benchmark",
+    "No full 111 GB Internet redownload",
+    "Other gaming PC resource configurations remain unqualified",
+    "No cumulative G1\u2013G5 qualification"
+  ],
+  "source_sha256": {
+    "tools/cow_prepare_model.py": "b4743a0f93800553aca1e3de2e22793110c9db821ae266dca0ec7ad74ee631ac",
+    "tools/test_cow_prepare_model.py": "dd955a266dddbbb369b2accde9c6a73f7129a135f2eac41132757342d041e64a",
+    "requirements-cow-server.txt": "0660d6dc5dcb22d813cc972f1f3adfcc6e0418d6bfa4aa5663a1575fbf68eba2"
+  }
+}
