@@ -5401,3 +5401,14 @@ operations; coding forks an exact committed conversation tip.
 ## Linux LAN preview, 2026-10-20
 
 Source-built CUDA server on llm-60 and fresh GitHub BW installation in the llm-49 Ubuntu VM passed a website and a follow-up across Python/native process restart. G0 passed 51/51. No new numerical oracle, zero-prefix-work trace or cumulative qualification was performed. See docs/CONTEXT-COW-SERVER.md and validation/linux-lan-install-20261020. Strata head was not updated.
+
+
+## Qwen3.5-9B backend, 2026-10-21
+Use clean llama.cpp pin 972d2313bc0bf0a45f634f77d95c9fb03aeab12c for the
+Qwen35 hybrid architecture; retain Strata for Flash. Its hybrid serializer writes
+both attention and recurrent memory; inspected context serialization omits logits,
+so the adapter explicitly owns/restores the consumed next-logit frontier. RNG,
+grammar and controller progress stay canonical in Store. Whole-state copies are
+a correctness fallback, not evidence of physical COW sharing. Execution uses
+FP16 KV and actual native batch receipts; checkpoints bind the exact model/profile
+and request schedule. Do not relabel llama forwards as Flash verifier execution.

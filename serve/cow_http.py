@@ -48,7 +48,12 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
     with tempfile.TemporaryDirectory(prefix='cow-template-') as directory:
         path=Path(directory)/'chat_template.jinja';path.write_text(source,encoding='utf-8')
         template=ChatTemplate(path)
-    encoder=CowPromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
+    metadata=GGUFFile(Path(model_path)).metadata
+    if metadata.get('general.architecture')=='qwen35':
+        from serve.cow_qwen35_prompt import Qwen35PromptEncoder
+        encoder=Qwen35PromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
+    else:
+        encoder=CowPromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
     renderer_id=None
     if model_contract_id is not None:
         from serve.cow_renderer import renderer_identity
@@ -851,7 +856,13 @@ def main():
         from context_time_travel.store import Store
         preparer=vision_preparer_from_config(Store(args.store),components['mixed_renderer'],profile,args.vision_config)
     config=pool_config_from_args(args)
-    def factory(gpu): return BranchingModel(args.store,StrataBackend(profile,gpu_id=gpu),profile)
+    def factory(gpu):
+        if profile.get('backend')=='qwen35-llama.cpp':
+            if gpu!=0:raise ValueError('Qwen bring-up currently requires physical GPU 0')
+            backend=BranchingModel.load_backend(profile)
+        else:
+            backend=StrataBackend(profile,gpu_id=gpu)
+        return BranchingModel(args.store,backend,profile)
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
     coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer)
     server=None

@@ -19,7 +19,7 @@ import threading
 import time
 
 from .pools import SharedCheckpointPool, DiskCheckpointPool, PoolFull, PoolTransitionTrace, checkpoint_bytes, normalize_gpu_selection, worker_key
-from .real import PreparedCheckpoint
+from .real import PreparedCheckpoint, supports_consumed_selection
 from .checkpoint_cache import CheckpointCache
 from .store import Store, BranchHead, Conflict, IntegrityError, InvalidOperation, NotFound, _id, _json_bytes, _name, _stage, _sync_dir, _private_directory
 from .presentation_request import detach_request, request_digest, binding_for_snapshot
@@ -894,9 +894,7 @@ class ContextCoordinator:
                         raise InvalidOperation('Grammar operation has no ready model worker')
                     execution=model.profile.get('execution',{})
                     validator=getattr(model.backend,'validate_grammar_engine',None)
-                    if (execution.get('resume_contract') not in ('identical-native-operators-v1','identical-mixed-native-operators-v1')
-                            or execution.get('generated_operator')!='normal-verifier-decode'
-                            or execution.get('selected_token_protocol')!='consumed-selected-receipt-v1'
+                    if (not supports_consumed_selection(model.profile)
                             or list(engine.eos_tokens)!=execution.get('eos_tokens')
                             or not callable(validator)
                             or not callable(getattr(model.backend,'consume_generated',None))):

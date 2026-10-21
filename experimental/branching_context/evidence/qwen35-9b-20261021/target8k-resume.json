@@ -1,0 +1,126 @@
+{
+  "phase": "resume",
+  "status": "PASS",
+  "pid": 1219331,
+  "prefix": 8192,
+  "suffix": 512,
+  "output_limit": 16,
+  "branch": "B",
+  "generated": 16,
+  "comparisons": 59,
+  "max_logit_error": 0,
+  "restore_receipts": [
+    {
+      "snapshot": "bcc4384002c6c062043c81abc864e8f3db1aa589f885508fce32ff807b472f7e",
+      "payload_sha256": "8b7d79e82f5871e47b81b092263e96ea22aafcda8db547428f693b05344edf78",
+      "schedule_sha256": "28a2c05845bc611214ad9d0764717d22dfc8e95c817a345415971aecadcd8f07",
+      "consumed": 8192,
+      "positions": "absolute-zero-based",
+      "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+      "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+      "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+      "native_pid": 1219331,
+      "forward_tokens": 0,
+      "counters_before": {
+        "consumed_tokens": 0,
+        "forward_tokens": 0,
+        "forward_calls": 0,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 0
+      },
+      "counters_after": {
+        "consumed_tokens": 0,
+        "forward_tokens": 0,
+        "forward_calls": 0,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 322317130
+      },
+      "counter_deltas": {
+        "consumed_tokens": 0,
+        "forward_tokens": 0,
+        "forward_calls": 0,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 322317130
+      },
+      "seconds": 0.76178267900832
+    },
+    {
+      "snapshot": "c78e8872c46fb1fcfaf33cfc7129fb656160c1bfe04794be44f7af7cfe102eae",
+      "payload_sha256": "59fbe16a8e7dce927c29d48463427767cf241b0efe6a24cc34c4364a62e6b41a",
+      "schedule_sha256": "6ed1d6adb1961639ee1386c86495438d9a1d2ad085e5ec77c594bd495ee505a0",
+      "consumed": 8708,
+      "positions": "absolute-zero-based",
+      "controller_sha256": "9d03ec37c3f2545a23cc40dd8969e9659430aad3f8417a144ff8140e55debbb7",
+      "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+      "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+      "native_pid": 1219331,
+      "forward_tokens": 0,
+      "counters_before": {
+        "consumed_tokens": 528,
+        "forward_tokens": 528,
+        "forward_calls": 17,
+        "checkpoint_export_bytes": 5769272490,
+        "checkpoint_import_bytes": 12165865064
+      },
+      "counters_after": {
+        "consumed_tokens": 528,
+        "forward_tokens": 528,
+        "forward_calls": 17,
+        "checkpoint_export_bytes": 5769272490,
+        "checkpoint_import_bytes": 12505102866
+      },
+      "counter_deltas": {
+        "consumed_tokens": 0,
+        "forward_tokens": 0,
+        "forward_calls": 0,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 339237802
+      },
+      "seconds": 0.8249384990194812
+    },
+    {
+      "snapshot": "daa99b654e810275badd403e231a0af287f53b7cd3d2e9fa1b51d4c7556e63f1",
+      "payload_sha256": "0d3387565c1076e11eddb6e527a46f71304c79c65b01e919cd372a046049ce37",
+      "schedule_sha256": "54ccb375c452c722e39bc312e3bede01eabee6961dd08ecc0120f7118fe35dd4",
+      "consumed": 8708,
+      "positions": "absolute-zero-based",
+      "controller_sha256": "32f8c39f5adc9a5950e6dbc61df45ce81e55d0d6f3cb57b7c862c27fae1b4e7d",
+      "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+      "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+      "native_pid": 1219331,
+      "forward_tokens": 0,
+      "counters_before": {
+        "consumed_tokens": 1068,
+        "forward_tokens": 1068,
+        "forward_calls": 46,
+        "checkpoint_export_bytes": 15611956380,
+        "checkpoint_import_bytes": 32172762966
+      },
+      "counters_after": {
+        "consumed_tokens": 1068,
+        "forward_tokens": 1068,
+        "forward_calls": 46,
+        "checkpoint_export_bytes": 15611956380,
+        "checkpoint_import_bytes": 32512000768
+      },
+      "counter_deltas": {
+        "consumed_tokens": 0,
+        "forward_tokens": 0,
+        "forward_calls": 0,
+        "checkpoint_export_bytes": 0,
+        "checkpoint_import_bytes": 339237802
+      },
+      "seconds": 1.3633292339509353
+    }
+  ],
+  "native_work": {
+    "consumed_tokens": 1080,
+    "forward_tokens": 1080,
+    "forward_calls": 58,
+    "checkpoint_export_bytes": 19685367780,
+    "checkpoint_import_bytes": 40658430064
+  },
+  "seconds": 80.03987984999549,
+  "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+  "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+}

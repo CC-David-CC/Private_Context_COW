@@ -24,6 +24,18 @@ from .input_spans import InputHistory
 from .vision_execution import RESUME_CONTRACT, POSITION_CONVENTION, input_binding, validate_boundary
 
 
+def supports_consumed_selection(profile):
+    """Declared operator boundary; the factory separately verifies native code."""
+    e=profile.get('execution',{})
+    if e.get('selected_token_protocol')!='consumed-selected-receipt-v1':return False
+    if profile.get('backend')=='qwen35-llama.cpp':
+        return (e.get('resume_contract')=='identical-native-batches-v1'
+            and e.get('generated_operator')=='llama-forward-consumed-v1'
+            and e.get('state_format')=='qwen35-hybrid-frontier-v1')
+    return (e.get('resume_contract') in ('identical-native-operators-v1',RESUME_CONTRACT)
+        and e.get('generated_operator')=='normal-verifier-decode')
+
+
 def digest_file(path):
     h = hashlib.sha256()
     with open(path, 'rb') as stream:
@@ -236,6 +248,9 @@ class BranchingModel:
     @staticmethod
     def load_backend(profile):
         kind = profile.get('backend','llama.cpp')
+        if kind == 'qwen35-llama.cpp':
+            from .qwen35_backend import Qwen35Backend
+            return Qwen35Backend(profile)
         if kind == 'strata':
             from .strata_backend import StrataBackend
             return StrataBackend(profile)
@@ -525,6 +540,10 @@ class BranchingModel:
         started = time.monotonic()
         self.store.authorize(snapshot,'append')
         execution = self.profile.get('execution',{})
+        if self.profile.get('backend')=='qwen35-llama.cpp':
+            return self.run_sampled_request(snapshot,ids,max_steps,
+                sampling=dict(temperature=0,min_p=0,top_k=0,top_p=1,repetition_penalty=1),
+                stream=stream,on_token=on_token,cancelled=cancelled,paused=paused)
         if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
                 or execution.get('generated_operator') != 'normal-verifier-decode'
                 or execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'
@@ -660,9 +679,7 @@ class BranchingModel:
             if text_stops:raise InvalidOperation('Mixed-input text stops are not yet qualified')
             if plain or sampling is not None or reseed_seed is not None:
                 require_basic_sampling(execution,self.backend,supplied_sampling)
-        if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
-                or execution.get('generated_operator') != 'normal-verifier-decode'
-                or execution.get('selected_token_protocol') != 'consumed-selected-receipt-v1'
+        if (not supports_consumed_selection(self.profile)
                 or not callable(getattr(self.backend, 'consume_generated', None))
                 or (not plain and list(engine.eos_tokens) != execution.get('eos_tokens'))):
             raise InvalidOperation('Grammar request requires the pinned native operator and stop tokens')
@@ -958,9 +975,7 @@ class BranchingModel:
         if grammar_engine is not None:
             execution = self.profile.get('execution', {})
             validator = getattr(self.backend, 'validate_grammar_engine', None)
-            if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
-                    or execution.get('generated_operator') != 'normal-verifier-decode'
-                    or execution.get('selected_token_protocol') != 'consumed-selected-receipt-v1'
+            if (not supports_consumed_selection(self.profile)
                     or list(grammar_engine.eos_tokens) != execution.get('eos_tokens')
                     or not callable(validator)
                     or not callable(getattr(self.backend, 'consume_generated', None))):
@@ -1315,7 +1330,7 @@ class BranchingModel:
                 consumed=saved.consumed, **self._checkpoint_position_binding(history),
                 controller_sha256=hashlib.sha256(_json_bytes(record['controller'])).hexdigest(),
                 model_contract_id=saved.model_contract_id, execution_profile_id=saved.execution_profile_id,
-                native_pid=getattr(getattr(self.backend, 'process', None), 'pid', None),
+                native_pid=getattr(self.backend,'native_pid',getattr(getattr(self.backend, 'process', None), 'pid', None)),
                 forward_tokens=after['consumed_tokens']-before['consumed_tokens'],
                 counters_before=before, counters_after=after,
                 counter_deltas={key: value-before.get(key,0) for key,value in after.items()

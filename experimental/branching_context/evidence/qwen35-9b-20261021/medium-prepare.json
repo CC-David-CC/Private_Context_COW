@@ -1,0 +1,21 @@
+{
+  "phase": "prepare",
+  "status": "PASS",
+  "pid": 1217726,
+  "prefix": 1024,
+  "suffix": 64,
+  "output_limit": 16,
+  "comparisons": 11,
+  "max_logit_error": 0,
+  "restore_receipts": [],
+  "native_work": {
+    "consumed_tokens": 1160,
+    "forward_tokens": 1160,
+    "forward_calls": 12,
+    "checkpoint_export_bytes": 981547534,
+    "checkpoint_import_bytes": 2137623216
+  },
+  "seconds": 28.812596013071015,
+  "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+  "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+}

@@ -8031,3 +8031,27 @@ Evidence: evidence/runs/bw-conversation-integration-20261020/.
 ## Linux LAN preview, 2026-10-20
 
 Source-built CUDA server on llm-60 and fresh GitHub BW installation in the llm-49 Ubuntu VM passed a website and a follow-up across Python/native process restart. G0 passed 51/51. No new numerical oracle, zero-prefix-work trace or cumulative qualification was performed. See docs/CONTEXT-COW-SERVER.md and validation/linux-lan-install-20261020. Strata head was not updated.
+
+
+## 2026-10-21 Qwen3.5-9B isolated adapter bring-up
+
+Q8 on llm-49: bounded native text restart PASS at 128/4/8, 1024/64/16 and
+8192/512/16 (prefix/suffix/output limit per branch). 178 complete logit-vector
+comparisons matched independent uncached matching-schedule forwards exactly.
+All nine strict restores reported zero native forward work. Parent saved bytes
+remained unchanged. Medium/8K also explicitly compared canonical controller
+records across restart. New backend uses pinned llama.cpp hybrid-memory
+serialization plus an owned next-logit frontier. It copies whole checkpoints;
+no physical sharing/G3 claim. The same canonical Store/BranchingModel is used.
+
+G0 rerun 51/51; new CPU admission/lease checks 7/7; existing setup/model/launcher
+regressions 26/26. Earlier allocation failures and probe API-field mistakes are
+retained in the engineering evidence; allocation cause is not established.
+The final lease-handle identity and request/server wiring are newer than the
+first numerical runs and still need end-to-end qualification.
+
+Normal setup/server dispatch is implemented but its live startup/HTTP/BranchWrite
+qualification remains outstanding. Vision explicitly rejected. No BF16, AMD,
+non-greedy sampler qualification or cumulative G1-G5 pass is claimed.
+Evidence: evidence/qwen35-9b-20261021/summary.json. Raw data remains on llm-49
+under /home/dflanag3/spatial-artifacts/cow-qwen35-9b-20261021/.

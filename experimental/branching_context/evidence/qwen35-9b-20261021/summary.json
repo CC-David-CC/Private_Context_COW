@@ -1,0 +1,487 @@
+{
+  "status": "BOUNDED_NATIVE_TEXT_RESTART_PASS_NOT_SERVER_OR_G1_CERTIFICATION",
+  "backend": "qwen35-llama.cpp",
+  "backend_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "host": "llm-49",
+  "physical_sharing": false,
+  "controller_scope": "greedy only",
+  "comparisons": 178,
+  "max_logit_error": 0,
+  "runs": {
+    "tiny-v5": {
+      "prepare": {
+        "phase": "prepare",
+        "status": "PASS",
+        "pid": 1216503,
+        "prefix": 128,
+        "suffix": 4,
+        "output_limit": 8,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 144,
+          "forward_tokens": 144,
+          "forward_calls": 11,
+          "checkpoint_export_bytes": 638674382,
+          "checkpoint_import_bytes": 1393113648
+        },
+        "seconds": 13.88076198392082,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "resume": {
+        "phase": "resume",
+        "status": "PASS",
+        "pid": 1216947,
+        "prefix": 128,
+        "suffix": 4,
+        "output_limit": 8,
+        "branch": "B",
+        "generated": 8,
+        "comparisons": 27,
+        "max_logit_error": 0,
+        "restore_receipts": [
+          {
+            "snapshot": "e80c32b377ae4ab871d424dde8dc2cb9251c4aeafe4d7cd1b279236f8d0bba23",
+            "payload_sha256": "49e4d635981c0f325fe7770eed5a047e7fcccdc42c82c74b9361f149ebabab16",
+            "schedule_sha256": "ab2d1d6150c3953d1d8f28f5dc7ff36e4d9b53771d90cccd5d3dcf2b90fcbcaa",
+            "consumed": 128,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": null,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 57882442
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 57882442
+            },
+            "seconds": 0.20552483503706753
+          },
+          {
+            "snapshot": "d41fd3ef1078b7b6a5a20a3351fbdf335d82541e28ab8b06548198a0c60867d8",
+            "payload_sha256": "8d27006a5d5e234cc30bdc907a959413caf64aed4d96289f99025b96229959fa",
+            "schedule_sha256": "4e59cd8feb86d2adb405495a56d2b6be41cd5f9ce8a7476cf3d083e1d49763a7",
+            "consumed": 136,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "8a0b13923e7b5be64c29aafa1852173674a8f23d2231f59e97c17090d7f16138",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": null,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 12,
+              "forward_tokens": 12,
+              "forward_calls": 9,
+              "checkpoint_export_bytes": 523303002,
+              "checkpoint_import_bytes": 1161977384
+            },
+            "counters_after": {
+              "consumed_tokens": 12,
+              "forward_tokens": 12,
+              "forward_calls": 9,
+              "checkpoint_export_bytes": 523303002,
+              "checkpoint_import_bytes": 1220122162
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 58144778
+            },
+            "seconds": 0.22590852994471788
+          },
+          {
+            "snapshot": "33fa088d0ec4d6ce99dc892611b986399a851685f3285c2863b9b0aca1fa5aa3",
+            "payload_sha256": "cf3408da8c6ef5c6c7a75e906e1f795386faa0496d14644163cbc28e35cfaf55",
+            "schedule_sha256": "752a0e2d9d0f5a0e43b41633b7b72e18f75b5353767f7afe792bb1af8a296808",
+            "consumed": 136,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "aff30dc43158fc8367c7ef7a6631f29b5a666ef312d276693667a4cc65c70d45",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": null,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 28,
+              "forward_tokens": 28,
+              "forward_calls": 22,
+              "checkpoint_export_bytes": 1279513036,
+              "checkpoint_import_bytes": 2732017558
+            },
+            "counters_after": {
+              "consumed_tokens": 28,
+              "forward_tokens": 28,
+              "forward_calls": 22,
+              "checkpoint_export_bytes": 1279513036,
+              "checkpoint_import_bytes": 2790162336
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 58144778
+            },
+            "seconds": 0.22857373405713588
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 32,
+          "forward_tokens": 32,
+          "forward_calls": 26,
+          "checkpoint_export_bytes": 1512420068,
+          "checkpoint_import_bytes": 3255845232
+        },
+        "seconds": 20.16250495892018,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "checkpoint_bytes": 177156079
+    },
+    "medium": {
+      "prepare": {
+        "phase": "prepare",
+        "status": "PASS",
+        "pid": 1217726,
+        "prefix": 1024,
+        "suffix": 64,
+        "output_limit": 16,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 1160,
+          "forward_tokens": 1160,
+          "forward_calls": 12,
+          "checkpoint_export_bytes": 981547534,
+          "checkpoint_import_bytes": 2137623216
+        },
+        "seconds": 28.812596013071015,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "resume": {
+        "phase": "resume",
+        "status": "PASS",
+        "pid": 1218313,
+        "prefix": 1024,
+        "suffix": 64,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "comparisons": 59,
+        "max_logit_error": 0,
+        "restore_receipts": [
+          {
+            "snapshot": "50b26823cc5e209d74e6e0829465fab4714c1a4fbaf8ca92318c3966b16b88d0",
+            "payload_sha256": "19cfa02dfa4daf8d6492a0a069b90a99cba8da9d5b2016dd641c9b37ea664c88",
+            "schedule_sha256": "d131217cc65bd5f82c9581e23ccd090785e3024727d945f6549b83af36f81002",
+            "consumed": 1024,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1218313,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 87264074
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 87264074
+            },
+            "seconds": 0.2714260770007968
+          },
+          {
+            "snapshot": "567a60621d4ecfe80994f549fa4a6a8950939a91c2ad357c26471aa601d1857d",
+            "payload_sha256": "76ac9259d4aa85f7f66423d4ed55ef0b921b717701e4294ed848337d7c3a0a2d",
+            "schedule_sha256": "a8ae314bad1080149779776a0eb4360efd2770abcbca822ca46174d3e509952b",
+            "consumed": 1092,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "85475a072cd26df18d8b52d97218bb8cf3036f3afdabfbafac4bb920a2f75d57",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1218313,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 80,
+              "forward_tokens": 80,
+              "forward_calls": 17,
+              "checkpoint_export_bytes": 1523626666,
+              "checkpoint_import_bytes": 3219158120
+            },
+            "counters_after": {
+              "consumed_tokens": 80,
+              "forward_tokens": 80,
+              "forward_calls": 17,
+              "checkpoint_export_bytes": 1523626666,
+              "checkpoint_import_bytes": 3308652050
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 89493930
+            },
+            "seconds": 0.2958100390387699
+          },
+          {
+            "snapshot": "d651b751d43d7399ac7c2b937330bb4bc1d8d033d14e7ef3f35e2f1ae58da5fc",
+            "payload_sha256": "3c446c4a727048fe188e941994da64a8fde5802e16bb5d23116e6c8c155de3e1",
+            "schedule_sha256": "8afc4ea86c295f1c18460546d02c8dff998edbeadc69cfefb676be23dfa7b591",
+            "consumed": 1092,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "1783531b6b9b3d90527fd9fdfefe1c74547c1f69db98c0aad10bf85b2da50559",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1218313,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 172,
+              "forward_tokens": 172,
+              "forward_calls": 46,
+              "checkpoint_export_bytes": 4123738268,
+              "checkpoint_import_bytes": 8505858390
+            },
+            "counters_after": {
+              "consumed_tokens": 172,
+              "forward_tokens": 172,
+              "forward_calls": 46,
+              "checkpoint_export_bytes": 4123738268,
+              "checkpoint_import_bytes": 8595352320
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 89493930
+            },
+            "seconds": 0.2947349540190771
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 184,
+          "forward_tokens": 184,
+          "forward_calls": 58,
+          "checkpoint_export_bytes": 5200223204,
+          "checkpoint_import_bytes": 10747928688
+        },
+        "seconds": 39.686087994952686,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "checkpoint_bytes": 269236075
+    },
+    "target8k": {
+      "prepare": {
+        "phase": "prepare",
+        "status": "PASS",
+        "pid": 1219093,
+        "prefix": 8192,
+        "suffix": 512,
+        "output_limit": 16,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 9224,
+          "forward_tokens": 9224,
+          "forward_calls": 26,
+          "checkpoint_export_bytes": 3714039310,
+          "checkpoint_import_bytes": 8072712880
+        },
+        "seconds": 24.89352310297545,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "resume": {
+        "phase": "resume",
+        "status": "PASS",
+        "pid": 1219331,
+        "prefix": 8192,
+        "suffix": 512,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "comparisons": 59,
+        "max_logit_error": 0,
+        "restore_receipts": [
+          {
+            "snapshot": "bcc4384002c6c062043c81abc864e8f3db1aa589f885508fce32ff807b472f7e",
+            "payload_sha256": "8b7d79e82f5871e47b81b092263e96ea22aafcda8db547428f693b05344edf78",
+            "schedule_sha256": "28a2c05845bc611214ad9d0764717d22dfc8e95c817a345415971aecadcd8f07",
+            "consumed": 8192,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1219331,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 322317130
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 322317130
+            },
+            "seconds": 0.76178267900832
+          },
+          {
+            "snapshot": "c78e8872c46fb1fcfaf33cfc7129fb656160c1bfe04794be44f7af7cfe102eae",
+            "payload_sha256": "59fbe16a8e7dce927c29d48463427767cf241b0efe6a24cc34c4364a62e6b41a",
+            "schedule_sha256": "6ed1d6adb1961639ee1386c86495438d9a1d2ad085e5ec77c594bd495ee505a0",
+            "consumed": 8708,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "9d03ec37c3f2545a23cc40dd8969e9659430aad3f8417a144ff8140e55debbb7",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1219331,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 528,
+              "forward_tokens": 528,
+              "forward_calls": 17,
+              "checkpoint_export_bytes": 5769272490,
+              "checkpoint_import_bytes": 12165865064
+            },
+            "counters_after": {
+              "consumed_tokens": 528,
+              "forward_tokens": 528,
+              "forward_calls": 17,
+              "checkpoint_export_bytes": 5769272490,
+              "checkpoint_import_bytes": 12505102866
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 339237802
+            },
+            "seconds": 0.8249384990194812
+          },
+          {
+            "snapshot": "daa99b654e810275badd403e231a0af287f53b7cd3d2e9fa1b51d4c7556e63f1",
+            "payload_sha256": "0d3387565c1076e11eddb6e527a46f71304c79c65b01e919cd372a046049ce37",
+            "schedule_sha256": "54ccb375c452c722e39bc312e3bede01eabee6961dd08ecc0120f7118fe35dd4",
+            "consumed": 8708,
+            "positions": "absolute-zero-based",
+            "controller_sha256": "32f8c39f5adc9a5950e6dbc61df45ce81e55d0d6f3cb57b7c862c27fae1b4e7d",
+            "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+            "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698",
+            "native_pid": 1219331,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 1068,
+              "forward_tokens": 1068,
+              "forward_calls": 46,
+              "checkpoint_export_bytes": 15611956380,
+              "checkpoint_import_bytes": 32172762966
+            },
+            "counters_after": {
+              "consumed_tokens": 1068,
+              "forward_tokens": 1068,
+              "forward_calls": 46,
+              "checkpoint_export_bytes": 15611956380,
+              "checkpoint_import_bytes": 32512000768
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 339237802
+            },
+            "seconds": 1.3633292339509353
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 1080,
+          "forward_tokens": 1080,
+          "forward_calls": 58,
+          "checkpoint_export_bytes": 19685367780,
+          "checkpoint_import_bytes": 40658430064
+        },
+        "seconds": 80.03987984999549,
+        "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+        "execution_profile_id": "2fa8d0dabad7262284dddef497727d89615657abce509383b8339b20f0b90698"
+      },
+      "checkpoint_bytes": 1003777344
+    }
+  },
+  "prior_failures": [
+    "tiny: context CUDA allocation failure before numerical qualification; cause not established",
+    "tiny-v2: probe used Generation.snapshot instead of snapshot_id",
+    "tiny-v3: probe used Generation.tokens instead of accepted_tokens",
+    "tiny-v4: context CUDA allocation failure; retained; later diagnostic and v5/medium/8k completed",
+    "CPU baseline invoked nonexistent tools.test_cow_server_setup module",
+    "CPU regression system Python lacked numpy distribution; rerun in existing dependency-complete venv passed"
+  ],
+  "tests": {
+    "G0": {
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0
+    },
+    "new_cpu_admission_and_lease": {
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0
+    },
+    "setup_model_launcher_regression": {
+      "passed": 26,
+      "failed": 0,
+      "skipped": 0
+    }
+  }
+}

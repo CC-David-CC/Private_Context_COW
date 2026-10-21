@@ -9,6 +9,9 @@ import tempfile
 
 def FreshOracle(profile):
     kind = profile.get('backend','llama.cpp')
+    if kind == 'qwen35-llama.cpp':
+        from .qwen35_backend import Qwen35FreshOracle
+        return Qwen35FreshOracle(profile)
     if kind == 'strata':
         from .strata_backend import StrataFreshOracle
         return StrataFreshOracle(profile)

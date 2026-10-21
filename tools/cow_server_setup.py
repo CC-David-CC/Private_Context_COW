@@ -52,6 +52,23 @@ def _make_profile(args,output):
     from tools.gguf_reader import GGUFFile
     from context_time_travel.strata_backend import _digest
     model=args.model.resolve(strict=True)
+    md=GGUFFile(model).metadata
+    if md.get("general.architecture")=="qwen35":
+        if args.pack is not None or args.expert_profile is not None:
+            raise ValueError("Dense Qwen does not use a Flash expert pack/profile")
+        if args.vision_config is not None:
+            raise ValueError("Qwen vision is not yet qualified; text backend only")
+        from experimental.branching_context.scripts.prepare_qwen35_profile import make_profile as qwen_profile
+        profile=qwen_profile(model,args.native.resolve(strict=True).parent,output/"profile.json",
+            args.context,args.prefill,os.cpu_count())
+        if Path(profile["bridge_library"]).resolve()!=args.native.resolve():
+            raise ValueError("--native must select the built Qwen bridge library")
+        key=output/"api-key.txt";key.write_text(secrets.token_urlsafe(32)+"\n");key.chmod(0o600)
+        write_json(output/"server.json",dict(profile=str(output/"profile.json"),store=str(output/"store"),
+            api_key_file=str(key),host=args.host,port=args.port,ram_gib=args.ram_gib,
+            disk_gib=args.disk_gib,min_available_gib=args.min_available_gib,checkpoint_idle_seconds=1800))
+        print("Qwen text server configured in "+str(output));return profile
+    if args.pack is None:raise ValueError("Flash requires --pack")
     pack=args.pack.resolve(strict=True)
     binary=args.native.resolve(strict=True)
     if not os.access(binary,os.X_OK): raise ValueError("The native engine is not executable.")
@@ -158,7 +175,7 @@ def make_profile(args):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model",type=Path,required=True)
-    parser.add_argument("--pack",type=Path,required=True)
+    parser.add_argument("--pack",type=Path,help="Required for Flash; omit for dense Qwen")
     parser.add_argument("--native",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--expert-profile",type=Path)
