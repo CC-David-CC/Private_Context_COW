@@ -27,3 +27,22 @@ not a model or backend failure. Interactive fork/retry checks remain outstanding
 PDF and CAD model baselines have not produced accepted artifacts. PDF attempts
 included syntax, flowable and wrapping failures; CAD repeatedly chose unavailable
 STEP export APIs. Native restart success does not establish model task competence.
+
+## Completed interactive branch flow
+
+The resumed CLI displayed its saved history after ledger opening. Explore from
+turn 1 used the current file version in a separate directory and produced a pale
+yellow website. Desktop/mobile browser checks passed; original HTML was unchanged.
+Switch selected turn 2 with its matching files/context. Edit repeated turn 2's
+request from its earlier boundary and produced the same final HTML bytes. The
+alternative remained unchanged. The CLI then exited cleanly with exit code zero.
+
+Edit is a new workflow execution, not an unchanged-operation receipt replay.
+Only the first repeated model action's token equality was checked here; later
+workflow actions are not claimed identical. Exact COW receipt retry has separate
+executed evidence. No operator edited either candidate's source.
+
+The initial history display race has a separate BranchWrite fix with 48 focused
+regression passes and six configured outcome passes. A broader 64-test attempt
+had 14 environment errors (missing workload fixture and COW import paths), retained
+rather than counted as passes. The frozen model trial used the earlier dev72 CLI.

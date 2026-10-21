@@ -1,0 +1,8 @@
+{
+  "first_generated_tokens_equal": true,
+  "original_generation_calls": 4,
+  "revised_generation_calls": 4,
+  "project_sha256": "b1f1464fbd2ece92d980a12df6c1aa955028095631c8b26474c01b1ec6df9e48",
+  "scope": "CLI edit repeats earlier task in a new workflow; not an unchanged-operation receipt replay",
+  "note": "Complete newly executed workflow is not asserted byte-identical to the previous one. Dedicated unchanged COW retry is validated separately."
+}

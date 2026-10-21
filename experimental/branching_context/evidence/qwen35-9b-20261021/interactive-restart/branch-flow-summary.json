@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "tested": [
+    "CLI website creation",
+    "server restart with live client and empty server RAM cache",
+    "follow-up editing",
+    "client restart and saved history",
+    "CLI explore from earlier context using current files",
+    "original file preservation",
+    "CLI switch to saved turn",
+    "CLI edit of earlier request"
+  ],
+  "original_sha256": "b1f1464fbd2ece92d980a12df6c1aa955028095631c8b26474c01b1ec6df9e48",
+  "edited_retry_sha256": "b1f1464fbd2ece92d980a12df6c1aa955028095631c8b26474c01b1ec6df9e48",
+  "alternative_sha256": "b524913a748c5b2c05d2fde88732c4356173c06f8a9460a81f25b23f79c42d84",
+  "alternative_unchanged_after_edit": true,
+  "final_website_matches_browser_checked_bytes": true,
+  "limits": [
+    "CLI edit is new workflow execution; not an unchanged-operation receipt replay",
+    "Initial immediate history command raced ledger opening; separate startup fix has CPU evidence and is not installed in this frozen model trial",
+    "No fresh 24K oracle in this UI run",
+    "PDF/CAD model completion remains outstanding"
+  ]
+}
