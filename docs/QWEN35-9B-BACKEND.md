@@ -1,0 +1,61 @@
+# Qwen3.5-9B through Context COW
+
+This is the dense-model preview using a pinned llama.cpp adapter. Flash keeps its existing adapter and expert-pack setup. Both use the existing COW immutable history, branch references, controller records, checkpoint store and RAM/disk pool implementation. A checkpoint from one model/profile is not interchangeable with another.
+
+## Current scope
+
+The tested Qwen file is Qwen3.5-9B-Q8_0.gguf, 9,527,502,048 bytes, SHA-256 `809626574d0cb43d4becfa56169980da2bb448f2299270f7be443cb89d0a6ae4`. NVIDIA qualification uses an RTX 4090 with FP16 KV. Complete native state copying is the initial implementation; this is not a claim of physical GPU page sharing. Some model tensors remain CPU-mapped, so this is not an all-tensors-on-GPU claim.
+
+Exact continuation is bound to the model, execution profile and ordered native batch boundaries. Cross-arrangement equivalence remains outside this accepted prototype contract. Cumulative G1-G5 certification is not established.
+
+Text fixtures at 128/4/8, 1,024/64/16 and 8,192/512/16 passed 178 full-logit comparisons and nine process-separated strict restores, with zero saved-prefix forward tokens. Mixed-input fixtures passed the corresponding bounded comparison campaign. The independent oracle uses fresh native contexts and the matching operator schedule, without loading checkpoints. These are bounded tests, not arbitrary-context certification.
+
+BranchWrite on a separate VM created a website and completed a follow-up edit. PDF trials exercised actual ReportLab builds, page rendering and image ingestion, but failed document-quality/syntax checks. A CAD environment reference passed execution, reopened geometry and rendering; the model-driven baseline repeatedly guessed nonexistent export APIs and produced no accepted STEP. Toolchain functionality does not establish model competence in these domains. Preserve these failures for training and evaluate held-out variants separately.
+
+## Build the pinned native adapter
+
+Use Linux and an installed NVIDIA CUDA toolchain. Supply actual model files separately; the existing one-click Flash model downloader is not a dense-model download command. The following variables are example installation locations chosen by the operator:
+
+```sh
+COW_ROOT=/path/to/ContextCOW
+LLAMA_ROOT=/path/to/llama.cpp
+BUILD_ROOT=/path/to/qwen35-mixed-build
+MODEL=/path/to/Qwen3.5-9B-Q8_0.gguf
+COW_PYTHON=/path/to/cow-venv/bin/python
+```
+
+Use a clean llama.cpp checkout at `972d2313bc0bf0a45f634f77d95c9fb03aeab12c`. The adapter builder rejects another revision or a dirty checkout. The executed RTX 4090 build used Release, shared libraries, GGML_CUDA=ON, GGML_NATIVE=ON, tools/examples enabled and CUDA architecture 89. Other hardware needs its own build/profile and tests.
+
+```sh
+cmake -S "$LLAMA_ROOT" -B "$LLAMA_ROOT/build" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DGGML_CUDA=ON -DGGML_NATIVE=ON -DLLAMA_BUILD_TOOLS=ON -DLLAMA_BUILD_EXAMPLES=ON -DCMAKE_CUDA_ARCHITECTURES=89
+cmake --build "$LLAMA_ROOT/build" --parallel
+"$COW_PYTHON" "$COW_ROOT/experimental/branching_context/scripts/build_qwen35_mixed.py" --llama "$LLAMA_ROOT" --output "$BUILD_ROOT"
+```
+
+The current server Python environment uses the repository requirements plus llguidance 1.9.1. The native build produces the adapter, separate mixed oracle and build.json with executable/library/source hashes. Keep these with the profile. Do not silently substitute binaries in an existing profile.
+
+## Configure and launch through the normal COW tools
+
+Choose a new, absent output directory for initial setup. Do not supply a Flash expert pack for this model.
+
+```sh
+SERVER_DATA=/path/to/new-qwen35-server
+"$COW_PYTHON" "$COW_ROOT/tools/cow_server_setup.py" --model "$MODEL" --native "$BUILD_ROOT/libqwen35ctt.so" --output "$SERVER_DATA" --context 65536 --prefill 512 --ram-gib 8 --disk-gib 32 --min-available-gib 4 --host 0.0.0.0 --port 18109
+"$COW_PYTHON" "$COW_ROOT/tools/cow_server.py" "$SERVER_DATA"
+```
+
+These are the tested pool/context/batch settings, not a universal hardware recommendation. Use authentication on the trusted LAN. Setup creates a private api-key.txt. Give its value privately to the client operator; never put it in model context, source control or command-line arguments.
+
+For restart, stop the owned server cleanly and launch the SAME server directory again. Do not rerun setup or change the profile. Model loading and transfers are allowed during restore; recomputing saved prefix tokens is a separate measured property.
+
+## BranchWrite client
+
+Install the selected BranchWrite source/wheel on another Linux client. Keep its configured server/model/execution identities together; use the actual server discovery rather than guessed IDs. The validated website path used `branchwrite code PROJECT --project-files --connection CONNECTION.json --state RUN_STATE --task-file PROMPT.txt`. The normal interactive path is `branchwrite session PROJECT`; `BW_COW_CONNECTION` selects a connection file without changing another user's default. Keep `BW_COW_API_KEY` in process memory unless saving it is explicitly requested.
+
+The unchanged-answer retry is a read of the original durable result. It must retain the source receipt and must not move the branch or compute another answer. Lost acknowledgments require reconciliation under the original operation ID. A cancelled request without a durable result is not silently resent.
+
+## Vision and state boundaries
+
+The matching tested projector is mmproj-F16.gguf, 918,166,080 bytes, SHA-256 `f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f`. Build its producer with scripts/build_qwen35_encoder.py and use a pinned image-producer configuration through the normal setup tool's `--vision-config`. The mixed adapter consumes actual image embedding rows with explicit grid positions. Producer identities and original-image hashes remain distinct from logical token positions. Image-bearing restart and unchanged-image retry have bounded real-backend evidence; general visual task success is not implied.
+
+Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, original Qwen BF16, AMD, current Flash GPU regressions and complete performance qualification remain outstanding.

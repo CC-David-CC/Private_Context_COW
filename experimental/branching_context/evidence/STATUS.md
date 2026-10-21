@@ -8082,3 +8082,12 @@ Executed native matching-schedule campaign passed at 128/4/8, 1024/64/16 and 819
 ## 2026-10-21 ? Plain greedy HTTP image dispatch
 
 Actual separate-VM image upload and prefill succeeded, but the first plain greedy answer exposed an undefined paused variable in the Qwen run_greedy_request dispatch. The client retained the interrupted stream as indeterminate. Added two CPU regression cases before fixing dispatch, including preserving mixed-image artifacts/re-encoding arguments and cancellation before native work. The focused Qwen suite passed 13, image/text CPU flow passed 14 and G0 passed 51. A new-profile real GPU tiny mixed restart campaign passed 38 exact comparisons and three zero-prefix restores. A distinct HTTP image trial then correctly described the actual red square on the left and blue circle on the right. Original operation/journal retained. PDF/CAD CLI workflows remain in progress. See runs/qwen35-greedy-image-dispatch-20261021.json.
+
+
+### Qwen 9B dense preview: client/domain audit, 2026-10-21
+
+The requested feat/qwen35-9b-backend worktree now contains the mixed-input and plain-greedy dispatch changes. Current G0 rerun: 51/51; Qwen adapter units: 13/13; normal vision launcher units: 5/5. These are not cumulative G1-G5 passes.
+
+Separate-VM unchanged image-answer retry recovered the original pending journal, matched 183 tokens/text, preserved the branch, and left the idle server completed-work counter at 86 before/after the independent control. Its local receipt reopened without network. A harness dictionary-access error after the first recovery was retained; the completed original receipt was audited without resending.
+
+PDF domain trials remain NOT VERIFIED. One greedy two-page artifact retained 43 out-of-page text characters on page 1 and 139 on page 2 at independent audit. Min-P also exhibited syntax-repair and wrapping failures. The CAD model baseline repeatedly guessed nonexistent build123d export APIs and did not export an accepted STEP; the same installation independently passed a reference build/geometry/render preflight. These are observed task failures, not proof of a pretraining distribution or a backend numerical defect. No operator source repairs or model training occurred. Raw baseline/candidate evidence stays private.

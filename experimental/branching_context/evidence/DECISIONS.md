@@ -5428,3 +5428,8 @@ Executed native matching-schedule campaign passed at 128/4/8, 1024/64/16 and 819
 ## 2026-10-21 ? Plain greedy HTTP image dispatch
 
 Actual separate-VM image upload and prefill succeeded, but the first plain greedy answer exposed an undefined paused variable in the Qwen run_greedy_request dispatch. The client retained the interrupted stream as indeterminate. Added two CPU regression cases before fixing dispatch, including preserving mixed-image artifacts/re-encoding arguments and cancellation before native work. The focused Qwen suite passed 13, image/text CPU flow passed 14 and G0 passed 51. A new-profile real GPU tiny mixed restart campaign passed 38 exact comparisons and three zero-prefix restores. A distinct HTTP image trial then correctly described the actual red square on the left and blue circle on the right. Original operation/journal retained. PDF/CAD CLI workflows remain in progress. See runs/qwen35-greedy-image-dispatch-20261021.json.
+
+
+### Separate model capability from execution/recovery correctness (2026-10-21)
+
+Preserve failed domain trials and exact prompts/outputs for training review. Keep baseline, example-assisted and post-training results separate. Do not turn a parsed PDF, successful script exit or a reference CAD fixture into a model task-success claim. Model-domain limitations do not waive native snapshot/restart checks, and working restore does not certify domain competence.
