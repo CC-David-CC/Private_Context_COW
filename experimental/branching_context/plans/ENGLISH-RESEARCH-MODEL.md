@@ -16,6 +16,6 @@ Use the same unchanged website prompt and browser acceptance checks as the Qwen 
 
 ## Limits
 
-Matching-schedule greedy continuation is the initial correctness scope. This is not arbitrary batch-arrangement equivalence, full controller qualification or G1?G5 certification. Vision support for this changed vocabulary/model has not been established merely by matching architecture. The Qwen projector must not be assumed compatible without actual ingestion and task tests.
+Matching-schedule greedy continuation is the initial correctness scope. This is not arbitrary batch-arrangement equivalence, full controller qualification or G1?G5 certification. Architecture alone does not establish vision compatibility. The integrated mixed adapter now passed a tiny real-image fixture: 38 exact comparisons and three zero-prefix-work restores, plus actual encoder ingestion and generation through the separate HTTP client. Larger research-model image contexts and broad visual competence remain unqualified.
 
 Private operational evidence and live campaign status are under `/home/dflanag3/spatial-artifacts/cow-english-research-9b-20261021/`. They contain machine-specific paths and are not public release artifacts. Do not commit credentials or model weights.

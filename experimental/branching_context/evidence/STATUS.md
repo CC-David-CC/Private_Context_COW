@@ -8132,3 +8132,16 @@ The user-provided research-model.gguf was loaded unchanged through the existing 
 ## 2026-10-21 ? Separate-client website comparison
 
 The unchanged BranchWrite dev67 CLI in the owned VM completed the same website task against the research BF16 model. Independent Chromium desktop/mobile checks passed: real button action, named dogs, blue heading, no horizontal overflow, no external requests and no tool metadata contamination. Zero operator candidate edits. Qwen Q8: 45.00 s whole CLI, 5 generation requests plus one context request, 1057 generated tokens at 69.69 generation TPS. Research BF16: 105.01 s whole CLI, 11 generation requests plus one context request, 1543 generated tokens at 48.57 generation TPS. The research model chose more individual checks. Both independently generated the same HTML bytes; recorded create_text_file action bytes match each separate workspace artifact. This establishes one practical task, not broad model equivalence. PDF, CAD and research-model vision remain untested. See runs/english-research-website-20261021.json.
+
+
+## Owner-approved main integration, 2026-10-21
+
+Qwen dense/mixed adapter and research execution evidence integrated on main.
+Focused checks passed: G0 51, adapter 13, launcher 23, BranchWrite 120.
+Research mixed-image smoke: 38 exact comparisons, three strict zero-work restores;
+real encoder and separate authenticated HTTP client ingestion/generation passed.
+The copied producer config correctly rejected a wrong-model pin; a separately
+pinned research config passed. No compatibility guard was weakened.
+Owner clarified the aim is running the models, not forcing CAD/PDF competence.
+Those bounded failed tasks remain model capability findings, not invented passes.
+Full gate certification and broader original BF16/AMD/Flash campaigns remain separate.

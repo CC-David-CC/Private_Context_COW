@@ -22,6 +22,12 @@ checkpoints. These options do not add AMD COW inference support.
 [Executed IQ3/IQ2 trials, timings and remaining failures](validation/lower-quants-llm49-20261021/README.md).
 
 
+**Qwen3.5-9B or your compatible research model?** Use the optional pinned
+[llama.cpp adapter guide](docs/QWEN35-9B-BACKEND.md). It uses the same COW
+history/store/pools and the same BranchWrite client. The automatic setup above
+continues to select Flash; dense-model setup uses its own native library and
+separate model/profile/checkpoint identities.
+
 Experimental source preview,2026-10-20. Context COW keeps immutable model
 histories with independent continuations and optional RAM/disk checkpoints.
 It uses a modified [Strata](https://github.com/Niko1221/Strata) inference engine.

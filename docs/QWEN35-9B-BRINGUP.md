@@ -1,4 +1,8 @@
-# Qwen3.5-9B COW bring-up (Linux, experimental)
+# Qwen3.5-9B COW initial text bring-up (historical)
+
+For the current mixed text/image adapter, build, launch and executed scope, use
+[QWEN35-9B-BACKEND.md](QWEN35-9B-BACKEND.md). The commands below describe the
+earlier text-only build; its initial unsupported/ongoing notes are historical.
 
 This branch adds a separate pinned llama.cpp adapter. Strata remains the Flash
 engine. Both use the existing COW immutable Store, branch references, controllers

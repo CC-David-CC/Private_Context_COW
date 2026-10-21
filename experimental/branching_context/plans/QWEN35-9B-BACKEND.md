@@ -1,6 +1,12 @@
 # Qwen3.5-9B backend bring-up
 
-Status: NOT SUPPORTED. Branch feat/qwen35-9b-backend. No GPU execution or restore pass claimed.
+Status: IMPLEMENTED PREVIEW. The initial inventory and milestone list below are
+historical planning records. Current build/setup instructions and qualified scope
+are in `docs/QWEN35-9B-BACKEND.md`; executed summaries are in
+`experimental/branching_context/evidence/`. Q8 text and mixed-input GPU restore
+checks and real CLI branch/restart workflows have passed bounded tests. This is
+not cumulative gate certification. Publication and integration into main were
+authorized by the owner on 2026-10-21, superseding the initial private-only note.
 
 ## Verified starting point
 

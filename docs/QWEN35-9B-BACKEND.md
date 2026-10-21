@@ -59,3 +59,32 @@ The unchanged-answer retry is a read of the original durable result. It must ret
 The matching tested projector is mmproj-F16.gguf, 918,166,080 bytes, SHA-256 `f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f`. Build its producer with scripts/build_qwen35_encoder.py and use a pinned image-producer configuration through the normal setup tool's `--vision-config`. The mixed adapter consumes actual image embedding rows with explicit grid positions. Producer identities and original-image hashes remain distinct from logical token positions. Image-bearing restart and unchanged-image retry have bounded real-backend evidence; general visual task success is not implied.
 
 Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, original Qwen BF16, AMD, current Flash GPU regressions and complete performance qualification remain outstanding.
+
+## Research variants and producer configuration
+
+The tested user research GGUF uses the same compatible qwen35 geometry with a
+changed vocabulary and BF16 tensors. Select that file with `--model` and use a
+new server directory. The setup discovers its own vocabulary, EOS IDs, tokenizer,
+weights and execution identity. Do not reuse another model's connection pins,
+store or checkpoints. The research GGUF itself is not distributed by this repo.
+
+For image input, the producer configuration's `pinned_sha256` map must include
+the actual decoder GGUF selected by that server, plus the encoder executable and
+projector. Copying a Qwen configuration without replacing its decoder-model pin
+correctly fails admission. Keep separate producer definitions for separate models.
+The projector's ability to produce compatible rows does not establish the model's
+visual competence. Custom weights may need training despite successful ingestion.
+
+A tiny research mixed-input fixture (128 text tokens, 48 real image rows, two
+4-token suffixes and eight generated tokens per branch) passed 38 exact full-logit
+comparisons and three process-separated strict restores. This is a bounded runtime
+and preservation check, not a visual-answer benchmark or broad vision certification.
+
+The tested coding CLI supports `/explore` for separate alternative files, `/switch`
+for matching saved files/context, and `/edit` for a new workflow replacing an earlier
+request. `/edit` is distinct from replaying an unchanged COW operation receipt.
+
+The research model also completed a real encoder + authenticated HTTP image
+request from the separate BranchWrite client: 48 image rows consumed, 183
+generated tokens, durable result published. Both models use the same adapter
+code; their model, execution, tokenizer and image-producer identities stay separate.
