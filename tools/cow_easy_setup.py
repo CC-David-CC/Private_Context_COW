@@ -55,7 +55,11 @@ def plan_for(hardware):
     headroom=16 if hardware.ram_total>=64*G else 8
     if available<headroom+9:raise ValueError(f'Not enough available RAM: close other programs; at least {headroom+9} GiB must be available for this initial profile.')
     if hardware.gpu_free<12*G:raise ValueError('Not enough free GPU memory: this initial profile requires at least 12 GiB free; this is a preflight floor, not a qualified minimum.')
-    ram=max(2,min(16,available//12))
+    # Cold activation and capture reserve several copies of a checkpoint.
+    # The real 15,893-token BranchWrite prefix outgrew the old 2 GiB pool
+    # during its next action. Leave a 6 GiB working set and reduce expert
+    # residency to pay for it, rather than removing staging accounting.
+    ram=min(max(6,min(16,available//12)),available-headroom-6-1)
     resident=max(1,min(72,available-ram-headroom-6))
     reserve=min(8192,max(4096,int(hardware.gpu_free/G)*128))
     # Compilation and serving occur separately. Keep headroom for the OS and
@@ -158,6 +162,8 @@ def main(argv=None):
         print('Start it with: '+shlex.join([str(ROOT/'cow-start'),str(data)]))
         return 0
     hardware=inspect_host();plan=plan_for(hardware)
+    if plan.ram_gib<6:
+        raise SetupError('Not enough available RAM for checkpoint staging: this guided 32K profile needs a 6 GiB context pool plus the host safety margin and native/expert memory. Close other programs and retry.')
     sys.path.insert(0,str(ROOT/'tools'))
     assets=model_plan(selected_model)
     models=args.existing_models.expanduser().resolve(strict=True) if args.existing_models else data/'models'/selected_model
