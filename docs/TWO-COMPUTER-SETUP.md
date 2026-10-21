@@ -138,7 +138,7 @@ sudo apt install -y curl git ca-certificates bubblewrap util-linux
 Then install BranchWrite as your normal user, without `sudo`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/CC-David-CC/BranchWrite/lan-preview-2026-10-20.1/install.sh -o "$HOME/branchwrite-install.sh" && sh "$HOME/branchwrite-install.sh"
+curl -fsSL https://raw.githubusercontent.com/CC-David-CC/BranchWrite/lan-preview-2026-10-21/install.sh -o "$HOME/branchwrite-install.sh" && sh "$HOME/branchwrite-install.sh"
 ```
 
 Wait for **BranchWrite is installed**. It downloads its own Python and client

@@ -98,7 +98,7 @@ def _make_profile(args,output):
         "--max-new","128","--tokens","1","--vision","--gpu","0"]
     if args.expert_profile: command+=["--expert-profile",str(args.expert_profile.resolve())]
     execution=dict(GPU=[0],capacity=args.context,kv_dtype="FP16",
-        checkpoint_cache=dict(byte_limit=16*1024**3,entry_limit=256),
+        checkpoint_cache=dict(byte_limit=min(16,args.ram_gib)*1024**3,entry_limit=256),
         embedding_width=md["qwen4exp.embedding_length"],environment={"CUDA_VISIBLE_DEVICES":"0"},
         eos_tokens=[md["tokenizer.ggml.tokens"].index(t) for t in ("<|endoftext|>","<|im_end|>")],
         generated_operator="normal-verifier-decode",grammar_selection_protocol="finite-mask-argmax-v1",
