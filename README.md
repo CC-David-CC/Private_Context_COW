@@ -9,6 +9,17 @@ and the BranchWrite client. No AI assistant is needed to follow it.
 the server and prepares its engine, model and settings. Run `./cow-start` afterward.
 [Desktop + laptop instructions](docs/TWO-COMPUTER-SETUP.md).
 
+Optional smaller downloads use the pinned GSQ-RCO models:
+
+```bash
+./cow-setup --model IQ2_XS --data-dir "$HOME/ContextCOW-IQ2"
+./cow-start "$HOME/ContextCOW-IQ2"
+```
+
+Use `--model IQ3_XXS` for the 3-bit configuration. Q4 remains the default.
+Use a separate data folder for each model. Models cannot share computational
+checkpoints. These options do not add AMD COW inference support.
+
 
 Experimental source preview,2026-10-20. Context COW keeps immutable model
 histories with independent continuations and optional RAM/disk checkpoints.

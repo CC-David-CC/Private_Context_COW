@@ -39,6 +39,43 @@ The server needs a working NVIDIA driver and the CUDA Toolkit. CUDA is NVIDIA's
 software for building and running GPU programs. The installer does not replace
 your graphics driver or install the CUDA compiler automatically.
 
+### Optional: choose a smaller model
+
+Q4 stays the default. These two alternatives download fewer bytes:
+
+| Setup choice | Model preparation | Model download |
+|---|---|---:|
+| Default, or `--model UD-Q4_K_XL` | Unsloth Q4 | 111.3 GB |
+| `--model IQ3_XXS` | ISTA-DASLab GSQ-RCO | 75.8 GB |
+| `--model IQ2_XS` | ISTA-DASLab GSQ-RCO | 68.0 GB |
+
+They are different model preparations, so compare useful answers as well as
+speed. A smaller download does not guarantee that a PC can keep the model in
+memory or run the full coding workflow quickly. These models still need NVIDIA
+and CUDA for Context COW.
+
+When the steps below reach `./cow-setup`, you may use this instead:
+
+```bash
+./cow-setup --model IQ2_XS --data-dir "$HOME/ContextCOW-IQ2"
+```
+
+Then start that server with:
+
+```bash
+./cow-start "$HOME/ContextCOW-IQ2"
+```
+
+For IQ3, use `--model IQ3_XXS` and a folder such as
+`"$HOME/ContextCOW-IQ3"` in both commands. Allow at least 120 GB free for either
+smaller model, its build and its default disk pool. Setup checks the measured
+space before it downloads. It verifies the files against pinned SHA-256 hashes.
+
+Keep each model in a separate data folder. Changing the model creates a new
+model identity; an old model's saved computation cannot be restored into it.
+Setup refuses to replace a configured server with an explicitly different model.
+Run `./cow-start` with your existing folder to use that server again.
+
 ## Part A — on the desktop
 
 ### 1. Check NVIDIA and CUDA
