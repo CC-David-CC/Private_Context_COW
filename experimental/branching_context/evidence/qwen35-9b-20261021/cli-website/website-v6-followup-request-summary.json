@@ -1,0 +1,7 @@
+{
+  "requests": 7,
+  "output_tokens": 1265,
+  "generation_seconds": 21.701489556930028,
+  "request_seconds": 36.845903289853595,
+  "generation_tps": 58.29092960100714
+}

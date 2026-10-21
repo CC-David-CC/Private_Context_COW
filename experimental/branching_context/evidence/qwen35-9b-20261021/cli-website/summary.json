@@ -1,0 +1,33 @@
+{
+  "status": "BOUNDED_WEBSITE_AND_RESTART_FORK_PASS",
+  "model": "Qwen3.5-9B-Q8_0",
+  "backend": "llama.cpp",
+  "backend_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "model_contract_id": "2433f640b9d4bc899119a85dc552a79516c75f1bcd9bf1c1b525eccbe5832d0a",
+  "execution_profile_id": "202b680769b05a98658b68c3c254f3d1444aff96582db06ea363eca9103b2853",
+  "kv": "FP16",
+  "prefill_chunk": 512,
+  "capacity": 65536,
+  "client": "Owned VM, separate from llm-49 inference server",
+  "manual_candidate_edits": 0,
+  "original_parent_unchanged": true,
+  "greedy_initial_seconds": 45.00440847300342,
+  "greedy_followup_seconds": 65.00532995400135,
+  "saved_prefix_tokens": 21492,
+  "saved_prefix_recomputed_tokens": 0,
+  "archive_sha256": "82fd1216df1a0cd47a7ca5ff058882b66d6c019be526d24bb647cdaed7d2d0bb",
+  "archive_bytes": 80249,
+  "failures_retained": [
+    "Original greedy unclosed lines array and repeated HTML: cancelled",
+    "Min-P with old grammar completed but appended metadata to page: independent quality check failed",
+    "First restart startup refused GPU lock; second started after verifying ownership lock and GPU were idle",
+    "Browser audit initially required li tags and queried unsupported CDP command-line endpoint; corrected semantic checks and retained errors"
+  ],
+  "limits": [
+    "Website only; PDF/CAD/vision end-to-end remain untested on Qwen adapter",
+    "Exact saved-answer display is client receipt replay, not a changed-sampler retry run",
+    "Not cumulative G1-G5 certification",
+    "No native KV page sharing",
+    "TTFT and full memory profiling still outstanding"
+  ]
+}

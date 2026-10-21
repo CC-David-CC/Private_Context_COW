@@ -5415,3 +5415,6 @@ and request schedule. Do not relabel llama forwards as Flash verifier execution.
 
 
 2026-10-21 ? Qwen35 native CPU selector GPU validation: tiny 128/4/8, medium 1024/64/16 and target 8192/512/16 all passed. 178 complete 248320-value frontier comparisons were byte-identical; nine strict restores reported zero prefix forward work. Native greedy and greedy sampler calls also matched reference tokens. See qwen35-9b-20261021/native-selection-gpu/summary.json. This qualifies the bounded greedy matching-batch test only, not G1-G5 or physical sharing. The first separate-VM greedy website trial failed to close a lines array and repeated HTML; it was cancelled and retained as private unapproved failure-class evidence. Min-P mitigation is being tested separately.
+
+
+2026-10-21 ? Preserve the failed greedy and old-grammar Min-P website runs. A completed CLI and its chosen checks did not establish artifact quality: the Min-P page included literal control-field names after HTML. BranchWrite fix/text-file-metadata-order emits finite controls before the lines payload and adds teaching; its 25 focused tests and actual greedy rerun passed. Do not generalize this single task to autonomous coding qualification. Restart ownership refusal was retained; no lock deletion or global policy change was used.

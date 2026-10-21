@@ -1,0 +1,30 @@
+{
+  "audit_version": 3,
+  "expected_named_dogs": [
+    "Max",
+    "Bella",
+    "Charlie"
+  ],
+  "status": "PASS",
+  "checks": {
+    "desktop": {
+      "button_works": true,
+      "blue_heading": true,
+      "no_overflow": true,
+      "three_names": true,
+      "no_metadata_in_page": true,
+      "no_external_requests": true
+    },
+    "mobile": {
+      "button_works": true,
+      "blue_heading": true,
+      "no_overflow": true,
+      "three_names": true,
+      "no_metadata_in_page": true,
+      "no_external_requests": true
+    }
+  },
+  "source_sha256": "153791e583e5ddd0eb96244ab490909706077722d01f6b914662f11a83e34e0d",
+  "browser_version": "155.0.8059.79",
+  "chromium_sandbox_requested": true
+}

@@ -1,0 +1,18 @@
+{
+  "status": "CLI_EXITED_PENDING_AUDIT",
+  "pid": 51527,
+  "started": 1792615081.0981174,
+  "server": "llm-49:18109",
+  "client": "owned VM",
+  "operator_candidate_edits": 0,
+  "seconds": 65.00532995400135,
+  "exit_code": 0,
+  "cli": {
+    "artifacts": [],
+    "frame": "program",
+    "result_artifact": "08197e6f428e07fecb47cd26e285c1de71a032414f3f91aaf19239babb38e211",
+    "state": "/home/maint/cow-qwen35-trial/website-v6-followup/state",
+    "status": "complete",
+    "verified": true
+  }
+}
