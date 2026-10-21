@@ -21,6 +21,12 @@ not a claim that every gaming PC must have that card or that every smaller card
 will work. A usual 16/32 GB RAM gaming PC is not this tested Q4 setup. Other GPU
 and memory combinations still need their own check.
 
+A smaller-server trial now also exists: **RTX 4090, 24 GB VRAM, 32 GB RAM**.
+Automatic installation, model loading, prefix preparation and generation worked,
+but its coding task did not finish within a ten-minute trial. It paused safely.
+That is **not** a recommendation for interactive use with this large model.
+The 128 GB RAM / 32 GB RTX 5090 combination has not yet been tested.
+
 These copy-and-paste instructions target 64-bit Intel/AMD Ubuntu 24.04 or newer.
 The server needs a working NVIDIA driver and the CUDA Toolkit. CUDA is NVIDIA's
 software for building and running GPU programs. The installer does not replace
@@ -82,10 +88,18 @@ and verifies the pinned Q4 model, prepares the model pack, and makes a server
 configuration and API key. A **Python environment** is a separate folder that
 holds this app's Python packages. You do not need to activate it.
 
-The initial context limit is 32,768 tokens with FP16 KV. The RAM pool and expert
+The initial context limit is 32,768 tokens with FP16 KV. Setup selects an
+8,192-token prefill batch with at least 20 GiB free GPU memory, or a
+2,048-token batch below that. The smaller batch is a policy choice that still
+needs its own GPU qualification. The RAM pool and expert
 RAM budget are separate and are chosen from available RAM. The disk checkpoint
 pool initially allows 16 GiB. These are starting budgets, not a promise of
-performance on every PC. Model size is unchanged: the current supported model
+performance on every PC. Setup also keeps a positive free-RAM guard: 8 GiB on smaller-RAM hosts and
+16 GiB on larger hosts. It budgets native engine overhead separately. If other
+programs use that headroom later, requests can stop with a clear capacity error
+instead of silently exceeding the budget.
+
+Model size is unchanged: the current supported model
 still needs about 111.3 GB of files. A disk-backed engine can read model data
 that is not resident in RAM; that can be much slower on a small machine.
 
@@ -221,8 +235,34 @@ server folder or its source checkout to update in place while saved work uses it
 
 A fresh Linux client installation, connection to a real Q4 server, website creation,
 follow-up edits and resuming after a server-process restart have passed bounded
-checks. The resource-preparation helper has separate download-resume, hash and
+checks. The latest separate-client trial made the dogs website and then made the dog
+names bold. Those complete turns took 292 and 238 seconds on the larger Q4
+server. An independent Chromium check clicked the button and checked bold
+names and page width at phone and desktop sizes. These are workflow timings,
+not decode tokens per second.
+
+The resource-preparation helper has separate download-resume, hash and
 pack-publication tests. Its real Q4 pack check is reported in the setup evidence.
 The complete 111 GB Internet download has not been repeated for this guide.
 A different gaming PC still needs its own build, load and capability checks.
 This guide does not establish full G1–G5 numerical or release certification.
+
+## What the tested page looked like
+
+These screenshots are from the actual CLI-created page after the follow-up edit
+and a real button click. The first client-VM render exposed missing emoji fonts;
+that client dependency was installed before the final render.
+
+![CLI-created dogs page on a desktop](../validation/guided-linux-setup-20261021/desktop.png)
+
+![The same page on a phone-sized screen](../validation/guided-linux-setup-20261021/phone.png)
+
+If emoji appear as empty boxes on a minimal Linux client, install its fonts:
+
+```sh
+sudo apt install -y fonts-noto-color-emoji
+```
+
+The standard BW installer does not include the optional model-driven browser
+worker. Independent validation here used the separately configured, sandboxed
+browser worker; see [browser setup](https://github.com/CC-David-CC/BranchWrite/blob/feat/browser-client-linux/docs/BROWSER-CLIENT-SETUP.md) in BranchWrite.

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dogs and Buddy</title>
+  <style>
+    :root {
+      --bg: #f7fbff;
+      --card: #ffffff;
+      --ink: #18324a;
+      --accent: #ff8a5c;
+      --soft: #e8f3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top, #fff7ed, #e8f3ff 45%, #f7fbff);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    main {
+      width: min(920px, 100%);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(24, 50, 74, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(24, 50, 74, 0.12);
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      gap: 20px;
+      padding: clamp(20px, 5vw, 44px);
+    }
+
+    @media (min-width: 760px) {
+      .hero {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+      }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .dog-name {
+      font-weight: 900;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #245b86;
+      font-weight: 700;
+    }
+
+    p {
+      line-height: 1.65;
+      font-size: clamp(1rem, 2.5vw, 1.12rem);
+    }
+
+    .card {
+      background: linear-gradient(145deg, #fff, #fff8f1);
+      border: 1px solid rgba(255, 138, 92, 0.22);
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .dog {
+      display: grid;
+      place-items: center;
+    }
+
+    svg {
+      width: min(100%, 320px);
+      height: auto;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 16px 22px;
+      min-height: 52px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, #ff7a45, #ff4d6d);
+      box-shadow: 0 12px 28px rgba(255, 77, 109, 0.28);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(255, 77, 109, 0.34);
+      outline: 3px solid rgba(255, 255, 255, 0.8);
+      outline-offset: 3px;
+    }
+
+    button:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
+    .hello {
+      margin-top: 16px;
+      min-height: 56px;
+      padding: 16px;
+      border-radius: 20px;
+      background: #eefcf3;
+      border: 1px solid #b9ebd0;
+      color: #14532d;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hello[hidden] {
+      display: none;
+    }
+
+    .facts {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .facts li {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid #dcecff;
+    }
+
+    footer {
+      padding: 16px clamp(20px, 5vw, 44px) 24px;
+      color: #5b7186;
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">🐾 Dog page</span>
+        <h1>Meet <strong class="dog-name">Buddy</strong>, the friendly dog</h1>
+        <p><strong class="dog-name">Buddy</strong> is a cheerful dog who loves sunny naps, squeaky toys, and greeting people with a happy tail wag. This page is made for phones and desktops, with no downloads needed.</p>
+        <button id="helloButton" type="button">Show a friendly hello</button>
+        <div id="helloMessage" class="hello" role="status" aria-live="polite" hidden>
+          <span>🐶</span>
+          <span>Hi there! <strong class="dog-name">Buddy</strong> sends a friendly hello — thanks for visiting the dog page!</span>
+        </div>
+      </div>
+
+      <div class="card dog" aria-label="Illustration of Buddy the dog">
+        <svg viewBox="0 0 320 260" role="img" aria-labelledby="buddyTitle buddyDesc">
+          <title id="buddyTitle">Buddy the dog</title>
+          <desc id="buddyDesc">A simple friendly cartoon dog with floppy ears and a wagging tail.</desc>
+          <ellipse cx="160" cy="232" rx="92" ry="16" fill="#dcecff" />
+          <path d="M104 112c-22-18-34-48-22-66 12-18 42-10 56 10" fill="#f4b860" />
+          <path d="M216 112c22-18 34-48 22-66-12-18-42-10-56 10" fill="#f4b860" />
+          <ellipse cx="160" cy="132" rx="72" ry="62" fill="#ffd28a" />
+          <ellipse cx="160" cy="154" rx="34" ry="26" fill="#fff3d6" />
+          <circle cx="134" cy="122" r="8" fill="#263238" />
+          <circle cx="186" cy="122" r="8" fill="#263238" />
+          <ellipse cx="160" cy="146" rx="12" ry="9" fill="#263238" />
+          <path d="M160 155c-10 14-28 12-32 0" stroke="#263238" stroke-width="5" stroke-linecap="round" fill="none" />
+          <path d="M160 155c10 14 28 12 32 0" stroke="#263238" stroke-width="5" stroke-linecap="round" fill="none" />
+          <ellipse cx="112" cy="196" rx="22" ry="16" fill="#f4b860" />
+          <ellipse cx="208" cy="196" rx="22" ry="16" fill="#f4b860" />
+          <path d="M232 176c28-10 42 10 30 26" stroke="#f4b860" stroke-width="18" stroke-linecap="round" fill="none" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="hero" style="padding-top:0">
+      <div class="card">
+        <h2>Why dogs are great</h2>
+        <ul class="facts">
+          <li>Dogs can be loyal companions and playful friends.</li>
+          <li>They enjoy routines, gentle training, and positive rewards.</li>
+          <li>A friendly hello can make a dog’s day brighter.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Made as a local, phone-friendly page. Tap the button to see <strong class="dog-name">Buddy</strong>’s greeting.
+    </footer>
+  </main>
+
+  <script>
+    const button = document.getElementById('helloButton');
+    const message = document.getElementById('helloMessage');
+
+    button.addEventListener('click', () => {
+      message.hidden = false;
+    });
+  </script>
+</body>
+</html>

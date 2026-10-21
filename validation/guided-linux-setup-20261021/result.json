@@ -1,0 +1,283 @@
+{
+  "scope": "Guided Linux setup and bounded separate-client CLI validation; not cumulative G1-G5 qualification",
+  "model": "Qwen3.8-Flash-Next UD-Q4_K_XL",
+  "kv": "FP16",
+  "cow_code_commit": "5fe915104bc00cb57f76459388b0d4258e40ad58",
+  "bw_executed_code_commit": "ade77f7ee867c6be0c5efbde7c1413b767982b1e",
+  "hardware_small": {
+    "gpu": "RTX 4090",
+    "vram_gib": 24,
+    "system_ram_gib_observed": 30,
+    "logical_cpus": 12,
+    "cuda": "13.3.73",
+    "driver": "595.99.02"
+  },
+  "model_contract_id": "d436eb9bd6ce66efc1109604ab032c27eb4d34d9480a6960013f4b6cb318f65e",
+  "execution_profile_id": "d775a336111739973bbf256250896a41903d93304d3bc7ba0cd3f8da5b28a1ff",
+  "native_build": {
+    "strata-branch": "a9a00ea71de9dd9189b4067fe79019323963f7f39f796022a45303a82de83fd9",
+    "gguf_reader.py": "5ecf739bb3c2f07bc7f889f7f3a455e3dfdb40068409e10781a1a9b2be289b5e"
+  },
+  "model_file_hashes": {
+    "Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf": {
+      "bytes": 10946624,
+      "sha256": "4448186216b3af4cc558bbce2c3213f01608f8f8b2e5267a9767971dd3ec8082"
+    },
+    "Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf": {
+      "bytes": 49859583136,
+      "sha256": "3f342f1c1580473f1ee94ddd5b28206e8c07a70fa1a366f59d1d6c922919a6c9"
+    },
+    "Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf": {
+      "bytes": 49376141504,
+      "sha256": "56758f40269cad5cd9b0d3d6fbae0f40f6d5be6de49e4ab392dbe83157d9cbd3"
+    },
+    "Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf": {
+      "bytes": 12087983520,
+      "sha256": "753bda48b98ba4f1636134a90a967de1b2d3908a236c026e464777342e53510a"
+    },
+    "compat-bf16.json": {
+      "bytes": 21078,
+      "sha256": "ab6c569dca13c033d3430a1dd91048ac62b8f45af6a1cdc2193785287ab6b7ce"
+    },
+    "conversions.json": {
+      "bytes": 167871,
+      "sha256": "722a102cb500b9097d1890cffebf142904fa6534c209ac44c6445f0aec3d0cc4"
+    },
+    "cow-prepared.json": {
+      "bytes": 5108,
+      "sha256": "68fcc801fa824a89310b72389d0d5f8e7675966a2ccbd93134d8ec931095b204"
+    },
+    "dense.bin": {
+      "bytes": 1485688320,
+      "sha256": "f53174059b262ed342b82e143af62056081948ef5e5f1903a1a70eeb73fa4a23"
+    },
+    "index.txt": {
+      "bytes": 93560,
+      "sha256": "cfc07e91c4d9b8e8c999fd1f70fa364e584748e70fa377b30e0fc85426f52711"
+    },
+    "native_experts.txt": {
+      "bytes": 5795,
+      "sha256": "5ed2c4a55910616db1efe16f0c989e9bec80cc8b9e95bf1c42f886aadfffd2d6"
+    },
+    "chat_template.jinja": {
+      "bytes": 9993,
+      "sha256": "12827f24b742ea4e80cdc12dbcf9622227056b9f797252a3149263d4f9aaadce"
+    },
+    "merges.txt": {
+      "bytes": 3353258,
+      "sha256": "4ba698529766c7a2f5052083ea10cdf2485577f5237a332ee291054eb11e3332"
+    },
+    "token_type.json": {
+      "bytes": 744960,
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    "tokenizer.json": {
+      "bytes": 541,
+      "sha256": "c0bd435efbc6c3b28964b47999afe16c4ad268c7c7c4e8cb3af410796a6f30bf"
+    },
+    "vocab.json": {
+      "bytes": 5737005,
+      "sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    },
+    "expert-profile.bin": {
+      "bytes": 196632,
+      "sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf"
+    }
+  },
+  "plan": {
+    "resident_gib": 8,
+    "ram_gib": 2,
+    "disk_gib": 16,
+    "vram_reserve_mib": 4096,
+    "context": 32768,
+    "prefill": 8192,
+    "build_jobs": 6,
+    "min_available_gib": 8
+  },
+  "automatic_setup": {
+    "exit_code": 0,
+    "seconds": 375.0076512959786
+  },
+  "idempotence": {
+    "exit_code": 0,
+    "seconds": 0.04559369198977947,
+    "configuration_and_key_unchanged": true
+  },
+  "server_start": {
+    "ready": true,
+    "seconds": 25.00819419301115,
+    "info": {
+      "schema": 1,
+      "service": "context-cow",
+      "model_contract_id": "d436eb9bd6ce66efc1109604ab032c27eb4d34d9480a6960013f4b6cb318f65e",
+      "execution_profile_id": "d775a336111739973bbf256250896a41903d93304d3bc7ba0cd3f8da5b28a1ff",
+      "eos_tokens": [
+        248044,
+        248046
+      ],
+      "capabilities": {
+        "text": true,
+        "inline_grammars": true
+      }
+    }
+  },
+  "tests": {
+    "setup_policy": {
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "kind": "CPU policy/filesystem fixtures"
+    },
+    "resource_preparation": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "G0": {
+      "status": "PASS",
+      "passed": 51,
+      "failed": 0,
+      "skipped": 0
+    },
+    "HTTP_fixtures": {
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "kind": "fixture backend, not GPU qualification"
+    },
+    "BW_connection": {
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "original_failure": "real terminal immediate Ctrl+D timed out; unchanged test passes after raw-mode-before-prompt fix"
+    },
+    "BW_interactive": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "small_host_coding": {
+      "client": "separate owned VM, fresh GitHub-installed dev66",
+      "stages": [
+        {
+          "stage": "connection",
+          "passed": true
+        },
+        {
+          "stage": "website",
+          "passed": false,
+          "timeout": true,
+          "seconds": 600.6572120500496
+        }
+      ],
+      "elapsed_seconds": 607.2136172979372,
+      "key_visible_in_output": false,
+      "exit_code": 0
+    },
+    "large_reference_coding": {
+      "client": "separate owned VM, fresh GitHub-installed dev66",
+      "stages": [
+        {
+          "stage": "connection",
+          "passed": true
+        },
+        {
+          "stage": "website",
+          "passed": true,
+          "matched": 0,
+          "seconds": 292.1017280300148
+        },
+        {
+          "stage": "follow_up",
+          "passed": true,
+          "seconds": 238.15682784095407
+        }
+      ],
+      "elapsed_seconds": 531.0936282139737,
+      "key_visible_in_output": false,
+      "exit_code": 0
+    },
+    "independent_browser": [
+      {
+        "viewport": "phone",
+        "width": 390,
+        "height": 844,
+        "seconds": 1.0230129189949366,
+        "source_sha256": "3072c2b70603c42f957aa079b45d5339a1cf5789d06734e67a8ee90c3363b5a2",
+        "inspection": {
+          "schema": 1,
+          "target": "custom",
+          "inspector_sha256": "bfee0c1dce2846701b9aaae778a84d467237fec584d0125b6b89cb1b399580dd",
+          "status": "PASS",
+          "error": null,
+          "actions": [
+            [
+              "real greeting click",
+              "\ud83d\udc36\nHi there! Buddy sends a friendly hello \u2014 thanks for visiting the dog page!"
+            ],
+            [
+              "visible dog names bold",
+              "[{'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}]"
+            ]
+          ]
+        },
+        "isolation": {
+          "kind": "bubblewrap-browser-v1",
+          "chromium_sandbox": true,
+          "uid": 1002,
+          "worker_exited": true,
+          "namespace_members_after": []
+        }
+      },
+      {
+        "viewport": "desktop",
+        "width": 1200,
+        "height": 800,
+        "seconds": 1.0629128930013394,
+        "source_sha256": "3072c2b70603c42f957aa079b45d5339a1cf5789d06734e67a8ee90c3363b5a2",
+        "inspection": {
+          "schema": 1,
+          "target": "custom",
+          "inspector_sha256": "bfee0c1dce2846701b9aaae778a84d467237fec584d0125b6b89cb1b399580dd",
+          "status": "PASS",
+          "error": null,
+          "actions": [
+            [
+              "real greeting click",
+              "\ud83d\udc36\nHi there! Buddy sends a friendly hello \u2014 thanks for visiting the dog page!"
+            ],
+            [
+              "visible dog names bold",
+              "[{'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}, {'text': 'Buddy', 'weight': '900'}]"
+            ]
+          ]
+        },
+        "isolation": {
+          "kind": "bubblewrap-browser-v1",
+          "chromium_sandbox": true,
+          "uid": 1002,
+          "worker_exited": true,
+          "namespace_members_after": []
+        }
+      }
+    ]
+  },
+  "numerical_max_error": null,
+  "numerical_oracle_run": false,
+  "cumulative_G1_G5": "NOT_QUALIFIED",
+  "limitations": [
+    "Complete 111GB Internet model download not repeated; pinned existing shards transferred directly between Linux hosts and fully hashed.",
+    "32GB RAM /24GB VRAM host did not finish coding within600seconds; paused cleanly.",
+    "RTX5090 32GB VRAM /128GB RAM not tested.",
+    "2048 prefill policy for smaller GPUs not live-qualified.",
+    "Workflow timings are not decode TPS.",
+    "Standard BW installer does not enable optional model-driven browser worker."
+  ],
+  "failures_and_fixes": [
+    "8K context could not admit BW prefix; guided starter now32K.",
+    "512-token prefill was slow and read566GB before interruption.",
+    "14GiB expert RAM conflicted with hard-coded16GiB host headroom; guided resource policy now jointly budgets positive guard, native overhead and expert/context RAM.",
+    "Minimal VM lacked emoji font; installed fonts-noto-color-emoji and rerendered unchanged HTML.",
+    "Initial independent inspector used invalid receipt shape; corrected its receipt formatting without changing assertions."
+  ]
+}
