@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "Encoding only; decoder/image checkpoint continuation not yet tested",
+  "gpu": true,
+  "runs": [
+    {
+      "bytes": 786452,
+      "sha256": "f8de528a441f43ea9a399ee1c9cbb6e952b24e228c113e5bc5c64d2418782986",
+      "rows": 48,
+      "grid": [
+        8,
+        6
+      ],
+      "seconds": 2.3329470159951597,
+      "stdout": "READY 4096\nOK 48 8 6 110.083\n"
+    },
+    {
+      "bytes": 786452,
+      "sha256": "f8de528a441f43ea9a399ee1c9cbb6e952b24e228c113e5bc5c64d2418782986",
+      "rows": 48,
+      "grid": [
+        8,
+        6
+      ],
+      "seconds": 0.7869532740442082,
+      "stdout": "READY 4096\nOK 48 8 6 59.717\n"
+    }
+  ]
+}

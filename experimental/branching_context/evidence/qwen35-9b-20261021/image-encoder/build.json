@@ -1,0 +1,45 @@
+{
+  "backend_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "commands": [
+    [
+      "g++",
+      "-std=c++17",
+      "-O3",
+      "/home/dflanag3/src/context-cow-qwen35-vision-20261021/experimental/branching_context/native/qwen35_vision_encoder.cpp",
+      "-I/home/dflanag3/src/llama.cpp/include",
+      "-I/home/dflanag3/src/llama.cpp/ggml/include",
+      "-I/home/dflanag3/src/llama.cpp/tools/mtmd",
+      "-L/home/dflanag3/src/llama.cpp/build/bin",
+      "-Wl,-rpath,/home/dflanag3/src/llama.cpp/build/bin",
+      "-lmtmd",
+      "-lllama",
+      "-lggml",
+      "-o",
+      "/home/dflanag3/spatial-artifacts/cow-qwen35-9b-20261021/vision/reproducible-build/qwen35-vision-encoder"
+    ]
+  ],
+  "sha256": {
+    "/home/dflanag3/spatial-artifacts/cow-qwen35-9b-20261021/vision/reproducible-build/qwen35-vision-encoder": "791e9b51d29eca16b998761d25d6c5c78ca37f953f2240c62eb4f4c896ed0296",
+    "/home/dflanag3/src/context-cow-qwen35-vision-20261021/experimental/branching_context/native/qwen35_vision_encoder.cpp": "50830081c131ee0115d307ecfab941bba5f85a6922a9e571b5770cd8d7027477",
+    "/home/dflanag3/src/llama.cpp/include/llama.h": "83d623056ca033924fd7e00db8ae9382e1900f63295e8d8bd660ee38c52666fa",
+    "/home/dflanag3/src/llama.cpp/tools/mtmd/mtmd.h": "b0f1ba884e8688980789f0547147d2b7330d65772ebac8f36c0dbb8ece7cf7d0",
+    "/home/dflanag3/src/llama.cpp/tools/mtmd/mtmd-helper.h": "a4f69e73bf7a4e93fdaac8052ca315e8b8f2c16942dc26f0d2e69238f3b5eb4b",
+    "/home/dflanag3/src/llama.cpp/tools/mtmd/mtmd.cpp": "b5f5660650d5abd1b8e23b6e4246f33eedc73b79fc904c2ff521796060bd56bb",
+    "/home/dflanag3/src/llama.cpp/tools/mtmd/mtmd-helper-common.h": "b54b7fc3e99dcb8f9f7470ab7727513c1cd8d4e19d631a3344ea77c14598e219",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-quantize-impl.so": "f79a828df56b4db9541fcdc76fc0cd46ad39012d0b15bb22da1150b3ad4132f5",
+    "/home/dflanag3/src/llama.cpp/build/bin/libggml-cpu.so.0.24.0": "6709c394b1fbc8df5343f022ea84121d3cc868e204e3589f115684f6b919ef1a",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-server-impl.so": "8eb462b095f843e7b14e6bf792484874ec080c5a1543a77ae6a372468265ea4b",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-perplexity-impl.so": "fba9fed0f5b4235e389c15badf655276594eb754552197fbd30dd067b4396461",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama.so.0.4.1": "2f224b9c891e55f67217e842cd8dcb2b21ba67528a8887d016d04131cb769a8f",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-bench-impl.so": "2bd70d0d3ebb5a6ed07d4e8c1c113ef99f3fb6bba6c39142f37b6a049322d789",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-cli-impl.so": "1a3c095d5f0ca2995d363b678ee71003ad4895927310dc7cbc25dd4baefe3de7",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-common.so.0.4.1": "3f80285e7c9a0bb7cfa331249b744af8197c6c4da66ed71adf3b282397a2da43",
+    "/home/dflanag3/src/llama.cpp/build/bin/libmtmd.so.0.4.1": "cb23d5e9f8dac1b66ac89c5c757554e1d8d486dfe7d15834be4a539f48f26560",
+    "/home/dflanag3/src/llama.cpp/build/bin/libggml.so.0.24.0": "09575ccac086276a360d7620be03951bf043ff13aecbae25f24e2732fbfdfe8b",
+    "/home/dflanag3/src/llama.cpp/build/bin/libggml-cuda.so.0.24.0": "c63b6da98e5bb520170ae9a218baf826b94ee9e75a78b9ee09d939d4eba0185f",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-fit-params-impl.so": "7ea89fac48b2a390fa9f95602a955f1dcafb6f588c588c4e3d70fd68dd3ae031",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-batched-bench-impl.so": "0dcfadd6e7c56da0cd065e109ea5f942b31caf88da0ac0bf656fe121cf84bac7",
+    "/home/dflanag3/src/llama.cpp/build/bin/libggml-base.so.0.24.0": "114891aad09b03ebbc76922d47ce6dd70ec8c1588a2930c0838cac64890e77e9",
+    "/home/dflanag3/src/llama.cpp/build/bin/libllama-completion-impl.so": "e355354436f3a065a0d749338034cd37c6d1402c438f2a99c7eded23360260fb"
+  }
+}

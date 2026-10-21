@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "Real pinned encoder through existing COW producer and actual bounded pools; not decoder continuation",
+  "encoder_id": "5d95c52dfc4cdae4ed97155e0eaa7287c627bf9751bf2eb656b2299448f96bc7",
+  "receipt": {
+    "encoder_id": "5d95c52dfc4cdae4ed97155e0eaa7287c627bf9751bf2eb656b2299448f96bc7",
+    "pid": 1238019,
+    "exit_code": 0,
+    "process_absent": true,
+    "gpu_id": 0,
+    "input_bytes": 1222,
+    "output_bytes": 786452,
+    "output_sha256": "f8de528a441f43ea9a399ee1c9cbb6e952b24e228c113e5bc5c64d2418782986",
+    "rows": 48,
+    "grid": [
+      8,
+      6
+    ],
+    "width": 4096,
+    "seconds": 0.8115869209868833,
+    "native_milliseconds": 60.3739,
+    "ram_staging_bytes": 3212526,
+    "disk_staging_bytes": 2163930
+  },
+  "pins": {
+    "/home/dflanag3/spatial-artifacts/cow-qwen35-9b-20261021/vision/reproducible-build/qwen35-vision-encoder": "791e9b51d29eca16b998761d25d6c5c78ca37f953f2240c62eb4f4c896ed0296",
+    "/home/dflanag3/models/qwen35-9b-unsloth/mmproj-F16.gguf": "f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f",
+    "/home/dflanag3/models/qwen35-9b-unsloth/Qwen3.5-9B-Q8_0.gguf": "809626574d0cb43d4becfa56169980da2bb448f2299270f7be443cb89d0a6ae4"
+  },
+  "pool": {
+    "resident_bytes": 0,
+    "reserved_bytes": 0,
+    "dirty_bytes": 0,
+    "failed_entries": 0,
+    "failed_bytes": 0,
+    "entries": 0,
+    "unique_payloads": 0,
+    "pins": 0,
+    "peak_accounted_bytes": 3212526,
+    "byte_limit": 16777216,
+    "clean_evictions": 0,
+    "failed_evictions": 0,
+    "idle_evictions": 0,
+    "admission_waits": 0,
+    "loads_pending": 0
+  },
+  "disk": {
+    "file_bytes": 0,
+    "reserved_bytes": 0,
+    "local_reserved_bytes": 0,
+    "byte_limit": 16777216,
+    "files_evicted": 0,
+    "admission_waits": 0,
+    "idle_evictions": 0,
+    "recency_entries": 0
+  }
+}
