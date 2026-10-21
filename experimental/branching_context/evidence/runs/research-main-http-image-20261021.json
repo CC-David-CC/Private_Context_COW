@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "separate VM BranchWrite HTTP client real image encoder and research model ingestion/generation",
+  "image_rows": 48,
+  "encoder": {
+    "disk_staging_bytes": 17892570,
+    "encoder_id": "cc8cde472135bd8001d58958fd90c1fbe20809b42d25abd3b99256c9ee583dc7",
+    "exit_code": 0,
+    "gpu_id": 0,
+    "grid": [
+      8,
+      6
+    ],
+    "input_bytes": 1222,
+    "native_milliseconds": 80.3081,
+    "output_bytes": 786452,
+    "output_sha256": "f8de528a441f43ea9a399ee1c9cbb6e952b24e228c113e5bc5c64d2418782986",
+    "pid": 1283722,
+    "process_absent": true,
+    "ram_staging_bytes": 34669806,
+    "rows": 48,
+    "seconds": 0.6117384349927306,
+    "width": 4096
+  },
+  "prepare_native_work": {
+    "consumed_tokens": 74,
+    "forward_tokens": 74,
+    "forward_calls": 3,
+    "sampling_calls": 0,
+    "checkpoint_export_bytes": 55630582,
+    "checkpoint_import_bytes": 0
+  },
+  "answer_native_work": {
+    "consumed_tokens": 183,
+    "forward_tokens": 183,
+    "forward_calls": 183,
+    "sampling_calls": 183,
+    "checkpoint_export_bytes": 61631518,
+    "checkpoint_import_bytes": 55630582
+  },
+  "generated_tokens": 183,
+  "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+  "execution_profile_id": "97ccd725d91ef90d7d822b6ec3d0cafe93bc3209397a532ea4417f4139165d7a",
+  "seconds": 5.328375087003224,
+  "quality_scope": "Runtime acceptance only; no broad visual competence claim"
+}

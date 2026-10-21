@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "focused main integration, not complete certification",
+  "tests": {
+    "g0": 51,
+    "qwen_adapter": 13,
+    "launcher": 23,
+    "branchwrite": 120
+  },
+  "failures": 0,
+  "skips": 0,
+  "branchwrite_first_attempts": "Two 120-test attempts each had 14 dependency/import errors; configured run installed regex 2026.9.10 and llguidance 1.9.1 and added existing COW test fixture paths, then passed. Tests/assertions unchanged.",
+  "research_image": "38 exact native mixed-input comparisons, three strict restores with zero saved-prefix work; actual encoder and separate HTTP client smoke passed",
+  "limits": [
+    "No broad model competence claim",
+    "No cumulative G1-G5 certification",
+    "Original Qwen BF16, AMD and refreshed full Flash GPU qualification remain separate"
+  ]
+}

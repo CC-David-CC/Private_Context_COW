@@ -1,0 +1,219 @@
+{
+  "scope": "bounded research mixed-input runtime before main integration",
+  "model_quality_requirement": false,
+  "g0": {
+    "tests": 51,
+    "failures": 0,
+    "skips": 0
+  },
+  "adapter_units": {
+    "tests": 13,
+    "failures": 0,
+    "skips": 0
+  },
+  "launcher_units": {
+    "tests": 23,
+    "failures": 0,
+    "skips": 0
+  },
+  "reference": {
+    "status": "PASS",
+    "phase": "reference",
+    "pid": 1278986,
+    "prefix_text_tokens": 128,
+    "suffix_tokens": 4,
+    "output_limit": 8,
+    "branch": "B",
+    "generated": 8,
+    "root_cells": 182,
+    "image_rows": 48,
+    "fresh_forwards": 20,
+    "fresh_forward_tokens": 3784,
+    "seconds": 18.393872171174735
+  },
+  "prepare": {
+    "status": "PASS",
+    "phase": "prepare",
+    "pid": 1279063,
+    "prefix_text_tokens": 128,
+    "suffix_tokens": 4,
+    "output_limit": 8,
+    "comparisons": 11,
+    "max_logit_error": 0,
+    "root_cells": 182,
+    "restore_receipts": [],
+    "native_work": {
+      "consumed_tokens": 198,
+      "forward_tokens": 198,
+      "forward_calls": 13,
+      "sampling_calls": 0,
+      "checkpoint_export_bytes": 652860818,
+      "checkpoint_import_bytes": 1483237990
+    },
+    "seconds": 15.947431406006217,
+    "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+    "execution_profile_id": "39a9e3d8dd3e6a1a5e3c07b1c74d63e81f9f394aefacc4dc024989f75fff7f20"
+  },
+  "resume": {
+    "status": "PASS",
+    "phase": "resume",
+    "pid": 1280253,
+    "prefix_text_tokens": 128,
+    "suffix_tokens": 4,
+    "output_limit": 8,
+    "branch": "B",
+    "generated": 8,
+    "comparisons": 27,
+    "max_logit_error": 0,
+    "root_cells": 182,
+    "restore_receipts": [
+      {
+        "snapshot": "3bcdfa70400601bb171556c6c71bfcadc0651b41b812cee911e89c1581129cda",
+        "payload_sha256": "3b0362167f44e4f7e7b652a58b22f2d1cf716960c0dc46d3789aa1f966c94b87",
+        "schedule_sha256": "37e4eefcb94c8c7db7549bca55209fa58c7d4da9852f53b6dbfd8e0e7b983649",
+        "consumed": 182,
+        "positions": "qwen-image-grid-mrope-v1",
+        "native_input_sha256": "7e3739950f8a58cd94a78353750b62e6183db56de5b31c9f2d79d5a4d3e4232b",
+        "position_sha256": "0ca2c664fd283a8a8aa6197d886e99f6c03b8926f6ee2306cf22913707c06e63",
+        "rotary_cursor": 142,
+        "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+        "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+        "execution_profile_id": "39a9e3d8dd3e6a1a5e3c07b1c74d63e81f9f394aefacc4dc024989f75fff7f20",
+        "native_pid": 1280253,
+        "forward_tokens": 0,
+        "counters_before": {
+          "consumed_tokens": 0,
+          "forward_tokens": 0,
+          "forward_calls": 0,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 0,
+          "checkpoint_import_bytes": 0
+        },
+        "counters_after": {
+          "consumed_tokens": 0,
+          "forward_tokens": 0,
+          "forward_calls": 0,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 0,
+          "checkpoint_import_bytes": 59172118
+        },
+        "counter_deltas": {
+          "consumed_tokens": 0,
+          "forward_tokens": 0,
+          "forward_calls": 0,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 0,
+          "checkpoint_import_bytes": 59172118
+        },
+        "seconds": 0.1715987839270383
+      },
+      {
+        "snapshot": "48e5feed66f62cc0ee79afc56365670c5e54fbfa45dacacbd107ee1563efe080",
+        "payload_sha256": "e96f752ffbe2c4b723175930999d5ed8816b3af8890bcc36008dc2c0183bd260",
+        "schedule_sha256": "f9a5d44452cfc2ca5dd54cd0c58c98027ed1be7c6d0f495c9c8e2497c4381aad",
+        "consumed": 190,
+        "positions": "qwen-image-grid-mrope-v1",
+        "native_input_sha256": "d602b12d4ac2899106a25a8b92166257806b39d1573bd4de39f9ff0d735cccf9",
+        "position_sha256": "7887e4ea9dd8da7c754e0660d36bc1441808623d53c858fd83bbd3e6cdf7be9f",
+        "rotary_cursor": 150,
+        "controller_sha256": "6613dcfd8f7bfe763794c08b7774574003550d4101ac5fc980a7515add49034a",
+        "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+        "execution_profile_id": "39a9e3d8dd3e6a1a5e3c07b1c74d63e81f9f394aefacc4dc024989f75fff7f20",
+        "native_pid": 1280253,
+        "forward_tokens": 0,
+        "counters_before": {
+          "consumed_tokens": 12,
+          "forward_tokens": 12,
+          "forward_calls": 9,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 534910086,
+          "checkpoint_import_bytes": 1187770904
+        },
+        "counters_after": {
+          "consumed_tokens": 12,
+          "forward_tokens": 12,
+          "forward_calls": 9,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 534910086,
+          "checkpoint_import_bytes": 1247205358
+        },
+        "counter_deltas": {
+          "consumed_tokens": 0,
+          "forward_tokens": 0,
+          "forward_calls": 0,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 0,
+          "checkpoint_import_bytes": 59434454
+        },
+        "seconds": 0.18173696310259402
+      },
+      {
+        "snapshot": "b4627c9f1b938fe8f425064b85cf759cdd5ea86c183a698b169114cb736c7d8e",
+        "payload_sha256": "99d1cc4e1c46e65bb0c97618551e658989a23791b815e2db0b14e31d9206d9a3",
+        "schedule_sha256": "5f24cfe38e81b65564b4de28b8361c4b026e0d0a65e566b2194be82737a396e8",
+        "consumed": 190,
+        "positions": "qwen-image-grid-mrope-v1",
+        "native_input_sha256": "179f00b9ffebdc737e5f1cb68be6b9bdc1f7cf0ec9186f65f75ace2f4282fdfc",
+        "position_sha256": "7887e4ea9dd8da7c754e0660d36bc1441808623d53c858fd83bbd3e6cdf7be9f",
+        "rotary_cursor": 150,
+        "controller_sha256": "240e8795661e2d0668e93ec2ee6a31de4dcd9745e27751bce30c3d63beefe922",
+        "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+        "execution_profile_id": "39a9e3d8dd3e6a1a5e3c07b1c74d63e81f9f394aefacc4dc024989f75fff7f20",
+        "native_pid": 1280253,
+        "forward_tokens": 0,
+        "counters_before": {
+          "consumed_tokens": 28,
+          "forward_tokens": 28,
+          "forward_calls": 22,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 1307885908,
+          "checkpoint_import_bytes": 2792632330
+        },
+        "counters_after": {
+          "consumed_tokens": 28,
+          "forward_tokens": 28,
+          "forward_calls": 22,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 1307885908,
+          "checkpoint_import_bytes": 2852066784
+        },
+        "counter_deltas": {
+          "consumed_tokens": 0,
+          "forward_tokens": 0,
+          "forward_calls": 0,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 0,
+          "checkpoint_import_bytes": 59434454
+        },
+        "seconds": 0.18346267007291317
+      }
+    ],
+    "native_work": {
+      "consumed_tokens": 32,
+      "forward_tokens": 32,
+      "forward_calls": 26,
+      "sampling_calls": 0,
+      "checkpoint_export_bytes": 1545951644,
+      "checkpoint_import_bytes": 3328067088
+    },
+    "seconds": 19.413026881869882,
+    "model_contract_id": "86edd1c010ea48e2919efa57873b27a58e311131deec3e1c6c48ec7ad846dd71",
+    "execution_profile_id": "39a9e3d8dd3e6a1a5e3c07b1c74d63e81f9f394aefacc4dc024989f75fff7f20"
+  },
+  "campaign": {
+    "status": "PASS",
+    "phase": "campaign",
+    "pid": 1278984,
+    "prefix_text_tokens": 128,
+    "suffix_tokens": 4,
+    "output_limit": 8,
+    "child_phase": "resume",
+    "child_pid": 1280253,
+    "seconds": 60.0325782999862
+  },
+  "config_rejection": {
+    "status": "REJECTED_AS_REQUIRED",
+    "reason": "Copied Qwen producer config did not pin the separately selected research GGUF. Rejected before serving.",
+    "fix": "Separate producer configuration pins the actual research GGUF hash; no guard or model identity was weakened."
+  }
+}
