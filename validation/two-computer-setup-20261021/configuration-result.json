@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "exit_code": 0,
+  "elapsed_seconds": 57.66019559302367,
+  "started_server": false,
+  "scope": "real default-hashing configuration with generated pack and existing identical-source native binary; no GPU inference",
+  "source_revision": "2393f598cc00e040bf9660644c64a2786810c635",
+  "model_contract_id": "b3c2dd469f17ae75d7d5be8fc2141d1d21a9afb4cbbc97753bc5420177f04d94",
+  "execution_profile_id": "397afc521b6332c34204b1dabe52fd7cc065b8992cd7b855657033100a141953",
+  "key_mode": "0o600",
+  "key_value_exported": false,
+  "profile_files": 16
+}

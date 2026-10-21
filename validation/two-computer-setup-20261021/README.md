@@ -22,6 +22,10 @@ Executed results:
 - A repeat preparation exited0 in 59.967 seconds. It reverified the model and
   pack; all 11 pack file inode/size/mtime tuples stayed unchanged and the native
   packer was not invoked again.
+- Real server configuration with the generated pack passed in57.660 seconds,
+  including default full model/pack hashing. It generated16 model-file records
+  and a mode0600 key; no key value is exported. This test used the existing
+  native executable whose C++ sources are unchanged. It did not start a server.
 - The novice tutorial's12 shell blocks and the advanced server page's1 block
   passed shell syntax checks.
 
