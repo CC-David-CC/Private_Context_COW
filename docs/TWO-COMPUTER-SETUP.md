@@ -316,3 +316,8 @@ sudo apt install -y fonts-noto-color-emoji
 The standard BW installer does not include the optional model-driven browser
 worker. Independent validation here used the separately configured, sandboxed
 browser worker; see [browser setup](https://github.com/CC-David-CC/BranchWrite/blob/feat/browser-client-linux/docs/BROWSER-CLIENT-SETUP.md) in BranchWrite.
+
+
+For image questions and rendered-page feedback, the operator must also configure
+the pinned image producer. See [image configuration](COW-VISION-CONFIGURATION.md).
+Text-only setup does not provide new image encoding.

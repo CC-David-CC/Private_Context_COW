@@ -129,9 +129,16 @@ def _make_profile(args,output):
     key=output/"api-key.txt"
     key.write_text(secrets.token_urlsafe(32)+"\n")
     key.chmod(0o600)
-    write_json(output/"server.json",dict(profile=str(output/"profile.json"),store=str(output/"store"),
+    server_config=dict(profile=str(output/"profile.json"),store=str(output/"store"),
         api_key_file=str(key),host=args.host,port=args.port,ram_gib=args.ram_gib,
-        disk_gib=args.disk_gib,min_available_gib=getattr(args,"min_available_gib",16),checkpoint_idle_seconds=1800))
+        disk_gib=args.disk_gib,min_available_gib=getattr(args,"min_available_gib",16),checkpoint_idle_seconds=1800)
+    vision=getattr(args,"vision_config",None)
+    if vision is not None:
+        path=Path(vision)
+        if not path.is_absolute() or path.is_symlink() or not path.is_file():
+            raise ValueError("--vision-config requires an existing absolute regular file")
+        server_config["vision_config"]=str(path)
+    write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
     print("Start the server with: "+str(sys.executable)+" "+str(ROOT/"tools/cow_server.py")+" "+str(output))
@@ -155,6 +162,7 @@ def main():
     parser.add_argument("--native",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--expert-profile",type=Path)
+    parser.add_argument("--vision-config",type=Path,help="Optional existing pinned image-producer configuration; omit for text/restore-only serving.")
     parser.add_argument("--reuse-model-receipt",type=Path,help="Optional trusted prior hash receipt; changed file stamps force hashing.")
     parser.add_argument("--context",type=int,default=98304)
     parser.add_argument("--prefill",type=int,default=512)
