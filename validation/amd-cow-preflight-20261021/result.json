@@ -1,0 +1,193 @@
+{
+  "status": "BLOCKED",
+  "scope": "Context COW guided AMD server installation",
+  "source_commit_tested": "086271b0f12e9c9d97ce80be7aa168dcfaf254af",
+  "source_cmake_sha256": "ad405bcd05aac7bb2b7b0c0c48e02b61106d15d1996a34f08afd767c021a1a9e",
+  "gpu": "AMD Radeon RX 7900 XTX",
+  "gpu_pci_device_id": "0x744c",
+  "logical_cpus": 16,
+  "cpu": "Model name:                              AMD Ryzen 7 2700 Eight-Core Processor",
+  "ram_total_bytes": 64926588928,
+  "ram_available_bytes": 61894373376,
+  "disk_free_bytes": 6853324800,
+  "hip_compiler": "HIP version: 7.15.26333-0000000\nAMD clang version 23.0.0git (https://github.com/ROCm/llvm-project.git 8f497e0992fb7513f7f78a6f6b6f1056c375e961)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /opt/rocm/core-10.0/lib/llvm/bin",
+  "gpu_metrics": "GPU: 0\n    USAGE:\n        GFX_ACTIVITY: 0 %\n        UMC_ACTIVITY: 0 %\n        MM_ACTIVITY: 0 %\n        VCN_ACTIVITY: [0 %, N/A, N/A, N/A]\n        JPEG_ACTIVITY: [N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A]\n        GFX_BUSY_INST: N/A\n        JPEG_BUSY: N/A\n        VCN_BUSY: 0 %\n    MEM_USAGE:\n        TOTAL_VRAM: 24560 MB\n        USED_VRAM: 34 MB\n        FREE_VRAM: 24526 MB\n        TOTAL_VISIBLE_VRAM: 256 MB\n        USED_VISIBLE_VRAM: 11 MB\n        FREE_VISIBLE_VRAM: 245 MB\n        TOTAL_GTT: 30959 MB\n        USED_GTT: 15 MB\n        FREE_GTT: 30944 MB\n",
+  "model_files": [
+    {
+      "name": "Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+      "bytes": 10946624
+    },
+    {
+      "name": "Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf",
+      "bytes": 49859583136
+    },
+    {
+      "name": "Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf",
+      "bytes": 49376141504
+    },
+    {
+      "name": "Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf",
+      "bytes": 12087983520
+    }
+  ],
+  "model_hashes_verified": false,
+  "model_hashes": null,
+  "native_binary_sha256": null,
+  "execution_profile": null,
+  "numerical_max_error": null,
+  "inference_requests_executed": 0,
+  "oracle_comparisons_executed": 0,
+  "hip_configure": {
+    "exit_code": 0,
+    "configure_and_target_seconds": 22.164522840990685
+  },
+  "cow_target": {
+    "exit_code": 2,
+    "output": "gmake: *** No rule to make target 'strata-branch'.  Stop.\n"
+  },
+  "fixed_preflight": {
+    "exit_code": 1,
+    "message": "Setup stopped: AMD graphics detected. The Context COW inference driver (strata-branch) and snapshot-session integration are not available in the current HIP build. Ordinary Strata HIP support does not provide this COW server. Use a supported NVIDIA/CUDA server for now; installing NVIDIA tools on this AMD-only machine will not fix the missing backend. Setup stopped before downloading a model or starting a build.\n",
+    "data_directory_created": false
+  },
+  "regression_suites": [
+    {
+      "name": "backend diagnostic",
+      "status": "PASS",
+      "tests": 6,
+      "failures": 0,
+      "skips": 0,
+      "host": "llm-60",
+      "test_ids": [
+        "test_absent_display_tree_is_not_called_amd",
+        "test_amd_display_vendor_is_detected",
+        "test_amd_only_error_names_missing_cow_backend",
+        "test_nvidia_path_is_preserved_on_mixed_vendor_host",
+        "test_other_vendor_is_not_called_amd",
+        "test_unsupported_host_creates_no_data_and_does_not_prompt"
+      ],
+      "log_sha256": "7e65cd6ddd424b410d6df4b1697e75771a5b1ce60343a03738b94124eecdf68a"
+    },
+    {
+      "name": "setup policy",
+      "status": "PASS",
+      "tests": 17,
+      "failures": 0,
+      "skips": 0,
+      "host": "llm-60",
+      "test_ids": [
+        "test_existing_configuration_is_never_removed_or_overwritten",
+        "test_failed_configuration_leaves_no_unusable_server_folder",
+        "test_http_pool_receives_positive_configured_guard",
+        "test_large_server_retains_sixteen_gib_guard",
+        "test_small_server_reserves_guard_and_native_overhead",
+        "test_check_only_creates_no_data_folder",
+        "test_declining_installation_creates_no_data_folder",
+        "test_bootstrap_script_shell_syntax",
+        "test_commands_preserve_spaces_without_shell_interpretation",
+        "test_failed_command_keeps_log_and_returns_failure",
+        "test_friend_5090_is_not_given_reference_server_vram",
+        "test_insufficient_gpu_memory_fails_before_download",
+        "test_insufficient_ram_fails_before_setup",
+        "test_memory_pressure_reduces_jobs_and_residency",
+        "test_nonfinite_resource_sizes_not_accepted",
+        "test_small_server_budgets_fit_available_ram",
+        "test_smaller_gpu_uses_a_smaller_prefill_batch"
+      ],
+      "log_sha256": "0bfc41c20fe719911f3b4c736eec7efc228c3aac418e88e15accbe5f23611ae5"
+    },
+    {
+      "name": "model preparation",
+      "status": "PASS",
+      "tests": 9,
+      "failures": 0,
+      "skips": 0,
+      "host": "llm-49",
+      "test_ids": [
+        "test_altered_pack_is_rejected_without_rebuilding_or_deleting",
+        "test_cached_model_is_rehashed_without_network_or_deletion",
+        "test_default_plan_has_four_pinned_q4_shards_and_no_mtp",
+        "test_extra_nested_receipt_named_file_is_not_exempt_from_integrity",
+        "test_failed_pack_builder_publishes_no_final_pack",
+        "test_pack_publishes_complete_receipt_and_reuses_verified_bytes",
+        "test_real_http_download_resumes_partial_bytes",
+        "test_same_size_corruption_with_a_done_marker_is_rejected",
+        "test_symlink_model_is_rejected"
+      ],
+      "log_sha256": "2d9a00382ed124489415d9e044f4a05603a13194276b79c3751c3e64eea0577d"
+    },
+    {
+      "name": "G0",
+      "status": "PASS",
+      "tests": 51,
+      "failures": 0,
+      "skips": 0,
+      "host": "llm-60",
+      "test_ids": [
+        "test_01_root_history",
+        "test_02_fork_same_logical_state",
+        "test_03_independent_suffixes",
+        "test_04_empty_delta_controller_transition",
+        "test_05_canonical_content_identity",
+        "test_06_mutable_arguments_do_not_modify_saved_state",
+        "test_07_snapshot_integrity_reject_tampered_blob",
+        "test_08_missing_parent_fails_closed",
+        "test_09_invalid_inputs_rejected",
+        "test_10_invalid_controller_rejected",
+        "test_11_fork_duplicate_fails",
+        "test_12_missing_head_fails",
+        "test_13_atomic_CAS_updates_one_revision",
+        "test_14_successful_retry_is_idempotent",
+        "test_15_reuse_operation_id_with_different_payload_rejected",
+        "test_16_ABA_fails_with_stale_revision",
+        "test_17_cannot_move_between_unrelated_roots",
+        "test_18_branch_pointer_restart_persists",
+        "test_19_retry_receipt_restart_persists",
+        "test_20_crash_before_reference_staging_keeps_old_tip",
+        "test_21_crash_after_stage_before_rename_keeps_old_tip",
+        "test_22_failure_after_rename_has_retryable_receipt",
+        "test_23_evaluation_like_reads_do_not_move_branch",
+        "test_24_store_ref_index_rejects_corrupt_json",
+        "test_25_invalid_branch_or_operation_names",
+        "test_26_history_can_have_multiple_empty_deltas",
+        "test_27_copy_on_read_cannot_modify_store",
+        "test_28_same_history_different_controller_not_same_snapshot",
+        "test_29_racing_writers_exactly_one_wins",
+        "test_30_unreferenced_snapshot_survives_branch_rewind",
+        "test_31_second_future_after_rewind_stays_independent",
+        "test_32_external_mutation_after_fork_does_not_propagate",
+        "test_close_tie_is_not_mislabelled_large_margin",
+        "test_corruption_is_detected",
+        "test_exact_vectors_pass",
+        "test_invalid_tolerance_rejected",
+        "test_kl_zero_for_identical_values",
+        "test_nan_rejected",
+        "test_nonmatching_shape_rejected",
+        "test_shift_in_logits_detected_by_elementwise_even_if_softmax_same",
+        "test_small_numerical_error_passes",
+        "test_top1_flip_is_detected",
+        "test_chunking_does_not_reset_random_stream",
+        "test_eviction_preserves_history_and_rng_position",
+        "test_feed_associativity",
+        "test_fresh_input_oracle_matches_each_forced_future",
+        "test_other_stream_does_not_mutate_parent",
+        "test_rewind_does_not_delete_old_future",
+        "test_same_snapshot_repeats_sampled_future",
+        "test_sibling_scheduling_does_not_change_a",
+        "test_worked_attention_outputs"
+      ],
+      "log_sha256": "7507d74a0e450931ce7b26c056c79a6edbae8e5f6078063ba567c7620a7c0c15"
+    }
+  ],
+  "recovered_test_launch_errors": [
+    "Direct script launch did not put the repository on Python import path; retained output and used module launch.",
+    "The llm-60 server venv lacked pinned PyYAML distribution metadata for four model-helper cases; rerun all nine using llm-49 pinned setup venv passed. No tests were weakened."
+  ],
+  "blockers": [
+    "HIP build omits the COW inference driver and branch snapshot-session implementation.",
+    "Current root filesystem has less free space than the default 16 GiB disk pool, before build/pack allowance."
+  ],
+  "cumulative_G1_G5": "NOT QUALIFIED",
+  "setup_source_sha256": "4b89cf40899611d4001ccd71b9611ad6fc7dcbe71449d4fedd9b3b5a15b48797",
+  "diagnostic_tests_sha256": "3734d02bba86f0adf086baf1733eb9362c91c33dbdc44001e7d3d88b34c19afb"
+}

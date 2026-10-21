@@ -29,6 +29,12 @@ That is **not** a recommendation for interactive use with this large model.
 The 128 GB RAM / 32 GB RTX 5090 combination has not yet been tested.
 
 These copy-and-paste instructions target 64-bit Intel/AMD Ubuntu 24.04 or newer.
+Here, Intel/AMD describes the **CPU**. The server still needs an NVIDIA **GPU**.
+AMD Radeon GPUs cannot run this COW server yet. Its HIP build does not include
+the `strata-branch` inference driver and COW snapshot-session integration.
+Installing NVIDIA tools on an AMD-only computer will not fix that.
+[See the executed RX 7900 XTX check](https://github.com/CC-David-CC/Private_Context_COW/blob/main/validation/amd-cow-preflight-20261021/README.md).
+
 The server needs a working NVIDIA driver and the CUDA Toolkit. CUDA is NVIDIA's
 software for building and running GPU programs. The installer does not replace
 your graphics driver or install the CUDA compiler automatically.

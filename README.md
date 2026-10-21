@@ -26,7 +26,11 @@ client and workflow/tool harness using this server through authenticated HTTP.
 - [Original Strata setup/readme](UPSTREAM_README.md).
 
 The Linux guide builds the server from source and prepares the pinned Q4 model.
-It requires a working NVIDIA driver and CUDA compiler. Other hardware and model
+It requires a working NVIDIA driver and CUDA compiler. **AMD GPUs cannot run
+this COW server yet:** the current HIP build has no `strata-branch` inference
+driver or COW snapshot-session integration. Ordinary Strata AMD support is
+separate. [Executed AMD check](validation/amd-cow-preflight-20261021/README.md).
+Other hardware and model
 configurations need their own checks. Do not import checkpoints across incompatible profiles. Cross-batch
 arrangement equivalence is an accepted prototype limitation; cumulative G1-G5
 certification is incomplete. See the preserved mathematical specification for

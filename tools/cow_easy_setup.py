@@ -64,9 +64,27 @@ def plan_for(hardware):
     prefill=8192 if hardware.gpu_free>=20*G else 2048
     return Plan(resident,ram,16,reserve,32768,prefill,jobs,headroom)
 
+def amd_display_present(drm=Path('/sys/class/drm')):
+    """Read PCI vendor IDs; ROCm tools alone do not prove an AMD GPU exists."""
+    for vendor in drm.glob('card[0-9]*/device/vendor'):
+        try:
+            if vendor.read_text().strip().lower()=='0x1002':
+                return True
+        except OSError:
+            continue
+    return False
+
 def inspect_host():
     if platform.system()!='Linux' or platform.machine() not in ('x86_64','amd64'):
         raise SetupError('This guided installation supports 64-bit Intel/AMD Linux.')
+    if not shutil.which('nvidia-smi') and amd_display_present():
+        raise SetupError('AMD graphics detected. The Context COW inference driver '
+                         '(strata-branch) and snapshot-session integration are not '
+                         'available in the current HIP build. Ordinary Strata HIP '
+                         'support does not provide this COW server. Use a supported '
+                         'NVIDIA/CUDA server for now; installing NVIDIA tools on this '
+                         'AMD-only machine will not fix the missing backend. Setup '
+                         'stopped before downloading a model or starting a build.')
     missing=[name for name in ('git','cmake','c++','nvidia-smi') if not shutil.which(name)]
     if missing:
         raise SetupError('Missing tools: '+', '.join(missing)+'. On Ubuntu, install build tools with: sudo apt update && sudo apt install -y git cmake build-essential python3-venv. NVIDIA driver/CUDA installation is separate.')
