@@ -8123,3 +8123,12 @@ one verified, unrelated export-function example with unchanged requirements. It
 advanced to candidate execution but still hit placement API errors; reaching the
 inspect_cad tool does not prove export, numerical geometry or rendered-view success.
 No operator modified its candidate source. PDF/CAD competence remains incomplete.
+
+## 2026-10-21 ? English Research model restart
+
+The user-provided research-model.gguf was loaded unchanged through the existing pinned Qwen35 adapter with its own model identity and 127,991-entry tokenizer. Tiny 128/4/8, medium 1024/64/16 and 8192/512/16 text campaigns passed 178 exact full-logit comparisons, nine process-separated strict restores with zero saved-prefix work, canonical controller equality and checkpoint byte integrity. These are matching-native-schedule greedy results, not task-quality or vision qualification and not cumulative G1?G5. Qwen Q8 versus research BF16 is a whole-configuration comparison. See runs/english-research-restart-20261021.json.
+
+
+## 2026-10-21 ? Separate-client website comparison
+
+The unchanged BranchWrite dev67 CLI in the owned VM completed the same website task against the research BF16 model. Independent Chromium desktop/mobile checks passed: real button action, named dogs, blue heading, no horizontal overflow, no external requests and no tool metadata contamination. Zero operator candidate edits. Qwen Q8: 45.00 s whole CLI, 5 generation requests plus one context request, 1057 generated tokens at 69.69 generation TPS. Research BF16: 105.01 s whole CLI, 11 generation requests plus one context request, 1543 generated tokens at 48.57 generation TPS. The research model chose more individual checks. Both independently generated the same HTML bytes; recorded create_text_file action bytes match each separate workspace artifact. This establishes one practical task, not broad model equivalence. PDF, CAD and research-model vision remain untested. See runs/english-research-website-20261021.json.

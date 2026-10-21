@@ -1,0 +1,141 @@
+{
+  "status": "BOUNDED_COMPARISON_PASS",
+  "native_restart": {
+    "qwen": {
+      "comparisons": 178,
+      "strict_zero_prefix_restores": 9,
+      "max_logit_error": 0
+    },
+    "research": {
+      "comparisons": 178,
+      "strict_zero_prefix_restores": 9,
+      "max_logit_error": 0
+    }
+  },
+  "website": {
+    "website-v5-greedy": {
+      "status": "PASS",
+      "whole_cli_seconds": 45.00440847300342,
+      "generated_tokens": 1057,
+      "generation_seconds": 15.168113632011227,
+      "generation_tps": 69.68565938016685,
+      "reasoning_tokens": 281,
+      "final_tokens": 766,
+      "summed_request_seconds": 26.59208383411169,
+      "operator_candidate_edits": 0,
+      "total_context_and_generation_requests": 6,
+      "generation_requests": 5,
+      "counting_note": "One initial /cow/text/context request has zero output tokens; remaining requests generate outputs. TPS includes generated token IDs including turn controls."
+    },
+    "website-research-v1-greedy": {
+      "status": "PASS",
+      "whole_cli_seconds": 105.0135573180014,
+      "generated_tokens": 1543,
+      "generation_seconds": 31.76903766905889,
+      "generation_tps": 48.56930247851946,
+      "reasoning_tokens": 503,
+      "final_tokens": 1018,
+      "summed_request_seconds": 55.4140725499019,
+      "operator_candidate_edits": 0,
+      "total_context_and_generation_requests": 12,
+      "generation_requests": 11,
+      "counting_note": "One initial /cow/text/context request has zero output tokens; remaining requests generate outputs. TPS includes generated token IDs including turn controls."
+    }
+  },
+  "limitations": [
+    "One website task, not general coding quality qualification",
+    "Qwen Q8 versus research BF16; tokenizer and weight precision differ",
+    "PDF and CAD still outstanding for both in current end-to-end comparison",
+    "Research-model vision remains untested",
+    "No cumulative G1-G5 certification"
+  ],
+  "artifact_provenance": {
+    "website-v5-greedy": {
+      "resolved_path": "/home/maint/cow-qwen35-trial/website-v5-greedy/state/world/workspace/index.html",
+      "inode": 1880643,
+      "bytes": 961,
+      "sha256": "153791e583e5ddd0eb96244ab490909706077722d01f6b914662f11a83e34e0d",
+      "write_actions": [
+        {
+          "operation_id": "bwnative-a5fe5bd6de12734b857d41b89f33f50371a18645307d6096",
+          "tool": "create_text_file",
+          "path": "index.html",
+          "generated_sha256": "153791e583e5ddd0eb96244ab490909706077722d01f6b914662f11a83e34e0d",
+          "matches_file": true
+        }
+      ]
+    },
+    "website-research-v1-greedy": {
+      "resolved_path": "/home/maint/cow-qwen35-trial/website-research-v1-greedy/state/world/workspace/index.html",
+      "inode": 414899,
+      "bytes": 961,
+      "sha256": "153791e583e5ddd0eb96244ab490909706077722d01f6b914662f11a83e34e0d",
+      "write_actions": [
+        {
+          "operation_id": "bwnative-178fb85832db34a02a0a9531218ba5cee9fbfd02ecab5d65",
+          "tool": "create_text_file",
+          "path": "index.html",
+          "generated_sha256": "153791e583e5ddd0eb96244ab490909706077722d01f6b914662f11a83e34e0d",
+          "matches_file": true
+        }
+      ]
+    }
+  },
+  "model_metadata_comparison": {
+    "qwen_q8": {
+      "path": "/home/dflanag3/models/qwen35-9b-unsloth/Qwen3.5-9B-Q8_0.gguf",
+      "bytes": 9527502048,
+      "name": "Qwen3.5-9B",
+      "architecture": "qwen35",
+      "vocabulary_entries": 248320,
+      "tensor_type_counts": {
+        "Q8_0": 250,
+        "F32": 177
+      },
+      "tensor_count": 427,
+      "parameter_elements": 8953803264,
+      "template_sha256": "7f0e529032c25183bcd66c7f238da2d377f43be754a94e2725a58c4e16d2ed67"
+    },
+    "english_research_bf16": {
+      "path": "/home/dflanag3/model-identity-rematch-codex-v0.1.0/work/english-v4-20261021/output/research-model.gguf",
+      "bytes": 15942827936,
+      "name": "English Research 9B BF16",
+      "architecture": "qwen35",
+      "vocabulary_entries": 127991,
+      "tensor_type_counts": {
+        "BF16": 250,
+        "F32": 177
+      },
+      "tensor_count": 427,
+      "parameter_elements": 7968068096,
+      "template_sha256": "303339bd96247e7851105865bc17e1143a5ba3d5de7a9a81d803e112f24f6434"
+    },
+    "shape_changes": [
+      {
+        "name": "output.weight",
+        "qwen": [
+          4096,
+          248320
+        ],
+        "research": [
+          4096,
+          127991
+        ]
+      },
+      {
+        "name": "token_embd.weight",
+        "qwen": [
+          4096,
+          248320
+        ],
+        "research": [
+          4096,
+          127991
+        ]
+      }
+    ],
+    "names_only_qwen": [],
+    "names_only_research": [],
+    "interpretation": "Whole configuration comparison: different vocabulary and weight encoding; do not attribute task differences solely to pruning/rematching or quantization."
+  }
+}
