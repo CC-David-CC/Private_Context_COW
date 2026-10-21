@@ -42,12 +42,30 @@ def setup_source():
         _setup_module=module
     return _setup_module
 
-def model_plan():
+MODEL_CHOICES=(MODEL,'IQ3_XXS','IQ2_XS')
+
+def pack_name(model=MODEL):
+    if model not in MODEL_CHOICES:raise ValueError('Unsupported COW model: '+str(model))
+    return PACK_NAME if model==MODEL else 'cow-'+model.lower().replace('_','-')+'-pack'
+
+def model_plan(model=MODEL):
+    pack_name(model)  # Validate before any resource lookup or filesystem use.
+    if model!=MODEL:
+        catalog=json.loads((ROOT/'data/cow-gsq-models.json').read_text())
+        if catalog.get('schema')!=1:raise ValueError('Unsupported model catalogue schema')
+        base='https://huggingface.co/'+catalog['repository']+'/resolve/'+catalog['revision']+'/'+model+'/'
+        assets=[]
+        for row in catalog['models'][model]:
+            name=row['name'];digest=row['sha256'];size=row['bytes']
+            if Path(name).name!=name or len(digest)!=64 or any(c not in '0123456789abcdef' for c in digest) or size<=0:
+                raise ValueError('Invalid pinned model asset')
+            assets.append(Asset(name,base+name,size,digest))
+        return tuple(assets)
     setup=setup_source();family=setup.FAMILIES['unsloth'];assets=[]
-    for index in range(1,setup.model_shards(family,MODEL)+1):
-        name=setup.model_file(family,MODEL,index)
+    for index in range(1,setup.model_shards(family,model)+1):
+        name=setup.model_file(family,model,index)
         size,digest=family['sha256'][name]
-        assets.append(Asset(name,family['hf'].format(q=MODEL)+name,size,digest))
+        assets.append(Asset(name,family['hf'].format(q=model)+name,size,digest))
     return tuple(assets)
 
 def digest_file(path):
@@ -100,8 +118,8 @@ def pack_manifest(pack):
     if not required<=values.keys():raise ValueError('Pack builder did not produce the required files')
     return values
 
-def publish_pack(data,assets,build):
-    data=Path(data).resolve(strict=True);pack=data/PACK_NAME
+def publish_pack(data,assets,build,*,model=MODEL):
+    data=Path(data).resolve(strict=True);pack=data/pack_name(model)
     pins=[dict(name=a.name,bytes=a.size,sha256=a.sha256) for a in assets]
     selected_recipe=recipe()
     if pack.exists() or pack.is_symlink():
@@ -129,18 +147,19 @@ def publish_pack(data,assets,build):
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-dir',type=Path,default=Path.home()/'ContextCOW-data')
+    parser.add_argument('--model',choices=MODEL_CHOICES,default=MODEL,help='Pinned model configuration; Q4 remains the default.')
     parser.add_argument('--existing-models',type=Path,help='Verify and read existing shards; never download or write into this folder')
     parser.add_argument('--yes',action='store_true',help='Approve the displayed model download without a question')
-    args=parser.parse_args(argv);assets=model_plan()
+    args=parser.parse_args(argv);assets=model_plan(args.model)
     try:
         for name in ('numpy','yaml','requests','tqdm'):__import__(name)
     except ImportError as error:
         raise ValueError('Install the server requirements first: '+str(sys.executable)+' -m pip install -r '+str(ROOT/'requirements-cow-server.txt')) from error
     data=args.data_dir.expanduser().absolute()
-    models=args.existing_models.expanduser().resolve(strict=True) if args.existing_models else data/'models'/MODEL
+    models=args.existing_models.expanduser().resolve(strict=True) if args.existing_models else data/'models'/args.model
     missing=sum(a.size for a in assets if not (models/a.name).exists())
     if args.existing_models and missing:raise ValueError('The existing model folder is incomplete; no files were changed')
-    print(f'Context COW Q4: four pinned model files, {sum(a.size for a in assets)/1e9:.1f} GB total.',flush=True)
+    print(f'Context COW {args.model}: {len(assets)} pinned model files, {sum(a.size for a in assets)/1e9:.1f} GB total.',flush=True)
     print('Downloads and prepares the model only. No MTP, model server or driver installation.',flush=True)
     if missing and not args.yes and input(f'Download up to {missing/1e9:.1f} GB? Type YES: ').strip()!='YES':
         print('Canceled.');return 1
@@ -165,7 +184,7 @@ def main(argv=None):
         def build(stage):
             print('Preparing the native model pack...',flush=True)
             subprocess.run([sys.executable,str(ROOT/'tools/iq_pack.py'),'--gguf',str(shards[0]),'--out',str(stage),'--compat-bf16'],check=True,cwd=ROOT,env=packing_environment)
-        pack=publish_pack(data,assets,build)
+        pack=publish_pack(data,assets,build,model=args.model)
     print('Model preparation complete.',flush=True)
     print('Model: '+str(shards[0]));print('Pack: '+str(pack))
     return 0

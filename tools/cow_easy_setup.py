@@ -130,13 +130,17 @@ def nearest_existing(path):
     return path
 
 def main(argv=None):
+    sys.path.insert(0,str(ROOT/'tools'))
+    from cow_prepare_model import MODEL,MODEL_CHOICES,model_plan,pack_name
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-dir',type=Path,default=Path.home()/'ContextCOW-data')
+    parser.add_argument('--model',choices=MODEL_CHOICES,help='Pinned model; new installations default to UD-Q4_K_XL. Use a separate data folder for another model.')
     parser.add_argument('--existing-models',type=Path,help='Use and hash existing pinned Q4 shards without copying or downloading them.')
     parser.add_argument('--yes',action='store_true',help='Approve installation and the displayed large model download.')
     parser.add_argument('--check',action='store_true',help='Inspect hardware and print a plan; do not build, install or download.')
     parser.add_argument('--port',type=int,default=8099)
     args=parser.parse_args(argv)
+    selected_model=args.model or MODEL
     if not 1<=args.port<=65535:parser.error('Port must be between 1 and 65535.')
     os.umask(0o077)
     data=args.data_dir.expanduser().absolute()
@@ -146,20 +150,24 @@ def main(argv=None):
         saved=json.loads(config.read_text())
         if not Path(saved['profile']).is_file() or not Path(saved['api_key_file']).is_file():
             raise SetupError('An incomplete server configuration exists; existing files were preserved: '+str(config))
+        if args.model is not None:
+            prior=json.loads(Path(saved['profile']).read_text())
+            if Path(prior.get('model_path','')).name!=model_plan(args.model)[0].name:
+                raise SetupError('This data folder is configured for a different model. Choose a new --data-dir; the existing server was preserved.')
         print('This server is already configured. Its model, profile and API key were preserved.')
         print('Start it with: '+shlex.join([str(ROOT/'cow-start'),str(data)]))
         return 0
     hardware=inspect_host();plan=plan_for(hardware)
     sys.path.insert(0,str(ROOT/'tools'))
-    from cow_prepare_model import model_plan,PACK_NAME
-    assets=model_plan()
-    models=args.existing_models.expanduser().resolve(strict=True) if args.existing_models else data/'models/UD-Q4_K_XL'
+    assets=model_plan(selected_model)
+    models=args.existing_models.expanduser().resolve(strict=True) if args.existing_models else data/'models'/selected_model
     if args.existing_models and any(not (models/a.name).is_file() for a in assets):
-        raise SetupError('The existing folder does not contain all four pinned Q4 shards.')
+        raise SetupError(f'The existing folder does not contain all {len(assets)} pinned {selected_model} shards.')
     missing=sum(a.size for a in assets if not (models/a.name).exists())
     disk=shutil.disk_usage(nearest_existing(data))
     required=missing+(plan.disk_gib+6)*G
     print('Context COW guided setup')
+    print('Model: '+selected_model)
     print(f'GPU 0: {hardware.gpu_name}; {hardware.gpu_free/G:.1f} GiB free')
     print(f'RAM: {hardware.ram_total/G:.1f} GiB total; {hardware.ram_available/G:.1f} GiB available')
     print(f'Initial settings: {plan.context:,} context tokens, FP16 KV, {plan.resident_gib} GiB expert RAM, {plan.ram_gib} GiB context RAM, {plan.disk_gib} GiB disk pool.')
@@ -185,10 +193,10 @@ def main(argv=None):
         run_step('Install Python packages',[str(python),'-m','pip','install','-r',str(ROOT/'requirements-cow-server.txt')],logs/'packages.log',ROOT)
         run_step('Configure engine',['cmake','-S',str(ROOT),'-B',str(build),'-DSTRATA_ENABLE_CUDA=ON','-DCMAKE_CUDA_COMPILER='+hardware.nvcc,'-DCMAKE_CUDA_ARCHITECTURES=native','-DCMAKE_BUILD_TYPE=Release','-DPython3_EXECUTABLE='+str(python)],logs/'configure.log',ROOT)
         run_step('Build engine',['cmake','--build',str(build),'--target','strata-branch','-j',str(plan.build_jobs)],logs/'build.log',ROOT)
-        command=[str(python),str(ROOT/'tools/cow_prepare_model.py'),'--data-dir',str(data),'--yes']
+        command=[str(python),str(ROOT/'tools/cow_prepare_model.py'),'--data-dir',str(data),'--model',selected_model,'--yes']
         if args.existing_models:command+=['--existing-models',str(models)]
-        run_step('Prepare Q4 model',command,logs/'model.log',ROOT)
-        run_step('Configure server',[str(python),str(ROOT/'tools/cow_server_setup.py'),'--model',str(models/assets[0].name),'--pack',str(data/PACK_NAME),'--native',str(build/'strata-branch'),'--expert-profile',str(ROOT/'data/expert-profile.bin'),'--output',str(data/'server'),'--host','0.0.0.0','--port',str(args.port),'--context',str(plan.context),'--prefill',str(plan.prefill),'--resident-gib',str(plan.resident_gib),'--ram-gib',str(plan.ram_gib),'--disk-gib',str(plan.disk_gib),'--vram-reserve-mib',str(plan.vram_reserve_mib),'--min-available-gib',str(plan.min_available_gib)],logs/'server.log',ROOT)
+        run_step('Prepare '+selected_model+' model',command,logs/'model.log',ROOT)
+        run_step('Configure server',[str(python),str(ROOT/'tools/cow_server_setup.py'),'--model',str(models/assets[0].name),'--pack',str(data/pack_name(selected_model)),'--native',str(build/'strata-branch'),'--expert-profile',str(ROOT/'data/expert-profile.bin'),'--output',str(data/'server'),'--host','0.0.0.0','--port',str(args.port),'--context',str(plan.context),'--prefill',str(plan.prefill),'--resident-gib',str(plan.resident_gib),'--ram-gib',str(plan.ram_gib),'--disk-gib',str(plan.disk_gib),'--vram-reserve-mib',str(plan.vram_reserve_mib),'--min-available-gib',str(plan.min_available_gib)],logs/'server.log',ROOT)
     print('Context COW setup complete. The model server has not been started.')
     print('Start: '+shlex.join([str(ROOT/'cow-start'),str(data)]))
     print('API key: '+shlex.join(['cat',str(data/'server/api-key.txt')]))
