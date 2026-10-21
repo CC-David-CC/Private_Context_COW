@@ -8,6 +8,7 @@ keeps API keys outside the source checkout.
 - Repeat setup: PASS, settings and key unchanged.
 - Final wrapper startup: PASS, authenticated info ready in25.0 seconds.
 - Setup policy17/17, model resources9/9, G0 51/51, HTTP fixture regressions16/16, BW connection16/16 and interactive6/6. Fixture tests are not GPU gate qualification.
+- Final automatically installed small-host CLI chat: PASS in 228.35 seconds, clean exit, key not printed; this is slow and does not establish interactive coding performance.
 - Small-host coding: TIMEOUT at600.66 seconds; two model steps completed and the CLI saved a safe resumable boundary. This is not a coding PASS.
 - The same fresh GitHub-installed dev66 CLI in a separate VM, using the real Q4 server on the larger reference host: website PASS in292.10 seconds; follow-up bold names PASS in238.16 seconds; clean exit. These are complete workflow times, not decode throughput.
 - Independent sandboxed Chromium: PASS at 390 x 844 and 1200 x 800. Clicked the actual button, checked visible greeting, four visible Buddy occurrences at font weight 900, and no horizontal overflow. Screenshot/source hashes are in result.json.

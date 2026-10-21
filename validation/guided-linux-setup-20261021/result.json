@@ -260,7 +260,19 @@
           "namespace_members_after": []
         }
       }
-    ]
+    ],
+    "small_host_chat": {
+      "passed": true,
+      "seconds": 228.35017322492786,
+      "matched": 0,
+      "exit_code": 0,
+      "key_visible_in_output": false
+    },
+    "BW_bootstrap": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    }
   },
   "numerical_max_error": null,
   "numerical_oracle_run": false,

@@ -23,7 +23,8 @@ and memory combinations still need their own check.
 
 A smaller-server trial now also exists: **RTX 4090, 24 GB VRAM, 32 GB RAM**.
 Automatic installation, model loading, prefix preparation and generation worked,
-but its coding task did not finish within a ten-minute trial. It paused safely.
+and a short CLI chat completed in 228 seconds. Its coding task did not finish
+within a ten-minute trial. It paused safely.
 That is **not** a recommendation for interactive use with this large model.
 The 128 GB RAM / 32 GB RTX 5090 combination has not yet been tested.
 
