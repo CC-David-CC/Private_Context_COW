@@ -173,4 +173,6 @@ def main(argv=None):
 
 if __name__=='__main__':
     try:raise SystemExit(main())
+    except KeyboardInterrupt:raise SystemExit('Setup interrupted. Completed downloads and builds were kept; rerun cow-setup to continue.')
+    except EOFError:raise SystemExit('Run cow-setup in a terminal, or use --yes after reviewing cow-setup --check.')
     except (SetupError,ValueError,OSError,subprocess.CalledProcessError) as error:raise SystemExit('Setup stopped: '+str(error))

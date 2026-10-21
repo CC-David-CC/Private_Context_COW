@@ -49,6 +49,24 @@ class SetupPolicyTests(unittest.TestCase):
     def test_bootstrap_script_shell_syntax(self):
         subprocess.run(['sh','-n',str(ROOT/'cow-setup')],check=True)
 
+class SetupInteractionTests(unittest.TestCase):
+    def test_declining_installation_creates_no_data_folder(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            data=Path(tmp)/'not-created'
+            hardware=setup.Hardware(32*G,24*G,24*G,24*G,12,'Example GPU','/cuda/nvcc')
+            with patch.object(setup,'inspect_host',return_value=hardware),patch.object(setup.shutil,'disk_usage',return_value=__import__('collections').namedtuple('Disk','total used free')(1024*G,0,1024*G)),patch('builtins.input',return_value='no'):
+                self.assertEqual(setup.main(['--data-dir',str(data)]),1)
+            self.assertFalse(data.exists())
+    def test_check_only_creates_no_data_folder(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            data=Path(tmp)/'not-created'
+            hardware=setup.Hardware(32*G,24*G,24*G,24*G,12,'Example GPU','/cuda/nvcc')
+            with patch.object(setup,'inspect_host',return_value=hardware),patch.object(setup.shutil,'disk_usage',return_value=__import__('collections').namedtuple('Disk','total used free')(1024*G,0,1024*G)),patch('builtins.input',side_effect=AssertionError('must not prompt')):
+                self.assertEqual(setup.main(['--check','--data-dir',str(data)]),0)
+            self.assertFalse(data.exists())
+
 class ConfigurationRetryTests(unittest.TestCase):
     def test_failed_configuration_leaves_no_unusable_server_folder(self):
         from unittest.mock import patch
