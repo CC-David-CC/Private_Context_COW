@@ -69,6 +69,12 @@ def main():
    for name,row in fixture['branches'].items():
     sid=model.feed(root,tuple(row['suffix']));compare(sid,a.output/(name+'-0.f32'));sid=model.start_generation(sid,{'temperature':0},'fixture-'+name)
     for i in range(min(4,a.outputs)):
+     with model.materialize(sid) as (selection_lease,_):
+      mask=bytearray([255])*((backend.vocab_size+7)//8)
+      if backend.vocab_size%8:mask[-1]&=(1<<(backend.vocab_size%8))-1
+      mask=bytes(mask)
+      assert backend.choose_legal(selection_lease,mask)==row['tokens'][i]
+      assert backend.sample_legal(selection_lease,mask,0,0,0)==row['tokens'][i]
      g=model.generate(sid,1);sid=g.snapshot_id
      if g.accepted_tokens!=(row['tokens'][i],):raise AssertionError('Generated token differs')
      compare(sid,a.output/(name+'-'+str(i+1)+'.f32'))
@@ -81,12 +87,24 @@ def main():
    for name,row in fixture['branches'].items():
     sid=model.feed(root,tuple(row['suffix']));compare(sid,a.output/(name+'-0.f32'));sid=model.start_generation(sid,{'temperature':0},'fixture-'+name)
     for i in range(a.outputs):
+     with model.materialize(sid) as (selection_lease,_):
+      mask=bytearray([255])*((backend.vocab_size+7)//8)
+      if backend.vocab_size%8:mask[-1]&=(1<<(backend.vocab_size%8))-1
+      mask=bytes(mask)
+      assert backend.choose_legal(selection_lease,mask)==row['tokens'][i]
+      assert backend.sample_legal(selection_lease,mask,0,0,0)==row['tokens'][i]
      g=model.generate(sid,1);sid=g.snapshot_id
      if g.accepted_tokens!=(row['tokens'][i],):raise AssertionError('Generated token differs')
      compare(sid,a.output/(name+'-'+str(i+1)+'.f32'));progress(branch=name,generated=i+1,comparisons=comparisons)
     restored=points['generated'][name];receipts.append(model.restore_checkpoint(restored));sid=restored
     if model.controller(sid)!=points['controllers'][name]:raise AssertionError('Canonical controller changed across restart')
     for i in range(min(4,a.outputs),a.outputs):
+     with model.materialize(sid) as (selection_lease,_):
+      mask=bytearray([255])*((backend.vocab_size+7)//8)
+      if backend.vocab_size%8:mask[-1]&=(1<<(backend.vocab_size%8))-1
+      mask=bytes(mask)
+      assert backend.choose_legal(selection_lease,mask)==row['tokens'][i]
+      assert backend.sample_legal(selection_lease,mask,0,0,0)==row['tokens'][i]
      g=model.generate(sid,1);sid=g.snapshot_id
      if g.accepted_tokens!=(row['tokens'][i],):raise AssertionError('Generated restart duplicated or omitted token')
      compare(sid,a.output/(name+'-'+str(i+1)+'.f32'))

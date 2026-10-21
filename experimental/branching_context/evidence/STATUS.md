@@ -8055,3 +8055,14 @@ qualification remains outstanding. Vision explicitly rejected. No BF16, AMD,
 non-greedy sampler qualification or cumulative G1-G5 pass is claimed.
 Evidence: evidence/qwen35-9b-20261021/summary.json. Raw data remains on llm-49
 under /home/dflanag3/spatial-artifacts/cow-qwen35-9b-20261021/.
+
+
+### Native selector follow-up (CPU-only evidence so far)
+An isolated native-selection worktree reuses grammar_select.h and min_p_select.h
+through the Qwen bridge, avoiding Python reference selection in the hot path.
+Eight CPU choices on a recorded real-GPU frontier matched independent reference
+arithmetic; empty support was rejected. Mean native greedy selection was 0.216 ms
+versus 66.98 ms for Python reference selection in this diagnostic. This is not
+GPU throughput or end-to-end speed evidence. Seven CPU boundary tests and G0
+51/51 passed. Real-GPU/native-lease regression and integration remain unexecuted
+for this extension. The running VM baseline uses the previous committed adapter.

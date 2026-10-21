@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "scope": "CPU selection on recorded frontier; not GPU inference evidence",
+  "library_sha256": "5e56907a367671f701fc928e58f453201344c8fe8688c68326c86864b1dc226f",
+  "frontier_sha256": "6cef623c979dfb327f1f192ae39afe84460aceb08ff8b05bea2db82155de8dde",
+  "cases": [
+    {
+      "mask": "all",
+      "temperature": 0,
+      "min_p": 0,
+      "top_k": 0,
+      "top_p": 1,
+      "draw": 0,
+      "token": 13
+    },
+    {
+      "mask": "all",
+      "temperature": 0.7,
+      "min_p": 0.05,
+      "top_k": 0,
+      "top_p": 1,
+      "draw": 123456789,
+      "token": 13
+    },
+    {
+      "mask": "all",
+      "temperature": 0.7,
+      "min_p": 0.05,
+      "top_k": 60,
+      "top_p": 0.95,
+      "draw": 4503599627370496,
+      "token": 13
+    },
+    {
+      "mask": "all",
+      "temperature": 0.8,
+      "min_p": 0,
+      "top_k": 1,
+      "top_p": 0.95,
+      "draw": 9007199254740991,
+      "token": 13
+    },
+    {
+      "mask": "even",
+      "temperature": 0,
+      "min_p": 0,
+      "top_k": 0,
+      "top_p": 1,
+      "draw": 0,
+      "token": 198
+    },
+    {
+      "mask": "even",
+      "temperature": 0.7,
+      "min_p": 0.05,
+      "top_k": 0,
+      "top_p": 1,
+      "draw": 123456789,
+      "token": 198
+    },
+    {
+      "mask": "even",
+      "temperature": 0.7,
+      "min_p": 0.05,
+      "top_k": 60,
+      "top_p": 0.95,
+      "draw": 4503599627370496,
+      "token": 198
+    },
+    {
+      "mask": "even",
+      "temperature": 0.8,
+      "min_p": 0,
+      "top_k": 1,
+      "top_p": 0.95,
+      "draw": 9007199254740991,
+      "token": 198
+    }
+  ],
+  "empty_mask_rejected": true,
+  "native_selection_seconds": 0.00021644574007950723,
+  "python_reference_seconds": 0.06698321368700515
+}

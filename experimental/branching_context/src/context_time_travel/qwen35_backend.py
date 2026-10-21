@@ -49,6 +49,7 @@ class Qwen35Backend(NativeBackend):
     def __init__(self,profile):
         e=profile['execution']
         if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype')!='FP16'
+                or e.get('sampling_location')!='native-cpu-frontier'
                 or e.get('state_format')!='qwen35-hybrid-frontier-v1'
                 or e.get('resume_contract')!='identical-native-batches-v1'
                 or type(e.get('capacity')) is not int or not 128<=e['capacity']<=262144
@@ -69,6 +70,11 @@ class Qwen35Backend(NativeBackend):
         fn=self.lib.ctt_tokenize;fn.argtypes=[C.c_void_p,C.c_char_p,C.c_int,C.c_void_p,C.c_int,C.c_bool,C.c_bool];fn.restype=C.c_int
         self.lib.ctt_calls.argtypes=[C.c_void_p];self.lib.ctt_calls.restype=C.c_uint64
         self.stats['forward_calls']=0
+        self.lib.ctt_sample_mask_v2.argtypes=[C.c_void_p,C.c_void_p,C.c_size_t,C.c_double,C.c_double,C.c_uint64,C.c_size_t,C.c_double]
+        self.lib.ctt_sample_mask_v2.restype=C.c_int
+        self.lib.ctt_choose_mask.argtypes=[C.c_void_p,C.c_void_p,C.c_size_t]
+        self.lib.ctt_choose_mask.restype=C.c_int
+        self.stats['sampling_calls']=0
 
     def metadata(self,key):
         n=self.lib.ctt_meta(self.model,key.encode(),None,0)
@@ -165,23 +171,24 @@ class Qwen35Backend(NativeBackend):
         if engine.tokenizer_sha256!=expected:raise IntegrityError('Grammar tokenizer differs from Qwen model')
 
     def choose_legal(self,lease,mask):
-        values=self.logits(lease)
-        if len(mask)!=(self.vocab_size+7)//8:raise InvalidOperation('Invalid legal mask')
-        legal=[i for i in range(self.vocab_size) if mask[i>>3] & (1<<(i&7))]
-        if not legal:raise InvalidOperation('Empty grammar support')
-        return max(legal,key=values.__getitem__)
+        self._check(lease);data=C.create_string_buffer(mask,len(mask))
+        token=self.lib.ctt_choose_mask(lease,data,len(mask))
+        if token<0:raise InvalidOperation(self.lib.ctt_error().decode())
+        self.stats['sampling_calls']+=1;return token
 
     def sample_legal(self,lease,mask,temperature,min_p,draw53,*,top_k=0,top_p=1.0,**filters):
-        # Explicit host selection; COW owns RNG/parser state, native owns forwards.
-        # No claim of native GPU mask sampling or adaptive sampler support.
-        from .min_p import choose
+        self._check(lease)
         if filters:raise InvalidOperation('Qwen adapter has not qualified these sampler extensions')
-        return choose(self.logits(lease),mask,temperature=temperature,min_p=min_p,
-            draw53=draw53,top_k=top_k,top_p=top_p)['token']
+        if (type(top_k) is not int or top_k<0 or type(draw53) is not int or not 0<=draw53<2**53):
+            raise InvalidOperation('Invalid native sampler integers')
+        data=C.create_string_buffer(mask,len(mask))
+        token=self.lib.ctt_sample_mask_v2(lease,data,len(mask),temperature,min_p,draw53,top_k,top_p)
+        if token<0:raise InvalidOperation(self.lib.ctt_error().decode())
+        self.stats['sampling_calls']+=1;return token
 
     def work_counters(self):
         return dict(consumed_tokens=self.stats['consumed_tokens'],forward_tokens=self.stats['consumed_tokens'],forward_calls=self.stats['forward_calls'],
-            checkpoint_export_bytes=self.stats['checkpoint_export_bytes'],
+            sampling_calls=self.stats['sampling_calls'],checkpoint_export_bytes=self.stats['checkpoint_export_bytes'],
             checkpoint_import_bytes=self.stats['checkpoint_import_bytes'])
 
     def close(self):
