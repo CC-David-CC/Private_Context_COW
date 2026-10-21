@@ -545,7 +545,8 @@ class BranchingModel:
         if self.profile.get('backend')=='qwen35-llama.cpp':
             return self.run_sampled_request(snapshot,ids,max_steps,
                 sampling=dict(temperature=0,min_p=0,top_k=0,top_p=1,repetition_penalty=1),
-                stream=stream,on_token=on_token,cancelled=cancelled,paused=paused)
+                stream=stream,on_token=on_token,cancelled=cancelled,
+                artifacts=artifacts,reencode=reencode)
         if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
                 or execution.get('generated_operator') != 'normal-verifier-decode'
                 or execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'
