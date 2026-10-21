@@ -5418,3 +5418,8 @@ and request schedule. Do not relabel llama forwards as Flash verifier execution.
 
 
 2026-10-21 ? Preserve the failed greedy and old-grammar Min-P website runs. A completed CLI and its chosen checks did not establish artifact quality: the Min-P page included literal control-field names after HTML. BranchWrite fix/text-file-metadata-order emits finite controls before the lines payload and adds teaching; its 25 focused tests and actual greedy rerun passed. Do not generalize this single task to autonomous coding qualification. Restart ownership refusal was retained; no lock deletion or global policy change was used.
+
+
+## 2026-10-21 ? Qwen35 mixed image/text restart
+
+Executed native matching-schedule campaign passed at 128/4/8, 1024/64/16 and 8192/512/16 text-prefix/suffix/output limits, each with 48 actual CUDA-encoded image rows. 178 full-logit comparisons were byte-identical (max error 0); nine strict new-process restores evaluated zero saved-prefix tokens. Canonical controllers and parent/sibling checkpoint bytes matched. Transposed image-grid restoration was rejected and its lease poisoned. Derived state format v2 preserves distinct logical-cell and rotary cursors plus native input/position proofs; canonical history remains unchanged. Whole-state copy is used; no G3 physical-sharing or cumulative G1?G5 qualification. Normal image HTTP/CLI workflows remain to test. The initial probe quota-argument failure is retained separately. See runs/qwen35-mixed-restart-20261021.json.

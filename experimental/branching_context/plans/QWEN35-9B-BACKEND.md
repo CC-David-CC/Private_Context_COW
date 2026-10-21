@@ -63,3 +63,6 @@ No GitHub push in this bring-up; local work and private LAN backup are authorize
 llm-60 continues the Flash domain campaign. llm-49 GPU was idle with 24071 MiB free
 at initial inspection. The existing BranchWrite client/auditor processes on llm-49
 must remain untouched. Use a distinct server port and owned paths for this backend.
+
+
+Owner extension, 2026-10-21: after the Qwen9B path is working, add the discovered English research variant at /home/dflanag3/model-identity-rematch-codex-v0.1.0/work/english-v4-20261021/output/research-model.gguf and compare both on the same coding, PDF/CAD, fork/retry and restart workloads. Discovery only: 15942827936 bytes; qwen35, 32 layers, 4096 embedding, full-attention interval 4, BF16 label/file type 32, 127991 vocabulary entries. This is not the Qwen Q8 baseline (248320 vocabulary entries): separately fingerprint weights, tokenizer, control tokens, template, geometry, execution and checkpoint identities before use. Test against its own independent matching-batch oracle. Qwen Q8 versus research BF16 results compare complete configurations, not a controlled quantization-independent transformation. Retain original files. No GPU load or quality qualification has yet occurred for the research variant.

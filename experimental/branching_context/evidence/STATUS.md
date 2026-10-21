@@ -8072,3 +8072,8 @@ for this extension. The running VM baseline uses the previous committed adapter.
 
 
 2026-10-21 ? Real separate-VM BranchWrite text workflow passed with Qwen35 Q8 FP16: greedy website creation (45.0 s), desktop/mobile interaction and clean-page audits, observed server process restart, then forked follow-up (65.0 s) preserving the parent. First restarted request restored the 21,492-token saved history, imported 758,450,730 native bytes and evaluated exactly 2,253 new history/output tokens, with zero prefix work. See qwen35-9b-20261021/cli-website/summary.json. Native generation throughput was 69.69 TPS initial and 58.29 TPS follow-up; these exclude tool/state/publication time. CLI receipt replay also worked; changed-policy retry is not yet exercised. PDF/CAD/vision remain outstanding.
+
+
+## 2026-10-21 ? Qwen35 mixed image/text restart
+
+Executed native matching-schedule campaign passed at 128/4/8, 1024/64/16 and 8192/512/16 text-prefix/suffix/output limits, each with 48 actual CUDA-encoded image rows. 178 full-logit comparisons were byte-identical (max error 0); nine strict new-process restores evaluated zero saved-prefix tokens. Canonical controllers and parent/sibling checkpoint bytes matched. Transposed image-grid restoration was rejected and its lease poisoned. Derived state format v2 preserves distinct logical-cell and rotary cursors plus native input/position proofs; canonical history remains unchanged. Whole-state copy is used; no G3 physical-sharing or cumulative G1?G5 qualification. Normal image HTTP/CLI workflows remain to test. The initial probe quota-argument failure is retained separately. See runs/qwen35-mixed-restart-20261021.json.

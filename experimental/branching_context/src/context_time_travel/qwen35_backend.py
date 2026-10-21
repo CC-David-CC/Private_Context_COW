@@ -46,12 +46,14 @@ class _QwenLease:
         self.backend._release(self.pointer);self.pointer=None
 
 class Qwen35Backend(NativeBackend):
+    STATE_FORMAT="qwen35-hybrid-frontier-v1"
+    RESUME_CONTRACT="identical-native-batches-v1"
     def __init__(self,profile):
         e=profile['execution']
         if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype')!='FP16'
                 or e.get('sampling_location')!='native-cpu-frontier'
-                or e.get('state_format')!='qwen35-hybrid-frontier-v1'
-                or e.get('resume_contract')!='identical-native-batches-v1'
+                or e.get('state_format')!=self.STATE_FORMAT
+                or e.get('resume_contract')!=self.RESUME_CONTRACT
                 or type(e.get('capacity')) is not int or not 128<=e['capacity']<=262144
                 or type(e.get('prefill_chunk')) is not int or not 1<=e['prefill_chunk']<=e['capacity']
                 or type(e.get('threads')) is not int or e['threads']<1):
@@ -85,7 +87,7 @@ class Qwen35Backend(NativeBackend):
         return data.value.decode()
 
     def contract_fields(self):
-        return dict(attention='qwen35-hybrid-gdn-full-attention',state_kind='qwen35-hybrid-frontier-v1')
+        return dict(attention='qwen35-hybrid-gdn-full-attention',state_kind=self.STATE_FORMAT)
 
     def tokenize(self,text,*,add_special=True,parse_special=False):
         raw=text.encode();n=self.lib.ctt_tokenize(self.model,raw,len(raw),None,0,add_special,parse_special)
@@ -231,3 +233,10 @@ class Qwen35FreshOracle:
     def close(self):
         from .oracle import LlamaFreshOracle
         return LlamaFreshOracle.close(self)
+
+
+def load_qwen35_backend(profile):
+    if profile.get('execution',{}).get('state_format')=='qwen35-hybrid-mrope-frontier-v2':
+        from .qwen35_mixed_backend import Qwen35MixedBackend
+        return Qwen35MixedBackend(profile)
+    return Qwen35Backend(profile)

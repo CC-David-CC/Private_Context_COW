@@ -29,9 +29,11 @@ def supports_consumed_selection(profile):
     e=profile.get('execution',{})
     if e.get('selected_token_protocol')!='consumed-selected-receipt-v1':return False
     if profile.get('backend')=='qwen35-llama.cpp':
-        return (e.get('resume_contract')=='identical-native-batches-v1'
-            and e.get('generated_operator')=='llama-forward-consumed-v1'
-            and e.get('state_format')=='qwen35-hybrid-frontier-v1')
+        return (e.get('generated_operator')=='llama-forward-consumed-v1' and (
+            (e.get('resume_contract')=='identical-native-batches-v1' and e.get('state_format')=='qwen35-hybrid-frontier-v1') or
+            (e.get('resume_contract')==RESUME_CONTRACT and e.get('state_format')=='qwen35-hybrid-mrope-frontier-v2'
+             and e.get('vision_protocol')=='explicit-image-rows-mrope-v3'
+             and e.get('native_binding_protocol')=='qwen35-streamed-cells-mrope-v2')))
     return (e.get('resume_contract') in ('identical-native-operators-v1',RESUME_CONTRACT)
         and e.get('generated_operator')=='normal-verifier-decode')
 
@@ -249,8 +251,8 @@ class BranchingModel:
     def load_backend(profile):
         kind = profile.get('backend','llama.cpp')
         if kind == 'qwen35-llama.cpp':
-            from .qwen35_backend import Qwen35Backend
-            return Qwen35Backend(profile)
+            from .qwen35_backend import load_qwen35_backend
+            return load_qwen35_backend(profile)
         if kind == 'strata':
             from .strata_backend import StrataBackend
             return StrataBackend(profile)

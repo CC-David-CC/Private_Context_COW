@@ -24,10 +24,14 @@ def _make(a):
  hardware=dict(host=os.uname().nodename,gpu=subprocess.check_output(['nvidia-smi','--query-gpu=name,uuid,driver_version','--format=csv,noheader'],text=True).strip())
  eos=[md['tokenizer.ggml.tokens'].index(t) for t in ('<|endoftext|>','<|im_end|>') if t in md['tokenizer.ggml.tokens']]
  execution=dict(environment={'CUDA_VISIBLE_DEVICES':'0'},eos_tokens=eos,text_template_kwargs={'enable_thinking':True},generated_operator='llama-forward-consumed-v1',selected_token_protocol='consumed-selected-receipt-v1',sampling_protocol='full-vocab-min-p-u53-v2',sampling_location='native-cpu-frontier',capacity=a.context,prefill_chunk=a.batch,threads=a.threads,kv_dtype='FP16',flash_attention=True,state_format='qwen35-hybrid-frontier-v1',resume_contract='identical-native-batches-v1',cuda_cublas_compute_type=os.environ.get('GGML_CUDA_CUBLAS_COMPUTE_TYPE','auto'),nvidia_tf32_override=os.environ.get('NVIDIA_TF32_OVERRIDE','unset'),GPU=[0],physical_sharing=False,embedding_width=md['qwen35.embedding_length'])
+ mixed=build.get('state_format')=='qwen35-hybrid-mrope-frontier-v2'
+ if mixed:
+  execution.update(state_format=build['state_format'],resume_contract='identical-mixed-native-operators-v1',vision_protocol='explicit-image-rows-mrope-v3',native_binding_protocol=build['native_binding_protocol'])
  eid=hashlib.sha256(json.dumps(dict(build=build,execution=execution,hardware=hardware),sort_keys=True).encode()).hexdigest()
  contract=dict(weights_sha256=sha,architecture='qwen35',state_kind='qwen35-hybrid-frontier-v1',positions='absolute-zero-based',kv_dtype='FP16',input_kind='token_ids')
+ if mixed:contract.update(state_kind=build['state_format'],positions='qwen-image-grid-mrope-v1',input_kind='canonical-mixed-spans-v1')
  cid=hashlib.sha256(json.dumps(contract,sort_keys=True).encode()).hexdigest()
- profile=dict(backend='qwen35-llama.cpp',model_path=str(a.model.resolve()),model_weights_sha256=sha,model_contract_id=cid,execution_profile_id=eid,native_build=build,execution=execution,hardware=hardware,geometry=geometry,bridge_library=str((a.build/'libqwen35ctt.so').resolve()),oracle_binary=str((a.build/'qwen35-fresh-oracle').resolve()))
+ profile=dict(backend='qwen35-llama.cpp',model_path=str(a.model.resolve()),model_weights_sha256=sha,model_contract_id=cid,execution_profile_id=eid,native_build=build,execution=execution,hardware=hardware,geometry=geometry,bridge_library=str((a.build/'libqwen35ctt.so').resolve()),vocab_size=len(md['tokenizer.ggml.tokens']),oracle_binary=str((a.build/('qwen35-mixed-oracle' if mixed else 'qwen35-fresh-oracle')).resolve()))
  a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(profile,indent=2)+'\n');a.output.chmod(0o600);print(a.output);return profile
 def main():
  p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.add_argument('--build',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--context',type=int,default=16384);p.add_argument('--batch',type=int,default=512);p.add_argument('--threads',type=int,default=os.cpu_count());a=p.parse_args()
