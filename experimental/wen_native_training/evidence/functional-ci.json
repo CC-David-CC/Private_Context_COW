@@ -1,0 +1,289 @@
+{
+  "status": "FAIL",
+  "total": 55,
+  "baseline_passed": 15,
+  "candidate_passed": 0,
+  "repaired": [],
+  "regressed": [
+    {
+      "id": "preserve-ascii",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "preserve-ascii",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "preserve-ascii",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "preserve-ascii",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "preserve-ascii",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "preserve-identity",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "preserve-identity",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "preserve-identity",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "preserve-identity",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "preserve-identity",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "preserve-read-notes",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "preserve-read-notes",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "preserve-read-notes",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "preserve-read-notes",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "preserve-read-notes",
+      "guided": false,
+      "distance": 1048576
+    }
+  ],
+  "still_failing": [
+    {
+      "id": "heldout-writing-bytes",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": true,
+      "distance": 0
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": true,
+      "distance": 128
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": true,
+      "distance": 8192
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": true,
+      "distance": 65537
+    },
+    {
+      "id": "heldout-writing-bytes",
+      "guided": true,
+      "distance": 1048576
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": true,
+      "distance": 0
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": true,
+      "distance": 128
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": true,
+      "distance": 8192
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": true,
+      "distance": 65537
+    },
+    {
+      "id": "heldout-writing-tool",
+      "guided": true,
+      "distance": 1048576
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": true,
+      "distance": 0
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": true,
+      "distance": 128
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": true,
+      "distance": 8192
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": true,
+      "distance": 65537
+    },
+    {
+      "id": "train-writing-bytes",
+      "guided": true,
+      "distance": 1048576
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": false,
+      "distance": 0
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": false,
+      "distance": 128
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": false,
+      "distance": 8192
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": false,
+      "distance": 65537
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": false,
+      "distance": 1048576
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": true,
+      "distance": 0
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": true,
+      "distance": 128
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": true,
+      "distance": 8192
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": true,
+      "distance": 65537
+    },
+    {
+      "id": "train-writing-tool",
+      "guided": true,
+      "distance": 1048576
+    }
+  ],
+  "acceptance": "complete native BW task verdicts and actual tool/file effects",
+  "internal_math_used_for_acceptance": false,
+  "base_distribution_preservation": false
+}

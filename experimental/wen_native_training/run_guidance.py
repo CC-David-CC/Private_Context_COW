@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--distances',default='0')
     parser.add_argument('--max-new-tokens',type=int,default=256)
     parser.add_argument('--adapter',type=Path)
+    parser.add_argument('--diagnostic-controls',action='store_true',help='Optional score diagnostics; not a functional acceptance gate')
     args = parser.parse_args()
     sys.path.insert(0,str(args.bw_source.resolve()))
     args.run.mkdir(parents=True,exist_ok=False)
@@ -72,17 +73,18 @@ def main():
     save('manifest.json',dict(model_file=args.model.name,expected_model_sha256='49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34',
          source_commit=__import__('subprocess').check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip(),
          cases_sha256=hashlib.sha256(args.cases.read_bytes()).hexdigest(),profile=profile,
+         adapter_sha256=hashlib.sha256(args.adapter.read_bytes()).hexdigest() if args.adapter else None,
+         diagnostic_controls=args.diagnostic_controls,
          distances=distances,training=False,scope='known BW light-guidance evaluation; not independent multi-chunk composition'))
     with Probe(args.binary,args.model,args.run/'process',profile,args.gpu) as probe:
-        # Same-schedule instrumentation must not manufacture different logits.
-        case,guided,ids,boundary = prepared[0]
-        assert probe.tokenize(template.render(case['messages'],enable_thinking=False)) == ids
-        traced,_,_ = probe.forward(ids)
-        untraced,_,_ = probe.forward(ids,capture=False)
-        controls = dict(traced_untraced_exact=bool(np.array_equal(traced,untraced)),
-                        traced_untraced_max_abs=float(np.max(np.abs(traced-untraced))))
-        save('controls.json',controls)
-        assert controls['traced_untraced_exact'], 'Trace perturbed native logits'
+        if args.diagnostic_controls:
+            case,guided,ids,boundary = prepared[0]
+            assert probe.tokenize(template.render(case['messages'],enable_thinking=False)) == ids
+            traced,_,_ = probe.forward(ids)
+            untraced,_,_ = probe.forward(ids,capture=False)
+            controls = dict(traced_untraced_exact=bool(np.array_equal(traced,untraced)),
+                            traced_untraced_max_abs=float(np.max(np.abs(traced-untraced))))
+            save('controls.json',controls)
         for case,guided,ids,boundary in prepared:
             for distance in distances:
                 positions = [i+(distance if i >= boundary else 0) for i in range(len(ids))]

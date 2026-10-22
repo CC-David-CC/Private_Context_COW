@@ -7,9 +7,14 @@ must remain explicitly recorded.**
 
 ## Objective
 
-Train the computation COW actually executes. A PyTorch model with matching logits
-is not a prerequisite. PyTorch autograd may be an independent small-operation
-gradient oracle; it is not the source of the native forward or training scores.
+This branch records a completed native output-head training experiment. **The
+candidate failed full-response BW evaluation and must not be promoted.** The
+next training pipeline uses PyTorch for training and Strata/COW for evaluation.
+Only complete task outcomes and actual tool/file effects determine acceptance;
+matching internal scores or reducing selected-token loss does not qualify a model.
+
+The original experiment trained the computation COW executes. PyTorch autograd
+served only as an optional independent small-operation gradient oracle.
 
 The model is the published `davidflanagancomm/Wen` file `Wen-1.1-BF16.gguf`,
 revision `7328e9fab25b207523b5236aa29c81be24eed924`, SHA-256
@@ -145,8 +150,8 @@ Eight CPU algebra/finite-difference tests pass on Windows and Linux. The initial
 native probe compiles against the pinned CUDA runtime. Its portable head backward
 passes small-operation finite differences: maximum absolute A/B gradient errors
 are approximately 4.57e-8 and 1.67e-8; the zero-B control passes. These tests do not
-qualify native Wen, the whole recurrent backward, million-position inference or
-held-out BW learning. Native forward/training qualification is pending.
+qualify the whole recurrent backward, million-position inference or held-out BW
+learning. The completed native forward/training experiment is recorded below.
 
 The first native light-guidance run on A100 uses one fixed YaRN factor of four,
 8,192 physical context slots, FP16 KV/Flash attention and 64-token prefill chunks.
@@ -156,6 +161,36 @@ hint (0/4 in each group), still omitting the outer JSON brace. Word counts are
 checked separately and also remain a concern. This is not a newly discovered
 out-of-distribution skill; it reproduces observed BW behavior under this
 experimental profile. No training occurred in that guidance run.
+
+### Final full-response decision: FAIL
+
+One accepted native output-head LoRA step reduced mixed boundary-token loss from
+4.920870 to 3.865171. That diagnostic gain did not translate into useful behavior.
+The candidate was saved and reloaded as a separate adapter, without baking it
+into the base weights. Its SHA-256 is
+`10fc308a33c6bb2d44eae4966de6c92fc6017d4b6e46e1df8da79991e668193c`.
+
+On llm-60, both base and candidate completed the same 55 full-response trials:
+seven unguided BW cases and four lightly guided writing cases, each at logical
+gaps 0, 128, 8192, 65537 and 1048576. The base passed 15/55; the candidate passed
+0/55, with 15 functional regressions and no repairs. It generated trailing content
+after JSON and repeated closing braces, so the real BW tool registry rejected
+those actions. Neither native loss nor logit parity overrides that result.
+The aggregate, answer-free receipt is `evidence/functional-ci.json`. Private
+prompts, completions, adapters and raw traces remain outside the repository.
+
+`functional_ci.py` compares complete paired task verdicts and fails closed on
+empty, missing or duplicate coverage. Its four unit tests pass. The suite requires
+every requested task to pass; baseline failures are not treated as successes.
+`run_guidance.py --diagnostic-controls` optionally records internal observations;
+they are excluded from functional acceptance. There is no requirement to preserve
+the base model's output distribution. Functional regressions still count.
+
+No further native backward work is planned in this branch. Use PyTorch to learn
+candidate adapters, then evaluate their complete responses through Strata/COW.
+Any future candidate must pass functional checks after save/reload and on held-out
+tasks before promotion. Training and evaluation processes are closed after use;
+this experiment does not install a persistent service.
 
 The conceptual references are [RoFormer](https://arxiv.org/abs/2104.09864),
 [YaRN](https://arxiv.org/abs/2309.00071), and
