@@ -67,7 +67,7 @@ def _make_profile(args,output):
             raise ValueError("Dense Qwen does not use a Flash expert pack/profile")
         from experimental.branching_context.scripts.prepare_qwen35_profile import make_profile as qwen_profile
         profile=qwen_profile(model,args.native.resolve(strict=True).parent,output/"profile.json",
-            args.context,args.prefill,os.cpu_count(),gpus=getattr(args,'gpu',None))
+            args.context,args.prefill,getattr(args,'threads',os.cpu_count()),gpus=getattr(args,'gpu',None))
         if Path(profile["bridge_library"]).resolve()!=args.native.resolve():
             raise ValueError("--native must select the built Qwen bridge library")
         vision=args.vision_config
@@ -211,6 +211,7 @@ def main():
     parser.add_argument("--reuse-model-receipt",type=Path,help="Optional trusted prior hash receipt; changed file stamps force hashing.")
     parser.add_argument("--context",type=int,default=98304)
     parser.add_argument("--prefill",type=int,default=512)
+    parser.add_argument('--threads',type=int,default=os.cpu_count(),help='CPU threads per dense worker')
     parser.add_argument("--resident-gib",type=int,default=40)
     parser.add_argument("--vram-reserve-mib",type=int,default=8192)
     parser.add_argument("--ram-gib",type=int,default=48)
@@ -219,7 +220,7 @@ def main():
     parser.add_argument("--host",default="127.0.0.1")
     parser.add_argument("--port",type=int,default=8099)
     args=parser.parse_args()
-    if min(args.context,args.prefill,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib,args.min_available_gib)<=0:
+    if min(args.context,args.prefill,args.threads,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib,args.min_available_gib)<=0:
         parser.error("Context, batch and pool sizes must be positive.")
     if not 1<=args.port<=65535: parser.error("Invalid port.")
     os.umask(0o077)
