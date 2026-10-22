@@ -8220,3 +8220,12 @@ separate pre-projection residual remains untraced. The shared forward rejects
 gradient-enabled calls and has no qualified backward. Source/binary hashes and
 layer measurements are in validation/wen-precision-20261022/layer-trace.json.
 Historical status content above this addition is preserved byte-for-byte.
+
+A subsequent focused inspection identifies SiLU as the first one-token internal
+recurrent-block divergence: raw convolution exact; post-SiLU max 0.000000476837.
+Identical-input native and strict compiler controls isolate fast exponential and
+approximate division; disabling flushing alone changes no outputs on this case.
+Strict SiLU matches PyTorch exactly on 8192 values. The published F32 reference
+build still uses native fast math for elementary functions; whole-model strict
+arithmetic and independent downstream recurrence/gated-norm contributions remain
+unqualified. See activation-trace.json and the expanded cross-runtime report.

@@ -65,3 +65,11 @@ short inference probes.
 
 The layer trace, isolated norm replay, head-order control and LoRA acceptance
 requirements are documented in [WEN-CROSS-RUNTIME-NUMERICS.md](WEN-CROSS-RUNTIME-NUMERICS.md).
+
+The current CUDA build still compiles elementary functions with `-use_fast_math`,
+including under `f32-reference`. This profile pins F32 products/attention/KV and
+disables TF32; it does not promise strict IEEE arithmetic throughout the model.
+An isolated strict SiLU control matches PyTorch exactly, while the native fast
+helper does not. A complete strict serving build has not yet been qualified.
+See the cross-runtime report's focused activation section and its compiler
+factor controls before interpreting a dtype as an arithmetic guarantee.

@@ -63,3 +63,10 @@ normalization replay, the diagnostic shared-native-norm experiment and a
 head-order projection replay. The first norm becomes exact when its forward
 kernel is shared, but the final model does not. No backward or training path was
 promoted by that diagnostic.
+
+The follow-up `activation-trace.json` shows that convolution is exact and the
+first one-token recurrent-block divergence appears at SiLU. An identical-input
+helper replay isolates native fast-math exponential/division choices. Removing
+fast math yields exact PyTorch SiLU output on all 8192 values. Both observers
+preserve logits. Independent downstream recurrence/gated-norm contributions,
+and whole-model strict arithmetic, remain unqualified.
