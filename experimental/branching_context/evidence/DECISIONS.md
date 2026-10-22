@@ -5505,3 +5505,15 @@ were verified/reused; weights were not rehashed in this process.
 AMD remains unqualified. llm-79 has an idle RX 7900 XTX and HIP tools, but its
 existing llama.cpp build is at another revision and cannot substitute for our pin.
 No additional PDF/CAD model capability retries were run.
+
+
+## Isolated HIP runtime bring-up, 2026-10-21
+
+Branch feat/qwen35-9b-hip uses an isolated clean llama.cpp pin on llm-79.
+Profile preparation now selects observed hardware from the actually pinned CUDA
+or HIP library identity; CPU-only or ambiguous builds are rejected. Existing CUDA
+metadata/environment fields are preserved in CPU admission tests. Initial HIP
+scope is one AMD GPU at card0, with independent model/execution identities.
+Nine CPU hardware admission cases, G0 51 and adapter units 13 passed. Mocked
+inventory responses are not GPU evidence. Native HIP build and execution remain
+unqualified until actual compiled artifacts and numerical runs complete.

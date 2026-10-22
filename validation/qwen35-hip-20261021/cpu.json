@@ -1,0 +1,22 @@
+{
+  "status": "CPU_ADMISSION_PASS_GPU_PENDING",
+  "hardware_admission": {
+    "tests": 9,
+    "failures": 0,
+    "skips": 0,
+    "mocked_command_responses": true,
+    "not_gpu_qualification": true
+  },
+  "g0": {
+    "tests": 51,
+    "failures": 0,
+    "skips": 0
+  },
+  "adapter_units": {
+    "tests": 13,
+    "failures": 0,
+    "skips": 0
+  },
+  "native_pin": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "scope": "single AMD card0, separately fingerprinted HIP profile; no native inference pass yet"
+}
