@@ -15,14 +15,19 @@ import time
 import uuid
 
 
-def task_prompt(case):
+def task_prompt(case, guidance=False):
     task = case['task']
     for phrase in ('Choose the write action now; read it back afterward.',
                    'The current file has already been read in the actual feedback below. Choose the edit action now.',
                    'Choose the file-write action now.'):
         task = task.replace(phrase, '')
+    note = ('\n\nBefore finishing: a JSON array of lines in a task describes individual file lines; '
+            'do not write the array brackets or string quotes. Check the actual saved file bytes. '
+            'For a word limit, count with whitespace splitting using a tool, revise if needed, and '
+            'check again. A repeated unchanged failed check is not progress.') if guidance else ''
     return ('Work only in the current workspace. Use your available file or terminal tools to complete '
-            'the task, verify the actual result, and then report briefly. Do not merely propose a change.\n\n'+task.strip())
+            'the task, verify the actual result, and then report briefly. Do not merely propose a change.\n\n'
+            + task.strip() + note)
 
 
 def verdict(case, workspace, log):
@@ -30,10 +35,9 @@ def verdict(case, workspace, log):
     if not path.is_file() or path.is_symlink(): return dict(passed=False, error='Missing regular task file')
     actual = path.read_bytes()
     if case['kind'] == 'read':
-        # A read task is accepted only if the response reports the observed
-        # fixture, not merely because our fixture exists. Runner traces remain
-        # available to distinguish explicit tool reads from preloaded context.
-        passed = actual == b'value = 1\n' and 'value' in log and '1' in log
+        # Read-only cases need a runner-specific trace oracle. File presence or
+        # matching words in a log do not prove the model read through its tools.
+        return dict(passed=False, error='Read-only tool-trace oracle is not qualified in this pilot')
     elif case['kind'] == 'edit':
         try:
             passed = (ast.dump(ast.parse(actual)) == ast.dump(ast.parse(case['expected']))
@@ -67,9 +71,9 @@ def sandbox(root, trial, environment, command):
     return argv+['--']+command
 
 
-def command_for(runner, root, trial, model, endpoint, key, case):
+def command_for(runner, root, trial, model, endpoint, key, case, guidance=False):
     home = trial/'home'; home.mkdir()
-    (home/'task.txt').write_text(task_prompt(case), encoding='utf-8')
+    (home/'task.txt').write_text(task_prompt(case, guidance), encoding='utf-8')
     env = dict(WEN_COMPAT_API_KEY=key)
     if runner == 'codex':
         config = home/'codex'; config.mkdir()
@@ -105,12 +109,12 @@ stream_max_retries = 0
         (home/'opencode.json').write_text(json.dumps(config))
         env.update(OPENCODE_CONFIG='/tmp/runner-home/opencode.json', OPENCODE_DISABLE_AUTOUPDATE='true',
                    OPENCODE_DISABLE_SHARE='true', OPENCODE_DISABLE_DEFAULT_PLUGINS='true')
-        cmd = [str(root/'bin/opencode'), 'run', '--pure', '--format', 'json', '-m', 'wen/'+model, task_prompt(case)]
+        cmd = [str(root/'bin/opencode'), 'run', '--pure', '--format', 'json', '-m', 'wen/'+model, task_prompt(case, guidance)]
     elif runner == 'hermes':
         config = home/'hermes'; config.mkdir()
         # Config is JSON, a YAML subset, avoiding a benchmark-only YAML dependency.
         (config/'config.yaml').write_text(json.dumps(dict(model=dict(default=model, provider='custom',
-            base_url=endpoint, context_length=65536), agent=dict(max_turns=8, reasoning_effort='none'),
+            base_url=endpoint, context_length=65536), agent=dict(max_turns=8, reasoning_effort='none', run_budget_seconds=180),
             terminal=dict(backend='local', cwd='/tmp/work'), compression=dict(enabled=False),
             memory=dict(memory_enabled=False), platform_toolsets=dict(cli=['terminal', 'file']))))
         env.update(HERMES_HOME='/tmp/runner-home/hermes', TERMINAL_CWD='/tmp/work', OPENAI_API_KEY=key,
@@ -118,7 +122,7 @@ stream_max_retries = 0
         cmd = [str(root/'tools/hermes-venv/bin/hermes'), 'chat', '--oneshot', '--query-file', '/tmp/runner-home/task.txt',
                '--provider', 'custom', '--base-url', endpoint, '--api-key', key, '-m', model,
                '--toolsets', 'terminal,file', '--ignore-rules', '--format', 'stream-json',
-               '--max-turns', '8', '--run-budget', '180']
+               '--max-turns', '8']
     elif runner == 'aider':
         env.update(OPENAI_API_KEY=key, OPENAI_API_BASE=endpoint, AIDER_ANALYTICS='false',
                    LITELLM_LOCAL_MODEL_COST_MAP='True')
@@ -138,6 +142,7 @@ def main():
     p.add_argument('--runners', default='codex,opencode,hermes,aider')
     p.add_argument('--ids', default='preserve-ascii,preserve-identity,train-writing-tool,heldout-writing-tool')
     p.add_argument('--timeout', type=int, default=240)
+    p.add_argument('--guidance', action='store_true', help='Separate procedural-hint arm; never includes oracle answers')
     a = p.parse_args(); a.run.mkdir(parents=True, exist_ok=False)
     all_cases = json.loads(a.cases.read_text(encoding='utf-8')); wanted = a.ids.split(',')
     cases = {c['id']:c for c in all_cases}; assert set(wanted) <= cases.keys()
@@ -150,12 +155,12 @@ def main():
             elif case['kind'] == 'read': (workspace/case['path']).write_bytes(b'value = 1\n')
             session = uuid.uuid4().hex
             session_endpoint = a.endpoint.removesuffix('/v1')+'/sessions/'+session+'/v1'
-            argv = command_for(runner, a.root, trial, a.model, session_endpoint, key, case)
+            argv = command_for(runner, a.root, trial, a.model, session_endpoint, key, case, a.guidance)
             started = time.monotonic(); timeout = False
             with (trial/'runner.log').open('w') as log:
                 process = subprocess.Popen(argv, stdin=subprocess.PIPE, stdout=log, stderr=subprocess.STDOUT,
                                            text=True, start_new_session=True)
-                try: process.communicate(task_prompt(case) if runner=='codex' else None, timeout=a.timeout)
+                try: process.communicate(task_prompt(case, a.guidance) if runner=='codex' else None, timeout=a.timeout)
                 except subprocess.TimeoutExpired:
                     timeout = True; os.killpg(process.pid, signal.SIGTERM)
                     try: process.wait(timeout=10)
@@ -167,6 +172,7 @@ def main():
             row = dict(runner=runner, model=a.model, id=name, seconds=time.monotonic()-started,
                        exit_code=process.returncode, timeout=timeout, completed=completed,
                        session=session, model_request_limit=8, output_limit_per_request=2048,
+                       guidance=a.guidance,
                        budget_exhausted='Session model-request budget exhausted' in log,
                        verdict=check, passed=completed and check['passed'])
             rows.append(row); (a.run/'results.json').write_text(json.dumps(rows, indent=2)+'\n')

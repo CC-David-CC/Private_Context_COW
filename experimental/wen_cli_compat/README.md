@@ -62,6 +62,21 @@ native tools/prompt format; feeding every runner BW's controller schema would
 measure the wrong thing. Infrastructure failures are distinct from model/task
 failures. Only complete responses and actual filesystem effects decide success.
 
+The initial pilot covers literal file creation, a code repair, and two previously
+failing writing tasks. Read-only tool-trace acceptance is not qualified here.
+Every CLI gets at most eight model requests per task through an explicit
+`/sessions/<id>/v1` endpoint, at most 2048 output tokens per request, and a wall
+timeout. The ordinary `/v1` endpoint is also supported. Reaching the budget is a
+failed completed-task attempt, not a protocol setup failure or evidence that a
+larger budget cannot help. Five CPU cache/budget tests pass.
+
+`benchmark.py --guidance` is a separate opt-in arm: clarify array-of-lines
+semantics, check actual saved bytes, count words with a tool, and revise rather
+than repeat an unchanged failed check. It contains no target paragraph or hidden
+answer and never changes permissions. Baseline prompts/results stay immutable.
+Hermes 0.22.4's gateway-backed chat rejects the advertised `--run-budget` option;
+the harness supplies `agent.run_budget_seconds` in the isolated config instead.
+
 Official provider references: [OpenAI Docs configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference),
 [Hermes custom endpoint quickstart](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart),
 [OpenCode v1 providers](https://opencode.ai/docs/providers/),
