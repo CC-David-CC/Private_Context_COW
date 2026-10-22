@@ -1,0 +1,7 @@
+# Isolated optional trainer. Ordinary COW inference does not import these.
+torch==2.14.1
+transformers==5.20.2
+peft==0.21.2
+gguf==0.19.0
+safetensors==0.8.0
+accelerate==1.15.0
