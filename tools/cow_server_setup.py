@@ -82,6 +82,7 @@ def _make_profile(args,output):
             disk_gib=args.disk_gib,min_available_gib=args.min_available_gib,checkpoint_idle_seconds=1800)
         if vision is not None:configuration['vision_config']=str(vision)
         if getattr(args,'ephemeral',False):configuration['ephemeral']=True
+        if getattr(args,'scheduling','fifo')!='fifo':configuration['scheduling']=args.scheduling
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
     if args.pack is None:raise ValueError("Flash requires --pack")
@@ -181,6 +182,7 @@ def _make_profile(args,output):
             raise ValueError("--vision-config requires an existing absolute regular file")
         server_config["vision_config"]=str(path)
     if getattr(args,'ephemeral',False):server_config['ephemeral']=True
+    if getattr(args,'scheduling','fifo')!='fifo':server_config['scheduling']=args.scheduling
     write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
@@ -206,6 +208,8 @@ def main():
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--gpu",type=parse_gpus,help='Physical PCI GPU IDs: 4 or 4,6 for independent workers. Grouped native checkpoints remain unsupported. Omit to preserve GPU 0 defaults.')
     parser.add_argument('--ephemeral',action='store_true',help='Use temporary session history/checkpoints and remove them on server exit')
+    parser.add_argument('--scheduling',choices=('fifo','weighted-prefix'),default='fifo',
+        help='Shared-prefix, backlog-weighted queue admission; default preserves FIFO')
     parser.add_argument("--expert-profile",type=Path)
     parser.add_argument("--vision-config",type=Path,help="Optional existing pinned image-producer configuration; omit for text/restore-only serving.")
     parser.add_argument("--reuse-model-receipt",type=Path,help="Optional trusted prior hash receipt; changed file stamps force hashing.")

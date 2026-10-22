@@ -1,3 +1,7 @@
+2026-10-22: opt-in weighted-prefix admission CPU controls and G0 pass. See
+[WEIGHTED-PREFIX-20261022.md](WEIGHTED-PREFIX-20261022.md). GPU queue throughput,
+Wen trainable-import numerical comparison and LoRA integration remain pending.
+
 SC18 completed: lost real-Q8 completion ACK recovered by new installeddev17 CLI process with exact output,unchanged ledger andzero forwardwork. New interval repair passed12original methods plus1000independent generated cases;review/export/apply/retry/offline resume passed. Initial audit discovery error retained and corrected only in isolated audit copies. Server/native exited0,keys/credentials retired,GPUidle. See sc18-complete evidence.
 
 SC18 ACTIVE: installeddev17 on llm-49 recovered a deliberately lost real-Q8 completion ACK. Exact output recovered,workflow ledger unchanged,native forward1232before/after (delta0). Autonomous interval repair is still running; no final coding PASS. Server704188/native704194 on llm-60 GPU0.

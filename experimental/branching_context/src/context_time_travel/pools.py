@@ -131,8 +131,11 @@ class PoolConfig:
     disk_bytes: int = 64 * 1024**3
     min_available_bytes: int = 16 * 1024**3
     checkpoint_idle_seconds: int | float | None = None
+    scheduling: str = 'fifo'
 
     def __post_init__(self):
+        if self.scheduling not in ('fifo','weighted-prefix'):
+            raise ValueError('Unknown checkpoint-pool scheduling policy')
         ids = normalize_gpu_selection(self.gpus)
         object.__setattr__(self,'gpus',ids)
         for name in ('ram_bytes','disk_bytes','min_available_bytes'):

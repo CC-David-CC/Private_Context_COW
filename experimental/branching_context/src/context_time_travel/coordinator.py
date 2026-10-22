@@ -26,6 +26,7 @@ from .presentation_request import detach_request, request_digest, binding_for_sn
 from .strata_backend import StrataImage
 from .input_spans import InputHistory, history_for_snapshot, history_segment, history_digest, generated_text
 from .grammar_first import _valid_name as _valid_grammar_state_name
+from .prefix_scheduler import order_jobs, select_worker
 
 
 class Request:
@@ -79,6 +80,8 @@ class _Job:
     input_preparer_identity: str | None = None
     input_admission: object = None
     input_artifacts: object = None
+    prefill_key: str | None = None
+    prefill_claim: str | None = None
 
 
 @dataclass
@@ -130,6 +133,9 @@ class ContextCoordinator:
         self._requests = {}
         self._input_preparations = {}
         self._branches = set()
+        self._prefills = {}
+        self._active_groups = {}
+        self._service_rate = {}
         self._workers = {gpu:dict(queue=queue.Queue(),ready=Future(),busy=False,model=None,
             active=0,max_active=0,last_root=None,health='starting',restarts=0,
             failure_reason=None,model_contract_id=None,execution_profile_id=None)
@@ -1207,6 +1213,7 @@ class ContextCoordinator:
                     job.source_lease.enter_context(bound.read_lease(lease_head.tip))
                 except BaseException as exc:
                     self._fail(job,exc);raise
+            self._set_prefill_key(job)
             self._pending.append(job)
             self._condition.notify_all()
             return handle
@@ -1301,6 +1308,7 @@ class ContextCoordinator:
                     presentation=presentation,input_request=detached,input_preparer_identity=identity,
                     input_admission=admission)
                 self._input_preparations[id(handle)]=job
+                self._set_prefill_key(job)
                 self._pending.append(job);self._condition.notify_all()
             while True:
                 try:
@@ -1660,6 +1668,34 @@ class ContextCoordinator:
         if type(accepted) is not bool: raise InvalidOperation('Backend compatibility must return a boolean')
         return accepted
 
+    def _set_prefill_key(self,job):
+        if self.config.scheduling != 'weighted-prefix':return
+        head=job.source_head or job.head
+        if head is not None:
+            value=('snapshot',head.tip)
+        elif job.input_request is not None:
+            value=('prepared-root',job.input_preparer_identity,job.input_request)
+        else:
+            # InputHistory retains image/position identities; tokens alone
+            # must never stand in for a mixed-input prefill.
+            value=('root',job.ids.spans if isinstance(job.ids,InputHistory) else list(job.ids))
+        job.prefill_key=hashlib.sha256(_json_bytes(value)).hexdigest()
+
+    def _release_prefill(self,job):
+        with self._condition:
+            key=job.prefill_claim
+            if key is not None and self._prefills.get(key)==job.request.operation:
+                del self._prefills[key]
+            job.prefill_claim=None
+            self._condition.notify_all()
+
+    def _needs_prefill_claim(self,job,model):
+        if job.kind=='create':return True
+        if job.kind!='request':return False
+        source=(job.source_head or job.head).tip
+        return (self._key(model,source) not in self.pool
+            and not os.path.lexists(model.checkpoint_directory/(source+'.json')))
+
     def _dispatch(self):
         while True:
             lookahead = None
@@ -1675,9 +1711,19 @@ class ContextCoordinator:
                     for job in tuple(self._pending):
                         self._pending.remove(job)
                         self._fail(job,InvalidOperation('Native worker unavailable'))
-                for job in tuple(self._pending):
-                    if not idle: break
+                ordered=(order_jobs(self._pending,self._active_groups,now=time.monotonic())
+                    if self.config.scheduling=='weighted-prefix' else tuple(self._pending))
+                for job in ordered:
+                    if (self.config.scheduling=='weighted-prefix' and job.cancelled is not None
+                            and job.cancelled()):
+                        self._pending.remove(job)
+                        self._fail(job,CancelledError('Queued request cancelled'),release_branch=False)
+                        continue
+                    if not idle:
+                        if self.config.scheduling=='weighted-prefix':continue
+                        break
                     if job.branch in self._branches: continue
+                    if job.prefill_key in self._prefills:continue
                     try:
                         compatible = [gpu for gpu,w in self._workers.items()
                             if w['health']=='healthy' and w['model'] is not None
@@ -1691,9 +1737,15 @@ class ContextCoordinator:
                     eligible = [gpu for gpu in idle if gpu in compatible]
                     if not eligible: continue
                     warm = [gpu for gpu in eligible if job.head and job.head.tip in self._workers[gpu]['model'].cache]
-                    gpu = (warm or eligible)[0]
+                    gpu = (select_worker(eligible,warm,self._service_rate)
+                        if self.config.scheduling=='weighted-prefix' else (warm or eligible)[0])
                     idle.remove(gpu);self._pending.remove(job)
                     w = self._workers[gpu];w['busy'] = True
+                    if self.config.scheduling=='weighted-prefix':
+                        self._active_groups[job.prefill_key]=self._active_groups.get(job.prefill_key,0)+1
+                        if self._needs_prefill_claim(job,w['model']):
+                            self._prefills[job.prefill_key]=job.request.operation
+                            job.prefill_claim=job.prefill_key
                     self._branches.add(job.branch)
                     job.request.state = 'loading'
                     w['queue'].put(job)
@@ -1876,10 +1928,44 @@ class ContextCoordinator:
             job.request.emit('source_recomputed',source_snapshot=source,
                 prefix_history_tokens=len(history),prefix_forward_tokens=actual_prefix,
                 prefix_consumed_tokens=actual_consumed,schedule_sha256=result['schedule_sha256'])
+            if job.prefill_claim is not None:
+                self._share_rebuilt_source(model,job,source)
             return result,after_rebuild
         except BaseException as error:
             job.request.emit('source_recomputation_failed',source_snapshot=source,error=str(error))
             raise
+
+    def _share_rebuilt_source(self,model,job,source):
+        """Publish derived source bytes once before releasing waiting slots.
+
+        No branch/controller move is performed. Source read leases and all
+        capture, writer and transfer extents use the existing pool accounting.
+        """
+        saved=model.cache[source]
+        estimate=3*len(saved.blob)+8*len(saved.frontier)
+        self._headroom()
+        with self.pool.reserve(estimate,timeout=self._admission_timeout) as reservation:
+            prepared=model.prepare_checkpoint(source)
+            key=self._key(model,source)
+            reservation.admit(key,prepared.checkpoint,durable=False)
+        with self.pool.pin(key):
+            size=checkpoint_bytes(prepared.checkpoint)
+            scratch=2*min(8*1024*1024,size)+4*len(prepared.checkpoint.frontier)
+            try:
+                with self.pool.reserve(scratch,timeout=self._admission_timeout):
+                    with self.disk.reserve(len(prepared.envelope),timeout=self._admission_timeout,
+                            payload_sha256=prepared.checkpoint.checksum) as disk_reservation:
+                        if not (self.disk.directory/(prepared.checkpoint.checksum+'.state')).exists():
+                            disk_reservation.grow(size,timeout=self._admission_timeout)
+                        model.publish_prepared_checkpoint(prepared)
+                        self.disk.touch(source)
+                self.pool.mark_durable(key)
+            except BaseException:
+                self.pool.mark_failed(key)
+                raise
+        job.request.emit('source_checkpoint_shared',source_snapshot=source,
+            checkpoint_bytes=size)
+        self._release_prefill(job)
 
     def _run(self,model,job):
         if job.cancelled is not None and job.cancelled():
@@ -2081,6 +2167,7 @@ class ContextCoordinator:
             self.pool.record_transition('request_source_acquired',key,
                 operation_id=job.request.operation,branch=job.branch,source_snapshot=source,
                 source_kind='model_cache')
+            if job.prefill_claim is not None:self._share_rebuilt_source(model,job,source)
             answer = execute()
         else:
             recomputation=None
@@ -2242,6 +2329,9 @@ class ContextCoordinator:
                 key=None
                 publication_handoff=False
                 replace_after_job=False
+                if self.config.scheduling=='weighted-prefix':
+                    service_started=time.monotonic()
+                    service_before=model.backend.work_counters().get('forward_tokens',0)
                 try:
                     w['active'] += 1;w['max_active'] = max(w['max_active'],w['active'])
                     bound = model if job.principal is None else model.for_principal(job.principal)
@@ -2269,6 +2359,9 @@ class ContextCoordinator:
                         prepared = bound.prepare_checkpoint(sid)
                         key = self._key(model,sid)
                         reservation.admit(key,prepared.checkpoint,durable=False)
+                    # The immutable bytes are now admitted and can be restored
+                    # by another independent slot while this branch publishes.
+                    self._release_prefill(job)
                     answer['capture_seconds']=time.monotonic()-capture_started
                     answer['ram_reservation_bytes']=estimate
                     # Protect canonical records across publication and GC. No
@@ -2348,6 +2441,15 @@ class ContextCoordinator:
                     # blocked waiting for the next queued job.
                     prepared=pin=lease=None
                     with self._condition:
+                        self._release_prefill(job)
+                        if self.config.scheduling=='weighted-prefix':
+                            count=self._active_groups.get(job.prefill_key,1)-1
+                            if count:self._active_groups[job.prefill_key]=count
+                            else:self._active_groups.pop(job.prefill_key,None)
+                            work=model.backend.work_counters().get('forward_tokens',0)-service_before
+                            if work>0:
+                                sample=(time.monotonic()-service_started)/work
+                                self._service_rate[gpu]=.75*self._service_rate.get(gpu,sample)+.25*sample
                         w['active'] -= 1
                         if not replace_after_job: w['busy'] = False
                         self._condition.notify_all()
@@ -2470,6 +2572,7 @@ class ContextCoordinator:
         stopped = isinstance(exc,CancelledError) and not job.request.snapshot.done()
         job.request.state = 'cancelled' if stopped else 'failed'
         with self._condition:
+            self._release_prefill(job)
             self._release_source(job)
             if stopped: self._cancelled += 1
             else: self._failed += 1
@@ -2753,6 +2856,13 @@ class ContextCoordinator:
                 failure_reason=w['failure_reason'],active=w['active'],max_active=w['max_active'],
                 pid=getattr(getattr(getattr(w.get('model'),'backend',None),'process',None),'pid',None))
                 for gpu,w in self._workers.items()}
+            result['scheduling']=dict(policy=self.config.scheduling,
+                inflight_prefills=len(self._prefills),
+                waiting_on_prefill=sum(job.prefill_key in self._prefills for job in self._pending),
+                queued_per_prefill={key:sum(job.prefill_key==key for job in self._pending)
+                    for key in {job.prefill_key for job in self._pending} if key is not None},
+                active_per_prefill=dict(self._active_groups),
+                seconds_per_forward_token={worker_key(gpu):rate for gpu,rate in self._service_rate.items()})
             return result
 
     def close(self):

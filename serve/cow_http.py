@@ -793,7 +793,8 @@ def pool_config_from_args(args,profile=None):
         raise ValueError('The serving memory-headroom guard must be positive')
     return PoolConfig(gpus=profile['execution']['GPU'] if profile is not None else (0,),ram_bytes=args.ram_gib*1024**3,
         disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
-        checkpoint_idle_seconds=args.checkpoint_idle_seconds)
+        checkpoint_idle_seconds=args.checkpoint_idle_seconds,
+        scheduling=getattr(args,'scheduling','fifo'))
 
 
 def main():
@@ -803,6 +804,8 @@ def main():
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=8099)
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
+    parser.add_argument('--scheduling',choices=('fifo','weighted-prefix'),default='fifo',
+        help='Opt in to shared-prefill admission with backlog weights and bounded-wait aging')
     parser.add_argument('--min-available-gib',type=int,default=16,help='Positive host RAM headroom; guided setup sizes this for the server.')
     parser.add_argument('--checkpoint-idle-seconds',type=float,
         help='Expire unused eligible RAM/disk checkpoint copies; testing: 1800, production example: 10800. Omit to disable.')

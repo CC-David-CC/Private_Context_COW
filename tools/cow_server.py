@@ -77,6 +77,8 @@ def configured_argv(directory,config,key):
               "--min-available-gib",str(config.get("min_available_gib",16)),
               "--checkpoint-idle-seconds",str(config["checkpoint_idle_seconds"]),
               "--text","--grammar-store",str(directory/"grammars")]
+    if config.get('scheduling','fifo')!='fifo':
+        argv += ['--scheduling',config['scheduling']]
     vision=config.get("vision_config")
     if vision is not None:
         if not isinstance(vision,str):raise ValueError("vision_config must be an absolute file path")
