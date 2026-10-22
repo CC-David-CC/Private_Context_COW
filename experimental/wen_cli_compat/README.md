@@ -12,6 +12,12 @@ successfully committed generated histories. Re-rendered tool calls/reasoning can
 change tokens; those changes reduce reuse and must never be guessed equivalent.
 No matching snapshot means a fresh prefill. No client source changes are needed.
 
+`--cow-port` additionally exposes the existing native COW API for BW through
+the **same coordinator, model worker and RAM/disk pools**. The standard CLI port
+and native BW port are two frontends, not two copies of the model. BW retains
+its workflow ledger, grants, explicit branches and operation receipts. Changing
+clients midway through a live task is not automatic workflow-state migration.
+
 The native state includes Wen's recurrent state, K/V and decoder controller.
 The cache identity includes model/adapter and execution profile identities plus
 the template hash. Snapshots stay immutable when requests fork. Numerical copies

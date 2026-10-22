@@ -223,6 +223,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--profile', type=Path, required=True); p.add_argument('--model-id', required=True)
     p.add_argument('--host', default='127.0.0.1'); p.add_argument('--port', type=int, default=8100)
+    p.add_argument('--cow-port', type=int, help='Also expose the unchanged native COW API for BW using this same coordinator')
     p.add_argument('--api-key-env', default='WEN_COMPAT_API_KEY')
     p.add_argument('--ram-gib', type=int, default=100); p.add_argument('--disk-gib', type=int, default=100)
     p.add_argument('--max-output', type=int, default=2048); p.add_argument('--trace', type=Path)
@@ -259,18 +260,33 @@ def main():
         config = PoolConfig(gpus=profile['execution']['GPU'], ram_bytes=a.ram_gib*1024**3,
                             disk_bytes=a.disk_gib*1024**3, min_available_bytes=8*1024**3)
         coordinator = ContextCoordinator(store, config, factory)
-        server = None
+        server = native_server = None
+        native_thread = None
         try:
             coordinator.ready()
             frontend = Frontend(CowAdapter(coordinator), encoder, profile, a.model_id, a.max_output, a.trace)
             server = make_server(frontend, a.host, a.port, key, shutdown)
+            if a.cow_port is not None:
+                from serve.cow_http import make_server as make_native_server, model_text_adapter
+                text = model_text_adapter(frontend.adapter, profile['model_path'], {'enable_thinking':False},
+                                          model_contract_id=profile['model_contract_id'])
+                native_server = make_native_server(frontend.adapter, a.host, a.cow_port, key,
+                    text_adapter=text, connection_info=dict(model_contract_id=profile['model_contract_id'],
+                    execution_profile_id=profile['execution_profile_id'], eos_tokens=profile['execution']['eos_tokens']))
+                native_server.daemon_threads = False
+                native_thread = threading.Thread(target=native_server.serve_forever, daemon=True)
+                native_thread.start()
             print(json.dumps(dict(event='ready', model=a.model_id, address=server.server_address,
+                                  cow_address=native_server.server_address if native_server else None,
                                   ephemeral_store=str(store), context=profile['execution']['capacity'])), flush=True)
             server.serve_forever(poll_interval=0.2)
         except KeyboardInterrupt: pass
         finally:
             shutdown.set()
             if server is not None: server.server_close()
+            if native_server is not None:
+                native_server.shutdown(); native_server.server_close()
+                native_thread.join(timeout=10)
             coordinator.close()
     print(json.dumps(dict(event='closed', temporary_cache_removed=True)), flush=True)
 
