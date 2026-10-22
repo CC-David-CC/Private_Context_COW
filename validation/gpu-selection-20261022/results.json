@@ -47,11 +47,12 @@
     "No cumulative G1-G5 certification"
   ],
   "ephemeral_controls": {
-    "tests": 5,
+    "tests": 6,
     "normal_exit": true,
     "exception_exit": true,
     "crash_reaped_next_start": true,
     "active_sessions_preserved": true,
-    "symlink_targets_preserved": true
+    "symlink_targets_preserved": true,
+    "sigterm_cleanup": true
   }
 }

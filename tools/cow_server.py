@@ -7,6 +7,7 @@ import runpy
 import sys
 import tempfile
 import shutil
+import signal
 from contextlib import contextmanager,ExitStack
 
 def clean_abandoned_sessions(root):
@@ -112,6 +113,9 @@ def main():
     with gpu_locks(locks,profile['execution']['GPU']):
         with session_storage(directory,config) as (runtime,session_config):
             sys.argv=configured_argv(runtime,session_config,key)
-            runpy.run_module("serve.cow_http",run_name="__main__")
+            def stop(signum,frame):raise KeyboardInterrupt
+            previous=signal.signal(signal.SIGTERM,stop)
+            try:runpy.run_module("serve.cow_http",run_name="__main__")
+            finally:signal.signal(signal.SIGTERM,previous)
 
 if __name__=="__main__": main()

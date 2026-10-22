@@ -1,5 +1,6 @@
 """Real filesystem and process-lifetime tests for temporary server sessions."""
 import os
+import json
 from pathlib import Path
 import signal
 import subprocess
@@ -44,6 +45,24 @@ class EphemeralSessionTests(unittest.TestCase):
                 stale=Path(process.stdout.readline().strip());self.assertTrue((stale/'spill').is_file())
                 process.kill();process.wait(timeout=10)
                 with session_storage(Path(tmp),{'ephemeral':True}):self.assertFalse(stale.exists())
+            finally:
+                if process.poll() is None:process.kill();process.wait(timeout=10)
+                process.stdout.close()
+
+    def test_launcher_sigterm_unwinds_temporary_store(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);key=root/'key';key.write_text('test key');key.chmod(0o600)
+            profile=root/'profile.json';profile.write_text(json.dumps({'execution':{'GPU':[0],'environment':{}}}))
+            config=dict(ephemeral=True,profile=str(profile),store=str(root/'store'),api_key_file=str(key),
+                        host='127.0.0.1',port=18180,ram_gib=1,disk_gib=1,checkpoint_idle_seconds=1800)
+            (root/'server.json').write_text(json.dumps(config))
+            code="import os,sys,time; from tools import cow_server\nos.environ['HOME']=sys.argv[1]\ndef idle(*args,**kwargs):\n print('ready',flush=True);time.sleep(60)\ncow_server.runpy.run_module=idle\nsys.argv=['cow-server',sys.argv[1]]\ncow_server.main()\n"
+            process=subprocess.Popen([sys.executable,'-c',code,tmp],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True)
+            try:
+                self.assertEqual(process.stdout.readline().strip(),'ready')
+                self.assertEqual(len(list((root/'.ephemeral-sessions').glob('session-*'))),1)
+                process.terminate();process.wait(timeout=10)
+                self.assertEqual(list((root/'.ephemeral-sessions').glob('session-*')),[])
             finally:
                 if process.poll() is None:process.kill();process.wait(timeout=10)
                 process.stdout.close()
