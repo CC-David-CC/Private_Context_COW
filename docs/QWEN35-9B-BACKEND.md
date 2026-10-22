@@ -24,7 +24,7 @@ MODEL=/path/to/Qwen3.5-9B-Q8_0.gguf
 COW_PYTHON=/path/to/cow-venv/bin/python
 ```
 
-Use a clean llama.cpp checkout at `972d2313bc0bf0a45f634f77d95c9fb03aeab12c`. The adapter builder rejects another revision or a dirty checkout. The executed RTX 4090 build used Release, shared libraries, GGML_CUDA=ON, GGML_NATIVE=ON, tools/examples enabled and CUDA architecture 89. Other hardware needs its own build/profile and tests.
+Use a clean llama.cpp checkout at `972d2313bc0bf0a45f634f77d95c9fb03aeab12c`. The adapter builder rejects another revision or uninspected source changes; the optional Wen patch below is the inspected exception. The executed RTX 4090 build used Release, shared libraries, GGML_CUDA=ON, GGML_NATIVE=ON, tools/examples enabled and CUDA architecture 89. Other hardware needs its own build/profile and tests.
 
 ```sh
 cmake -S "$LLAMA_ROOT" -B "$LLAMA_ROOT/build" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DGGML_CUDA=ON -DGGML_NATIVE=ON -DLLAMA_BUILD_TOOLS=ON -DLLAMA_BUILD_EXAMPLES=ON -DCMAKE_CUDA_ARCHITECTURES=89

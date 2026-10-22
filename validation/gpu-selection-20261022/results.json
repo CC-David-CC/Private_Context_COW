@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "scope": "Launcher/device controls and bounded single-GPU dense smoke; not multi-GPU numerical qualification",
+  "scope": "Launcher/device controls, temporary sessions and bounded dense-model runtime checks",
   "focused_cpu_tests": {
-    "tests": 87,
+    "tests": 88,
     "failures": 0,
     "errors": 0,
     "skips": 0
@@ -40,11 +40,10 @@
     "clean_shutdown": true
   },
   "limits": [
-    "Nonzero physical device mapping was exercised by CPU controls, not a second physical GPU",
-    "No simultaneous multi-GPU inference or cross-GPU numerical equivalence claim",
-    "Grouped native checkpoint capture remains unsupported",
-    "Wen architecture support and the A100 build remain separate work",
-    "No cumulative G1-G5 certification"
+    "The Qwen comparison campaign above used a single RTX 4090.",
+    "See wen-runtime.json for executed single Blackwell, single A100 and two-A100 Wen results.",
+    "Grouped native checkpoint capture remains unsupported.",
+    "No cumulative G1-G5 certification."
   ],
   "ephemeral_controls": {
     "tests": 6,

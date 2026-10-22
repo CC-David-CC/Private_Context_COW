@@ -1,0 +1,106 @@
+{
+  "source_commit_tested": "8d8add2b1e85a83298f022256cf50a0abc06ab12",
+  "context_capacity": 65536,
+  "prefill_chunk": 512,
+  "threads_per_worker": 8,
+  "phase_results": {
+    "blackwell-native": {
+      "gpu": [
+        0
+      ],
+      "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "native_comparisons": 2,
+      "max_logit_error": 0,
+      "restores": 2,
+      "prefix_forward_tokens_on_restore": 0,
+      "tokenizer_comparisons": 4,
+      "server_exit_code": 0,
+      "ephemeral_sessions_remaining": 0
+    },
+    "blackwell-http": {
+      "gpu": [
+        0
+      ],
+      "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "native_comparisons": 0,
+      "max_logit_error": 0,
+      "restores": 0,
+      "prefix_forward_tokens_on_restore": 0,
+      "tokenizer_comparisons": 0,
+      "workers_used": [
+        "0"
+      ],
+      "http_concurrent_generations": 2,
+      "parent_head_preserved": true,
+      "ram_byte_limit": 34359738368,
+      "disk_byte_limit": 107374182400,
+      "server_exit_code": 0,
+      "ephemeral_sessions_remaining": 0
+    },
+    "a100-native": {
+      "gpu": [
+        4
+      ],
+      "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "native_comparisons": 2,
+      "max_logit_error": 0,
+      "restores": 2,
+      "prefix_forward_tokens_on_restore": 0,
+      "tokenizer_comparisons": 4,
+      "server_exit_code": 0,
+      "ephemeral_sessions_remaining": 0
+    },
+    "a100-http": {
+      "gpu": [
+        4
+      ],
+      "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "native_comparisons": 0,
+      "max_logit_error": 0,
+      "restores": 0,
+      "prefix_forward_tokens_on_restore": 0,
+      "tokenizer_comparisons": 0,
+      "workers_used": [
+        "4"
+      ],
+      "http_concurrent_generations": 2,
+      "parent_head_preserved": true,
+      "ram_byte_limit": 107374182400,
+      "disk_byte_limit": 107374182400,
+      "branchwrite_committed_chat": true,
+      "server_exit_code": 0,
+      "ephemeral_sessions_remaining": 0
+    },
+    "a100-two-gpu": {
+      "gpu": [
+        3,
+        4
+      ],
+      "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "native_comparisons": 4,
+      "max_logit_error": 0,
+      "restores": 4,
+      "prefix_forward_tokens_on_restore": 0,
+      "tokenizer_comparisons": 8,
+      "workers_used": [
+        "3",
+        "4"
+      ],
+      "http_concurrent_generations": 2,
+      "parent_head_preserved": true,
+      "ram_byte_limit": 107374182400,
+      "disk_byte_limit": 107374182400,
+      "branchwrite_committed_chat": true,
+      "server_exit_code": 0,
+      "ephemeral_sessions_remaining": 0
+    }
+  },
+  "limits": [
+    "Native fixtures used a short forced prefix and two one-token alternate suffixes.",
+    "HTTP concurrency used two requests with an eight-token bound.",
+    "BranchWrite chat used a 32-token bound; committed output is not task-competence certification.",
+    "A100 configuration has 100 GiB shared RAM and 100 GiB shared disk pools; Blackwell used 32 GiB RAM and 100 GiB disk.",
+    "These are independent model workers, not a model split across devices.",
+    "No performance, long-context stress, training or cumulative G1-G5 certification."
+  ]
+}

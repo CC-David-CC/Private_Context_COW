@@ -8176,3 +8176,15 @@ restores with zero prefix-forward work, native invalid-device rejection, and cle
 authenticated HTTP startup/shutdown. Mixed smoke used text spans. This is not
 multi-GPU/A100/Wen qualification or cumulative G1-G5 certification. See
 `validation/gpu-selection-20261022/results.json` at the repository root.
+
+## 2026-10-22: Wen single- and two-GPU runtime checks
+
+Wen BF16 loaded on Blackwell and A100 GPU 4. Independent A100 workers on GPUs
+3 and 4 passed a bounded cross-device restore/oracle and concurrent HTTP run.
+Eight full-logit comparisons were exact; eight restores performed zero saved
+prefix work. Native/Python tokenizer comparisons passed 16/16. A100 shared RAM
+and disk budgets were 100 GiB each. BranchWrite committed bounded chat output.
+SIGTERM cleanup left no ephemeral session directories. Final focused controls
+passed 88/88; G0 previously passed 51/51. See the repository-root validation/
+gpu-selection-20261022/wen-runtime.json and its explicit fixture limits. This
+does not certify long-context performance, split-model checkpoints or G1-G5.
