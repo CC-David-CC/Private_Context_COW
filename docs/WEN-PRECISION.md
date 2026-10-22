@@ -62,3 +62,6 @@ Wen adapter: its explicit device selector currently requires CUDA. P4 also needs
 a compatible older CUDA toolchain and cannot hold this BF16 model wholly in 8 GB.
 No long-context, training-update or G1-G5 release qualification follows from these
 short inference probes.
+
+The layer trace, isolated norm replay, head-order control and LoRA acceptance
+requirements are documented in [WEN-CROSS-RUNTIME-NUMERICS.md](WEN-CROSS-RUNTIME-NUMERICS.md).

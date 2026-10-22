@@ -56,3 +56,10 @@ The configured FP32 HTTP server also passed two concurrent bounded generations,
 two exact native oracle/restore comparisons, four tokenizer comparisons and
 parent-head immutability. SIGTERM exited with code zero and left zero ephemeral
 sessions. See `http.json`. Final launcher/vision/import CPU controls: 12 passed.
+
+The completed cross-runtime report is `docs/WEN-CROSS-RUNTIME-NUMERICS.md`.
+`layer-trace.json` records 154 semantic boundaries per initial prefix, an isolated
+normalization replay, the diagnostic shared-native-norm experiment and a
+head-order projection replay. The first norm becomes exact when its forward
+kernel is shared, but the final model does not. No backward or training path was
+promoted by that diagnostic.
