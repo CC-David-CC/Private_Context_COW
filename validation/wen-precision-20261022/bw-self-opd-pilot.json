@@ -1,0 +1,438 @@
+{
+  "scope": "Owned synthetic compact BW action curriculum; full CLI code checks are separate",
+  "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+  "sampling": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "grammar": "none",
+    "enable_thinking": false
+  },
+  "before": {
+    "train": {
+      "passed": 7,
+      "total": 9
+    },
+    "heldout": {
+      "passed": 5,
+      "total": 7
+    },
+    "preserve": {
+      "passed": 3,
+      "total": 3
+    },
+    "total": {
+      "passed": 15,
+      "total": 19
+    },
+    "writing": [
+      {
+        "id": "train-writing-tool",
+        "task_pass": false,
+        "valid_json": false,
+        "expected_words": 37
+      },
+      {
+        "id": "train-writing-bytes",
+        "task_pass": false,
+        "valid_json": false,
+        "expected_words": 37
+      },
+      {
+        "id": "heldout-writing-tool",
+        "task_pass": false,
+        "valid_json": false,
+        "expected_words": 30
+      },
+      {
+        "id": "heldout-writing-bytes",
+        "task_pass": false,
+        "valid_json": false,
+        "expected_words": 34
+      }
+    ]
+  },
+  "first_pilot": {
+    "training": {
+      "objective": "self-OPD: fresh greedy student rollouts, frozen round-start corrective-context teacher, dense KL(teacher || student)",
+      "source_model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "adapter_sha256": "09222fd9bcd5c331240da25e40780e86772aff05fbfdde9c1da0e27f2204ad3a",
+      "base_immutable": true,
+      "rank": 8,
+      "alpha": 8,
+      "learning_rate": 0.0005,
+      "optimizer": "AdamW",
+      "steps": 4,
+      "gradient_accumulation_examples": 9,
+      "microbatch": 1,
+      "example_loss_normalization": "mean response token KL, equal example weight",
+      "train_ids": [
+        "train-unicode-lf",
+        "train-tabs-no-final",
+        "train-crlf",
+        "train-times-three",
+        "train-plus-five",
+        "train-negation",
+        "train-read-before-edit",
+        "train-writing-tool",
+        "train-writing-bytes"
+      ],
+      "targets": [
+        "model.layers.31.mlp.gate_proj",
+        "model.layers.31.mlp.up_proj",
+        "model.layers.31.mlp.down_proj"
+      ],
+      "tensors": [
+        {
+          "name": "blk.31.ffn_gate.weight.lora_a",
+          "shape": [
+            8,
+            4096
+          ]
+        },
+        {
+          "name": "blk.31.ffn_gate.weight.lora_b",
+          "shape": [
+            12288,
+            8
+          ]
+        },
+        {
+          "name": "blk.31.ffn_up.weight.lora_a",
+          "shape": [
+            8,
+            4096
+          ]
+        },
+        {
+          "name": "blk.31.ffn_up.weight.lora_b",
+          "shape": [
+            12288,
+            8
+          ]
+        },
+        {
+          "name": "blk.31.ffn_down.weight.lora_a",
+          "shape": [
+            8,
+            12288
+          ]
+        },
+        {
+          "name": "blk.31.ffn_down.weight.lora_b",
+          "shape": [
+            4096,
+            8
+          ]
+        }
+      ],
+      "peak_torch_allocated_bytes": 32920940544,
+      "promoted": false
+    },
+    "after": {
+      "train": {
+        "passed": 7,
+        "total": 9
+      },
+      "heldout": {
+        "passed": 5,
+        "total": 7
+      },
+      "preserve": {
+        "passed": 3,
+        "total": 3
+      },
+      "total": {
+        "passed": 15,
+        "total": 19
+      },
+      "writing": [
+        {
+          "id": "train-writing-tool",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 37
+        },
+        {
+          "id": "train-writing-bytes",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 37
+        },
+        {
+          "id": "heldout-writing-tool",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 30
+        },
+        {
+          "id": "heldout-writing-bytes",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 34
+        }
+      ]
+    },
+    "training_steps": [
+      {
+        "step": 1,
+        "seconds": 54.22408947069198,
+        "mean_response_kl": 0.1106368289846513
+      },
+      {
+        "step": 2,
+        "seconds": 52.493424446322024,
+        "mean_response_kl": 0.11513119532416265
+      },
+      {
+        "step": 3,
+        "seconds": 51.78171494230628,
+        "mean_response_kl": 0.11580535200321013
+      },
+      {
+        "step": 4,
+        "seconds": 51.82064134348184,
+        "mean_response_kl": 0.11258373130112886
+      }
+    ],
+    "outcome": "No additional task passes; not promoted",
+    "teacher_issue": "Reference validation in another workspace was described as already executed; teacher returned finish rather than the pending write"
+  },
+  "corrected_teacher": {
+    "student_prompt_ids_exact_equal": true,
+    "baseline_exact_equal": true,
+    "checks": [
+      {
+        "id": "train-writing-tool",
+        "verdict": {
+          "valid_json": true,
+          "task_pass": true,
+          "words": 37,
+          "expected_words": 37
+        }
+      },
+      {
+        "id": "train-writing-bytes",
+        "verdict": {
+          "valid_json": true,
+          "task_pass": true,
+          "words": 37,
+          "expected_words": 37
+        }
+      }
+    ],
+    "rule": "Every observed training failure must have a successful teacher repair before allocation/training"
+  },
+  "full_cli": {
+    "model": "unadapted Wen",
+    "bw_source_commit": "49294fbc239a4c7bd1c7c756c91d8ee73c33ee04",
+    "tasks": [
+      {
+        "name": "double",
+        "verified": true,
+        "seconds": 72.6207944729831
+      },
+      {
+        "name": "triple",
+        "verified": true,
+        "seconds": 66.07237251498736
+      }
+    ],
+    "ram_limit_bytes": 107374182400,
+    "disk_limit_bytes": 107374182400,
+    "server_exit_code": 0,
+    "ephemeral_sessions_remaining": 0
+  },
+  "limits": [
+    "No training on held-out/preservation examples",
+    "No public training data or prompts included in this receipt",
+    "No full-BW adapter qualification or automatic promotion"
+  ],
+  "corrected_pilot": {
+    "training": {
+      "objective": "self-OPD: fresh greedy student rollouts, frozen round-start corrective-context teacher, dense KL(teacher || student)",
+      "source_model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+      "adapter_sha256": "82d6abef37dbba64cdc03486b495a6df39a8c607ad837ecf429d56075b3aae75",
+      "base_immutable": true,
+      "rank": 8,
+      "alpha": 8,
+      "learning_rate": 0.0005,
+      "optimizer": "AdamW",
+      "steps": 4,
+      "gradient_accumulation_examples": 9,
+      "microbatch": 1,
+      "example_loss_normalization": "mean response token KL, equal example weight",
+      "train_ids": [
+        "train-unicode-lf",
+        "train-tabs-no-final",
+        "train-crlf",
+        "train-times-three",
+        "train-plus-five",
+        "train-negation",
+        "train-read-before-edit",
+        "train-writing-tool",
+        "train-writing-bytes"
+      ],
+      "targets": [
+        "model.layers.31.mlp.gate_proj",
+        "model.layers.31.mlp.up_proj",
+        "model.layers.31.mlp.down_proj"
+      ],
+      "tensors": [
+        {
+          "name": "blk.31.ffn_gate.weight.lora_a",
+          "shape": [
+            8,
+            4096
+          ]
+        },
+        {
+          "name": "blk.31.ffn_gate.weight.lora_b",
+          "shape": [
+            12288,
+            8
+          ]
+        },
+        {
+          "name": "blk.31.ffn_up.weight.lora_a",
+          "shape": [
+            8,
+            4096
+          ]
+        },
+        {
+          "name": "blk.31.ffn_up.weight.lora_b",
+          "shape": [
+            12288,
+            8
+          ]
+        },
+        {
+          "name": "blk.31.ffn_down.weight.lora_a",
+          "shape": [
+            8,
+            12288
+          ]
+        },
+        {
+          "name": "blk.31.ffn_down.weight.lora_b",
+          "shape": [
+            4096,
+            8
+          ]
+        }
+      ],
+      "teacher_repair_admission": true,
+      "teacher_quality_sha256": "2a585f1a78119647ce717677f90f774aee443cef8bac3a62448e65fca5343276",
+      "peak_torch_allocated_bytes": 32920940544,
+      "promoted": false
+    },
+    "after": {
+      "train": {
+        "passed": 7,
+        "total": 9
+      },
+      "heldout": {
+        "passed": 5,
+        "total": 7
+      },
+      "preserve": {
+        "passed": 3,
+        "total": 3
+      },
+      "total": {
+        "passed": 15,
+        "total": 19
+      },
+      "writing": [
+        {
+          "id": "train-writing-tool",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 37,
+          "payload_words_diagnostic": 25,
+          "diagnostic_only": "Inspect payload after appending one missing outer brace; original action remains invalid and failing."
+        },
+        {
+          "id": "train-writing-bytes",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 37,
+          "payload_words_diagnostic": 44,
+          "diagnostic_only": "Inspect payload after appending one missing outer brace; original action remains invalid and failing."
+        },
+        {
+          "id": "heldout-writing-tool",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 30,
+          "payload_words_diagnostic": 23,
+          "diagnostic_only": "Inspect payload after appending one missing outer brace; original action remains invalid and failing."
+        },
+        {
+          "id": "heldout-writing-bytes",
+          "task_pass": false,
+          "valid_json": false,
+          "expected_words": 34,
+          "payload_words_diagnostic": 19,
+          "diagnostic_only": "Inspect payload after appending one missing outer brace; original action remains invalid and failing."
+        }
+      ]
+    },
+    "outcome": "No additional task passes; no promotion",
+    "training_steps": [
+      {
+        "step": 1,
+        "seconds": 53.922044679522514,
+        "mean_response_kl": 0.07380854136620958
+      },
+      {
+        "step": 2,
+        "seconds": 52.65425635781139,
+        "mean_response_kl": 0.0771330082271662
+      },
+      {
+        "step": 3,
+        "seconds": 52.037444789893925,
+        "mean_response_kl": 0.0745355943735275
+      },
+      {
+        "step": 4,
+        "seconds": 51.9530437476933,
+        "mean_response_kl": 0.06867046933621168
+      }
+    ],
+    "adapter_readback": {
+      "exact": true,
+      "tensor_count": 6,
+      "comparison": "GGUF against PEFT safetensors"
+    }
+  },
+  "hardware": {
+    "training": "one A100-SXM4-80GB",
+    "inference": "RTX PRO 6000 Blackwell 96GB"
+  },
+  "bw_reconciliation": {
+    "commit": "5b3a0a2b",
+    "linux_tests": 36,
+    "skips": 0,
+    "nested_repeat_parent_failure": "wait is not completely settled",
+    "async_progress_parent_failure": "duplicate notices under wait polling",
+    "initial_test_race": "wait(FIRST_COMPLETED) does not imply both workers finished; fixed bounded wait for both"
+  },
+  "diagnostic_sha256": {
+    "wen_bw_initial_round.py": "4052d872886a8653fb3a27fb78dd902018a92605372727125fe5f3f9e9a398f0",
+    "revise_wen_bw_teacher.py": "606ba54bec87e6736fc5cc86b0b95d0683df616256ed25423ab5342af1295d17",
+    "collect_bw_corrected_round.py": "a5bb82fd0b17bfc45f304448b63615e8cf90adbf90abcd3a71d5c58819ac4ad1"
+  },
+  "training_loss_note": "Fresh rollouts change between updates, so these per-step KL means are not a fixed-fixture convergence comparison.",
+  "cleanup": {
+    "training_process_exited": true,
+    "inference_process_exited": true,
+    "serving_restored": false,
+    "a100_gpu4_used_mib_after": 8,
+    "a100_gpu4_free_mib_after": 81145,
+    "llm60_used_mib_after": 15,
+    "llm60_free_mib_after": 97235,
+    "owned_serving_processes_after": 0
+  }
+}

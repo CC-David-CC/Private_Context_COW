@@ -89,3 +89,13 @@ not change the greedy sequence on this fixture. Tensor readback, zero-adapter
 controls and adapted-prefix restore checks pass exactly. Strict native runs and
 each control use separate processes; initial same-process strict results are
 superseded. No mixed-task BW training gain or adapter promotion is claimed.
+
+`bw-self-opd-pilot.json` records the subsequent private mixed-example prototype:
+two four-update pilots on A100, with exported adapter evaluation through COW on
+a separate Blackwell host. The second pilot requires the corrective-context
+teacher to demonstrate both repairs before training. Both remain at 15/19 task
+passes; all previous passes are retained but the writing failures remain. No
+candidate is promoted. The receipt also distinguishes two passing unadapted
+full BW CLI code workflows from the compact action curriculum. Training prompts,
+corrections and raw outputs remain private. See `docs/WEN-TRAINING.md` for the
+teacher-context failure, corrected admission and limits.
