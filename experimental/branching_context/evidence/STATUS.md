@@ -8180,3 +8180,6 @@ unqualified until actual compiled artifacts and numerical runs complete.
 ### 2026-10-21: bounded HIP native qualification
 
 Bounded single-card HIP native campaign PASS: tiny/1K/8K, 178 exact full-logit comparisons, nine strict restores, zero prefix forward tokens. Local HIP image encoding also passed. Normal AMD launcher/HTTP integration is pending. This does not change cumulative gate status. Evidence: `validation/qwen35-hip-20261021/runtime-final-native.json`.
+
+
+AMD normal launcher/HTTP follow-up: separate physical BranchWrite SDK client uploaded a real image, prepared/generated a durable answer, forked the image-bearing prefix and replayed an unchanged answer with identical text. 24 focused CPU regressions passed without skips. Native restart qualification remains separate from this HTTP smoke. See `validation/qwen35-hip-20261021/http-image.json`.

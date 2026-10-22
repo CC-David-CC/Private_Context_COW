@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "separate physical client BranchWrite SDK to normal authenticated COW HTTP server; real local HIP image encoder",
+  "seconds": 8.03967377403751,
+  "cpu_tests": {
+    "passed": 24,
+    "failures": 0,
+    "skips": 0,
+    "invocation": "python -m unittest tools.test_cow_qwen_hardware tools.test_cow_model_selection tools.test_cow_server_vision"
+  },
+  "image_upload_bytes": 1222,
+  "image_sha256": "09d11211102c48161e68a8786347dbe7e9b5998ebbc77e64a79fcd0cfadecba8",
+  "prepare_snapshot": "9011fd04f53198bc1258a167746f351163f403ca3b0547100d4327d7c74f7b6d",
+  "answer_snapshot": "62389cdcc6b1ef48d3b75596eb0d8389db8fd3ca98283d7d2c5a48eceb0a6223",
+  "answer_text": "The user wants a description of the image.\n1.  **Identify the shapes:** There is a square and a circle.\n2.  **Identify the colors:** The square is red. The circle is blue.\n3.  **Identify the positions:** The red square is on the left. The blue circle is on the right.\n4.  **Draft the description:** A red square is on the left and a blue circle is on the right.\n5.  **Refine for brevity:** \"A red square is on the left and a blue circle is on the right.\" or \"Left: Red square. Right: Blue circle.\" The prompt asks to \"Describe... and their left/right positions\" and \"Keep the final answer short.\"\n\nLet's go with a simple sentence structure.\n\"A red square is on the left, and a blue circle is on the right.\"\n</think>\n\nA red square is on the left, and a blue circle is on the right.",
+  "answer_tokens": 208,
+  "generation_seconds": 3.209505877981428,
+  "native_counter_deltas": {
+    "consumed_tokens": 208,
+    "forward_tokens": 208,
+    "forward_calls": 208,
+    "sampling_calls": 208,
+    "checkpoint_export_bytes": 63031010,
+    "checkpoint_import_bytes": 56210274
+  },
+  "fork_snapshot": "9011fd04f53198bc1258a167746f351163f403ca3b0547100d4327d7c74f7b6d",
+  "retry_text_identical": true,
+  "limitations": [
+    "Single AMD card0 only",
+    "AMD HTTP server restart not exercised by this smoke; native process-separated restores passed separately",
+    "Separate-client HTTP test uses BranchWrite SDK; interactive terminal UX not rerun on AMD",
+    "No broad visual competence or physical page sharing claim"
+  ],
+  "test_invocation_failures": "Two direct test-file invocations failed tools imports; correct module invocation ran all 24 unchanged tests successfully."
+}
