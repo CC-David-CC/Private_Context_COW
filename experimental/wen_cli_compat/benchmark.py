@@ -55,12 +55,12 @@ def sandbox(root, trial, environment, command):
             '--proc', '/proc', '--dev', '/dev', '--dir', str(Path.home()),
             '--ro-bind', str(root/'tools'), str(root/'tools'),
             '--ro-bind', str(root/'bin'), str(root/'bin'),
-            '--bind', str(trial/'home'), '/runner-home', '--bind', str(trial/'workspace'), '/work']
+            '--bind', str(trial/'home'), '/tmp/runner-home', '--bind', str(trial/'workspace'), '/tmp/work']
     managed_python = Path.home()/'.local/share/uv/python'
     if managed_python.exists(): argv += ['--ro-bind', str(managed_python), str(managed_python)]
-    argv += ['--chdir', '/work', '--clearenv']
-    base = dict(HOME='/runner-home', XDG_CONFIG_HOME='/runner-home/.config', XDG_DATA_HOME='/runner-home/.local/share',
-                XDG_CACHE_HOME='/runner-home/.cache', PATH=str(root/'bin')+':/usr/local/bin:/usr/bin:/bin',
+    argv += ['--chdir', '/tmp/work', '--clearenv']
+    base = dict(HOME='/tmp/runner-home', XDG_CONFIG_HOME='/tmp/runner-home/.config', XDG_DATA_HOME='/tmp/runner-home/.local/share',
+                XDG_CACHE_HOME='/tmp/runner-home/.cache', PATH=str(root/'bin')+':/usr/local/bin:/usr/bin:/bin',
                 LANG='C.UTF-8', TERM='dumb', NO_COLOR='1', SHELL='/bin/bash')
     for key, value in {**base, **environment}.items(): argv += ['--setenv', key, str(value)]
     return argv+['--']+command
@@ -91,7 +91,7 @@ supports_websockets = false
 request_max_retries = 0
 stream_max_retries = 0
 ''')
-        env['CODEX_HOME'] = '/runner-home/codex'
+        env['CODEX_HOME'] = '/tmp/runner-home/codex'
         cmd = [str(root/'bin/codex'), 'exec', '--json', '--ephemeral', '--skip-git-repo-check',
                '--sandbox', 'danger-full-access', '-']
     elif runner == 'opencode':
@@ -103,7 +103,7 @@ stream_max_retries = 0
             tools=dict(task=False, webfetch=False, websearch=False, question=False),
             permission=dict(external_directory='deny'))
         (home/'opencode.json').write_text(json.dumps(config))
-        env.update(OPENCODE_CONFIG='/runner-home/opencode.json', OPENCODE_DISABLE_AUTOUPDATE='true',
+        env.update(OPENCODE_CONFIG='/tmp/runner-home/opencode.json', OPENCODE_DISABLE_AUTOUPDATE='true',
                    OPENCODE_DISABLE_SHARE='true', OPENCODE_DISABLE_DEFAULT_PLUGINS='true')
         cmd = [str(root/'bin/opencode'), 'run', '--pure', '--format', 'json', '-m', 'wen/'+model, task_prompt(case)]
     elif runner == 'hermes':
@@ -111,11 +111,11 @@ stream_max_retries = 0
         # Config is JSON, a YAML subset, avoiding a benchmark-only YAML dependency.
         (config/'config.yaml').write_text(json.dumps(dict(model=dict(default=model, provider='custom',
             base_url=endpoint, context_length=65536), agent=dict(max_turns=8, reasoning_effort='none'),
-            terminal=dict(backend='local', cwd='/work'), compression=dict(enabled=False),
+            terminal=dict(backend='local', cwd='/tmp/work'), compression=dict(enabled=False),
             memory=dict(memory_enabled=False), platform_toolsets=dict(cli=['terminal', 'file']))))
-        env.update(HERMES_HOME='/runner-home/hermes', TERMINAL_CWD='/work', OPENAI_API_KEY=key,
+        env.update(HERMES_HOME='/tmp/runner-home/hermes', TERMINAL_CWD='/tmp/work', OPENAI_API_KEY=key,
                    HERMES_SKIP_UPDATE_CHECK='1')
-        cmd = [str(root/'tools/hermes-venv/bin/hermes'), 'chat', '--oneshot', '--query-file', '/runner-home/task.txt',
+        cmd = [str(root/'tools/hermes-venv/bin/hermes'), 'chat', '--oneshot', '--query-file', '/tmp/runner-home/task.txt',
                '--provider', 'custom', '--base-url', endpoint, '--api-key', key, '-m', model,
                '--toolsets', 'terminal,file', '--ignore-rules', '--format', 'stream-json',
                '--max-turns', '8', '--run-budget', '180']
@@ -125,7 +125,7 @@ stream_max_retries = 0
         cmd = [str(root/'tools/aider-venv/bin/aider'), '--model', 'openai/'+model, '--no-check-update',
                '--no-show-model-warnings', '--no-auto-commits', '--no-git', '--yes-always',
                '--no-auto-lint', '--no-analytics', '--no-fancy-input', '--no-pretty', '--no-stream',
-               '--map-tokens', '0', '--edit-format', 'whole', '--message-file', '/runner-home/task.txt', '/work/'+case['path']]
+               '--map-tokens', '0', '--edit-format', 'whole', '--message-file', '/tmp/runner-home/task.txt', '/tmp/work/'+case['path']]
     else: raise ValueError('Unknown runner')
     return sandbox(root, trial, env, cmd)
 
