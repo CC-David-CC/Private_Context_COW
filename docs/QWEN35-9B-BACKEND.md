@@ -58,7 +58,7 @@ The unchanged-answer retry is a read of the original durable result. It must ret
 
 The matching tested projector is mmproj-F16.gguf, 918,166,080 bytes, SHA-256 `f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f`. Build its producer with scripts/build_qwen35_encoder.py and use a pinned image-producer configuration through the normal setup tool's `--vision-config`. The mixed adapter consumes actual image embedding rows with explicit grid positions. Producer identities and original-image hashes remain distinct from logical token positions. Image-bearing restart and unchanged-image retry have bounded real-backend evidence; general visual task success is not implied.
 
-Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, AMD, complete Flash serving regressions and full performance qualification remain outstanding.
+Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, additional AMD hardware, complete Flash serving regressions and full performance qualification remain outstanding.
 
 ## Research variants and producer configuration
 
@@ -110,7 +110,7 @@ receipts without reading all model weights again. See the committed run summarie
 
 The HIP branch has bounded RX 7900 XTX native evidence: 178 exact full-logit
 comparisons and nine zero-prefix-work restores at tiny, 1K and 8K, plus a real
-local image-encoder execution. Normal HTTP qualification remains separate.
+local image-encoder execution. The normal authenticated HTTP image path and process restart also passed from a separate BranchWrite SDK client: 208 identical output tokens, zero prefix work. Interactive terminal UX was not rerun on AMD.
 Use a new clean checkout of the same llama.cpp pin and a separate build/profile;
 CUDA checkpoints are not interchangeable with HIP checkpoints.
 
@@ -127,3 +127,12 @@ Replace the ROCm compiler path with the installed compiler. This initial profile
 admission requires exactly one AMD device at card0 and records its actual unique
 ID, driver and HIP runtime. More AMD devices/architectures need separate support
 and tests; the profile builder rejects unsupported inventory explicitly.
+
+After stopping an owned server, wait for its GPU lock to become available before
+starting its replacement. The process leader can exit while driver cleanup is
+still releasing resources. An immediate replacement correctly refuses a held
+lock. The tested lock is `$HOME/.local/state/context-cow/gpu-0.lock`; an operator
+can wait with `flock -w 60 "$HOME/.local/state/context-cow/gpu-0.lock" true`.
+Continue only if that command succeeds, then relaunch the same server directory.
+Do not remove the lock file, start another GPU worker or resend pending model
+operations to work around this protection.

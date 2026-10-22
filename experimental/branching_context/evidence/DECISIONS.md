@@ -5522,3 +5522,6 @@ unqualified until actual compiled artifacts and numerical runs complete.
 ### 2026-10-21: bounded HIP native qualification
 
 HIP keeps the same dense adapter and canonical store. Bind profiles to actual compiled GPU backend plus observed device/driver/runtime. Single card0 only initially; no cross-CUDA/HIP checkpoint compatibility or cross-device embedding equality promise. The existing CUDA inventory fields remain unchanged, verified on actual NVIDIA hardware. Evidence: `validation/qwen35-hip-20261021/runtime-final-native.json`.
+
+
+AMD normal HTTP restart PASS: same server directory and image-bearing saved prefix, new observed process, 208 identical generated tokens and exactly 208 native forward tokens; 56,210,274 native bytes restored, zero saved-prefix work. Parent checkpoint bytes unchanged. Initial replacement start refused a still-held GPU lock; waiting for lock release resolved startup without resending a model operation. This remains a bounded greedy fixture, not power-loss or full gate certification. Evidence: `validation/qwen35-hip-20261021/http-restart.json`.

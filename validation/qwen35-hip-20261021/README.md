@@ -16,3 +16,6 @@ Actual NVIDIA inventory regression confirms the hardware helper preserves its
 previous CUDA profile fields; that inventory test is not an inference run.
 No full G1-G5, arbitrary batch equivalence, visual competence or physical GPU
 page-sharing qualification is claimed. runtime-incremental.json is historical.
+
+
+Follow-up: the normal launcher/authenticated HTTP image path passed from a separate BranchWrite SDK client, including fork and unchanged-answer retry. A subsequent server restart restored the saved image-bearing prefix and produced 208 identical tokens with zero prefix work; see http-image.json and http-restart.json. The pending statements above describe the earlier native-only stage. An initial replacement server refused startup during GPU lock cleanup; wait for lock release after stopping the owned server. No model mutation was resent.

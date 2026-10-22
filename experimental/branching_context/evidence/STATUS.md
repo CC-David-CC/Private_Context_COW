@@ -8183,3 +8183,6 @@ Bounded single-card HIP native campaign PASS: tiny/1K/8K, 178 exact full-logit c
 
 
 AMD normal launcher/HTTP follow-up: separate physical BranchWrite SDK client uploaded a real image, prepared/generated a durable answer, forked the image-bearing prefix and replayed an unchanged answer with identical text. 24 focused CPU regressions passed without skips. Native restart qualification remains separate from this HTTP smoke. See `validation/qwen35-hip-20261021/http-image.json`.
+
+
+AMD normal HTTP restart PASS: same server directory and image-bearing saved prefix, new observed process, 208 identical generated tokens and exactly 208 native forward tokens; 56,210,274 native bytes restored, zero saved-prefix work. Parent checkpoint bytes unchanged. Initial replacement start refused a still-held GPU lock; waiting for lock release resolved startup without resending a model operation. This remains a bounded greedy fixture, not power-loss or full gate certification. Evidence: `validation/qwen35-hip-20261021/http-restart.json`.

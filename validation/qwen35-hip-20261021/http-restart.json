@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "separate-client normal authenticated HTTP image-bearing server restart; matching greedy profile",
+  "old_process_exited": true,
+  "different_process": true,
+  "saved_consumed_cells": 77,
+  "restored_native_bytes": 56210274,
+  "checkpoint_file_bytes": 57203554,
+  "parent_bytes_unchanged": true,
+  "parent_payload_sha256": "31c500e41c5c312bb94e4d4d56fbdf046270fc65e41b692634b19e9d20f9b195",
+  "generated_tokens": 208,
+  "forward_tokens": 208,
+  "prefix_forward_tokens": 0,
+  "identical_tokens": true,
+  "identical_text": true,
+  "request_seconds": 4.76654278091155,
+  "generation_seconds": 3.2807589119765908,
+  "native_counter_deltas": {
+    "consumed_tokens": 208,
+    "forward_tokens": 208,
+    "forward_calls": 208,
+    "sampling_calls": 208,
+    "checkpoint_export_bytes": 63031010,
+    "checkpoint_import_bytes": 56210274
+  },
+  "startup_failure": {
+    "observed": true,
+    "reason": "Exited before listening: GPU lock still held during shutdown",
+    "resolution": "Waited for exclusive GPU lock availability before starting replacement; client had not sent a mutation. No generation retry or operation-ID replacement."
+  },
+  "limitations": [
+    "Greedy single-card Q8 FP16-KV fixture",
+    "No full-logit HTTP comparison; native campaign separately passed 178 exact comparisons",
+    "Process termination is not power-loss qualification"
+  ]
+}
