@@ -71,13 +71,16 @@ class NativeBackend:
             fn = getattr(self.lib,'ctt_'+name)
             fn.restype = result
             fn.argtypes = args
-        self.model = self.lib.ctt_load(os.fsencode(profile['model_path']))
+        self.model = self._load_model()
         if not self.model:
             raise RuntimeError(self.lib.ctt_error().decode())
         self.vocab_size = self.lib.ctt_vocab(self.model)
         self.stats = dict(consumed_tokens=0, checkpoint_export_bytes=0,
                           checkpoint_import_bytes=0, contexts_created=0,
                           contexts_freed=0, shared_prefix_pages=None)
+
+    def _load_model(self):
+        return self.lib.ctt_load(os.fsencode(self.profile['model_path']))
 
     def validate_execution_profile(self):
         execution = self.profile['execution']

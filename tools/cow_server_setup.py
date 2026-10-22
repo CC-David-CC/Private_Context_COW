@@ -1,4 +1,4 @@
-"""Create a new, fingerprinted single-GPU Context COW server configuration."""
+"""Create a new, fingerprinted Context COW server configuration."""
 import argparse
 import hashlib
 import json
@@ -12,6 +12,15 @@ import sys
 import time
 
 ROOT=Path(__file__).resolve().parents[1]
+
+def parse_gpus(value):
+    """Use the coordinator's existing flat-worker or nested-group topology."""
+    sys.path[:0]=[str(ROOT/'experimental/branching_context/src')]
+    from context_time_travel.pools import normalize_gpu_selection
+    try:
+        selection=json.loads(value) if value.strip().startswith('[') else [int(n) for n in value.split(',')]
+        return list(normalize_gpu_selection(selection))
+    except (ValueError,TypeError) as exc:raise argparse.ArgumentTypeError(str(exc)) from exc
 
 def fingerprint(path):
     path=Path(path)
@@ -53,12 +62,12 @@ def _make_profile(args,output):
     from context_time_travel.strata_backend import _digest
     model=args.model.resolve(strict=True)
     md=GGUFFile(model).metadata
-    if md.get("general.architecture")=="qwen35":
+    if md.get("general.architecture") in ("qwen35","wen1"):
         if args.pack is not None or args.expert_profile is not None:
             raise ValueError("Dense Qwen does not use a Flash expert pack/profile")
         from experimental.branching_context.scripts.prepare_qwen35_profile import make_profile as qwen_profile
         profile=qwen_profile(model,args.native.resolve(strict=True).parent,output/"profile.json",
-            args.context,args.prefill,os.cpu_count())
+            args.context,args.prefill,os.cpu_count(),gpus=getattr(args,'gpu',None))
         if Path(profile["bridge_library"]).resolve()!=args.native.resolve():
             raise ValueError("--native must select the built Qwen bridge library")
         vision=args.vision_config
@@ -72,6 +81,7 @@ def _make_profile(args,output):
             api_key_file=str(key),host=args.host,port=args.port,ram_gib=args.ram_gib,
             disk_gib=args.disk_gib,min_available_gib=args.min_available_gib,checkpoint_idle_seconds=1800)
         if vision is not None:configuration['vision_config']=str(vision)
+        if getattr(args,'ephemeral',False):configuration['ephemeral']=True
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
     if args.pack is None:raise ValueError("Flash requires --pack")
@@ -132,6 +142,15 @@ def _make_profile(args,output):
         selected_token_protocol="consumed-selected-receipt-v1",sut_command=command,
         text_template_kwargs=dict(enable_thinking=True),vision_dry_protocol="mixed-text-runs-dry-u53-v1",
         vision_protocol="explicit-image-rows-mrope-v3")
+    if getattr(args,'gpu',None) is not None:
+        from context_time_travel.pools import normalize_gpu_selection
+        workers=normalize_gpu_selection(args.gpu)
+        if any(type(gpu) is not int for gpu in workers):
+            raise ValueError('Native split-worker checkpoints are not supported')
+        execution['GPU']=list(workers)
+        execution['environment']={'CUDA_DEVICE_ORDER':'PCI_BUS_ID','CUDA_VISIBLE_DEVICES':','.join(map(str,workers))}
+        # Each native worker receives its own physical --gpu from worker_command.
+        command=execution['sut_command'];i=command.index('--gpu');del command[i:i+2]
     revision=subprocess.check_output(["git","-C",str(ROOT),"rev-parse","HEAD"],text=True).strip()
     prefixes=("serve/","tools/","experimental/branching_context/src/","experimental/branching_context/scripts/")
     tracked=subprocess.check_output(["git","-C",str(ROOT),"ls-files","-z"]).decode().split("\0")
@@ -161,6 +180,7 @@ def _make_profile(args,output):
         if not path.is_absolute() or path.is_symlink() or not path.is_file():
             raise ValueError("--vision-config requires an existing absolute regular file")
         server_config["vision_config"]=str(path)
+    if getattr(args,'ephemeral',False):server_config['ephemeral']=True
     write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
@@ -184,6 +204,8 @@ def main():
     parser.add_argument("--pack",type=Path,help="Required for Flash; omit for dense Qwen")
     parser.add_argument("--native",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--gpu",type=parse_gpus,help='Physical PCI GPU IDs: 4 or 4,6 for independent workers. Grouped native checkpoints remain unsupported. Omit to preserve GPU 0 defaults.')
+    parser.add_argument('--ephemeral',action='store_true',help='Use temporary session history/checkpoints and remove them on server exit')
     parser.add_argument("--expert-profile",type=Path)
     parser.add_argument("--vision-config",type=Path,help="Optional existing pinned image-producer configuration; omit for text/restore-only serving.")
     parser.add_argument("--reuse-model-receipt",type=Path,help="Optional trusted prior hash receipt; changed file stamps force hashing.")

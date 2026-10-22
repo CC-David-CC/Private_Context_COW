@@ -2,6 +2,7 @@
 // Whole-state copies, not physical page sharing. Version 1 text images stay distinct.
 // llama_state_* in the pinned engine stores hybrid memory but NOT next logits.
 #include "llama.h"
+#include "qwen35_device.h"
 extern "C" {
 #include "sha256/sha256.h"
 }
@@ -30,15 +31,21 @@ int ctt_proof(void*x,unsigned char*out,int*consumed,int*rotary){
  auto a=l->cells_hash,b=l->positions_hash;sha256_final(&a,out);sha256_final(&b,out+32);*consumed=l->cells;*rotary=l->rotary;return 0;
 }
 const char *ctt_error(){return error_text.c_str();}
-void *ctt_load(const char *path){
+static void *ctt_load_impl(const char *path,const char *device){
  try {
   ggml_backend_load_all();auto p=llama_model_default_params();p.n_gpu_layers=99;
+  ggml_backend_dev_t devices[2]={};qwen35_select_device(p,device,devices);
   auto *m=llama_model_load_from_file(path,p);require(m,"Model load failed");
   char arch[64]={};llama_model_meta_val_str(m,"general.architecture",arch,sizeof(arch));
-  if(std::string(arch)!="qwen35" || !llama_model_is_hybrid(m) || llama_model_has_encoder(m)){
+  if((std::string(arch)!="qwen35" && std::string(arch)!="wen1") || !llama_model_is_hybrid(m) || llama_model_has_encoder(m)){
    llama_model_free(m);throw std::runtime_error("Requires qwen35 hybrid text decoder");}
   return m;
  }catch(const std::exception&e){error_text=e.what();return nullptr;}
+}
+void *ctt_load(const char *path){return ctt_load_impl(path,nullptr);}
+void *ctt_load_device(const char *path,const char *device){
+ if(!device||!*device){error_text="Missing CUDA device";return nullptr;}
+ return ctt_load_impl(path,device);
 }
 void ctt_unload(void *m){llama_model_free((llama_model*)m);}
 int ctt_vocab(void *m){return llama_vocab_n_tokens(llama_model_get_vocab((llama_model*)m));}

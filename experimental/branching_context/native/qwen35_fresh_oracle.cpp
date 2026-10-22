@@ -1,5 +1,6 @@
 // Independent oracle: each forward allocates a new context and consumes all inputs.
 #include "llama.h"
+#include "qwen35_device.h"
 #include <algorithm>
 #include <cstdint>
 #include <iostream>
@@ -14,14 +15,15 @@ template<class T> void send(T value) {
 
 int main(int argc, char ** argv) {
     try {
-        if (argc != 5) throw std::runtime_error("Expected model, capacity, batch and thread count");
+        if (argc != 5 && argc != 6) throw std::runtime_error("Expected model, capacity, batch, thread count and optional CUDA device");
         ggml_backend_load_all();
         auto mp = llama_model_default_params();
         mp.n_gpu_layers = 99;
+        ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,argc==6?argv[5]:nullptr,devices);
         auto * model = llama_model_load_from_file(argv[1], mp);
         if (!model) throw std::runtime_error("Model load failed");
         char arch[64]={}; llama_model_meta_val_str(model,"general.architecture",arch,sizeof(arch));
-        if (std::string(arch)!="qwen35" || !llama_model_is_hybrid(model) || llama_model_has_encoder(model)) {
+        if ((std::string(arch)!="qwen35" && std::string(arch)!="wen1") || !llama_model_is_hybrid(model) || llama_model_has_encoder(model)) {
             throw std::runtime_error("Oracle requires qwen35 hybrid decoder");
         }
         auto * vocab = llama_model_get_vocab(model);

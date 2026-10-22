@@ -16,11 +16,11 @@ from .execution_receipt import tokens_digest,validate_input_schedule
 class Qwen35MixedBackend(Qwen35Backend):
  STATE_FORMAT='qwen35-hybrid-mrope-frontier-v2'
  RESUME_CONTRACT=RESUME_CONTRACT
- def __init__(self,profile):
+ def __init__(self,profile,gpu_id=None):
   e=profile['execution']
   if e.get('vision_protocol')!=VISION_PROTOCOL or e.get('native_binding_protocol')!='qwen35-streamed-cells-mrope-v2':raise IntegrityError('Unsupported mixed Qwen binding protocol')
   self._inputs=None
-  super().__init__(profile)
+  super().__init__(profile,gpu_id=gpu_id)
   self.lib.ctt_state_version.restype=C.c_int
   if self.lib.ctt_state_version()!=2:self.close();raise IntegrityError('Native mixed state version mismatch')
   self.lib.ctt_proof.argtypes=[C.c_void_p,C.c_void_p,C.POINTER(C.c_int),C.POINTER(C.c_int)];self.lib.ctt_proof.restype=C.c_int
@@ -96,9 +96,9 @@ class Qwen35MixedBackend(Qwen35Backend):
   self._check_binding(lease,self._inputs);return super().export(lease)
 
 class Qwen35MixedOracle(Qwen35FreshOracle):
- def __init__(self,profile,*,embeddings):
+ def __init__(self,profile,*,embeddings,gpu_id=None):
   import tempfile
-  super().__init__(profile);self._directory=tempfile.TemporaryDirectory(prefix='qwen35-oracle-');self._paths={}
+  super().__init__(profile,gpu_id=gpu_id);self._directory=tempfile.TemporaryDirectory(prefix='qwen35-oracle-');self._paths={}
   from pathlib import Path
   for key,item in embeddings.items():
    p=Path(self._directory.name)/(key+'.sve');p.write_bytes(item.payload);self._paths[key]=str(p)

@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "Launcher/device controls and bounded single-GPU dense smoke; not multi-GPU numerical qualification",
+  "focused_cpu_tests": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "g0": {
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "native_builds": {
+    "llama_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+    "text_adapter_and_oracle": "PASS",
+    "mixed_adapter_and_oracle": "PASS"
+  },
+  "real_model": {
+    "name": "Qwen3.5-9B-Q8_0.gguf",
+    "sha256": "809626574d0cb43d4becfa56169980da2bb448f2299270f7be443cb89d0a6ae4",
+    "hardware": "NVIDIA GeForce RTX 4090",
+    "gpu": 0,
+    "context_capacity": 128,
+    "prefill_chunk": 16,
+    "threads": 4,
+    "kv_dtype": "FP16",
+    "comparison_threshold": "exact full-logit equality",
+    "full_logit_comparisons": 6,
+    "max_absolute_error": 0,
+    "restores": 4,
+    "restore_prefix_forward_tokens": 0,
+    "native_unavailable_device_rejected": true,
+    "mixed_fixture": "Text-only InputHistory through the mixed adapter; no new image qualification"
+  },
+  "http": {
+    "authenticated_startup": true,
+    "clean_shutdown": true
+  },
+  "limits": [
+    "Nonzero physical device mapping was exercised by CPU controls, not a second physical GPU",
+    "No simultaneous multi-GPU inference or cross-GPU numerical equivalence claim",
+    "Grouped native checkpoint capture remains unsupported",
+    "Wen architecture support and the A100 build remain separate work",
+    "No cumulative G1-G5 certification"
+  ],
+  "ephemeral_controls": {
+    "tests": 5,
+    "normal_exit": true,
+    "exception_exit": true,
+    "crash_reaped_next_start": true,
+    "active_sessions_preserved": true,
+    "symlink_targets_preserved": true
+  }
+}

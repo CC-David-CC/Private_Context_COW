@@ -46,6 +46,60 @@ SERVER_DATA=/path/to/new-qwen35-server
 
 These are the tested pool/context/batch settings, not a universal hardware recommendation. Use authentication on the trusted LAN. Setup creates a private api-key.txt. Give its value privately to the client operator; never put it in model context, source control or command-line arguments.
 
+### Selecting physical GPUs
+
+Rebuild the native adapter with this source before opting into explicit device
+selection. Add `--gpu 4` to `cow_server_setup.py` to select physical GPU 4, or
+`--gpu 4,6` for two independent dense workers using the existing shared RAM/disk
+pools. IDs follow PCI order. The selected topology and CUDA visibility are pinned
+in the new execution profile. Each model is loaded onto its own selected device;
+workers do not change the process environment while running.
+
+Omitting `--gpu` retains the legacy GPU-0 setup and accepts its existing native
+library. An existing profile cannot be silently rebound: create a separate server
+directory for a different selection. Startup locks every selected physical GPU
+against other configured COW launchers under the same account. These locks do not
+reserve GPUs against unrelated users or programs; inspect actual use before launch.
+
+The coordinator's nested topology, such as `GPU=[[0,1],2]`, still describes one
+grouped worker plus one independent worker. Native grouped checkpoint capture
+remains unsupported and fails before dense model loading. Independent multi-GPU
+configuration support does not establish numerical equivalence across different
+GPUs; qualify the actual hardware/profile before relying on cross-worker restores.
+
+### Temporary server sessions
+
+Use `cow_server_setup.py --ephemeral` for sessions that should last only while the
+server runs. `cow_server.py SERVER_DIRECTORY --ephemeral` also opts an existing
+configuration into a temporary run. History, checkpoints and admitted grammars
+are placed in a fresh private session directory and removed on normal exit or
+an exception. Downloaded model files, source, configuration and existing durable
+stores are preserved. Closing a BW client alone does not stop the server.
+
+An uncatchable termination or power loss cannot run shutdown cleanup. The next
+ephemeral launch removes only marked abandoned session directories whose lease
+locks are no longer held. Active sessions and unmarked directories are preserved.
+
+For a shared A100 server, `--ram-gib 100 --disk-gib 100` sets the shared numerical
+spillover pool budgets to 100 GiB each. These are not total process-memory or
+whole-directory size limits. Model weights, live GPU state, canonical history,
+temporary staging and operating-system overhead need their own headroom.
+
+### Wen naming support
+
+For a Wen GGUF declaring architecture/pre-tokenizer `wen1`, apply the inspected
+dependency naming patch before building:
+
+```sh
+python experimental/branching_context/scripts/prepare_wen_llama.py --llama "$LLAMA_ROOT"
+```
+
+The patch maps Wen to the compatible hybrid implementation while reading actual
+`wen1.*` metadata keys and the Wen vocabulary/merges. Qwen remains supported.
+The builder accepts only the exact inspected changes on the pinned base and
+records their hashes; arbitrary dirty dependency trees are rejected. Build the
+dependency after applying the patch, then build the COW adapter as above.
+
 For restart, stop the owned server cleanly and launch the SAME server directory again. Do not rerun setup or change the profile. Model loading and transfers are allowed during restore; recomputing saved prefix tokens is a separate measured property.
 
 ## BranchWrite client

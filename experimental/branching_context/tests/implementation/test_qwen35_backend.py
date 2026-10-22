@@ -13,6 +13,12 @@ class Qwen35AdmissionTests(unittest.TestCase):
                 'qwen35.ssm.time_step_rank':32,'qwen35.ssm.inner_size':4096}
     def test_actual_9b_geometry(self):
         self.assertEqual(validate_geometry(self.metadata())['recurrent_layers'],24)
+    def test_wen_geometry_uses_its_own_metadata_prefix(self):
+        m={key.replace('qwen35.','wen1.'):value for key,value in self.metadata().items()}
+        m['general.architecture']='wen1'
+        self.assertEqual(validate_geometry(m)['recurrent_layers'],24)
+        m['wen1.ssm.state_size']=64
+        with self.assertRaises(InvalidOperation):validate_geometry(m)
     def test_foreign_architecture_rejected(self):
         m=self.metadata();m['general.architecture']='qwen4exp'
         with self.assertRaises(InvalidOperation):validate_geometry(m)

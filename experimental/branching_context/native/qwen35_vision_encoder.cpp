@@ -40,7 +40,7 @@ int main(int argc, char ** argv) {
   if(!model) throw std::runtime_error("Cannot load decoder metadata");
   char arch[64]={};llama_model_meta_val_str(model.get(),"general.architecture",arch,sizeof(arch));
   int width=llama_model_n_embd_inp(model.get());
-  if(std::string(arch)!="qwen35"||width!=4096) throw std::runtime_error("Only the tested Qwen35 4096-wide model is supported");
+  if((std::string(arch)!="qwen35" && std::string(arch)!="wen1")||width!=4096) throw std::runtime_error("Only the tested Qwen35 4096-wide model is supported");
   auto params=mtmd_context_params_default();params.use_gpu=gpu;params.n_threads=threads;
   params.warmup=false;params.print_timings=false;params.image_min_tokens=1;params.image_max_tokens=max_tokens;
   params.flash_attn_type=flash=="on"?LLAMA_FLASH_ATTN_TYPE_ENABLED:flash=="off"?LLAMA_FLASH_ATTN_TYPE_DISABLED:LLAMA_FLASH_ATTN_TYPE_AUTO;

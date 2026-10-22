@@ -1,5 +1,6 @@
 // Fresh mixed-input oracle: no adapter, checkpoint, cache or state-import code.
 #include "llama.h"
+#include "qwen35_device.h"
 #include "nlohmann/json.hpp"
 extern "C" {
 #include "sha256/sha256.h"
@@ -21,9 +22,10 @@ static std::string hexhash(const std::vector<uint8_t>&b){unsigned char h[32];sha
 struct Image{std::vector<float> values;};
 struct Cell{int token,image,row;std::array<int32_t,3> pos;};
 int main(int argc,char**argv){try{
- check(argc==5,"Expected model, capacity, batch, threads");ggml_backend_load_all();auto mp=llama_model_default_params();mp.n_gpu_layers=99;
+ check(argc==5||argc==6,"Expected model, capacity, batch, threads and optional CUDA device");ggml_backend_load_all();auto mp=llama_model_default_params();mp.n_gpu_layers=99;
+ ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,argc==6?argv[5]:nullptr,devices);
  std::unique_ptr<llama_model,decltype(&llama_model_free)> model(llama_model_load_from_file(argv[1],mp),llama_model_free);check(bool(model),"Cannot load model");
- char arch[64]={};llama_model_meta_val_str(model.get(),"general.architecture",arch,sizeof(arch));check(std::string(arch)=="qwen35"&&llama_model_is_hybrid(model.get())&&llama_model_n_embd_inp(model.get())==4096,"Unsupported decoder");
+ char arch[64]={};llama_model_meta_val_str(model.get(),"general.architecture",arch,sizeof(arch));check((std::string(arch)=="qwen35"||std::string(arch)=="wen1")&&llama_model_is_hybrid(model.get())&&llama_model_n_embd_inp(model.get())==4096,"Unsupported decoder");
  auto vocab=llama_model_get_vocab(model.get());int nv=llama_vocab_n_tokens(vocab),capacity=std::stoi(argv[2]),limit=std::stoi(argv[3]),threads=std::stoi(argv[4]);check(capacity>=128&&capacity<=262144&&limit>0&&limit<=capacity&&threads>0,"Invalid context");
  std::string line;
  while(std::getline(std::cin,line)){

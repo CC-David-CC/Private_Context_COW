@@ -13,6 +13,25 @@ import threading
 from .real import NativeBackend
 from .store import IntegrityError, InvalidOperation
 from .execution_receipt import tokens_digest
+from .pools import normalize_gpu_selection
+
+_MODEL_LOAD_LOCK=threading.Lock()
+
+def device_name_for_worker(profile,gpu_id):
+    """Map pinned physical PCI IDs to process-visible CUDA names without rebinding CUDA."""
+    e=profile['execution'];workers=normalize_gpu_selection(e.get('GPU',[0]))
+    if any(type(gpu) is not int for gpu in workers):
+        raise ValueError('Dense grouped workers require multi-device checkpoint support')
+    if type(gpu_id) is not int or gpu_id not in workers:
+        raise ValueError('Dense worker GPU must be selected in its execution profile')
+    if e.get('device_binding') is None and workers==(0,):return None
+    if e.get('device_binding')!='cuda-single-device-v1':
+        raise ValueError('Dense GPU selection requires a pinned device binding')
+    env=e.get('environment',{})
+    if (env.get('CUDA_VISIBLE_DEVICES')!=','.join(map(str,workers))
+            or env.get('CUDA_DEVICE_ORDER')!='PCI_BUS_ID'):
+        raise ValueError('Dense CUDA visibility differs from selected physical GPUs')
+    return 'CUDA'+str(workers.index(gpu_id))
 
 _GEOMETRY={'block_count':32,'embedding_length':4096,'full_attention_interval':4,
  'attention.head_count':16,'attention.head_count_kv':4,'attention.key_length':256,
@@ -20,10 +39,11 @@ _GEOMETRY={'block_count':32,'embedding_length':4096,'full_attention_interval':4,
  'ssm.group_count':16,'ssm.time_step_rank':32,'ssm.inner_size':4096}
 
 def validate_geometry(metadata):
-    if metadata.get('general.architecture')!='qwen35' or metadata.get('tokenizer.ggml.model')!='gpt2':
-        raise InvalidOperation('Qwen adapter requires qwen35 GPT-2 tokenizer geometry')
+    architecture=metadata.get('general.architecture')
+    if architecture not in ('qwen35','wen1') or metadata.get('tokenizer.ggml.model')!='gpt2':
+        raise InvalidOperation('Dense adapter requires qwen35 or wen1 GPT-2 tokenizer geometry')
     for key,value in _GEOMETRY.items():
-        actual=metadata.get('qwen35.'+key)
+        actual=metadata.get(architecture+'.'+key)
         if type(actual) is not int or actual!=value:
             raise InvalidOperation('Unsupported Qwen3.5-9B geometry: '+key)
     return dict(attention_layers=8,recurrent_layers=24)
@@ -48,8 +68,13 @@ class _QwenLease:
 class Qwen35Backend(NativeBackend):
     STATE_FORMAT="qwen35-hybrid-frontier-v1"
     RESUME_CONTRACT="identical-native-batches-v1"
-    def __init__(self,profile):
+    def __init__(self,profile,gpu_id=None):
         e=profile['execution']
+        workers=normalize_gpu_selection(e.get('GPU',[0]))
+        if gpu_id is None:
+            if len(workers)!=1:raise ValueError('Select an explicit dense worker GPU')
+            gpu_id=workers[0]
+        self.gpu_id=gpu_id;self._device_name=device_name_for_worker(profile,gpu_id)
         if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype')!='FP16'
                 or e.get('sampling_location')!='native-cpu-frontier'
                 or e.get('state_format')!=self.STATE_FORMAT
@@ -62,10 +87,11 @@ class Qwen35Backend(NativeBackend):
         self.native_pid=os.getpid()
         super().__init__(profile)
         md={key:self.metadata(key) for key in ['general.architecture','tokenizer.ggml.model']}
+        architecture=md['general.architecture']
         for key in _GEOMETRY:
-            value=self.metadata('qwen35.'+key)
-            try:md['qwen35.'+key]=int(value)
-            except (ValueError,TypeError):md['qwen35.'+key]=None
+            value=self.metadata(architecture+'.'+key)
+            try:md[architecture+'.'+key]=int(value)
+            except (ValueError,TypeError):md[architecture+'.'+key]=None
         try:validate_geometry(md)
         except BaseException:self.close();raise
         fn=self.lib.ctt_new_config;fn.argtypes=[C.c_void_p,C.c_int,C.c_int,C.c_int];fn.restype=C.c_void_p
@@ -77,6 +103,19 @@ class Qwen35Backend(NativeBackend):
         self.lib.ctt_choose_mask.argtypes=[C.c_void_p,C.c_void_p,C.c_size_t]
         self.lib.ctt_choose_mask.restype=C.c_int
         self.stats['sampling_calls']=0
+
+    def _load_model(self):
+        # Backend registration/loading is process-global; device choice is per model.
+        with _MODEL_LOAD_LOCK:
+            if self._device_name is None:return super()._load_model()
+            env=self.profile['execution']['environment']
+            if any(os.environ.get(k)!=env[k] for k in ('CUDA_VISIBLE_DEVICES','CUDA_DEVICE_ORDER')):
+                raise IntegrityError('Dense CUDA environment differs from pinned device binding')
+            try:fn=self.lib.ctt_load_device
+            except AttributeError as exc:
+                raise IntegrityError('Rebuild the dense adapter for explicit GPU selection') from exc
+            fn.argtypes=[C.c_char_p,C.c_char_p];fn.restype=C.c_void_p
+            return fn(os.fsencode(self.profile['model_path']),self._device_name.encode())
 
     def metadata(self,key):
         n=self.lib.ctt_meta(self.model,key.encode(),None,0)
@@ -200,10 +239,20 @@ class Qwen35Backend(NativeBackend):
 
 class Qwen35FreshOracle:
     """Independent native fresh-context forward; no checkpoint read interface."""
-    def __init__(self,profile):
+    def __init__(self,profile,gpu_id=None):
         import subprocess,tempfile
         self.profile=profile;self.log=tempfile.TemporaryFile();e=profile['execution']
-        self.process=subprocess.Popen([profile['oracle_binary'],profile['model_path'],str(e['capacity']),str(e['prefill_chunk']),str(e['threads'])],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=self.log)
+        command=[profile['oracle_binary'],profile['model_path'],str(e['capacity']),str(e['prefill_chunk']),str(e['threads'])]
+        environment=None
+        if e.get('device_binding') is not None or gpu_id is not None:
+            workers=normalize_gpu_selection(e.get('GPU',[0]))
+            if gpu_id is None:
+                if len(workers)!=1:raise ValueError('Select an explicit oracle worker GPU')
+                gpu_id=workers[0]
+            device=device_name_for_worker(profile,gpu_id)
+            if device is not None:
+                command.append(device);environment={**os.environ,**e['environment']}
+        self.process=subprocess.Popen(command,env=environment,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=self.log)
         self.requests=0;self.tokens_computed=0
     def _read(self,n):
         from .oracle import LlamaFreshOracle
@@ -235,8 +284,8 @@ class Qwen35FreshOracle:
         return LlamaFreshOracle.close(self)
 
 
-def load_qwen35_backend(profile):
+def load_qwen35_backend(profile,gpu_id=None):
     if profile.get('execution',{}).get('state_format')=='qwen35-hybrid-mrope-frontier-v2':
         from .qwen35_mixed_backend import Qwen35MixedBackend
-        return Qwen35MixedBackend(profile)
-    return Qwen35Backend(profile)
+        return Qwen35MixedBackend(profile,gpu_id=gpu_id)
+    return Qwen35Backend(profile,gpu_id=gpu_id)

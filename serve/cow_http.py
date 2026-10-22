@@ -49,7 +49,7 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
         path=Path(directory)/'chat_template.jinja';path.write_text(source,encoding='utf-8')
         template=ChatTemplate(path)
     metadata=GGUFFile(Path(model_path)).metadata
-    if metadata.get('general.architecture')=='qwen35':
+    if metadata.get('general.architecture') in ('qwen35','wen1'):
         from serve.cow_qwen35_prompt import Qwen35PromptEncoder
         encoder=Qwen35PromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
     else:
@@ -91,7 +91,7 @@ def vision_preparer_from_config(store,mixed_renderer,profile,path):
             or type(config.get('embedding_width')) is not int or config['embedding_width']<=0):
         raise ValueError('Invalid image producer configuration')
     if (mixed_renderer is None or execution.get('resume_contract')!='identical-mixed-native-operators-v1'
-            or execution.get('GPU')!=[0] or config['embedding_width']!=execution.get('embedding_width')):
+            or config['embedding_width']!=execution.get('embedding_width')):
         raise ValueError('Image producer differs from the supported mixed worker profile')
     from serve.cow_vision import CowImageNormalizer
     from serve.cow_vision_encoder import CowNativeVisionEncoder
@@ -787,11 +787,11 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
     return server
 
 
-def pool_config_from_args(args):
+def pool_config_from_args(args,profile=None):
     from context_time_travel.pools import PoolConfig
     if args.min_available_gib<=0:
         raise ValueError('The serving memory-headroom guard must be positive')
-    return PoolConfig(gpus=(0,),ram_bytes=args.ram_gib*1024**3,
+    return PoolConfig(gpus=profile['execution']['GPU'] if profile is not None else (0,),ram_bytes=args.ram_gib*1024**3,
         disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
         checkpoint_idle_seconds=args.checkpoint_idle_seconds)
 
@@ -847,7 +847,10 @@ def main():
                     profile['execution'].get('eos_tokens',[]))
         except ImportError as error:
             raise RuntimeError('Grammar serving requires the optional pinned llguidance==1.9.1 dependency') from error
-    if profile['execution'].get('GPU')!=[0]: raise ValueError('Initial serving qualification requires GPU=[0]')
+    config=pool_config_from_args(args,profile)
+    if profile.get('backend')=='qwen35-llama.cpp':
+        from context_time_travel.qwen35_backend import device_name_for_worker
+        for gpu in config.gpus:device_name_for_worker(profile,gpu)
     components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
         model_contract_id=profile['model_contract_id'],
         mixed_inputs=profile['execution'].get('resume_contract')=='identical-mixed-native-operators-v1') if args.text else None
@@ -855,11 +858,10 @@ def main():
     if args.vision_config is not None:
         from context_time_travel.store import Store
         preparer=vision_preparer_from_config(Store(args.store),components['mixed_renderer'],profile,args.vision_config)
-    config=pool_config_from_args(args)
     def factory(gpu):
         if profile.get('backend')=='qwen35-llama.cpp':
-            if gpu!=0:raise ValueError('Qwen bring-up currently requires physical GPU 0')
-            backend=BranchingModel.load_backend(profile)
+            from context_time_travel.qwen35_backend import load_qwen35_backend
+            backend=load_qwen35_backend(profile,gpu_id=gpu)
         else:
             backend=StrataBackend(profile,gpu_id=gpu)
         return BranchingModel(args.store,backend,profile)
