@@ -12,6 +12,7 @@ from pathlib import Path
 import signal
 import subprocess
 import time
+import uuid
 
 
 def task_prompt(case):
@@ -76,7 +77,6 @@ def command_for(runner, root, trial, model, endpoint, key, case):
 model_provider = "wen"
 model_context_window = 65536
 model_auto_compact_token_limit = 55000
-model_supports_reasoning_summaries = false
 web_search = "disabled"
 approval_policy = "never"
 [features]
@@ -148,7 +148,9 @@ def main():
             workspace = trial/'workspace'; workspace.mkdir()
             if case['kind'] == 'edit': (workspace/case['path']).write_text(case['original'], encoding='utf-8', newline='')
             elif case['kind'] == 'read': (workspace/case['path']).write_bytes(b'value = 1\n')
-            argv = command_for(runner, a.root, trial, a.model, a.endpoint, key, case)
+            session = uuid.uuid4().hex
+            session_endpoint = a.endpoint.removesuffix('/v1')+'/sessions/'+session+'/v1'
+            argv = command_for(runner, a.root, trial, a.model, session_endpoint, key, case)
             started = time.monotonic(); timeout = False
             with (trial/'runner.log').open('w') as log:
                 process = subprocess.Popen(argv, stdin=subprocess.PIPE, stdout=log, stderr=subprocess.STDOUT,
@@ -164,6 +166,8 @@ def main():
             completed = process.returncode == 0 and not timeout
             row = dict(runner=runner, model=a.model, id=name, seconds=time.monotonic()-started,
                        exit_code=process.returncode, timeout=timeout, completed=completed,
+                       session=session, model_request_limit=8, output_limit_per_request=2048,
+                       budget_exhausted='Session model-request budget exhausted' in log,
                        verdict=check, passed=completed and check['passed'])
             rows.append(row); (a.run/'results.json').write_text(json.dumps(rows, indent=2)+'\n')
             print(json.dumps(row), flush=True)

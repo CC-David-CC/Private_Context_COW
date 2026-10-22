@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 from concurrent.futures import Future
-from cache import PrefixIndex, CachedCow
+from cache import PrefixIndex, CachedCow, SessionBudgets
 
 
 def ready(value):
@@ -28,6 +28,12 @@ class Adapter:
 
 
 class Tests(unittest.TestCase):
+    def test_session_budget_cannot_reset_by_retrying_same_endpoint(self):
+        b = SessionBudgets(calls=2, sessions=2)
+        b.admit('one'); b.admit('one')
+        with self.assertRaises(ValueError): b.admit('one')
+        b.admit('two')
+        with self.assertRaises(ValueError): b.admit('three')
     def test_exact_tokens_and_identity_not_text_or_question_match(self):
         idx = PrefixIndex(); idx.remember(('model', 'adapter', 'profile', 'renderer'), (1, 2), 'a')
         self.assertIsNone(idx.find(('other', 'adapter', 'profile', 'renderer'), (1, 2, 3)))

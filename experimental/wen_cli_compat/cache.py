@@ -5,6 +5,24 @@ import threading
 import uuid
 
 
+class SessionBudgets:
+    """An explicit endpoint session bounds model calls across every CLI."""
+    def __init__(self, calls=8, sessions=128):
+        self.calls, self.sessions, self.counts = calls, sessions, {}
+        self.lock = threading.Lock()
+
+    def admit(self, session):
+        if session is None:
+            return
+        with self.lock:
+            if session not in self.counts and len(self.counts) >= self.sessions:
+                raise ValueError('Experimental session count exhausted')
+            count = self.counts.get(session, 0)
+            if count >= self.calls:
+                raise ValueError('Session model-request budget exhausted')
+            self.counts[session] = count+1
+
+
 @dataclass(frozen=True)
 class Entry:
     identity: tuple

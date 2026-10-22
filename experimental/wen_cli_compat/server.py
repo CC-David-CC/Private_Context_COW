@@ -5,6 +5,7 @@ import hmac
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
+import re
 from pathlib import Path
 import select
 import signal
@@ -17,7 +18,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT), str(ROOT/'experimental/branching_context/src')]
-from cache import CachedCow
+from cache import CachedCow, SessionBudgets
 from serve import responses
 from serve.frontend import openai_to_messages, OutputParser
 from serve.cow_http import model_text_components
@@ -33,6 +34,7 @@ class Frontend:
                                        profile['execution_profile_id'], renderer))
         self.max_output, self.trace = max_output, trace
         self.trace_lock = threading.Lock()
+        self.sessions = SessionBudgets()
 
     def prepare(self, req, dialect):
         if not isinstance(req, dict): raise ValueError('Request must be a JSON object')
@@ -158,24 +160,30 @@ def make_server(frontend, host, port, key, shutdown):
             try:
                 return bool(select.select([self.connection], [], [], 0)[0]) and not self.connection.recv(1, socket.MSG_PEEK)
             except OSError: return True
+        def route(self):
+            match = re.fullmatch(r'/sessions/([a-f0-9]{32})(/v1/[^?]+)', self.path)
+            return (match[2], match[1]) if match else (self.path, None)
         def do_GET(self):
             if not self.authorized(): return self.send_json(401, dict(error='Unauthorized'))
-            if self.path == '/v1/models':
+            path, _ = self.route()
+            if path == '/v1/models':
                 return self.send_json(200, dict(object='list', data=[dict(id=frontend.model, object='model',
                     created=0, owned_by='local', context_length=frontend.profile['execution']['capacity'])]))
             if self.path == '/health': return self.send_json(200, dict(status='ok', experimental=True))
             return self.send_json(404, dict(error='Not found'))
         def do_POST(self):
             if not self.authorized(): return self.send_json(401, dict(error='Unauthorized'))
-            if self.path not in ('/v1/chat/completions', '/v1/responses'):
+            path, session = self.route()
+            if path not in ('/v1/chat/completions', '/v1/responses'):
                 return self.send_json(404, dict(error='Unsupported endpoint'))
             started = False
             try:
                 size = int(self.headers.get('Content-Length', '0'))
                 if not 0 < size <= 8*1024**2: raise ValueError('Request body exceeds bounds')
                 req = json.loads(self.rfile.read(size))
-                dialect = 'responses' if self.path.endswith('/responses') else 'chat'
+                dialect = 'responses' if path.endswith('/responses') else 'chat'
                 plan = frontend.prepare(req, dialect)
+                frontend.sessions.admit(session)
                 events = frontend.events(plan, self.disconnected)
                 if req.get('stream', False):
                     self.send_response(200); self.send_header('Content-Type', 'text/event-stream')
