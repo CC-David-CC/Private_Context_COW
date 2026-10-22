@@ -105,3 +105,25 @@ Parent-byte integrity, zero prefix work on activation, cancellation and observed
 successful native shutdown were checked. That probe does not qualify the complete
 canonical store/publication or serving stack. It reused 11 verified model hash
 receipts without reading all model weights again. See the committed run summaries.
+
+## Single-card AMD build preview
+
+The HIP branch has bounded RX 7900 XTX native evidence: 178 exact full-logit
+comparisons and nine zero-prefix-work restores at tiny, 1K and 8K, plus a real
+local image-encoder execution. Normal HTTP qualification remains separate.
+Use a new clean checkout of the same llama.cpp pin and a separate build/profile;
+CUDA checkpoints are not interchangeable with HIP checkpoints.
+
+With a working ROCm development environment, the executed configuration used:
+
+```sh
+cmake -S "$LLAMA_ROOT" -B "$LLAMA_ROOT/build" -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DGGML_HIP=ON -DGGML_CUDA=OFF -DGGML_NATIVE=ON -DCMAKE_HIP_ARCHITECTURES=gfx1100 -DCMAKE_HIP_COMPILER=/path/to/rocm/llvm/bin/clang -DLLAMA_BUILD_TOOLS=ON -DLLAMA_BUILD_EXAMPLES=ON
+cmake --build "$LLAMA_ROOT/build" --target llama mtmd --parallel 8
+"$COW_PYTHON" "$COW_ROOT/experimental/branching_context/scripts/build_qwen35_mixed.py" --llama "$LLAMA_ROOT" --output "$BUILD_ROOT"
+"$COW_PYTHON" "$COW_ROOT/experimental/branching_context/scripts/build_qwen35_encoder.py" --llama "$LLAMA_ROOT" --output /path/to/encoder-build
+```
+
+Replace the ROCm compiler path with the installed compiler. This initial profile
+admission requires exactly one AMD device at card0 and records its actual unique
+ID, driver and HIP runtime. More AMD devices/architectures need separate support
+and tests; the profile builder rejects unsupported inventory explicitly.

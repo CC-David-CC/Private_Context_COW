@@ -1,15 +1,18 @@
 # Bounded AMD dense-model runtime validation
 
-The tiny and 1K mixed-input campaigns passed on a real RX 7900 XTX, using
-pinned llama.cpp HIP and the existing Qwen adapter. Native logs place attention
-and recurrent buffers on ROCm0. The independent reference uses matching native
-batch boundaries. These initial stages reuse image rows produced on NVIDIA;
-local AMD encoding is a separate pending check.
+Tiny, 1K and 8K mixed-input campaigns passed on a real RX 7900 XTX with
+Qwen3.5-9B Q8, FP16 KV, pinned llama.cpp HIP and the existing Qwen adapter.
+There were 178 exact full-logit comparisons and nine strict process-separated
+restores, with zero saved-prefix forward work. The large fixtures generated
+16 tokens per branch. Native logs place attention and recurrent buffers on
+ROCm0; sampled VRAM and utilization are recorded in runtime-final-native.json.
 
-The 8K stage and local image encoder were still in progress when this incremental
-record was written. No full gate or general visual competence is claimed.
+These restart stages reuse real image rows produced on NVIDIA. A separately
+built local HIP encoder also passed actual execution, producing 48 finite
+4096-wide rows. Cross-device equality of embedding bytes is not promised.
+Normal launcher/authenticated HTTP integration remains pending.
+
 Actual NVIDIA inventory regression confirms the hardware helper preserves its
-previous CUDA profile fields. It is not another inference regression.
-
-Source/build scripts and raw logs remain on the Linux workers. Check the newest
-runtime summary before treating this incremental file as final evidence.
+previous CUDA profile fields; that inventory test is not an inference run.
+No full G1-G5, arbitrary batch equivalence, visual competence or physical GPU
+page-sharing qualification is claimed. runtime-incremental.json is historical.
