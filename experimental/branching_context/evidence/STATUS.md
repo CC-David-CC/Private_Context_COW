@@ -8175,3 +8175,8 @@ scope is one AMD GPU at card0, with independent model/execution identities.
 Nine CPU hardware admission cases, G0 51 and adapter units 13 passed. Mocked
 inventory responses are not GPU evidence. Native HIP build and execution remain
 unqualified until actual compiled artifacts and numerical runs complete.
+
+
+### 2026-10-21: bounded HIP native qualification
+
+Bounded single-card HIP native campaign PASS: tiny/1K/8K, 178 exact full-logit comparisons, nine strict restores, zero prefix forward tokens. Local HIP image encoding also passed. Normal AMD launcher/HTTP integration is pending. This does not change cumulative gate status. Evidence: `validation/qwen35-hip-20261021/runtime-final-native.json`.

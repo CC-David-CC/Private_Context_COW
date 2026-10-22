@@ -5517,3 +5517,8 @@ scope is one AMD GPU at card0, with independent model/execution identities.
 Nine CPU hardware admission cases, G0 51 and adapter units 13 passed. Mocked
 inventory responses are not GPU evidence. Native HIP build and execution remain
 unqualified until actual compiled artifacts and numerical runs complete.
+
+
+### 2026-10-21: bounded HIP native qualification
+
+HIP keeps the same dense adapter and canonical store. Bind profiles to actual compiled GPU backend plus observed device/driver/runtime. Single card0 only initially; no cross-CUDA/HIP checkpoint compatibility or cross-device embedding equality promise. The existing CUDA inventory fields remain unchanged, verified on actual NVIDIA hardware. Evidence: `validation/qwen35-hip-20261021/runtime-final-native.json`.
