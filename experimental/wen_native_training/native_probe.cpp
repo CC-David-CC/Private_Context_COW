@@ -62,7 +62,7 @@ int main(int argc, char ** argv) { try {
             require(llama_tokenize(vocab, text.data(), text.size(), ids.data(), count, false, true) == count, "Tokenizer changed");
             std::cout << json({{"tokens", ids}}).dump() << std::endl; continue;
         }
-        require(op == "forward", "Unsupported native operation");
+        require(op == "forward" || op == "generate", "Unsupported native operation");
         const std::string name = request.at("name");
         require(!name.empty() && std::all_of(name.begin(), name.end(), [](unsigned char c){ return std::isalnum(c) || c == '_'; }), "Invalid result name");
         auto ids = request.at("tokens").get<std::vector<llama_token>>();
@@ -103,6 +103,26 @@ int main(int argc, char ** argv) { try {
             llama_batch batch{}; batch.n_tokens = count; batch.token = ids.data()+offset;
             batch.pos = positions.data(); batch.n_seq_id = nseq.data(); batch.seq_id = sequences.data(); batch.logits = logits.data();
             require(llama_decode(ctx.get(), batch) == 0, "Native forward failed");
+        }
+        if (op == "generate") {
+            const int maximum = request.value("max_new_tokens", 256);
+            require(maximum > 0 && maximum <= 256 && ids.size()+maximum <= 8192, "Invalid generation bound");
+            std::vector<llama_token> generated;
+            for (int step = 0; step < maximum; ++step) {
+                const float * scores = llama_get_logits_ith(ctx.get(), -1);
+                require(scores, "Missing native generation scores");
+                llama_token next = std::max_element(scores, scores+nv)-scores;
+                generated.push_back(next);
+                std::array<llama_pos,4> position;
+                position.fill(logical.back()+step+1);
+                int32_t nseq = 1; llama_seq_id sequence = 0; llama_seq_id * seq = &sequence; int8_t want = 1;
+                llama_batch batch{}; batch.n_tokens = 1; batch.token = &next;
+                batch.pos = position.data(); batch.n_seq_id = &nseq; batch.seq_id = &seq; batch.logits = &want;
+                require(llama_decode(ctx.get(), batch) == 0, "Native generation consume failed");
+                if (llama_vocab_is_eog(vocab, next)) break;
+            }
+            std::cout << json({{"name",name}, {"tokens",generated}, {"logical_end",logical.back()+generated.size()}}).dump() << std::endl;
+            continue;
         }
         require(!traced || tape.hidden.size() == 4096, "Expected one normalized final-position vector");
         const float * scores = llama_get_logits_ith(ctx.get(), -1); require(scores, "Missing native logits");

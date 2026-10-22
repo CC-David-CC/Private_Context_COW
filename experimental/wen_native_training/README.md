@@ -110,6 +110,11 @@ enabled by this experiment.
 - `native_probe.cpp`: fresh native Wen contexts and actual native head inputs and
   scores; bounded physical inputs with explicit sparse logical positions.
 - `build.py`: build the isolated probe against the exact installed llama pin.
+- `probe.py`: bounded native-process lifetime and explicit sparse positions.
+- `run_guidance.py` / `bw_validation.py`: first run the already observed BW cases
+  with and without a light procedural hint, then test logical gaps. Validate
+  actual tool proposals/file effects in isolated workspaces. These scripts take
+  private owned cases externally and do not bundle their answers in Git.
 
 Run the CPU algebra checks:
 
@@ -127,9 +132,12 @@ python head.py /path/to/private-build/libwen-head-backward.so
 
 ## Evidence status
 
-Eight CPU algebra/finite-difference tests pass. These tests do not qualify native
-Wen, the whole recurrent backward, million-position inference or held-out BW
-learning. Native build/forward/training qualification is pending.
+Eight CPU algebra/finite-difference tests pass on Windows and Linux. The initial
+native probe compiles against the pinned CUDA runtime. Its portable head backward
+passes small-operation finite differences: maximum absolute A/B gradient errors
+are approximately 4.57e-8 and 1.67e-8; the zero-B control passes. These tests do not
+qualify native Wen, the whole recurrent backward, million-position inference or
+held-out BW learning. Native forward/training qualification is pending.
 
 The conceptual references are [RoFormer](https://arxiv.org/abs/2104.09864),
 [YaRN](https://arxiv.org/abs/2309.00071), and
