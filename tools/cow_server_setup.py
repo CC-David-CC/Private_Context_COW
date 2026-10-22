@@ -56,7 +56,24 @@ def write_json(path,value):
         stream.write("\n")
     Path(path).chmod(0o600)
 
+def compatibility_config(args):
+    port=getattr(args,'openai_port',None)
+    model=getattr(args,'openai_model',None)
+    if port is None:
+        if model is not None:raise ValueError('--openai-model requires --openai-port')
+        return {}
+    if type(port) is not int or not 1<=port<=65535 or port==args.port:
+        raise ValueError('OpenAI compatibility port must be valid and different from the native COW port')
+    model='cow' if model is None else model
+    if not isinstance(model,str) or re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}',model) is None:
+        raise ValueError('Use a nonempty model ID without spaces or control characters')
+    bound=getattr(args,'openai_max_output',2048)
+    if type(bound) is not int or bound<=0:raise ValueError('Compatibility output limit must be positive')
+    return dict(openai_port=port,openai_model=model,openai_max_output=bound)
+
+
 def _make_profile(args,output):
+    compatibility=compatibility_config(args)
     sys.path[:0]=[str(ROOT),str(ROOT/"experimental/branching_context/src")]
     from tools.gguf_reader import GGUFFile
     from context_time_travel.strata_backend import _digest
@@ -85,6 +102,7 @@ def _make_profile(args,output):
         if vision is not None:configuration['vision_config']=str(vision)
         if getattr(args,'ephemeral',False):configuration['ephemeral']=True
         if getattr(args,'scheduling','fifo')!='fifo':configuration['scheduling']=args.scheduling
+        configuration.update(compatibility)
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
     if getattr(args,'math_profile','native')!='native':raise ValueError('This math profile is currently supported only by the dense native adapter')
@@ -187,6 +205,7 @@ def _make_profile(args,output):
         server_config["vision_config"]=str(path)
     if getattr(args,'ephemeral',False):server_config['ephemeral']=True
     if getattr(args,'scheduling','fifo')!='fifo':server_config['scheduling']=args.scheduling
+    server_config.update(compatibility)
     write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
@@ -231,6 +250,9 @@ def main():
     parser.add_argument("--min-available-gib",type=int,default=16)
     parser.add_argument("--host",default="127.0.0.1")
     parser.add_argument("--port",type=int,default=8099)
+    parser.add_argument('--openai-port',type=int,help='Opt in to Chat Completions and Responses on another port, sharing this COW worker/pool')
+    parser.add_argument('--openai-model',help='Compatibility model ID, default cow; requires --openai-port')
+    parser.add_argument('--openai-max-output',type=int,default=2048,help='Compatibility output-token ceiling per request')
     args=parser.parse_args()
     if min(args.context,args.prefill,args.threads,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib,args.min_available_gib)<=0:
         parser.error("Context, batch and pool sizes must be positive.")

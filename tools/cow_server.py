@@ -79,6 +79,10 @@ def configured_argv(directory,config,key):
               "--text","--grammar-store",str(directory/"grammars")]
     if config.get('scheduling','fifo')!='fifo':
         argv += ['--scheduling',config['scheduling']]
+    if config.get('openai_port') is not None:
+        argv += ['--openai-port',str(config['openai_port']),
+                 '--openai-model',config.get('openai_model','cow'),
+                 '--openai-max-output',str(config.get('openai_max_output',2048))]
     vision=config.get("vision_config")
     if vision is not None:
         if not isinstance(vision,str):raise ValueError("vision_config must be an absolute file path")

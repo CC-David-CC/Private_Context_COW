@@ -802,6 +802,9 @@ def main():
     parser.add_argument('--profile',type=Path,required=True)
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=8099)
+    parser.add_argument('--openai-port',type=int,help='Opt-in standard CLI API listener sharing this coordinator')
+    parser.add_argument('--openai-model',default='cow')
+    parser.add_argument('--openai-max-output',type=int,default=2048)
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix'),default='fifo',
@@ -817,6 +820,12 @@ def main():
     parser.add_argument('--pool-trace-output',type=Path,
         help='Optional private local trace path; written only after ready service closes cleanly')
     args=parser.parse_args()
+    if args.openai_port is not None:
+        if not args.text:parser.error('--openai-port requires --text')
+        if not 1<=args.openai_port<=65535 or args.openai_port==args.port:
+            parser.error('Compatibility port must be valid and different from native COW port')
+        if (re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._:/-]{0,127}',args.openai_model) is None
+                or args.openai_max_output<=0):parser.error('Invalid compatibility model ID or output limit')
     if args.pool_trace_output is not None:
         validate_pool_trace_target(args.pool_trace_output)
     # Import only in opt-in Linux startup: normal serving has no dependency on
@@ -871,6 +880,9 @@ def main():
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
     coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer)
     server=None
+    compatibility_server=None
+    compatibility_thread=None
+    compatibility_stop=threading.Event()
     service_ready=False
     coordinator_closed=False
     try:
@@ -891,6 +903,21 @@ def main():
             # terminal request markers before the trace snapshot is published.
             server.daemon_threads=False
             server.block_on_close=True
+        if args.openai_port is not None:
+            from serve.cow_compat import Frontend,make_server as make_compatibility_server
+            # The callbacks above are bound to the same literal-safe model
+            # prompt encoder used by the native text boundary.
+            encoder=components['render'].__self__
+            frontend=Frontend(adapter,encoder,profile,args.openai_model,args.openai_max_output)
+            compatibility_server=make_compatibility_server(frontend,args.host,args.openai_port,
+                                                          args.api_key,compatibility_stop)
+            compatibility_thread=threading.Thread(target=compatibility_server.serve_forever,
+                name='cow-standard-cli',daemon=True)
+            compatibility_thread.start()
+            server.daemon_threads=False
+            server.block_on_close=True
+            print(json.dumps(dict(event='compatibility_ready',address=compatibility_server.server_address,
+                                  model=args.openai_model)),flush=True)
         print(json.dumps(dict(event='ready',address=server.server_address,
                               execution_profile_id=profile['execution_profile_id'],runtime_sources=runtime_sources)),flush=True)
         service_ready=True
@@ -898,6 +925,10 @@ def main():
         except KeyboardInterrupt: pass
     finally:
         try:
+            compatibility_stop.set()
+            if compatibility_server is not None:
+                compatibility_server.shutdown();compatibility_server.server_close()
+                compatibility_thread.join(timeout=10)
             if server is not None: server.server_close()
         finally:
             try:
