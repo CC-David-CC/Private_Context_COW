@@ -58,7 +58,7 @@ The unchanged-answer retry is a read of the original durable result. It must ret
 
 The matching tested projector is mmproj-F16.gguf, 918,166,080 bytes, SHA-256 `f70dc3509053962b0d0d3ee8a7eacebf5d60aa560cad78254ae8698516ae029f`. Build its producer with scripts/build_qwen35_encoder.py and use a pinned image-producer configuration through the normal setup tool's `--vision-config`. The mixed adapter consumes actual image embedding rows with explicit grid positions. Producer identities and original-image hashes remain distinct from logical token positions. Image-bearing restart and unchanged-image retry have bounded real-backend evidence; general visual task success is not implied.
 
-Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, original Qwen BF16, AMD, current Flash GPU regressions and complete performance qualification remain outstanding.
+Native checkpoints preserve the hybrid model state, consumed position/proofs and frontier. RNG, grammar/parser progress, sampler history and decoder state belong to canonical COW controller records; they are not assumed to be supplied by llama.cpp state export. Broader controller combinations, AMD, complete Flash serving regressions and full performance qualification remain outstanding.
 
 ## Research variants and producer configuration
 
@@ -88,3 +88,20 @@ The research model also completed a real encoder + authenticated HTTP image
 request from the separate BranchWrite client: 48 image rows consumed, 183
 generated tokens, durable result published. Both models use the same adapter
 code; their model, execution, tokenizer and image-producer identities stay separate.
+
+## Additional bounded runtime checks
+
+Original Qwen3.5-9B BF16 weights (17,920,697,312 bytes, SHA-256
+`daebe40eeea7057c1cdf35ac56d13f507d8bf12171bbb7a6b6b0d3f05439159a`)
+passed the same tiny/1K/8K mixed-input stages with FP16 KV: 178 exact full-logit
+comparisons, nine strict process-separated restores and zero prefix forward work.
+The larger cases use 16 generated tokens per branch. This original BF16 file is
+different from the user's research BF16 model. Select its actual model file in
+new setup; do not reuse Q8 or research-model checkpoints.
+
+The existing Flash Q8 native request regression also passed 32 exact comparisons
+using current main Python source and the previously pinned Flash executables.
+Parent-byte integrity, zero prefix work on activation, cancellation and observed
+successful native shutdown were checked. That probe does not qualify the complete
+canonical store/publication or serving stack. It reused 11 verified model hash
+receipts without reading all model weights again. See the committed run summaries.

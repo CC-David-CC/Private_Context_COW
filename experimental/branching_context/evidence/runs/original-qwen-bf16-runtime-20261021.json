@@ -1,0 +1,606 @@
+{
+  "status": "PASS",
+  "scope": "original Qwen3.5-9B BF16 weights, FP16 KV, identical mixed native schedules; bounded runtime only",
+  "comparisons": 178,
+  "strict_restores": 9,
+  "saved_prefix_forward_tokens": 0,
+  "max_logit_error": 0,
+  "stages": {
+    "tiny": {
+      "reference": {
+        "status": "PASS",
+        "phase": "reference",
+        "pid": 1284831,
+        "prefix_text_tokens": 128,
+        "suffix_tokens": 4,
+        "output_limit": 8,
+        "branch": "B",
+        "generated": 8,
+        "root_cells": 182,
+        "image_rows": 48,
+        "fresh_forwards": 20,
+        "fresh_forward_tokens": 3784,
+        "seconds": 61.58816367294639
+      },
+      "prepare": {
+        "status": "PASS",
+        "phase": "prepare",
+        "pid": 1284952,
+        "prefix_text_tokens": 128,
+        "suffix_tokens": 4,
+        "output_limit": 8,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "root_cells": 182,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 198,
+          "forward_tokens": 198,
+          "forward_calls": 13,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 658155294,
+          "checkpoint_import_bytes": 1495270890
+        },
+        "seconds": 25.151761590968817,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "resume": {
+        "status": "PASS",
+        "phase": "resume",
+        "pid": 1285024,
+        "prefix_text_tokens": 128,
+        "suffix_tokens": 4,
+        "output_limit": 8,
+        "branch": "B",
+        "generated": 8,
+        "comparisons": 27,
+        "max_logit_error": 0,
+        "root_cells": 182,
+        "restore_receipts": [
+          {
+            "snapshot": "89aa47381c7eba8826f12782b37179a00f4b639c314040d7a8b6ea15bcfc8fcc",
+            "payload_sha256": "abd41616a8fce5d99abf240c58e4b2683bdf0956842d4f02c088da5a03c42597",
+            "schedule_sha256": "45d9f6be9f4a8a8912785b4a3620a715d7d4d6a0f93334115fa1f9ec5d8d4d2f",
+            "consumed": 182,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "d7b39593fc66adbbfddddfaa9e5fa790946dc38fecadc06b1136240782b37ead",
+            "position_sha256": "0ca2c664fd283a8a8aa6197d886e99f6c03b8926f6ee2306cf22913707c06e63",
+            "rotary_cursor": 142,
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285024,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 59653434
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 59653434
+            },
+            "seconds": 0.20126747014001012
+          },
+          {
+            "snapshot": "54ceb8608bf0eb869b0e32e89bfd6288789887a00eb10a6bf9b88d6d7869cca8",
+            "payload_sha256": "91abab710bcbfa40442b1dad4f15184649d7838b32a681af195e7249f7b3b09c",
+            "schedule_sha256": "3dd420b0835540fa59a65dfb4161556c40d1c4299d03b144abbd2fa649c1b637",
+            "consumed": 190,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "9f0cb8c6ba038094bd1f820da65f9808de5c10961e67e512429453ed903f828d",
+            "position_sha256": "7887e4ea9dd8da7c754e0660d36bc1441808623d53c858fd83bbd3e6cdf7be9f",
+            "rotary_cursor": 150,
+            "controller_sha256": "b5ab68b55830a5a6985dc3dbdf299d80c7447ff3cb513d1a28b7fee170e5935d",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285024,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 12,
+              "forward_tokens": 12,
+              "forward_calls": 9,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 539241930,
+              "checkpoint_import_bytes": 1197397224
+            },
+            "counters_after": {
+              "consumed_tokens": 12,
+              "forward_tokens": 12,
+              "forward_calls": 9,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 539241930,
+              "checkpoint_import_bytes": 1257312994
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 59915770
+            },
+            "seconds": 0.20963655086234212
+          },
+          {
+            "snapshot": "e54b9ed5bb5d44a6b629e810243294b1d0cad4093b80c9ccb3d06e6a048ab98e",
+            "payload_sha256": "e2ad2c230ee8b1c8b0fdcd42531c48d308d67695d6e96c5e24504abb11ab7780",
+            "schedule_sha256": "c52bb15e2edf924df45457c2583cf426300fbf1089be9de424d736aa9b617262",
+            "consumed": 190,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "fa207187c485a5a53b9f0256146cfce69f9609cd6c1e9f448199319d89aa4140",
+            "position_sha256": "7887e4ea9dd8da7c754e0660d36bc1441808623d53c858fd83bbd3e6cdf7be9f",
+            "rotary_cursor": 150,
+            "controller_sha256": "d9a2c119e48348857f18ab87be625cff1aa176b9e9304872941ace3c8025ab66",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285024,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 28,
+              "forward_tokens": 28,
+              "forward_calls": 22,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 1318474860,
+              "checkpoint_import_bytes": 2815254182
+            },
+            "counters_after": {
+              "consumed_tokens": 28,
+              "forward_tokens": 28,
+              "forward_calls": 22,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 1318474860,
+              "checkpoint_import_bytes": 2875169952
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 59915770
+            },
+            "seconds": 0.20968427089974284
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 32,
+          "forward_tokens": 32,
+          "forward_calls": 26,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 1558465860,
+          "checkpoint_import_bytes": 3355020784
+        },
+        "seconds": 22.760428961133584,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "campaign": {
+        "status": "PASS",
+        "phase": "campaign",
+        "pid": 1284829,
+        "prefix_text_tokens": 128,
+        "suffix_tokens": 4,
+        "output_limit": 8,
+        "child_phase": "resume",
+        "child_pid": 1285024,
+        "seconds": 120.0663409170229
+      }
+    },
+    "medium": {
+      "reference": {
+        "status": "PASS",
+        "phase": "reference",
+        "pid": 1285155,
+        "prefix_text_tokens": 1024,
+        "suffix_tokens": 64,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "root_cells": 1078,
+        "image_rows": 48,
+        "fresh_forwards": 36,
+        "fresh_forward_tokens": 41256,
+        "seconds": 15.724187861895189
+      },
+      "prepare": {
+        "status": "PASS",
+        "phase": "prepare",
+        "pid": 1285169,
+        "prefix_text_tokens": 1024,
+        "suffix_tokens": 64,
+        "output_limit": 16,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "root_cells": 1078,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 1214,
+          "forward_tokens": 1214,
+          "forward_calls": 14,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 1001028446,
+          "checkpoint_import_bytes": 2269162090
+        },
+        "seconds": 17.415649389848113,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "resume": {
+        "status": "PASS",
+        "phase": "resume",
+        "pid": 1285234,
+        "prefix_text_tokens": 1024,
+        "suffix_tokens": 64,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "comparisons": 59,
+        "max_logit_error": 0,
+        "root_cells": 1078,
+        "restore_receipts": [
+          {
+            "snapshot": "e5462361b58d76df95ee21d1f06a43855150d85d6fc9ad02a7e85abfd0936100",
+            "payload_sha256": "5a219575cf796687228465afa2e8b4eb42bb3eea885897eb8d9e248bf02d76a2",
+            "schedule_sha256": "d95696854c55cb3a5c3d608eff764a49cd3129bb8eb52de7a6a8d64159cbb9ed",
+            "consumed": 1078,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "ff5607d9c63bf6f99d1e2d12fd698cfb8b7f057eec77c1c78a37f83e443e1308",
+            "position_sha256": "c5319a0d129099e580246bc94bf153b58087fc082a496d3e99e3d1c258446b25",
+            "rotary_cursor": 1038,
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285234,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 89035066
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 89035066
+            },
+            "seconds": 0.25991774699650705
+          },
+          {
+            "snapshot": "a3c1424083e5b8815e5e1228895f3535c3498363971fee6d6d51f9ee365029dd",
+            "payload_sha256": "f1096e921280a58b6f06f606f414a2382b39528ce9d67e3c2daf705c6d21edeb",
+            "schedule_sha256": "e4caae29e04a667031d477c812a1fa7ff715d0df2d91e885adbfe43e8179a6b5",
+            "consumed": 1146,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "2e9c81ff2bdaad1dcb208e28e4c168826c562d3a6e925a50e1f27e5deeb9c72f",
+            "position_sha256": "79224c9283d4ac282c5f47ee27b3cfd53817106bff80f8e6c7dbd9c2cea700a7",
+            "rotary_cursor": 1106,
+            "controller_sha256": "e384518f2c68a7e8607b51efa3c6be24c5e4b9e3b100d061fabb3ce0cd4b30cf",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285234,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 80,
+              "forward_tokens": 80,
+              "forward_calls": 17,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 1553733530,
+              "checkpoint_import_bytes": 3282913832
+            },
+            "counters_after": {
+              "consumed_tokens": 80,
+              "forward_tokens": 80,
+              "forward_calls": 17,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 1553733530,
+              "checkpoint_import_bytes": 3374178754
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 91264922
+            },
+            "seconds": 0.27912314608693123
+          },
+          {
+            "snapshot": "00a7e915cc7720bd4bd8db6151fcea32efb558f9a06950b0b7279bc4409d9dc9",
+            "payload_sha256": "1a1b9f5930dae535d5834ae93133f2731078adf9ece3bb68213715f8db9e9a8f",
+            "schedule_sha256": "557550dee304f1d7af9a970d82bb3b8608b89695d08fa40abdc53681efc110a3",
+            "consumed": 1146,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "f377fc7504513a62fe46846c2504c93ae8a46d742639819d142e758463640e62",
+            "position_sha256": "79224c9283d4ac282c5f47ee27b3cfd53817106bff80f8e6c7dbd9c2cea700a7",
+            "rotary_cursor": 1106,
+            "controller_sha256": "16bb0e2147a022d3707b3b5de2bf7072d8cd8885f30ca2e127592faa71870012",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285234,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 172,
+              "forward_tokens": 172,
+              "forward_calls": 46,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 4205203900,
+              "checkpoint_import_bytes": 8674102630
+            },
+            "counters_after": {
+              "consumed_tokens": 172,
+              "forward_tokens": 172,
+              "forward_calls": 46,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 4205203900,
+              "checkpoint_import_bytes": 8765367552
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 91264922
+            },
+            "seconds": 0.2786885518580675
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 184,
+          "forward_tokens": 184,
+          "forward_calls": 58,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 5302940740,
+          "checkpoint_import_bytes": 10960447728
+        },
+        "seconds": 41.111474819947034,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "campaign": {
+        "status": "PASS",
+        "phase": "campaign",
+        "pid": 1285154,
+        "prefix_text_tokens": 1024,
+        "suffix_tokens": 64,
+        "output_limit": 16,
+        "child_phase": "resume",
+        "child_pid": 1285234,
+        "seconds": 85.00518683996052
+      }
+    },
+    "target8k": {
+      "reference": {
+        "status": "PASS",
+        "phase": "reference",
+        "pid": 1285359,
+        "prefix_text_tokens": 8192,
+        "suffix_tokens": 512,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "root_cells": 8246,
+        "image_rows": 48,
+        "fresh_forwards": 36,
+        "fresh_forward_tokens": 314536,
+        "seconds": 49.683528122957796
+      },
+      "prepare": {
+        "status": "PASS",
+        "phase": "prepare",
+        "pid": 1285439,
+        "prefix_text_tokens": 8192,
+        "suffix_tokens": 512,
+        "output_limit": 16,
+        "comparisons": 11,
+        "max_logit_error": 0,
+        "root_cells": 8246,
+        "restore_receipts": [],
+        "native_work": {
+          "consumed_tokens": 9278,
+          "forward_tokens": 9278,
+          "forward_calls": 28,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 3733520222,
+          "checkpoint_import_bytes": 8439304810
+        },
+        "seconds": 29.766576434019953,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "resume": {
+        "status": "PASS",
+        "phase": "resume",
+        "pid": 1285505,
+        "prefix_text_tokens": 8192,
+        "suffix_tokens": 512,
+        "output_limit": 16,
+        "branch": "B",
+        "generated": 16,
+        "comparisons": 59,
+        "max_logit_error": 0,
+        "root_cells": 8246,
+        "restore_receipts": [
+          {
+            "snapshot": "0600c8647902b88a014da53dec9277184d446f68c2017c56e145c796ea6cd046",
+            "payload_sha256": "b7137bdd42f28c2183c014e5be6d291575bd08e10c449827952d6475bdd64573",
+            "schedule_sha256": "79e7f7d9cda4f92c92c7e8c5f8a4a90853473f7edc93ab8fec38f064be397ed0",
+            "consumed": 8246,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "760eb41962e899977fbabb985c18d9018dd8ea11ac1f0a5579e981279e03f93c",
+            "position_sha256": "e49ff935d4cee4084527233b6edadf675adf3513cff839dac66e538c4a6a0a86",
+            "rotary_cursor": 8206,
+            "controller_sha256": "6292f850569aa40908fc55aa5fc1219263c9e82c14dfa528e03eb28ace43424c",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285505,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 0
+            },
+            "counters_after": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 324088122
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 324088122
+            },
+            "seconds": 0.7702691850718111
+          },
+          {
+            "snapshot": "4c3f55973659b46b0ac5ecfc3fa9e3f6b9c885ae4b87549a25d9ff794fd1b6ea",
+            "payload_sha256": "0b1c6bdf5d3fca2e89f7615580f02c8f7d58580c97e4ea25407bdbee4ff46d8c",
+            "schedule_sha256": "1fee014b62bd116141d71686699325dc80c800fcbe6921f7c8bc270405408639",
+            "consumed": 8762,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "9cc65b9794e1eff3bd500b366b3ada260fa64d79f0836df47d6630627cf594fd",
+            "position_sha256": "eb8ea459727111844b5203f5b639d3f9cddaa5d756ab5a63cff53d8fc578bda7",
+            "rotary_cursor": 8722,
+            "controller_sha256": "ace1308363fe4e6ac1fe0deadccfe399bea5fde66e676ca6c7932e491ec1f77e",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285505,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 528,
+              "forward_tokens": 528,
+              "forward_calls": 17,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 5799379354,
+              "checkpoint_import_bytes": 12229620776
+            },
+            "counters_after": {
+              "consumed_tokens": 528,
+              "forward_tokens": 528,
+              "forward_calls": 17,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 5799379354,
+              "checkpoint_import_bytes": 12570629570
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 341008794
+            },
+            "seconds": 0.8230936059262604
+          },
+          {
+            "snapshot": "a39803e60bdf25c794810f6469840167ecf0f32981e8846d86e7bfd0fc19d2ac",
+            "payload_sha256": "e6cf840b075d352ef05bbb552e54413697ece3fcd62df13752a6dd2c54c7a515",
+            "schedule_sha256": "76cfc6ca010e06e957f65c4dd4dc7f969164a88ec3eca78a87011258292117ed",
+            "consumed": 8762,
+            "positions": "qwen-image-grid-mrope-v1",
+            "native_input_sha256": "d489de9b82186ed43cd8955767ab9a14e5d28ea7f7ed70741c39fbf4803306a7",
+            "position_sha256": "eb8ea459727111844b5203f5b639d3f9cddaa5d756ab5a63cff53d8fc578bda7",
+            "rotary_cursor": 8722,
+            "controller_sha256": "fd21656e6a4e4a98c3c94cd3db6e71beebcc90ecc812949f0eb21e83e4a53942",
+            "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+            "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+            "native_pid": 1285505,
+            "forward_tokens": 0,
+            "counters_before": {
+              "consumed_tokens": 1068,
+              "forward_tokens": 1068,
+              "forward_calls": 46,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 15693422012,
+              "checkpoint_import_bytes": 32341007206
+            },
+            "counters_after": {
+              "consumed_tokens": 1068,
+              "forward_tokens": 1068,
+              "forward_calls": 46,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 15693422012,
+              "checkpoint_import_bytes": 32682016000
+            },
+            "counter_deltas": {
+              "consumed_tokens": 0,
+              "forward_tokens": 0,
+              "forward_calls": 0,
+              "sampling_calls": 0,
+              "checkpoint_export_bytes": 0,
+              "checkpoint_import_bytes": 341008794
+            },
+            "seconds": 0.9253994098398834
+          }
+        ],
+        "native_work": {
+          "consumed_tokens": 1080,
+          "forward_tokens": 1080,
+          "forward_calls": 58,
+          "sampling_calls": 0,
+          "checkpoint_export_bytes": 19788085316,
+          "checkpoint_import_bytes": 40870949104
+        },
+        "seconds": 82.01726715802215,
+        "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+        "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6"
+      },
+      "campaign": {
+        "status": "PASS",
+        "phase": "campaign",
+        "pid": 1285358,
+        "prefix_text_tokens": 8192,
+        "suffix_tokens": 512,
+        "output_limit": 16,
+        "child_phase": "resume",
+        "child_pid": 1285505,
+        "seconds": 175.01041800808161
+      }
+    }
+  },
+  "model_path": "/home/dflanag3/models/qwen35-9b-unsloth/Qwen3.5-9B-BF16.gguf",
+  "model_weights_sha256": "daebe40eeea7057c1cdf35ac56d13f507d8bf12171bbb7a6b6b0d3f05439159a",
+  "model_contract_id": "34a5ab694f7bc6459fcbafa943a098d1d9621f1e4d44c87875b4cc7609f8db04",
+  "execution_profile_id": "9c9c0b45a4cb173163ab688d72ed151f51264a80984f67cdbf2779ce243921e6",
+  "vocab_size": 248320
+}

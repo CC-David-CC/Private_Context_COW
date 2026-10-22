@@ -5487,3 +5487,21 @@ pinned research config passed. No compatibility guard was weakened.
 Owner clarified the aim is running the models, not forcing CAD/PDF competence.
 Those bounded failed tasks remain model capability findings, not invented passes.
 Full gate certification and broader original BF16/AMD/Flash campaigns remain separate.
+
+
+## Original BF16 and bounded Flash runtime follow-up, 2026-10-21
+
+Original Qwen3.5-9B BF16 with FP16 KV passed tiny, 1K and 8K mixed-input
+fixtures: 178 exact full-logit comparisons, nine process-separated strict restores
+and zero saved-prefix forward work. Larger fixtures generated 16 tokens per branch.
+This is separate from the rematched research model.
+
+Flash Q8 native request regression on current main Python source passed 32 exact
+comparisons, parent-byte audit, prefix reuse, request cancellation and clean native
+shutdown. This probe qualifies the native request primitive, not full canonical
+publication or a complete serving regression. Eleven existing model hash receipts
+were verified/reused; weights were not rehashed in this process.
+
+AMD remains unqualified. llm-79 has an idle RX 7900 XTX and HIP tools, but its
+existing llama.cpp build is at another revision and cannot substitute for our pin.
+No additional PDF/CAD model capability retries were run.
