@@ -49,6 +49,13 @@ promotion. On the next request, including one in an old chat, a newer selected
 adapter requires a new compatible prefix materialization; old KV state is not
 relabelled as compatible. In-flight requests remain pinned to their old version.
 
-The trainer, native LoRA attachment, version transition and promotion machinery
-are pending implementation and qualification. This document records the agreed
+The optional native LoRA attachment now compiles in both dense adapter variants,
+with immutable adapter-byte/scale admission controls. Loading a real trained
+adapter, its numerical effect and restore behavior remain unqualified. The
+trainer, version transition and promotion machinery remain pending. This document records the agreed
 interfaces and memory strategy, not a claim that Wen has learned these tasks.
+
+See [WEN-PRECISION.md](WEN-PRECISION.md) for the separate activation, TF32 and
+attention/cache precision controls and measured cross-runtime differences. The
+importer defaults to float32 to retain the source GGUF F32 parameters; selecting
+bfloat16 also rounds those parameters.

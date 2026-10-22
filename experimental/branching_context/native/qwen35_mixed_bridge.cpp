@@ -3,6 +3,8 @@
 // llama_state_* in the pinned engine stores hybrid memory but NOT next logits.
 #include "llama.h"
 #include "qwen35_device.h"
+#include "qwen35_math.h"
+#include "qwen35_lora.h"
 extern "C" {
 #include "sha256/sha256.h"
 }
@@ -24,6 +26,9 @@ struct StateHeader{uint64_t magic,native_bytes,vocab,cells,rotary;sha256_t cells
 static constexpr uint64_t STATE_MAGIC=0x3254533533574f43ULL;
 extern "C" {
 int ctt_state_version(){return 2;}
+void *ctt_lora_load(void*m,const char*path){try{return qwen35_load_adapter((llama_model*)m,path);}catch(const std::exception&e){error_text=e.what();return nullptr;}}
+void ctt_lora_free(void*a){llama_adapter_lora_free((llama_adapter_lora*)a);}
+int ctt_lora_attach(void*x,void*a,float scale){try{qwen35_attach_adapter(((Lease*)x)->ctx,(llama_adapter_lora*)a,scale);return 0;}catch(const std::exception&e){error_text=e.what();return -1;}}
 void ctt_poison(void*x){auto*l=(Lease*)x;l->valid=false;l->frontier.clear();}
 int ctt_temporal_position(void*x){return llama_memory_seq_pos_max(llama_get_memory(((Lease*)x)->ctx),0);}
 int ctt_proof(void*x,unsigned char*out,int*consumed,int*rotary){
@@ -59,6 +64,7 @@ void *ctt_new_config(void *m,int capacity,int batch,int threads){
   auto p=llama_context_default_params();p.n_ctx=capacity;p.n_batch=batch;p.n_ubatch=batch;p.n_seq_max=1;
   p.n_threads=p.n_threads_batch=threads;p.flash_attn_type=LLAMA_FLASH_ATTN_TYPE_ENABLED;
   p.type_k=p.type_v=GGML_TYPE_F16;p.no_perf=false;
+  qwen35_context_math(p);
   auto *ctx=llama_init_from_model((llama_model*)m,p);require(ctx,"Context creation failed");
   auto*l=new Lease{ctx,ctt_vocab(m)};sha256_init(&l->cells_hash);sha256_init(&l->positions_hash);update(l->cells_hash,CELL_TAG,sizeof(CELL_TAG));update(l->positions_hash,POS_TAG,sizeof(POS_TAG));return l;
  }catch(const std::exception&e){error_text=e.what();return nullptr;}

@@ -74,14 +74,15 @@ def register_wen_aliases():
     tokenizers.GGUF_PRE_TOKENIZER_SPLITS['wen1']=tokenizers.GGUF_PRE_TOKENIZER_SPLITS['qwen35']
 
 
-def load_wen(model,expected_sha256,*,device='cpu'):
+def load_wen(model,expected_sha256,*,device='cpu',dtype='float32'):
     identity=identify(model,expected_sha256)
     register_wen_aliases()
     import torch
     from transformers import AutoModelForCausalLM,GgufConfig
+    if dtype not in ('float32','bfloat16'):raise ValueError('Explicit float32 or bfloat16 import required')
     model=Path(model).resolve(strict=True)
     loaded,information=AutoModelForCausalLM.from_pretrained(str(model.parent),gguf_file=model.name,
-        quantization_config=GgufConfig(dequantize=True),dtype=torch.bfloat16,
+        quantization_config=GgufConfig(dequantize=True),dtype=getattr(torch,dtype),
         device_map=device,attn_implementation='eager',local_files_only=True,
         output_loading_info=True)
     if information.get('missing_keys') or information.get('unexpected_keys') or information.get('mismatched_keys'):
@@ -90,6 +91,7 @@ def load_wen(model,expected_sha256,*,device='cpu'):
         raise ValueError('Reconstructed model vocabulary differs')
     loaded.eval()
     identity.update(training_model_type=loaded.config.model_type,
+        parameter_dtype=dtype,
         config_sha256=_digest(loaded.config.to_dict()),
         packages={name:importlib.metadata.version(name) for name in ('torch','transformers','gguf','safetensors')},
         numerical_qualification='not_yet_compared_to_native')
@@ -102,9 +104,11 @@ def main():
     parser.add_argument('--expected-sha256',required=True)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--device',default='cpu')
+    parser.add_argument('--dtype',choices=('float32','bfloat16'),default='float32',
+        help='float32 retains the GGUF F32 parameters; bfloat16 also rounds those parameters')
     args=parser.parse_args()
     args.output.mkdir(mode=0o700,parents=True,exist_ok=False)
-    model,identity=load_wen(args.model,args.expected_sha256,device=args.device)
+    model,identity=load_wen(args.model,args.expected_sha256,device=args.device,dtype=args.dtype)
     model.save_pretrained(args.output,safe_serialization=True,max_shard_size='4GB')
     from tools.gguf_reader import GGUFFile
     # The exact custom tokenizer remains the authority for training input IDs;

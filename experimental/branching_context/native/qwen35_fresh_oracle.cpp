@@ -1,9 +1,12 @@
 // Independent oracle: each forward allocates a new context and consumes all inputs.
 #include "llama.h"
 #include "qwen35_device.h"
+#include "qwen35_math.h"
+#include "qwen35_lora.h"
 #include <algorithm>
 #include <cstdint>
 #include <iostream>
+#include <memory>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -15,17 +18,21 @@ template<class T> void send(T value) {
 
 int main(int argc, char ** argv) {
     try {
-        if (argc != 5 && argc != 6) throw std::runtime_error("Expected model, capacity, batch, thread count and optional CUDA device");
+        bool has_lora=argc==8||argc==9;int base_argc=has_lora?argc-3:argc;
+        if (base_argc != 5 && base_argc != 6) throw std::runtime_error("Expected model, capacity, batch, thread count and optional CUDA device/LoRA");
+        if(has_lora&&std::string(argv[base_argc])!="--lora")throw std::runtime_error("Unknown oracle adapter option");
         ggml_backend_load_all();
         auto mp = llama_model_default_params();
         mp.n_gpu_layers = 99;
-        ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,argc==6?argv[5]:nullptr,devices);
+        ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,base_argc==6?argv[5]:nullptr,devices);
         auto * model = llama_model_load_from_file(argv[1], mp);
         if (!model) throw std::runtime_error("Model load failed");
         char arch[64]={}; llama_model_meta_val_str(model,"general.architecture",arch,sizeof(arch));
         if ((std::string(arch)!="qwen35" && std::string(arch)!="wen1") || !llama_model_is_hybrid(model) || llama_model_has_encoder(model)) {
             throw std::runtime_error("Oracle requires qwen35 hybrid decoder");
         }
+        std::unique_ptr<llama_adapter_lora,decltype(&llama_adapter_lora_free)>adapter(has_lora?qwen35_load_adapter(model,argv[base_argc+1]):nullptr,llama_adapter_lora_free);
+        float adapter_scale=has_lora?std::stof(argv[base_argc+2]):1.f;
         auto * vocab = llama_model_get_vocab(model);
         const int32_t nv = llama_vocab_n_tokens(vocab);
         const int capacity=std::stoi(argv[2]), max_batch=std::stoi(argv[3]), threads=std::stoi(argv[4]);
@@ -68,10 +75,12 @@ int main(int argc, char ** argv) {
             cp.n_threads = cp.n_threads_batch = threads;
             cp.flash_attn_type = LLAMA_FLASH_ATTN_TYPE_ENABLED;
             cp.type_k = cp.type_v = GGML_TYPE_F16;
+  qwen35_context_math(cp);
             cp.no_perf = false;
             auto * ctx = llama_init_from_model(model, cp);
             if (!ctx) throw std::runtime_error("Fresh context allocation failed");
             if (llama_memory_seq_pos_max(llama_get_memory(ctx), 0) != -1) throw std::runtime_error("Oracle context was not empty");
+            if(adapter)qwen35_attach_adapter(ctx,adapter.get(),adapter_scale);
             uint64_t processed = 0;
             int start=0;
             for (int n : boundaries) {
@@ -99,7 +108,7 @@ int main(int argc, char ** argv) {
             std::cout.flush();
             llama_free(ctx);
         }
-        llama_model_free(model);
+        adapter.reset();llama_model_free(model);
         return 0;
     } catch (const std::exception & error) {
         std::cerr << "ORACLE ERROR: " << error.what() << '\n';

@@ -14,8 +14,35 @@ from .real import NativeBackend
 from .store import IntegrityError, InvalidOperation
 from .execution_receipt import tokens_digest
 from .pools import normalize_gpu_selection
+from .qwen35_lora import validate_adapter
 
 _MODEL_LOAD_LOCK=threading.Lock()
+
+def validate_math_profile(profile,environment=None):
+    """Reject process math overrides absent from the execution/cache identity."""
+    e=profile['execution'];env=os.environ if environment is None else environment
+    precise=e.get('f32_activations',False)
+    if type(precise) is not bool:
+        raise IntegrityError('Explicit boolean F32 activation profile required')
+    if env.get('GGML_CUDA_F32_ACTIVATIONS','0')!=('1' if precise else '0'):
+        raise IntegrityError('Native activation precision differs from execution profile')
+    if precise and (not profile.get('native_build',{}).get('f32_activations_patch_sha256')
+            or e.get('cuda_cublas_compute_type')!='f32' or e.get('nvidia_tf32_override')!='0'
+            or env.get('GGML_CUDA_CUBLAS_COMPUTE_TYPE')!='f32'
+            or env.get('NVIDIA_TF32_OVERRIDE')!='0'):
+        raise IntegrityError('F32 activations require the pinned precision build and disabled TF32')
+
+    attention=e.get('f32_attention',False)
+    if type(attention) is not bool:
+        raise IntegrityError('Explicit boolean FP32 attention profile required')
+    if env.get('COW_QWEN35_F32_ATTENTION','0')!=('1' if attention else '0'):
+        raise IntegrityError('Native attention precision differs from execution profile')
+    if attention and (not precise or e.get('kv_dtype')!='FP32' or e.get('flash_attention') is not False
+            or profile.get('native_build',{}).get('attention_precision_binding')!='fp32-attention-v1'):
+        raise IntegrityError('FP32 attention requires the matching native build, activations and cache format')
+    if not attention and e.get('kv_dtype','FP16')!='FP16':
+        raise IntegrityError('FP32 cache requires explicit FP32 attention')
+
 
 def device_name_for_worker(profile,gpu_id):
     """Map pinned physical PCI IDs to process-visible CUDA names without rebinding CUDA."""
@@ -75,7 +102,8 @@ class Qwen35Backend(NativeBackend):
             if len(workers)!=1:raise ValueError('Select an explicit dense worker GPU')
             gpu_id=workers[0]
         self.gpu_id=gpu_id;self._device_name=device_name_for_worker(profile,gpu_id)
-        if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype')!='FP16'
+        validate_math_profile(profile)
+        if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype') not in ('FP16','FP32')
                 or e.get('sampling_location')!='native-cpu-frontier'
                 or e.get('state_format')!=self.STATE_FORMAT
                 or e.get('resume_contract')!=self.RESUME_CONTRACT
@@ -84,6 +112,7 @@ class Qwen35Backend(NativeBackend):
                 or type(e.get('threads')) is not int or e['threads']<1):
             raise IntegrityError('Unsupported Qwen execution profile')
         self._active=None;self._owner=None;self._lock=threading.RLock();self._close_pending=False
+        self._adapter=None;self._adapter_spec=validate_adapter(profile)
         self.native_pid=os.getpid()
         super().__init__(profile)
         md={key:self.metadata(key) for key in ['general.architecture','tokenizer.ggml.model']}
@@ -103,6 +132,17 @@ class Qwen35Backend(NativeBackend):
         self.lib.ctt_choose_mask.argtypes=[C.c_void_p,C.c_void_p,C.c_size_t]
         self.lib.ctt_choose_mask.restype=C.c_int
         self.stats['sampling_calls']=0
+        if self._adapter_spec is not None:
+            try:
+                self.lib.ctt_lora_load.argtypes=[C.c_void_p,C.c_char_p];self.lib.ctt_lora_load.restype=C.c_void_p
+                self.lib.ctt_lora_free.argtypes=[C.c_void_p];self.lib.ctt_lora_free.restype=None
+                self.lib.ctt_lora_attach.argtypes=[C.c_void_p,C.c_void_p,C.c_float];self.lib.ctt_lora_attach.restype=C.c_int
+                self._adapter=self.lib.ctt_lora_load(self.model,os.fsencode(self._adapter_spec['path']))
+                if not self._adapter:raise IntegrityError(self.lib.ctt_error().decode())
+                # Check again after native loading; disk mutation cannot be
+                # admitted as the originally pinned version.
+                validate_adapter(profile)
+            except BaseException:self.close();raise
 
     def _load_model(self):
         # Backend registration/loading is process-global; device choice is per model.
@@ -126,7 +166,10 @@ class Qwen35Backend(NativeBackend):
         return data.value.decode()
 
     def contract_fields(self):
-        return dict(attention='qwen35-hybrid-gdn-full-attention',state_kind=self.STATE_FORMAT)
+        fields=dict(attention='qwen35-hybrid-gdn-full-attention',state_kind=self.STATE_FORMAT)
+        if self._adapter_spec is not None:
+            fields['adapters']=((self._adapter_spec['sha256'],self._adapter_spec['scale']),)
+        return fields
 
     def tokenize(self,text,*,add_special=True,parse_special=False):
         raw=text.encode();n=self.lib.ctt_tokenize(self.model,raw,len(raw),None,0,add_special,parse_special)
@@ -144,6 +187,9 @@ class Qwen35Backend(NativeBackend):
             if self._active is not None or self._close_pending or not self.model:raise InvalidOperation('Qwen backend unavailable or already leased')
             e=self.profile['execution'];p=self.lib.ctt_new_config(self.model,e['capacity'],e['prefill_chunk'],e['threads'])
             if not p:raise RuntimeError(self.lib.ctt_error().decode())
+            if self._adapter is not None and self.lib.ctt_lora_attach(p,self._adapter,self._adapter_spec['scale']):
+                self.lib.ctt_free(p)
+                raise IntegrityError(self.lib.ctt_error().decode())
             handle=_QwenHandle(p)
             self._active=handle;self._owner=threading.get_ident();self.stats['contexts_created']+=1
             return handle
@@ -152,7 +198,7 @@ class Qwen35Backend(NativeBackend):
         self._check(p)
         with self._lock:
             self.lib.ctt_free(p);self._active=None;self._owner=None;self.stats['contexts_freed']+=1
-            if self._close_pending:super().close()
+            if self._close_pending:self._close_native()
 
     def _check(self,lease):
         if lease is not self._active or self._owner!=threading.get_ident():
@@ -235,6 +281,11 @@ class Qwen35Backend(NativeBackend):
     def close(self):
         if self._active is not None:
             self._check(self._active);self._close_pending=True;return
+        self._close_native()
+
+    def _close_native(self):
+        if self._adapter is not None:
+            self.lib.ctt_lora_free(self._adapter);self._adapter=None
         super().close()
 
 class Qwen35FreshOracle:
@@ -252,6 +303,8 @@ class Qwen35FreshOracle:
             device=device_name_for_worker(profile,gpu_id)
             if device is not None:
                 command.append(device);environment={**os.environ,**e['environment']}
+        adapter=validate_adapter(profile)
+        if adapter is not None:command+=['--lora',adapter['path'],str(adapter['scale'])]
         self.process=subprocess.Popen(command,env=environment,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=self.log)
         self.requests=0;self.tokens_computed=0
     def _read(self,n):

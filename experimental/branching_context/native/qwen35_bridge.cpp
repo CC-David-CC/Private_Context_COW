@@ -2,6 +2,8 @@
 // llama_state_* in the pinned engine stores hybrid memory but NOT next logits.
 #include "llama.h"
 #include "qwen35_device.h"
+#include "qwen35_math.h"
+#include "qwen35_lora.h"
 #include <cstdint>
 #include <cstring>
 #include <cmath>
@@ -13,6 +15,9 @@ static thread_local std::string error_text;
 struct Lease { llama_context *ctx; int vocab; uint64_t work=0, calls=0; bool valid=true; std::vector<float> frontier; };
 static void require(bool ok,const char *message) { if(!ok) throw std::runtime_error(message); }
 extern "C" {
+void *ctt_lora_load(void*m,const char*path){try{return qwen35_load_adapter((llama_model*)m,path);}catch(const std::exception&e){error_text=e.what();return nullptr;}}
+void ctt_lora_free(void*a){llama_adapter_lora_free((llama_adapter_lora*)a);}
+int ctt_lora_attach(void*x,void*a,float scale){try{qwen35_attach_adapter(((Lease*)x)->ctx,(llama_adapter_lora*)a,scale);return 0;}catch(const std::exception&e){error_text=e.what();return -1;}}
 const char *ctt_error(){return error_text.c_str();}
 static void *ctt_load_impl(const char *path,const char *device){
  try {
@@ -42,6 +47,7 @@ void *ctt_new_config(void *m,int capacity,int batch,int threads){
   auto p=llama_context_default_params();p.n_ctx=capacity;p.n_batch=batch;p.n_ubatch=batch;p.n_seq_max=1;
   p.n_threads=p.n_threads_batch=threads;p.flash_attn_type=LLAMA_FLASH_ATTN_TYPE_ENABLED;
   p.type_k=p.type_v=GGML_TYPE_F16;p.no_perf=false;
+  qwen35_context_math(p);
   auto *ctx=llama_init_from_model((llama_model*)m,p);require(ctx,"Context creation failed");
   return new Lease{ctx,ctt_vocab(m)};
  }catch(const std::exception&e){error_text=e.what();return nullptr;}

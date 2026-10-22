@@ -1,0 +1,28 @@
+{
+  "gpu": [
+    0
+  ],
+  "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+  "native_comparisons": 2,
+  "max_logit_error": 0,
+  "restores": 2,
+  "prefix_forward_tokens_on_restore": 0,
+  "tokenizer_comparisons": 4,
+  "workers_used": [
+    "0"
+  ],
+  "http_concurrent_generations": 2,
+  "parent_head_preserved": true,
+  "ram_byte_limit": 34359738368,
+  "disk_byte_limit": 107374182400,
+  "scheduling": {
+    "policy": "fifo",
+    "inflight_prefills": 0,
+    "waiting_on_prefill": 0,
+    "queued_per_prefill": {},
+    "active_per_prefill": {},
+    "seconds_per_forward_token": {}
+  },
+  "server_exit_code": 0,
+  "ephemeral_sessions_remaining": 0
+}

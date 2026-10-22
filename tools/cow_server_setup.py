@@ -67,7 +67,9 @@ def _make_profile(args,output):
             raise ValueError("Dense Qwen does not use a Flash expert pack/profile")
         from experimental.branching_context.scripts.prepare_qwen35_profile import make_profile as qwen_profile
         profile=qwen_profile(model,args.native.resolve(strict=True).parent,output/"profile.json",
-            args.context,args.prefill,getattr(args,'threads',os.cpu_count()),gpus=getattr(args,'gpu',None))
+            args.context,args.prefill,getattr(args,'threads',os.cpu_count()),gpus=getattr(args,'gpu',None),
+            **(dict(math_profile=args.math_profile) if getattr(args,'math_profile','native')!='native' else {}),
+            **(dict(lora=args.lora,lora_scale=args.lora_scale) if getattr(args,'lora',None) is not None else {}))
         if Path(profile["bridge_library"]).resolve()!=args.native.resolve():
             raise ValueError("--native must select the built Qwen bridge library")
         vision=args.vision_config
@@ -85,6 +87,8 @@ def _make_profile(args,output):
         if getattr(args,'scheduling','fifo')!='fifo':configuration['scheduling']=args.scheduling
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
+    if getattr(args,'math_profile','native')!='native':raise ValueError('This math profile is currently supported only by the dense native adapter')
+    if getattr(args,'lora',None) is not None:raise ValueError('LoRA is currently supported only by the dense native adapter')
     if args.pack is None:raise ValueError("Flash requires --pack")
     pack=args.pack.resolve(strict=True)
     binary=args.native.resolve(strict=True)
@@ -205,6 +209,10 @@ def main():
     parser.add_argument("--model",type=Path,required=True)
     parser.add_argument("--pack",type=Path,help="Required for Flash; omit for dense Qwen")
     parser.add_argument("--native",type=Path,required=True)
+    parser.add_argument('--lora',type=Path,help='Optional immutable dense LoRA GGUF; changes the model/cache contract')
+    parser.add_argument('--lora-scale',type=float,default=1.)
+    parser.add_argument('--math-profile',choices=('native','f32-activations','f32-reference'),default='native',
+        help='Select native math, FP32 products with FP16 KV, or the full FP32 reference path')
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--gpu",type=parse_gpus,help='Physical PCI GPU IDs: 4 or 4,6 for independent workers. Grouped native checkpoints remain unsupported. Omit to preserve GPU 0 defaults.')
     parser.add_argument('--ephemeral',action='store_true',help='Use temporary session history/checkpoints and remove them on server exit')

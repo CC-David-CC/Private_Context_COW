@@ -1,0 +1,1542 @@
+{
+  "model_sha256": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+  "llama_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "device": "NVIDIA RTX PRO 6000 Blackwell 96 GB",
+  "date": "2026-10-22",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.20.2",
+  "measurements": {
+    "original": {
+      "rows": [
+        {
+          "tokens": 1,
+          "text_sha256": "b344d80e24a3679999fa964450b34bc24d1578a35509f934c1418b0a20d21a67",
+          "max_abs": 0.0005846023559570312,
+          "rms": 0.00010535860155605923,
+          "kl_native_to_pytorch": 4.60952279023052e-09,
+          "native_top1": 2589,
+          "pytorch_top1": 2589,
+          "native_top_margin": 1.9219818115234375,
+          "pytorch_seconds": 0.6689498419873416,
+          "native_logits_f32_sha256": "41a8022d8023408e98fa80f25888940920acc997c5793a924606c1cb3efc0012",
+          "token_ids": [
+            759
+          ],
+          "prefix_text": "The",
+          "exact_equal": false
+        },
+        {
+          "tokens": 2,
+          "text_sha256": "3ba62773d07dd21b5712a1c221207bf2f46e459d862e7b7062b3b9e0073bbb1e",
+          "max_abs": 0.031635284423828125,
+          "rms": 0.006987047734052556,
+          "kl_native_to_pytorch": 2.058976832815197e-05,
+          "native_top1": 6554,
+          "pytorch_top1": 6554,
+          "native_top_margin": 0.9463768005371094,
+          "pytorch_seconds": 0.04414912196807563,
+          "native_logits_f32_sha256": "9a81d2a2d75a79708db4e793194601bf43efced0109cf0cc853e4503869f9190",
+          "token_ids": [
+            759,
+            3796
+          ],
+          "prefix_text": "The quick",
+          "exact_equal": false
+        },
+        {
+          "tokens": 3,
+          "text_sha256": "9bc94b608c3636f6dbd12a7a08e586f2529c1910465cf764e5a2a16260a15c3b",
+          "max_abs": 0.049866437911987305,
+          "rms": 0.008909055795644992,
+          "kl_native_to_pytorch": 7.010365851328307e-06,
+          "native_top1": 36629,
+          "pytorch_top1": 36629,
+          "native_top_margin": 5.422441482543945,
+          "pytorch_seconds": 0.030142373172566295,
+          "native_logits_f32_sha256": "6dd40418acddc8c5e264ad6c013f0bcb502dd21951b3eb6bde0ce1c09a3bc4d8",
+          "token_ids": [
+            759,
+            3796,
+            13256
+          ],
+          "prefix_text": "The quick brown",
+          "exact_equal": false
+        },
+        {
+          "tokens": 8,
+          "text_sha256": "e79df309e6b0e98a1b677e5d47765063170fd0fbe136d305230dca2ca1ade525",
+          "max_abs": 0.029862254858016968,
+          "rms": 0.006209778469650593,
+          "kl_native_to_pytorch": 9.522745041535019e-07,
+          "native_top1": 5318,
+          "pytorch_top1": 5318,
+          "native_top_margin": 5.556048393249512,
+          "pytorch_seconds": 0.03067939798347652,
+          "native_logits_f32_sha256": "b38225a6b7ae20df2102b1004302e1b5b5fccfa07d351f8017e0d9a6b025aba4",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy",
+          "exact_equal": false
+        },
+        {
+          "tokens": 16,
+          "text_sha256": "e12cb385f7f1be9f564b8dfd4dc9a53a73fb8a1279cc4b457a92c28d6b422632",
+          "max_abs": 0.029774188995361328,
+          "rms": 0.0063132220650686886,
+          "kl_native_to_pytorch": 3.517985068772257e-07,
+          "native_top1": 279,
+          "pytorch_top1": 279,
+          "native_top_margin": 5.186714172363281,
+          "pytorch_seconds": 0.030940425815060735,
+          "native_logits_f32_sha256": "8f7a35bb6686d3c5e0ece74ad56726fe0e860a531d6740d5bce6af8594248053",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over",
+          "exact_equal": false
+        },
+        {
+          "tokens": 32,
+          "text_sha256": "898b2fc581f52e4a06eb2c0777712385c3094d257c4948c37bc4d6e0f64222df",
+          "max_abs": 0.11781978607177734,
+          "rms": 0.016722636948801432,
+          "kl_native_to_pytorch": 1.0971637623047652e-05,
+          "native_top1": 13256,
+          "pytorch_top1": 13256,
+          "native_top_margin": 6.149083137512207,
+          "pytorch_seconds": 0.03275180188938975,
+          "native_logits_f32_sha256": "c890a6fd23babcfa26a40cdc54ec182da631ed7b57959491cdbf3d6558d16a4c",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick",
+          "exact_equal": false
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    },
+    "activation_only": {
+      "rows": [
+        {
+          "tokens": 1,
+          "text_sha256": "b344d80e24a3679999fa964450b34bc24d1578a35509f934c1418b0a20d21a67",
+          "max_abs": 0.00058746337890625,
+          "rms": 0.00010545085624803876,
+          "kl_native_to_pytorch": 4.639983573813429e-09,
+          "native_top1": 2589,
+          "pytorch_top1": 2589,
+          "native_top_margin": 1.9219856262207031,
+          "pytorch_seconds": 0.6803824801463634,
+          "native_logits_f32_sha256": "dcbad6a68d81496150b01cb32845cf02b1a65b01a772080c4d75a36aeeed89a9",
+          "token_ids": [
+            759
+          ],
+          "prefix_text": "The",
+          "exact_equal": false
+        },
+        {
+          "tokens": 2,
+          "text_sha256": "3ba62773d07dd21b5712a1c221207bf2f46e459d862e7b7062b3b9e0073bbb1e",
+          "max_abs": 0.001125931739807129,
+          "rms": 0.00024620132745553316,
+          "kl_native_to_pytorch": 5.6624632015210006e-08,
+          "native_top1": 6554,
+          "pytorch_top1": 6554,
+          "native_top_margin": 0.9409236907958984,
+          "pytorch_seconds": 0.04470045818015933,
+          "native_logits_f32_sha256": "02bec99414ecf83ad93fb0b33576be8a7706c36457b9914b5e4a080da74f9454",
+          "token_ids": [
+            759,
+            3796
+          ],
+          "prefix_text": "The quick",
+          "exact_equal": false
+        },
+        {
+          "tokens": 3,
+          "text_sha256": "9bc94b608c3636f6dbd12a7a08e586f2529c1910465cf764e5a2a16260a15c3b",
+          "max_abs": 0.00197601318359375,
+          "rms": 0.00042480418412760334,
+          "kl_native_to_pytorch": 2.336660922129261e-08,
+          "native_top1": 36629,
+          "pytorch_top1": 36629,
+          "native_top_margin": 5.423332214355469,
+          "pytorch_seconds": 0.0299844469409436,
+          "native_logits_f32_sha256": "0b68b8419cc46b4fd20af48aff2dc99db535f1287b89a47a08cc25727c6efcf1",
+          "token_ids": [
+            759,
+            3796,
+            13256
+          ],
+          "prefix_text": "The quick brown",
+          "exact_equal": false
+        },
+        {
+          "tokens": 8,
+          "text_sha256": "e79df309e6b0e98a1b677e5d47765063170fd0fbe136d305230dca2ca1ade525",
+          "max_abs": 0.0018720626831054688,
+          "rms": 0.0003489033027652134,
+          "kl_native_to_pytorch": 2.424871373656533e-09,
+          "native_top1": 5318,
+          "pytorch_top1": 5318,
+          "native_top_margin": 5.541813850402832,
+          "pytorch_seconds": 0.031069827964529395,
+          "native_logits_f32_sha256": "9b81de6cb8cf713c41d28bf0b118eaf3c795bc87d17290393f32a650f619b08f",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy",
+          "exact_equal": false
+        },
+        {
+          "tokens": 16,
+          "text_sha256": "e12cb385f7f1be9f564b8dfd4dc9a53a73fb8a1279cc4b457a92c28d6b422632",
+          "max_abs": 0.0020341873168945312,
+          "rms": 0.0004030340815209298,
+          "kl_native_to_pytorch": 5.945367131339499e-10,
+          "native_top1": 279,
+          "pytorch_top1": 279,
+          "native_top_margin": 5.184925079345703,
+          "pytorch_seconds": 0.03102433099411428,
+          "native_logits_f32_sha256": "70e325c2432ae97f67f090d4addff6a7157ce20ce04fbe7f2baaeb238a7e0833",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over",
+          "exact_equal": false
+        },
+        {
+          "tokens": 32,
+          "text_sha256": "898b2fc581f52e4a06eb2c0777712385c3094d257c4948c37bc4d6e0f64222df",
+          "max_abs": 0.006965160369873047,
+          "rms": 0.00130027997871294,
+          "kl_native_to_pytorch": 6.079764449555997e-09,
+          "native_top1": 13256,
+          "pytorch_top1": 13256,
+          "native_top_margin": 6.057491302490234,
+          "pytorch_seconds": 0.033020060043781996,
+          "native_logits_f32_sha256": "f8f1550a9450cfc5856a7866f260c02cd28a1afb8332971c3eb810aa95f64d5b",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick",
+          "exact_equal": false
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    },
+    "reference_before_f32_mma_fix": {
+      "rows": [
+        {
+          "tokens": 1,
+          "text_sha256": "b344d80e24a3679999fa964450b34bc24d1578a35509f934c1418b0a20d21a67",
+          "max_abs": 5.245208740234375e-06,
+          "rms": 9.411774069510404e-07,
+          "kl_native_to_pytorch": 5.196285903491165e-13,
+          "native_top1": 2589,
+          "pytorch_top1": 2589,
+          "native_top_margin": 1.9219779968261719,
+          "pytorch_seconds": 0.6637539360672235,
+          "native_logits_f32_sha256": "d19eb4b66f028c95c4be52a368bbc90f6ea2bd874b4b395b0d1cedef78813e4b",
+          "token_ids": [
+            759
+          ],
+          "prefix_text": "The",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 0.0,
+              "rms": 0.0,
+              "left_top1": 2589,
+              "right_top1": 2589
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 0.0,
+              "rms": 0.0,
+              "left_top1": 2589,
+              "right_top1": 2589
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 5.245208740234375e-06,
+              "rms": 9.411774069510404e-07,
+              "left_top1": 2589,
+              "right_top1": 2589
+            }
+          }
+        },
+        {
+          "tokens": 2,
+          "text_sha256": "3ba62773d07dd21b5712a1c221207bf2f46e459d862e7b7062b3b9e0073bbb1e",
+          "max_abs": 7.62939453125e-06,
+          "rms": 1.4251941161080856e-06,
+          "kl_native_to_pytorch": 1.1584123108946571e-12,
+          "native_top1": 6554,
+          "pytorch_top1": 6554,
+          "native_top_margin": 0.9409608840942383,
+          "pytorch_seconds": 0.04069166514091194,
+          "native_logits_f32_sha256": "41a7287a2db6352818c142977225d4304af473a8d5d683db06605651ad00a946",
+          "token_ids": [
+            759,
+            3796
+          ],
+          "prefix_text": "The quick",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 8.702278137207031e-06,
+              "rms": 1.8132122363948063e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.049041748046875e-05,
+              "rms": 2.116040060984888e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 1.3113021850585938e-05,
+              "rms": 2.3780920988392505e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            }
+          }
+        },
+        {
+          "tokens": 3,
+          "text_sha256": "9bc94b608c3636f6dbd12a7a08e586f2529c1910465cf764e5a2a16260a15c3b",
+          "max_abs": 8.106231689453125e-06,
+          "rms": 1.736474728088557e-06,
+          "kl_native_to_pytorch": 1.227807385354379e-13,
+          "native_top1": 36629,
+          "pytorch_top1": 36629,
+          "native_top_margin": 5.423330307006836,
+          "pytorch_seconds": 0.029034069972112775,
+          "native_logits_f32_sha256": "9f23f05d270df668244f9cf7352d679ea4da29e98ce965e8a6df12c7ba0b6e8b",
+          "token_ids": [
+            759,
+            3796,
+            13256
+          ],
+          "prefix_text": "The quick brown",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 9.298324584960938e-06,
+              "rms": 1.9871591097580505e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.1682510375976562e-05,
+              "rms": 2.245826639985311e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 1.3828277587890625e-05,
+              "rms": 2.1776981227610147e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            }
+          }
+        },
+        {
+          "tokens": 8,
+          "text_sha256": "e79df309e6b0e98a1b677e5d47765063170fd0fbe136d305230dca2ca1ade525",
+          "max_abs": 0.004439115524291992,
+          "rms": 0.0010457049526151592,
+          "kl_native_to_pytorch": 4.336700095589904e-08,
+          "native_top1": 5318,
+          "pytorch_top1": 5318,
+          "native_top_margin": 5.538888931274414,
+          "pytorch_seconds": 0.02985702781006694,
+          "native_logits_f32_sha256": "d4dcd07910d4eb13dfccd3936f1df2489c1b0974ab32fdeceaf372e19b1b1110",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 0.00444340705871582,
+              "rms": 0.0010462360244203122,
+              "left_top1": 5318,
+              "right_top1": 5318
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.4424324035644531e-05,
+              "rms": 2.3073694916788517e-06,
+              "left_top1": 5318,
+              "right_top1": 5318
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 7.62939453125e-06,
+              "rms": 1.6071637421684675e-06,
+              "left_top1": 5318,
+              "right_top1": 5318
+            }
+          }
+        },
+        {
+          "tokens": 16,
+          "text_sha256": "e12cb385f7f1be9f564b8dfd4dc9a53a73fb8a1279cc4b457a92c28d6b422632",
+          "max_abs": 0.006365537643432617,
+          "rms": 0.0015793580264036292,
+          "kl_native_to_pytorch": 5.763253447644354e-08,
+          "native_top1": 279,
+          "pytorch_top1": 279,
+          "native_top_margin": 5.182193756103516,
+          "pytorch_seconds": 0.030176125932484865,
+          "native_logits_f32_sha256": "13fcb141c9609f3878357114ec78b5e43531c8d5faf9f1180072bde6d42e783e",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 0.006366252899169922,
+              "rms": 0.0015793312791483822,
+              "left_top1": 279,
+              "right_top1": 279
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.0132789611816406e-05,
+              "rms": 2.2683284966997746e-06,
+              "left_top1": 279,
+              "right_top1": 279
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 9.059906005859375e-06,
+              "rms": 1.8886863342795357e-06,
+              "left_top1": 279,
+              "right_top1": 279
+            }
+          }
+        },
+        {
+          "tokens": 32,
+          "text_sha256": "898b2fc581f52e4a06eb2c0777712385c3094d257c4948c37bc4d6e0f64222df",
+          "max_abs": 3.528594970703125e-05,
+          "rms": 5.964726501043657e-06,
+          "kl_native_to_pytorch": 1.0832995964389255e-13,
+          "native_top1": 13256,
+          "pytorch_top1": 13256,
+          "native_top_margin": 6.057554244995117,
+          "pytorch_seconds": 0.03569289902225137,
+          "native_logits_f32_sha256": "6c088fa4741af09082a5cf84bd8bbb85087a2d0d6731ddd1f100e85b47eebd51",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 2.6702880859375e-05,
+              "rms": 5.014492750513907e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 2.47955322265625e-05,
+              "rms": 4.5194691797619635e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 2.1338462829589844e-05,
+              "rms": 4.4664304112125235e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            }
+          }
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    },
+    "reference": {
+      "rows": [
+        {
+          "tokens": 1,
+          "text_sha256": "b344d80e24a3679999fa964450b34bc24d1578a35509f934c1418b0a20d21a67",
+          "max_abs": 5.245208740234375e-06,
+          "rms": 9.411774069510404e-07,
+          "kl_native_to_pytorch": 5.196285903491165e-13,
+          "native_top1": 2589,
+          "pytorch_top1": 2589,
+          "native_top_margin": 1.9219779968261719,
+          "pytorch_seconds": 0.667007276089862,
+          "native_logits_f32_sha256": "d19eb4b66f028c95c4be52a368bbc90f6ea2bd874b4b395b0d1cedef78813e4b",
+          "token_ids": [
+            759
+          ],
+          "prefix_text": "The",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 0.0,
+              "rms": 0.0,
+              "left_top1": 2589,
+              "right_top1": 2589
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 0.0,
+              "rms": 0.0,
+              "left_top1": 2589,
+              "right_top1": 2589
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 5.245208740234375e-06,
+              "rms": 9.411774069510404e-07,
+              "left_top1": 2589,
+              "right_top1": 2589
+            }
+          }
+        },
+        {
+          "tokens": 2,
+          "text_sha256": "3ba62773d07dd21b5712a1c221207bf2f46e459d862e7b7062b3b9e0073bbb1e",
+          "max_abs": 6.67572021484375e-06,
+          "rms": 1.262632225308026e-06,
+          "kl_native_to_pytorch": 1.3088740582409365e-12,
+          "native_top1": 6554,
+          "pytorch_top1": 6554,
+          "native_top_margin": 0.9409570693969727,
+          "pytorch_seconds": 0.04060333804227412,
+          "native_logits_f32_sha256": "814c5323c58e6769fadf5518c0f909ee3e9c87c62306be4fa7373c24082b4722",
+          "token_ids": [
+            759,
+            3796
+          ],
+          "prefix_text": "The quick",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 9.059906005859375e-06,
+              "rms": 1.9483171454735485e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.049041748046875e-05,
+              "rms": 2.116040060984888e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 1.2874603271484375e-05,
+              "rms": 2.299674820281389e-06,
+              "left_top1": 6554,
+              "right_top1": 6554
+            }
+          }
+        },
+        {
+          "tokens": 3,
+          "text_sha256": "9bc94b608c3636f6dbd12a7a08e586f2529c1910465cf764e5a2a16260a15c3b",
+          "max_abs": 8.106231689453125e-06,
+          "rms": 1.5087017482543615e-06,
+          "kl_native_to_pytorch": 2.7290614372635375e-13,
+          "native_top1": 36629,
+          "pytorch_top1": 36629,
+          "native_top_margin": 5.423332214355469,
+          "pytorch_seconds": 0.0292225182056427,
+          "native_logits_f32_sha256": "9e6148c1cab018f2eac908c29cf8b08051be62765142666ab881ced81f2e4cc0",
+          "token_ids": [
+            759,
+            3796,
+            13256
+          ],
+          "prefix_text": "The quick brown",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 8.821487426757812e-06,
+              "rms": 1.943371544859258e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.1682510375976562e-05,
+              "rms": 2.245826639985311e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 9.5367431640625e-06,
+              "rms": 2.030745005443698e-06,
+              "left_top1": 36629,
+              "right_top1": 36629
+            }
+          }
+        },
+        {
+          "tokens": 4,
+          "text_sha256": "5cac4f980fedc3d3f1f99b4be3472c9b30d56523e632d151237ec9309048bda9",
+          "max_abs": 7.62939453125e-06,
+          "rms": 1.1968056841711663e-06,
+          "kl_native_to_pytorch": 1.9976539299572885e-13,
+          "native_top1": 32309,
+          "pytorch_top1": 32309,
+          "native_top_margin": 2.111194610595703,
+          "pytorch_seconds": 0.028759265085682273,
+          "native_logits_f32_sha256": "225f2ca2f42f3f7da03ce7734cf15a3554da62cb39958b59c563a1a409f035ea",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629
+          ],
+          "prefix_text": "The quick brown fox",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 8.404254913330078e-06,
+              "rms": 1.5588561324989436e-06,
+              "left_top1": 32309,
+              "right_top1": 32309
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 7.3909759521484375e-06,
+              "rms": 1.588129407743953e-06,
+              "left_top1": 32309,
+              "right_top1": 32309
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 7.62939453125e-06,
+              "rms": 1.5077859775040342e-06,
+              "left_top1": 32309,
+              "right_top1": 32309
+            }
+          }
+        },
+        {
+          "tokens": 7,
+          "text_sha256": "acbe47d52e08dc6ae67b0bc249c6fe92c2fea7cb5d168d089bdb4e5f012a70dd",
+          "max_abs": 8.58306884765625e-06,
+          "rms": 1.6060434080545047e-06,
+          "kl_native_to_pytorch": 2.0286453379346143e-13,
+          "native_top1": 14953,
+          "pytorch_top1": 14953,
+          "native_top_margin": 4.166238784790039,
+          "pytorch_seconds": 0.02945418911986053,
+          "native_logits_f32_sha256": "b9cf2d1875631bb583d41e94c336d54412dcc64061d996003a3f21130bc0d0ae",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279
+          ],
+          "prefix_text": "The quick brown fox jumps over the",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 9.655952453613281e-06,
+              "rms": 1.893131323793639e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.0013580322265625e-05,
+              "rms": 2.0696622253617906e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 8.58306884765625e-06,
+              "rms": 1.7171623560077777e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            }
+          }
+        },
+        {
+          "tokens": 8,
+          "text_sha256": "e79df309e6b0e98a1b677e5d47765063170fd0fbe136d305230dca2ca1ade525",
+          "max_abs": 7.68899917602539e-06,
+          "rms": 1.5763069361779447e-06,
+          "kl_native_to_pytorch": 2.082560947933148e-13,
+          "native_top1": 5318,
+          "pytorch_top1": 5318,
+          "native_top_margin": 5.541356086730957,
+          "pytorch_seconds": 0.029750513145700097,
+          "native_logits_f32_sha256": "1ff202f781dfacb6ae8ac5284ab52bcadcdd694890b0a99624602b1660bf9bfc",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 1.1444091796875e-05,
+              "rms": 2.1286387421081686e-06,
+              "left_top1": 5318,
+              "right_top1": 5318
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.4424324035644531e-05,
+              "rms": 2.3073694916788517e-06,
+              "left_top1": 5318,
+              "right_top1": 5318
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 8.106231689453125e-06,
+              "rms": 1.597102236335908e-06,
+              "left_top1": 5318,
+              "right_top1": 5318
+            }
+          }
+        },
+        {
+          "tokens": 9,
+          "text_sha256": "d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592",
+          "max_abs": 8.58306884765625e-06,
+          "rms": 1.8337772486386753e-06,
+          "kl_native_to_pytorch": 1.231330472651762e-12,
+          "native_top1": 13,
+          "pytorch_top1": 13,
+          "native_top_margin": 1.5459003448486328,
+          "pytorch_seconds": 0.030305110150948167,
+          "native_logits_f32_sha256": "e20b8f0cdb7993a25b6b78acc2419744713a8b476926014d61aea0f0334b1ba0",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 1.0013580322265625e-05,
+              "rms": 2.0398126487466495e-06,
+              "left_top1": 13,
+              "right_top1": 13
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 9.5367431640625e-06,
+              "rms": 2.134425788218526e-06,
+              "left_top1": 13,
+              "right_top1": 13
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 7.271766662597656e-06,
+              "rms": 1.601184271438679e-06,
+              "left_top1": 13,
+              "right_top1": 13
+            }
+          }
+        },
+        {
+          "tokens": 16,
+          "text_sha256": "e12cb385f7f1be9f564b8dfd4dc9a53a73fb8a1279cc4b457a92c28d6b422632",
+          "max_abs": 1.0967254638671875e-05,
+          "rms": 2.104742407731692e-06,
+          "kl_native_to_pytorch": 2.6572057522201896e-14,
+          "native_top1": 279,
+          "pytorch_top1": 279,
+          "native_top_margin": 5.184755325317383,
+          "pytorch_seconds": 0.02992035704664886,
+          "native_logits_f32_sha256": "2a04799f7c4c601749daafaddd862260586fcc2320833ec3d8e86f48bb32fed1",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 1.1205673217773438e-05,
+              "rms": 2.2781818701379793e-06,
+              "left_top1": 279,
+              "right_top1": 279
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 1.0132789611816406e-05,
+              "rms": 2.2683284966997746e-06,
+              "left_top1": 279,
+              "right_top1": 279
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 7.867813110351562e-06,
+              "rms": 1.7604969293428752e-06,
+              "left_top1": 279,
+              "right_top1": 279
+            }
+          }
+        },
+        {
+          "tokens": 17,
+          "text_sha256": "95b699a65dd102bba49c2092f1c14c1254f2a6fc3a1d078ffdd90bb56f813427",
+          "max_abs": 2.288818359375e-05,
+          "rms": 3.973684361435771e-06,
+          "kl_native_to_pytorch": 2.22885894686486e-12,
+          "native_top1": 14953,
+          "pytorch_top1": 14953,
+          "native_top_margin": 4.163381576538086,
+          "pytorch_seconds": 0.031365809962153435,
+          "native_logits_f32_sha256": "425a31fa6d6d53ee94b169b591a2341fadde4023a818f98d423c261ef392c306",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 3.2901763916015625e-05,
+              "rms": 5.947972712596919e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 2.9981136322021484e-05,
+              "rms": 5.482156331802862e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 3.0875205993652344e-05,
+              "rms": 3.5232985012813985e-06,
+              "left_top1": 14953,
+              "right_top1": 14953
+            }
+          }
+        },
+        {
+          "tokens": 32,
+          "text_sha256": "898b2fc581f52e4a06eb2c0777712385c3094d257c4948c37bc4d6e0f64222df",
+          "max_abs": 3.528594970703125e-05,
+          "rms": 5.964726501043657e-06,
+          "kl_native_to_pytorch": 1.0832995964389255e-13,
+          "native_top1": 13256,
+          "pytorch_top1": 13256,
+          "native_top_margin": 6.057554244995117,
+          "pytorch_seconds": 0.03245360194705427,
+          "native_logits_f32_sha256": "6c088fa4741af09082a5cf84bd8bbb85087a2d0d6731ddd1f100e85b47eebd51",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 2.6404857635498047e-05,
+              "rms": 5.538802987094666e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 2.47955322265625e-05,
+              "rms": 4.5194691797619635e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 2.384185791015625e-05,
+              "rms": 4.976320390439326e-06,
+              "left_top1": 13256,
+              "right_top1": 13256
+            }
+          }
+        },
+        {
+          "tokens": 64,
+          "text_sha256": "c98fd4ccc468db9efb3bf0eac847a60569d0b43feab930fd90a9296d9afb26f0",
+          "max_abs": 3.5762786865234375e-05,
+          "rms": 5.853482092127799e-06,
+          "kl_native_to_pytorch": 1.3216948182762302e-13,
+          "native_top1": 32309,
+          "pytorch_top1": 32309,
+          "native_top_margin": 7.872503280639648,
+          "pytorch_seconds": 0.03557447809726,
+          "native_logits_f32_sha256": "b0bb7e55565157688a32ee2aee33086de4de0473002673f486d405283a7c4ca8",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox",
+          "exact_equal": false,
+          "chunking": {
+            "native_batch_vs_serial": {
+              "max_abs": 2.7179718017578125e-05,
+              "rms": 4.7969438306407505e-06,
+              "left_top1": 32309,
+              "right_top1": 32309
+            },
+            "pytorch_batch_vs_serial": {
+              "max_abs": 0.0001811981201171875,
+              "rms": 2.304483052012729e-05,
+              "left_top1": 32309,
+              "right_top1": 32309
+            },
+            "native_vs_pytorch_serial": {
+              "max_abs": 0.0001468658447265625,
+              "rms": 1.881489166969475e-05,
+              "left_top1": 32309,
+              "right_top1": 32309
+            }
+          }
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    },
+    "fp16_kv": {
+      "rows": [
+        {
+          "tokens": 1,
+          "text_sha256": "b344d80e24a3679999fa964450b34bc24d1578a35509f934c1418b0a20d21a67",
+          "max_abs": 0.0005970001220703125,
+          "rms": 0.00010498071329429001,
+          "kl_native_to_pytorch": 4.696842588062062e-09,
+          "native_top1": 2589,
+          "pytorch_top1": 2589,
+          "native_top_margin": 1.9220008850097656,
+          "pytorch_seconds": 0.667232264066115,
+          "native_logits_f32_sha256": "2a89add945f7ef74274d6da02224f39ed9d338d4df9bff573550453fbb790330",
+          "token_ids": [
+            759
+          ],
+          "prefix_text": "The",
+          "exact_equal": false
+        },
+        {
+          "tokens": 2,
+          "text_sha256": "3ba62773d07dd21b5712a1c221207bf2f46e459d862e7b7062b3b9e0073bbb1e",
+          "max_abs": 0.001125931739807129,
+          "rms": 0.00024620132745553316,
+          "kl_native_to_pytorch": 5.6624632015210006e-08,
+          "native_top1": 6554,
+          "pytorch_top1": 6554,
+          "native_top_margin": 0.9409236907958984,
+          "pytorch_seconds": 0.04454943211749196,
+          "native_logits_f32_sha256": "02bec99414ecf83ad93fb0b33576be8a7706c36457b9914b5e4a080da74f9454",
+          "token_ids": [
+            759,
+            3796
+          ],
+          "prefix_text": "The quick",
+          "exact_equal": false
+        },
+        {
+          "tokens": 3,
+          "text_sha256": "9bc94b608c3636f6dbd12a7a08e586f2529c1910465cf764e5a2a16260a15c3b",
+          "max_abs": 0.00197601318359375,
+          "rms": 0.00042480418412760334,
+          "kl_native_to_pytorch": 2.336660922129261e-08,
+          "native_top1": 36629,
+          "pytorch_top1": 36629,
+          "native_top_margin": 5.423332214355469,
+          "pytorch_seconds": 0.028804711066186428,
+          "native_logits_f32_sha256": "0b68b8419cc46b4fd20af48aff2dc99db535f1287b89a47a08cc25727c6efcf1",
+          "token_ids": [
+            759,
+            3796,
+            13256
+          ],
+          "prefix_text": "The quick brown",
+          "exact_equal": false
+        },
+        {
+          "tokens": 8,
+          "text_sha256": "e79df309e6b0e98a1b677e5d47765063170fd0fbe136d305230dca2ca1ade525",
+          "max_abs": 0.0018720626831054688,
+          "rms": 0.0003489033027652134,
+          "kl_native_to_pytorch": 2.424871373656533e-09,
+          "native_top1": 5318,
+          "pytorch_top1": 5318,
+          "native_top_margin": 5.541813850402832,
+          "pytorch_seconds": 0.029825323959812522,
+          "native_logits_f32_sha256": "9b81de6cb8cf713c41d28bf0b118eaf3c795bc87d17290393f32a650f619b08f",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy",
+          "exact_equal": false
+        },
+        {
+          "tokens": 16,
+          "text_sha256": "e12cb385f7f1be9f564b8dfd4dc9a53a73fb8a1279cc4b457a92c28d6b422632",
+          "max_abs": 0.0020341873168945312,
+          "rms": 0.0004030340815209298,
+          "kl_native_to_pytorch": 5.945367131339499e-10,
+          "native_top1": 279,
+          "pytorch_top1": 279,
+          "native_top_margin": 5.184925079345703,
+          "pytorch_seconds": 0.03034665691666305,
+          "native_logits_f32_sha256": "70e325c2432ae97f67f090d4addff6a7157ce20ce04fbe7f2baaeb238a7e0833",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over",
+          "exact_equal": false
+        },
+        {
+          "tokens": 32,
+          "text_sha256": "898b2fc581f52e4a06eb2c0777712385c3094d257c4948c37bc4d6e0f64222df",
+          "max_abs": 0.006965160369873047,
+          "rms": 0.00130027997871294,
+          "kl_native_to_pytorch": 6.079764449555997e-09,
+          "native_top1": 13256,
+          "pytorch_top1": 13256,
+          "native_top_margin": 6.057491302490234,
+          "pytorch_seconds": 0.032943952828645706,
+          "native_logits_f32_sha256": "f8f1550a9450cfc5856a7866f260c02cd28a1afb8332971c3eb810aa95f64d5b",
+          "token_ids": [
+            759,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796,
+            13256,
+            36629,
+            32309,
+            887,
+            279,
+            14953,
+            5318,
+            13,
+            561,
+            3796
+          ],
+          "prefix_text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick",
+          "exact_equal": false
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    },
+    "reference_general": {
+      "rows": [
+        {
+          "tokens": 3,
+          "text_sha256": "aa3ec16e6acc809d8b2818662276256abfd2f1b441cb51574933f3d4bd115d11",
+          "max_abs": 5.7220458984375e-06,
+          "rms": 1.1903151471356024e-06,
+          "kl_native_to_pytorch": 5.231269695485517e-13,
+          "native_top1": 271,
+          "pytorch_top1": 271,
+          "native_top_margin": 0.20878314971923828,
+          "pytorch_seconds": 0.3018762390129268,
+          "native_logits_f32_sha256": "b36ce89592a4d69e7cd265f3fca79ae8a2e0d45822b5d9a37e1b4df4402f9145"
+        },
+        {
+          "tokens": 10,
+          "text_sha256": "ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c",
+          "max_abs": 6.9141387939453125e-06,
+          "rms": 1.5409791696235948e-06,
+          "kl_native_to_pytorch": 5.716015739272394e-13,
+          "native_top1": 198,
+          "pytorch_top1": 198,
+          "native_top_margin": 0.2835702896118164,
+          "pytorch_seconds": 0.03051830385811627,
+          "native_logits_f32_sha256": "5254d26ec4215dc47f9e1d20cdc8babc642620f78457cf2773c26cb5193cf045"
+        },
+        {
+          "tokens": 12,
+          "text_sha256": "6fbb391ea216cc98477da79bfad66b9936c70d0af54cfc54d0e07852fe28872c",
+          "max_abs": 7.867813110351562e-06,
+          "rms": 1.3005490187764573e-06,
+          "kl_native_to_pytorch": 1.5627264128399782e-12,
+          "native_top1": 1299,
+          "pytorch_top1": 1299,
+          "native_top_margin": 0.3008155822753906,
+          "pytorch_seconds": 0.029923570808023214,
+          "native_logits_f32_sha256": "2ae14033cb9daa0e058223295af513108b093dd5a5a3675979a628ac4121d90a"
+        },
+        {
+          "tokens": 14,
+          "text_sha256": "ab0d7d664a84f15356ae0a0c4c0d44528192d2bf5b6b64e7ea803afa8dc19d28",
+          "max_abs": 9.5367431640625e-06,
+          "rms": 1.970362817415858e-06,
+          "kl_native_to_pytorch": 7.404676273783735e-13,
+          "native_top1": 271,
+          "pytorch_top1": 271,
+          "native_top_margin": 2.9256057739257812,
+          "pytorch_seconds": 0.030267927097156644,
+          "native_logits_f32_sha256": "ae2ea3f8bd1328ce4e627dd9113a155c838503f57ae140bd2404e11ea238ff55"
+        },
+        {
+          "tokens": 14,
+          "text_sha256": "4494f805ca2b1bfefd4eca8328fdc908730f3ac0b3ddab7427e1925c40dc2c17",
+          "max_abs": 2.002716064453125e-05,
+          "rms": 2.012662572576199e-06,
+          "kl_native_to_pytorch": 4.132932906679677e-13,
+          "native_top1": 271,
+          "pytorch_top1": 271,
+          "native_top_margin": 2.9728851318359375,
+          "pytorch_seconds": 0.030426167882978916,
+          "native_logits_f32_sha256": "575c1cf6545387eb217d1eee7c86ed9f30594d8fccb269ba35c41fea3f5a0588"
+        },
+        {
+          "tokens": 18,
+          "text_sha256": "f9e536178fda1b945d3da47a8176265ae57c798b114d1b54f612ff7332f22d97",
+          "max_abs": 1.049041748046875e-05,
+          "rms": 2.4137209098984485e-06,
+          "kl_native_to_pytorch": -3.0485296607568646e-18,
+          "native_top1": 127982,
+          "pytorch_top1": 127982,
+          "native_top_margin": 13.847868919372559,
+          "pytorch_seconds": 0.032469358993694186,
+          "native_logits_f32_sha256": "4562f6964fe1effd2b8dee1609cd2ae0b163f7c03f7fdc88a400d4ffa1362591"
+        }
+      ],
+      "peak_torch_allocated_bytes": 32921088000,
+      "parameter_dtypes": [
+        "torch.float32"
+      ]
+    }
+  },
+  "patch": {
+    "lora_binding": "llama-adapter-per-lease-v1",
+    "attention_precision_binding": "fp32-attention-v1",
+    "wen_patch_sha256": "d8b16fa8bd3457a746a37808e43e609986aafe4a4e6fc509eb798ac3ac1d402f",
+    "f32_activations_patch_sha256": "bb41e6d28d363400a2027e5f2c362f6b3fa850950ff26e680473cc682b2e9711",
+    "f32_activations_sources_sha256": {
+      "ggml/src/ggml-cuda/ggml-cuda.cu": "168f3d5c708c9f3800ec1cf25e230ba430f574a5225297c08219b39cddc12acb"
+    }
+  },
+  "native_restore": [
+    {
+      "kind": "text",
+      "comparisons": [
+        {
+          "suffix": [
+            14167
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        },
+        {
+          "suffix": [
+            0
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        },
+        {
+          "suffix": [
+            759,
+            3796
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        }
+      ],
+      "state_bytes": 53400430,
+      "seconds": 9.824179047951475
+    },
+    {
+      "kind": "mixed",
+      "comparisons": [
+        {
+          "suffix": [
+            14167
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        },
+        {
+          "suffix": [
+            0
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        },
+        {
+          "suffix": [
+            759,
+            3796
+          ],
+          "max_abs": 0.0,
+          "restore_forward_tokens": 0
+        }
+      ],
+      "state_bytes": 53400654,
+      "seconds": 9.490792811149731
+    }
+  ],
+  "default_regression": [
+    {
+      "tokens": 1,
+      "logits_sha256": "41a8022d8023408e98fa80f25888940920acc997c5793a924606c1cb3efc0012",
+      "exact_equal": true
+    },
+    {
+      "tokens": 2,
+      "logits_sha256": "9a81d2a2d75a79708db4e793194601bf43efced0109cf0cc853e4503869f9190",
+      "exact_equal": true
+    },
+    {
+      "tokens": 3,
+      "logits_sha256": "6dd40418acddc8c5e264ad6c013f0bcb502dd21951b3eb6bde0ce1c09a3bc4d8",
+      "exact_equal": true
+    },
+    {
+      "tokens": 8,
+      "logits_sha256": "b38225a6b7ae20df2102b1004302e1b5b5fccfa07d351f8017e0d9a6b025aba4",
+      "exact_equal": true
+    },
+    {
+      "tokens": 16,
+      "logits_sha256": "8f7a35bb6686d3c5e0ece74ad56726fe0e860a531d6740d5bce6af8594248053",
+      "exact_equal": true
+    },
+    {
+      "tokens": 32,
+      "logits_sha256": "c890a6fd23babcfa26a40cdc54ec182da631ed7b57959491cdbf3d6558d16a4c",
+      "exact_equal": true
+    }
+  ]
+}

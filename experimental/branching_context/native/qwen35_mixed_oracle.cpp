@@ -1,6 +1,8 @@
 // Fresh mixed-input oracle: no adapter, checkpoint, cache or state-import code.
 #include "llama.h"
 #include "qwen35_device.h"
+#include "qwen35_math.h"
+#include "qwen35_lora.h"
 #include "nlohmann/json.hpp"
 extern "C" {
 #include "sha256/sha256.h"
@@ -22,10 +24,15 @@ static std::string hexhash(const std::vector<uint8_t>&b){unsigned char h[32];sha
 struct Image{std::vector<float> values;};
 struct Cell{int token,image,row;std::array<int32_t,3> pos;};
 int main(int argc,char**argv){try{
- check(argc==5||argc==6,"Expected model, capacity, batch, threads and optional CUDA device");ggml_backend_load_all();auto mp=llama_model_default_params();mp.n_gpu_layers=99;
- ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,argc==6?argv[5]:nullptr,devices);
+ bool has_lora=argc==8||argc==9;int base_argc=has_lora?argc-3:argc;
+ check(base_argc==5||base_argc==6,"Expected model, capacity, batch, threads and optional CUDA device/LoRA");
+ if(has_lora)check(std::string(argv[base_argc])=="--lora","Unknown oracle adapter option");
+ ggml_backend_load_all();auto mp=llama_model_default_params();mp.n_gpu_layers=99;
+ ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,base_argc==6?argv[5]:nullptr,devices);
  std::unique_ptr<llama_model,decltype(&llama_model_free)> model(llama_model_load_from_file(argv[1],mp),llama_model_free);check(bool(model),"Cannot load model");
  char arch[64]={};llama_model_meta_val_str(model.get(),"general.architecture",arch,sizeof(arch));check((std::string(arch)=="qwen35"||std::string(arch)=="wen1")&&llama_model_is_hybrid(model.get())&&llama_model_n_embd_inp(model.get())==4096,"Unsupported decoder");
+ std::unique_ptr<llama_adapter_lora,decltype(&llama_adapter_lora_free)>adapter(has_lora?qwen35_load_adapter(model.get(),argv[base_argc+1]):nullptr,llama_adapter_lora_free);
+ float adapter_scale=has_lora?std::stof(argv[base_argc+2]):1.f;
  auto vocab=llama_model_get_vocab(model.get());int nv=llama_vocab_n_tokens(vocab),capacity=std::stoi(argv[2]),limit=std::stoi(argv[3]),threads=std::stoi(argv[4]);check(capacity>=128&&capacity<=262144&&limit>0&&limit<=capacity&&threads>0,"Invalid context");
  std::string line;
  while(std::getline(std::cin,line)){
@@ -46,7 +53,9 @@ int main(int argc,char**argv){try{
   }
   check(!cells.empty()&&cells.back().image<0,"Public frontier must end with text");
   auto cp=llama_context_default_params();cp.n_ctx=capacity;cp.n_batch=cp.n_ubatch=limit;cp.n_seq_max=1;cp.n_threads=cp.n_threads_batch=threads;cp.flash_attn_type=LLAMA_FLASH_ATTN_TYPE_ENABLED;cp.type_k=cp.type_v=GGML_TYPE_F16;cp.no_perf=false;
+  qwen35_context_math(cp);
   std::unique_ptr<llama_context,decltype(&llama_free)>ctx(llama_init_from_model(model.get(),cp),llama_free);check(bool(ctx),"Fresh context creation");check(llama_memory_seq_pos_max(llama_get_memory(ctx.get()),0)==-1,"Oracle context was not empty");
+  if(adapter)qwen35_attach_adapter(ctx.get(),adapter.get(),adapter_scale);
   int offset=0;uint64_t work=0;
   for(auto &chunk:q.at("chunks")){
    check(chunk.size()==2,"Chunk shape");int start=chunk[0],n=chunk[1];check(start==offset&&n>0&&n<=limit&&start+n<=int(cells.size()),"Invalid native boundary");int image=cells[start].image;

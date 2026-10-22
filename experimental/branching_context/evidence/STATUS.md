@@ -3443,7 +3443,7 @@ zero maximum logit error and matching tokens/controllers. Collector independentl
 reread98 raw candidate/reference pairs. Three strict restores performed zero
 saved-prefix forward tokens; native counters recorded88 Mirostat selections.
 All native/Python campaign children exited0. HTTP continuation changed T.80
-→.75,tau4→3.5,eta.05→.08 without resetting mu. CPU688/G051 remain passing.
+â†’.75,tau4â†’3.5,eta.05â†’.08 without resetting mu. CPU688/G051 remain passing.
 See MIROSTAT2-QUALIFICATION-2026-10-16.json and MIROSTAT2-SOURCE-VERIFICATION-
 2026-10-16.json. This supersedes earlier GPU_UNRUN/build-only statements below.
 
@@ -3560,7 +3560,7 @@ Historical development checkpoints follow; later receipts above supersede their 
 2026-10-16 XTC integration: complete private source passed629 combined CPU
 tests and G0 51/51, zero failures/errors/skips/xfails, frozen source unchanged.
 CLI --xtc-probability/--xtc-threshold, token/text settings inheritance,
-schema3→4 generation-boundary upgrades, nativeV5 adapter and independent
+schema3â†’4 generation-boundary upgrades, nativeV5 adapter and independent
 Python reference dispatch are connected. GPU/restart/speed validation remains
 UNRUN at this checkpoint. Do not equate wired options with qualified serving.
 See XTC-INTEGRATED-CPU-2026-10-16.json for exact IDs and source hashes.
@@ -3806,7 +3806,7 @@ CPU 403/403, observer 4/4, G0 51/51, no final failures/skips/xfails.
 
 Resident generation medians: Q4 plain 117.28/117.36 TPS, GBNF 115.11/111.46;
 Q8 plain 91.46/90.53 TPS, GBNF 82.33/65.81. Complete short requests took
-0.492–0.604 seconds. GBNF B ended at six outputs; other medium branches reached
+0.492â€“0.604 seconds. GBNF B ended at six outputs; other medium branches reached
 the 16-token cap. These are short 1K fixtures, not long-context or matched
 overhead measurements. The first truncated tiny fixture ended after one token;
 its failed result and exact observer source are retained. No numerical
@@ -3816,7 +3816,7 @@ See MIN-P-QUALIFICATION-2026-10-16.json, ../../../docs/context-cow/MIN_P_SAMPLIN
 and MIN_P_RESULTS_20261016.md there. This supports the Python branching API and
 audit CLI; ordinary serving/CLI sampler integration remains outstanding.
 Long-context Min-P, real-GPU idle expiry, broad fault/controller coverage and
-original cumulative G1–G5 remain unqualified. Cross-arrangement equivalence
+original cumulative G1â€“G5 remain unqualified. Cross-arrangement equivalence
 remains an accepted prototype limitation. Chat stays off; private only.
 Earlier entries below describe their respective frozen sources.
 
@@ -4423,7 +4423,7 @@ are 72.21 seconds Q4 and 277.27 seconds Q8, not serving latency. Broader crash,
 capacity and controller qualification remains open. The original intermittent
 stats inequality remains unresolved; these passing strict controls do not
 diagnose its cause.
-No original G1–G5 status changes. The candidate's original arena and reserved
+No original G1â€“G5 status changes. The candidate's original arena and reserved
 integrity scratch remain allocated; mapped KV bytes are not whole VRAM usage.
 See CURRENT-HANDOFF.md for exact worktree, commit and remote run locations.
 
@@ -5697,7 +5697,7 @@ Suffix-boundary canonical frontiers were not captured, and every-output logit
 agreement is not claimed. A separate actual canonical-Store readback audit is
 being added before archive freeze; the43 checks alone read retained phase rows.
 
-This is a bounded execution-profile/greedy P5 result, not cumulative G1–G5
+This is a bounded execution-profile/greedy P5 result, not cumulative G1â€“G5
 certification. The raw private archive is not yet complete; no payload deletion
 is authorized. Next: verify actual Store readback, freeze/stream/hash the raw
 archive, then review exact reclaim/restore capacity for native P4 latency arms.
@@ -5712,8 +5712,8 @@ campaign or numerical PASS is implied by this intermediate phase.
 
 Root independently inspected the raw13-event prepare trace, without importing
 the campaign validator. P5-Q8-TRACE-INDEPENDENT-AUDIT-2026-10-15.json records
-three exact-key, same-process clean eviction→disk-read-start→success chains:
-sequence0→1→4,3→5→6,8→9→12. Each freed and loaded1,830,602,232 accounted bytes.
+three exact-key, same-process clean evictionâ†’disk-read-startâ†’success chains:
+sequence0â†’1â†’4,3â†’5â†’6,8â†’9â†’12. Each freed and loaded1,830,602,232 accounted bytes.
 Trace SHA2566410e951b42eef66f2909239b6b0917387f3896fc7c5537a4ca50be396f469e4.
 This is an accounting/identity witness, not OS RSS reclamation or numerical
 equivalence. Peak prepare RAM accounting16,928,645,572 bytes fits the configured
@@ -5734,7 +5734,7 @@ uses frozen API source24b4fbbf, the fixture-pinned Q8 model/profile base,
 capacity98,304, prefill8,192, FP16 KV and GPU=[0]. All32 CPUs are available;
 the observed GPU was idle with97,235MiB free. Shared pools intentionally use
 16GiB RAM and64GiB disk to force eviction; host minimum availability is16GiB.
-Three65,536-token prefixes, six8,311–8,336-token suffixes, up to2,048 outputs
+Three65,536-token prefixes, six8,311â€“8,336-token suffixes, up to2,048 outputs
 and rewinds remain the actual fixture. Independent matching-operator fresh
 references are required. Preflight is not an executed GPU pass.
 
@@ -5751,7 +5751,7 @@ verified before unlinking; all old Q8 checkpoints remain untouched. Archive
 649547d2a4a42b056959a570d728424f7c0a2e9f988775feee7368509fdbfb57,
 is on private box-git; the backup receipt contains all nine member hashes.
 The exact two-file reclaim receipt records4,068,474,880 logical bytes and
-free space51,313,795,072→55,382,269,952 bytes. Preflight observed55,382,208,512
+free space51,313,795,072â†’55,382,269,952 bytes. Preflight observed55,382,208,512
 bytes against52,397,130,429 required, including a separate10GiB disk floor.
 See P5-Q8-OLD-ORACLE-BACKUP and P5-Q8-OLD-ORACLE-RECLAIM JSON for restores.
 Only raw oracle dumps were reclaimed; canonical histories and model state
@@ -6248,7 +6248,7 @@ for executed CUDA/HIP component results, the checkpoint-compatible routing fix,
 82 passing control tests, G0 51/51, and the separate portable source/artifact
 backup. Actual A100 GPU 0 checks passed after correcting a dynamic CUDA-runtime
 packaging dependency. GPU 5/split qualification is still in progress at this
-checkpoint. These synthetic results do not qualify neural inference or G1–G5.
+checkpoint. These synthetic results do not qualify neural inference or G1â€“G5.
 
 ## Shared RAM/disk pools: bounded real-GPU milestone PASS (October 14)
 
@@ -6288,7 +6288,7 @@ The first ordinary native Q8/FP16 smoke completed three fresh requests at a
 128-token prefix, four-token suffix and 16-token output bound. It observed
 16/16/9 outputs and roughly 70.71/46.22/61.34 client-stream TPS, with zero reported
 prompt reuse. The repeated A inputs had different output lengths; repeat
-exactness is not established. These are synthetic tiny probes, not the 64K–100K
+exactness is not established. These are synthetic tiny probes, not the 64Kâ€“100K
 workload. The harness then failed while reading a process handle cleared by
 engine.close(). Worker 1494696 recorded FAIL, skipped the 8K stage, and restored
 server 1495302 with unchanged configuration and HTTP 200. The reporting fix keeps
@@ -6296,7 +6296,7 @@ the actual process object before closing; its GPU rerun remains pending.
 
 Remote retained attempt:
 `/home/dflanag3/branching-g3/native-resident-cow-20261014` on llm-60.
-Original batches-only restart evidence and cumulative G1–G5 status stay separate.
+Original batches-only restart evidence and cumulative G1â€“G5 status stay separate.
 
 The corrected rerun is live under the corresponding `-r2` directory: worker
 1496126 and smoke child 1496142 were verified running. No completed rerun result
@@ -6315,12 +6315,12 @@ sampled answers to match.
 Identical-native-batches durable resume PASS at 128, 1024 and 8192 prefix tokens.
 Target: two 512-token suffixes, 128 outputs each, 12 sampled full-logit comparisons,
 zero error, three cold restores with zero prefix forward work, consumed-output
-restart PASS, and MR-001–MR-004 evidence methods 4/4 with no skips. Deterministic
-greedy scope only; original G1–G5 remain unqualified.
+restart PASS, and MR-001â€“MR-004 evidence methods 4/4 with no skips. Deterministic
+greedy scope only; original G1â€“G5 remain unqualified.
 
 Lean resident/disk/fresh measurements also passed exact validation at 16 outputs
-per branch. Generation remains 1.015–1.114 tokens/s across all modes. Prefix
-preparation was 0.067–0.075 s resident, 0.732–0.794 s disk, 26.026–26.204 s fresh.
+per branch. Generation remains 1.015â€“1.114 tokens/s across all modes. Prefix
+preparation was 0.067â€“0.075 s resident, 0.732â€“0.794 s disk, 26.026â€“26.204 s fresh.
 This establishes reuse benefit but not satisfactory generation speed. Profile
 mandatory API/native costs next; do not assume optional audit overhead explains it.
 Server restored, HTTP 200. See docs/context-cow/results/matching-resume-20261014/FINAL.md.
@@ -6365,7 +6365,7 @@ maintenance ownership and restores it after success/failure.
 After validation passes, the user requests a lean performance campaign: resident
 reuse, disk restore and fresh batched computation with the same arrangements.
 Move optional auditing outside timed sections; preserve consumed-state and
-canonical-history invariants. No speedup is assumed. Original G1–G5 remain
+canonical-history invariants. No speedup is assumed. Original G1â€“G5 remain
 unqualified and advanced controller/crash states remain untested on this profile.
 
 Cumulative verifier through G2 rerun: G0 PASS 51; G1 FAIL with four setup errors,
@@ -6446,7 +6446,7 @@ Two earlier failed attempts are retained. Vendored engine/font assets total
 
 Native engine, CMake and branching-store files are unchanged relative to
 v0.1.1-rc1. These are browser tests with a mock model; no new GPU measurements
-or formal G1–G5 certification are claimed. See [math usage and test scope](../../../docs/WEB_MATH.md)
+or formal G1â€“G5 certification are claimed. See [math usage and test scope](../../../docs/WEB_MATH.md)
 and [v0.1.2 candidate details](../../../docs/context-cow/V0.1.2.md).
 
 ## v0.1.1 bounded release candidate, October 13
@@ -6454,7 +6454,7 @@ and [v0.1.2 candidate details](../../../docs/context-cow/V0.1.2.md).
 The opt-in caller-managed write-integrity probe and writable-access reuse are
 implemented at `0bb06645`; production native sources/defaults remain guarded.
 Fresh paired baseline/candidate runs both passed four lanes and 516 exact
-comparisons, maximum error 0.0. Native COW gains were 6.4–6.6%; resident A
+comparisons, maximum error 0.0. Native COW gains were 6.4â€“6.6%; resident A
 preparation fell 183.75 -> 4.76 ms over 128 outputs. RAM changed 0.47%, a small
 observed difference. Initial variant campaigns also passed 516 comparisons each.
 
@@ -6463,7 +6463,7 @@ its corruption case demonstrates that external violations are NOT detected
 before write in this mode. CUDA memcheck reported zero errors. Rerun baseline
 native CTests: 6/6; SHA methods: 3/3; controller/profile-input methods: 4/4 each;
 G0: 51/51; reference demo/mutants passed. The stale-profile failure was retained.
-Full G1–G5 qualification remains open. Both GPUs have no queued experiment.
+Full G1â€“G5 qualification remains open. Both GPUs have no queued experiment.
 
 [Candidate scope and measured comparison](../../../docs/context-cow/EXTERNAL_WRITE_INTEGRITY.md)
 and [completed plan](../../../docs/context-cow/V0.1.1-PLAN.md) supersede the
@@ -6478,7 +6478,7 @@ as historical evidence and is not the current release status.
 
 - All-pool verification is implemented at code checkpoint `c053ddbb`. Resident
   A preparation fell from 1.6610 to 0.1908 seconds over 128 consumed outputs,
-  with identical sealed-byte coverage. Native COW measured 43.48–47.37 TPS;
+  with identical sealed-byte coverage. Native COW measured 43.48â€“47.37 TPS;
   the same run's RAM control measured 51.63 TPS.
 - Four real-model lanes passed 516 exact full-logit comparisons, maximum error
   0.0. Separate RAM A/B/A passed 387 comparisons. Every request produced 128
@@ -6486,7 +6486,7 @@ as historical evidence and is not the current release status.
 - New preparation fixture: 546 checks passed across four KV layouts; CUDA
   memcheck reported zero errors. Six targeted native CTests, three independent
   digest unittest methods, G0's 51 tests and four reference mutants passed.
-- G1 remains unqualified/paused; no cumulative G0+G1 PASS was obtained. G2–G5
+- G1 remains unqualified/paused; no cumulative G0+G1 PASS was obtained. G2â€“G5
   are not newly certified. Arbitrary prefill splits and ordinary-serving token
   repeatability remain open. No long soak was started by this experiment.
 - Publication includes source, all runner families, measured results and
@@ -6525,7 +6525,7 @@ integration, G4 and G5 remain queued.
 | C03 pinned-root retention | Native CPU policy test passed; a background child no longer supersedes a pinned root, and only the unpinned child was evicted |
 | R01 host-prefix ownership | Native CPU probe passed; siblings shared 4096 segment bytes, one changed byte caused 4096 actual bytes copied, and exact-prefix mismatch was rejected |
 | R02 published-tail isolation | Native CPU probe passed; a 17-byte write to a unique published page and a 23-byte sibling tail write copied exactly those bytes |
-| R03 unique host-storage accounting | Native CPU probe passed; 4,096 shared payload bytes charged once, owners moved 2 → 1 → 0 through eviction and clear |
+| R03 unique host-storage accounting | Native CPU probe passed; 4,096 shared payload bytes charged once, owners moved 2 â†’ 1 â†’ 0 through eviction and clear |
 
 The model case used existing pinned `ed5c4557` binaries, Q8_0 weights, FP16 KV
 and the token-level operator on llm-49/r4090 (RTX 4090). The harness checked 422
@@ -7221,7 +7221,7 @@ Canonical SQLite ancestry now drives chat progress and a collapsible SVG/HTML br
 
 The actual four-branch same-tip fork was captured in Chrome and reproduced in a real SQLite UI fixture. The viewer now stays vertical, docks beside chat above 1100px and above chat on smaller screens, groups equal tips, animates cards and SVG curves, preserves pan on unchanged refresh, and keeps the active ending in view. Zoom/Fit, mouse background pan, reduced motion, root fork/rewind, readable saved-point labels, disabled unused restore, and a tighter phone toolbar are implemented. Final browser runs: 84 dynamic checks, 114 graph checks and 72 workspace checks PASS (270 total), no failures/skips in those final runs. Initial failures retained. The live user page showed all four tips fully visible at 100% scale. No native model request was issued by the live review. llm-60 PID 1300778 remained running; configuration and caches unchanged. Deployed frontend source hashes match local source. Source backend code and reference equations unchanged; no G1 or GPU COW qualification is implied. Current screenshots/video/tutorial: docs/context-cow/DYNAMIC_BRANCH_VIEWER.md; machine-readable profile: docs/context-cow/results/dynamic-graph-20261013/profile.json. Cold/warm numerical disagreement remains open.
 
-### 2026-10-14 UTC — strict durable resume prototype, NOT QUALIFIED
+### 2026-10-14 UTC â€” strict durable resume prototype, NOT QUALIFIED
 
 Implemented strict exact-checkpoint restoration, save-before-CAS publication, consumed suffix blocks, normal generated-token decode, and completed native CUDA-copy witnesses. llm-60/Q8/FP16 executed 128-token prefix, two different four-token suffixes, eight outputs each, and a second restart from a generated-token boundary. New processes loaded 121413624 native bytes per root restoration with zero prefix forward tokens, in 0.385/0.352 seconds after engine startup. Both continuations matched uninterrupted tokens/frontiers/controllers; generated-boundary restart passed. Derived-image retention at 16 GiB caused a real cuMemCreate OOM; restoring the original 1 GiB bound removed it, with zero integrity mismatches and zero allocation failures in the corrected run.
 
@@ -7258,59 +7258,59 @@ Removed a duplicate legacy RAM-cache park for identical-native-operators-v1: thi
 Frozen api-v4 profiles retain fast 8192-token chunks, hashes and separate model/execution identities. New runner checks every generated boundary for prefixes below 8K, otherwise 1/16/64/final plus the four-generated-token disk restart. Worker 1526378 is live on llm-60 at /home/dflanag3/branching-g3/resident-resume-v4-20261014, first Q4 tiny child 1526397 confirmed live. Sequence: Q4 tiny; separate GSQ-RCO Q3 tiny; Q4 1K and 8K; synthetic Q4 64K+8K/up to2048 output with 98304 capacity, 8192 MiB conservative checkpoint extent budget and 8192 MiB VRAM reserve; Q8 tiny/1K/8K. Stop on first unexpected failure and restore original server configuration. The larger capacity is a new profile; no checkpoint interoperability claim. All v4 GPU results and 64K/long-output performance are unqualified at launch. Early stopping will be reported. Serving integration and realistic codebase fixtures remain outstanding.
 
 Direct llm-60 SSH/Git to private box-git now works with a dedicated source-restricted key; old explicit restricted profiles preserved. Both aliases, private Git fetch and dry-run receive tested. Complete raw archive transferred server-to-server: 3781330625 bytes, SHA256 bc040a2e4f1eeebb09ae289d79cb7a90c1c5d776bfd8d82dba53ae4e461fc5e5 on both hosts. Destination /srv/data/git/private_context_cow.evidence/20261014-native-resident/native-resident-evidence-20261014.zip. No full raw archive on this PC: user questioned the transfer, it was stopped and only the incomplete agent-created download was removed. Code/summaries/receipt remain local and private. No further permission blocker; see docs/context-cow/PRIVATE_TRANSPORT.md. No public GitHub changes.
-### 2026-10-14 — completed v4 native-request restart campaign
+### 2026-10-14 â€” completed v4 native-request restart campaign
 
-The llm-60 v4 worker exited with PASS: Q4 128/4/8, 1K/64/16, 8K/512/128 and 64K/8K/2048; Q8 128/4/8, 1K/64/16 and 8K/512/128; and the previously scheduled GSQ-RCO Q3 tiny fixture. All eight phase exit codes were zero. The original chat configuration was restored and authenticated HTTP returned 200. This is the explicit matching-native-operator prototype, not original G1–G5 certification. Full frontiers agree exactly at the recorded boundaries; target checks sample outputs 1/16/64/final and the generated restart at token four, not every output.
+The llm-60 v4 worker exited with PASS: Q4 128/4/8, 1K/64/16, 8K/512/128 and 64K/8K/2048; Q8 128/4/8, 1K/64/16 and 8K/512/128; and the previously scheduled GSQ-RCO Q3 tiny fixture. All eight phase exit codes were zero. The original chat configuration was restored and authenticated HTTP returned 200. This is the explicit matching-native-operator prototype, not original G1â€“G5 certification. Full frontiers agree exactly at the recorded boundaries; target checks sample outputs 1/16/64/final and the generated restart at token four, not every output.
 
 Q4 64K produced 2,048 actual outputs on each independent branch: generation 58.03/58.26 TPS; complete logical request 54.58/55.00 TPS. Root disk restore loaded 1,829,608,952 native bytes in 4.179 seconds with zero forward tokens. Q8 8K produced 128 outputs each: generation 44.36/44.19 TPS; request 33.29/34.83 TPS. Q8 root restore loaded 332,013,048 native bytes in 0.795 seconds with zero forward tokens. One measured request per branch, synthetic token fixtures. Request timings exclude model startup and later durable disk-save/audit acknowledgment. Hashes remain enabled. Compact summaries and the terminal worker receipt are in docs/context-cow/results/native-resident-20261014; raw vectors/controllers and native checkpoints remain on llm-60.
 
 The complete focused CPU regression run passed 48/48 with no skips, G0 passed 51/51, and mutation smoke detected all four reference mutants. The initial combined invocation omitted tests/implementation from PYTHONPATH and had two import errors; retained the failed log and corrected invocation, without editing tests. A real-source fixture contains an 8,192-token prefix and two different 527-token suffixes, without repeated source padding. Its process-separated Q4 campaign passed in 167.106 seconds: 128 actual outputs each; generation 106.49/107.26 TPS, request 65.09/70.67 TPS. Disk restore loaded 332,013,048 bytes in 0.791 seconds with zero prefix work. Matching tokens/controllers and sampled frontiers are exact. New Q8 64K/8K/2048 is now live under /home/dflanag3/branching-g3/resident-real-v1-20261014; its result is pending. The frozen v4 source/build is reused; the new fixture-capable harness is separately frozen as api-real-v1. A further real-source 64K fixture is prepared but unexecuted, with actual 8,335-token suffixes.
 
 Q4 remains primary research; Q8 is the final objective. User prefers above 40 TPS on Q8 but accepts context-dependent lower speed. AP-IQ3_XXS is transferring to /home/dflanag3/models/huggingface/agentionai/Qwen3.8-Flash-Next-AP-GGUF/AP-IQ3_XXS/ and is not loaded or hashed while incomplete. Completed Unsloth IQ1 remains a later exploration, not the primary path. Q8 long-context performance, real-code results, repeated measurements, multiple-context admission and ordinary serving integration remain outstanding. All changes/evidence remain private.
-### 2026-10-14 — Q8 long-context result and client timing
+### 2026-10-14 â€” Q8 long-context result and client timing
 
-The Q8 64K-prefix/8K-suffix campaign completed with matching-native-operator PASS in 740.854 seconds. Both Python/native producer processes exited before restore. Root disk restore loaded 1,829,608,952 bytes in 4.135 seconds with zero forward tokens. Resumed outputs stopped naturally at 419 (A) and 60 (B): generation 24.05/30.62 TPS, logical request 19.44/12.48 TPS. Target comparisons sampled 1/16/64/final where available and included restart at A token four. This is exact bounded restart evidence, not a >=2K-output performance result, not original G1–G5 certification. Fresh native references measured A 419/13.4562 = 31.14 TPS and B 60/1.44146 = 41.62 TPS; those loops emit audit vectors and are not a clean ordinary-serving baseline. No cause of the slowdown has yet been timed separately. Hashes remain enabled. Original chat configuration restored and authenticated HTTP 200; worker exited.
+The Q8 64K-prefix/8K-suffix campaign completed with matching-native-operator PASS in 740.854 seconds. Both Python/native producer processes exited before restore. Root disk restore loaded 1,829,608,952 bytes in 4.135 seconds with zero forward tokens. Resumed outputs stopped naturally at 419 (A) and 60 (B): generation 24.05/30.62 TPS, logical request 19.44/12.48 TPS. Target comparisons sampled 1/16/64/final where available and included restart at A token four. This is exact bounded restart evidence, not a >=2K-output performance result, not original G1â€“G5 certification. Fresh native references measured A 419/13.4562 = 31.14 TPS and B 60/1.44146 = 41.62 TPS; those loops emit audit vectors and are not a clean ordinary-serving baseline. No cause of the slowdown has yet been timed separately. Hashes remain enabled. Original chat configuration restored and authenticated HTTP 200; worker exited.
 
 Added a separate-process CLI arrival measurement harness. Tests were written first and the initial missing implementation, missing TPOT fields and missing numeric-counter helper failures are retained. Five protocol tests now pass; the earlier combined CPU run passed 52 methods before the fifth protocol test was added. G0 remains 51/51 and all four reference mutations were detected. Actual client GPU measurements are pending at launch. Streamed consumed events, logical snapshot receipt and durable acknowledgment are distinct. TTFT, mean/median/p95/max received token gaps, complete logical-request and durable-request latency are measured by the caller. Native work counters must exclude prefix recomputation and hidden disk restore during a resident request. Completed answers are parked on disk and their GPU images released so the tested prefix remains resident. A one-token response cannot manufacture a steady-token rate. Reference verification runs outside native generation timing but inside durable-request latency, and this scope is documented.
 
 The isolated client worker is launched on llm-60 under /home/dflanag3/branching-g3/client-stream-v1-20261014. It stops the authorized identified chat server, runs a Q4 real-code client pilot, then Q8 8K resident and disk runs (one warm-up plus three measured repetitions each), then Q8 real-code 64K with actual 8,335-token question continuations and up to 2,048 outputs. It stops on any unexpected failure and restores the original server configuration. Q4 remains primary; Q8 long-output goal, multiple-context admission, memory-tier measurements and ordinary serving integration remain incomplete. See docs/context-cow/CLIENT_STREAM_MEASUREMENT.md. Private PC/llm-60/box-git only.
-### 2026-10-14 — repeated Q8 CLI arrival measurements complete
+### 2026-10-14 â€” repeated Q8 CLI arrival measurements complete
 
 The Q4 real-code client pilot passed both 128-output requests. Q8 8K/512/128 resident and disk clients each passed six measured requests after separate warm-up pairs. For resident, medians across requests were TTFT 0.696 seconds, median gap 22.82 ms, per-request p95 gap 24.94 ms, steady received 44.44 TPS, logical snapshot receipt 3.694 seconds/34.65 TPS, durable receipt 4.168 seconds/30.71 TPS. For disk, corresponding medians were 1.449 seconds, 22.82 ms, 24.94 ms, 44.47 TPS, 4.450 seconds/28.76 TPS, 4.923 seconds/26.00 TPS. Durable latency includes reference validation and answer export as well as checkpoint/CAS publication. Startup and initial loading are separate. These are same-host subprocess measurements, not HTTP or remote-network rates; no controlled cold filesystem-cache claim. Native work counted suffix/output tokens only and resident requests loaded zero hidden disk bytes. Parent checkpoint hashes stayed unchanged. Tokens, controller/history records and final full logits matched qualified references. Updated focused CPU suite: 53/53, G0 51/51, reference mutants 4/4 detected, no final skips. Chart and exact individual measurements: docs/context-cow/CLIENT_STREAM_MEASUREMENT.md and results/native-resident-20261014.
 
 The worker remains live on llm-60 PID 1546176, now running real-code Q8 64K with two actual 8,335-token continuations and up to 2,048 outputs. Its native process was confirmed live, with no result yet. A two-second read-only sampler records GPU usage, native RSS/high-water mark, CPU time, affinity and host memory; sampling began during the client campaign, not before the pilot. Do not claim exact physical peaks from sampled data. The complete worker will restore the original chat configuration after the real-code job. Goal remains incomplete: Q8 long-output throughput, native versus COW timing attribution, multiple-context GPU/RAM/disk admission and ordinary serving integration.
-### 2026-10-14 — preliminary real-code Q8 long-output timings
+### 2026-10-14 â€” preliminary real-code Q8 long-output timings
 
 The still-running real-code Q8 64K job prepared both actual 2,048-output continuations. A measured generation 45.92 TPS and logical request 42.51 TPS; B measured 37.70 and 35.47 TPS. This replaces no completed result: preparation/boundary checks are still running and restart plus independent-reference qualification remain pending. The synthetic 419/60-output slowdown remains recorded. These differing histories demonstrate why context length alone cannot be used to attribute the bottleneck; model computation/expert traffic and state-management costs still need separate timings. Captured partial machine-readable observation in docs/context-cow/results/native-resident-20261014/q8-real-64k-preliminary.json, explicitly marked pending. Worker 1546176 and campaign child 1549049 were confirmed live on llm-60. Do not claim completed restart success, measured client TPOT or goal completion from these preliminary generation timings.
-### 2026-10-14 — real-code Q8 64K restart PASS; host-tier validation underway
+### 2026-10-14 â€” real-code Q8 64K restart PASS; host-tier validation underway
 
-The previously pending real-code Q8 64K/8335/2048 campaign completed matching-native-operator PASS in 1165.787 seconds. Both branches generated 2,048 actual outputs. Resumed A generation 45.861 TPS/request 41.219 TPS; B 37.653/35.402 TPS. Root disk restore loaded 1,829,608,952 bytes in 4.087 seconds with zero saved-prefix forward work. Producer/native exit, fresh A repeat exactness, branch isolation, canonical controller continuation and generated-token-four restart passed. COW numerical checks sampled prefix and outputs 1/16/64/final plus midpoint; they do not certify every token. Source/model/profile fingerprints and full comparison counts are in q8-real-64k-summary.json. Fresh direct native work was 21.3253 seconds prefill plus 25.458 seconds generation for A, and 21.313 plus 35.0895 for B; it emits audit vectors, so it is not a clean normal-serving benchmark. Prefix reuse lowers initial computation, but the measured full COW requests are not faster than those native compute totals. Retain this limitation and attribute write preparation versus computation before further optimization. Original chat configuration restored, authenticated HTTP 200, worker exited. No formal G1–G5 PASS.
+The previously pending real-code Q8 64K/8335/2048 campaign completed matching-native-operator PASS in 1165.787 seconds. Both branches generated 2,048 actual outputs. Resumed A generation 45.861 TPS/request 41.219 TPS; B 37.653/35.402 TPS. Root disk restore loaded 1,829,608,952 bytes in 4.087 seconds with zero saved-prefix forward work. Producer/native exit, fresh A repeat exactness, branch isolation, canonical controller continuation and generated-token-four restart passed. COW numerical checks sampled prefix and outputs 1/16/64/final plus midpoint; they do not certify every token. Source/model/profile fingerprints and full comparison counts are in q8-real-64k-summary.json. Fresh direct native work was 21.3253 seconds prefill plus 25.458 seconds generation for A, and 21.313 plus 35.0895 for B; it emits audit vectors, so it is not a clean normal-serving benchmark. Prefix reuse lowers initial computation, but the measured full COW requests are not faster than those native compute totals. Retain this limitation and attribute write preparation versus computation before further optimization. Original chat configuration restored, authenticated HTTP 200, worker exited. No formal G1â€“G5 PASS.
 
 Added bounded host checkpoint parking using the existing native serialized bytes, preserving canonical history/controllers/references, complete frontier and execution receipts. Transient numerical files use a verified tmpfs mount when available; durable checkpoint location and format are unchanged. Five new CPU methods passed; complete focused regressions 58/58, G0 51/51, all four reference mutants detected. Frozen new API/profile identities are recorded separately. First Q4 real-GPU pilot stopped before comparison because the final Python image release was queued but not drained. Its original harness and failure are retained. Corrected harness calls the existing lifecycle API to drain releases before the unchanged zero-native-handle assertion; source/profile files remain frozen.
 
 Corrected Q4 tiny and 8K and Q8 tiny passed: three contexts, six RAM-only switches with durable files inaccessible, zero retained native snapshots at the boundary, measured host-to-device copies, suffix/output work only, exact uninterrupted controller/history/tokens/frontiers, unchanged parent bytes, disk fallback and independent fresh references. Prefix/suffix/final numerical checks only; actual output counts are in each report. Host serialized payloads are copied, not physically shared. Q8 8K remains live on llm-60 under host-context-v2-20261014, worker PID 1559013; no outcome yet. See docs/context-cow/HOST_CHECKPOINT_PARKING.md. Code and completed summaries are backed up through private Git; newer full raw-state archives still need independent box-git backup. Goal remains active: long-context client arrivals, physical memory admission, COW cost attribution, larger multi-context cases and serving integration.
-### 2026-10-14 — bounded GPU/RAM/disk context switching complete
+### 2026-10-14 â€” bounded GPU/RAM/disk context switching complete
 
 All four corrected host-context-v2 jobs completed PASS on llm-60: Q4 tiny 108.211 seconds, Q4 8K 125.024, Q8 tiny 393.690 and Q8 8K 354.818. Each tested three synthetic contexts, six RAM-only switches, three fresh references, unchanged parent bytes/controller histories/frontiers and strict zero-prefix-forward disk fallback. Zero native saved handles before RAM-only switching; verified tmpfs staging. Native host-to-device copy counters increased on every switch. Actual outputs per context were Q4 tiny 8/1/1, Q4 8K 128/128/3, Q8 tiny 8/2/1, Q8 8K 2/128/2; report early EOS without claiming long runs for these fixtures. Total parked serialized payloads were 364,240,872 bytes at tiny and 996,039,144 at 8K. No shared-host-payload/G3 claim. Worker exited after restoring the unchanged chat configuration and authenticated HTTP 200. Full report files and pinned profiles retained privately. The separate real-code 64K Q8 2048-output restart pass remains valid for its frozen earlier profile; it has not yet been repeated with this host-tier source or the CLI arrival collector. Continue with long client-arrival repetitions, direct native stage timings and measured multi-context memory admission; ordinary serving integration and fresh raw-archive backup remain outstanding.
-### 2026-10-14 — native stage instrumentation built and small GPU check PASS
+### 2026-10-14 â€” native stage instrumentation built and small GPU check PASS
 
 Added timing at actual consumed native request sites for preparation, forward/commit/logit-copy computation and finish. No operator, hashing policy, numerical tolerance or state format change. Successful finish increments the timed-token counter; token progress follows completion. Source tests first failed on the absent implementation, then passed 2/2, including wrong operator and duplicate-handler rejection. Full focused suite 60/60, G0 51/51, four reference mutants detected. The probe actually compiled against the frozen base with new generated-driver hashes; build receipt retained as stage-build.json. Timers measure blocking native wall time, not CUDA-event durations.
 
 Q4 tiny completed PASS with eight outputs per branch and exact independent A/B/A-repeat checks. Preparation averaged 1.209/1.087 ms per output, computation 8.564/7.692 ms and finish 0.117/0.066 ms. Native stage sums fit inside the independently measured Python generation interval; forward/timed-token work counts matched. Checks cover prefix, final frontiers and generated tokens, with fresh-repeat comparison at every dumped frontier; no new G1 qualification. Large real-code Q4 and Q8 64K/8335/up-to2048 timing cases remain live sequentially on llm-60 under native-stage-v1-20261014, worker PID 1566539. Do not extrapolate the small timing result to long context or disable integrity checks. Original chat configuration will be restored by the worker. Full raw evidence after the old v3 archive still awaits separate verified box-git archival; code and result summaries are privately committed/backed up.
 
-### 2026-10-14 — measured Q4 long-context preparation cost
+### 2026-10-14 â€” measured Q4 long-context preparation cost
 
 The instrumented real-code Q4 64K/8335/2048 case completed PASS in 266.557 seconds, with both branches producing 2,048 outputs and exact independent A/B/A-repeat checks. Per output: preparation 9.038/9.068 ms, forward/commit/logit-copy computation 7.996/7.982 ms, finish 0.117/0.119 ms. Generation 57.438/57.376 TPS, logical request 53.471/53.638 TPS. Preparation is the largest measured native stage for this fixture; it includes synchronization, sealed-byte verification and tail preparation, not just memory allocation. The request counter deltas recorded 4,742,273,040,384 device-hashed bytes and 37,049,008,128 digest-copy bytes per branch, including suffix preparation within the request. No individual hash/kernel/copy timing split yet. Timers remain blocking wall time, not CUDA-event-only time. Keep every-byte integrity coverage; investigate metadata comparison/transfer cost before changing the backend. Q8 64K timing remains live on the same worker; no result yet. No extrapolated Q8 or full gate qualification.
 
-### 2026-10-14 — Q8 long native stage result and SHA attribution witness
+### 2026-10-14 â€” Q8 long native stage result and SHA attribution witness
 
 The timing-v1 worker completed all three jobs PASS and exited. Q8 real-code 64K/8335/2048 finished in 619.332 seconds; both branches produced 2,048 tokens and matched independent A/B/A-repeat references with zero error. Per output A/B: preparation 9.235/9.276 ms, model work plus frontier copy 12.937/16.798 ms, finish 0.126/0.129 ms. Generation 44.367/37.793 TPS; logical request 41.159/35.549 TPS. One measurement per branch, excluding startup and later durable acknowledgment. Parent frontier unchanged; fresh-repeat dumped frontiers exact. Original chat configuration restored with authenticated HTTP 200. Source/profile fingerprints remain those of frozen timing-v1. Chart and actual results: docs/context-cow/NATIVE_PREPARATION_COST.md.
 
-Added narrower blocking wall counters around all-pool digest address upload, hashing/synchronization and digest download. The supplemental native witness first failed to compile with missing counters, then passed on real CUDA; the existing ordered-page hashlib test passed unchanged (three subfixtures). A 512 MiB isolated probe passed three process repetitions, three full-byte passes after warm-up each: whole call 2.356–2.408 ms/pass, hashing plus synchronization 1.151–1.154 ms, digest download 0.282–0.287 ms, address upload about 0.006 ms. Host allocation/other work contributes to the remaining interval; CPU digest comparison and inference are outside this witness. Existing chat server stayed resident; no competing inference job was observed before measurement. These are not complete-request speedups. No hashes, checked extents, ownership semantics, numerical tolerances or checkpoint formats were weakened. New counters are standalone-CUDA tested; inference execution with the new counters is not yet qualified.
+Added narrower blocking wall counters around all-pool digest address upload, hashing/synchronization and digest download. The supplemental native witness first failed to compile with missing counters, then passed on real CUDA; the existing ordered-page hashlib test passed unchanged (three subfixtures). A 512 MiB isolated probe passed three process repetitions, three full-byte passes after warm-up each: whole call 2.356â€“2.408 ms/pass, hashing plus synchronization 1.151â€“1.154 ms, digest download 0.282â€“0.287 ms, address upload about 0.006 ms. Host allocation/other work contributes to the remaining interval; CPU digest comparison and inference are outside this witness. Existing chat server stayed resident; no competing inference job was observed before measurement. These are not complete-request speedups. No hashes, checked extents, ownership semantics, numerical tolerances or checkpoint formats were weakened. New counters are standalone-CUDA tested; inference execution with the new counters is not yet qualified.
 
 Linux G0 51/51 PASS and four reference mutants detected. Local Windows G0 attempt ran 11 tests with two fcntl import errors; native Windows store support remains absent. Two generated-driver source tests passed locally after correcting the command's working-directory path. CUDA only for the new native witness; HIP/SYCL untested. Detailed receipt, red compile evidence and raw benchmark summaries are private. Goal remains active: remove measured preparation overhead, repeat full requests, long client-visible arrivals, large multi-context memory admission and ordinary serving integration. Post-v3 full raw archives still need independent box-git backup.
 
-### 2026-10-14 — persistent digest scratch implemented; real Q4 long request PASS
+### 2026-10-14 â€” persistent digest scratch implemented; real Q4 long request PASS
 
 Added a private, preallocated host digest buffer and an explicitly borrowed fresh-result view. Only immediate all-pool verification uses the view; snapshot seals and audits retain their owned results. Every sealed byte is still rehashed and compared before any tail detachment. No successful-check caching, expected-hash substitution, skipped extent, numerical tolerance or canonical/checkpoint-format change. Added actual host workspace allocation/live-byte counters. The new CUDA test first failed to compile on the absent method, then passed independent hashlib, later-mutation detection, reordered/smaller plans, cleared failure outputs, stable scratch pointer, no hot-loop allocation and device/host release checks.
 
@@ -7930,7 +7930,7 @@ L03 andL04 current Q8 autonomous trials PASS,both0extra examples. L04 required r
 2026-10-19 L05/L06: L05 bounded functional+reporting mitigation PASS; L06 not passed (mode-copy bug fixed; next attempt stopped at host-memory headroom). Retired about24GB optional checkpoints only after private canonical/inventory verification. Same-example retry pending. See L-SERIES-2026-10-19.md for exact scope and source refs. New command verification/admission has CPU evidence,not live-model qualification.
 
 
-## Latest L06 result — 2026-10-19
+## Latest L06 result â€” 2026-10-19
 The earlier pending/failure entries remain historical. L06 Q8 example2/v4 passed
 the unchanged protected checker and actual workflow audit:10 model calls,
 12488 output tokens,811.036s,2 added worked examples. The original0664/0644
@@ -8192,3 +8192,18 @@ SIGTERM cleanup left no ephemeral session directories. Final focused controls
 passed 88/88; G0 previously passed 51/51. See the repository-root validation/
 gpu-selection-20261022/wen-runtime.json and its explicit fixture limits. This
 does not certify long-context performance, split-model checkpoints or G1-G5.
+
+
+## 2026-10-22: explicit dense reference precision
+
+The pinned CUDA adapter has opt-in FP32 products and a separate FP32 attention/KV
+reference profile. The activation recipe bypasses BF16 operand downcasts and
+explicit TF32 MMF instructions. Both dense variants compile. Thirty-four focused
+controls and G0 (51 tests) pass. Six reference restore/fresh-oracle comparisons are
+exact, with zero prefix-forward work. With options disabled, six full logit vectors
+match the original native build bit-for-bit. Source-F32 PyTorch versus reference
+native errors are bounded measurements, not exact equality: worst 0.0000357628
+across eleven fixed prefixes through 64 tokens; all top-token IDs agree. Six other
+text/code prompts also agree on top token. Intermediate failures and FP16-KV tradeoffs
+remain recorded in `validation/wen-precision-20261022/`. Real LoRA effects,
+backpropagation, longer contexts, A100/Ada/HIP and G1-G5 remain unqualified.

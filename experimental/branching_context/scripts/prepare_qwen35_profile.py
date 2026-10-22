@@ -6,9 +6,9 @@ sys.path[:0]=[str(ROOT/'src'),str(ROOT.parents[1])]
 from context_time_travel.qwen35_backend import validate_geometry
 from tools.gguf_reader import GGUFFile
 
-def make_profile(model,build_dir,output,capacity,batch,threads,gpus=None):
+def make_profile(model,build_dir,output,capacity,batch,threads,gpus=None,lora=None,lora_scale=1.,math_profile='native'):
  class Args:pass
- a=Args();a.model=Path(model);a.build=Path(build_dir);a.output=Path(output);a.context=capacity;a.batch=batch;a.threads=threads;a.gpus=gpus
+ a=Args();a.model=Path(model);a.build=Path(build_dir);a.output=Path(output);a.context=capacity;a.batch=batch;a.threads=threads;a.gpus=gpus;a.lora=lora;a.lora_scale=lora_scale;a.math_profile=math_profile
  return _make(a)
 
 def _make(a):
@@ -36,14 +36,36 @@ def _make(a):
       environment={'CUDA_DEVICE_ORDER':'PCI_BUS_ID','CUDA_VISIBLE_DEVICES':','.join(map(str,gpus))})
  if mixed:
   execution.update(state_format=build['state_format'],resume_contract='identical-mixed-native-operators-v1',vision_protocol='explicit-image-rows-mrope-v3',native_binding_protocol=build['native_binding_protocol'])
- eid=hashlib.sha256(json.dumps(dict(build=build,execution=execution,hardware=hardware),sort_keys=True).encode()).hexdigest()
- contract=dict(weights_sha256=sha,architecture=md['general.architecture'],state_kind='qwen35-hybrid-frontier-v1',positions='absolute-zero-based',kv_dtype='FP16',input_kind='token_ids')
+ math_profile=getattr(a,'math_profile','native')
+ if math_profile not in ('native','f32-activations','f32-reference'):raise ValueError('Unsupported dense math profile')
+ if math_profile in ('f32-activations','f32-reference'):
+  if not build.get('f32_activations_patch_sha256'):raise ValueError('Rebuild native runtime with the explicit F32 activation patch')
+  execution.update(f32_activations=True,cuda_cublas_compute_type='f32',nvidia_tf32_override='0')
+  execution['environment'].update(GGML_CUDA_F32_ACTIVATIONS='1',GGML_CUDA_CUBLAS_COMPUTE_TYPE='f32',NVIDIA_TF32_OVERRIDE='0')
+ if math_profile=='f32-reference':
+  if build.get('attention_precision_binding')!='fp32-attention-v1':raise ValueError('Rebuild native adapter for FP32 attention')
+  execution.update(f32_attention=True,kv_dtype='FP32',flash_attention=False)
+  execution['environment'].update(COW_QWEN35_F32_ATTENTION='1',GGML_CUDA_DISABLE_FUSION='1')
+ contract=dict(weights_sha256=sha,architecture=md['general.architecture'],state_kind='qwen35-hybrid-frontier-v1',positions='absolute-zero-based',kv_dtype=execution['kv_dtype'],input_kind='token_ids')
  if mixed:contract.update(state_kind=build['state_format'],positions='qwen-image-grid-mrope-v1',input_kind='canonical-mixed-spans-v1')
+ adapter=None
+ if getattr(a,'lora',None) is not None:
+  path=Path(a.lora).absolute()
+  if path.is_symlink() or not path.is_file() or path.resolve()!=path:raise ValueError('Absolute regular LoRA file required')
+  with path.open('rb') as stream:adapter_sha=hashlib.file_digest(stream,'sha256').hexdigest()
+  identity=dict(sha256=adapter_sha,scale=float(a.lora_scale))
+  execution['adapter']=identity;contract['adapters']=[identity]
+  adapter=dict(path=str(path),**identity)
+ eid=hashlib.sha256(json.dumps(dict(build=build,execution=execution,hardware=hardware),sort_keys=True).encode()).hexdigest()
  cid=hashlib.sha256(json.dumps(contract,sort_keys=True).encode()).hexdigest()
  profile=dict(backend='qwen35-llama.cpp',model_path=str(a.model.resolve()),model_weights_sha256=sha,model_contract_id=cid,execution_profile_id=eid,native_build=build,execution=execution,hardware=hardware,geometry=geometry,bridge_library=str((a.build/'libqwen35ctt.so').resolve()),vocab_size=len(md['tokenizer.ggml.tokens']),oracle_binary=str((a.build/('qwen35-mixed-oracle' if mixed else 'qwen35-fresh-oracle')).resolve()))
+ if adapter is not None:
+  profile.update(adapter=adapter,model_contract=contract)
+  from context_time_travel.qwen35_lora import validate_adapter
+  validate_adapter(profile)
  a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(profile,indent=2)+'\n');a.output.chmod(0o600);print(a.output);return profile
 def main():
- p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.add_argument('--build',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--context',type=int,default=16384);p.add_argument('--batch',type=int,default=512);p.add_argument('--threads',type=int,default=os.cpu_count());a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.add_argument('--build',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--context',type=int,default=16384);p.add_argument('--batch',type=int,default=512);p.add_argument('--threads',type=int,default=os.cpu_count());p.add_argument('--lora',type=Path);p.add_argument('--lora-scale',type=float,default=1.);p.add_argument('--math-profile',choices=('native','f32-activations','f32-reference'),default='native');a=p.parse_args()
  _make(a)
 
 if __name__=='__main__':main()
