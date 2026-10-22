@@ -207,6 +207,81 @@ supplying identical upstream activations. No production kernel was changed by
 this follow-up. A complete strict reference build must be measured separately;
 merely selecting F32 dtypes does not remove the compiler's fast-math behavior.
 
+### Full-model strict arithmetic remeasurement
+
+A separate diagnostic CUDA build removes `-use_fast_math` and explicitly uses
+`--ftz=false --prec-div=true --prec-sqrt=true`. All 143 CUDA compile commands,
+including normalized include-response files, match the reference build after
+removing only those intended math differences. Both builds use Release with an
+empty `CMAKE_CUDA_FLAGS_RELEASE`. An initial build accidentally added the CMake
+default `-O3 -DNDEBUG`; its results are superseded by the matched build.
+
+| Prefix tokens | Reference maximum absolute error | Strict maximum absolute error |
+| --- | --- | --- |
+| 1 | 0.00000524521 | 0.00000476837 |
+| 2 | 0.00000667572 | 0.00000715256 |
+| 3 | 0.00000810623 | 0.00000810623 |
+| 16 | 0.0000109673 | 0.0000109673 |
+| 32 | 0.0000352859 | 0.0000237226 |
+| 64 | 0.0000357628 | 0.0000677109 |
+
+Across all eleven fixed prefixes, the worst error increases from 0.0000357628
+to 0.0000677109. Across six other text/code prompts it decreases from
+0.0000200272 to 0.0000162125. All seventeen top-token predictions agree with
+PyTorch in both builds. PyTorch full-logit hashes match between paired runs;
+the reference vectors also match the historical reference hashes exactly.
+
+Both strict text and mixed adapters pass three native restore/fresh suffix
+comparisons each, with exactly zero logit error and zero prefix-forward tokens
+on restore. Whole-model agreement therefore does not improve consistently even
+though isolated strict SiLU matches exactly. This is a diagnostic build, not a
+promoted default or a training qualification. Raw receipts and the extra CMake
+patch are `strict-remeasurement.json` and `strict-cuda-cmake.patch` in the
+validation directory. The GPU was released after the measurements.
+
+### One actual LoRA update at 1024 + 128 tokens
+
+A separate owned coding fixture uses a 1024-token prompt, prefill chunks of 64,
+then 128 greedy decode tokens. Scores include the initial frontier and the
+frontier after each consumed token: 129 full-vocabulary vectors. Fixed-history
+comparisons use identical tokens; independent greedy continuations are checked
+separately. Generation is forced to 128 tokens even if EOS occurs.
+
+One rank-8, alpha-8 LoRA targets only the final layer's MLP down projection.
+AdamW takes one step at learning rate 0.0001. The maximum parameter change is
+0.0000999974; the maximum PyTorch logit change is 0.0101223, with RMS
+0.0003538483. A frozen round-start Wen teacher receives independently verified
+corrective context; dense KL on aligned student-rollout positions changes from
+0.12284644 to 0.12263749 on this training fixture. This is a numerical self-OPD
+diagnostic, not evidence of generalized task learning.
+
+| Measurement over all 129 frontiers | Regular reference build | Strict diagnostic build |
+| --- | --- | --- |
+| Base cross-runtime maximum error | 0.000445843 | 0.000251770 |
+| Adapted cross-runtime maximum error | 0.000445366 | 0.000252247 |
+| Adapter-delta transfer maximum error | 0.0000152588 | 0.0000190735 |
+| Adapter-delta transfer RMS error | 0.00000126772 | 0.00000123421 |
+| Transfer RMS error / PyTorch update RMS | 0.3583% | 0.3488% |
+| Cosine between native and PyTorch updates | 0.99999358 | 0.99999392 |
+
+The delta error is `(native_after-native_before)-(torch_after-torch_before)`.
+It is smaller than the absolute runtime discrepancy because much of the base
+discrepancy remains shared before and after. All 129 next-token choices agree
+between runtimes before and after, and both independently generated 128-token
+continuations agree. This small update does not change the greedy sequence on
+this fixture; score movement alone is not a repaired BW task.
+
+PEFT-to-GGUF adapter tensors read back exactly. A zero adapter leaves both
+PyTorch and each native build bit-identical to their own baselines. Both native
+builds restore the adapted 1024-token prefix with zero prefix work and exactly
+match fresh logits after 1, 2 and 128 single-token suffixes.
+
+Native builds and their controls run in separate processes. An initial
+same-process comparison reused CUDA dependencies by library name; its strict
+results are superseded. PyTorch peak allocation is 32,921,088,000 bytes for this
+restricted update, not an estimate for adapters across all transformer layers.
+Raw metrics and controls are in `validation/wen-precision-20261022/lora-1k128.json`.
+
 ## What is good enough for the LoRA objective
 
 Native restore/fresh consistency continues to require exact equality for the
@@ -228,8 +303,8 @@ Before adapter promotion:
 4. Verify adapter-bound save/restore and lazy prefill rebuilding under the new
    identity. Never relabel an old adapter's KV state as compatible.
 
-This investigation does not establish training memory requirements, long-context
-stability, real adapter effects, original-checkpoint reconstruction equivalence,
+This investigation does not establish general training memory requirements,
+long-context stability, generalized adapter gains, original-checkpoint reconstruction equivalence,
 other device parity or cumulative G1-G5 release qualification. It also does not
 justify a broad rewrite solely to remove the last few rounding bits.
 

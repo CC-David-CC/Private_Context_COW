@@ -70,6 +70,11 @@ The current CUDA build still compiles elementary functions with `-use_fast_math`
 including under `f32-reference`. This profile pins F32 products/attention/KV and
 disables TF32; it does not promise strict IEEE arithmetic throughout the model.
 An isolated strict SiLU control matches PyTorch exactly, while the native fast
-helper does not. A complete strict serving build has not yet been qualified.
+helper does not. A full diagnostic strict build has now been remeasured: it
+does not consistently improve whole-model agreement. The worst fixed-prefix
+error rises from 0.0000357628 to 0.0000677109, while the six-prompt worst falls
+from 0.0000200272 to 0.0000162125. All seventeen top-token predictions match.
+Both strict adapters pass exact native restore checks. This diagnostic build
+is not a promoted production build option.
 See the cross-runtime report's focused activation section and its compiler
 factor controls before interpreting a dtype as an arithmetic guarantee.

@@ -8229,3 +8229,10 @@ Strict SiLU matches PyTorch exactly on 8192 values. The published F32 reference
 build still uses native fast math for elementary functions; whole-model strict
 arithmetic and independent downstream recurrence/gated-norm contributions remain
 unqualified. See activation-trace.json and the expanded cross-runtime report.
+
+
+## Wen strict arithmetic and one-step adapter transfer, 2026-10-22
+
+Matched strict CUDA remeasurement: 143 compile commands differ only in intended math flags. Worst fixed-prefix error rises from 0.0000357628 to 0.0000677109; six-prompt worst falls from 0.0000200272 to 0.0000162125. All 17 top-token choices agree. Strict native text/mixed restore: six exact comparisons, zero prefix work.
+
+A separate 1024-token prompt plus 128 greedy decode tokens measures one real rank-8 final-MLP down-projection LoRA update (AdamW learning rate 0.0001). PyTorch logit-update RMS is 0.0003538483. Native update-transfer error RMS is 0.00000126772 (regular) and 0.00000123421 (strict), or 0.3583% and 0.3488% of the update RMS. All 128 independently generated tokens agree before and after; the update does not change this fixture's greedy sequence. Adapter readback and zero-adapter controls are exact, and both native builds restore the adapted 1024-token prefix with zero work and exact logits after 1, 2 and 128 single-token suffixes. Each native build/control is isolated in a fresh process; initial same-process strict results are superseded. See docs/WEN-CROSS-RUNTIME-NUMERICS.md and validation/wen-precision-20261022/lora-1k128.json. No adapter promotion or BW training gain is asserted.

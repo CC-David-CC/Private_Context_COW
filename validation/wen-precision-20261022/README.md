@@ -69,4 +69,23 @@ first one-token recurrent-block divergence appears at SiLU. An identical-input
 helper replay isolates native fast-math exponential/division choices. Removing
 fast math yields exact PyTorch SiLU output on all 8192 values. Both observers
 preserve logits. Independent downstream recurrence/gated-norm contributions,
-and whole-model strict arithmetic, remain unqualified.
+remain unqualified by that isolated replay.
+
+`strict-remeasurement.json` records the subsequent full-model strict diagnostic:
+all 143 CUDA compile commands match except the intended math flags, after an
+initial CMake optimization-flag mismatch was corrected. The eleven-prefix worst
+error increases from 0.0000357628 to 0.0000677109; the six-prompt worst decreases
+from 0.0000200272 to 0.0000162125. Both builds match all seventeen top-token
+predictions. Strict text and mixed restore comparisons each pass three cases
+with exactly zero error and zero prefix work. `strict-cuda-cmake.patch` records
+the extra external-source change; this is not a production default change.
+
+`lora-1k128.json` records one real LoRA update on a separate owned synthetic
+coding fixture with 1024 prompt and 128 decode tokens. Adapter-delta RMS transfer
+error is 0.3583% of the PyTorch update RMS for the regular reference build and
+0.3488% for the strict diagnostic build. All 129 score-frontier top-token choices
+and 128 independently generated tokens agree before and after. The update does
+not change the greedy sequence on this fixture. Tensor readback, zero-adapter
+controls and adapted-prefix restore checks pass exactly. Strict native runs and
+each control use separate processes; initial same-process strict results are
+superseded. No mixed-task BW training gain or adapter promotion is claimed.

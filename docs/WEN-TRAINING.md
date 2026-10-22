@@ -51,8 +51,13 @@ relabelled as compatible. In-flight requests remain pinned to their old version.
 
 The optional native LoRA attachment now compiles in both dense adapter variants,
 with immutable adapter-byte/scale admission controls. Loading a real trained
-adapter, its numerical effect and restore behavior remain unqualified. The
-trainer, version transition and promotion machinery remain pending. This document records the agreed
+adapter is now measured in a bounded numerical diagnostic: one rank-8 final-MLP
+down-projection update, a 1024-token prompt and 128 greedy decode tokens. Native
+and PyTorch adapter-delta RMS errors are about 0.35% of the measured update RMS;
+both native builds pass exact adapter readback, zero-adapter and restored-prefix
+checks. See the cross-runtime report for the distinct absolute errors and scope.
+This is not mixed-task BW learning or adapter promotion. The integrated trainer,
+version transition and promotion machinery remain pending. This document records the agreed
 interfaces and memory strategy, not a claim that Wen has learned these tasks.
 
 See [WEN-PRECISION.md](WEN-PRECISION.md) for the separate activation, TF32 and
