@@ -32,10 +32,14 @@ class HeadBackward:
 def export_adapter(path, a, b, alpha):
     import gguf
     path = Path(path)
+    if (a.ndim != 2 or b.ndim != 2 or a.shape[0] <= 0 or b.shape[1] != a.shape[0]
+            or not np.isfinite(a).all() or not np.isfinite(b).all()
+            or not np.isfinite(alpha) or alpha <= 0):
+        raise ValueError('Finite compatible output-head adapter required')
     if path.exists():
         raise FileExistsError('Adapter versions are immutable')
     writer = gguf.GGUFWriter(str(path), 'wen1')
-    writer.add_type('adapter')
+    writer.add_type(gguf.GGUFType.ADAPTER)
     writer.add_string('adapter.type','lora')
     writer.add_float32('adapter.lora.alpha',alpha)
     writer.add_tensor('output.weight.lora_a',np.ascontiguousarray(a,dtype=np.float32))

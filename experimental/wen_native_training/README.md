@@ -115,6 +115,15 @@ enabled by this experiment.
   with and without a light procedural hint, then test logical gaps. Validate
   actual tool proposals/file effects in isolated workspaces. These scripts take
   private owned cases externally and do not bundle their answers in Git.
+- `prepare_bw_boundaries.py`: derive one missing-brace target from each actual
+  failed writing receipt, plus finish-valid-JSON counterexamples. Keep original
+  word-count failures visible; adding a brace is not a prose repair.
+- `run_boundary_training.py`: native directional checks, equal averaging over
+  32 independent distances, native-loss line search, immutable adapter export,
+  held-out/preservation evaluation and fresh-process reload. This selected-token
+  CE experiment is not self-OPD and is not full BW task training.
+- `verify_split_autograd.py`: optional independent CPU PyTorch-autograd oracle
+  for the same small 32-distance graph; no native forward is replaced by PyTorch.
 
 Run the CPU algebra checks:
 
@@ -138,6 +147,15 @@ passes small-operation finite differences: maximum absolute A/B gradient errors
 are approximately 4.57e-8 and 1.67e-8; the zero-B control passes. These tests do not
 qualify native Wen, the whole recurrent backward, million-position inference or
 held-out BW learning. Native forward/training qualification is pending.
+
+The first native light-guidance run on A100 uses one fixed YaRN factor of four,
+8,192 physical context slots, FP16 KV/Flash attention and 64-token prefill chunks.
+The traced and untraced scores are bit-identical. Three preservation cases pass.
+The four known writing cases fail both without and with the light procedural
+hint (0/4 in each group), still omitting the outer JSON brace. Word counts are
+checked separately and also remain a concern. This is not a newly discovered
+out-of-distribution skill; it reproduces observed BW behavior under this
+experimental profile. No training occurred in that guidance run.
 
 The conceptual references are [RoFormer](https://arxiv.org/abs/2104.09864),
 [YaRN](https://arxiv.org/abs/2309.00071), and

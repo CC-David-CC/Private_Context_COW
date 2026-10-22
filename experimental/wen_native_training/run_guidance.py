@@ -32,6 +32,7 @@ def main():
     parser.add_argument('--ids',default='train-writing-tool,train-writing-bytes,heldout-writing-tool,heldout-writing-bytes,preserve-read-notes,preserve-ascii,preserve-identity')
     parser.add_argument('--distances',default='0')
     parser.add_argument('--max-new-tokens',type=int,default=256)
+    parser.add_argument('--adapter',type=Path)
     args = parser.parse_args()
     sys.path.insert(0,str(args.bw_source.resolve()))
     args.run.mkdir(parents=True,exist_ok=False)
@@ -86,7 +87,7 @@ def main():
             for distance in distances:
                 positions = [i+(distance if i >= boundary else 0) for i in range(len(ids))]
                 started = time.monotonic()
-                result = probe.generate(ids,positions,maximum=args.max_new_tokens)
+                result = probe.generate(ids,positions,adapter=args.adapter,maximum=args.max_new_tokens)
                 text = tokenizer.decode([token for token in result['tokens'] if token not in eos])
                 label = case['id']+('_guided' if guided else '_base')+'_d'+str(distance)
                 verdict = verify(case,text,args.run/'checks'/label)
