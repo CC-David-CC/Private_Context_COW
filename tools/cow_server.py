@@ -100,6 +100,10 @@ def configured_argv(directory,config,key):
             selection=normalize_gpu_selection(config[name])
             if any(type(gpu) is not int for gpu in selection):raise ValueError('Roles require independent GPUs')
             argv += ['--'+name.replace('_','-'),json.dumps(selection)]
+    if type(config.get('openai_thinking',False)) is not bool:raise ValueError('openai_thinking must be boolean')
+    if config.get('openai_thinking',False):
+        if config.get('openai_port') is None:raise ValueError('Thinking compatibility requires its port')
+        argv += ['--openai-thinking']
     if config.get('openai_port') is not None:
         argv += ['--openai-port',str(config['openai_port']),
                  '--openai-model',config.get('openai_model','cow'),

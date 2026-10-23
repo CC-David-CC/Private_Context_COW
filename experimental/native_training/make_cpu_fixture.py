@@ -9,7 +9,8 @@ import math
 import random
 import struct
 
-def make_fixture(destination):
+def make_fixture(destination, context_length=256):
+    if type(context_length) is not int or not 2<=context_length<=32768:raise ValueError("Bounded fixture context required")
     rng=random.Random(20261023);tensors=[];metadata=[]
     def string(value):
         raw=value.encode();return struct.pack('<Q',len(raw))+raw
@@ -22,7 +23,7 @@ def make_fixture(destination):
     meta('general.architecture','wen1');meta('general.name','PCC generated tiny CPU wiring fixture; not Wen')
     values={'embedding_length':16,'feed_forward_length':32,'block_count':2,'attention.head_count':2,
         'attention.head_count_kv':1,'attention.key_length':8,'ssm.state_size':4,'ssm.time_step_rank':2,
-        'ssm.group_count':1,'ssm.conv_kernel':3,'full_attention_interval':2,'context_length':256,
+        'ssm.group_count':1,'ssm.conv_kernel':3,'full_attention_interval':2,'context_length':context_length,
         'rope.dimension_count':8,'rope.freq_base':10000.,'attention.layer_norm_rms_epsilon':.000001,
         'rope.dimension_sections':[1,1,2,0]}
     for key,value in values.items():meta('wen1.'+key,value)
@@ -57,5 +58,5 @@ def make_fixture(destination):
     return destination
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('destination',type=Path)
-    print(make_fixture(parser.parse_args().destination))
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('destination',type=Path);parser.add_argument('--context-length',type=int,default=256)
+    args=parser.parse_args();print(make_fixture(args.destination,args.context_length))

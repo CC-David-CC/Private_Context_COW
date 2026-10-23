@@ -104,17 +104,32 @@ struct Block {
 struct Graph {
     // Mixed 32-token recurrent examples can exceed 65,536 nodes after backward
     // expansion. This bounds graph bookkeeping; tensor operations are unchanged.
-    static constexpr size_t capacity=262144;
-    Device &device;Context ctx{128*1024*1024};ggml_cgraph*g;
+    static constexpr size_t default_capacity=262144;
+    size_t capacity;bool efficient_sequence;
+    Device &device;Context ctx;ggml_cgraph*g;
+    static size_t bounded_capacity(size_t tokens,size_t layers){
+        need(tokens<=32768&&layers<=2,"Long fixture graph bounds exceeded");
+        size_t wanted=tokens*layers*256+65536,result=default_capacity;
+        while(result<wanted)result*=2;
+        return result;
+    }
+    static size_t metadata_bytes(size_t nodes){
+        if(nodes==default_capacity)return 128*1024*1024;
+        return ggml_graph_overhead_custom(nodes,true)+2*nodes*ggml_tensor_overhead()+16*1024*1024;
+    }
     std::vector<Device*> devices;
     std::map<T*,Device*> placements;
     std::unique_ptr<Device>scheduler_cpu;
     ggml_backend_sched_t sched=nullptr;
+    ggml_gallocr_t direct_allocator=nullptr;
     std::vector<std::pair<T*,std::vector<float>>> data;
     std::vector<std::pair<T*,std::vector<int32_t>>> ids;
-    explicit Graph(Device&d):device(d),devices{&d}{g=ggml_new_graph_custom(ctx.p,capacity,true);}
-    explicit Graph(const std::vector<Device*>&ds):device(*ds.at(0)),devices(ds){g=ggml_new_graph_custom(ctx.p,capacity,true);}
-    ~Graph(){ggml_backend_sched_free(sched);}
+    explicit Graph(Device&d):Graph(std::vector<Device*>{&d}){}
+    explicit Graph(const std::vector<Device*>&ds,size_t nodes=default_capacity,bool efficient=false):
+        capacity(nodes),efficient_sequence(efficient),device(*ds.at(0)),ctx(metadata_bytes(nodes)),devices(ds){
+        g=ggml_new_graph_custom(ctx.p,capacity,true);
+    }
+    ~Graph(){ggml_backend_sched_free(sched);ggml_gallocr_free(direct_allocator);}
     T*input(int64_t n0,int64_t n1,const std::vector<float>&v){
         auto*t=ggml_new_tensor_2d(ctx.p,GGML_TYPE_F32,n0,n1);ggml_set_input(t);data.push_back({t,v});return t;
     }
@@ -158,6 +173,15 @@ struct Graph {
     void compute(){
         // No silent CPU fallback for a selected GPU training graph.
         for(int i=0;i<ggml_graph_n_nodes(g);++i){auto*t=ggml_graph_node(g,i);bool supported=false;for(auto*d:devices)supported|=ggml_backend_supports_op(d->backend,t);need(supported,"Unsupported native gradient op "+std::string(ggml_op_name(t->op)));}
+        const bool direct_cpu=efficient_sequence&&devices.size()==1&&device.name=="CPU";
+        if(direct_cpu){
+            // A single CPU has no cross-device splits. The generic scheduler
+            // reserves metadata for every possible split; avoid that irrelevant
+            // upper bound while executing the identical complete graph.
+            direct_allocator=ggml_gallocr_new(ggml_backend_get_default_buffer_type(device.backend));
+            need(direct_allocator&&ggml_gallocr_alloc_graph(direct_allocator,g),"CPU graph allocation failed");
+            std::cerr<<"CPU_GRAPH_ALLOCATION bytes="<<ggml_gallocr_get_buffer_size(direct_allocator,0)<<std::endl;
+        }else{
         std::vector<ggml_backend_t>backends;for(auto*d:devices)backends.push_back(d->backend);
         // GGML requires a final CPU backend for scheduler administration. Every
         // actual tensor op is explicitly placed on an admitted device below;
@@ -178,10 +202,11 @@ struct Graph {
         }
         need(sched&&ggml_backend_sched_alloc_graph(sched,g),"Graph allocation failed on "+device.name);
         for(int i=0;i<ggml_graph_n_nodes(g);++i){auto*t=ggml_graph_node(g,i);if(t->op!=GGML_OP_NONE&&device.name!="CPU")need(ggml_backend_sched_get_tensor_backend(sched,t)!=scheduler_cpu->backend,"Unexpected CPU compute in GPU training graph");}
+        }
         for(auto &[t,v]:data){need(t->buffer,"Unallocated/unused floating graph input");put(t,v);}
         for(auto &[t,v]:ids){need(t->buffer,"Unallocated/unused integer graph input");ggml_backend_tensor_set(t,v.data(),0,v.size()*4);}
         for(int i=0;i<ggml_graph_n_nodes(g);++i){auto*t=ggml_graph_node(g,i);if(t->flags&GGML_TENSOR_FLAG_LOSS){auto*d=ggml_graph_get_grad_acc(g,t);if(d){float one=1;ggml_backend_tensor_set(d,&one,0,4);}}}
-        need(ggml_backend_sched_graph_compute(sched,g)==GGML_STATUS_SUCCESS,"Native graph execution failed");
+        need((direct_cpu?ggml_backend_graph_compute(device.backend,g):ggml_backend_sched_graph_compute(sched,g))==GGML_STATUS_SUCCESS,"Native graph execution failed");
         for(auto*d:devices)ggml_backend_synchronize(d->backend);
     }
 };
@@ -193,6 +218,16 @@ struct Geometry {
 };
 static T*column(Graph&g,T*x,int t){return ggml_view_1d(g.ctx.p,x,x->ne[0],size_t(t)*x->nb[1]);}
 static T*place(Graph&g,T*dst,T*src,int t){return ggml_set(g.ctx.p,dst,src,dst->nb[1],dst->nb[2],dst->nb[3],size_t(t)*dst->nb[1]);}
+static T*join_columns(Graph&g,std::vector<T*> columns,int rows){
+    need(!columns.empty(),"Empty sequence assembly");
+    for(auto &column:columns)column=ggml_reshape_2d(g.ctx.p,column,rows,1);
+    while(columns.size()>1){
+        std::vector<T*>next;next.reserve((columns.size()+1)/2);
+        for(size_t i=0;i<columns.size();i+=2)next.push_back(i+1<columns.size()?ggml_concat(g.ctx.p,columns[i],columns[i+1],1):columns[i]);
+        columns=std::move(next);
+    }
+    return columns.front();
+}
 static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int n){
     auto*c=g.ctx.p;int d=h.state,hk=h.kheads,hv=h.vheads,channels=d*(2*hk+hv);
     auto*qkv=g.linear(b,p+"attn_qkv.weight",x);auto*z=g.linear(b,p+"attn_gate.weight",x);
@@ -200,15 +235,16 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     auto*alpha=ggml_add(c,g.linear(b,p+"ssm_alpha.weight",x),b.params.at(p+"ssm_dt.bias").w);
     auto*decay=ggml_exp(c,ggml_mul(c,ggml_softplus(c,alpha),b.params.at(p+"ssm_a").w));
     auto*w=b.params.at(p+"ssm_conv1d.weight").w;
-    auto*convolved=g.zeros(channels,n);
+    auto*convolved=g.efficient_sequence?nullptr:g.zeros(channels,n);std::vector<T*>convolution_columns;
     for(int t=0;t<n;++t){
         T*sum=nullptr;
         for(int lag=0;lag<h.kernel;++lag){int pos=t-h.kernel+1+lag;if(pos<0)continue;
             auto*weight=ggml_reshape_1d(c,ggml_cont(c,ggml_view_2d(c,w,1,channels,w->nb[1],size_t(lag)*4)),channels);
             auto*term=ggml_mul(c,column(g,qkv,pos),weight);sum=sum?ggml_add(c,sum,term):term;
         }
-        need(sum,"Empty causal convolution");convolved=place(g,convolved,sum,t);
+        need(sum,"Empty causal convolution");if(g.efficient_sequence)convolution_columns.push_back(sum);else convolved=place(g,convolved,sum,t);
     }
+    if(g.efficient_sequence)convolved=join_columns(g,std::move(convolution_columns),channels);
     convolved=ggml_silu(c,convolved);
     auto*qt=ggml_view_3d(c,convolved,d,hk,n,d*4,channels*4,0);
     auto*kt=ggml_view_3d(c,convolved,d,hk,n,d*4,channels*4,d*hk*4);
@@ -223,7 +259,7 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     qt=ggml_scale(c,ggml_rms_norm(c,qt,h.eps/d),1/std::sqrt(float(d)));
     kt=ggml_scale(c,ggml_rms_norm(c,kt,h.eps/d),1/std::sqrt(float(d)));
     if(hk!=hv){qt=ggml_repeat_4d(c,qt,d,hv,n,1);kt=ggml_repeat_4d(c,kt,d,hv,n,1);}
-    auto*state=g.zeros(d,d,hv);auto*out=g.zeros(d*hv,n);
+    auto*state=g.zeros(d,d,hv);auto*out=g.efficient_sequence?nullptr:g.zeros(d*hv,n);std::vector<T*>output_columns;
     for(int t=0;t<n;++t){
         auto*q=ggml_reshape_3d(c,ggml_cont(c,ggml_view_2d(c,qt,d,hv,qt->nb[1],size_t(t)*qt->nb[2])),d,1,hv);
         auto*k=ggml_reshape_3d(c,ggml_cont(c,ggml_view_2d(c,kt,d,hv,kt->nb[1],size_t(t)*kt->nb[2])),d,1,hv);
@@ -237,8 +273,9 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
         state=ggml_add(c,state,outer);
         auto*y=ggml_mul_mat(c,state,q);ggml_mul_mat_set_prec(y,GGML_PREC_F32);
         y=ggml_scale(c,y,1/std::sqrt(float(d)));
-        out=place(g,out,ggml_reshape_1d(c,y,d*hv),t);
+        if(g.efficient_sequence)output_columns.push_back(ggml_reshape_1d(c,y,d*hv));else out=place(g,out,ggml_reshape_1d(c,y,d*hv),t);
     }
+    if(g.efficient_sequence)out=join_columns(g,std::move(output_columns),d*hv);
     out=ggml_reshape_3d(c,out,d,hv,n);
     out=g.norm(out,b.params.at(p+"ssm_norm.weight").w,h.eps);
     out=ggml_mul(c,out,ggml_silu(c,ggml_reshape_3d(c,z,d,hv,n)));
@@ -309,7 +346,7 @@ struct Chain {
     Geometry h;
     std::vector<std::unique_ptr<Device>> devices;
     std::vector<std::unique_ptr<Block>> blocks;
-    bool full;int rank;
+    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r):h(geometry),full(train_full),rank(r){
         need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
         need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
@@ -362,9 +399,9 @@ struct Chain {
         return result.first;
     }
     float standard_sample(const json&sample,bool backward,float weight=1,std::vector<float>*observed_logits=nullptr){
-        auto tokens=sample.at("tokens").get<std::vector<int32_t>>();int n=tokens.size();need(n>=2&&n<=8192,"Bounded sequence required");
+        auto tokens=sample.at("tokens").get<std::vector<int32_t>>();int n=tokens.size();need(n>=2&&n<=maximum_sequence,"Bounded sequence required");
         for(auto t:tokens)need(t>=0&&t<h.vocab,"Invalid input token");
-        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds);auto*c=g.ctx.p;
+        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
         for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n);g.stage(x,blocks[i+1]->device);}
         auto&head=*blocks.back();x=g.norm(x,head.params.at("output_norm.weight").w,h.eps);auto*logits=g.linear(head,"output.weight",x);g.stage(logits,head.device);
@@ -373,7 +410,9 @@ struct Chain {
         for(int t=0;t<n;++t)if(mask[t]){need(targets[t]>=0&&targets[t]<h.vocab,"Invalid target");std::vector<float>labels(h.vocab,0);labels[targets[t]]=1;
             auto*ce=ggml_cross_entropy_loss(c,column(g,logits,t),g.input(h.vocab,1,labels));loss=loss?ggml_add(c,loss,ce):ce;++selected;}
         need(selected>0,"Empty completion loss");loss=ggml_scale(c,loss,weight/selected);g.stage(loss,head.device);
-        if(backward)g.backward(loss,blocks);g.compute();
+        if(backward)g.backward(loss,blocks);
+        if(efficient_sequence)std::cerr<<"LONG_GRAPH nodes="<<ggml_graph_n_nodes(g.g)<<" capacity="<<g.capacity<<" metadata="<<Graph::metadata_bytes(g.capacity)<<std::endl;
+        g.compute();
         if(observed_logits)*observed_logits=read_tensor(logits);
         float value=read_tensor(loss)[0]/weight;need(std::isfinite(value),"Nonfinite standard loss");return value;
     }
@@ -401,12 +440,13 @@ struct Chain {
         }
     }
 };
-static json chain_test(const std::vector<std::string>&names){
+static json chain_test(const std::vector<std::string>&names,bool efficient=false){
     Geometry h;json reports=json::array();
     json example={{"tokens",{0,1,2,3}},{"targets",{1,2,3,4}},{"loss_mask",{false,true,true,true}}};
     for(bool full:{true,false}){
-        Chain m(h,names,full,2);m.allocate();m.randomize();m.zero();float before=m.standard_sample(example,true);
+        Chain m(h,names,full,2);m.efficient_sequence=efficient;m.allocate();m.randomize();m.zero();float before=m.standard_sample(example,true);
         auto gradients=m.gradients();
+        if(full){auto grad=read_tensor(m.blocks.front()->params.at("token_embd.weight").grad);double norm=0;for(int i=0;i<h.hidden;++i)norm+=double(grad[i])*grad[i];need(norm>1e-16,"Masked prompt context lost its gradient");}
         // Check one parameter direction in every stage of the whole chain.
         double worst=0;int checks=0;std::mt19937 rng(98);std::normal_distribution<float>normal(0,1);
         for(auto&b:m.blocks){auto ps=b->trainable();if(ps.empty())continue;
@@ -567,6 +607,16 @@ static json memory_plan(Chain&model,const json&config){
         }else if(index+1==model.blocks.size())active=length*size_t(h.vocab)*4*12;
         activations[b->device.name]+=active;
     }
+    size_t graph_host=0;
+    if(model.efficient_sequence){
+        size_t nodes=Graph::bounded_capacity(length,h.layers);
+        // Metadata, scheduler tables/placements, host masks and input copies.
+        size_t labels=0;for(auto&e:config.at("examples")){size_t count=0;for(auto&m:e.at("loss_mask"))if(m.get<bool>())++count;labels=std::max(labels,count);}
+        graph_host=Graph::metadata_bytes(nodes)+nodes*128+length*length*8+length*size_t(h.vocab)*8;
+        // Cross-entropy column adjoints and accumulation are explicitly bounded.
+        activations["CPU"]+=labels*length*size_t(h.vocab)*8;
+        activations["CPU"]+=graph_host;
+    }
     json plans=json::array();size_t reserve=config.value("reserve_bytes",size_t(4ull<<30));
     for(auto&d:model.devices){size_t free=0,total=0;ggml_backend_dev_memory(ggml_backend_get_device(d->backend),&free,&total);
         if(d->name=="CPU"){
@@ -579,7 +629,7 @@ static json memory_plan(Chain&model,const json&config){
         size_t estimate=persistent[d->name]+scratch[d->name]+activations[d->name]+reserve;
         size_t cap=config.contains("device_budget_bytes")?config.at("device_budget_bytes").at(d->name).get<size_t>():free;
         need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
-        plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"reserve",reserve},{"admission_estimate",estimate}});
+        plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"host_graph_allowance",graph_host},{"reserve",reserve},{"admission_estimate",estimate}});
     }
     return plans;
 }
@@ -624,6 +674,26 @@ static void save_candidate(Chain&model,GGUFSource&source,const std::string&path,
     }catch(...){if(fd>=0)::close(fd);gguf_free(out);throw;}
     gguf_free(out);
 }
+static json concat_test(const std::string&name){
+    Device device(name);json checks=json::array();
+    for(int dim=0;dim<4;++dim){
+        Block block(device,true,1);std::vector<std::vector<float>>values;
+        for(int part=0;part<2;++part){
+            int64_t shape[4]={3,2,2,1};shape[dim]=part?3:2;
+            auto&p=block.params["part"+std::to_string(part)];
+            p.w=ggml_new_tensor(block.ctx.p,GGML_TYPE_F32,4,shape);ggml_set_param(p.w);
+            p.grad=ggml_dup_tensor(block.ctx.p,p.w);
+            std::vector<float>v(ggml_nelements(p.w));for(size_t i=0;i<v.size();++i)v[i]=.01f*(i+1+part*100);
+            values.push_back(v);
+        }
+        block.allocate();int index=0;for(auto&[key,p]:block.params){auto&v=values[index++];ggml_backend_tensor_set(p.w,v.data(),0,v.size()*4);ggml_backend_tensor_memset(p.grad,0,0,ggml_nbytes(p.grad));}
+        Graph g(device);auto*joined=ggml_concat(g.ctx.p,block.params.at("part0").w,block.params.at("part1").w,dim);
+        auto*loss=ggml_sum(g.ctx.p,ggml_sqr(g.ctx.p,joined));g.backward(loss,block);g.compute();
+        double worst=0;index=0;for(auto&[key,p]:block.params){auto grads=read_tensor(p.grad);auto&v=values[index++];for(size_t i=0;i<v.size();++i)worst=std::max(worst,std::abs(double(grads[i])-2*double(v[i])));}
+        need(worst<1e-6,"Concatenation ordinary adjoint mismatch");checks.push_back({{"axis",dim},{"maximum_absolute_gradient_error",worst}});
+    }
+    return {{"status","PASS"},{"scope","odd concatenation shapes, every axis; ordinary backward"},{"checks",checks}};
+}
 static json train_model(const json&config){
     need(config.value("backprop_mode",std::string("standard"))=="standard","This entry point requires ordinary end-to-end backpropagation");
     need(config.value("optimizer",std::string("sgd"))=="sgd","Only native SGD is currently implemented");
@@ -631,6 +701,24 @@ static json train_model(const json&config){
     for(auto&name:names)if(name!="CPU"){load_cuda();break;}
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4));
+    const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
+    need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1","Unknown sequence qualification profile");
+    if(sequence_profile=="tiny-cpu-long-v1"){
+        const auto&h=model.h;
+        need(names==std::vector<std::string>{"CPU"}&&h.layers<=2&&h.hidden<=64&&h.ffn<=128&&h.vocab<=512&&h.heads<=2&&h.state<=8&&h.kernel<=4,
+             "Long sequence profile is qualified only for bounded tiny CPU fixtures, not Wen");
+        model.maximum_sequence=32768;model.efficient_sequence=true;
+    }
+    for(const auto&e:config.at("examples")){
+        need(e.at("tokens").is_array()&&e.at("targets").is_array()&&e.at("loss_mask").is_array(),"Token arrays required");
+        const size_t n=e.at("tokens").size();
+        need(n>=2&&n<=size_t(model.maximum_sequence)&&e.at("targets").size()==n&&e.at("loss_mask").size()==n,"Sequence admission refused");
+        if(model.efficient_sequence){
+            need(n<=size_t(model.h.context),"Fixture context metadata is shorter than the training sequence");
+            size_t selected=0;for(const auto&m:e.at("loss_mask")){need(m.is_boolean(),"Boolean loss mask required");if(m.get<bool>())++selected;}
+            need(selected>0&&selected<=256,"Long CPU fixture profile supports at most 256 selected target positions");
+        }
+    }
     auto plan=memory_plan(model,config);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;source.load(model);
     if(config.contains("initial_adapter"))source.load_adapter(model,config.at("initial_adapter"),config.at("base_sha256"));
     auto examples=config.at("examples");need(examples.is_array()&&!examples.empty(),"Explicit training examples required");
@@ -661,14 +749,15 @@ int main(int argc,char**argv){try{
     if(argc==3&&std::string(argv[1])=="--train"){
         std::ifstream in(argv[2]);need(bool(in),"Cannot read private training request");json config;in>>config;std::cout<<train_model(config).dump(2)<<std::endl;return 0;
     }
+    if(argc==3&&std::string(argv[1])=="--concat-test"){if(std::string(argv[2])!="CPU")load_cuda();std::cout<<concat_test(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--gradient-diagnostic"){
         if(std::string(argv[2])!="CPU")load_cuda();auto report=self_test(argv[2],true);std::cout<<report.dump(2)<<std::endl;return report.at("status")=="PASS"?0:3;
     }
-    if(argc==3&&std::string(argv[1])=="--chain-test"){
+    if(argc==3&&(std::string(argv[1])=="--chain-test"||std::string(argv[1])=="--chain-test-efficient")){
         std::vector<std::string>names;std::string value=argv[2];size_t begin=0,end;
         while((end=value.find(',',begin))!=std::string::npos){names.push_back(value.substr(begin,end-begin));begin=end+1;}names.push_back(value.substr(begin));
         for(auto&name:names)if(name!="CPU"){load_cuda();break;}
-        std::cout<<chain_test(names).dump(2)<<std::endl;return 0;
+        std::cout<<chain_test(names,std::string(argv[1])=="--chain-test-efficient").dump(2)<<std::endl;return 0;
     }
     need(argc==3&&std::string(argv[1])=="--self-test","Usage: pcc-native-train --self-test CPU|CUDA0");
     if(std::string(argv[2])!="CPU")load_cuda();

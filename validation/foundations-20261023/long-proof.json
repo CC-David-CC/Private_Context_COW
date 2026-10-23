@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "tiny generated two-layer hybrid CPU fixture; no Wen weights",
+  "rows": [
+    {
+      "tokens": 16384,
+      "selected_targets": 32,
+      "mode": "lora",
+      "before": 5.5921854972839355,
+      "after": 5.592184066772461,
+      "reload_loss": 5.592184066772461,
+      "gradient_tensors": 32,
+      "all_gradients_finite": true,
+      "nonzero_gradients": 16,
+      "largest_reported_tensor_buffer_bytes": 5411209152,
+      "native_receipt_sha256": "ea758c495ec9068f136b16d90224be0efc880c76cad93314522726a8ad5db756"
+    },
+    {
+      "tokens": 16384,
+      "selected_targets": 32,
+      "mode": "full",
+      "before": 5.5921854972839355,
+      "after": 5.58416748046875,
+      "reload_loss": 5.58416748046875,
+      "gradient_tensors": 28,
+      "all_gradients_finite": true,
+      "nonzero_gradients": 28,
+      "largest_reported_tensor_buffer_bytes": 5415993280,
+      "native_receipt_sha256": "293f1b77b2c9181b7cccb51d76a7dd14695320e6e6bd51984ebfb1e2027992bf"
+    },
+    {
+      "tokens": 32768,
+      "selected_targets": 32,
+      "mode": "lora",
+      "before": 5.591108322143555,
+      "after": 5.59110689163208,
+      "reload_loss": 5.59110689163208,
+      "gradient_tensors": 32,
+      "all_gradients_finite": true,
+      "nonzero_gradients": 16,
+      "largest_reported_tensor_buffer_bytes": 21559803840,
+      "native_receipt_sha256": "e9c4b49ef478b55165555f883b8b18466a3bed06c5a7e3c6b380570d8133c3e0"
+    },
+    {
+      "tokens": 32768,
+      "selected_targets": 32,
+      "mode": "full",
+      "before": 5.591108322143555,
+      "after": 5.583122253417969,
+      "reload_loss": 5.583122253417969,
+      "gradient_tensors": 28,
+      "all_gradients_finite": true,
+      "nonzero_gradients": 28,
+      "largest_reported_tensor_buffer_bytes": 21569372096,
+      "native_receipt_sha256": "fc000b66b64dc0127c641b35e719a88b142938de3f3eb2a0dad86e8c5829bf69"
+    }
+  ],
+  "source_sha256": "5ed910d4178153d0e0cab8d4cb358048d1d6954998d7147744956ec14b5eeb03",
+  "base_sha256": "d8f5af19e437c955522f9566506f354f8f16007908d2a291d55d602dcced33db",
+  "gpu_used": false,
+  "serving_model_changed": false
+}

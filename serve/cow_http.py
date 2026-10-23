@@ -902,6 +902,7 @@ def main():
     parser.add_argument('--openai-port',type=int,help='Opt-in standard CLI API listener sharing this coordinator')
     parser.add_argument('--openai-model',default='cow')
     parser.add_argument('--openai-max-output',type=int,default=2048)
+    parser.add_argument('--openai-thinking',action='store_true',help='Opt in to a distinct thinking-enabled compatibility renderer/profile')
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
     parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
@@ -1026,7 +1027,7 @@ def main():
             # The callbacks above are bound to the same literal-safe model
             # prompt encoder used by the native text boundary.
             encoder=components['render'].__self__
-            frontend=Frontend(adapter,encoder,profile,args.openai_model,args.openai_max_output)
+            frontend=Frontend(adapter,encoder,profile,args.openai_model,args.openai_max_output,thinking=args.openai_thinking)
             compatibility_server=make_compatibility_server(frontend,args.host,args.openai_port,
                                                           args.api_key,compatibility_stop)
             compatibility_thread=threading.Thread(target=compatibility_server.serve_forever,

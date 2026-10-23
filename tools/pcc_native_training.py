@@ -17,7 +17,17 @@ def sha256(path):
     with Path(path).open('rb') as stream:
         return hashlib.file_digest(stream,'sha256').hexdigest()
 
-def validate_examples(examples):
+SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768}
+
+def validate_sequence_profile(profile,devices):
+    if profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
+    if profile=='tiny-cpu-long-v1' and devices!=['CPU']:
+        raise ValueError('Long sequence profile is only for tiny CPU fixtures')
+    return profile
+
+def validate_examples(examples,*,sequence_profile='short-v1'):
+    if sequence_profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
+    maximum=SEQUENCE_PROFILES[sequence_profile]
     if type(examples) is not list or not examples:
         raise ValueError('A nonempty explicit training split is required')
     names=set()
@@ -29,13 +39,15 @@ def validate_examples(examples):
         names.add(e['id'])
         if e['verified'] is not True or not re.fullmatch('[a-f0-9]{64}',str(e['provenance_sha256'])):
             raise ValueError('Only independently verified examples with provenance are admitted')
+        if any(type(e[k]) is not list for k in ('tokens','targets','loss_mask')):raise ValueError('Token arrays required')
         n=len(e['tokens'])
-        if not 2<=n<=8192 or len(e['targets'])!=n or len(e['loss_mask'])!=n:
+        if not 2<=n<=maximum or len(e['targets'])!=n or len(e['loss_mask'])!=n:
             raise ValueError('Bounded aligned inputs/next-token targets/masks required')
         if any(type(t) is not int or t<0 for t in e['tokens']+e['targets']):
             raise ValueError('Nonnegative integer token IDs required')
         if any(type(m) is not bool for m in e['loss_mask']) or not any(e['loss_mask']):
             raise ValueError('Nonempty explicit completion-loss mask required')
+        if sequence_profile=='tiny-cpu-long-v1' and sum(e['loss_mask'])>256:raise ValueError('Long CPU fixtures admit at most 256 selected targets')
         if e['targets'][:-1]!=e['tokens'][1:]:
             raise ValueError('Targets must describe the next consumed token')
     return copy.deepcopy(examples)
@@ -102,7 +114,8 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     """
     request=copy.deepcopy(request)
     request['devices']=validate_devices(request['devices'])
-    request['examples']=validate_examples(request['examples'])
+    profile=validate_sequence_profile(request.get('sequence_profile','short-v1'),request['devices'])
+    request['examples']=validate_examples(request['examples'],sequence_profile=profile)
     request['backprop_mode']=validate_backprop_mode(request.get('backprop_mode'),devices=len(request['devices']))
     if request.get('mode') not in ('lora','full'):
         raise ValueError('Explicit LoRA or direct full-weight update required')

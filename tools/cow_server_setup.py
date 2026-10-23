@@ -59,8 +59,10 @@ def write_json(path,value):
 def compatibility_config(args):
     port=getattr(args,'openai_port',None)
     model=getattr(args,'openai_model',None)
+    thinking=getattr(args,'openai_thinking',False)
+    if type(thinking) is not bool:raise ValueError('openai_thinking must be boolean')
     if port is None:
-        if model is not None:raise ValueError('--openai-model requires --openai-port')
+        if model is not None or thinking:raise ValueError('Compatibility model/thinking options require --openai-port')
         return {}
     if type(port) is not int or not 1<=port<=65535 or port==args.port:
         raise ValueError('OpenAI compatibility port must be valid and different from the native COW port')
@@ -69,7 +71,9 @@ def compatibility_config(args):
         raise ValueError('Use a nonempty model ID without spaces or control characters')
     bound=getattr(args,'openai_max_output',2048)
     if type(bound) is not int or bound<=0:raise ValueError('Compatibility output limit must be positive')
-    return dict(openai_port=port,openai_model=model,openai_max_output=bound)
+    result=dict(openai_port=port,openai_model=model,openai_max_output=bound)
+    if thinking:result['openai_thinking']=True
+    return result
 
 
 def cache_peer_config(args):
@@ -298,6 +302,7 @@ def main():
     parser.add_argument("--port",type=int,default=8099)
     parser.add_argument('--openai-port',type=int,help='Opt in to Chat Completions and Responses on another port, sharing this COW worker/pool')
     parser.add_argument('--openai-model',help='Compatibility model ID, default cow; requires --openai-port')
+    parser.add_argument('--openai-thinking',action='store_true',help='Opt in to a distinct thinking-enabled compatibility renderer')
     parser.add_argument('--openai-max-output',type=int,default=2048,help='Compatibility output-token ceiling per request')
     args=parser.parse_args()
     if min(args.context,args.prefill,args.threads,args.resident_gib,args.ram_gib,args.disk_gib,args.vram_reserve_mib,args.min_available_gib)<=0:

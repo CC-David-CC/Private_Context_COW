@@ -18,11 +18,13 @@ from serve.server import Service
 
 
 class Frontend:
-    def __init__(self, adapter, encoder, profile, model, max_output=2048, trace=None):
+    def __init__(self, adapter, encoder, profile, model, max_output=2048, trace=None, *, thinking=False):
+        if type(thinking) is not bool:raise ValueError('Explicit thinking mode required')
+        self.thinking=thinking
         self.adapter, self.encoder, self.profile, self.model = adapter, encoder, profile, model
         renderer = hashlib.sha256(encoder.template.source.encode()).hexdigest()
         self.cache = CachedCow(adapter, (profile['model_contract_id'],
-                                       profile['execution_profile_id'], renderer))
+                                       profile['execution_profile_id'], renderer) if not thinking else (profile['model_contract_id'],profile['execution_profile_id'],renderer,'thinking-on'))
         self.max_output, self.trace = max_output, trace
         self.trace_lock = threading.Lock()
         self.sessions = SessionBudgets()
@@ -57,8 +59,9 @@ class Frontend:
             if req.get(field) and field != 'response_format': raise ValueError(field+' is unsupported')
         for field in ('frequency_penalty','presence_penalty'):
             if req.get(field): raise ValueError(field+' is unsupported')
-        # A fixed nonthinking renderer is common to all runners in this trial.
-        kwargs = dict(enable_thinking=False)
+        if 'enable_thinking' in req and (type(req['enable_thinking']) is not bool or req['enable_thinking']!=self.thinking):
+            raise ValueError('Request thinking mode differs from the owner-configured profile')
+        kwargs = dict(enable_thinking=self.thinking)
         full = tuple(Service.encode_prompt(self.encoder, messages, tools,
                      dict(kwargs, add_generation_prompt=True)))
         closed = tuple(Service.encode_prompt(self.encoder, messages, tools,
@@ -99,8 +102,8 @@ class Frontend:
             settings=plan['settings'], cancelled=cancelled, seed=plan['seed'], text_stops=plan['stops'])
         view = CowTextRequest(request, self.encoder.tok,
             controller_reader=self.adapter.snapshot_controller, text_stops=plan['stops'] or ())
-        parser = OutputParser(thinking=False, tools=plan['tools'], stream_tools=False)
-        text, reasoning, calls = [], [], []
+        parser = OutputParser(thinking=self.thinking, tools=plan['tools'], stream_tools=False)
+        text, reasoning, calls, raw = [], [], [], []
         def output(event):
             if event.kind == 'content': text.append(event.text)
             elif event.kind == 'reasoning': reasoning.append(event.text)
@@ -115,6 +118,7 @@ class Frontend:
             return []
         for event in view.iter_events():
             if event.get('event') == 'text':
+                if self.trace:raw.append(event['text'])
                 for parsed in parser.feed(event['text']): yield from output(parsed)
         receipt = request.durable.result()
         answer = request.snapshot.result()
@@ -131,6 +135,7 @@ class Frontend:
             record = dict(model=self.model, dialect=dialect, prompt_tokens=len(plan['full']),
                           reused_tokens=reused, output_tokens=n, seconds=time.monotonic()-start,
                           finish=done['finish'], snapshot=receipt['snapshot'],
+                          thinking=self.thinking,raw_text=''.join(raw),raw_text_sha256=hashlib.sha256(''.join(raw).encode()).hexdigest(),
                           request=req, output=dict(content=''.join(text), reasoning=''.join(reasoning),
                           tools=[dict(name=c.name, arguments=c.arguments) for c in calls]))
             with self.trace_lock:

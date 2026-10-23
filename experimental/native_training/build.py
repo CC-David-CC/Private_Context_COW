@@ -49,6 +49,31 @@ def main():
         core.write_text(original.replace(old,new),newline='\n')
     else:
         assert new in original,'Unrecognized dependency source'
+    # PCC long-fixture assembly uses balanced concatenation. The pinned GGML
+    # lacks its backward rule. Slice the incoming adjoint without detaching it.
+    concat_backward = r"""        case GGML_OP_CONCAT: {
+            const int dim = ggml_get_op_params_i32(tensor, 0);
+            GGML_ASSERT(dim >= 0 && dim < GGML_MAX_DIMS);
+            struct ggml_tensor * dense = ggml_cont(ctx, grad);
+            if (src0_needs_grads) {
+                struct ggml_tensor * slice = ggml_view_4d(ctx, dense,
+                    src0->ne[0], src0->ne[1], src0->ne[2], src0->ne[3],
+                    dense->nb[1], dense->nb[2], dense->nb[3], 0);
+                ggml_add_or_set(ctx, cgraph, isrc0, ggml_cont(ctx, slice));
+            }
+            if (src1_needs_grads) {
+                struct ggml_tensor * slice = ggml_view_4d(ctx, dense,
+                    src1->ne[0], src1->ne[1], src1->ne[2], src1->ne[3],
+                    dense->nb[1], dense->nb[2], dense->nb[3], src0->ne[dim]*dense->nb[dim]);
+                ggml_add_or_set(ctx, cgraph, isrc1, ggml_cont(ctx, slice));
+            }
+        } break;
+"""
+    patched=core.read_text()
+    anchor='        case GGML_OP_SET: {'
+    if concat_backward not in patched:
+        assert patched.count(anchor)==1, 'Unrecognized pinned backward switch'
+        core.write_text(patched.replace(anchor,concat_backward+anchor),newline='\n')
     # Embed GGML as the original engine does. Its vendored tree does not ship
     # the pkg-config template required by GGML's standalone install project.
     (out/'CMakeLists.txt').write_text('cmake_minimum_required(VERSION 3.16)\nproject(PCCNativeTrainingBackend LANGUAGES C CXX ASM)\nadd_subdirectory(ggml-source)\n')
@@ -70,7 +95,7 @@ def main():
     linked=subprocess.check_output(['ldd',str(out/'pcc-native-train')],text=True)
     assert 'torch' not in linked.lower()
     receipt=dict(pin=PIN,command=cmd,linked=linked,source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
-                 dependency_patch='materialize-strided-noninplace-scale-v1',
+                 dependency_patch='materialize-strided-noninplace-scale-v1+concat-adjoint-v1',
                  dependency_core_sha256=hashlib.sha256(core.read_bytes()).hexdigest(),
                  cpu_only=args.cpu_only,
                  cuda_sha256=None if args.cpu_only else hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),

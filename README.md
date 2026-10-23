@@ -1,4 +1,8 @@
 # Private Context COW (PCC)
+Development checkpoint: [foundations and workflow validation](validation/foundations-20261023/README.md). Live-model qualification remains pending.
+
+
+[S3 foundations, optional thinking and multi-turn lesson mechanics](docs/SSS-FOUNDATIONS.md). The operator guide separates working reference machinery from model qualifications.
 
 **Run an AI model, keep its place, and explore different directions from the same starting point.**
 

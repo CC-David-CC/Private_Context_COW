@@ -23,6 +23,9 @@ def canonical(value):
 def digest(value):return hashlib.sha256(canonical(value)).hexdigest()
 
 def validate_lesson(value):
+    if type(value) is dict and value.get('schema')==2:
+        from tools.pcc_lesson_segments import validate_segments_lesson
+        return validate_segments_lesson(value)
     fields={'schema','title','model_contract_id','prompt','completion','rationale','scope','evidence'}
     if type(value) is not dict or set(value) not in (fields,fields|{'skill_id'}) or type(value['schema']) is not int or value['schema']!=1:
         raise ValueError('Lesson schema 1 requires explicit teaching text and evidence')
@@ -51,7 +54,7 @@ class LessonService:
     devices, environment overrides or shell commands. Verification is an
     authenticated owner's attestation, not a remote execution of client tests.
     """
-    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16):
+    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16,sequence_profile='short-v1'):
         if not HEX.fullmatch(model_contract_id):raise ValueError('Exact model contract required')
         self.root=Path(directory).absolute()
         if self.root.is_symlink():raise ValueError('Training store cannot be a symlink')
@@ -61,7 +64,10 @@ class LessonService:
         self.lease=(self.root/'service.lock').open('a+')
         fcntl.flock(self.lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
         self.model=model_contract_id;self.tokenize=tokenize;self.runner=runner
-        if type(max_tokens) is not int or not 2<=max_tokens<=8192 or type(max_steps) is not int or not 1<=max_steps<=1000:
+        from tools.pcc_native_training import SEQUENCE_PROFILES
+        if sequence_profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence profile')
+        self.sequence_profile=sequence_profile
+        if type(max_tokens) is not int or not 2<=max_tokens<=SEQUENCE_PROFILES[sequence_profile] or type(max_steps) is not int or not 1<=max_steps<=1000:
             raise ValueError('Invalid owner training limits')
         self.max_tokens=max_tokens;self.max_steps=max_steps;self.mutex=threading.RLock()
         binding=self.root/'model.json'
@@ -135,12 +141,16 @@ class LessonService:
         return value
 
     def _example(self,lesson,identity):
+        if lesson['schema']==2:
+            from tools.pcc_lesson_segments import tokenize_segments
+            example=dict(id=identity,**tokenize_segments(lesson,self.tokenize,self.max_tokens),verified=True,provenance_sha256=digest(lesson['evidence']))
+            validate_examples([example],sequence_profile=self.sequence_profile);return example
         prefix=self.tokenize(lesson['prompt']);full=self.tokenize(lesson['prompt']+lesson['completion'])
         if not prefix or full[:len(prefix)]!=prefix or len(full)<=len(prefix):
             raise ValueError('Teaching boundary must align to the exact tokenizer; add a separator')
         if not 2<=len(full)-1<=self.max_tokens:raise ValueError('Lesson exceeds admitted token budget; no text was truncated')
         example=dict(id=identity,tokens=full[:-1],targets=full[1:],loss_mask=[i+1>=len(prefix) for i in range(len(full)-1)],verified=True,provenance_sha256=digest(lesson['evidence']))
-        validate_examples([example]);return example
+        validate_examples([example],sequence_profile=self.sequence_profile);return example
 
     def lessons(self):
         with self.locked():
@@ -256,10 +266,12 @@ class NativeRunner:
     def __init__(self,config):
         self.config=copy.deepcopy(config)
         required={'model','base_sha256','executable','devices','device_budget_bytes','reserve_bytes','gpu_uuids'}
-        if set(config)!=required:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
+        if set(config) not in (required,required|{'sequence_profile'}):raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
         if sha256(config['model'])!=config['base_sha256']:raise ValueError('Training model hash mismatch')
         from tools.pcc_native_training import validate_devices
         names=validate_devices(config['devices'])
+        from tools.pcc_native_training import validate_sequence_profile
+        validate_sequence_profile(config.get('sequence_profile','short-v1'),names)
         if names==['CPU']:
             if config['gpu_uuids']:raise ValueError('CPU training cannot reserve GPUs')
         elif names!=['CUDA'+str(i) for i in range(len(names))] or len(config['gpu_uuids'])!=len(names) or len(set(config['gpu_uuids']))!=len(names):
@@ -279,6 +291,7 @@ class NativeRunner:
                 environment.update(CUDA_DEVICE_ORDER='PCI_BUS_ID',CUDA_VISIBLE_DEVICES=','.join(c['gpu_uuids']))
             native={k:c[k] for k in ['model','base_sha256','devices','device_budget_bytes','reserve_bytes']}
             native.update({k:request[k] for k in ['mode','rank','batch_size','steps','learning_rate']},examples=examples,optimizer='sgd',backprop_mode='standard')
+            if 'sequence_profile' in c:native['sequence_profile']=c['sequence_profile']
             if parent:
                 if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
                 else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
@@ -299,4 +312,4 @@ def configured_service(config_path,profile,tokenizer):
             raise
         runner=configured_guard(config['skill_guard_config'],runner,tokenizer)
     return LessonService(config['directory'],profile['model_contract_id'],tokenizer.encode,runner,
-                         max_tokens=config['max_tokens'],max_steps=config['max_steps'])
+                         max_tokens=config['max_tokens'],max_steps=config['max_steps'],sequence_profile=config['runner'].get('sequence_profile','short-v1'))

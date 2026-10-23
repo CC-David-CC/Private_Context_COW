@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "files": {
+    "experimental/native_training/build.py": "9cdc25f4834b7c43991bfddaea5436b949b027802492cff26ab6f1dd2cceb0e9",
+    "experimental/native_training/make_cpu_fixture.py": "9d722ac4663d41d1d3adcaf949931b4bde5cdb7013cfdfd4265f26443a2bfd88",
+    "experimental/native_training/native_train.cpp": "5ed910d4178153d0e0cab8d4cb358048d1d6954998d7147744956ec14b5eeb03",
+    "serve/cow_compat.py": "2bc8e041ff259f2a50a1ab999618c6bda25d2301b8703079d268f382c7f5b600",
+    "serve/cow_http.py": "592031bbd9f9f6d5d126b4a53b9dec808ef55b882729bee18d0625db24614016",
+    "tools/cow_server.py": "49bcdb493db9841368ca9b1cd5b95fd4f15004742911deb2b13d5eaa3f96af7e",
+    "tools/cow_server_setup.py": "bfc34da89d7e2bf8898869d2248ca0bb1c862de2da615b0bb40d640f9982207a",
+    "tools/pcc_lesson_segments.py": "b5ad9f1d9cfbcc55fdabc5e7794d46ba0f009c4fd35ddc321cb53cf390dd1dd4",
+    "tools/pcc_lessons.py": "5f7820ab846aa6b974c2cfe71b92501a1240d25c8ebb2741cb260df51c14f299",
+    "tools/pcc_native_training.py": "67886b24c2cd7be5941e00d064860bd2fcd58b7cd3ae729df40275c87c8b90d0",
+    "tools/test_cow_compat_frontend.py": "969999e36f68051735546ab307b1fff3fac6c67846020a6a57557c7717b672d6",
+    "tools/test_cow_compat_setup.py": "3a7a8aaf263629d92ddf56e7fa824c6b3fb182506cdc39d89d1ca78d55b54f1b",
+    "tools/test_native_sequence_profiles.py": "a768578c77013e477eddcfc1e7df11c5e9893c323b61b8ca17cb7bd6eff3c969",
+    "tools/test_pcc_lesson_segments.py": "3db1456bd852233e366a6eb5bfced27b3e082f47a8273b53c611c4dc2346a616"
+  }
+}

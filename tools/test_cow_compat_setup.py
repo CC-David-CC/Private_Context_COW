@@ -6,6 +6,17 @@ from tools.cow_server_setup import compatibility_config
 
 
 class CompatibilitySetupTests(unittest.TestCase):
+    def test_thinking_is_explicit_and_default_argv_stays_unchanged(self):
+        a=SimpleNamespace(port=8099,openai_port=8100,openai_thinking=True)
+        self.assertTrue(compatibility_config(a)['openai_thinking'])
+        with self.assertRaises(ValueError):compatibility_config(SimpleNamespace(port=8099,openai_thinking=True))
+        with self.assertRaises(ValueError):compatibility_config(SimpleNamespace(port=8099,openai_thinking='yes'))
+        from tools.cow_server import configured_argv
+        cfg=dict(profile='/owned/profile',store='/owned/store',host='127.0.0.1',port=8099,ram_gib=10,disk_gib=10,checkpoint_idle_seconds=1800,openai_port=8100)
+        before=configured_argv(Path('/owned'),cfg,'fixture')
+        self.assertNotIn('--openai-thinking',before)
+        self.assertIn('--openai-thinking',configured_argv(Path('/owned'),dict(cfg,openai_thinking=True),'fixture'))
+
     def test_default_adds_no_configuration(self):
         self.assertEqual(compatibility_config(SimpleNamespace(port=8099)), {})
 
