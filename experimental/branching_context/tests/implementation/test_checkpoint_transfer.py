@@ -3,9 +3,11 @@ from concurrent.futures import CancelledError
 import hashlib
 import io
 import json
+import multiprocessing
 from pathlib import Path
 import struct
 import tempfile
+import time
 from types import SimpleNamespace
 import unittest
 
@@ -167,6 +169,47 @@ class CheckpointTransferTests(unittest.TestCase):
         self.envelope['checksum']=hashlib.sha256(_json_bytes(self.envelope['manifest'])).hexdigest()
         with self.assertRaises(PoolFull):self.receive()
         self.assert_released(self.incoming)
+
+    def test_transfer_deadline_removes_partial_stage(self):
+        class SlowReader(io.BytesIO):
+            def read(self,size):
+                time.sleep(.05)
+                return super().read(size)
+        self.incoming.timeout=.02
+        with self.assertRaises(TimeoutError):
+            self.incoming.receive(self.target,self.snapshot,self.envelope,SlowReader(self.payload))
+        self.assertEqual(list(self.target.checkpoint_directory.glob('*.state')),[])
+        self.assert_released(self.incoming)
+
+    def test_sigkill_during_received_payload_releases_disk_staging(self):
+        before=self.canonical(self.target)
+        context=multiprocessing.get_context('fork')
+        received,sent=context.Pipe(duplex=False)
+        def child():
+            class PausedReader(io.BytesIO):
+                reads=0
+                def read(inner,size):
+                    inner.reads+=1
+                    if inner.reads==2:
+                        sent.send('partial-stage')
+                        while True:time.sleep(1)
+                    return super().read(size)
+            self.incoming.receive(self.target,self.snapshot,self.envelope,PausedReader(self.payload))
+        process=context.Process(target=child);process.start()
+        try:
+            self.assertTrue(received.poll(5),'receiver never entered partial staging')
+            self.assertEqual(received.recv(),'partial-stage')
+            self.assertEqual(len(list(self.target.checkpoint_directory.glob('.stage-*'))),1)
+            process.kill();process.join(5)
+            self.assertFalse(process.is_alive())
+            replacement=DiskCheckpointPool(self.target.store,16384)
+            replacement.collect()
+            self.assertEqual(self.canonical(self.target),before)
+            self.assertEqual(list(self.target.checkpoint_directory.glob('*.state')),[])
+            self.assert_released(self.incoming)
+        finally:
+            if process.is_alive():process.kill();process.join(5)
+            received.close();sent.close()
 
 
 if __name__=='__main__':unittest.main()
