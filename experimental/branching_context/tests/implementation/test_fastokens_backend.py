@@ -61,12 +61,12 @@ class FastokensBoundaryTests(unittest.TestCase):
         self.assertFalse(document['pre_tokenizer']['use_regex'])
         self.assertEqual(document['model']['vocab'],self.reference.ids)
 
-    def test_cow_keeps_unicode_splitting_and_bounds_native_batches(self):
-        text="a\u0301 X_é \r\n "*300+'hello'
+    def test_cow_keeps_unicode_splitting_and_cached_long_piece_results(self):
+        text="a\u0301"*300+' X_é \r\n '+'hello'*100
         self.fast.encode(text)
         self.assertTrue(NativeDouble.calls)
         self.assertTrue(all(len(batch)<=256 for batch in NativeDouble.calls))
-        expected=set(self.reference._re.findall(text))
+        expected={piece for piece in self.reference._re.findall(text) if len(piece.encode())>self.reference.HEAP_MIN}
         self.assertEqual({piece for call in NativeDouble.calls for piece in call},expected)
         before=len(NativeDouble.calls)
         self.fast.encode(text)
@@ -74,7 +74,7 @@ class FastokensBoundaryTests(unittest.TestCase):
 
     def test_native_token_ids_must_belong_to_the_pinned_vocabulary(self):
         with patch.object(self.fast._native,'encode_batch',return_value=[SimpleNamespace(ids=[999999])]):
-            with self.assertRaises(ValueError):self.fast.encode('hello')
+            with self.assertRaises(ValueError):self.fast.encode('hello'*100)
 
     def test_unknown_version_and_hidden_cache_overrides_are_rejected(self):
         with patch('importlib.metadata.version',return_value='99.0'):
