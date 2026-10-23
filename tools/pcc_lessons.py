@@ -54,7 +54,7 @@ class LessonService:
     devices, environment overrides or shell commands. Verification is an
     authenticated owner's attestation, not a remote execution of client tests.
     """
-    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16,sequence_profile='short-v1'):
+    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16,sequence_profile='short-v1',rendered_tokenize=None):
         if not HEX.fullmatch(model_contract_id):raise ValueError('Exact model contract required')
         self.root=Path(directory).absolute()
         if self.root.is_symlink():raise ValueError('Training store cannot be a symlink')
@@ -64,6 +64,8 @@ class LessonService:
         self.lease=(self.root/'service.lock').open('a+')
         fcntl.flock(self.lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
         self.model=model_contract_id;self.tokenize=tokenize;self.runner=runner
+        self.rendered_tokenize=tokenize if rendered_tokenize is None else rendered_tokenize
+        if not callable(self.rendered_tokenize):raise ValueError("Rendered tokenizer callback required")
         from tools.pcc_native_training import SEQUENCE_PROFILES
         if sequence_profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence profile')
         self.sequence_profile=sequence_profile
@@ -143,7 +145,7 @@ class LessonService:
     def _example(self,lesson,identity):
         if lesson['schema']==2:
             from tools.pcc_lesson_segments import tokenize_segments
-            example=dict(id=identity,**tokenize_segments(lesson,self.tokenize,self.max_tokens),verified=True,provenance_sha256=digest(lesson['evidence']))
+            example=dict(id=identity,**tokenize_segments(lesson,self.rendered_tokenize,self.max_tokens),verified=True,provenance_sha256=digest(lesson['evidence']))
             validate_examples([example],sequence_profile=self.sequence_profile);return example
         prefix=self.tokenize(lesson['prompt']);full=self.tokenize(lesson['prompt']+lesson['completion'])
         if not prefix or full[:len(prefix)]!=prefix or len(full)<=len(prefix):
@@ -312,4 +314,5 @@ def configured_service(config_path,profile,tokenizer):
             raise
         runner=configured_guard(config['skill_guard_config'],runner,tokenizer)
     return LessonService(config['directory'],profile['model_contract_id'],tokenizer.encode,runner,
-                         max_tokens=config['max_tokens'],max_steps=config['max_steps'],sequence_profile=config['runner'].get('sequence_profile','short-v1'))
+                         max_tokens=config['max_tokens'],max_steps=config['max_steps'],sequence_profile=config['runner'].get('sequence_profile','short-v1'),
+                         rendered_tokenize=lambda text:tokenizer.encode(text,parse_special=True))

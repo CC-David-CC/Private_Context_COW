@@ -1,4 +1,6 @@
-import copy,tempfile,unittest
+import copy,tempfile,unittest,json
+from pathlib import Path
+from unittest.mock import patch
 from tools.pcc_lesson_segments import tokenize_segments,validate_segments_lesson
 from tools.pcc_lessons import LessonService,validate_lesson
 
@@ -31,4 +33,27 @@ class Segments(unittest.TestCase):
                 saved=service.lesson(first['lesson_id'])
                 self.assertEqual(saved['lesson']['schema'],2)
                 self.assertEqual(saved['example']['loss_mask'],tokenize_segments(lesson(),lambda s:list(s.encode()),256)['loss_mask'])
+            finally:service.close()
+
+    def test_configured_rendered_spans_use_control_tokens_without_changing_legacy_text(self):
+        from tools.pcc_lessons import configured_service
+        class Tokenizer:
+            def encode(self,text,parse_special=False):
+                if parse_special:
+                    return [250 if char=='~' else ord(char) for char in text.replace('<U>','~')]
+                return list(text.encode())
+        with tempfile.TemporaryDirectory() as root:
+            root=Path(root);model=root/'model.gguf';model.write_bytes(b'owned-not-loaded')
+            config=dict(schema=1,directory=str(root/'store'),max_tokens=256,max_steps=2,runner=dict(model=str(model)))
+            (root/'config.json').write_text(json.dumps(config))
+            with patch('tools.pcc_lessons.NativeRunner',return_value=lambda *args:None):
+                service=configured_service(root/'config.json',dict(model_path=str(model),model_contract_id='a'*64),Tokenizer())
+            try:
+                item=lesson();item['segments'][0]['rendered']='<U>Q:'
+                accepted=service.submit('/cow/training/lessons',dict(operation_id='rendered-control-proof',lesson=item))
+                saved=service.lesson(accepted['lesson_id'])['example']
+                self.assertEqual(saved['tokens'][0],250)
+                legacy=service._example(dict(schema=1,prompt='<U>Q:',completion='ok',evidence={}), 'b'*64)
+                self.assertEqual(legacy['tokens'][:3],list(b'<U>'))
+                self.assertNotIn(250,legacy['tokens'])
             finally:service.close()

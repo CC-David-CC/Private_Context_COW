@@ -60,3 +60,5 @@ See the dated validation record and S³'s implementation gates for exact evidenc
 remaining live-model checks and the operator's next authorized experiment.
 
 CPU checkpoint: [dated validation](../validation/foundations-20261023/README.md).
+
+Training admission follow-up: Owner-configured schema-2 lessons now use the tokenizer control-token mode for already-rendered chat spans. Schema-1 text keeps its previous plain-text tokenization. Seventeen lesson/segment checks passed, including the configured-service control-token distinction; native CPU guard integration passed.

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "scope": "Owner-configured schema-2 lessons now use the tokenizer control-token mode for already-rendered chat spans. Schema-1 text keeps its previous plain-text tokenization. Seventeen lesson/segment checks passed, including the configured-service control-token distinction; native CPU guard integration passed.",
+  "source_sha256": {
+    "tools/pcc_lessons.py": "ecd7667269bfc9c4ac584646493120213da61e364c4e7b3671e1a201d901c6cf",
+    "tools/test_pcc_lesson_segments.py": "24723946abd05870546b8a3c45afc819df1384e33ad642d599df3207f394e84d"
+  },
+  "wen_training": false
+}
