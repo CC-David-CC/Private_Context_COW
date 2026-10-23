@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "scope": "Four owned task intents per model/runner; small interoperability pilot, not a general ranking",
+  "models": {
+    "wen-0.1": "40f048a00bc2a2a8c2db163999f0af90613d136376e9b3c9372457b1769b44ca",
+    "wen-1.1": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34"
+  },
+  "versions": {
+    "codex": "0.163.0",
+    "opencode": "1.19.4",
+    "hermes": "0.22.4",
+    "aider": "0.86.2"
+  },
+  "budget": {
+    "model_requests_per_task": 8,
+    "output_tokens_per_request": 2048
+  },
+  "baseline": [
+    {
+      "model": "wen-0.1",
+      "runner": "codex",
+      "passed": 1,
+      "total": 4
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "opencode",
+      "passed": 2,
+      "total": 4
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "hermes",
+      "passed": 2,
+      "total": 4
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "aider",
+      "passed": 1,
+      "total": 4
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "codex",
+      "passed": 2,
+      "total": 4
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "opencode",
+      "passed": 1,
+      "total": 4
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "hermes",
+      "passed": 1,
+      "total": 4
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "aider",
+      "passed": 1,
+      "total": 4
+    }
+  ],
+  "guidance": [
+    {
+      "model": "wen-0.1",
+      "runner": "codex",
+      "passed": false,
+      "total": 1
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "opencode",
+      "passed": true,
+      "total": 1
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "hermes",
+      "passed": false,
+      "total": 1
+    },
+    {
+      "model": "wen-0.1",
+      "runner": "aider",
+      "passed": true,
+      "total": 1
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "codex",
+      "passed": false,
+      "total": 1
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "opencode",
+      "passed": true,
+      "total": 1
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "hermes",
+      "passed": false,
+      "total": 1
+    },
+    {
+      "model": "wen-1.1",
+      "runner": "aider",
+      "passed": true,
+      "total": 1
+    }
+  ],
+  "cpu_checks": {
+    "host": "Linux",
+    "tests": 31,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "main_integration": {
+    "all_four_cli_code_tasks_passed": true,
+    "bw_branch_preserved": true,
+    "bw_resumed_full_response_passed": true,
+    "native_model_allocations": 1,
+    "text_and_mixed_native_profiles_passed": true,
+    "ephemeral_text_and_mixed_caches_removed": true,
+    "post_shutdown_gpu_used_mib": 15,
+    "bw_resume_forward_tokens": 78,
+    "bw_resume_output_tokens": 78,
+    "repeat_prompt_cached_tokens": 12
+  },
+  "training_started": false
+}

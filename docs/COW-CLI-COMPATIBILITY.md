@@ -87,6 +87,33 @@ intents with actual file-byte/code/writing oracles. This small pilot is evidence
 of interoperability, not a general model/harness ranking. Raw prompts, answers,
 credentials, weights and runner configuration homes stay outside public Git.
 
+The answer-free [validation receipt](context-cow/results/cli-compat-20261022/summary.json)
+records 31 passing Linux CPU checks, without failures or skips. In the normal
+dual-port launcher, all four CLIs completed the code-repair control. A BW native
+context was parked while they worked, kept the same branch head, and resumed to
+the correct complete response afterward. Its 78 resumed output tokens required
+78 native forward tokens, with checkpoint import rather than prefix replay.
+Only one model allocation was present. Both text and mixed-capable dense builds
+passed repeated text requests; the second request reused 12/19 prompt tokens.
+Both ephemeral session directories were removed after exit and GPU use returned
+to the 15 MiB idle baseline. The mixed test first exposed a typed-history
+admission error; the fix and regression test are included in this change.
+
+The separate four-task runner pilot passed:
+
+| Model | Codex | OpenCode | Hermes | Aider |
+|---|---:|---:|---:|---:|
+| Original Wen | 1/4 | 2/4 | 2/4 | 1/4 |
+| Wen 1.1 | 2/4 | 1/4 | 1/4 | 1/4 |
+
+An additional procedural hint fixed the byte-format task for OpenCode and Aider
+with both models; Codex and Hermes still failed it. These 40 trials are not a
+full BW workflow comparison: they reuse BW task intents, with each runner's own
+tools and prompts. BW's native-context coexistence was checked separately above.
+The evidence supports keeping explicit file-byte controls and adding measured
+check/revise feedback where useful, not replacing BW or declaring a universal
+winning runner. No training occurred and no candidate model was promoted.
+
 Official custom-provider references: [OpenAI Docs](https://learn.chatgpt.com/docs/config-file/config-reference),
 [Hermes](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart),
 [OpenCode v1](https://opencode.ai/docs/providers/),
