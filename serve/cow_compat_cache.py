@@ -103,7 +103,18 @@ class CachedCow:
                 snapshot = source.snapshot
             self.adapter.fork(branch, snapshot)
             head = self.adapter.head(branch)
-        request = self.adapter.generate(branch, full_ids, head.revision, operation, max_tokens,
+        # Mixed-capable native builds canonicalize even text-only roots into
+        # typed spans. Preserve that identity through exact-prefix admission;
+        # never compare an InputHistory to a projected raw-token sequence.
+        canonical = self.adapter.history(branch)
+        rendered = full_ids
+        if not isinstance(canonical, (tuple, list)):
+            from context_time_travel.input_spans import InputHistory
+            if (not isinstance(canonical, InputHistory) or
+                    any(span['kind'] != 'text' for span in canonical.spans)):
+                raise ValueError('Standard CLI reuse accepts text-only canonical input spans')
+            rendered = InputHistory([dict(kind='text', tokens=list(full_ids))])
+        request = self.adapter.generate(branch, rendered, head.revision, operation, max_tokens,
                                         settings=settings, cancelled=cancelled, seed=seed,
                                         text_stops=text_stops)
         return branch, request, reused
@@ -112,5 +123,9 @@ class CachedCow:
         # Called only after durable success. Never index provisional output.
         history = self.adapter.history(branch)
         if not isinstance(history, (tuple, list)):
-            raise ValueError('This experimental compatibility service accepts text tokens only')
+            from context_time_travel.input_spans import InputHistory
+            if (not isinstance(history,InputHistory) or
+                    any(span['kind']!='text' for span in history.spans)):
+                raise ValueError('Standard CLI reuse accepts text-only canonical input spans')
+            history=history.text_tokens
         self.index.remember(self.identity, history, receipt['snapshot'])

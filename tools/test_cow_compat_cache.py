@@ -1,4 +1,7 @@
 import unittest
+import os
+import sys
+from pathlib import Path
 from types import SimpleNamespace
 from concurrent.futures import Future
 from serve.cow_compat_cache import PrefixIndex, CachedCow, SessionBudgets
@@ -9,8 +12,14 @@ def ready(value):
 
 
 class Adapter:
-    def __init__(self):
+    def __init__(self, mixed=False):
         self.snapshots, self.heads, self.created, self.generated = {}, {}, [], []
+        self.mixed=mixed
+    def history(self, branch):
+        tokens=self.snapshots[self.heads[branch]]
+        if not self.mixed:return tokens
+        from context_time_travel.input_spans import InputHistory
+        return InputHistory([dict(kind='text',tokens=list(tokens))])
     def create(self, name, ids, operation, cancelled=None):
         snapshot = 's' + str(len(self.snapshots))
         self.snapshots[snapshot] = tuple(ids)
@@ -21,6 +30,8 @@ class Adapter:
     def head(self, name):
         return SimpleNamespace(revision=0)
     def generate(self, branch, ids, revision, operation, max_tokens, **kwargs):
+        self.rendered=ids
+        if self.mixed:ids=ids.text_tokens
         source = self.snapshots[self.heads[branch]]
         assert tuple(ids[:len(source)]) == source
         self.generated.append((branch, source, tuple(ids[len(source):])))
@@ -28,6 +39,17 @@ class Adapter:
 
 
 class Tests(unittest.TestCase):
+    @unittest.skipUnless(os.name=='posix','Canonical mixed-history module uses POSIX Store locks')
+    def test_text_reuse_on_mixed_native_profile_preserves_typed_history(self):
+        sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'experimental/branching_context/src'))
+        from context_time_travel.input_spans import InputHistory
+        a=Adapter(mixed=True); c=CachedCow(a,('model','mixed-profile'))
+        branch,_,_=c.start((1,2,3),(1,2),4)
+        self.assertIsInstance(a.rendered,InputHistory)
+        self.assertEqual(a.rendered.text_tokens,(1,2,3))
+        a.snapshots['completed']=(1,2,3,5);a.heads[branch]='completed'
+        c.committed(branch,dict(snapshot='completed'))
+        self.assertEqual(c.index.find(c.identity,(1,2,3,5,6)).snapshot,'completed')
     def test_session_budget_cannot_reset_by_retrying_same_endpoint(self):
         b = SessionBudgets(calls=2, sessions=2)
         b.admit('one'); b.admit('one')
