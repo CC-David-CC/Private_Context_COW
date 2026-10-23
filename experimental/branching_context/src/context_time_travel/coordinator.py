@@ -111,7 +111,7 @@ class _FailedPublication:
 
 class ContextCoordinator:
     def __init__(self,directory,config,model_factory,*,admission_timeout=30,transition_trace=None,
-                 input_preparer=None):
+                 input_preparer=None,cache_peers=()):
         if input_preparer is not None:
             self._preparer_identity(input_preparer)
             if not all(callable(getattr(input_preparer,name,None)) for name in ('validate','prepare')):
@@ -126,6 +126,13 @@ class ContextCoordinator:
             checkpoint_idle_seconds=config.checkpoint_idle_seconds,notifications=self._pool_notifications)
         self.disk = DiskCheckpointPool(self.store,config.disk_bytes,
             checkpoint_idle_seconds=config.checkpoint_idle_seconds,notifications=self._pool_notifications)
+        self._transfers=self._peers=None
+        if config.cache_transfer or cache_peers:
+            from .checkpoint_transfer import CheckpointTransfers
+            self._transfers=CheckpointTransfers(self.pool,self.disk,max_bytes=min(config.disk_bytes,64*1024**3))
+        if cache_peers:
+            from .cache_peers import PeerCaches
+            self._peers=PeerCaches(cache_peers,self._transfers)
         self._process_lock = (self.store.root/'pool.lock').open('a+b')
         try: fcntl.flock(self._process_lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
         except OSError:
@@ -1778,12 +1785,39 @@ class ContextCoordinator:
             cache_notifications=feature(True,self.config.cache_inventory,qualification='experimental'),
             transfer_aware_scheduling=feature(True,self.config.scheduling=='transfer-aware',qualification='experimental'),
             prefill_coalescing=feature(True,self.config.scheduling!='fifo'),
-            peer_transfer=feature(False),prefill_decode_placement=feature(False),
+            peer_transfer=feature(True,self.config.cache_transfer,qualification='experimental'),
+            peer_cache_recovery=feature(True,self._peers is not None,qualification='experimental'),
+            prefill_decode_placement=feature(False),
             tokenizer_fastokens=feature(False))
         return dict(workers=workers,features=features,limits=dict(
             ram_cache_bytes=self.config.ram_bytes,disk_cache_bytes=self.config.disk_bytes,
             minimum_available_ram_bytes=self.config.min_available_bytes),
             scheduling=self.config.scheduling)
+
+    def export_checkpoint(self,snapshot,model_contract_id,execution_profile_id):
+        """Export only an existing derived disk image; no native worker lease."""
+        if not self.config.cache_transfer:raise InvalidOperation('Cache transfers are disabled')
+        with self._condition:
+            if self._stopping or self._closed:raise InvalidOperation('Coordinator is stopping')
+            models=[w['model'] for w in self._workers.values() if w['health']=='healthy'
+                and w['model_contract_id']==model_contract_id and w['execution_profile_id']==execution_profile_id]
+        if not models:raise IntegrityError('No worker has the requested checkpoint identity')
+        self._headroom()
+        return self._transfers.export(models[0],snapshot,model_contract_id,execution_profile_id,
+                                      cancelled=lambda:self._stopping)
+
+    def _try_peer_recovery(self,model,job,source):
+        if self._peers is None:return None
+        self._headroom()
+        estimate=None
+        if self._costs is not None:
+            gpu=model.gpu_id if hasattr(model,'gpu_id') else model.gpu
+            rate=self._costs.metrics()['forward'].get(gpu)
+            if rate is not None:estimate=rate*len(model.history(source))
+        receipt=self._peers.recover(model,source,cancelled=job.cancelled,rebuild_seconds=estimate)
+        if receipt is not None:
+            job.request.emit('source_peer_restored',**receipt)
+        return receipt
 
     @staticmethod
     def _native_inventory(model,gpu):
@@ -2329,6 +2363,8 @@ class ContextCoordinator:
                 model.cache.pop(source,None)
                 cached=None
             manifest_path=model.checkpoint_directory/(source+'.json')
+            if key not in self.pool and not os.path.lexists(manifest_path):
+                self._try_peer_recovery(model,job,source)
             if key not in self.pool and not os.path.lexists(manifest_path):
                 recomputation,before=self._rebuild_missing_source(model,job,source,before)
             else:
@@ -3031,6 +3067,8 @@ class ContextCoordinator:
                 result['scheduling']['last_placement']=self._last_placement
             if self._inventory is not None:
                 result['cache_inventory']=dict(enabled=True,event_limit=1024,entry_limit=self._inventory.entry_limit)
+            if self._transfers is not None:result['cache_transfers']=self._transfers.metrics()
+            if self._peers is not None:result['cache_peers']=self._peers.metrics()
             return result
 
     def close(self):

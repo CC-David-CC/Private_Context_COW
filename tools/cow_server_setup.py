@@ -72,8 +72,22 @@ def compatibility_config(args):
     return dict(openai_port=port,openai_model=model,openai_max_output=bound)
 
 
+def cache_peer_config(args):
+    result={}
+    enabled=getattr(args,'cache_transfer',False)
+    if type(enabled) is not bool:raise ValueError('cache_transfer must be boolean')
+    if enabled:result['cache_transfer']=True
+    path=getattr(args,'cache_peers',None)
+    if path is not None:
+        sys.path[:0]=[str(ROOT/'experimental/branching_context/src')]
+        from context_time_travel.cache_peers import load_peers
+        load_peers(path);result['cache_peers']=str(path)
+    return result
+
+
 def _make_profile(args,output):
     compatibility=compatibility_config(args)
+    peers=cache_peer_config(args)
     sys.path[:0]=[str(ROOT),str(ROOT/"experimental/branching_context/src")]
     from tools.gguf_reader import GGUFFile
     from context_time_travel.strata_backend import _digest
@@ -104,6 +118,7 @@ def _make_profile(args,output):
         if getattr(args,'scheduling','fifo')!='fifo':configuration['scheduling']=args.scheduling
         if getattr(args,'cache_inventory',False):configuration['cache_inventory']=True
         configuration.update(compatibility)
+        configuration.update(peers)
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
     if getattr(args,'math_profile','native')!='native':raise ValueError('This math profile is currently supported only by the dense native adapter')
@@ -208,6 +223,7 @@ def _make_profile(args,output):
     if getattr(args,'scheduling','fifo')!='fifo':server_config['scheduling']=args.scheduling
     if getattr(args,'cache_inventory',False):server_config['cache_inventory']=True
     server_config.update(compatibility)
+    server_config.update(peers)
     write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
@@ -238,6 +254,8 @@ def main():
     parser.add_argument("--gpu",type=parse_gpus,help='Physical PCI GPU IDs: 4 or 4,6 for independent workers. Grouped native checkpoints remain unsupported. Omit to preserve GPU 0 defaults.')
     parser.add_argument('--ephemeral',action='store_true',help='Use temporary session history/checkpoints and remove them on server exit')
     parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
+    parser.add_argument('--cache-transfer',action='store_true',help='Allow authenticated checkpoint export to configured clients')
+    parser.add_argument('--cache-peers',type=Path,help='Private explicit peer configuration for optional cache recovery')
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',
         help='Shared-prefix, backlog-weighted queue admission; default preserves FIFO')
     parser.add_argument("--expert-profile",type=Path)

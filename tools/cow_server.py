@@ -82,6 +82,13 @@ def configured_argv(directory,config,key):
     if type(config.get('cache_inventory',False)) is not bool:
         raise ValueError('cache_inventory must be boolean')
     if config.get('cache_inventory',False):argv += ['--cache-inventory']
+    if type(config.get('cache_transfer',False)) is not bool:
+        raise ValueError('cache_transfer must be boolean')
+    if config.get('cache_transfer',False):argv += ['--cache-transfer']
+    if config.get('cache_peers') is not None:
+        from context_time_travel.cache_peers import load_peers
+        load_peers(config['cache_peers'])
+        argv += ['--cache-peers',config['cache_peers']]
     if config.get('openai_port') is not None:
         argv += ['--openai-port',str(config['openai_port']),
                  '--openai-model',config.get('openai_model','cow'),

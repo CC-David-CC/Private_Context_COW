@@ -234,6 +234,9 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 transition_trace=None,trace_identity=None,grammar_catalog=None,connection_info=None):
     if host not in ('127.0.0.1','localhost','::1') and not api_key:
         raise ValueError('A public bind requires an API key')
+    transfer_enabled=getattr(adapter,'cache_transfer_enabled',None)
+    if callable(transfer_enabled) and transfer_enabled() and not api_key:
+        raise ValueError('Peer checkpoint export requires an API key')
     if grammar_catalog is not None:
         if not api_key or text_adapter is None:
             raise ValueError('Grammar registration requires an API key and text adapter')
@@ -858,7 +861,8 @@ def pool_config_from_args(args,profile=None):
     return PoolConfig(gpus=profile['execution']['GPU'] if profile is not None else (0,),ram_bytes=args.ram_gib*1024**3,
         disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
         checkpoint_idle_seconds=args.checkpoint_idle_seconds,
-        scheduling=getattr(args,'scheduling','fifo'),cache_inventory=getattr(args,'cache_inventory',False))
+        scheduling=getattr(args,'scheduling','fifo'),cache_inventory=getattr(args,'cache_inventory',False),
+        cache_transfer=getattr(args,'cache_transfer',False))
 
 
 def main():
@@ -872,6 +876,8 @@ def main():
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
     parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
+    parser.add_argument('--cache-transfer',action='store_true',help='Allow authenticated export of existing checkpoints')
+    parser.add_argument('--cache-peers',type=Path,help='Private explicit peer configuration for optional cache recovery')
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',
         help='Opt in to shared-prefill admission with backlog weights and bounded-wait aging')
     parser.add_argument('--min-available-gib',type=int,default=16,help='Positive host RAM headroom; guided setup sizes this for the server.')
@@ -885,6 +891,11 @@ def main():
     parser.add_argument('--pool-trace-output',type=Path,
         help='Optional private local trace path; written only after ready service closes cleanly')
     args=parser.parse_args()
+    if args.cache_transfer and not args.api_key:parser.error('--cache-transfer requires --api-key')
+    peers=()
+    if args.cache_peers is not None:
+        from context_time_travel.cache_peers import load_peers
+        peers=load_peers(args.cache_peers)
     if args.openai_port is not None:
         if not args.text:parser.error('--openai-port requires --text')
         if not 1<=args.openai_port<=65535 or args.openai_port==args.port:
@@ -943,7 +954,7 @@ def main():
             backend=StrataBackend(profile,gpu_id=gpu)
         return BranchingModel(args.store,backend,profile)
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
-    coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer)
+    coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer,cache_peers=peers)
     server=None
     compatibility_server=None
     compatibility_thread=None
@@ -963,7 +974,7 @@ def main():
             connection_info=(dict(model_contract_id=profile['model_contract_id'],
                 execution_profile_id=profile['execution_profile_id'],
                 eos_tokens=profile['execution']['eos_tokens']) if profile['execution'].get('eos_tokens') else None))
-        if trace is not None:
+        if trace is not None or args.cache_transfer:
             # On graceful shutdown, wait for handlers to finish writing their
             # terminal request markers before the trace snapshot is published.
             server.daemon_threads=False
