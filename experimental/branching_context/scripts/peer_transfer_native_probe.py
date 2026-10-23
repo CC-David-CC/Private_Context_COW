@@ -122,7 +122,8 @@ def main():
                 while True:
                     try:events.append(creation.events.get_nowait())
                     except queue.Empty:break
-            handle=coordinator.submit('probe',(),128,'peer-native-response',expected_revision=0)
+            handle=coordinator.submit('probe',(),128,'peer-native-response',
+                                      expected_revision=coordinator.store.head('probe').revision)
             receipt=handle.durable.result(600)
             while True:
                 try:events.append(handle.events.get_nowait())
