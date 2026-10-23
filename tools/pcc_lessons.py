@@ -268,12 +268,20 @@ class NativeRunner:
     def __init__(self,config):
         self.config=copy.deepcopy(config)
         required={'model','base_sha256','executable','devices','device_budget_bytes','reserve_bytes','gpu_uuids'}
-        if set(config) not in (required,required|{'sequence_profile'}):raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
+        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
         if sha256(config['model'])!=config['base_sha256']:raise ValueError('Training model hash mismatch')
         from tools.pcc_native_training import validate_devices
         names=validate_devices(config['devices'])
         from tools.pcc_native_training import validate_sequence_profile
         validate_sequence_profile(config.get('sequence_profile','short-v1'),names)
+        if type(config.get('timeout_seconds',3600)) is not int or not 1<=config.get('timeout_seconds',3600)<=3600:
+            raise ValueError('Owner native timeout must be 1..3600 seconds')
+        if 'block_devices' in config:
+            placement=config['block_devices']
+            if type(placement) is not list or not 3<=len(placement)<=34 or any(type(i) is not int or not 0<=i<len(names) for i in placement):
+                raise ValueError('Owner block placement must contain bounded device indices')
+        if 'host_reserve_bytes' in config and (type(config['host_reserve_bytes']) is not int or config['host_reserve_bytes']<=0):
+            raise ValueError('Positive owner host-memory reserve required')
         if names==['CPU']:
             if config['gpu_uuids']:raise ValueError('CPU training cannot reserve GPUs')
         elif names!=['CUDA'+str(i) for i in range(len(names))] or len(config['gpu_uuids'])!=len(names) or len(set(config['gpu_uuids']))!=len(names):
@@ -293,11 +301,13 @@ class NativeRunner:
                 environment.update(CUDA_DEVICE_ORDER='PCI_BUS_ID',CUDA_VISIBLE_DEVICES=','.join(c['gpu_uuids']))
             native={k:c[k] for k in ['model','base_sha256','devices','device_budget_bytes','reserve_bytes']}
             native.update({k:request[k] for k in ['mode','rank','batch_size','steps','learning_rate']},examples=examples,optimizer='sgd',backprop_mode='standard')
-            if 'sequence_profile' in c:native['sequence_profile']=c['sequence_profile']
+            for key in ('sequence_profile','block_devices','host_reserve_bytes'):
+                if key in c:native[key]=c[key]
             if parent:
                 if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
                 else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
-            return execute_native(c['executable'],native,run,timeout=3600,environment=environment,pass_fds=tuple(fds))
+            native['deadline_seconds']=c.get('timeout_seconds',3600)
+            return execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds))
 
 def configured_service(config_path,profile,tokenizer):
     config=json.loads(Path(config_path).read_bytes())

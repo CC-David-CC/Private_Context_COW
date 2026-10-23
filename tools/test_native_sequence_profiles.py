@@ -12,6 +12,12 @@ class SequenceProfiles(unittest.TestCase):
         with self.assertRaises(ValueError):validate_sequence_profile('tiny-cpu-long-v1',['CUDA0'])
         with self.assertRaises(ValueError):validate_sequence_profile('unbounded',['CPU'])
         self.assertEqual(validate_sequence_profile('short-v1',['CUDA0']),'short-v1')
+    def test_dense_short_has_separate_token_and_target_bounds(self):
+        self.assertEqual(validate_sequence_profile('dense-short-v1',['CUDA0','CUDA1']),'dense-short-v1')
+        self.assertEqual(len(validate_examples([self.example(512)],sequence_profile='dense-short-v1')[0]['tokens']),512)
+        with self.assertRaises(ValueError):validate_examples([self.example(513)],sequence_profile='dense-short-v1')
+        x=self.example(512);x['loss_mask']=[True]*512
+        with self.assertRaises(ValueError):validate_examples([x],sequence_profile='dense-short-v1')
     def test_arrays_and_targets_are_checked(self):
         x=self.example(8);x['tokens']='bad'
         with self.assertRaises(ValueError):validate_examples([x])

@@ -17,7 +17,7 @@ def sha256(path):
     with Path(path).open('rb') as stream:
         return hashlib.file_digest(stream,'sha256').hexdigest()
 
-SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768}
+SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768,'dense-short-v1':512}
 
 def validate_sequence_profile(profile,devices):
     if profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
@@ -47,7 +47,7 @@ def validate_examples(examples,*,sequence_profile='short-v1'):
             raise ValueError('Nonnegative integer token IDs required')
         if any(type(m) is not bool for m in e['loss_mask']) or not any(e['loss_mask']):
             raise ValueError('Nonempty explicit completion-loss mask required')
-        if sequence_profile=='tiny-cpu-long-v1' and sum(e['loss_mask'])>256:raise ValueError('Long CPU fixtures admit at most 256 selected targets')
+        if sequence_profile in ('tiny-cpu-long-v1','dense-short-v1') and sum(e['loss_mask'])>256:raise ValueError('Balanced profiles admit at most 256 selected targets')
         if e['targets'][:-1]!=e['tokens'][1:]:
             raise ValueError('Targets must describe the next consumed token')
     return copy.deepcopy(examples)

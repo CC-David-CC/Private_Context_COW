@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "BOUNDED_MECHANICS_PASS",
+  "profile": "dense-short-v1",
+  "native_source_sha256": "5d01ceaeaed65f645ce8e58ce95e08a227d38cb89e20be63f12d35756c8f448e",
+  "bounds": {
+    "tokens": 512,
+    "selected_targets": 256,
+    "whole_graph": true,
+    "section_adjoints": false
+  },
+  "cpu": {
+    "modes": [
+      "lora",
+      "full"
+    ],
+    "lengths": [
+      64,
+      375
+    ],
+    "old_new_loss_tolerance": 1e-05,
+    "reload_tolerance": 1e-05,
+    "negative_cases": 4,
+    "admission_gradient_cases": 10
+  },
+  "cuda_tiny": {
+    "devices": 2,
+    "modes": [
+      "lora",
+      "full"
+    ],
+    "lengths": [
+      64,
+      375
+    ],
+    "cpu_loss_tolerance": 1e-05,
+    "reload_tolerance": 1e-05,
+    "explicit_placement": true,
+    "owned_allocations_settled": true
+  },
+  "wen": {
+    "model": "Wen 1.1 BF16",
+    "base_sha256": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34",
+    "mode": "lora",
+    "devices": 4,
+    "tokens": 178,
+    "selected_targets": 15,
+    "loss": 0.8826866149902344,
+    "finite_gradient_tensors": 498,
+    "nonzero_gradient_tensors": 249,
+    "seconds": 72.42189579457045,
+    "weights_updated": false,
+    "candidate_written": false,
+    "base_unchanged": true,
+    "owned_allocations_settled": true
+  },
+  "limits": [
+    "No language-quality qualification",
+    "No full-pack 375-token Wen capacity claim",
+    "No long-context Wen training qualification",
+    "HIP and SYCL not targeted by this standalone CPU/CUDA experiment"
+  ],
+  "promoted": false
+}

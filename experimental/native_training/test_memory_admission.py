@@ -22,6 +22,7 @@ def run(executable, output):
         for name, command, budget, expected in [
                 ('accept', '--admit-training', 2<<30, 'MEMORY_ADMISSION_PASS'),
                 ('refuse', '--admit-training', 1, 'MEMORY_ADMISSION_REFUSED'),
+                ('gradient', '--probe-gradients', 2<<30, 'GRADIENT_PROBE_PASS'),
                 ('train-refused', '--train', 1, None),
                 ('train', '--train', 2<<30, 'MECHANICS_EXECUTED')]:
             label = mode+'-'+name
@@ -43,6 +44,9 @@ def run(executable, output):
                 if command=='--admit-training':
                     assert not report['weights_loaded'] and not report['weights_updated']
                     assert not report['graph_allocation_qualified']
+                if command=='--probe-gradients':
+                    assert not report['weights_updated'] and not report['candidate_written']
+                    assert any(g['l2']>0 for g in report['gradients'])
             assert candidate.exists() == (name=='train')
             assert hashlib.sha256(model.read_bytes()).hexdigest()==original
             rows.append(dict(mode=mode,case=name,status='PASS'))

@@ -70,3 +70,13 @@ The native executable accepts `--admit-training REQUEST.json`. It checks the sam
 The 2026-10-23 Wen foundation pack passed exact rendering at 58–375 tokens. The current ordinary LoRA planner estimated 336.9 GiB for its longest lesson, so the single-A100 attempt was refused. Wen weights stayed unchanged. See the [S³ pilot evidence and limits](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FOUNDATION-TRAINING-PILOT.md).
 
 The configured launcher also preserves API keys beginning with a dash by binding their argument value explicitly. Ordinary launcher arguments remain unchanged.
+
+
+## Dense GPU gradient checkpoint
+
+The opt-in `dense-short-v1` profile now supports bounded complete-graph assembly
+and explicit block placement. Tiny-model LoRA/full updates and reloads passed on
+two A100s at 64 and 375 tokens. A separate real Wen 1.1 gradient-only check passed
+at 178 tokens across four A100s, without updating weights or writing a candidate.
+The longest full-pack lessons and an actual guarded learning campaign still need
+separate admission and evidence. See the [native profile and limits](../experimental/native_training/README.md#bounded-dense-sequence-profile).

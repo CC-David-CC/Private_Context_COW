@@ -211,3 +211,45 @@ and sustained resource pressure. Never promote solely because training loss fell
 The [completed 1,000-variation Wen study](../../validation/wen-learning-quality-20261023/README.md)
 measures substantial selection-pattern learning, preservation regressions and
 weak blind transfer. It qualifies no candidate and changes no live model.
+
+## Bounded dense sequence profile
+
+`dense-short-v1` is an opt-in complete-graph path for up to 512 consumed tokens
+and 256 selected target positions, within the explicitly checked dense model
+geometry. It uses balanced sequence concatenation, bounded graph capacity and
+actual live-tensor counts for multi-device scheduler bookkeeping. It retains
+ordinary end-to-end backpropagation; it does not use section adjoints.
+
+An owner can set `block_devices` to place the embedding, every decoder layer and
+the head on explicit visible device indices. Omission retains modulo placement.
+`host_reserve_bytes` protects available host RAM as well as per-device memory
+budgets. `timeout_seconds` in the owner runner sets both its subprocess deadline
+and the native child's independent alarm. Native requests name this value
+`deadline_seconds`; its range is 1–3600 seconds. Client lesson requests cannot
+choose these resources.
+
+`--probe-gradients REQUEST.json` checks one exact owned example and reports
+finite parameter gradient norms without applying an optimizer update or writing
+a candidate. `--admit-training` remains a planner-only check. Neither establishes
+language learning or a release-ready model.
+
+Measured on 2026-10-23: the tiny CPU fixture's old/new paths agreed within 0.00001
+at 64 and 375 tokens for LoRA and full updates, including candidate reloads.
+The same cases agreed with the CPU reference on two A100s, including explicit
+placement. A real Wen 1.1, 178-token LoRA gradient-only probe then passed on four
+A100s: 498 finite gradient tensors, 249 initially nonzero, loss 0.882686615.
+The other half of the LoRA factors begin with zero gradients because their paired
+factors are initialized to zero. This run took 72.42 seconds including its model
+integrity check; shared-host timing is not a performance benchmark. Original
+weights were unchanged, no candidate was written, and all owned GPU allocations
+and locks settled. This does not qualify 375-token Wen training or full-weight
+Wen updates under the new profile.
+
+Run the reproducible CPU checks with:
+
+```sh
+python -m experimental.native_training.test_dense_profile --executable /path/to/pcc-native-train --output /fresh/private/dense-proof
+python -m experimental.native_training.test_memory_admission --executable /path/to/pcc-native-train --output /fresh/private/admission-proof
+```
+
+See [the sanitized evidence](../../validation/foundations-20261023/dense-short-profile.json).
