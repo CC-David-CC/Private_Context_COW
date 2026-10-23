@@ -1,6 +1,10 @@
 {
   "schema": 1,
   "modules": {
+    "test_cache_peers": {
+      "campaign": "cpu",
+      "requires": []
+    },
     "test_checkpoint_transfer": {
       "campaign": "cpu",
       "requires": []

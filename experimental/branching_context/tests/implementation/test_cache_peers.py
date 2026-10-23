@@ -1,0 +1,114 @@
+"""Authenticated CPU HTTP transfers; real native restore is qualified separately."""
+import json
+import socket
+import threading
+from types import SimpleNamespace
+import unittest
+from urllib.error import HTTPError
+from urllib.request import Request,urlopen
+
+import test_checkpoint_transfer as fixture
+from context_time_travel.cache_inventory import InventoryJournal
+from context_time_travel.cache_peers import ConfiguredPeer,PeerCaches,load_peers
+from context_time_travel.store import IntegrityError
+from serve.cow_http import make_server
+
+
+class PeerCacheTests(unittest.TestCase):
+    setUp=fixture.CheckpointTransferTests.setUp
+    model=fixture.CheckpointTransferTests.model
+    transport=fixture.CheckpointTransferTests.transport
+    canonical=fixture.CheckpointTransferTests.canonical
+    assert_released=fixture.CheckpointTransferTests.assert_released
+
+    def serving(self,*,enabled=True):
+        journal=InventoryJournal('cpu-peer')
+        journal.reconcile([dict(model='a'*64,execution='b'*64,snapshot=self.snapshot,
+            tier='disk',worker='shared',checksum=self.envelope['manifest']['payload_sha256'],
+            bytes=len(self.payload))])
+        self.journal=journal
+        self.source.pool_transfer_enabled=enabled
+        def export(snapshot,model_contract_id,execution_profile_id):
+            if not enabled:raise ValueError('disabled')
+            return self.outgoing.export(self.source,snapshot,model_contract_id,execution_profile_id)
+        adapter=SimpleNamespace(
+            export_checkpoint=export,cache_transfer_enabled=lambda:enabled,
+            cache_inventory=lambda **kw:journal.read(**kw),
+            capabilities=lambda:dict(features={name:dict(supported=True,enabled=value,qualification='experimental')
+                for name,value in [('peer_transfer',enabled),('cache_inventory',True)]}))
+        server=make_server(adapter,api_key='private-test-token',connection_info=dict(
+            model_contract_id='a'*64,execution_profile_id='b'*64,eos_tokens=[3]))
+        thread=threading.Thread(target=server.serve_forever);thread.start()
+        self.addCleanup(lambda:(server.shutdown(),server.server_close(),thread.join(5)))
+        url='http://127.0.0.1:'+str(server.server_port)
+        # HTTP framing metadata is accounted in the same RAM pool.
+        self.incoming=self.transport(self.target,ram_bytes=16*1024**2)
+        return url,PeerCaches([ConfiguredPeer('source',url,'private-test-token')],self.incoming)
+
+    def test_real_http_roundtrip_and_repeated_recovery_leave_heads_unchanged(self):
+        url,peers=self.serving();before=self.canonical(self.target)
+        result=peers.recover(self.target,self.snapshot)
+        self.assertEqual(result['transferred_bytes'],len(self.payload))
+        self.assertEqual(result['peer'],'source')
+        self.assertEqual(self.target.validate_checkpoint(self.snapshot),self.envelope['manifest'])
+        self.assertEqual(self.canonical(self.target),before)
+        self.assertEqual(peers.recover(self.target,self.snapshot)['transferred_bytes'],0)
+        self.assert_released(self.incoming);self.assert_released(self.outgoing)
+
+    def test_transfer_requires_authentication_and_explicit_enable(self):
+        url,peers=self.serving(enabled=False)
+        path='/cow/cache/checkpoint/'+self.snapshot+'?model_contract_id='+('a'*64)+'&execution_profile_id='+('b'*64)
+        with self.assertRaises(HTTPError) as error:urlopen(url+path)
+        self.assertEqual(error.exception.code,401)
+        with self.assertRaises(HTTPError) as error:
+            urlopen(Request(url+path,headers={'Authorization':'Bearer private-test-token'}))
+        self.assertEqual(error.exception.code,404)
+        self.assertIsNone(peers.recover(self.target,self.snapshot))
+
+    def test_wrong_peer_key_is_an_error_not_a_cache_miss(self):
+        url,_=self.serving()
+        peers=PeerCaches([ConfiguredPeer('wrong',url,'wrong')],self.incoming)
+        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        self.assert_released(self.incoming)
+
+    def test_incompatible_peer_never_supplies_cache_bytes(self):
+        _,peers=self.serving();self.target.profile['execution_profile_id']='c'*64
+        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        self.assertFalse((self.target.checkpoint_directory/(self.snapshot+'.json')).exists())
+
+    def test_stale_inventory_and_unreachable_peer_allow_existing_rebuild_path(self):
+        _,peers=self.serving()
+        # Leave the inventory hint but remove the source's optional image.
+        (self.source.checkpoint_directory/(self.snapshot+'.json')).unlink()
+        self.assertIsNone(peers.recover(self.target,self.snapshot))
+        with socket.socket() as sock:
+            sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
+        absent=PeerCaches([ConfiguredPeer('absent',f'http://127.0.0.1:{port}','test')],self.incoming)
+        self.assertIsNone(absent.recover(self.target,self.snapshot))
+        self.assertEqual(self.target.store.head('main').tip,self.snapshot)
+
+    def test_present_source_corruption_is_not_fallback(self):
+        _,peers=self.serving()
+        path=self.source.checkpoint_directory/(self.envelope['manifest']['payload_sha256']+'.state')
+        path.write_bytes(b'bad')
+        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        self.assertFalse((self.target.checkpoint_directory/(self.snapshot+'.json')).exists())
+        self.assert_released(self.incoming);self.assert_released(self.outgoing)
+
+    def test_bounded_private_configuration_and_credentials(self):
+        key=self.base/'peer.key';key.write_text('test-key\n');key.chmod(0o600)
+        config=self.base/'peers.json'
+        row=dict(name='cache',url='http://127.0.0.1:12345',api_key_file=str(key))
+        config.write_text(json.dumps(dict(schema=1,peers=[row])));config.chmod(0o600)
+        peers=load_peers(config)
+        self.assertEqual(len(peers),1);self.assertNotIn('test-key',repr(peers))
+        key.chmod(0o644)
+        with self.assertRaises(ValueError):load_peers(config)
+        key.chmod(0o600)
+        for changed in ([row,row],[dict(row,url='http://user:password@localhost')],[dict(row,url='file:///tmp')],
+                        [dict(row,url='http://127.0.0.1/path')]):
+            config.write_text(json.dumps(dict(schema=1,peers=changed)))
+            with self.assertRaises(ValueError):load_peers(config)
+
+
+if __name__=='__main__':unittest.main()
