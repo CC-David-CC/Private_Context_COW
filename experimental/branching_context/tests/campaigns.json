@@ -1,6 +1,10 @@
 {
   "schema": 1,
   "modules": {
+    "test_execution_roles": {
+      "campaign": "cpu",
+      "requires": []
+    },
     "test_cache_peers": {
       "campaign": "cpu",
       "requires": []

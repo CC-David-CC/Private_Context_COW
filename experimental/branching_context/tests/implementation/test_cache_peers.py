@@ -147,5 +147,32 @@ class PeerCacheTests(unittest.TestCase):
             config.write_text(json.dumps(dict(schema=1,peers=changed)))
             with self.assertRaises(ValueError):load_peers(config)
 
+    def test_identical_new_root_uses_peer_before_fresh_prefill(self):
+        from test_root_computation_reuse import CPUBackend
+        from context_time_travel.real import BranchingModel
+        from context_time_travel.coordinator import ContextCoordinator
+        from context_time_travel.pools import PoolConfig
+        profile=dict(model_contract_id='a'*64,execution_profile_id='b'*64,
+                     model_weights_sha256='c'*64,execution={'GPU':[0]})
+        self.source=BranchingModel(self.base/'root-source',CPUBackend(profile),profile)
+        self.snapshot=self.source.create((1,2,3))
+        prepared=self.source.prepare_checkpoint(self.snapshot)
+        self.source.publish_prepared_checkpoint(prepared)
+        self.envelope=json.loads(prepared.envelope)
+        self.payload=(self.source.checkpoint_directory/(prepared.checkpoint.checksum+'.state')).read_bytes()
+        self.outgoing=self.transport(self.source)
+        url,_=self.serving()
+        directory=self.base/'root-target';backends={}
+        def factory(gpu):
+            backend=CPUBackend(profile);backends[gpu]=backend
+            return BranchingModel(directory,backend,profile)
+        coordinator=ContextCoordinator(directory,PoolConfig(ram_bytes=16*1024**2,disk_bytes=1024**2,
+            min_available_bytes=0),factory,cache_peers=[ConfiguredPeer('source',url,'private-test-token')])
+        self.addCleanup(coordinator.close);coordinator.ready(5)
+        receipt=coordinator.create('new-chat',(1,2,3),'peer-root').durable.result(5)
+        self.assertEqual(receipt['snapshot'],self.snapshot)
+        self.assertEqual(backends[0].stats['forward_tokens'],0)
+        self.assertEqual(coordinator.metrics()['cache_transfers']['received_bytes'],len(self.payload))
+
 
 if __name__=='__main__':unittest.main()
