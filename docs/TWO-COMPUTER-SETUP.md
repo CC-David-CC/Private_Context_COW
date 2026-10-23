@@ -1,5 +1,11 @@
 # Put Context COW on your desktop and BranchWrite on your laptop
 
+**Using one computer, a smaller dense model, AMD, P4s or a shared A100?**
+Start with the [current PCC/BW hardware and feature guide](START-HERE.md).
+The steps below cover the large Flash/NVIDIA route with a separate client;
+they are not the setup recipe for every backend. PCC contains a modified Strata
+core and the COW layer; BW is the separate app.
+
 You can use two Linux computers on the same home network:
 
 - **Desktop / server:** runs the AI model and keeps its saved context.
@@ -202,7 +208,8 @@ sudo apt install -y curl git ca-certificates bubblewrap util-linux
 Then install BranchWrite as your normal user, without `sudo`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/CC-David-CC/BranchWrite/lan-preview-2026-10-21/install.sh -o "$HOME/branchwrite-install.sh" && sh "$HOME/branchwrite-install.sh"
+curl -fsSL https://raw.githubusercontent.com/CC-David-CC/BranchWrite/main/install.sh -o "$HOME/branchwrite-install.sh"
+BW_REF=main sh "$HOME/branchwrite-install.sh"
 ```
 
 Wait for **BranchWrite is installed**. It downloads its own Python and client
