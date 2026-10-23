@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--profile',type=Path,required=True)
     parser.add_argument('--source-gpu',type=int,required=True)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--new-root',action='store_true',help='Recover during ordinary creation of an identical new root')
     args=parser.parse_args()
     from context_time_travel.cache_inventory import InventoryJournal
     from context_time_travel.cache_peers import ConfiguredPeer
@@ -101,21 +102,28 @@ def main():
             stack.callback(lambda:(server.shutdown(),server.server_close(),thread.join(15)))
             destination=work/'destination';store=Store(destination)
             record=source.store.get_snapshot(snapshot)
-            if record['schema']==2:
-                local=store.create_input_root(record['model_contract_id'],record['inputs'],record['controller'])
-            else:local=store.create_root(record['model_contract_id'],record['inputs'],record['controller'])
-            if local!=snapshot:raise AssertionError('Canonical fixture differs before transfer')
-            store.fork('probe',snapshot)
-            canonical_before=(store.objects/(snapshot+'.json')).read_bytes()
+            if not args.new_root:
+                if record['schema']==2:
+                    local=store.create_input_root(record['model_contract_id'],record['inputs'],record['controller'])
+                else:local=store.create_root(record['model_contract_id'],record['inputs'],record['controller'])
+                if local!=snapshot:raise AssertionError('Canonical fixture differs before transfer')
+                store.fork('probe',snapshot)
+            canonical_before=(source.store.objects/(snapshot+'.json')).read_bytes()
             def factory(gpu):return BranchingModel(destination,load_qwen35_backend(profile,gpu_id=gpu),profile)
             coordinator=ContextCoordinator(destination,PoolConfig(gpus=tuple(gpus),ram_bytes=100*1024**3,
                 disk_bytes=100*1024**3,min_available_bytes=16*1024**3,cache_inventory=True),factory,
                 cache_peers=[ConfiguredPeer('source','http://127.0.0.1:'+str(server.server_port),key)])
             stack.callback(coordinator.close)
             coordinator.ready(timeout=600)
+            events=[]
+            if args.new_root:
+                creation=coordinator.create('probe',ids,'peer-native-create')
+                if creation.durable.result(600)['snapshot']!=snapshot:raise AssertionError('New root identity differs')
+                while True:
+                    try:events.append(creation.events.get_nowait())
+                    except queue.Empty:break
             handle=coordinator.submit('probe',(),128,'peer-native-response',expected_revision=0)
             receipt=handle.durable.result(600)
-            events=[]
             while True:
                 try:events.append(handle.events.get_nowait())
                 except queue.Empty:break
@@ -136,7 +144,7 @@ def main():
             work_counters={str(gpu):model['model'].backend.work_counters() for gpu,model in coordinator._workers.items()}
             if sum(row['forward_tokens'] for row in work_counters.values())!=len(tokens):
                 raise AssertionError('Destination consumed more than generated tokens')
-            report.update(status='PASS',prefix_tokens=len(ids),generated_tokens=len(tokens),
+            report.update(status='PASS',new_root=args.new_root,prefix_tokens=len(ids),generated_tokens=len(tokens),
                 target_gpu=started[0]['gpu'],transferred_bytes=restored[0]['transferred_bytes'],
                 transfer_seconds=restored[0]['seconds'],complete_response_equal=True,controller_equal=True,
                 canonical_source_unchanged=True,prefix_recomputed_tokens=0,
