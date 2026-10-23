@@ -188,6 +188,19 @@ unrelated controls fall from 16/16 to 11/16 and differently worded blind cases
 improve only from 2/16 to 3/16. The candidate is unqualified and unpromoted.
 The plumbing works; an always-improving model has not been established.
 
+The independent [S³ project](https://github.com/CC-David-CC/sss) now owns the
+tree, arithmetic evaluator and mixed replay. Install the optional pinned package
+with `python -m pip install -r requirements-skills.txt` in the server environment;
+this does not enable training. Owner configuration and explicit `--skill-guard`
+are still required. [Its integration guide](https://github.com/CC-David-CC/sss/blob/main/docs/INTEGRATION.md)
+explains the frozen policy and bounded job configuration.
+
+A completed five-skill A100 pilot used four rounds, 16 updates and 128 mixed
+example slots. It preserved protected successes but stayed at 14/40 held-out
+checks, so no candidate qualified or reached blind evaluation. See
+[the full evidence](https://github.com/CC-David-CC/sss/blob/main/validation/README.md).
+This is a real native update/evaluation loop, without demonstrated held-out gain.
+
 If final evaluation is interrupted after every checkpoint completed, use the
 same owner arguments and work directory with `--resume-final-evaluation`. It
 validates saved evidence and evaluates only remaining frozen blind cases. It

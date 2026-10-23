@@ -1,0 +1,2 @@
+# Optional Skills cubed curricula/evaluation; does not enable training by itself.
+skills-cubed @ git+https://github.com/CC-David-CC/sss.git@0331663e70148eec9b51ae14f0973704a15989b3

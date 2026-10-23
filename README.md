@@ -117,8 +117,25 @@ Setup prepares the engine, model and server configuration. Start keeps the serve
 running. Give the BW user its server address and API key privately. An API key is
 the password for the service. Keep this setup on a trusted network.
 
-Read the guide before downloading: its default Q4 model is about **111 GB**, and
-the tested reference server has **128 GB RAM and 96 GB graphics memory**.
+### Model downloads and measured results
+
+| Download | Weight size | Start here |
+| --- | --- | --- |
+| **Qwen3.8 Flash Q4**, default | **111.33 GB** (103.69 GiB) | `./cow-setup`; [Flash installation](docs/TWO-COMPUTER-SETUP.md). |
+| **Wen 1.1 BF16**, research model | **16.24 GB** (15.13 GiB) | [Download GGUF](https://huggingface.co/davidflanagancomm/Wen/resolve/7328e9fab25b207523b5236aa29c81be24eed924/Wen-1.1-BF16.gguf?download=true); [download, verify and dense setup](docs/MODELS-AND-RESULTS.md). |
+| **Original Wen 1 BF16**, comparison model | **15.94 GB** (14.85 GiB) | [Historical GGUF](https://huggingface.co/davidflanagancomm/Wen/resolve/674907f2b65baa576e678b9c9a06bf07c3db9076/Wen-BF16.gguf?download=true); same separate dense route. |
+
+These are download sizes, not VRAM requirements. The tested large-Q4 reference
+server has **128 GB RAM and 96 GB graphics memory**. Wen does not use the Flash
+one-click downloader. [The model guide](docs/MODELS-AND-RESULTS.md) gives pinned
+CLI downloads, exact bytes/hashes and historical Q4/Q8/lower-quant results.
+
+[Skills³ (S³)](https://github.com/CC-David-CC/sss) owns the detailed skill tree,
+model comparisons and learning/regression reports. PCC summarizes the model and
+hardware story here; BW summarizes the practical task story. The current Wen 1
+and 1.1 comparison uses the same S³ tool fixtures. Historical Flash throughput
+is a separate campaign, not a score on those tasks.
+
 [Smaller Q4/IQ3/IQ2 trials](validation/lower-quants-llm49-20261021/) have their own
 results and limitations. Ordinary upstream Strata hardware support does not imply
 that every COW adapter supports the same hardware. The guided Flash/COW setup
