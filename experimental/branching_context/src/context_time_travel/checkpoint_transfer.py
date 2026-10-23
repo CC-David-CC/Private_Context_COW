@@ -16,7 +16,7 @@ import threading
 import time
 
 from .pools import PoolFull
-from .store import IntegrityError, _decode, _json_bytes, _sync_dir
+from .store import IntegrityError, NotFound, _decode, _json_bytes, _sync_dir
 
 
 @dataclass(frozen=True)
@@ -122,7 +122,11 @@ class CheckpointTransfers:
                 or model.profile['execution_profile_id']!=execution_profile_id):
             raise IntegrityError('Peer checkpoint identity differs')
         with self._slot(cancelled) as check,model.store.read_lease(snapshot):
-            manifest=model.checkpoint_manifest(snapshot)
+            try:manifest=model.checkpoint_manifest(snapshot)
+            except IntegrityError as error:
+                if isinstance(error.__cause__,FileNotFoundError):
+                    raise NotFound('Optional checkpoint manifest is absent') from None
+                raise
             envelope=dict(manifest=manifest,checksum=hashlib.sha256(_json_bytes(manifest)).hexdigest())
             envelope,raw,manifest,size=self._metadata(model,snapshot,envelope)
             with self.pool.reserve(4*self.chunk_bytes+len(raw)),self.disk.reserve(

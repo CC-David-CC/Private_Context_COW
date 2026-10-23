@@ -326,6 +326,42 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                     self.send_header('Content-Length',str(len(raw)));self.end_headers()
                     self.wfile.write(raw);return
             if not self.authorized(): return
+            if path.startswith('/cow/cache/checkpoint/'):
+                enabled=getattr(adapter,'cache_transfer_enabled',None)
+                if not callable(enabled) or not enabled():return self.json(404,dict(error='Cache transfers are disabled'))
+                snapshot=path[len('/cow/cache/checkpoint/'):]
+                began=False
+                try:
+                    query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
+                    if (re.fullmatch('[0-9a-f]{64}',snapshot) is None
+                            or set(query)!={'model_contract_id','execution_profile_id'}
+                            or any(len(v)!=1 or re.fullmatch('[0-9a-f]{64}',v[0]) is None for v in query.values())):
+                        raise ValueError('Transfer requires exact snapshot, model and execution identities')
+                    from context_time_travel.store import _json_bytes,NotFound
+                    from context_time_travel.pools import PoolFull
+                    import struct
+                    with adapter.export_checkpoint(snapshot,query['model_contract_id'][0],query['execution_profile_id'][0]) as offered:
+                        raw=_json_bytes(offered.envelope)
+                        self.connection.settimeout(10)
+                        began=True
+                        self.send_response(200);self.send_header('Content-Type','application/x-cow-checkpoint')
+                        self.send_header('Content-Length',str(4+len(raw)+offered.payload_bytes));self.end_headers()
+                        self.wfile.write(struct.pack('!I',len(raw)));self.wfile.write(raw)
+                        while True:
+                            offered.check();chunk=offered.stream.read(offered.chunk_bytes)
+                            if not chunk:break
+                            self.wfile.write(chunk)
+                    return
+                except _SOCKET_ERRORS:return
+                except Exception as error:
+                    if began:
+                        self.close_connection=True;return
+                    from context_time_travel.store import NotFound
+                    from context_time_travel.pools import PoolFull
+                    # A vanished optional manifest is a stale inventory hint.
+                    absent=isinstance(error,NotFound)
+                    return self.json(404 if absent else 429 if isinstance(error,PoolFull) else
+                                     400 if isinstance(error,ValueError) else 409,dict(error=str(error)))
             if path == '/cow/info':
                 if urlsplit(self.path).query:
                     return self.json(400, dict(error='Connection info takes no query parameters'))
