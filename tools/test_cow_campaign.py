@@ -1,11 +1,28 @@
 """Test selection must fail closed before importing an inapplicable native test."""
 import tempfile
+import os
+import subprocess
+import sys
 from pathlib import Path
 import unittest
 from tools.cow_campaign import classify, validate_manifest
 
 
 class CampaignTests(unittest.TestCase):
+    def test_checkout_import_paths_reach_child_processes_and_are_restored(self):
+        from tools.cow_campaign import campaign_environment
+        before=os.environ.get('PYTHONPATH')
+        paths=list(sys.path)
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            (root/'campaign_checkout_marker.py').write_text("VALUE='selected-checkout'\n")
+            with campaign_environment([root]):
+                value=subprocess.check_output([sys.executable,'-c',
+                    'from campaign_checkout_marker import VALUE; print(VALUE)'],text=True)
+                self.assertEqual(value.strip(),'selected-checkout')
+        self.assertEqual(os.environ.get('PYTHONPATH'),before)
+        self.assertEqual(sys.path,paths)
+
     def test_unknown_and_removed_modules_require_a_manifest_update(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

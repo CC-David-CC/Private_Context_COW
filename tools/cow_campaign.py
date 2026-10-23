@@ -5,11 +5,13 @@ This runner is complementary to the unchanged G0-G5 acceptance gate runner.
 It qualifies only the selected campaign, never the union of excluded campaigns.
 """
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import unittest
@@ -51,6 +53,20 @@ def cases(suite):
         else: yield item
 
 
+@contextmanager
+def campaign_environment(paths):
+    """Keep subprocess import resolution bound to the selected checkout too."""
+    selected=list(map(str,paths))
+    previous_path=list(sys.path); previous_env=os.environ.get('PYTHONPATH')
+    sys.path[:0]=selected
+    os.environ['PYTHONPATH']=os.pathsep.join(selected+([previous_env] if previous_env else []))
+    try:yield
+    finally:
+        sys.path[:]=previous_path
+        if previous_env is None:os.environ.pop('PYTHONPATH',None)
+        else:os.environ['PYTHONPATH']=previous_env
+
+
 def run(campaign, *, modules=None, environment=None, stream=None):
     env = os.environ if environment is None else environment
     manifest_bytes = MANIFEST.read_bytes()
@@ -77,6 +93,9 @@ def run(campaign, *, modules=None, environment=None, stream=None):
     if os.name != 'posix':
         report['reason'] = 'This campaign requires POSIX filesystem/process semantics'
         return report
+    if campaign=='cpu' and modules is None and shutil.which('g++') is None:
+        report['reason']='The complete CPU campaign includes compiled host controls and requires g++'
+        return report
     # Abort the requested campaign before importing any tests if it is incomplete.
     if any(row['status'] == 'BLOCKED' for row in observations.values()): return report
     ready = [name for name, row in observations.items() if row['status'] == 'READY']
@@ -91,17 +110,16 @@ def run(campaign, *, modules=None, environment=None, stream=None):
             return report
         report['profile'] = {key: profile.get(key) for key in
             ('backend', 'model_contract_id', 'execution_profile_id', 'model_weights_sha256')}
-    for path in (ROOT, BRANCHING/'src', BRANCHING/'scripts', TESTS):
-        if str(path) not in sys.path: sys.path.insert(0, str(path))
-    suite = unittest.TestSuite()
-    seen = set()
-    for name in ready:
-        loaded = unittest.defaultTestLoader.loadTestsFromName(name)
-        for test in cases(loaded):
-            # Imported fixture TestCase classes must not silently multiply coverage.
-            if test.id() not in seen:
-                suite.addTest(test); seen.add(test.id())
-    result = unittest.TextTestRunner(stream=stream or sys.stderr, verbosity=1).run(suite)
+    with campaign_environment((ROOT, BRANCHING/'src', BRANCHING/'scripts', TESTS)):
+        suite = unittest.TestSuite()
+        seen = set()
+        for name in ready:
+            loaded = unittest.defaultTestLoader.loadTestsFromName(name)
+            for test in cases(loaded):
+                # Imported fixture TestCase classes must not silently multiply coverage.
+                if test.id() not in seen:
+                    suite.addTest(test); seen.add(test.id())
+        result = unittest.TextTestRunner(stream=stream or sys.stderr, verbosity=1).run(suite)
     report.update(tests_run=result.testsRun,
         failures=[t.id() for t, _ in result.failures], errors=[t.id() for t, _ in result.errors],
         skipped=[dict(test=t.id(), reason=reason) for t, reason in result.skipped],
