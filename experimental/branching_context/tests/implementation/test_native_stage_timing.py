@@ -30,5 +30,9 @@ class NativeStageTimingTests(unittest.TestCase):
                        source+source,source.replace('forward.run(1, &token','forward.run(2, &token')):
             with self.subTest(),self.assertRaises(ValueError): instrument_request_timing(broken)
 
+    def test_already_integrated_instrumentation_is_not_applied_twice(self):
+        once = instrument_request_timing(self.source())
+        self.assertEqual(instrument_request_timing(once), once)
+
 
 if __name__ == '__main__': unittest.main()

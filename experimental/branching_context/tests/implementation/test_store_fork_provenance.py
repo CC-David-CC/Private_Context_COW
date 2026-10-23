@@ -5,6 +5,8 @@ import threading
 import unittest
 
 from context_time_travel.coordinator import ContextCoordinator
+from context_time_travel.pools import PoolConfig
+from test_pool_coordinator import Model
 from context_time_travel import Conflict, IntegrityError, InvalidOperation, NotFound, Store
 from context_time_travel.store import _hash, _json_bytes
 
@@ -65,10 +67,11 @@ class StoreForkProvenanceTests(unittest.TestCase):
     def test_coordinator_binds_original_source_revision_and_retry(self):
         self.namespace_source('left',self.namespace,'left-root','a','left')
         self.namespace_source('right',self.namespace,'right-root','b','right')
-        coordinator=object.__new__(ContextCoordinator)
-        coordinator.store=self.store
-        coordinator._condition=threading.RLock()
-        coordinator._validate_durable_checkpoint=lambda snapshot: None
+        gate=threading.Event();gate.set()
+        coordinator=ContextCoordinator(self.temp.name,
+            PoolConfig(gpus=(0,),ram_bytes=4096,disk_bytes=16384,min_available_bytes=0),
+            lambda gpu: Model(self.temp.name,gpu,(0,),[],gate)).ready(5)
+        self.addCleanup(coordinator.close)
         first=coordinator.fork('coordinator-copy',self.root,source_branch='left',
                                operation_id='coordinator-fork')
         event=next(item for item in self.store.presentation_catalog(self.namespace)['events']

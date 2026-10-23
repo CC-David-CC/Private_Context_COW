@@ -1,0 +1,1336 @@
+{
+  "schema": 1,
+  "modules": {
+    "test_adaptive_p_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_generation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_pipeline_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_pipeline_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_adaptive_p_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_agent_state_example": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_ancestry_decode_work": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_audit_browser_context_frontiers": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_audit_browser_context_frontiers_v2": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_audit_cow_browser_revisit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_backend_capabilities": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_batched_layer_trace": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_batched_resume_work": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_bounded_tree_retention": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_branch_checkpoint_eviction": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_builder_forward_counter_binding": {
+      "campaign": "legacy-build",
+      "requires": [
+        "COW_BUILDER_SOURCE_ROOT"
+      ]
+    },
+    "test_c01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_c01_auto": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_c01_cold_identity": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_c01_duplicate": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_c01_exact": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_c01_ram": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_c02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_c02_idle": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_c03": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cache_fabric_coordinator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cache_inventory": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_canonical_branch_actions": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_digest_attestation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_digest_attestation_red": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_lifecycle_diagnostics": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_lifecycle_pinned_binding": {
+      "campaign": "retained-evidence",
+      "requires": [
+        "CTT_DIAGNOSTIC_SOURCE_ROOT"
+      ]
+    },
+    "test_checkpoint_operation_receipts": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_rebuild": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_receipt_contract": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_resource_policy": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_checkpoint_stage_recovery": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_grammar_api_key_argument": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_grammar_numerical_audit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_grammar_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_resident_questions_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_retry_native_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_seed_stop_numerical_audit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_seed_stop_numerical_orchestrator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_seed_stop_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_workflow_numerics": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cli_workflow_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_client_pressure_audit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_client_stream_metrics": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_client_stream_native_exit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_codebase_fixture": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_consumed_pause": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_consumed_pause_coordinator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_controller_bulk_consumption": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_controller_copy": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_coordinator_idle_expiry": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cow_cli_machine_result": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cow_cli_reseed_revision": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cow_client_recovery": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_cow_multi_client": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_disk_lru": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_disk_pool": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_disk_pool_process_reservations": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_disk_reservation_growth": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_dry_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_dry_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_dry_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_dry_serving_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_durable_restore": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_e01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_e01_real": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_e02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_e02_records": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_e03": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_e04": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE"
+      ]
+    },
+    "test_entropy_controller_recovery": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_entropy_selection_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_evaluation_operation_receipts": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_evaluation_serving": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_evidence_archive": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_execution_profile_finalizer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_execution_receipt": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_external_build_dir": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_failed_publication_lru": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_fork_operation_status": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_generation_settings": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_generation_settings_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_generation_settings_serving": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_gpu_workers": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_checkpoint_rebuild": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_first": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_long_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_long_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_mask_selection": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_native_builder": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_owned": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_grammar_selector_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_host_checkpoint_parking": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_input_prefix_comparison": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_json_schema_grammar": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_json_schema_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_json_unicode_escapes": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_matching_batch_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_min_p": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_min_p_integration": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_min_p_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_min_p_selector_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_min_p_top_k_top_p_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_generation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_linear": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_pipeline_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_receipts": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_mirostat2_resume": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_missing_materialization_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_missing_source_rebuild": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_n01": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_NORMAL_EXECUTABLE",
+        "CTT_PROFILE",
+        "CTT_REJECTED_BASELINE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_n02_dispatch": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_NORMAL_EXECUTABLE",
+        "CTT_ORACLE_EXECUTABLE",
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS",
+        "CTT_SUT_EXECUTABLE"
+      ]
+    },
+    "test_n02_projection": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS",
+        "CTT_STEP_EXECUTABLE"
+      ]
+    },
+    "test_n02_state": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS",
+        "CTT_STEP_EXECUTABLE"
+      ]
+    },
+    "test_n02_step": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS",
+        "CTT_STEP_EXECUTABLE"
+      ]
+    },
+    "test_n03": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE"
+      ]
+    },
+    "test_n03_finalize": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_CALIBRATION_PROGRESS",
+        "CTT_PROFILE"
+      ]
+    },
+    "test_n03_finalized": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_CALIBRATION_PROGRESS",
+        "CTT_PROFILE"
+      ]
+    },
+    "test_namespace_http_fixture": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_namespace_http_fixture_8k": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_build_provenance": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_exit_status": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_operator_receipts": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_request_protocol": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_stage_timing": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_native_terminal_error_recovery": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_observe_cow_cli": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_operator_bound_checkpoint": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p03": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p04": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p04_processes": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_p4_import_durability": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_paired_prefix_reuse": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_poisoned_worker_replacement": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_branch_actions": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_campaign": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_close_release": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_cold_cache_ownership": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_coordinator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_disk_lru_integration": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_failed_lru": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_idle_expiry": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_presentation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_request_stop": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_root_residency": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_source_trace": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_pool_spill_reload_trace": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_prepared_checkpoint": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_prepared_presentation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_presentation_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_publication_capacity_pin": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_publication_handoff_ownership": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_publication_overlap": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_publication_timing_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q02_campaign": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q02_model": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q02_real": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_STATE_MACHINE_OUTPUT"
+      ]
+    },
+    "test_q03": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q03_runner": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q03_soak": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q03_suite": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q04": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q04_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_canonical_enospc": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_cli_overlap": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_cli_trees": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_cuda_oom": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_cuda_recovery": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_enospc": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_postcommit_restart": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_q4_publication_fault": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_qwen35_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_qwen35_greedy_dispatch": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_qwen35_lora_profile": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_qwen35_math_profile": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_qwen35_mixed_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_r01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_r02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_r03": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_r03_admission": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_r03_asan": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_real_fixture_admission": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_receipt_checkpoint_eviction": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_reseed_history_integrity": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resident_questions": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resident_request_cancel": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resident_request_publication": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resident_resume_harness": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resident_resume_shutdown": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_resume_report": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_retained_suffix_evidence": {
+      "campaign": "retained-evidence",
+      "requires": [
+        "COW_SUFFIX_API_SOURCE",
+        "COW_SUFFIX_CASE",
+        "COW_SUFFIX_PROFILE"
+      ]
+    },
+    "test_root_computation_reuse": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_root_presentation_query": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_root_restore_reservation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_root_reuse_probe_helpers": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_s01": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_s01_owner": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_s02": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_s02_pressure": {
+      "campaign": "moe-native",
+      "requires": [
+        "CTT_PROFILE",
+        "CTT_SHARING_MEASUREMENTS"
+      ]
+    },
+    "test_sampled_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_sampler_serving": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_sampler_serving_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_sampling_proposal": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_schedule_binding_cache": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_seed_controls": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_seed_presentation_flow": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_seed_stop_composition": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_selected_token_receipt": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_serial_speed": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_shared_pools": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_sparse_cancel_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_speed_profile": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_state_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_state_staging": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_store_branch_catalog": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_store_fork_provenance": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_store_namespaces": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_store_presentation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_store_presentation_catalog": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_suffix_frontier_audit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_summarize_client_campaign_exit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_text_stop_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_text_stop_grammar": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_text_stops": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_thinking_grammar": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_thinking_image_reference": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_thinking_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_thinking_suffix_flow": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_transfer_costs": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_typical_dynatemp_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_typical_dynatemp_generation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_typical_dynatemp_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_typical_dynatemp_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_u01": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_u02": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_adaptive_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_adaptive_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_api_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_artifacts": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_authorization_audit": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_authorization_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_backend_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_binding_cache": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_canonical_enospc": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_checkpoint_enospc": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_cold_protocol": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_coordinator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_cuda_recovery_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_deep_cancel": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_delta_coordinator": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_disk_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_disk_pool": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_entropy_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_entropy_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_entropy_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_dry_projection": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_embeddings": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_encoder_chunks": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_entropy_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_entropy_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_execution": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_fixture": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_format_fixture": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_frontier_coverage": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_grammar_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_host_enomem": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_input_delta": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_input_history": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_latency_accounting": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_layout_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_mirostat_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_mirostat_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_native_binding": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_original_memory": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_payload_native": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_pool_pressure": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_presentation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_publication_crash_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_qualification": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_ram_pool": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_rebuild": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_rebuild_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_reconstruction_probe": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_root_preparation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_sampling_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_schedule_cursor": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_schedule_projection": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_suffix_preparation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_uploads": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_xtc_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_vision_xtc_request": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_wall_attribution": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_weighted_prefix_scheduler": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_xtc_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_xtc_controller": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_xtc_generation": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_xtc_observer": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_xtc_pipeline_native": {
+      "campaign": "cpu",
+      "requires": []
+    }
+  }
+}

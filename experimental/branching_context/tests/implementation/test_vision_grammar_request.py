@@ -7,7 +7,7 @@ from context_time_travel.grammar_first import GrammarEngine
 from context_time_travel.input_spans import InputHistory
 from context_time_travel.real import BranchingModel
 from context_time_travel.store import IntegrityError, InvalidOperation
-from strata_tokenizer import Tokenizer
+from tools.strata_tokenizer import Tokenizer
 from test_vision_api_binding import MixedCPUBackend
 from test_vision_execution import receipt, spans
 from test_vision_input_delta import DeltaArtifacts

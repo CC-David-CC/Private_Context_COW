@@ -11,7 +11,7 @@ class StateRequestTests(unittest.TestCase):
     def setUp(self):
         fixtures.ResidentRequestPublicationTests.setUp(self)
         from context_time_travel.grammar_first import GrammarEngine
-        from strata_tokenizer import Tokenizer
+        from tools.strata_tokenizer import Tokenizer
         tokenizer = Tokenizer(['A', '<eos>'], [], [1, 3], special_ids={'eos': 1})
         self.engine = GrammarEngine(tokenizer, {
             'edit': {'format': 'gbnf', 'source': 'root ::= "AA"'},

@@ -8,7 +8,7 @@ from unittest import mock
 
 from context_time_travel.grammar_first import GrammarEngine
 from context_time_travel.store import IntegrityError, InvalidOperation
-from tests.implementation.test_grammar_first import TinyByteTokenizer
+from test_grammar_first import TinyByteTokenizer
 from serve.cow_grammar import GrammarRegistry
 
 

@@ -2,7 +2,7 @@
 import copy
 import unittest
 
-import run_min_p_probe
+from experimental.branching_context.scripts import run_min_p_probe
 from context_time_travel import mirostat2
 
 

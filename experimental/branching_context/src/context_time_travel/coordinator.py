@@ -766,6 +766,7 @@ class ContextCoordinator:
             replacement=self._factory(gpu)
             replacement.gpu_id=gpu
             self._observe_worker_restores(replacement,gpu)
+            capabilities=self._backend_capabilities(replacement)
             expected_gpu=normalize_gpu_selection(old_model.profile['execution'].get('GPU'))
             actual_gpu=normalize_gpu_selection(replacement.profile['execution'].get('GPU'))
             if (replacement.profile.get('model_contract_id') != w['model_contract_id']
@@ -785,6 +786,7 @@ class ContextCoordinator:
                 if self._stopping:
                     raise InvalidOperation('Coordinator closing during worker replacement')
                 w['model']=replacement
+                w['capabilities']=capabilities
                 w['health']='healthy'
                 w['busy']=False
                 w['restarts']+=1
@@ -1737,6 +1739,48 @@ class ContextCoordinator:
         model._restore_observer=observe
 
     @staticmethod
+    def _backend_capabilities(model):
+        from .capabilities import NativeCapabilities
+        describe=getattr(model.backend,'capabilities',None)
+        if describe is None:return None
+        value=describe()
+        if (type(value) is not NativeCapabilities
+                or value.model_contract_id!=model.profile['model_contract_id']
+                or value.execution_profile_id!=model.profile['execution_profile_id']):
+            raise InvalidOperation('Native capability identity differs from worker profile')
+        return value
+
+    def capabilities(self):
+        """Observe already validated worker facts; no native leases or model work."""
+        from .capabilities import feature
+        with self._condition:
+            workers=[dict(worker=str(worker_key(gpu)),health=w['health'],
+                model_contract_id=w['model_contract_id'],execution_profile_id=w['execution_profile_id'],
+                native=w['capabilities'].to_json() if w.get('capabilities') is not None else None)
+                for gpu,w in self._workers.items()]
+        native=[w['native'] for w in workers]
+        def every(key):return bool(native) and all(n is not None and n[key] for n in native)
+        features=dict(branches=feature(True),controllers=feature(True),
+            checkpoint_ram=feature(True),checkpoint_disk=feature(True),
+            native_checkpoints=feature(every('checkpoint_export') and every('checkpoint_import')),
+            native_residency=feature(every('native_residency')),
+            physical_prefix_sharing=feature(every('physical_prefix_sharing')),
+            independent_workers=feature(True),tensor_parallel_restore=feature(False),
+            pause_resume=feature(every('selected_token_protocol')),
+            sampling=feature(every('sampling_protocol')),
+            images=feature(bool(native) and all(n is not None and 'image' in n['inputs'] for n in native),
+                           self._input_preparer is not None),
+            cache_inventory=feature(True,self.config.cache_inventory,qualification='experimental'),
+            transfer_aware_scheduling=feature(True,self.config.scheduling=='transfer-aware',qualification='experimental'),
+            prefill_coalescing=feature(True,self.config.scheduling!='fifo'),
+            peer_transfer=feature(False),prefill_decode_placement=feature(False),
+            tokenizer_fastokens=feature(False))
+        return dict(workers=workers,features=features,limits=dict(
+            ram_cache_bytes=self.config.ram_bytes,disk_cache_bytes=self.config.disk_bytes,
+            minimum_available_ram_bytes=self.config.min_available_bytes),
+            scheduling=self.config.scheduling)
+
+    @staticmethod
     def _native_inventory(model,gpu):
         """Called only by the owning worker after native execution has settled."""
         return [dict(model=cp.model_contract_id,execution=cp.execution_profile_id,
@@ -2401,6 +2445,7 @@ class ContextCoordinator:
             model = self._factory(gpu)
             model.gpu_id = gpu
             self._observe_worker_restores(model,gpu)
+            w['capabilities']=self._backend_capabilities(model)
             if normalize_gpu_selection(model.profile['execution'].get('GPU')) != self.config.gpus:
                 raise InvalidOperation('Worker profile GPU selection differs from coordinator')
             w['model_contract_id']=model.profile['model_contract_id']

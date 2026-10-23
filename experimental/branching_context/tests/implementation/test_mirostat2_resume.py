@@ -3,7 +3,7 @@ import copy
 import json
 import unittest
 
-import run_min_p_probe
+from experimental.branching_context.scripts import run_min_p_probe
 from context_time_travel.sampled_controller import PlainSamplingSession, start
 from context_time_travel.store import InvalidOperation
 from test_sampling_proposal import ProposalTokenizer

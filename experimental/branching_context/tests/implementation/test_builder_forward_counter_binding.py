@@ -15,8 +15,7 @@ import build_fast_prefill_probe
 
 
 def source_root():
-    override = os.environ.get("COW_BUILDER_SOURCE_ROOT")
-    return Path(override).resolve() if override else Path(__file__).resolve().parents[4]
+    return Path(os.environ["COW_BUILDER_SOURCE_ROOT"]).resolve(strict=True)
 
 
 class BuilderForwardCounterBindingTests(unittest.TestCase):

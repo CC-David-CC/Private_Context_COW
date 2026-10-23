@@ -64,6 +64,10 @@ def instrument_request_timing(source):
                 decode_finish_ns += std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now()-stage_timer).count();
                 if (!finished) { ok = false; break; }
                 ++decode_timed_tokens;'''
+    # Current production Strata already includes this exact instrumentation.
+    # Accept only the complete known block, never a partial/changed operator.
+    if block.count(new) == 1 and block.count(old) == 0:
+        return source
     if block.count(old) != 1:
         raise ValueError('Native operator changed; do not instrument an assumed handler')
     return source[:start]+block.replace(old,new)+source[end:]

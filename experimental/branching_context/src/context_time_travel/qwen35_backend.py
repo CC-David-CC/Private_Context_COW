@@ -95,6 +95,10 @@ class _QwenLease:
 class Qwen35Backend(NativeBackend):
     STATE_FORMAT="qwen35-hybrid-frontier-v1"
     RESUME_CONTRACT="identical-native-batches-v1"
+    def capabilities(self):
+        from .capabilities import describe_dense
+        return describe_dense(self.profile)
+
     def __init__(self,profile,gpu_id=None):
         e=profile['execution']
         workers=normalize_gpu_selection(e.get('GPU',[0]))

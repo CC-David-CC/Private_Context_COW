@@ -64,6 +64,9 @@ class CowAdapter:
     def cache_inventory(self,**cursor):
         return self.coordinator.cache_inventory(**cursor)
 
+    def capabilities(self):
+        return self.coordinator.capabilities()
+
     def pending_request(self, branch):
         return self.coordinator.pending_request(branch)
 

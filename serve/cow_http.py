@@ -332,6 +332,21 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 if description is None:
                     return self.json(503, dict(error='Connection discovery is not configured'))
                 return self.json(200, description)
+            if path == '/cow/capabilities':
+                if urlsplit(self.path).query:
+                    return self.json(400, dict(error='Capabilities take no query parameters'))
+                if description is None:
+                    return self.json(503, dict(error='Connection discovery is not configured'))
+                try:
+                    from context_time_travel.capabilities import feature
+                    report=adapter.capabilities()
+                    report['features'].update(text=feature(text_adapter is not None),
+                        inline_grammars=feature(grammar_catalog is not None))
+                    return self.json(200,dict(schema=1,service='context-cow',
+                        model_contract_id=description['model_contract_id'],
+                        execution_profile_id=description['execution_profile_id'],**report))
+                except Exception as error:
+                    return self.json(503,dict(error='Capability discovery unavailable: '+str(error)))
             if path.startswith('/cow/evaluation/'):
                 identity = path[len('/cow/evaluation/'):]
                 if not identity or '/' in identity or urlsplit(self.path).query:

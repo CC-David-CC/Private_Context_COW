@@ -30,8 +30,12 @@ class NativeBuildProvenanceTests(unittest.TestCase):
             'CMAKE_BUILD_TYPE:STRING=Release\n')
         recipe = self.build / 'CMakeFiles' / 'strata-branch.dir'
         recipe.mkdir(parents=True)
-        (recipe / 'flags.make').write_text('CXX_FLAGS = -O3\n')
-        (recipe / 'link.txt').write_text('/usr/bin/c++ -o strata-branch lib/libengine.a\n')
+        (recipe / 'flags.make').write_text(
+            'CXX_DEFINES = -DSTRATA_BRANCH_DRIVER=1\nCXX_INCLUDES = -Iinclude\nCXX_FLAGS = -O3\n')
+        (recipe / 'link.txt').write_text('/usr/bin/c++ '
+            'CMakeFiles/strata-branch.dir/src/program/generate.cpp.o '
+            'CMakeFiles/strata-branch.dir/src/core/branch_driver.cpp.o '
+            '-o strata-branch lib/libengine.a\n')
         self.script = self.root / 'build_native_request_probe.py'
         self.script.write_text('from helper_one import build\n')
         (self.root / 'helper_one.py').write_text('from helper_two import value\n')

@@ -40,7 +40,7 @@ class _Store:
         return None, (1, 2, 3)
 
     def get_snapshot(self, _snapshot):
-        return {'controller': self.controller}
+        return {'schema': 1, 'controller': self.controller}
 
 
 class _Coordinator:

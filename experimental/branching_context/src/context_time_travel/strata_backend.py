@@ -454,6 +454,10 @@ def _validate_sampling_capability(profile,ready):
 
 
 class StrataBackend:
+    def capabilities(self):
+        from .capabilities import describe_strata
+        return describe_strata(self.profile, self._ready)
+
     def __init__(self, profile, *, gpu_id=None):
         self.profile = profile
         self.gpu_id = gpu_id

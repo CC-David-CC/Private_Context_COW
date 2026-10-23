@@ -9,6 +9,16 @@ from context_time_travel.coordinator import ContextCoordinator
 
 class FabricCoordinatorTests(unittest.TestCase):
     start=CoordinatorTests.start
+    def test_capability_observation_does_not_run_model_or_claim_unknown_native_features(self):
+        c,models,trace,gate=self.start()
+        before=dict(models[0].stats)
+        value=c.capabilities()
+        self.assertEqual(models[0].stats,before)
+        self.assertEqual(c.store.branches(),())
+        self.assertFalse(value['features']['native_residency']['supported'])
+        self.assertFalse(value['features']['cache_inventory']['enabled'])
+        self.assertEqual(value['limits']['ram_cache_bytes'],c.config.ram_bytes)
+
     def test_inventory_recovers_current_ram_and_disk_without_model_work(self):
         c,models,trace,gate=self.start()
         # Enable on a fresh coordinator; configuration stays immutable.

@@ -5,7 +5,7 @@ import unittest
 
 from context_time_travel.coordinator import ContextCoordinator
 from context_time_travel.pools import PoolConfig
-from tests.implementation.test_pool_coordinator import Model
+from test_pool_coordinator import Model
 
 
 class RootResidencyTests(unittest.TestCase):

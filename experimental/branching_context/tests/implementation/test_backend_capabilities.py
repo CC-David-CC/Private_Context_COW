@@ -9,7 +9,7 @@ def profile(backend='qwen35-llama.cpp'):
             resume_contract='identical-native-batches-v1',
             generated_operator='llama-forward-consumed-v1',
             selected_token_protocol='consumed-selected-receipt-v1',
-            sampling_protocol='min-p-top-k-top-p-u53-v2'))
+            sampling_protocol='full-vocab-min-p-u53-v2'))
 
 
 class BackendCapabilityTests(unittest.TestCase):
@@ -39,7 +39,7 @@ class BackendCapabilityTests(unittest.TestCase):
         ready = dict(native_request_protocol='consumed-greedy-ack-v1',
             selected_token_protocol='consumed-selected-receipt-v1',
             grammar_selection_protocol='finite-mask-argmax-v1',
-            sampling_protocol='min-p-top-k-top-p-u53-v2')
+            sampling_protocol='full-vocab-min-p-u53-v2')
         report = describe_strata(value, ready).to_json()
         self.assertEqual(report['family'], 'moe')
         self.assertTrue(report['native_residency'])
