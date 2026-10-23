@@ -56,6 +56,74 @@ Passing metadata or synthetic scheduler tests does not establish GPU throughput,
 native restore correctness, BW task quality, or cumulative G1-G5 certification.
 Experimental code remains on its experimental branch pending those checks.
 
+## Ownership and feature controls
+
+Strata owns native execution, GPU memory and complete native model state. COW
+owns canonical histories/controllers, checkpoint validation, placement and
+transport. BW owns the workflow ledger, tool permissions, effects and task
+verification. An inventory never becomes another history store; a remote worker
+never advances a BW workflow; a scheduler never mutates a checkpoint.
+
+| Feature | Control | Disabled behavior | Current scope |
+| --- | --- | --- | --- |
+| Inventory publication | `--cache-inventory` | No inventory journal; endpoint rejects observation | RAM/disk and idle native images within one server |
+| Placement costs | `--scheduling transfer-aware` | FIFO remains default; weighted-prefix remains independently selectable | Measured local native restore and forward service costs |
+| Peer discovery/transfer | Separate explicit peer configuration, not yet implemented | No peer listeners, polling or transfer tasks | Planned |
+| Prefill/decode separation | Separate execution-role option, not yet implemented | Ordinary combined serving | Planned |
+| Tokenizer backend | Separate explicit backend choice, not yet implemented | Existing Wen tokenizer | Planned |
+
+No future flag is advertised as currently accepted by the launcher. Compatibility
+APIs and BW's native API remain independent of these switches. Missing optional
+peer data must permit ordinary serving, but present incompatible or corrupt
+checkpoint data remains an integrity error. A fallback must not silently replay
+tools, reset a controller, change input tokens, or violate a strict restore
+request. Reconstructing an evicted cache uses COW's existing explicit semantics.
+
+All work follows local edits, box-git publication, GitHub publication and remote
+pulls. Each increment has its own commit and evidence; deployment never copies
+uncommitted source to the serving machine. Promotion to main requires its
+acceptance results, not merely an implementation or a passing synthetic model.
+
+## Acceptance matrix
+
+| Boundary | Required evidence |
+| --- | --- |
+| Feature off | Existing launcher arguments, API behavior, branch/controller identity and completed responses remain unchanged |
+| Inventory recovery | Empty inventory, missed/duplicate/reordered events, journal overrun, producer restart, retired epoch and atomic rejection of malformed packets |
+| Placement | Warm versus cold costs, checkpoint byte sizes, unknown measurements, stable ties, fairness, cancellation, failed leader and existing branch publication invariants |
+| Peer transport | Authentication, exact semantic/execution identity, source lease, bounded staging, payload checksum, interrupted/duplicate transfers, disk full, process death and stale inventory |
+| Prefill/decode handoff | Complete hybrid state and controller transfer; request retry, cancellation, sampler/grammar continuity and unchanged full-response/task outcomes |
+| Tokenization | Exact IDs for literal controls, new vocabulary, Unicode, code, chat templates and shared-prefix cuts, followed by complete BW task outcomes |
+| Performance | Same hardware/model/workload baseline; time to first output, full response latency, throughput, queue delay, transferred bytes, redundant prefill and peak memory/disk |
+
+Tests that require a native profile or external fixture run only in a campaign
+that supplies and records it. They are not converted to passes, nor are assertions
+weakened. CPU tests establish metadata/queue behavior; real Wen runs establish
+the bounded response behavior tested. Broader G1-G5 certification stays separate.
+
+## Scale and failure boundaries
+
+The eventual manager holds location and scheduling metadata, not model payloads.
+Workers retain local residency authority; cache bytes travel directly between
+the selected source and destination. Peer inventories require freshness/expiry
+and an explicit resynchronization protocol before influencing remote placement.
+Queue size, concurrent transfers, per-peer staging, metadata and recovery packet
+sizes must all have limits. Active DMA must settle before its memory can be
+released, including after cancellation or timeout.
+
+The current local inventory reconciles disk metadata during polling. It is
+bounded, but its scan cost has not been qualified for large stores. Event-driven
+pool notifications and a paged full-inventory protocol are candidates for that
+qualification; neither is claimed implemented. Likewise, local moving averages
+are not a distributed network cost model or a throughput guarantee.
+
+Disable/rollback uses a stopped, drained server and the prior pinned executable,
+source and configuration. Changes to runtime source create a different execution
+profile; checkpoints are never relabeled as compatible to make rollback work.
+Retained canonical history remains governed by its original contracts. For
+ephemeral runs, the existing launcher owns cleanup of session caches and shutdown
+of the native worker. No auxiliary service may outlive that ownership silently.
+
 ## Inspiration and thanks
 
 Thank you to the DeepInfra contributors, NVIDIA Dynamo and KVCR contributors,

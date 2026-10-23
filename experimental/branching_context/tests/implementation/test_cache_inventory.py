@@ -1,5 +1,6 @@
 """Metadata recovery controls, independent of native inference correctness."""
 import copy
+import random
 import unittest
 
 from context_time_travel.cache_inventory import InventoryJournal, InventoryView, RecoveryRequired
@@ -65,6 +66,27 @@ class InventoryTests(unittest.TestCase):
         view.entries[0]['bytes']=2
         self.assertEqual(source.read()['entries'],[entry()])
         self.assertEqual(view.entries,[entry()])
+
+    def test_randomized_dropped_polls_recover_exact_current_locations(self):
+        rng=random.Random(7375)
+        source=InventoryJournal('node',event_limit=4,entry_limit=32)
+        view=InventoryView('node'); current={}
+        for i in range(1000):
+            key=str(rng.randrange(32))
+            if rng.randrange(2):current[key]=entry(key)
+            else:current.pop(key,None)
+            source.reconcile(list(current.values()))
+            if rng.randrange(5)==0:
+                view.apply(source.read(**view.cursor))
+                self.assertEqual({r['snapshot'] for r in view.entries},set(current))
+        view.apply(source.read(**view.cursor))
+        self.assertEqual({r['snapshot'] for r in view.entries},set(current))
+
+    def test_retired_epoch_cannot_reappear_after_restart(self):
+        first=InventoryJournal('node'); second=InventoryJournal('node')
+        view=InventoryView('node'); old=first.read()
+        view.apply(old); view.apply(second.read())
+        with self.assertRaises(RecoveryRequired):view.apply(old)
 
 
 if __name__=='__main__':unittest.main()

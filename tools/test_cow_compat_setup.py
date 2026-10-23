@@ -34,6 +34,10 @@ class CompatibilitySetupTests(unittest.TestCase):
             '--text','--grammar-store','/owned/grammars'])
         after = configured_argv(Path('/owned'), dict(cfg, openai_port=8100, openai_model='wen-1.1'), 'test-only-key')
         self.assertEqual(after, before+['--openai-port','8100','--openai-model','wen-1.1','--openai-max-output','2048'])
+        fabric=configured_argv(Path('/owned'),dict(cfg,cache_inventory=True,scheduling='transfer-aware'),'test-only-key')
+        self.assertEqual(fabric,before+['--scheduling','transfer-aware','--cache-inventory'])
+        with self.assertRaises(ValueError):
+            configured_argv(Path('/owned'),dict(cfg,cache_inventory='false'),'test-only-key')
 
 
 if __name__ == '__main__': unittest.main()

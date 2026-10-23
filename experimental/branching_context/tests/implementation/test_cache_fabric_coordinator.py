@@ -45,5 +45,18 @@ class FabricCoordinatorTests(unittest.TestCase):
         self.assertEqual(c.store.lineage(two['snapshot'])[1],[1,2,4,0,1])
         self.assertIsNotNone(c.metrics()['scheduling']['last_placement'])
 
+    def test_inventory_restart_rebuilds_disk_hints_and_drops_old_ram_locations(self):
+        c,models,trace,gate=self.start()
+        directory,factory=c.store.root,c._factory
+        config=replace(c.config,cache_inventory=True)
+        c.close();c=ContextCoordinator(directory,config,factory).ready(5);self.addCleanup(c.close)
+        root=c.create('base',(1,2),'restart-inventory').durable.result(5)['snapshot']
+        view=InventoryView(c._inventory.node);view.apply(c.cache_inventory());old=view.cursor
+        c.close();resumed=ContextCoordinator(directory,config,factory).ready(5);self.addCleanup(resumed.close)
+        packet=resumed.cache_inventory(**old)
+        self.assertEqual(packet['kind'],'snapshot');view.apply(packet)
+        self.assertEqual([(r['snapshot'],r['tier']) for r in view.entries],[(root,'disk')])
+        self.assertEqual(resumed.store.head('base').tip,root)
+
 
 if __name__=='__main__':unittest.main()
