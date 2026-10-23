@@ -2,6 +2,7 @@
 from dataclasses import replace
 import unittest
 import time
+from unittest.mock import patch
 from test_pool_coordinator import CoordinatorTests
 from context_time_travel.cache_inventory import InventoryView
 from context_time_travel.coordinator import ContextCoordinator
@@ -9,6 +10,20 @@ from context_time_travel.coordinator import ContextCoordinator
 
 class FabricCoordinatorTests(unittest.TestCase):
     start=CoordinatorTests.start
+    def test_unchanged_inventory_avoids_disk_rescan_but_publication_refreshes_it(self):
+        c,models,trace,gate=self.start()
+        directory,factory=c.store.root,c._factory
+        config=replace(c.config,cache_inventory=True)
+        c.close(); c=ContextCoordinator(directory,config,factory).ready(5); self.addCleanup(c.close)
+        first=c.create('base',(1,2),'inventory-first').durable.result(5)['snapshot']
+        initial=c.cache_inventory()
+        with patch.object(models[0],'checkpoint_manifest',side_effect=AssertionError('unexpected rescan')):
+            packet=c.cache_inventory(epoch=initial['epoch'],since=initial['seq'])
+            self.assertEqual(packet['events'],[])
+        second=c.submit('base',(3,),1,'inventory-second').durable.result(5)['snapshot']
+        packet=c.cache_inventory()
+        self.assertEqual({r['snapshot'] for r in packet['entries'] if r['tier']=='disk'},{first,second})
+
     def test_capability_observation_does_not_run_model_or_claim_unknown_native_features(self):
         c,models,trace,gate=self.start()
         before=dict(models[0].stats)

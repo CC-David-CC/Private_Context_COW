@@ -12,6 +12,19 @@ def entry(snapshot='s', tier='ram', worker='pool'):
 
 
 class InventoryTests(unittest.TestCase):
+    def test_bounded_pool_notifications_require_rescan_after_overrun(self):
+        from context_time_travel.cache_inventory import PoolNotifications
+        changes=PoolNotifications(limit=2)
+        initial=changes.read(None)
+        self.assertTrue(initial['reset'])
+        changes.record('ram',('m','e','one'))
+        one=changes.read(initial['seq'])
+        self.assertFalse(one['reset'])
+        self.assertEqual(one['events'],[('ram',('m','e','one'))])
+        changes.record('disk','two'); changes.record('disk','three')
+        self.assertTrue(changes.read(initial['seq'])['reset'])
+        self.assertEqual(changes.read(one['seq'])['events'],[('disk','two'),('disk','three')])
+
     def test_paged_recovery_is_frozen_and_visible_only_when_complete(self):
         source=InventoryJournal('node')
         rows=[entry(str(i)) for i in range(5)]; source.reconcile(rows)

@@ -13,6 +13,19 @@ def image(blob=b'abcd', snapshot='a'):
 
 
 class SharedPoolTests(unittest.TestCase):
+    def test_inventory_notifications_cover_admission_failure_and_eviction(self):
+        from context_time_travel.cache_inventory import PoolNotifications
+        changes=PoolNotifications(); pool=SharedCheckpointPool(16,notifications=changes)
+        self.addCleanup(pool.close)
+        key=('m','e','a'); cursor=changes.read(None)['seq']
+        pool.admit(key,image())
+        self.assertEqual(changes.read(cursor)['events'],[('ram',key)])
+        cursor=changes.read(cursor)['seq']; pool.mark_failed(key)
+        self.assertEqual(pool.inventory(),[])
+        self.assertEqual(changes.read(cursor)['events'],[('ram',key)])
+        cursor=changes.read(cursor)['seq']; pool.remove(key)
+        self.assertEqual(changes.read(cursor)['events'],[('ram',key)])
+
     def test_gpu_list_is_the_only_worker_count(self):
         self.assertEqual(PoolConfig(gpus=(1,5,6)).worker_count, 3)
         self.assertEqual(PoolConfig(gpus=(0,)).gpus, (0,))
