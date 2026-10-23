@@ -65,7 +65,7 @@ class CowAdapter:
         return self.coordinator.cache_inventory(**cursor)
 
     def cache_transfer_enabled(self):
-        return self.coordinator.config.cache_transfer
+        return getattr(getattr(self.coordinator,'config',None),'cache_transfer',False)
 
     def export_checkpoint(self,snapshot,model_contract_id,execution_profile_id):
         return self.coordinator.export_checkpoint(snapshot,model_contract_id,execution_profile_id)
