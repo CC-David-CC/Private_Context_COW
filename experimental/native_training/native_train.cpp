@@ -102,6 +102,9 @@ struct Block {
     }
 };
 struct Graph {
+    // Mixed 32-token recurrent examples can exceed 65,536 nodes after backward
+    // expansion. This bounds graph bookkeeping; tensor operations are unchanged.
+    static constexpr size_t capacity=262144;
     Device &device;Context ctx{128*1024*1024};ggml_cgraph*g;
     std::vector<Device*> devices;
     std::map<T*,Device*> placements;
@@ -109,8 +112,8 @@ struct Graph {
     ggml_backend_sched_t sched=nullptr;
     std::vector<std::pair<T*,std::vector<float>>> data;
     std::vector<std::pair<T*,std::vector<int32_t>>> ids;
-    explicit Graph(Device&d):device(d),devices{&d}{g=ggml_new_graph_custom(ctx.p,65536,true);}
-    explicit Graph(const std::vector<Device*>&ds):device(*ds.at(0)),devices(ds){g=ggml_new_graph_custom(ctx.p,65536,true);}
+    explicit Graph(Device&d):device(d),devices{&d}{g=ggml_new_graph_custom(ctx.p,capacity,true);}
+    explicit Graph(const std::vector<Device*>&ds):device(*ds.at(0)),devices(ds){g=ggml_new_graph_custom(ctx.p,capacity,true);}
     ~Graph(){ggml_backend_sched_free(sched);}
     T*input(int64_t n0,int64_t n1,const std::vector<float>&v){
         auto*t=ggml_new_tensor_2d(ctx.p,GGML_TYPE_F32,n0,n1);ggml_set_input(t);data.push_back({t,v});return t;
@@ -160,7 +163,7 @@ struct Graph {
         // actual tensor op is explicitly placed on an admitted device below;
         // this is not permission to offload an unsupported gradient to the CPU.
         if(devices.back()->name!="CPU"){scheduler_cpu=std::make_unique<Device>("CPU");backends.push_back(scheduler_cpu->backend);}
-        sched=ggml_backend_sched_new(backends.data(),nullptr,backends.size(),65536,false,false);
+        sched=ggml_backend_sched_new(backends.data(),nullptr,backends.size(),capacity,false,false);
         for(int i=0;i<ggml_graph_n_nodes(g);++i){
             auto*t=ggml_graph_node(g,i);Device*owner=nullptr;auto existing=placements.find(t);
             if(existing!=placements.end())owner=existing->second;
