@@ -167,6 +167,24 @@ The aim was to bring the features together and check specific mechanics.
 unification and validation programme is still unfinished.** Read
 [how the research model was used and what remains](docs/START-HERE.md#why-we-used-a-research-model).
 
+### Native training work in progress
+
+PCC is also gaining an **offline native training experiment**, separate from its
+context cache. The goal is to take an independently checked correction and use
+it to update either a small **LoRA adapter** (the model's reusable "hat") or the
+model's own weights through **ordinary full backpropagation**. Direct weight
+updates do not require merging an adapter into the model.
+
+The training code uses C++/GGML without PyTorch. Ordinary end-to-end backprop is
+the default, including when the graph spans GPUs. Passing gradients between
+independently executed sections is a separate experimental path.
+
+This work is not connected to BW or the interactive CLI yet. It does not make
+the model learn automatically from conversations. Training produces separate,
+versioned candidates; serving requests keep their pinned model and adapter.
+Read the [training status, limits and developer instructions](experimental/native_training/README.md)
+before treating it as an available user feature.
+
 ## What has been checked?
 
 Real Wen 1.1 and Qwen Flash Q4 runs completed small BW read/edit/test/finish tasks

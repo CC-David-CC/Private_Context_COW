@@ -1,7 +1,8 @@
-# PCC native training bring-up
+# PCC native training experiment
 
-INCOMPLETE. This branch is implementation work, not a qualified trainer or a
-claim of improved model behaviour. No serving model or adapter has been promoted.
+This is an offline research preview, without a BW or interactive CLI hook.
+Mechanics checks do not establish useful task learning or an always improving
+model. No serving model or adapter has been promoted.
 
 The owner requests native training without PyTorch and without BW/interactive
 CLI integration. Both LoRA updates and direct base-weight backpropagation are
@@ -23,8 +24,9 @@ ordinary model backpropagation. Its API admission requires an experimental flag.
 
 - `native_train.cpp`: explicit GGML recurrent/attention/MLP graph primitives,
   small layer gradient gates, a complete small hybrid-model standard graph,
-  LoRA parameters, direct weights and native SGD. The real-model training loader,
-  checkpoint/restart path and A100 multi-GPU proof remain to be qualified.
+  LoRA parameters, direct weights, native SGD, model/adapter loading and separate
+  GGUF candidate export. Real-model evidence is listed below; long sequences and
+  mid-step crash recovery remain unqualified.
 - `build.py`: a private copy/build of the pinned GGML dependency, kept separate
   from every serving executable. A strided-noninplace-scale materialization
   patch is recorded explicitly. Its necessity and coverage are still under test.
@@ -33,6 +35,8 @@ ordinary model backpropagation. Its API admission requires an experimental flag.
   content identity and non-promotion are checked without importing a tensor
   training framework.
 - `tools/test_native_training.py`: admission/version/default-backprop tests.
+- `reference.py`: independent NumPy/FP64 forward and finite differences of
+  exported tiny fixtures. Verification does not import GGML or PyTorch.
 
 The initial compiler and backward-layout failures are retained in the private
 operator run directory. A compile or a tiny loss reduction is not a gradient,
@@ -70,3 +74,133 @@ measure transfers and memory. Leave other accounts and serving processes alone.
 Only owned, verified training examples supply gradients. Held-out and protected
 evaluation answers stay out of the training split and public artifacts. Candidate
 model bytes, prompts and raw traces remain outside the source repository.
+
+## How this fits PCC and BW
+
+A **LoRA adapter** is a small additional set of learned weights: the model's
+"hat." Updating it keeps the original model weights fixed. **Direct full-weight
+training** changes active decoder weights themselves, without training an adapter
+and merging it afterward. Full mode includes embeddings, layers, norms and head.
+LoRA adapts linear projections and the head, not embeddings, convolutions or norms.
+
+The C++/GGML engine performs forward, backward and SGD updates. Python checks
+offline requests and records candidates; NumPy is used only for independent
+verification. COW's saved context is neither a training example nor a weight
+checkpoint. New model/adapter identities require separate compatible caches.
+
+The intended later workflow is: capture a failure and an independently verified
+correction; choose owned examples to learn from now or in a later batch; train a
+separate candidate; evaluate repairs, held-out variants and protected behaviour;
+then explicitly select a qualified version for new requests. Existing contexts
+keep their original pinned weights. BW's feedback/selection controls are deferred.
+Successful tests and lower training loss do not automatically install an adapter.
+
+## Measured scope
+
+Short owned arithmetic fixtures exercise machinery. They are not protected test
+answers, a useful new skill, a day of inference/training load, a large dataset
+campaign, or a GPU-versus-CPU throughput comparison.
+
+| Check | Result and limit |
+| --- | --- |
+| Offline admission and version rules | Eleven tests pass: masks, provenance, immutable examples, partial-batch weights, ordinary-backprop default, distinct devices, candidate identity and non-promotion. |
+| Individual recurrent/attention gradients | CPU and CUDA directions through every parameter tensor pass. Independent FP64 finite differences check all 386 scalar derivatives on each backend. |
+| Whole tiny hybrid model | Ordinary full and LoRA backprop pass on CPU and two actual A100 devices, with a checked parameter direction in every stage. |
+| Actual Wen 1.1 forward | All 32 layers agree with fresh PCC native FP32 inference: maximum logit error 0.00001717, RMS 0.00000355, same top token. |
+| Actual Wen LoRA | Two ordinary two-GPU steps, batches of two and one, finite gradients for 498 adapter tensors across all layers. Saved adapter reloads and agrees with fresh PCC inference. |
+| Actual Wen direct full-weight update | One ordinary two-GPU step updates all 427 active decoder parameter tensors, each with finite nonzero gradients. Loss falls from 2.18680 to 1.42010; the separate full GGUF reloads and agrees with fresh PCC inference. |
+| Completed LoRA continuation | The saved adapter completes another two-example update, with the ordered example cursor advancing from three to five. Mid-step recovery and equality with an uninterrupted run remain unqualified. |
+| CPU-only build | Builds without CUDA and passes the small layer/whole-graph checks. Real Wen CPU training, HIP, SYCL, P4s and the home-hardware matrix remain unqualified. |
+
+Small complete-graph checks also compare every accumulated gradient against the
+mean of independently computed per-example gradients in both modes, on CPU and
+two GPUs. The real full-weight run uses a single-example batch; its large-model
+accumulated-batch path has not separately been measured. Sampled process memory
+peaked around 33,244 and 34,350 MiB on the two GPUs during the full-weight run;
+two-second samples are observations, not exact allocator high-water marks.
+
+Read the [dated results and fingerprints](../../validation/native-training-20261023/README.md).
+
+The implementation currently targets dense Wen/Qwen3.5 hybrid recurrent and
+full-attention models, not every model PCC can serve. BF16/F32 inputs become F32
+master weights. Quantized training inputs are refused. Full exports save active
+decoder weights in F32 and preserve inactive source extras unchanged.
+
+## Building and running small checks
+
+Use a separate source/build directory and the inspected GGML/llama.cpp revision
+`972d2313bc0bf0a45f634f77d95c9fb03aeab12c`. Linux, a C++17 compiler and CMake are
+required. The helper verifies the pin and records sources/dependencies in
+`build.json`. For CPU-only development with that checkout already available:
+
+```sh
+python experimental/native_training/build.py \
+  --llama /path/to/pinned-llama --output /path/to/private-training-build --cpu-only
+/path/to/private-training-build/pcc-native-train --self-test CPU
+/path/to/private-training-build/pcc-native-train --chain-test CPU
+```
+
+For CUDA, prepare a separate pinned Wen/FP32 engine using
+[`prepare_wen_llama.py`](../branching_context/scripts/prepare_wen_llama.py)
+with `--f32-activations`, build its CUDA shared libraries, then omit `--cpu-only`.
+Keep the exact private GGML and inspected CUDA libraries with the receipt.
+Training sets `GGML_CUDA_F32_ACTIVATIONS=1` and `NVIDIA_TF32_OVERRIDE=0` before
+CUDA initialization. A CUDA compiler and driver are required for that build.
+
+```sh
+/path/to/private-training-build/pcc-native-train --gradient-diagnostic CUDA0 > layer-check.json
+python experimental/native_training/reference.py layer-check.json
+/path/to/private-training-build/pcc-native-train --chain-test CUDA0,CUDA1
+python -m unittest discover -s tools -p test_native_training.py -v
+```
+
+GPU indices refer to the explicitly selected `CUDA_VISIBLE_DEVICES` list.
+Two devices mean ordinary backprop, not the section experiment. The offline
+execution entry point currently accepts only the standard complete-graph path.
+NumPy is required for FP64 verification, not for native training.
+
+## Offline requests and completed-candidate continuation
+
+Use `tools/pcc_native_training.py`'s `execute_native()` from an offline operator
+script with a fresh private run directory. Supply pinned model SHA-256, explicit
+devices/per-device budgets, `mode="lora"` or `mode="full"`, examples, learning
+rate, batch size and steps. Only SGD without momentum is implemented; other
+optimizer requests fail rather than silently substituting.
+
+Examples contain exactly `id`, `tokens`, `targets`, `loss_mask`, `verified` and
+`provenance_sha256`. Tokenize with the exact base tokenizer. Each target is the
+next token; the boolean mask selects predictions contributing to completion
+loss. Masked prompt tokens still supply context. IDs are unique and provenance is
+a SHA-256. Preserve independent verification evidence privately; setting a JSON
+boolean does not verify a task. Evaluator answers must not become training data.
+
+Each example has equal weight within its actual batch, including a shorter final
+batch. Gradients accumulate before one SGD update. A separate `candidate.gguf`,
+private request, launch fingerprint, exit status, native receipt and
+content-addressed version manifest are recorded. The original model is checked
+unchanged. Candidates are registered with `promoted=false`.
+
+For another LoRA update, pin the same base, the saved `initial_adapter` path and
+`initial_adapter_sha256`. Carry the completed receipt's `example_cursor` when
+continuing the same ordered dataset. Loading checks adapter/base identity, rank,
+tensor coverage and shapes. For direct full-weight continuation, use the
+completed full candidate as the new model and pin its hash; do not supply an
+adapter to full mode. Dataset, cursor, learning rate and settings must come from
+the exact completed run, not a guessed restart position.
+
+Exports are **completed-run candidates**, not periodic transactional checkpoints
+in the middle of an optimizer step. Interrupted or uncertain runs are retained
+for reconciliation; the helper refuses to reuse their run directories and never
+blindly issues another update. SGD has no moment state, but weights, data order
+and completed-update identity still matter.
+
+Actual-model cross-graph logits require maximum error at most 0.0002, RMS at
+most 0.00005 and the same top token, declared before comparison. FP64 derivative
+checks use steps 0.000001 and 0.000002, native agreement `atol=0.00005,
+rtol=0.0005`, and step sensitivity `atol=0.0000001, rtol=0.00001`. These checks
+are distinct from COW's exact same-profile state/cache contracts.
+
+Independent repair, held-out and preservation evaluations remain necessary
+before using trained versions for real work. Outstanding qualification also
+includes longer sequences/datasets, true mid-step crash recovery, hardware routes
+and sustained resource pressure. Never promote solely because training loss fell.

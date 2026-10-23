@@ -1,4 +1,4 @@
-// PCC native layer-checkpointed training. No Python tensor/autograd runtime.
+// PCC native ordinary-backprop training. No Python tensor/autograd runtime.
 // The differentiable graph is explicit: unsupported gradient paths fail closed.
 #include "ggml.h"
 #include "ggml-backend.h"
@@ -19,6 +19,7 @@
 #include <memory>
 #include <numeric>
 #include <random>
+#include <set>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -29,6 +30,11 @@ using T=ggml_tensor;
 static ggml_backend_t(*cuda_init)(int)=nullptr;
 static void load_cuda(){
     if(cuda_init)return;
+    need(std::strlen(PCC_CUDA_BACKEND)>0,"This CPU-only build cannot execute CUDA requests");
+    // The inspected FP32 profile bypasses inference MMF/TF32 operand rounding.
+    // Its actual binary is fingerprinted by build.py and qualified by VJPs.
+    setenv("GGML_CUDA_F32_ACTIVATIONS","1",1);
+    setenv("NVIDIA_TF32_OVERRIDE","0",1);
     // The pinned engine builds CUDA as a directly linked backend rather than
     // a GGML_BACKEND_DL plugin. Use its exported native initializer explicitly.
     auto*library=dlopen(PCC_CUDA_BACKEND,RTLD_NOW|RTLD_GLOBAL);need(library,"Cannot open pinned native CUDA backend");
@@ -52,7 +58,7 @@ struct Device {
     std::string name;
     explicit Device(const std::string &n):name(n){
         if(n=="CPU")backend=ggml_backend_cpu_init();
-        else if(n.rfind("CUDA",0)==0){load_cuda();auto id=n.substr(4);need(!id.empty()&&std::all_of(id.begin(),id.end(),::isdigit),"Explicit CUDA device index required");backend=cuda_init(std::stoi(id));}
+        else if(n.rfind("CUDA",0)==0){load_cuda();auto id=n.substr(4);need(!id.empty()&&std::all_of(id.begin(),id.end(),::isdigit)&&id==std::to_string(std::stoi(id)),"Canonical explicit CUDA device index required");backend=cuda_init(std::stoi(id));}
         else throw std::runtime_error("Unsupported training backend "+n);
         need(backend,"Missing native backend "+n);
         if(n=="CPU")ggml_backend_cpu_set_n_threads(backend,8);
@@ -204,6 +210,9 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     auto*qt=ggml_view_3d(c,convolved,d,hk,n,d*4,channels*4,0);
     auto*kt=ggml_view_3d(c,convolved,d,hk,n,d*4,channels*4,d*hk*4);
     auto*vt=ggml_view_3d(c,convolved,d,hv,n,d*4,channels*4,d*hk*2*4);
+    // RMS_NORM_BACK's CUDA implementation consumes dense rows. Preserve its
+    // input layout explicitly, rather than relying on forward-only view support.
+    qt=ggml_cont(c,qt);kt=ggml_cont(c,kt);
     // Nested token views must use the materialized V layout. GGML adjoint
     // buffers are dense, so retaining the parent Q/K/V channel stride here
     // would scatter a child's gradient beyond the V adjoint allocation.
@@ -235,7 +244,7 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
 static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int n){
     auto*c=g.ctx.p;int d=h.head,hq=h.heads,hk=h.kvheads;
     auto*qg=g.linear(b,p+"attn_q.weight",x);
-    auto*q=ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,0);
+    auto*q=ggml_cont(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,0));
     auto*gate=ggml_cont_2d(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,d*4),d*hq,n);
     auto*k=ggml_reshape_3d(c,g.linear(b,p+"attn_k.weight",x),d,hk,n);
     auto*v=ggml_reshape_3d(c,g.linear(b,p+"attn_v.weight",x),d,hk,n);
@@ -254,7 +263,10 @@ static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     }
     q=ggml_permute(c,q,0,2,1,3);k=ggml_permute(c,k,0,2,1,3);
     auto*scores=ggml_mul_mat(c,k,q);ggml_mul_mat_set_prec(scores,GGML_PREC_F32);
-    scores=ggml_soft_max(c,ggml_diag_mask_inf(c,ggml_scale(c,scores,1/std::sqrt(float(d))),0));
+    // A constant additive causal mask has an ordinary softmax derivative and
+    // avoids the pinned CUDA backend's unsupported DIAG_MASK_ZERO backward op.
+    std::vector<float>mask(n*n,0);for(int query=0;query<n;++query)for(int key=query+1;key<n;++key)mask[query*n+key]=-INFINITY;
+    scores=ggml_soft_max(c,ggml_add(c,ggml_scale(c,scores,1/std::sqrt(float(d))),g.input(n,n,mask)));
     auto*vp=ggml_cont(c,ggml_permute(c,v,1,2,0,3));
     auto*y=ggml_mul_mat(c,vp,scores);ggml_mul_mat_set_prec(y,GGML_PREC_F32);
     y=ggml_cont_2d(c,ggml_permute(c,y,0,2,1,3),d*hq,n);
@@ -296,7 +308,9 @@ struct Chain {
     std::vector<std::unique_ptr<Block>> blocks;
     bool full;int rank;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r):h(geometry),full(train_full),rank(r){
-        need(!names.empty()&&rank>0,"Explicit devices and positive rank required");
+        need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
+        need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
+        need(names.size()==1||std::find(names.begin(),names.end(),"CPU")==names.end(),"CPU training uses one CPU backend; mixed CPU/CUDA placement is not qualified");
         for(auto&name:names)devices.push_back(std::make_unique<Device>(name));
         for(int i=0;i<h.layers+2;++i)blocks.push_back(std::make_unique<Block>(*devices[i%devices.size()],full,rank));
         blocks.front()->add("token_embd.weight",h.hidden,h.vocab,false);
@@ -402,12 +416,23 @@ static json chain_test(const std::vector<std::string>&names){
             double numeric=(plus-minus)/(2*eps),error=std::abs(numeric-analytic);worst=std::max(worst,error);
             need(error<.0004+.03*std::abs(numeric),"Chain directional gradient mismatch "+std::string(w->name));++checks;
         }
-        m.update(.01f);m.zero();float after=m.standard_sample(example,false);need(after<before,"Tiny-chain update did not reduce objective");
-        reports.push_back({{"mode",full?"full":"lora"},{"before",before},{"after",after},{"stage_directions",checks},{"worst_absolute_error",worst},{"gradients",gradients}});
+        // Check accumulation itself, independently of the Python batch helper:
+        // two half-weight reverse passes must equal the mean of separate grads.
+        std::vector<std::pair<T*,T*>>all;for(auto&b:m.blocks){auto ps=b->trainable();all.insert(all.end(),ps.begin(),ps.end());}
+        std::vector<std::vector<float>>first,second;for(auto[w,dw]:all)first.push_back(read_tensor(dw));
+        json other={{"tokens",{3,2,1,0}},{"targets",{2,1,0,6}},{"loss_mask",{true,false,true,true}}};
+        m.zero();m.standard_sample(other,true);for(auto[w,dw]:all)second.push_back(read_tensor(dw));
+        m.zero();m.standard_sample(example,true,.5f);m.standard_sample(other,true,.5f);
+        double batch_error=0;size_t batch_scalars=0;
+        for(size_t i=0;i<all.size();++i){auto actual=read_tensor(all[i].second);
+            for(size_t j=0;j<actual.size();++j){double expected=(double(first[i][j])+second[i][j])*.5,error=std::abs(actual[j]-expected);
+                batch_error=std::max(batch_error,error);++batch_scalars;need(error<=1e-6+1e-4*std::abs(expected),"Native gradient accumulation mismatch");}}
+        m.zero();m.standard_sample(example,true);m.update(.01f);m.zero();float after=m.standard_sample(example,false);need(after<before,"Tiny-chain update did not reduce objective");
+        reports.push_back({{"mode",full?"full":"lora"},{"before",before},{"after",after},{"stage_directions",checks},{"worst_absolute_error",worst},{"batch_scalar_gradients",batch_scalars},{"batch_gradient_max_error",batch_error},{"gradients",gradients}});
     }
     return {{"status","PASS"},{"devices",names},{"scope","tiny complete hybrid chain; model weights have not been trained"},{"reports",reports}};
 }
-static json self_test(const std::string&backend){
+static json self_test(const std::string&backend,bool diagnostic=false){
     Device d(backend);Geometry h;std::mt19937 rng(183);std::normal_distribution<float>normal(0,.15f);
     json records=json::array();
     for(int which=0;which<2;++which){
@@ -423,7 +448,7 @@ static json self_test(const std::string&backend){
             auto*out=layer(g,b,which,in,h,n);auto*up=g.input(h.hidden,n,dy);auto*loss=ggml_sum(g.ctx.p,ggml_mul(g.ctx.p,out,up));
             if(backward)g.backward(loss,b);else g.forward(loss);g.compute();return read_tensor(loss)[0];
         };
-        float baseline=evaluate(true);double worst=0;int checks=0;
+        float baseline=evaluate(true);double worst=0;int checks=0;json directions=json::array();int failures=0;
         for(auto&[name,p]:b.params){
             auto values=read_tensor(p.w),grad=read_tensor(p.grad);
             // A direction through every tensor; predeclared epsilon and bounds.
@@ -434,12 +459,20 @@ static json self_test(const std::string&backend){
             for(size_t j=0;j<values.size();++j)changed[j]=values[j]+eps*direction[j];put(p.w,changed);float plus=evaluate(false);
             for(size_t j=0;j<values.size();++j)changed[j]=values[j]-eps*direction[j];put(p.w,changed);float minus=evaluate(false);put(p.w,values);
             double numeric=(plus-minus)/(2*eps),error=std::abs(numeric-analytic);worst=std::max(worst,error);
-            need(error<.0003+.02*std::abs(numeric),"Directional gradient mismatch "+name+" analytic="+std::to_string(analytic)+" numeric="+std::to_string(numeric));++checks;
+            bool passed=error<.0003+.02*std::abs(numeric);failures+=!passed;
+            if(diagnostic)directions.push_back({{"name",name},{"analytic",analytic},{"numeric",numeric},{"plus",plus},{"minus",minus},{"gradient",grad},{"passed",passed}});
+            if(!diagnostic)need(passed,"Directional gradient mismatch "+name+" analytic="+std::to_string(analytic)+" numeric="+std::to_string(numeric));++checks;
         }
         records.push_back({{"layer",which},{"tensor_directions",checks},{"baseline",baseline},{"worst_absolute_error",worst}});
+        if(diagnostic){
+            records.back()["directions"]=directions;records.back()["failures"]=failures;
+            json weights=json::object();for(auto&[name,p]:b.params)weights[name]={{"shape",{p.w->ne[0],p.w->ne[1]}},{"values",read_tensor(p.w)}};
+            records.back()["fixture"]={{"input",x},{"upstream",dy},{"tokens",n},{"weights",weights}};
+        }
         std::cerr<<"LAYER_GRADIENT_GATE "<<records.back().dump()<<std::endl;
     }
-    return {{"status","PASS"},{"backend",backend},{"scope","tiny recurrent and attention layer VJPs; not full model qualification"},{"checks",records}};
+    bool passed=true;for(auto&r:records)if(r.value("failures",0))passed=false;
+    return {{"status",passed?"PASS":"FAIL"},{"backend",backend},{"scope","tiny recurrent and attention layer VJPs; not full model qualification"},{"checks",records}};
 }
 static json inspect_model(const std::string&path){
     ggml_context*ctx=nullptr;auto*f=gguf_init_from_file(path.c_str(),{true,&ctx});need(f,"Cannot read GGUF");
@@ -472,7 +505,9 @@ struct GGUFSource {
         if(type==GGML_TYPE_F32)stream.read(reinterpret_cast<char*>(out.data()),count*4);
         else{std::vector<uint16_t>raw(count);stream.read(reinterpret_cast<char*>(raw.data()),count*2);
             for(size_t j=0;j<count;++j){uint32_t bits=uint32_t(raw[j])<<16;std::memcpy(&out[j],&bits,4);}}
-        need(bool(stream),"Incomplete source tensor "+name);for(auto v:out)need(std::isfinite(v),"Nonfinite source tensor "+name);return out;
+        need(bool(stream),"Incomplete source tensor "+name);
+        for(auto v:out)if(!std::isfinite(v))throw std::runtime_error("Nonfinite source tensor "+name);
+        return out;
     }
     Geometry geometry(){
         Geometry h;auto arch=std::string(gguf_get_val_str(file,gguf_find_key(file,"general.architecture")));
@@ -514,18 +549,34 @@ struct GGUFSource {
     }
 };
 static json memory_plan(Chain&model,const json&config){
-    std::map<std::string,size_t>persistent,scratch;
-    for(auto&b:model.blocks){size_t bytes=0;for(auto&[name,p]:b->params)bytes+=ggml_nbytes(p.w);
+    std::map<std::string,size_t>persistent,scratch,activations;
+    size_t length=0;for(auto&e:config.at("examples"))length=std::max(length,e.at("tokens").size());
+    const auto&h=model.h;
+    for(size_t index=0;index<model.blocks.size();++index){auto&b=model.blocks[index];size_t bytes=0;for(auto&[name,p]:b->params)bytes+=ggml_nbytes(p.w);
         size_t train=0;for(auto[w,dw]:b->trainable())train+=ggml_nbytes(dw);
         for(auto&[name,p]:b->params)if(p.a)bytes+=ggml_nbytes(p.a)+ggml_nbytes(p.b);
         persistent[b->device.name]+=bytes+train;scratch[b->device.name]=std::max(scratch[b->device.name],bytes*2);
+        size_t active=0;
+        if(index>0&&index+1<model.blocks.size()){
+            active=length*size_t(h.ffn)*4*20;
+            if(index%h.interval)active+=length*size_t(h.state)*h.state*h.vheads*4*16;
+            else active+=size_t(h.heads)*length*length*4*12;
+        }else if(index+1==model.blocks.size())active=length*size_t(h.vocab)*4*12;
+        activations[b->device.name]+=active;
     }
     json plans=json::array();size_t reserve=config.value("reserve_bytes",size_t(4ull<<30));
     for(auto&d:model.devices){size_t free=0,total=0;ggml_backend_dev_memory(ggml_backend_get_device(d->backend),&free,&total);
-        size_t estimate=persistent[d->name]+scratch[d->name]+reserve;
+        if(d->name=="CPU"){
+            // The pinned GGML CPU backend reports total RAM as free on Linux.
+            // Admission must respect current host pressure instead.
+            std::ifstream meminfo("/proc/meminfo");std::string line;free=0;
+            while(std::getline(meminfo,line))if(line.rfind("MemAvailable:",0)==0){free=std::stoull(line.substr(13))*1024;break;}
+            need(free>0,"Cannot establish available host memory for CPU training");
+        }
+        size_t estimate=persistent[d->name]+scratch[d->name]+activations[d->name]+reserve;
         size_t cap=config.contains("device_budget_bytes")?config.at("device_budget_bytes").at(d->name).get<size_t>():free;
         need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
-        plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"reserve",reserve},{"admission_estimate",estimate}});
+        plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"reserve",reserve},{"admission_estimate",estimate}});
     }
     return plans;
 }
@@ -553,6 +604,7 @@ static void save_candidate(Chain&model,GGUFSource&source,const std::string&path,
             auto*desc=ggml_dup_tensor(metadata.p,w);ggml_set_name(desc,w->name);gguf_add_tensor(out,desc);tensors.push_back(desc);mapping.push_back({desc,w});
         }
     }
+    gguf_set_val_str(out,"pcc.training.base_sha256",base_sha256.c_str());
     int fd=::open(path.c_str(),O_CREAT|O_EXCL|O_WRONLY,0600);need(fd>=0,"Cannot create immutable candidate");
     try{
         size_t size=gguf_get_meta_size(out);std::vector<char>header(size);gguf_get_meta_data(out,header.data());write_all(fd,header.data(),header.size());size_t position=header.size();
@@ -571,6 +623,7 @@ static void save_candidate(Chain&model,GGUFSource&source,const std::string&path,
 }
 static json train_model(const json&config){
     need(config.value("backprop_mode",std::string("standard"))=="standard","This entry point requires ordinary end-to-end backpropagation");
+    need(config.value("optimizer",std::string("sgd"))=="sgd","Only native SGD is currently implemented");
     auto names=config.at("devices").get<std::vector<std::string>>();need(!names.empty(),"Explicit devices required");
     for(auto&name:names)if(name!="CPU"){load_cuda();break;}
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
@@ -604,6 +657,9 @@ int main(int argc,char**argv){try{
     if(argc==3&&std::string(argv[1])=="--inspect"){std::cout<<inspect_model(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--train"){
         std::ifstream in(argv[2]);need(bool(in),"Cannot read private training request");json config;in>>config;std::cout<<train_model(config).dump(2)<<std::endl;return 0;
+    }
+    if(argc==3&&std::string(argv[1])=="--gradient-diagnostic"){
+        if(std::string(argv[2])!="CPU")load_cuda();auto report=self_test(argv[2],true);std::cout<<report.dump(2)<<std::endl;return report.at("status")=="PASS"?0:3;
     }
     if(argc==3&&std::string(argv[1])=="--chain-test"){
         std::vector<std::string>names;std::string value=argv[2];size_t begin=0,end;

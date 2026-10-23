@@ -12,8 +12,14 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--llama',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--cpu-only',action='store_true',help='Build without a CUDA backend; CUDA device requests then fail explicitly')
     args=p.parse_args();ll=args.llama.resolve();out=args.output.resolve()
     assert subprocess.check_output(['git','-C',str(ll),'rev-parse','HEAD'],text=True).strip()==PIN
+    cuda_source=ll/'ggml/src/ggml-cuda/ggml-cuda.cu'
+    cuda_binary=ll/'build/bin/libggml-cuda.so'
+    if not args.cpu_only:
+        assert 'GGML_CUDA_F32_ACTIVATIONS' in cuda_source.read_text(), 'Build against the inspected --f32-activations engine tree'
+        assert b'GGML_CUDA_F32_ACTIVATIONS' in cuda_binary.read_bytes(), 'Rebuild the FP32 CUDA backend before training'
     out.mkdir(parents=True,exist_ok=True)
     source=Path(__file__).with_name('native_train.cpp')
     # A private dependency build leaves every serving executable untouched.
@@ -57,7 +63,7 @@ def main():
         libraries.append(matches[0])
     runtime=':'.join(dict.fromkeys(str(p.parent) for p in libraries));engine=ll/'build/bin'
     cmd=['c++','-std=c++17','-O2','-g','-rdynamic','-I'+str(ll/'include'),'-I'+str(ll/'ggml/include'),
-         '-I'+str(ll/'vendor'),'-DPCC_CUDA_BACKEND="'+str(engine/'libggml-cuda.so')+'"',
+         '-I'+str(ll/'vendor'),'-DPCC_CUDA_BACKEND="'+('' if args.cpu_only else str(engine/'libggml-cuda.so'))+'"',
          str(source),'-Wl,-rpath,'+runtime,
          '-o',str(out/'pcc-native-train'),*map(str,libraries),'-ldl','-pthread']
     subprocess.run(cmd,check=True)
@@ -65,7 +71,11 @@ def main():
     assert 'torch' not in linked.lower()
     receipt=dict(pin=PIN,command=cmd,linked=linked,source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
                  dependency_patch='materialize-strided-noninplace-scale-v1',
-                 dependency_core_sha256=hashlib.sha256(core.read_bytes()).hexdigest())
+                 dependency_core_sha256=hashlib.sha256(core.read_bytes()).hexdigest(),
+                 cpu_only=args.cpu_only,
+                 cuda_sha256=None if args.cpu_only else hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),
+                 cuda_source_sha256=None if args.cpu_only else hashlib.sha256(cuda_source.read_bytes()).hexdigest(),
+                 cuda_math_profile=None if args.cpu_only else 'GGML_CUDA_F32_ACTIVATIONS=1; NVIDIA_TF32_OVERRIDE=0')
     (out/'build.json').write_text(json.dumps(receipt,indent=2)+'\n')
 
 if __name__=='__main__':main()

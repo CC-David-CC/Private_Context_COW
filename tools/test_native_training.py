@@ -60,6 +60,15 @@ class NativeTrainingContracts(unittest.TestCase):
         report['held_out']=True
         self.assertTrue(self.m.promotion_eligible(report))
 
+    def test_device_capacity_cannot_be_counted_twice(self):
+        for names in (['CUDA0','CUDA0'],['CUDA0','CUDA00']):
+            with self.assertRaises(ValueError):self.m.validate_devices(names)
+        self.assertEqual(self.m.validate_devices(['CUDA0','CUDA2']),['CUDA0','CUDA2'])
+
+    def test_mixed_cpu_gpu_placement_is_not_silent_offload(self):
+        with self.assertRaises(ValueError):self.m.validate_devices(['CUDA0','CPU'])
+        self.assertEqual(self.m.validate_devices(['CPU']),['CPU'])
+
     def test_candidate_is_content_addressed_and_never_overwritten(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);model=root/'base.gguf';model.write_bytes(b'original')

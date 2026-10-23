@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "date": "2026-10-23",
+  "status": "BOUNDED_MECHANICS_PASS",
+  "promoted": false,
+  "scope": "short native ordinary complete-graph backpropagation checks; no task-learning qualification",
+  "layer_fixture_source_sha256": "7d768d65dcf74a32b8a87a4d93b90e4a122c5e7e99a8cc846e9053105e50c7bf",
+  "real_model_source_sha256": "a36f433e71c577e3d927a0bd9d02bae5e2c45b0a6057ddd9d90d8f65b577a5e4",
+  "real_model_executable_sha256": "d2d7c00850e630000abb4e94fc57d5c714cd7914f01813e38b8769dc6d59b91b",
+  "base_sha256": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34",
+  "base_unchanged": true,
+  "candidates": {
+    "lora": {
+      "candidate_sha256": "49e31590d242c56ed810ebebcf58671c73407a98343f206a98181ee0df0fde6b",
+      "bytes": 45426096,
+      "example_cursor": 3,
+      "steps": [
+        {
+          "before": 2.205629348754883,
+          "after": 2.155380964279175,
+          "examples": 2,
+          "tensors": 498,
+          "nonzero": 249,
+          "devices": [
+            "CUDA0",
+            "CUDA1"
+          ]
+        },
+        {
+          "before": 1.8841099739074707,
+          "after": 1.8337432146072388,
+          "examples": 1,
+          "tensors": 498,
+          "nonzero": 498,
+          "devices": [
+            "CUDA0",
+            "CUDA1"
+          ]
+        }
+      ]
+    },
+    "lora_resumed": {
+      "candidate_sha256": "60966b02652a3bf7af3ffd6227b7b4e77e82c21b049dc48dd2dc60df584ee416",
+      "bytes": 45426096,
+      "example_cursor": 5,
+      "steps": [
+        {
+          "before": 2.119938373565674,
+          "after": 2.0737361907958984,
+          "examples": 2,
+          "tensors": 498,
+          "nonzero": 498,
+          "devices": [
+            "CUDA0",
+            "CUDA1"
+          ]
+        }
+      ]
+    },
+    "full": {
+      "candidate_sha256": "e71e917a5d90952728a3a17bc410007488bf9cd474d5c5315c367a68c2289c74",
+      "bytes": 31876841504,
+      "example_cursor": 1,
+      "steps": [
+        {
+          "before": 2.186798572540283,
+          "after": 1.420099139213562,
+          "examples": 1,
+          "tensors": 427,
+          "nonzero": 427,
+          "devices": [
+            "CUDA0",
+            "CUDA1"
+          ]
+        }
+      ]
+    }
+  },
+  "independent_serving_agreement": {
+    "lora_serving": {
+      "max_absolute_error": 1.621246337890625e-05,
+      "rms_error": 2.502407904014157e-06,
+      "top1_equal": true,
+      "tolerances": {
+        "max_absolute": 0.0002,
+        "rms": 5e-05
+      },
+      "passed": true
+    },
+    "full_serving": {
+      "max_absolute_error": 1.811981201171875e-05,
+      "rms_error": 3.036369052049709e-06,
+      "top1_equal": true,
+      "tolerances": {
+        "max_absolute": 0.0002,
+        "rms": 5e-05
+      },
+      "passed": true
+    }
+  },
+  "final_small_gates": {
+    "gpu_build": {
+      "pin": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+      "source_sha256": "2b16f67c26b10d714fea643b48f933055cebaf9ac8c97c8a60679256741fc91d",
+      "dependency_core_sha256": "fdd4590ced94c060bb116da6115af470f36571eae63e1144e9c9640e8fdaa6af",
+      "cpu_only": false,
+      "cuda_sha256": "4751f95d6b5c0ced341ae6d7c79d7f35bc778f69697eb3ad4fdfc30d6c5fc348",
+      "cuda_source_sha256": "168f3d5c708c9f3800ec1cf25e230ba430f574a5225297c08219b39cddc12acb",
+      "cuda_math_profile": "GGML_CUDA_F32_ACTIVATIONS=1; NVIDIA_TF32_OVERRIDE=0",
+      "executable_sha256": "e817f5066a893f3a10e557201a2df9da3d9cc454850052891254fc6ea9fba475"
+    },
+    "cpu_build": {
+      "pin": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+      "source_sha256": "2b16f67c26b10d714fea643b48f933055cebaf9ac8c97c8a60679256741fc91d",
+      "dependency_core_sha256": "fdd4590ced94c060bb116da6115af470f36571eae63e1144e9c9640e8fdaa6af",
+      "cpu_only": true,
+      "cuda_sha256": null,
+      "cuda_source_sha256": null,
+      "cuda_math_profile": null,
+      "executable_sha256": "3eeaac49979ee9ba157b6867b73836c18f0c2498a726863e9c3c49e91f29c437"
+    },
+    "cpu-standard17": {
+      "status": "PASS",
+      "devices": [
+        "CPU"
+      ],
+      "reports": [
+        {
+          "mode": "full",
+          "before": 2.0707292556762695,
+          "after": 1.9635391235351562,
+          "stage_directions": 4,
+          "worst_absolute_error": 0.0005369228459360942,
+          "batch_scalar_gradients": 446,
+          "batch_gradient_max_error": 1.862645149230957e-08
+        },
+        {
+          "mode": "lora",
+          "before": 2.0707292556762695,
+          "after": 2.0707242488861084,
+          "stage_directions": 3,
+          "worst_absolute_error": 1.5450771797575254e-05,
+          "batch_scalar_gradients": 310,
+          "batch_gradient_max_error": 1.7462298274040222e-10
+        }
+      ]
+    },
+    "cuda-standard17": {
+      "status": "PASS",
+      "devices": [
+        "CUDA0",
+        "CUDA1"
+      ],
+      "reports": [
+        {
+          "mode": "full",
+          "before": 2.0707292556762695,
+          "after": 1.9635388851165771,
+          "stage_directions": 4,
+          "worst_absolute_error": 0.0005365372846652949,
+          "batch_scalar_gradients": 446,
+          "batch_gradient_max_error": 4.470348358154297e-08
+        },
+        {
+          "mode": "lora",
+          "before": 2.0707292556762695,
+          "after": 2.0707242488861084,
+          "stage_directions": 3,
+          "worst_absolute_error": 2.4286741720460758e-05,
+          "batch_scalar_gradients": 310,
+          "batch_gradient_max_error": 2.3283064365386963e-10
+        }
+      ]
+    },
+    "negative_tests": {
+      "cpu-reject-cuda17": 2,
+      "cuda-reject-duplicate17": 2,
+      "cuda-reject-mixed17": 2
+    },
+    "cpu_memory_admission_refusal_verified": true,
+    "owned_training_oracle_processes_remaining": 0,
+    "account_gpu_locks_released": true
+  },
+  "reference_gate": {
+    "name": "G0",
+    "passed": 51,
+    "platform": "Linux",
+    "serving_core_baseline": "18013783b957fe9148f248eae46f237ad60a88d6"
+  },
+  "offline_contract_tests": {
+    "passed": 11,
+    "failures": 0
+  },
+  "fp64_verification": {
+    "status": "PASS",
+    "scalar_derivatives_per_backend": 386,
+    "rounded_max_absolute_errors": {
+      "cpu_recurrent": 1.728307719e-08,
+      "cpu_attention": 1.035996289e-07,
+      "cuda_recurrent": 3.797878523e-08,
+      "cuda_attention": 4.39949841e-08
+    },
+    "native_tolerance": {
+      "atol": 5e-05,
+      "rtol": 0.0005
+    },
+    "finite_difference_steps": [
+      1e-06,
+      2e-06
+    ],
+    "step_sensitivity_tolerance": {
+      "atol": 1e-07,
+      "rtol": 1e-05
+    }
+  },
+  "resource_observations": {
+    "full_process_sampled_memory_mib": [
+      33244,
+      34350
+    ],
+    "sample_interval_seconds": 2,
+    "allocator_peak_measured": false
+  },
+  "limitations": [
+    "useful task learning and preservation not qualified",
+    "large-model full accumulation not measured",
+    "mid-step recovery not qualified",
+    "uninterrupted-versus-resumed equality not tested",
+    "full-candidate continuation not tested",
+    "long sequences and sustained load not qualified",
+    "real CPU/HIP/SYCL/P4 training not qualified",
+    "no BW or interactive CLI integration",
+    "SGD without momentum only"
+  ],
+  "source_version_note": "After actual-model proof, final source adds device/CPU-memory admission guards and tiny gradient-accumulation tests; full real-model run was not repeated with the final executable."
+}
