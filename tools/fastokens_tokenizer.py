@@ -9,7 +9,7 @@ import importlib.metadata
 import json
 import os
 
-from tools.strata_tokenizer import Tokenizer,UNICODE_TO_BYTE
+from tools.strata_tokenizer import Tokenizer
 
 FASTOKENS_VERSION='0.3.4'
 
@@ -43,17 +43,16 @@ class FastokensTokenizer(Tokenizer):
         self._native=NativeTokenizer.from_json_str(json.dumps(document,ensure_ascii=False))
         if self._native.vocab_size!=len(self.tokens):raise ValueError('Native tokenizer vocabulary extent differs')
 
-    def _bpe_heap(self,word):
-        # The reference chooses this path only for a previously uncached piece
-        # longer than HEAP_MIN bytes. Short pieces and all warm hits retain the
-        # measured reference path, including its Unicode and literal handling.
-        text=bytes(UNICODE_TO_BYTE[c] for c in word).decode('utf-8')
-        encoded=self._native.encode_batch([text],add_special_tokens=False)
+    def _encode_piece(self,piece):
+        # Avoid an encode/decode round trip through the byte alphabet. The
+        # reference still owns piece boundaries and its bounded result cache.
+        if len(piece)<=self.HEAP_MIN//4:return super()._encode_piece(piece)
+        size=len(piece.encode('utf-8'))
+        if size<=self.HEAP_MIN:return super()._encode_piece(piece)
+        encoded=self._native.encode_batch([piece],add_special_tokens=False)
         if len(encoded)!=1:raise ValueError('Native tokenizer batch extent differs')
         ids=encoded[0].ids
-        if (type(ids) is not list or not 0<len(ids)<=len(word)
+        if (type(ids) is not list or not 0<len(ids)<=size
                 or any(type(i) is not int or not 0<=i<len(self.tokens) for i in ids)):
             raise ValueError('Native tokenizer returned invalid token IDs')
-        pieces=[self.tokens[i] for i in ids]
-        if ''.join(pieces)!=word:raise ValueError('Native BPE changed the input bytes')
-        return pieces
+        return ids

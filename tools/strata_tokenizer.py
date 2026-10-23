@@ -214,6 +214,17 @@ class Tokenizer:
 
     PIECE_CACHE_MAX = 200_000    # pre-tokenizer pieces remembered (an agent resends its whole history every turn)
 
+    def _encode_piece(self, piece: str) -> list[int]:
+        """Encode one already separated ordinary piece; no literal policy here."""
+        mapped = "".join(BYTE_TO_UNICODE[b] for b in piece.encode("utf-8"))
+        got = []
+        for tok in self._bpe(mapped):
+            i = self.ids.get(tok)
+            if i is None:
+                raise KeyError("BPE produced a token outside the vocabulary: %r" % tok)
+            got.append(i)
+        return got
+
     def _encode_plain(self, text: str) -> list[int]:
         out: list[int] = []
         # A piece's ids depend on the piece alone, so repeated pieces (most of a resent conversation) are looked up
@@ -222,13 +233,7 @@ class Tokenizer:
         for piece in self._re.findall(text):
             got = cache.get(piece)
             if got is None:
-                mapped = "".join(BYTE_TO_UNICODE[b] for b in piece.encode("utf-8"))
-                got = []
-                for tok in self._bpe(mapped):
-                    i = self.ids.get(tok)
-                    if i is None:
-                        raise KeyError("BPE produced a token outside the vocabulary: %r" % tok)
-                    got.append(i)
+                got = self._encode_piece(piece)
                 if len(cache) < self.PIECE_CACHE_MAX:
                     cache[piece] = got
             out.extend(got)
