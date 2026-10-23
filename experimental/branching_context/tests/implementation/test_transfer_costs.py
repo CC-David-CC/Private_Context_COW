@@ -10,7 +10,6 @@ class TransferTests(unittest.TestCase):
         costs.observe_forward(0,100,10); costs.observe_forward(1,100,1)
         costs.observe_restore(1,1000,20)
         self.assertEqual(costs.choose([0,1],[0],1000,100).worker,0)
-        costs.observe_restore(1,1000,.01)
         # Use fresh measurements for a different link/device, not overwrite history.
         fast=TransferCosts(); fast.observe_forward(0,100,10); fast.observe_forward(1,100,1)
         fast.observe_restore(1,1000,.01)

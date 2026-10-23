@@ -132,10 +132,12 @@ class PoolConfig:
     min_available_bytes: int = 16 * 1024**3
     checkpoint_idle_seconds: int | float | None = None
     scheduling: str = 'fifo'
+    cache_inventory: bool = False
 
     def __post_init__(self):
-        if self.scheduling not in ('fifo','weighted-prefix'):
+        if self.scheduling not in ('fifo','weighted-prefix','transfer-aware'):
             raise ValueError('Unknown checkpoint-pool scheduling policy')
+        if type(self.cache_inventory) is not bool:raise ValueError('cache_inventory must be boolean')
         ids = normalize_gpu_selection(self.gpus)
         object.__setattr__(self,'gpus',ids)
         for name in ('ram_bytes','disk_bytes','min_available_bytes'):
@@ -340,6 +342,19 @@ class SharedCheckpointPool:
 
     def __contains__(self,key):
         with self._condition: return key in self._entries
+
+    def inventory(self):
+        """Copy only location metadata, without pinning or refreshing recency."""
+        with self._condition:
+            return [dict(model=key[0],execution=key[1],snapshot=key[2],tier='ram',worker='pool',
+                         checksum=e['checkpoint'].checksum,bytes=checkpoint_bytes(e['checkpoint']))
+                    for key,e in self._entries.items() if len(key)==3
+                    and type(e['checkpoint']) is not Embedding and not e['failed']]
+
+    def checkpoint_extent(self,key):
+        with self._condition:
+            entry=self._entries.get(key)
+            return None if entry is None else checkpoint_bytes(entry['checkpoint'])
 
     def is_durable(self,key):
         """Return the pool's acknowledged durability state for a resident key."""

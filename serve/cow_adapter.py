@@ -61,6 +61,9 @@ class CowAdapter:
         """Return the coordinator's live metrics snapshot without model work."""
         return self.coordinator.metrics()
 
+    def cache_inventory(self,**cursor):
+        return self.coordinator.cache_inventory(**cursor)
+
     def pending_request(self, branch):
         return self.coordinator.pending_request(branch)
 

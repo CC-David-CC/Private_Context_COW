@@ -352,7 +352,11 @@ class BranchingModel:
                                                 self.profile['execution']['prefill_chunk'])
                     except (ValueError,TypeError) as error:
                         raise IntegrityError('Mixed checkpoint execution binding is invalid') from error
+                observer=getattr(self,'_restore_observer',None)
+                started=time.monotonic() if observer is not None else None
                 resident = self.backend.restore(lease,saved.blob,history=history,frontier=saved.frontier)
+                if observer is not None and type(saved.blob) is bytes:
+                    observer(len(saved.blob),time.monotonic()-started)
                 if resident is not saved.blob:
                     saved = Checkpoint.create(saved.model_contract_id,saved.execution_profile_id,saved.consumed,
                         resident,saved.frontier,saved.input_identity,saved.execution_schedule)

@@ -27,6 +27,8 @@ from .strata_backend import StrataImage
 from .input_spans import InputHistory, history_for_snapshot, history_segment, history_digest, generated_text
 from .grammar_first import _valid_name as _valid_grammar_state_name
 from .prefix_scheduler import order_jobs, select_worker
+from .cache_inventory import InventoryJournal
+from .transfer_costs import TransferCosts
 
 
 class Request:
@@ -136,9 +138,13 @@ class ContextCoordinator:
         self._prefills = {}
         self._active_groups = {}
         self._service_rate = {}
+        self._costs=TransferCosts() if config.scheduling=='transfer-aware' else None
+        self._last_placement=None
+        self._inventory=InventoryJournal(os.uname().nodename) if config.cache_inventory else None
+        self._inventory_lock=threading.Lock()
         self._workers = {gpu:dict(queue=queue.Queue(),ready=Future(),busy=False,model=None,
             active=0,max_active=0,last_root=None,health='starting',restarts=0,
-            failure_reason=None,model_contract_id=None,execution_profile_id=None)
+            failure_reason=None,model_contract_id=None,execution_profile_id=None,native_inventory=[])
             for gpu in config.gpus}
         self._writer = ThreadPoolExecutor(max_workers=1,thread_name_prefix='cow-write')
         self._accepting,self._stopping,self._closed = True,False,False
@@ -759,6 +765,7 @@ class ContextCoordinator:
                 raise InvalidOperation('Coordinator closing during worker replacement')
             replacement=self._factory(gpu)
             replacement.gpu_id=gpu
+            self._observe_worker_restores(replacement,gpu)
             expected_gpu=normalize_gpu_selection(old_model.profile['execution'].get('GPU'))
             actual_gpu=normalize_gpu_selection(replacement.profile['execution'].get('GPU'))
             if (replacement.profile.get('model_contract_id') != w['model_contract_id']
@@ -782,6 +789,7 @@ class ContextCoordinator:
                 w['busy']=False
                 w['restarts']+=1
                 w['failure_reason']=None
+                w['native_inventory']=[]
                 self._condition.notify_all()
             return replacement
         except BaseException as error:
@@ -1669,7 +1677,7 @@ class ContextCoordinator:
         return accepted
 
     def _set_prefill_key(self,job):
-        if self.config.scheduling != 'weighted-prefix':return
+        if self.config.scheduling == 'fifo':return
         head=job.source_head or job.head
         if head is not None:
             value=('snapshot',head.tip)
@@ -1696,6 +1704,78 @@ class ContextCoordinator:
         return (self._key(model,source) not in self.pool
             and not os.path.lexists(model.checkpoint_directory/(source+'.json')))
 
+    def _placement(self,eligible,job):
+        """Estimate native restore plus bounded forward work, after compatibility."""
+        head=job.source_head or job.head
+        warm=[]; size=0; work=len(job.ids)+job.max_steps
+        if head is not None:
+            for gpu in eligible:
+                cp=self._workers[gpu]['model'].cache.get(head.tip)
+                if cp is not None and isinstance(cp.blob,StrataImage):warm.append(gpu)
+            model=self._workers[eligible[0]]['model']
+            size=self.pool.checkpoint_extent(self._key(model,head.tip))
+            if size is None:
+                path=model.checkpoint_directory/(head.tip+'.json')
+                if os.path.lexists(path):
+                    manifest=model.checkpoint_manifest(head.tip)
+                    size=manifest['state_bytes']+4*manifest['logits_count']
+                else:
+                    size=0
+                    work+=len(model.history(head.tip))
+        choice=self._costs.choose(eligible,warm,size,work)
+        self._last_placement=dict(worker=worker_key(choice.worker),reason=choice.reason,
+            estimated_seconds=choice.estimated_seconds,checkpoint_bytes=size,work_bound=work)
+        return choice.worker
+
+    def _observe_worker_restores(self,model,gpu):
+        if self._costs is None:return
+        w=self._workers[gpu]
+        w['restore_seconds']=0.
+        def observe(nbytes,seconds):
+            self._costs.observe_restore(gpu,nbytes,seconds)
+            w['restore_seconds']+=seconds
+        model._restore_observer=observe
+
+    @staticmethod
+    def _native_inventory(model,gpu):
+        """Called only by the owning worker after native execution has settled."""
+        return [dict(model=cp.model_contract_id,execution=cp.execution_profile_id,
+                     snapshot=snapshot,tier='native',worker=str(worker_key(gpu)),
+                     checksum=cp.checksum,bytes=len(cp.blob)+4*len(cp.frontier))
+                for snapshot in tuple(model.cache) for cp in (model.cache.get(snapshot),)
+                if cp is not None and isinstance(cp.blob,StrataImage)]
+
+    def cache_inventory(self,**cursor):
+        """Reconcile current locations; consumers recover using a bounded journal.
+
+        This is a hint, not a pin, checkpoint validation or a history export.
+        Busy workers are omitted rather than inspected from another thread.
+        """
+        if self._inventory is None:raise InvalidOperation('Cache inventory is not enabled')
+        with self._inventory_lock:
+            rows=self.pool.inventory()
+            with self._condition:
+                models={}
+                for w in self._workers.values():
+                    model=w['model']
+                    if w['health']=='healthy' and model is not None:
+                        models[(model.profile['model_contract_id'],model.profile['execution_profile_id'])]=model
+                        if not w['busy']:rows.extend(w['native_inventory'])
+            for (contract,execution),model in models.items():
+                for path in sorted(model.checkpoint_directory.glob('*.json')):
+                    try:
+                        manifest=model.checkpoint_manifest(path.stem)
+                        size=manifest['state_bytes']+4*manifest['logits_count']
+                        payload=model.checkpoint_directory/(manifest['payload_sha256']+'.state')
+                        if payload.stat().st_size!=size:continue
+                        rows.append(dict(model=contract,execution=execution,snapshot=path.stem,
+                            tier='disk',worker='pool',checksum=manifest['payload_sha256'],bytes=size))
+                    except (OSError,ValueError,IntegrityError):continue
+                    if len(rows)>self._inventory.entry_limit:
+                        raise InvalidOperation('Cache inventory capacity exceeded')
+            self._inventory.reconcile(rows)
+            return self._inventory.read(**cursor)
+
     def _dispatch(self):
         while True:
             lookahead = None
@@ -1712,15 +1792,15 @@ class ContextCoordinator:
                         self._pending.remove(job)
                         self._fail(job,InvalidOperation('Native worker unavailable'))
                 ordered=(order_jobs(self._pending,self._active_groups,now=time.monotonic())
-                    if self.config.scheduling=='weighted-prefix' else tuple(self._pending))
+                    if self.config.scheduling!='fifo' else tuple(self._pending))
                 for job in ordered:
-                    if (self.config.scheduling=='weighted-prefix' and job.cancelled is not None
+                    if (self.config.scheduling!='fifo' and job.cancelled is not None
                             and job.cancelled()):
                         self._pending.remove(job)
                         self._fail(job,CancelledError('Queued request cancelled'),release_branch=False)
                         continue
                     if not idle:
-                        if self.config.scheduling=='weighted-prefix':continue
+                        if self.config.scheduling!='fifo':continue
                         break
                     if job.branch in self._branches: continue
                     if job.prefill_key in self._prefills:continue
@@ -1737,11 +1817,15 @@ class ContextCoordinator:
                     eligible = [gpu for gpu in idle if gpu in compatible]
                     if not eligible: continue
                     warm = [gpu for gpu in eligible if job.head and job.head.tip in self._workers[gpu]['model'].cache]
-                    gpu = (select_worker(eligible,warm,self._service_rate)
-                        if self.config.scheduling=='weighted-prefix' else (warm or eligible)[0])
+                    try:
+                        gpu = (self._placement(eligible,job) if self._costs is not None else
+                            select_worker(eligible,warm,self._service_rate)
+                            if self.config.scheduling!='fifo' else (warm or eligible)[0])
+                    except Exception as error:
+                        self._pending.remove(job);self._fail(job,error);continue
                     idle.remove(gpu);self._pending.remove(job)
                     w = self._workers[gpu];w['busy'] = True
-                    if self.config.scheduling=='weighted-prefix':
+                    if self.config.scheduling!='fifo':
                         self._active_groups[job.prefill_key]=self._active_groups.get(job.prefill_key,0)+1
                         if self._needs_prefill_claim(job,w['model']):
                             self._prefills[job.prefill_key]=job.request.operation
@@ -2316,6 +2400,7 @@ class ContextCoordinator:
         try:
             model = self._factory(gpu)
             model.gpu_id = gpu
+            self._observe_worker_restores(model,gpu)
             if normalize_gpu_selection(model.profile['execution'].get('GPU')) != self.config.gpus:
                 raise InvalidOperation('Worker profile GPU selection differs from coordinator')
             w['model_contract_id']=model.profile['model_contract_id']
@@ -2329,7 +2414,9 @@ class ContextCoordinator:
                 key=None
                 publication_handoff=False
                 replace_after_job=False
-                if self.config.scheduling=='weighted-prefix':
+                service_ok=False
+                w['restore_seconds']=0.
+                if self.config.scheduling!='fifo':
                     service_started=time.monotonic()
                     service_before=model.backend.work_counters().get('forward_tokens',0)
                 try:
@@ -2350,6 +2437,7 @@ class ContextCoordinator:
                         inputs=None
                         continue
                     answer = self._run(bound,job)
+                    service_ok=True
                     self._touch_idle_source(job)
                     sid = answer['snapshot']
                     self._headroom()
@@ -2442,7 +2530,9 @@ class ContextCoordinator:
                     prepared=pin=lease=None
                     with self._condition:
                         self._release_prefill(job)
-                        if self.config.scheduling=='weighted-prefix':
+                        if self._inventory is not None:
+                            w['native_inventory']=self._native_inventory(model,gpu)
+                        if self.config.scheduling!='fifo':
                             count=self._active_groups.get(job.prefill_key,1)-1
                             if count:self._active_groups[job.prefill_key]=count
                             else:self._active_groups.pop(job.prefill_key,None)
@@ -2450,6 +2540,9 @@ class ContextCoordinator:
                             if work>0:
                                 sample=(time.monotonic()-service_started)/work
                                 self._service_rate[gpu]=.75*self._service_rate.get(gpu,sample)+.25*sample
+                                if service_ok and self._costs is not None:
+                                    elapsed=max(0.,time.monotonic()-service_started-w['restore_seconds'])
+                                    self._costs.observe_forward(gpu,work,elapsed)
                         w['active'] -= 1
                         if not replace_after_job: w['busy'] = False
                         self._condition.notify_all()
@@ -2863,6 +2956,13 @@ class ContextCoordinator:
                     for key in {job.prefill_key for job in self._pending} if key is not None},
                 active_per_prefill=dict(self._active_groups),
                 seconds_per_forward_token={worker_key(gpu):rate for gpu,rate in self._service_rate.items()})
+            if self._costs is not None:
+                rates=self._costs.metrics()
+                result['scheduling']['transfer_costs']={name:{str(worker_key(gpu)):value for gpu,value in values.items()}
+                    for name,values in rates.items()}
+                result['scheduling']['last_placement']=self._last_placement
+            if self._inventory is not None:
+                result['cache_inventory']=dict(enabled=True,event_limit=1024,entry_limit=self._inventory.entry_limit)
             return result
 
     def close(self):

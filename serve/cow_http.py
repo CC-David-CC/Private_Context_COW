@@ -342,6 +342,15 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 except Exception as error:
                     from context_time_travel.store import NotFound
                     return self.json(404 if isinstance(error,NotFound) else 409,{'error':str(error)})
+            if path=='/cow/cache/inventory':
+                try:
+                    query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
+                    if query and (set(query)!={'epoch','since'} or any(len(v)!=1 for v in query.values())):
+                        raise ValueError('Use both epoch and since, or no cursor')
+                    cursor={} if not query else dict(epoch=query['epoch'][0],since=int(query['since'][0]))
+                    return self.json(200,adapter.cache_inventory(**cursor))
+                except ValueError as error:return self.json(400,dict(error=str(error)))
+                except Exception as error:return self.json(409,dict(error=str(error)))
             if path=='/cow/status':
                 try:
                     query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
@@ -794,7 +803,7 @@ def pool_config_from_args(args,profile=None):
     return PoolConfig(gpus=profile['execution']['GPU'] if profile is not None else (0,),ram_bytes=args.ram_gib*1024**3,
         disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
         checkpoint_idle_seconds=args.checkpoint_idle_seconds,
-        scheduling=getattr(args,'scheduling','fifo'))
+        scheduling=getattr(args,'scheduling','fifo'),cache_inventory=getattr(args,'cache_inventory',False))
 
 
 def main():
@@ -807,7 +816,8 @@ def main():
     parser.add_argument('--openai-max-output',type=int,default=2048)
     parser.add_argument('--api-key');parser.add_argument('--ram-gib',type=int,default=96)
     parser.add_argument('--disk-gib',type=int,default=128)
-    parser.add_argument('--scheduling',choices=('fifo','weighted-prefix'),default='fifo',
+    parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
+    parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',
         help='Opt in to shared-prefill admission with backlog weights and bounded-wait aging')
     parser.add_argument('--min-available-gib',type=int,default=16,help='Positive host RAM headroom; guided setup sizes this for the server.')
     parser.add_argument('--checkpoint-idle-seconds',type=float,

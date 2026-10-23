@@ -79,6 +79,9 @@ def configured_argv(directory,config,key):
               "--text","--grammar-store",str(directory/"grammars")]
     if config.get('scheduling','fifo')!='fifo':
         argv += ['--scheduling',config['scheduling']]
+    if type(config.get('cache_inventory',False)) is not bool:
+        raise ValueError('cache_inventory must be boolean')
+    if config.get('cache_inventory',False):argv += ['--cache-inventory']
     if config.get('openai_port') is not None:
         argv += ['--openai-port',str(config['openai_port']),
                  '--openai-model',config.get('openai_model','cow'),

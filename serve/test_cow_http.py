@@ -102,6 +102,18 @@ class CowHTTPTests(unittest.TestCase):
     def test_public_bind_requires_key(self):
         with self.assertRaises(ValueError): make_server(self.adapter,host='0.0.0.0')
 
+    def test_cache_inventory_auth_and_cursor_validation_before_observation(self):
+        seen=[]
+        def inventory(**cursor):seen.append(cursor);return dict(kind='snapshot',entries=[])
+        self.adapter.cache_inventory=inventory
+        self.assertEqual(self.call('/cow/cache/inventory',key='wrong')[0],401)
+        for suffix in ['?since=1','?epoch=x','?epoch=x&since=1&since=2','?epoch=x&since=bad']:
+            self.assertEqual(self.call('/cow/cache/inventory'+suffix)[0],400)
+        self.assertEqual(seen,[])
+        self.assertEqual(self.call('/cow/cache/inventory')[0],200)
+        self.assertEqual(self.call('/cow/cache/inventory?epoch=x&since=0')[0],200)
+        self.assertEqual(seen,[{},dict(epoch='x',since=0)])
+
     def test_text_routes_are_explicitly_disabled_without_text_adapter(self):
         code,_=self.call('/cow/text/generate',dict(branch='A',messages=[{'role':'user','content':'x'}],
             revision=0,operation_id='text-a',max_tokens=8))
