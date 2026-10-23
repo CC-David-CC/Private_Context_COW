@@ -4,6 +4,7 @@ Native fastokens/model token-ID qualification is a separate explicit probe.
 """
 import json
 import os
+from pathlib import Path
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -92,6 +93,38 @@ class FastokensBoundaryTests(unittest.TestCase):
     def test_short_code_pieces_keep_the_reference_fast_path(self):
         with patch.object(self.fast._native,'encode_batch',side_effect=AssertionError('short-piece native overhead')):
             self.assertEqual(self.fast.encode('hello + value_123\n'),self.reference.encode('hello + value_123\n'))
+
+    def test_text_components_select_the_same_tokenizer_for_all_text_operations(self):
+        from serve.cow_http import model_text_components
+        template=(Path(__file__).resolve().parents[4]/'serve/chat_template.jinja').read_text()
+        with patch('tools.fastokens_tokenizer.load_tokenizer',return_value=self.fast) as load, \
+             patch('tools.gguf_reader.GGUFFile',return_value=SimpleNamespace(metadata={'tokenizer.chat_template':template})):
+            components=model_text_components('fixture.gguf',tokenizer_backend='fastokens')
+        load.assert_called_once_with('fixture.gguf',backend='fastokens')
+        self.assertIs(components['tokenizer'],self.fast)
+        self.assertIs(components['encode_rendered'].__self__.tokenizer,self.fast)
+
+    def test_launcher_defaults_and_optional_backend_are_explicit(self):
+        from tools.cow_server import configured_argv
+        from tools.cow_server_setup import tokenizer_config
+        config=dict(profile='profile',store='store',host='127.0.0.1',port=8099,
+            ram_gib=100,disk_gib=100,checkpoint_idle_seconds=1800)
+        self.assertEqual(tokenizer_config(SimpleNamespace()),{})
+        self.assertNotIn('--tokenizer-backend',configured_argv(config,Path('/tmp/server'),'key'))
+        config.update(tokenizer_config(SimpleNamespace(tokenizer_backend='fastokens')))
+        argv=configured_argv(config,Path('/tmp/server'),'key')
+        self.assertEqual(argv[argv.index('--tokenizer-backend')+1],'fastokens')
+        for invalid in ('auto',True,None):
+            with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                tokenizer_config(SimpleNamespace(tokenizer_backend=invalid))
+            with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                configured_argv(dict(config,tokenizer_backend=invalid),Path('/tmp/server'),'key')
+
+    def test_explicit_backend_failure_does_not_fall_back(self):
+        from serve.cow_http import model_text_components
+        with patch('tools.fastokens_tokenizer.load_tokenizer',side_effect=RuntimeError('Optional dependency missing')):
+            with self.assertRaisesRegex(RuntimeError,'Optional dependency missing'):
+                model_text_components('fixture.gguf',tokenizer_backend='fastokens')
 
 
 if __name__=='__main__':unittest.main()
