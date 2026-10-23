@@ -4,6 +4,22 @@ This experiment extends COW's existing checkpoint ownership and weighted queue.
 It does not replace immutable histories, branch revisions, complete controllers,
 checkpoint checks, RAM/disk reservations, or BranchWrite's workflow ledger.
 
+The first bounded campaign passed 58 focused Linux CPU tests and the 51-test
+G0 gate. On Wen 1.1, three complete responses with the features disabled and
+three with them enabled all passed their checks and matched byte for byte.
+The repeated prompt reused 14 tokens in both modes. Inventory observation did
+not move branch heads. Both ephemeral servers exited cleanly with no session
+caches left; the GPU was released. This was one RTX PRO 6000 Blackwell 96 GB,
+not a multi-GPU speed comparison or a complete BW tool-workflow campaign.
+The Wen run exposed RAM/disk locations; native-image inventory was not observed
+on that adapter. See the [answer-free receipt](../experimental/branching_context/evidence/CACHE-FABRIC-20261022.json).
+
+A broad collection ran 2,027 tests but was NOT PASS: 36 errors and one skip.
+All 36 error names were reproduced on unchanged main. These include absent
+native profile/calibration prerequisites, import-path problems, older diagnostic
+source bindings and an incomplete coordinator fixture. They remain unresolved;
+they are not counted as passing checks or excused as model successes.
+
 Enable `--cache-inventory --scheduling transfer-aware` when configuring a fresh
 server. Existing configurations still use FIFO and expose no inventory. Normal
 BW and standard CLI requests continue through the same COW coordinator.

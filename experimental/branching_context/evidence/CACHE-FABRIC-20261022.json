@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "source_commit": "f1d0a34eee25f01d3fa6e0f2a0a56abbfa137a31",
+  "baseline_commit": "088eaed502e35f669e73b1ccc89637dd727be189",
+  "cpu": {
+    "focused_tests": 58,
+    "focused_failures": 0,
+    "focused_errors": 0,
+    "focused_skips": 0,
+    "g0_tests": 51,
+    "g0_status": "PASS",
+    "broad_collection": {
+      "tests_run": 2027,
+      "errors": 36,
+      "skipped": 1,
+      "status": "NOT_PASS",
+      "same_error_names_on_unchanged_main": true
+    }
+  },
+  "native": {
+    "model_weights_sha256": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34",
+    "execution_profile_id": "1219378d74c26753293743b4d1388e9e9c060795df0f644074c16bf38906338c",
+    "hardware": "one RTX PRO 6000 Blackwell 96 GB",
+    "full_response_trials": 6,
+    "all_completed": true,
+    "disabled_enabled_response_bytes_equal": true,
+    "inventory": {
+      "entries": 10,
+      "tiers": [
+        "disk",
+        "ram"
+      ],
+      "empty_delta": true,
+      "heads_unchanged": true
+    },
+    "modes": {
+      "disabled": {
+        "response_sha256": [
+          "4c763b225a48c08d42d957a2dc479c761908f6a7a77224d403aa5e54921eee9c",
+          "6b42d1baf7d5cf5055cd621fa96f593b2f147c68b4c7560d446595aa738240fa",
+          "4c763b225a48c08d42d957a2dc479c761908f6a7a77224d403aa5e54921eee9c"
+        ],
+        "response_seconds": [
+          0.937583614140749,
+          1.0492769489064813,
+          0.5328267409931868
+        ],
+        "cached_tokens": [
+          0,
+          0,
+          14
+        ],
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0,
+        "ram_limit_bytes": 107374182400,
+        "disk_limit_bytes": 107374182400
+      },
+      "enabled": {
+        "response_sha256": [
+          "4c763b225a48c08d42d957a2dc479c761908f6a7a77224d403aa5e54921eee9c",
+          "6b42d1baf7d5cf5055cd621fa96f593b2f147c68b4c7560d446595aa738240fa",
+          "4c763b225a48c08d42d957a2dc479c761908f6a7a77224d403aa5e54921eee9c"
+        ],
+        "response_seconds": [
+          1.0338978450745344,
+          1.0559391928836703,
+          0.5342497148085386
+        ],
+        "cached_tokens": [
+          0,
+          0,
+          14
+        ],
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0,
+        "ram_limit_bytes": 107374182400,
+        "disk_limit_bytes": 107374182400
+      }
+    }
+  },
+  "limits": [
+    "No multi-GPU or cross-server performance claim",
+    "No complete BW tool workflow run in this campaign",
+    "No general G1-G5 certification",
+    "Native inventory tier not observed in the Wen run; RAM and disk were observed"
+  ]
+}
