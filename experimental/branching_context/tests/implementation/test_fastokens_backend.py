@@ -27,6 +27,7 @@ class NativeDouble:
         instance.reference=Tokenizer(tokens,merges)
         return instance
 
+    @property
     def vocab_size(self):return len(self.reference.tokens)
 
     def encode_batch(self,pieces,add_special_tokens=False):

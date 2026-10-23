@@ -41,7 +41,7 @@ class FastokensTokenizer(Tokenizer):
                 end_of_word_suffix=None,fuse_unk=False,byte_fallback=False,ignore_merges=False,
                 vocab=self.ids,merges=[list(pair) for pair in sorted(self.ranks,key=self.ranks.__getitem__)]))
         self._native=NativeTokenizer.from_json_str(json.dumps(document,ensure_ascii=False))
-        if self._native.vocab_size()!=len(self.tokens):raise ValueError('Native tokenizer vocabulary extent differs')
+        if self._native.vocab_size!=len(self.tokens):raise ValueError('Native tokenizer vocabulary extent differs')
 
     def _encode_plain(self,text):
         pieces=self._re.findall(text)
