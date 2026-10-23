@@ -68,12 +68,12 @@ class PeerCacheTests(unittest.TestCase):
     def test_wrong_peer_key_is_an_error_not_a_cache_miss(self):
         url,_=self.serving()
         peers=PeerCaches([ConfiguredPeer('wrong',url,'wrong')],self.incoming)
-        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        with self.assertRaisesRegex(IntegrityError,'HTTP 401'):peers.recover(self.target,self.snapshot)
         self.assert_released(self.incoming)
 
     def test_incompatible_peer_never_supplies_cache_bytes(self):
         _,peers=self.serving();self.target.profile['execution_profile_id']='c'*64
-        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        with self.assertRaisesRegex(IntegrityError,'model/execution identity'):peers.recover(self.target,self.snapshot)
         self.assertFalse((self.target.checkpoint_directory/(self.snapshot+'.json')).exists())
 
     def test_stale_inventory_and_unreachable_peer_allow_existing_rebuild_path(self):
@@ -91,7 +91,7 @@ class PeerCacheTests(unittest.TestCase):
         _,peers=self.serving()
         path=self.source.checkpoint_directory/(self.envelope['manifest']['payload_sha256']+'.state')
         path.write_bytes(b'bad')
-        with self.assertRaises(IntegrityError):peers.recover(self.target,self.snapshot)
+        with self.assertRaisesRegex(IntegrityError,'HTTP 409'):peers.recover(self.target,self.snapshot)
         self.assertFalse((self.target.checkpoint_directory/(self.snapshot+'.json')).exists())
         self.assert_released(self.incoming);self.assert_released(self.outgoing)
 

@@ -4,6 +4,7 @@ Inspired by DeepInfra's inventory recovery and Dynamo/KVCR placement. Peers
 provide numerical bytes only. They cannot install history or publish a branch.
 """
 from dataclasses import dataclass,field
+import json
 import os
 from pathlib import Path
 import re
@@ -20,6 +21,19 @@ from .cache_inventory import InventoryView,RecoveryRequired
 from .store import IntegrityError,_decode
 
 MAX_METADATA=4*1024**2
+
+
+def _json_object(raw):
+    def pairs(items):
+        result={}
+        for key,value in items:
+            if key in result:raise ValueError('Duplicate JSON field')
+            result[key]=value
+        return result
+    def constant(value):raise ValueError('Nonfinite JSON constant')
+    value=json.loads(raw,object_pairs_hook=pairs,parse_constant=constant)
+    if type(value) is not dict:raise ValueError('Expected a JSON object')
+    return value
 
 
 @dataclass(frozen=True)
@@ -60,7 +74,7 @@ def _private_file(path,limit):
 
 
 def load_peers(path):
-    document=_decode(_private_file(path,65536))
+    document=_json_object(_private_file(path,65536))
     if (set(document)!={'schema','peers'} or type(document['schema']) is not int or document['schema']!=1
             or type(document['peers']) is not list or not 1<=len(document['peers'])<=16):
         raise ValueError('Cache peer configuration requires schema 1 and 1..16 explicit peers')
@@ -123,7 +137,7 @@ class PeerCaches:
         with self._request(peer,path,deadline) as response:
             raw=response.read(MAX_METADATA+1)
             if len(raw)>MAX_METADATA:raise IntegrityError('Peer metadata exceeds limit')
-            try:return _decode(raw)
+            try:return _json_object(raw)
             except (ValueError,TypeError) as error:raise IntegrityError('Invalid peer metadata') from error
 
     def _refresh(self,peer,identity,deadline):
