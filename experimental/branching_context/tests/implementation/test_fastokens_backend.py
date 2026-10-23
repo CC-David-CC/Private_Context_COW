@@ -89,5 +89,9 @@ class FastokensBoundaryTests(unittest.TestCase):
             load.assert_called_once_with('fixture.gguf')
         with self.assertRaises(ValueError):load_tokenizer('fixture.gguf',backend='unknown')
 
+    def test_short_code_pieces_keep_the_reference_fast_path(self):
+        with patch.object(self.fast._native,'encode_batch',side_effect=AssertionError('short-piece native overhead')):
+            self.assertEqual(self.fast.encode('hello + value_123\n'),self.reference.encode('hello + value_123\n'))
+
 
 if __name__=='__main__':unittest.main()
