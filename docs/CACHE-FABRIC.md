@@ -17,8 +17,11 @@ on that adapter. See the [answer-free receipt](../experimental/branching_context
 A broad collection ran 2,027 tests but was NOT PASS: 36 errors and one skip.
 All 36 error names were reproduced on unchanged main. These include absent
 native profile/calibration prerequisites, import-path problems, older diagnostic
-source bindings and an incomplete coordinator fixture. They remain unresolved;
-they are not counted as passing checks or excused as model successes.
+source bindings and an incomplete coordinator fixture. That original run remains
+failed. The subsequent [stack integration](STACK-CAPABILITIES.md) repairs the
+applicable fixtures/imports and explicitly separates native prerequisites from
+CPU checks. Its passing CPU campaign does not qualify the excluded native or
+historical campaigns.
 
 Enable `--cache-inventory --scheduling transfer-aware` when configuring a fresh
 server. Existing configurations still use FIFO and expose no inventory. Normal

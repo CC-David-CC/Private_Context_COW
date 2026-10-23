@@ -21,5 +21,17 @@ class CampaignTests(unittest.TestCase):
         self.assertEqual(classify(row, 'cpu', {})['status'], 'NOT_APPLICABLE')
         self.assertEqual(classify(row, 'moe-native', {'CTT_PROFILE':'profile.json'})['status'], 'READY')
 
+    def test_invalid_campaign_or_prerequisite_cannot_silently_exclude_a_test(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root/'test_native.py').write_text('raise RuntimeError("must not import")')
+            rows = [dict(campaign='moe-nativ', requires=[]),
+                    dict(campaign='cpu', requires='CTT_PROFILE'),
+                    dict(campaign='cpu', requires=[False]),
+                    dict(campaign='cpu', requires=[], optional=True)]
+            for row in rows:
+                with self.subTest(row=row), self.assertRaisesRegex(ValueError, 'manifest'):
+                    validate_manifest(root, {'test_native': row})
+
 
 if __name__ == '__main__': unittest.main()

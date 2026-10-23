@@ -61,9 +61,19 @@ belongs to `legacy-build`. It is not a current native-runtime qualification.
 The retained Q8 evidence check previously skipped by default is a separate
 `retained-evidence` campaign with explicit prerequisites.
 
-Each execution report records failures, errors, skips and excluded modules.
+Each execution report records its source revision and dirty state, manifest hash,
+failures, errors, skips and excluded modules. Unknown campaign names or malformed
+requirements fail validation; they cannot quietly exclude a required test.
 Imported fixture classes are deduplicated by test identity. Remaining native or
 historical prerequisites remain visible even when the CPU campaign passes.
+
+The first repaired Linux CPU campaign at `816ab0d` passed 2,033 tests with no
+failures, errors, skips or expected failures. G0 passed its 51 reference tests.
+BW at `8b821b0` passed 63 focused connection, receipt, retry, lost-acknowledgment
+and stream tests against the actual COW CPU HTTP/CLI stack. The isolated test
+environment includes the pinned `llguidance==1.9.1` dependency and explicitly
+selects this checkout's `tools/cow_cli.py`. These results establish CPU boundary
+behavior only. Native Wen/Qwen workflows and later delivery gates remain open.
 
 ## Inspiration
 

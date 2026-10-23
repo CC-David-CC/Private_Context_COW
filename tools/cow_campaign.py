@@ -6,10 +6,11 @@ It qualifies only the selected campaign, never the union of excluded campaigns.
 """
 import argparse
 import hashlib
-import importlib
 import json
 import os
 from pathlib import Path
+import re
+import subprocess
 import sys
 import unittest
 
@@ -21,10 +22,18 @@ CAMPAIGNS = ('cpu', 'moe-native', 'dense-native', 'legacy-build', 'retained-evid
 
 
 def validate_manifest(directory, modules):
+    if type(modules) is not dict: raise ValueError('Invalid campaign manifest modules')
     present = {p.stem for p in Path(directory).glob('test_*.py')}
     unknown, missing = present - modules.keys(), modules.keys() - present
     if unknown: raise ValueError('Unclassified test modules: ' + ', '.join(sorted(unknown)))
     if missing: raise ValueError('Missing test modules: ' + ', '.join(sorted(missing)))
+    for name, row in modules.items():
+        if (type(row) is not dict or set(row) != {'campaign','requires'}
+                or row['campaign'] not in CAMPAIGNS or type(row['requires']) is not list
+                or any(type(key) is not str or not re.fullmatch('[A-Z][A-Z0-9_]*',key)
+                       for key in row['requires'])
+                or len(row['requires']) != len(set(row['requires']))):
+            raise ValueError('Invalid campaign manifest row: ' + name)
 
 
 def classify(row, campaign, environment):
@@ -46,6 +55,9 @@ def run(campaign, *, modules=None, environment=None, stream=None):
     env = os.environ if environment is None else environment
     manifest_bytes = MANIFEST.read_bytes()
     manifest = json.loads(manifest_bytes)
+    if (type(manifest) is not dict or set(manifest) != {'schema','modules'}
+            or type(manifest['schema']) is not int or manifest['schema'] != 1):
+        raise ValueError('Unsupported campaign manifest schema')
     registered = manifest['modules']
     validate_manifest(TESTS, registered)
     selected = set(registered) if modules is None else set(modules)
@@ -55,6 +67,13 @@ def run(campaign, *, modules=None, environment=None, stream=None):
     report = dict(schema=1, campaign=campaign, modules=observations,
                   manifest_sha256=hashlib.sha256(manifest_bytes).hexdigest(),
                   status='BLOCKED', tests_run=0, failures=[], errors=[], skipped=[])
+    git = ['git','-C',str(ROOT)]
+    try:
+        report['source_commit'] = subprocess.check_output(git+['rev-parse','HEAD'],text=True).strip()
+        report['source_dirty'] = bool(subprocess.check_output(git+['status','--porcelain'],text=True))
+    except (OSError,subprocess.CalledProcessError):
+        report['reason'] = 'Source revision unavailable; run from the checked-out repository'
+        return report
     if os.name != 'posix':
         report['reason'] = 'This campaign requires POSIX filesystem/process semantics'
         return report
