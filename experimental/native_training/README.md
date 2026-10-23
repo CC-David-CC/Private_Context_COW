@@ -1,12 +1,13 @@
 # PCC native training experiment
 
-This is an offline research preview, without a BW or interactive CLI hook.
+This is a research preview with opt-in BW/CLI lesson controls and offline helpers.
 Mechanics checks do not establish useful task learning or an always improving
 model. No serving model or adapter has been promoted.
 
-The owner requests native training without PyTorch and without BW/interactive
-CLI integration. Both LoRA updates and direct base-weight backpropagation are
-required. Direct full-weight training is distinct from merging a LoRA into a base.
+Both LoRA updates and direct base-weight backpropagation use native GGML without
+PyTorch. Direct full-weight training is distinct from merging a LoRA into a base.
+The [learning-loop guide](../../docs/LEARNING-LOOP.md) explains checked lessons,
+single/batch requests, resource configuration and candidate selection.
 
 ## Ordinary backpropagation is the default
 
@@ -92,7 +93,8 @@ The intended later workflow is: capture a failure and an independently verified
 correction; choose owned examples to learn from now or in a later batch; train a
 separate candidate; evaluate repairs, held-out variants and protected behaviour;
 then explicitly select a qualified version for new requests. Existing contexts
-keep their original pinned weights. BW's feedback/selection controls are deferred.
+keep their original pinned weights. BW now supplies explicit lesson controls;
+automatic candidate promotion and live-context weight replacement remain absent.
 Successful tests and lower training loss do not automatically install an adapter.
 
 ## Measured scope
@@ -111,6 +113,7 @@ campaign, or a GPU-versus-CPU throughput comparison.
 | Actual Wen direct full-weight update | One ordinary two-GPU step updates all 427 active decoder parameter tensors, each with finite nonzero gradients. Loss falls from 2.18680 to 1.42010; the separate full GGUF reloads and agrees with fresh PCC inference. |
 | Completed LoRA continuation | The saved adapter completes another two-example update, with the ordered example cursor advancing from three to five. Mid-step recovery and equality with an uninterrupted run remain unqualified. |
 | CPU-only build | Builds without CUDA and passes the small layer/whole-graph checks. Real Wen CPU training, HIP, SYCL, P4s and the home-hardware matrix remain unqualified. |
+| BW/CLI CPU wiring | Real isolated BW failure/correction/check records, native single-example and partial-final-batch updates, frozen retry selection, LoRA/full continuation and candidate reload pass on the generated tiny hybrid model. No GPU or language-quality claim. |
 
 Small complete-graph checks also compare every accumulated gradient against the
 mean of independently computed per-example gradients in both modes, on CPU and

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "scope": "real native CPU single/batch/update/reload wiring through both CLIs and real BW tool boundaries",
+  "fixture": "generated tiny hybrid GGUF with byte vocabulary; not a language-quality test",
+  "spontaneous_model_failure": false,
+  "gpu_used": false,
+  "promoted": false,
+  "base_unchanged": true,
+  "model_sha256": "fc54ab9e54495247befa4be8639614ac74596809a72a67e53e3e5df859d2acc3",
+  "executable_sha256": "98399950003f70e19f05d8740ba0515e943f40b3fd1bdf4b8c466df6e43a975c",
+  "duplicate_update_prevented": true,
+  "selected_batch_frozen": true,
+  "partial_final_batch": true,
+  "same_task_failure_and_repair": true,
+  "single": {
+    "mode": "lora",
+    "candidate_sha256": "277e511036a30922826ae55e7d703032beab753f14bd5af2ab43f79f8b2a197f",
+    "base_sha256": "fc54ab9e54495247befa4be8639614ac74596809a72a67e53e3e5df859d2acc3",
+    "steps": [
+      {
+        "before": 5.854779243469238,
+        "after": 5.854738712310791,
+        "examples": 1,
+        "gradient_tensors": 32,
+        "nonzero": 16
+      }
+    ]
+  },
+  "batch": {
+    "mode": "lora",
+    "candidate_sha256": "aca3beeda46ba29b11d73d716b6a84ea24c127591de40672c3e57942eb7bb5e0",
+    "base_sha256": "fc54ab9e54495247befa4be8639614ac74596809a72a67e53e3e5df859d2acc3",
+    "steps": [
+      {
+        "before": 5.593954086303711,
+        "after": 5.593924522399902,
+        "examples": 2,
+        "gradient_tensors": 32,
+        "nonzero": 32
+      },
+      {
+        "before": 5.7373247146606445,
+        "after": 5.737264633178711,
+        "examples": 1,
+        "gradient_tensors": 32,
+        "nonzero": 32
+      }
+    ]
+  },
+  "full": {
+    "mode": "full",
+    "candidate_sha256": "1eb7734c3f7dfe0eee6720156b9b903e3c64fc2246e6cdc31be53e34a4277762",
+    "base_sha256": "fc54ab9e54495247befa4be8639614ac74596809a72a67e53e3e5df859d2acc3",
+    "steps": [
+      {
+        "before": 5.854779243469238,
+        "after": 5.852845668792725,
+        "examples": 1,
+        "gradient_tensors": 28,
+        "nonzero": 28
+      }
+    ]
+  },
+  "full_continued": {
+    "mode": "full",
+    "candidate_sha256": "c9c0de21c6bfd6faf65084ca6e845976341db5e8581f3354d31f761a35c9adf2",
+    "base_sha256": "1eb7734c3f7dfe0eee6720156b9b903e3c64fc2246e6cdc31be53e34a4277762",
+    "steps": [
+      {
+        "before": 5.852845668792725,
+        "after": 5.850913047790527,
+        "examples": 1,
+        "gradient_tensors": 28,
+        "nonzero": 28
+      }
+    ]
+  },
+  "reloads": {
+    "lora_reload": {
+      "candidate_sha256": "aca3beeda46ba29b11d73d716b6a84ea24c127591de40672c3e57942eb7bb5e0",
+      "loss": 5.737264633178711
+    },
+    "full_reload": {
+      "candidate_sha256": "1eb7734c3f7dfe0eee6720156b9b903e3c64fc2246e6cdc31be53e34a4277762",
+      "loss": 5.852845668792725
+    }
+  },
+  "native_build_source_sha256": "2b16f67c26b10d714fea643b48f933055cebaf9ac8c97c8a60679256741fc91d"
+}

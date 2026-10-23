@@ -110,7 +110,8 @@ class RequestJournal:
         required = {'schema','operation_id','url','path','body_json','intent_sha256','record_sha256','state'}
         allowed_paths = {'/cow/namespace','/cow/reseed','/cow/text/context','/cow/text/prepare','/cow/text/ask',
                          '/cow/text/answer','/cow/text/resume','/cow/text/append-user','/cow/text/retry',
-                         '/cow/fork','/cow/rewind','/cow/evaluate','/cow/evaluation/adopt'}
+                         '/cow/fork','/cow/rewind','/cow/evaluate','/cow/evaluation/adopt',
+                         '/cow/training/lessons','/cow/training/jobs'}
         if (not isinstance(record, dict) or set(record) not in (
                 required, required | {'receipt'}, required | {'receipt', 'answer'})
                 or record.get('schema') != self.SCHEMA or record.get('operation_id') != op
@@ -546,7 +547,10 @@ def _mutation_binding(path, body):
 
 
 def _validate_mutation_ack(path, value, *, branch=None, operation=None, revision=None,
-                           snapshot=None, streamed=False):
+                           snapshot=None, streamed=False,training_body=None):
+    if path in ('/cow/training/lessons','/cow/training/jobs'):
+        if training_body is None:raise ClientError('Training validation requires original request bytes')
+        return _training_ack(path,training_body,value)
     if streamed:
         receipt = value.get('receipt') if isinstance(value,dict) and isinstance(value.get('receipt'),dict) else value
         if not isinstance(receipt, dict):
@@ -625,7 +629,7 @@ def _post_mutation(client, journal, op, path, body, *, streamed, expected_branch
     bound_branch,bound_revision,bound_snapshot = _mutation_binding(path,body)
     receipt = _validate_mutation_ack(path, result,
         branch=expected_branch if expected_branch is not None else bound_branch,
-        operation=op, revision=bound_revision, snapshot=bound_snapshot, streamed=streamed)
+        operation=op, revision=bound_revision, snapshot=bound_snapshot, streamed=streamed,training_body=body)
     journal.complete(record, receipt, answer=_canonical_journal_answer(result, streamed=streamed))
     return result
 
@@ -640,7 +644,7 @@ def _retry_request(client, journal, op, on_provisional, *, machine_result=False)
         body = json.loads(record['body_json'])
         branch,revision,snapshot = _mutation_binding(record['path'],body)
         _validate_mutation_ack(record['path'],record['receipt'],branch=branch,
-            operation=op,revision=revision,snapshot=snapshot,streamed=body.get('stream') is True)
+            operation=op,revision=revision,snapshot=snapshot,streamed=body.get('stream') is True,training_body=body)
         if machine_result and body.get('stream') is True:
             answer = record.get('answer')
             if answer is None:
@@ -659,7 +663,7 @@ def _retry_request(client, journal, op, on_provisional, *, machine_result=False)
         result = client.request('POST', record['path'], raw)
     branch,revision,snapshot = _mutation_binding(record['path'],body)
     receipt = _validate_mutation_ack(record['path'], result,
-        branch=branch, operation=op, revision=revision,snapshot=snapshot,streamed=streamed)
+        branch=branch, operation=op, revision=revision,snapshot=snapshot,streamed=streamed,training_body=body)
     journal.complete(record, receipt, answer=_canonical_journal_answer(result, streamed=streamed))
     if streamed:
         _emit_stream_completion(result, machine_result=machine_result)
@@ -894,12 +898,78 @@ def sampling_settings(args):
     return settings
 
 
+def _training_ack(path,body,value):
+    field='lesson_id' if path.endswith('/lessons') else 'job_id'
+    canonical=lambda value:json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()
+    expected=hashlib.sha256(canonical([path,body])).hexdigest()
+    identity=hashlib.sha256(canonical(body['lesson'])).hexdigest() if field=='lesson_id' else body['operation_id']
+    if (type(value) is not dict or set(value)!={'schema','operation_id','request_sha256',field}
+            or type(value['schema']) is not int or value['schema']!=1 or value['operation_id']!=body['operation_id']
+            or value['request_sha256']!=expected or value[field]!=identity):
+        raise ClientError('Training acceptance does not bind the original request')
+    return value
+
+def _training_post(client,journal,path,body):
+    global _last_operation_id, _post_may_have_been_sent
+    operation=body['operation_id'];previous=journal.get(operation)
+    _last_operation_id=operation
+    raw=json.dumps(body,ensure_ascii=False).encode()
+    if previous is not None:
+        if (previous['url']!=client.base_url or previous['path']!=path or previous['body_json']!=raw.decode()):
+            raise ClientError('Operation ID already binds different training request bytes')
+        record=previous
+    else:record=journal.begin(operation,client.base_url,path,raw)
+    if record['state']=='complete':return _training_ack(path,body,record['receipt'])
+    print('operation_id='+operation,file=sys.stderr,flush=True)
+    if previous is not None:
+        _post_may_have_been_sent=True
+        try:value=client.request('GET','/cow/training/operations/'+operation)
+        except ClientError:raise ClientError('Original training acceptance is unknown; retain this operation ID and inspect it before any new update') from None
+    else:
+        try:value=client.request('POST',path,body)
+        except ExplicitRejection:raise
+        except ClientError:
+            try:value=client.request('GET','/cow/training/operations/'+operation)
+            except ClientError:raise ClientError('Training acceptance is unknown; original request retained for reconciliation') from None
+    value=_training_ack(path,body,value);journal.complete(record,value);return value
+
+def _training_run(args,client,journal):
+    action=args.lesson_action
+    if action in ('list','show','status'):
+        resource='jobs' if action=='status' else 'lessons'
+        identity=getattr(args,'identity',None)
+        if identity is not None and re.fullmatch(r'[A-Za-z0-9_-]{1,128}',identity) is None:raise ClientError('Invalid training identity')
+        return _print_json(client.request('GET','/cow/training/'+resource+('' if identity is None else '/'+identity)))
+    op=args.operation_id
+    if re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,119}',op) is None:raise ClientError('Use an explicit operation ID of at most120 characters')
+    if action=='submit':
+        try:lesson=json.loads(args.file.read_bytes())
+        except OSError as error:raise ClientError('Cannot read lesson file: '+str(error)) from None
+        body=dict(operation_id=op,lesson=lesson)
+        value=_training_post(client,journal,'/cow/training/lessons',body)
+        if not args.train_now:return _print_json(value)
+        ids=[value['lesson_id']];op+='-train'
+        mode=args.mode;batch=1;steps=1;rate=args.learning_rate;rank=args.rank
+    else:
+        if (args.all or args.pending) and args.lesson_ids:raise ClientError('Choose explicit lesson IDs or a queue selection')
+        saved=journal.get(op)
+        frozen=json.loads(saved['body_json']) if saved is not None and saved['path']=='/cow/training/jobs' else None
+        ids=(frozen['lesson_ids'] if frozen is not None and not args.lesson_ids else
+             [r['lesson_id'] for r in client.request('GET','/cow/training/lessons')['lessons'] if not args.pending or r['pending']]
+             if args.all or args.pending else args.lesson_ids)
+        if not ids:raise ClientError('Select at least one lesson')
+        mode=args.mode;batch=args.batch_size;steps=args.steps if args.steps is not None else frozen['steps'] if frozen else (len(ids)+batch-1)//batch;rate=args.learning_rate;rank=args.rank
+    body=dict(operation_id=op,lesson_ids=ids,mode=mode,batch_size=batch,steps=steps,learning_rate=rate,rank=rank,parent_job_id=args.parent_job_id)
+    _print_json(_training_post(client,journal,'/cow/training/jobs',body))
+
 def run(args):
     global _last_operation_id
     settings=sampling_settings(args)
     client = CowClient(args.url, os.environ.get('COW_API_KEY'), args.timeout)
     journal = RequestJournal(args.state_dir or os.environ.get('COW_CLI_STATE_DIR') or default_state_dir())
     cmd = args.command
+    if cmd == 'lesson':
+        return _training_run(args,client,journal)
     if cmd == 'status':
         _print_json(client.request('GET', '/cow/status'))
     elif cmd in ('contexts', 'namespaces'):
@@ -1126,6 +1196,19 @@ def parser():
     root.add_argument('--machine-result', action='store_true',
                       help='emit one exact JSON answer/receipt record for streamed mutations')
     subs = root.add_subparsers(dest='command', required=True)
+    lesson=subs.add_parser('lesson',help='Queue checked lessons and request native single/batch updates.')
+    actions=lesson.add_subparsers(dest='lesson_action',required=True)
+    actions.add_parser('list')
+    for name in ('show','status'):
+        child=actions.add_parser(name);child.add_argument('identity')
+    child=actions.add_parser('submit');child.add_argument('file',type=Path);child.add_argument('--operation-id',required=True)
+    child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id')
+    child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--learning-rate',type=float,default=.0001);child.add_argument('--rank',type=positive_int,default=4)
+    child=actions.add_parser('train');child.add_argument('lesson_ids',nargs='*');selection=child.add_mutually_exclusive_group();selection.add_argument('--all',action='store_true');selection.add_argument('--pending',action='store_true')
+    child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id')
+    child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--batch-size',type=positive_int,default=4)
+    child.add_argument('--steps',type=positive_int,help='Default: cover the selected lessons once.');child.add_argument('--rank',type=positive_int,default=4)
+    child.add_argument('--learning-rate',type=float,default=.0001)
     subs.add_parser('status')
     subs.add_parser('contexts', aliases=['namespaces'], help='list saved COW namespaces')
     subs.add_parser('branches')

@@ -93,7 +93,7 @@ def finalize_candidate(versions,base,candidate,mode,receipt):
         if temporary.exists():temporary.unlink()
     return value
 
-def execute_native(executable,request,run_directory,*,timeout=3600):
+def execute_native(executable,request,run_directory,*,timeout=3600,environment=None,pass_fds=()):
     """Run one explicit native update request and preserve its exact receipts.
 
     Run-directory identity prevents an uncertain completion from turning into
@@ -139,7 +139,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600):
     try:
         with (run_directory/'stdout-private.json').open('x',encoding='utf-8') as out, (run_directory/'stderr.log').open('x',encoding='utf-8') as err:
             proc=subprocess.Popen([str(executable),'--train',str(config)],stdout=out,stderr=err,
-                                  start_new_session=(os.name=='posix'))
+                                  start_new_session=(os.name=='posix'),env=environment,pass_fds=pass_fds)
             launch['pid']=proc.pid
             (run_directory/'launch.json').write_text(json.dumps(launch)+'\n')
             try:code=proc.wait(timeout=timeout)

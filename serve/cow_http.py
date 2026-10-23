@@ -232,7 +232,9 @@ def validate_pool_trace_target(path):
 
 
 def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None,workspace=None,
-                transition_trace=None,trace_identity=None,grammar_catalog=None,connection_info=None):
+                transition_trace=None,trace_identity=None,grammar_catalog=None,connection_info=None,training_service=None):
+    if training_service is not None and not api_key:
+        raise ValueError('Training requires an authenticated, explicitly configured server')
     if host not in ('127.0.0.1','localhost','::1') and not api_key:
         raise ValueError('A public bind requires an API key')
     transfer_enabled=getattr(adapter,'cache_transfer_enabled',None)
@@ -267,6 +269,7 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
             model_contract_id=connection_info['model_contract_id'],
             execution_profile_id=connection_info['execution_profile_id'], eos_tokens=list(eos),
             capabilities=dict(text=text_adapter is not None, inline_grammars=grammar_catalog is not None))
+        if training_service is not None:description['capabilities']['native_training']=True
     active_stops={}
     active_stops_lock=threading.Lock()
     class Handler(BaseHTTPRequestHandler):
@@ -330,6 +333,16 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                     self.send_header('Content-Length',str(len(raw)));self.end_headers()
                     self.wfile.write(raw);return
             if not self.authorized(): return
+            if path.startswith('/cow/training/'):
+                if training_service is None:return self.json(404,dict(error='Training is disabled'))
+                try:
+                    if urlsplit(self.path).query:raise ValueError('Training reads take no query parameters')
+                    if path=='/cow/training/lessons':return self.json(200,training_service.lessons())
+                    for prefix,read in [('/cow/training/lessons/',training_service.lesson),('/cow/training/jobs/',training_service.job),('/cow/training/operations/',training_service.operation)]:
+                        if path.startswith(prefix):return self.json(200,read(path[len(prefix):]))
+                    return self.json(404,dict(error='Unknown training resource'))
+                except FileNotFoundError:return self.json(404,dict(error='Training record not found'))
+                except ValueError as error:return self.json(400,dict(error=str(error)))
             if path.startswith('/cow/cache/checkpoint/'):
                 enabled=getattr(adapter,'cache_transfer_enabled',None)
                 if not callable(enabled) or not enabled():return self.json(404,dict(error='Cache transfers are disabled'))
@@ -533,6 +546,14 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
             if not self.authorized(): return
             try: self.connection.settimeout(5)
             except _SOCKET_ERRORS: return
+            if urlsplit(self.path).path.startswith('/cow/training/'):
+                if training_service is None:return self.json(404,dict(error='Training is disabled'))
+                try:
+                    if urlsplit(self.path).query:raise ValueError('Training mutations take no query parameters')
+                    return self.json(200,training_service.submit(urlsplit(self.path).path,self.body()))
+                except _ClientDisconnected:return
+                except FileNotFoundError:return self.json(404,dict(error='Selected lesson or parent job does not exist'))
+                except (ValueError,KeyError,TypeError) as error:return self.json(400,dict(error=str(error)))
             if urlsplit(self.path).path=='/cow/images':
                 return self.image_upload()
             try:
@@ -874,6 +895,7 @@ def pool_config_from_args(args,profile=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile',type=Path,required=True)
+    parser.add_argument('--training-config',type=Path,help='Opt in to owner-configured native lesson training; requires text and authentication')
     parser.add_argument('--store',type=Path,required=True)
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=8099)
     parser.add_argument('--openai-port',type=int,help='Opt-in standard CLI API listener sharing this coordinator')
@@ -902,6 +924,7 @@ def main():
         help='Optional private local trace path; written only after ready service closes cleanly')
     args=parser.parse_args()
     if args.tokenizer_backend!='python' and not args.text:parser.error('--tokenizer-backend requires --text')
+    if args.training_config is not None and (not args.text or not args.api_key):parser.error('--training-config requires --text and --api-key')
     if args.cache_transfer and not args.api_key:parser.error('--cache-transfer requires --api-key')
     peers=()
     if args.cache_peers is not None:
@@ -970,6 +993,7 @@ def main():
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
     coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer,cache_peers=peers)
     server=None
+    training=None
     compatibility_server=None
     compatibility_thread=None
     compatibility_stop=threading.Event()
@@ -983,11 +1007,14 @@ def main():
         from serve.cow_workspace import CowWorkspace
         workspace=CowWorkspace(coordinator.store,text.tokenizer,
             root_mode_resolver=text.root_mode_for_projection) if text is not None else None
+        if args.training_config is not None:
+            from tools.pcc_lessons import configured_service
+            training=configured_service(args.training_config,profile,startup_tokenizer)
         server=make_server(adapter,args.host,args.port,args.api_key,text_adapter=text,workspace=workspace,
             transition_trace=trace,trace_identity=(profile['model_contract_id'],profile['execution_profile_id']),grammar_catalog=grammar_catalog,
             connection_info=(dict(model_contract_id=profile['model_contract_id'],
                 execution_profile_id=profile['execution_profile_id'],
-                eos_tokens=profile['execution']['eos_tokens']) if profile['execution'].get('eos_tokens') else None))
+                eos_tokens=profile['execution']['eos_tokens']) if profile['execution'].get('eos_tokens') else None),training_service=training)
         if trace is not None or args.cache_transfer:
             # On graceful shutdown, wait for handlers to finish writing their
             # terminal request markers before the trace snapshot is published.
@@ -1020,6 +1047,7 @@ def main():
                 compatibility_server.shutdown();compatibility_server.server_close()
                 compatibility_thread.join(timeout=10)
             if server is not None: server.server_close()
+            if training is not None: training.close()
         finally:
             try:
                 coordinator.close();coordinator_closed=True

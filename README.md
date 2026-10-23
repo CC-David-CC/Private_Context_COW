@@ -179,11 +179,17 @@ The training code uses C++/GGML without PyTorch. Ordinary end-to-end backprop is
 the default, including when the graph spans GPUs. Passing gradients between
 independently executed sections is a separate experimental path.
 
-This work is not connected to BW or the interactive CLI yet. It does not make
-the model learn automatically from conversations. Training produces separate,
-versioned candidates; serving requests keep their pinned model and adapter.
-Read the [training status, limits and developer instructions](experimental/native_training/README.md)
-before treating it as an available user feature.
+**Optional BW and CLI lesson controls are now connected.** After a failed check
+and verified correction, write one checked lesson and train it now, or queue
+lessons for a later batch. Continue a completed LoRA, or request direct full-weight
+updates. The CPU wiring test uses real native updates, private records and both
+CLIs; its tiny generated model is not evidence of useful language learning.
+
+Training produces separate, versioned candidates. It does not automatically
+learn from every conversation or replace the model serving existing requests.
+The owner must enable training and configure resources. Read the
+[lesson workflow and setup](docs/LEARNING-LOOP.md) and
+[native training status and limits](experimental/native_training/README.md).
 
 ## What has been checked?
 

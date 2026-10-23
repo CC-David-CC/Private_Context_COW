@@ -104,6 +104,8 @@ def configured_argv(directory,config,key):
         argv += ['--openai-port',str(config['openai_port']),
                  '--openai-model',config.get('openai_model','cow'),
                  '--openai-max-output',str(config.get('openai_max_output',2048))]
+    if config.get('training_config') is not None:
+        argv += ['--training-config',str(Path(config['training_config']).resolve(strict=True))]
     vision=config.get("vision_config")
     if vision is not None:
         if not isinstance(vision,str):raise ValueError("vision_config must be an absolute file path")
