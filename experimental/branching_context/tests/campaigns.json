@@ -1,6 +1,10 @@
 {
   "schema": 1,
   "modules": {
+    "test_checkpoint_transfer": {
+      "campaign": "cpu",
+      "requires": []
+    },
     "test_adaptive_p_backend": {
       "campaign": "cpu",
       "requires": []
