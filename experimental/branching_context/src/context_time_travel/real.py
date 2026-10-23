@@ -1487,11 +1487,23 @@ class BranchingModel:
 
     def checkpoint_manifest(self, snapshot, history=None):
         """Validate canonical binding before allocating a disk-read buffer."""
+        self.store.authorize(snapshot,'materialize')
+        try:
+            envelope = _decode((self.checkpoint_directory/(snapshot+'.json')).read_bytes())
+        except (OSError,KeyError,TypeError,ValueError) as error:
+            raise IntegrityError('Invalid or incomplete checkpoint manifest') from error
+        return self.validate_checkpoint_envelope(snapshot,envelope,history)
+
+    def validate_checkpoint_envelope(self, snapshot, envelope, history=None):
+        """Validate received metadata against locally owned canonical history.
+
+        This CPU-only boundary neither imports history nor touches native state.
+        Disk restore and peer transport use the same checked format and schedule.
+        """
         from .checkpoint_cache import validate_manifest
         self.store.authorize(snapshot,'materialize')
         history = self.history(snapshot) if history is None else history
         try:
-            envelope = _decode((self.checkpoint_directory/(snapshot+'.json')).read_bytes())
             required = dict(schema=1,snapshot=snapshot,input_identity=self._input_identity(history),
                 model_contract_id=self.profile['model_contract_id'],execution_profile_id=self.profile['execution_profile_id'],
                 consumed=len(history),**self._checkpoint_position_binding(history),logits_count=self.backend.vocab_size)

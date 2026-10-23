@@ -126,12 +126,18 @@ class CheckpointTransferTests(unittest.TestCase):
     def test_export_pins_source_against_collection_and_bounds_concurrency(self):
         outgoing=self.transport(self.source,max_concurrent=1)
         # A cache-only source has no branch pin; the transfer owns its read lease.
-        self.source.store.delete_branch('main',self.source.store.head('main').revision)
-        with outgoing.export(self.source,self.snapshot,'a'*64,'b'*64) as offered:
+        snapshot=self.source.store.append(self.snapshot,(4,),{'status':'idle'})
+        history=self.source.history(snapshot)
+        cold=Checkpoint.create('a'*64,'b'*64,len(history),self.payload[:-16],(1.,2.,3.,4.),
+                               self.source._input_identity(history))
+        self.source.publish_prepared_checkpoint(PreparedCheckpoint(snapshot,cold,
+            self.source._prepared_envelope(snapshot,cold,history)))
+        self.assertNotIn(snapshot,self.source.store.checkpoint_roots())
+        with outgoing.export(self.source,snapshot,'a'*64,'b'*64) as offered:
             outgoing.disk._collect_for(outgoing.disk.byte_limit)
             self.assertEqual(offered.stream.read(),self.payload)
             with self.assertRaises(PoolFull):
-                with outgoing.export(self.source,self.snapshot,'a'*64,'b'*64):self.fail('slot overrun')
+                with outgoing.export(self.source,snapshot,'a'*64,'b'*64):self.fail('slot overrun')
         self.assert_released(outgoing)
 
     def test_cancelled_mid_stream_removes_staging_and_releases_reservations(self):
