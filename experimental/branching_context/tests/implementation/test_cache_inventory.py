@@ -12,6 +12,50 @@ def entry(snapshot='s', tier='ram', worker='pool'):
 
 
 class InventoryTests(unittest.TestCase):
+    def test_paged_recovery_is_frozen_and_visible_only_when_complete(self):
+        source=InventoryJournal('node')
+        rows=[entry(str(i)) for i in range(5)]; source.reconcile(rows)
+        view=InventoryView('node')
+        first=source.read(page_size=2)
+        view.apply(first); self.assertEqual(view.entries,[])
+        source.reconcile([entry('new')])
+        second=source.read(page_size=2,cursor=first['next_cursor'])
+        view.apply(second); view.apply(second)
+        self.assertEqual(view.entries,[])
+        last=source.read(page_size=2,cursor=second['next_cursor'])
+        view.apply(last); view.apply(last)
+        self.assertEqual(view.entries,rows)
+        view.apply(source.read(**view.cursor))
+        self.assertEqual(view.entries,[entry('new')])
+
+    def test_page_gap_and_corruption_never_replace_a_live_view(self):
+        source=InventoryJournal('node'); source.reconcile([entry('old')])
+        view=InventoryView('node'); view.apply(source.read()); before=view.entries
+        source.reconcile([entry(str(i)) for i in range(4)])
+        first=source.read(page_size=2)
+        last=source.read(page_size=2,cursor=first['next_cursor'])
+        with self.assertRaises(RecoveryRequired):view.apply(last)
+        self.assertEqual(view.entries,before)
+        view.apply(first)
+        bad=copy.deepcopy(last); bad['entries'][0]['bytes']=-1
+        with self.assertRaises(ValueError):view.apply(bad)
+        self.assertEqual(view.entries,before)
+        view.apply(last)
+        self.assertEqual(len(view.entries),4)
+
+    def test_paged_sessions_are_bounded_expire_and_reject_cursor_changes(self):
+        now=[0.]
+        source=InventoryJournal('node',snapshot_limit=1,snapshot_ttl=5,clock=lambda:now[0])
+        source.reconcile([entry(str(i)) for i in range(3)])
+        first=source.read(page_size=1)
+        with self.assertRaises(ValueError):source.read(page_size=2,cursor=first['next_cursor'])
+        second=source.read(page_size=1)
+        with self.assertRaises(RecoveryRequired):source.read(page_size=1,cursor=first['next_cursor'])
+        now[0]=6
+        with self.assertRaises(RecoveryRequired):source.read(page_size=1,cursor=second['next_cursor'])
+        for size in (True,0,-1,1025):
+            with self.subTest(size=size),self.assertRaises(ValueError):source.read(page_size=size)
+
     def test_snapshot_delta_removal_and_repeated_delivery(self):
         source=InventoryJournal('node', event_limit=4)
         view=InventoryView('node')
