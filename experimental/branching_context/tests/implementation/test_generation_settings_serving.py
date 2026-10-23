@@ -111,14 +111,28 @@ class GenerationSettingsAdapterTests(unittest.TestCase):
         self.assertEqual(legacy['generated_tokens'], [7])
         self.assertEqual(legacy['position'], 4)
 
-    def test_sampling_knobs_do_not_bypass_an_active_grammar_controller(self):
+    def test_sampling_knobs_cannot_bypass_missing_saved_grammar_registry(self):
         constrained = dict(self.state, constraint={'grammar_id': 'pinned'})
         coordinator = _Coordinator(constrained)
         adapter = CowAdapter(coordinator)
-        with self.assertRaisesRegex(UnsupportedGreedyRequest, 'grammar-first'):
+        with self.assertRaisesRegex(UnsupportedGreedyRequest, 'Saved grammar registry identity'):
             adapter.generate('main', (1, 2, 3), 4, 'grammar-sampling', 8,
                              settings={'temperature': 0.9})
         self.assertEqual(coordinator.calls, [])
+
+    def test_sampling_override_preserves_an_available_active_grammar(self):
+        constrained=dict(self.state,constraint={'grammar_id':'pinned','agent_state':'answer'})
+        coordinator=_Coordinator(constrained)
+        registry=SimpleNamespace(matches_controller=lambda value:value==constrained,
+                                 descriptor=lambda name:{'grammar_id':'pinned'})
+        CowAdapter(coordinator,registry).generate('main',(1,2,3),4,'grammar-sampling',8,
+                                                 settings={'temperature':0.9})
+        _,options=coordinator.calls[-1]
+        self.assertTrue(options['resume'])
+        self.assertIs(options['grammar_registry'],registry)
+        self.assertEqual(options['grammar_state'],'answer')
+        self.assertEqual(options['sampling']['temperature'],0.9)
+        self.assertEqual(constrained['constraint'],{'grammar_id':'pinned','agent_state':'answer'})
 
 
 class GenerationSettingsTextAdapterTests(unittest.TestCase):
