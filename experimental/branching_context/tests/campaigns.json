@@ -1,6 +1,10 @@
 {
   "schema": 1,
   "modules": {
+    "test_fastokens_backend": {
+      "campaign": "cpu",
+      "requires": []
+    },
     "test_execution_roles": {
       "campaign": "cpu",
       "requires": []
