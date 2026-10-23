@@ -79,14 +79,14 @@ class FlowModel:
     def create(self, ids):
         self.stats['forward_tokens'] += len(ids)
         self.stats['consumed_tokens'] += len(ids)
-        sid = self.store.create_root('flow-model', ids, {'status': 'idle'})
+        sid = self.store.create_root(self.profile['model_contract_id'], ids, {'status': 'idle'})
         self.image(sid)
         return sid
 
     def image(self, sid):
         history = self.history(sid)
         blob = b'synthetic-native-state:' + sid.encode('ascii')
-        self.cache[sid] = Checkpoint('flow-model', 'flow-profile', len(history), blob,
+        self.cache[sid] = Checkpoint(self.profile['model_contract_id'], self.profile['execution_profile_id'], len(history), blob,
             (0.0,) * 300, Checkpoint.digest(blob, (0.0,) * 300), sid)
 
     def run_greedy_request(self, sid, ids, count, *, stream, on_token, cancelled=None):
@@ -142,7 +142,7 @@ class FlowModel:
         frontier=struct.unpack('<'+str(logits_count)+'f',blob[state_bytes:])
         if Checkpoint.digest(blob[:state_bytes], frontier) != checksum:
             raise ValueError('synthetic checkpoint checksum mismatch')
-        return Checkpoint('flow-model', 'flow-profile', len(history), blob[:state_bytes],
+        return Checkpoint(self.profile['model_contract_id'], self.profile['execution_profile_id'], len(history), blob[:state_bytes],
                           frontier, checksum, sid)
 
     def save_prepared_branch(self, name, revision, prepared, operation, *, presentation=None):
@@ -156,7 +156,7 @@ class FlowModel:
         head = self.store.move(name, revision, prepared.snapshot, operation, **options)
         return dict(snapshot=prepared.snapshot, branch=dict(name=head.name, revision=head.revision,
             tip=head.tip, root=head.root), payload_sha256=cp.checksum,
-            model_contract_id='flow-model', execution_profile_id='flow-profile')
+            model_contract_id=self.profile['model_contract_id'], execution_profile_id=self.profile['execution_profile_id'])
 
 
 class CowPresentationFlowTests(unittest.TestCase):
