@@ -1,17 +1,11 @@
 """Opt-in standard CLI APIs over real COW snapshots; text-only compatibility."""
-import argparse
 import hashlib
 import hmac
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
-import os
 import re
-from pathlib import Path
 import select
-import signal
 import socket
-import sys
-import tempfile
 import threading
 import time
 import uuid
@@ -19,7 +13,6 @@ import uuid
 from .cow_compat_cache import CachedCow, SessionBudgets
 from serve import responses
 from serve.frontend import openai_to_messages, OutputParser
-from serve.cow_http import model_text_components
 from serve.cow_text_adapter import CowTextRequest
 from serve.server import Service
 
