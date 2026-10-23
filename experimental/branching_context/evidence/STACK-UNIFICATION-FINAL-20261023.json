@@ -1,0 +1,945 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Bounded stack integration: cache peers, execution roles, optional tokenizer and LAN storage round-trip",
+  "cow_runtime_revision": "10964d09b16cf6fe1332ac26b8dee5a1c473105a",
+  "bw_native_workflow_revision": "8b821b0d8fe40c30e567ee0741ea2c34b8e84488",
+  "bw_final_revision": "211717d87358a0181f192d31d5e3fdf2f6e41205",
+  "cpu": {
+    "schema": 1,
+    "campaign": "cpu",
+    "manifest_sha256": "a1bc75c447268d1ee089e48c738adf0adc17e0b6d50184226f0795ef9cdfac77",
+    "status": "PASS",
+    "tests_run": 2077,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "source_commit": "9b907356ebe21fd0c54f605c8fcd4589a8c72cf7",
+    "source_dirty": false,
+    "expected_failures": []
+  },
+  "reference_G0": {
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "serving_tokenizer_controls": {
+    "tests": 27,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "transport_fault_controls": {
+    "source_revision": "9b907356ebe21fd0c54f605c8fcd4589a8c72cf7",
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "Transport deadline, killed receiver, existing stage and process reservation recovery; overlaps full CPU suite"
+  },
+  "native_tokenizer_workflows": {
+    "wen": {
+      "private_receipt_sha256": "1db89201a19a2a75b4af8a357b5ddd894e814a99e044cbf74d2c0d4dabae7fee",
+      "modes": {
+        "disabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "journal_records": 7,
+          "journal_pending": 0,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "tokenizer_fastokens": {
+            "supported": true,
+            "enabled": false,
+            "qualification": "experimental"
+          },
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          }
+        },
+        "enabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "journal_records": 7,
+          "journal_pending": 0,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "tokenizer_fastokens": {
+            "supported": true,
+            "enabled": true,
+            "qualification": "experimental"
+          },
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          }
+        }
+      },
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca"
+    },
+    "qwen": {
+      "private_receipt_sha256": "bcbcdced1425e49aab3e02d1978ee851f6a98bdb6f92547d02ca62d368260a6d",
+      "modes": {
+        "disabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "journal_records": 7,
+          "journal_pending": 0,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "tokenizer_fastokens": {
+            "supported": true,
+            "enabled": false,
+            "qualification": "experimental"
+          },
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          }
+        },
+        "enabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "journal_records": 7,
+          "journal_pending": 0,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "tokenizer_fastokens": {
+            "supported": true,
+            "enabled": true,
+            "qualification": "experimental"
+          },
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          }
+        }
+      },
+      "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+      "execution_profile_id": "802be490a0c6c4b3b173bd87860e4ecd12317a1dd849cde40f4004330ef9e197"
+    }
+  },
+  "tokenizer_qualification": {
+    "wen": {
+      "schema": 1,
+      "status": "PASS",
+      "checked": 2586,
+      "failures": [],
+      "model_name": "Wen-1.1-BF16.gguf",
+      "tokenizer_identity": "d4b3b9a74b147a830161dfec2d3214fdc25282fa2a4e40edf35d4fbe3ef24d4f",
+      "vocabulary": 127991,
+      "fastokens_version": "0.3.4",
+      "native_library_sha256": "5020048c687890e4fa3d6c23c5c1059e5fb45275eb903f530ac433c7cab047a9",
+      "timings": [
+        {
+          "case": "code",
+          "utf8_bytes": 109380,
+          "python": {
+            "cold_seconds": 0.009347629034891725,
+            "warm_seconds": 0.009324486134573817,
+            "tokens": 57180
+          },
+          "fastokens": {
+            "cold_seconds": 0.00934366206638515,
+            "warm_seconds": 0.009292334085330367,
+            "tokens": 57180
+          }
+        },
+        {
+          "case": "long-unbroken",
+          "utf8_bytes": 54000,
+          "python": {
+            "cold_seconds": 0.007951532024890184,
+            "warm_seconds": 0.00015922286547720432,
+            "tokens": 54000
+          },
+          "fastokens": {
+            "cold_seconds": 0.003780724946409464,
+            "warm_seconds": 0.00015773111954331398,
+            "tokens": 54000
+          }
+        },
+        {
+          "case": "shared-prefix",
+          "utf8_bytes": 110520,
+          "python": {
+            "cold_seconds": 0.009742621099576354,
+            "warm_seconds": 0.009073156863451004,
+            "tokens": 57740
+          },
+          "fastokens": {
+            "cold_seconds": 0.009058118099346757,
+            "warm_seconds": 0.008983014849945903,
+            "tokens": 57740
+          }
+        }
+      ],
+      "scope": "Exact token IDs, literal controls, protected spans, Unicode, prefix cuts and COW chat rendering"
+    },
+    "qwen": {
+      "schema": 1,
+      "status": "PASS",
+      "checked": 2594,
+      "failures": [],
+      "model_name": "Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf",
+      "tokenizer_identity": "43867a597a4b0de5a249e29386d17e98e8b5b28e2ef499afcf1adc0d0e67d594",
+      "vocabulary": 248320,
+      "fastokens_version": "0.3.4",
+      "native_library_sha256": "5020048c687890e4fa3d6c23c5c1059e5fb45275eb903f530ac433c7cab047a9",
+      "timings": [
+        {
+          "case": "code",
+          "utf8_bytes": 109380,
+          "python": {
+            "cold_seconds": 0.00956011307425797,
+            "warm_seconds": 0.009439814137294888,
+            "tokens": 42780
+          },
+          "fastokens": {
+            "cold_seconds": 0.009442830923944712,
+            "warm_seconds": 0.009402493946254253,
+            "tokens": 42780
+          }
+        },
+        {
+          "case": "long-unbroken",
+          "utf8_bytes": 54000,
+          "python": {
+            "cold_seconds": 0.034335533156991005,
+            "warm_seconds": 0.00013164104893803596,
+            "tokens": 12000
+          },
+          "fastokens": {
+            "cold_seconds": 0.0032864240929484367,
+            "warm_seconds": 0.00012237299233675003,
+            "tokens": 12000
+          }
+        },
+        {
+          "case": "shared-prefix",
+          "utf8_bytes": 110520,
+          "python": {
+            "cold_seconds": 0.009556336095556617,
+            "warm_seconds": 0.009512682911008596,
+            "tokens": 43180
+          },
+          "fastokens": {
+            "cold_seconds": 0.00951447687111795,
+            "warm_seconds": 0.009487044997513294,
+            "tokens": 43180
+          }
+        }
+      ],
+      "scope": "Exact token IDs, literal controls, protected spans, Unicode, prefix cuts and COW chat rendering"
+    }
+  },
+  "native_two_approach_workflow": {
+    "private_receipt_sha256": "4480a1626b5040a7aa696a4577f26c9a527dc5f46fdef8adfd74c9850ce076f3",
+    "modes": {
+      "disabled": {
+        "verified": true,
+        "selected": "first",
+        "selection_rule": "verified-first",
+        "candidates": [
+          {
+            "name": "first",
+            "verified": true,
+            "inventory_sha256": "c3b9d6a913fe8a33fe409904775d36e4215b4b44eb7ba99d329abaf986443774"
+          },
+          {
+            "name": "second",
+            "verified": true,
+            "inventory_sha256": "61cfa1e7f48e744f52fda2583259f32368516fdd609e51e6af04b55bc6d5cb35"
+          }
+        ],
+        "workflow_exit": 0,
+        "configuration_unchanged": true,
+        "source_unchanged": true,
+        "completed_replay_exit": 0,
+        "replay_heads_unchanged": true,
+        "journal_pending": 0,
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0
+      },
+      "enabled": {
+        "verified": true,
+        "selected": "first",
+        "selection_rule": "verified-first",
+        "candidates": [
+          {
+            "name": "first",
+            "verified": true,
+            "inventory_sha256": "c3b9d6a913fe8a33fe409904775d36e4215b4b44eb7ba99d329abaf986443774"
+          },
+          {
+            "name": "second",
+            "verified": true,
+            "inventory_sha256": "61cfa1e7f48e744f52fda2583259f32368516fdd609e51e6af04b55bc6d5cb35"
+          }
+        ],
+        "workflow_exit": 0,
+        "configuration_unchanged": true,
+        "source_unchanged": true,
+        "completed_replay_exit": 0,
+        "replay_heads_unchanged": true,
+        "journal_pending": 0,
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0
+      }
+    }
+  },
+  "final_regressions": {
+    "bw-stack-final-4": {
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 158,
+      "elapsed_seconds": 63.734256013063714,
+      "modules": [
+        "test_capabilities",
+        "test_client_setup",
+        "test_client_setup_cow",
+        "test_cow_retry_replay",
+        "test_cow_fork_receipts",
+        "test_cow_image_lost_ack",
+        "test_cow_stream_completion",
+        "test_generation_stream_uncertainty",
+        "test_progress_http",
+        "test_progress",
+        "test_parallel_exploration",
+        "test_parallel_dispatch",
+        "test_interpreter",
+        "test_model_dispatch",
+        "test_coding_launcher",
+        "test_coding_launcher_http",
+        "test_coding_review",
+        "test_project_export",
+        "test_coding_status",
+        "test_run_cli",
+        "test_coding_reconciliation",
+        "test_planning_retry_flow"
+      ],
+      "cow_revision": "491d6b4c692b66255e4b66f145adaf66c7e10eb6",
+      "bw_revision": "211717d87358a0181f192d31d5e3fdf2f6e41205"
+    },
+    "cow-flow-final-2": {
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 53,
+      "elapsed_seconds": 30.682361614890397,
+      "modules": [
+        "serve.test_cow_answer_retry",
+        "serve.test_cow_disconnect_durability",
+        "serve.test_cow_http_publication_errors",
+        "serve.test_cow_persisted_operation_status",
+        "serve.test_cow_postcommit_restart",
+        "serve.test_cow_presentation_flow",
+        "serve.test_cow_text_stops_cli",
+        "serve.test_cow_workspace_http"
+      ],
+      "cow_revision": "1c3c08b5310f344a319e6d621f45141582c47aa3",
+      "bw_revision": "211717d87358a0181f192d31d5e3fdf2f6e41205"
+    },
+    "bw-native-offline-final": {
+      "status": "PASS",
+      "cow_revision": "1c3c08b5310f344a319e6d621f45141582c47aa3",
+      "bw_revision": "211717d87358a0181f192d31d5e3fdf2f6e41205",
+      "checks": [
+        {
+          "trial": "wen-native-tokenizer-b",
+          "mode": "disabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        },
+        {
+          "trial": "wen-native-tokenizer-b",
+          "mode": "enabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        },
+        {
+          "trial": "qwen-native-tokenizer-b",
+          "mode": "disabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        },
+        {
+          "trial": "qwen-native-tokenizer-b",
+          "mode": "enabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        },
+        {
+          "trial": "wen-native-explore-c",
+          "mode": "disabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        },
+        {
+          "trial": "wen-native-explore-c",
+          "mode": "enabled",
+          "server_stopped": true,
+          "exit_code": 0,
+          "ledger_and_journal_unchanged": true,
+          "result_identical": true
+        }
+      ]
+    }
+  },
+  "a100_native_peer_recovery": {
+    "source_revisions": [
+      "9b177ec",
+      "95238a8"
+    ],
+    "reports": [
+      {
+        "schema": 1,
+        "status": "PASS",
+        "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+        "execution_profile_id": "87aaf7b0f61b18203b676eb8695a81cf5c57508d02a43f00f0629798f36f0a2a",
+        "source_gpu": 3,
+        "target_gpus": [
+          0,
+          3
+        ],
+        "scope": "One complete bounded code response through native peer checkpoint recovery",
+        "prefix_tokens": 67,
+        "generated_tokens": 17,
+        "target_gpu": 0,
+        "transferred_bytes": 55913002,
+        "transfer_seconds": 0.3685323363170028,
+        "complete_response_equal": true,
+        "controller_equal": true,
+        "canonical_source_unchanged": true,
+        "prefix_recomputed_tokens": 0,
+        "response_sha256": "e7df9bf2b3f814a1fe08b42df3f3b9b9a490d93dafbd01eca7ce35337ee33739",
+        "native_work_counters": {
+          "0": {
+            "consumed_tokens": 17,
+            "forward_tokens": 17,
+            "forward_calls": 17,
+            "sampling_calls": 17,
+            "checkpoint_export_bytes": 55958502,
+            "checkpoint_import_bytes": 111359540
+          },
+          "3": {
+            "consumed_tokens": 0,
+            "forward_tokens": 0,
+            "forward_calls": 0,
+            "sampling_calls": 0,
+            "checkpoint_export_bytes": 0,
+            "checkpoint_import_bytes": 0
+          }
+        },
+        "transfer_metrics": {
+          "active": 0,
+          "completed": 1,
+          "failed": 0,
+          "received_bytes": 55913002,
+          "max_checkpoint_bytes": 68719476736
+        },
+        "ephemeral_removed": true,
+        "workers_closed": true
+      },
+      {
+        "schema": 1,
+        "status": "PASS",
+        "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+        "execution_profile_id": "689ebb4a5a0ad16647e3d82e5449e3e9a99a53c921a9d3d8bb5d64a7a056d414",
+        "source_gpu": 3,
+        "target_gpus": [
+          0,
+          3
+        ],
+        "scope": "One complete bounded code response through native peer checkpoint recovery",
+        "new_root": true,
+        "prefix_tokens": 67,
+        "generated_tokens": 17,
+        "target_gpu": 0,
+        "transferred_bytes": 55913002,
+        "transfer_seconds": 0.3464444214478135,
+        "complete_response_equal": true,
+        "controller_equal": true,
+        "canonical_source_unchanged": true,
+        "prefix_recomputed_tokens": 0,
+        "response_sha256": "e7df9bf2b3f814a1fe08b42df3f3b9b9a490d93dafbd01eca7ce35337ee33739",
+        "native_work_counters": {
+          "0": {
+            "consumed_tokens": 17,
+            "forward_tokens": 17,
+            "forward_calls": 17,
+            "sampling_calls": 17,
+            "checkpoint_export_bytes": 55958502,
+            "checkpoint_import_bytes": 166760578
+          },
+          "3": {
+            "consumed_tokens": 0,
+            "forward_tokens": 0,
+            "forward_calls": 0,
+            "sampling_calls": 0,
+            "checkpoint_export_bytes": 0,
+            "checkpoint_import_bytes": 0
+          }
+        },
+        "transfer_metrics": {
+          "active": 0,
+          "completed": 1,
+          "failed": 0,
+          "received_bytes": 55913002,
+          "max_checkpoint_bytes": 68719476736
+        },
+        "ephemeral_removed": true,
+        "workers_closed": true
+      }
+    ]
+  },
+  "a100_placement": {
+    "source_revision": "95238a8525d3abe05f5b4b100839d38ceaf8dbe0",
+    "prefill_gpu": 3,
+    "decode_gpu": 0,
+    "modes": {
+      "disabled": {
+        "private_server_receipt_sha256": "40f377213db9b2422b2bfedd68e17e020e242e5d308ec1eb3c98d08a94c107ae",
+        "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+        "execution_profile_id": "689ebb4a5a0ad16647e3d82e5449e3e9a99a53c921a9d3d8bb5d64a7a056d414",
+        "limits": {
+          "ram_cache_bytes": 107374182400,
+          "disk_cache_bytes": 107374182400,
+          "minimum_available_ram_bytes": 17179869184
+        },
+        "placement": {
+          "supported": true,
+          "enabled": false,
+          "qualification": "experimental"
+        },
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0,
+        "private_client_receipt_sha256": "7f7ddc9e5e2f5df816d339312db9d8c32428e8a784581ee6e914082a1690402d",
+        "verified": true,
+        "workflow_exit": 0,
+        "configuration_unchanged": true,
+        "source_unchanged": true,
+        "replay_exit": 0,
+        "replay_heads_unchanged": true
+      },
+      "enabled": {
+        "private_server_receipt_sha256": "7423adeeb4fa40c7532d1cd3a20c932dada6499c29fa82cfc8ada2345fde11c4",
+        "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+        "execution_profile_id": "689ebb4a5a0ad16647e3d82e5449e3e9a99a53c921a9d3d8bb5d64a7a056d414",
+        "limits": {
+          "ram_cache_bytes": 107374182400,
+          "disk_cache_bytes": 107374182400,
+          "minimum_available_ram_bytes": 17179869184
+        },
+        "placement": {
+          "supported": true,
+          "enabled": true,
+          "qualification": "experimental"
+        },
+        "server_exit": 0,
+        "remaining_ephemeral_sessions": 0,
+        "private_client_receipt_sha256": "d2d83de13ea76bded56ff18acb4ef113e16123b5766a85cb1e0c9066daa9f2c5",
+        "verified": true,
+        "workflow_exit": 0,
+        "configuration_unchanged": true,
+        "source_unchanged": true,
+        "replay_exit": 0,
+        "replay_heads_unchanged": true
+      }
+    }
+  },
+  "lan_storage": {
+    "cleanup": {
+      "errors": [],
+      "servers": 4,
+      "hosts": 4,
+      "ephemeral_work_removed": true
+    },
+    "concurrent": {
+      "receivers": 2,
+      "seconds": 6.223484899994219
+    },
+    "llm-49-concurrent": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.9796634500380605,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.4557600640691817,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": false,
+      "workers_closed": true
+    },
+    "llm-49-outbound": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.5930833870079368,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.253287403145805,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": false,
+      "workers_closed": true
+    },
+    "llm-60-roundtrip-llm-49": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.5611068960279226,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "e7df9bf2b3f814a1fe08b42df3f3b9b9a490d93dafbd01eca7ce35337ee33739"
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.2120741710532457,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "160e756d18d5cf2ff8e5c36ea59d1f416a4fbfd7bee4d0379f683cc4e38cdeff"
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": true,
+      "workers_closed": true
+    },
+    "llm-60-roundtrip-llm-79": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.622830426087603,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "e7df9bf2b3f814a1fe08b42df3f3b9b9a490d93dafbd01eca7ce35337ee33739"
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.2688581179827452,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "160e756d18d5cf2ff8e5c36ea59d1f416a4fbfd7bee4d0379f683cc4e38cdeff"
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": true,
+      "workers_closed": true
+    },
+    "llm-60-roundtrip-r730": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.7304080920293927,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "e7df9bf2b3f814a1fe08b42df3f3b9b9a490d93dafbd01eca7ce35337ee33739"
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.61312036216259,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112,
+          "complete_response_equal": true,
+          "controller_equal": true,
+          "prefix_recomputed_tokens": 0,
+          "response_sha256": "160e756d18d5cf2ff8e5c36ea59d1f416a4fbfd7bee4d0379f683cc4e38cdeff"
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": true,
+      "workers_closed": true
+    },
+    "llm-79-outbound": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 0.9005441169720143,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.6546826669946313,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": false,
+      "workers_closed": true
+    },
+    "r730-concurrent": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 1.2650645049870946,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 2.3471811240306124,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": false,
+      "workers_closed": true
+    },
+    "r730-outbound": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Native checkpoint LAN storage transport; not execution on storage-peer GPUs",
+      "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+      "execution_profile_id": "d0a3018488f436dc080b14416cd4bd9c73df47a95af708bfabd132aa37e512ca",
+      "roots": [
+        {
+          "snapshot": "430577d0f68504b9ca0c4e96094ade13e7f6ab2ac67438b8fbcb5547fad050d5",
+          "payload_sha256": "3db77fd7098a6d7ead24fe0f2c56b3dd76694da54c20af3c0e7c07fae476f779",
+          "transferred_bytes": 55814626,
+          "peer": "source",
+          "seconds": 1.1401364500052296,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 64
+        },
+        {
+          "snapshot": "dfdb2bfbcee75dc91e0be63eb9921eb824a105b0bc086c73d7e42a1c8c410b4a",
+          "payload_sha256": "fc562e1920e53e517b25ada032c3375ae12d4e2ae7fffdb5b8cb47929dc19054",
+          "transferred_bytes": 122972642,
+          "peer": "source",
+          "seconds": 1.9795810549985617,
+          "canonical_unchanged": true,
+          "retry_bytes": 0,
+          "prefix_tokens": 2112
+        }
+      ],
+      "metrics": {
+        "active": 0,
+        "completed": 4,
+        "failed": 0,
+        "received_bytes": 178787268,
+        "max_checkpoint_bytes": 68719476736
+      },
+      "native_roundtrip": false,
+      "workers_closed": true
+    }
+  },
+  "earlier_failures": [
+    "An initial fastokens ABI call treated vocab_size as a method; the pinned native binding exposes a property.",
+    "All-piece native tokenization matched IDs but modestly slowed ordinary code; the selected hybrid preserves the existing short-piece path.",
+    "The first hybrid converted through the byte alphabet twice and slowed one Wen long-piece case; direct raw-piece encoding removes that overhead.",
+    "Initial new startup test fixtures used the wrong launcher argument order and encoder attribute; corrected fixtures preserve their assertions.",
+    "An initial exploration setup retained enabled flags in the disabled configuration; it failed before any BW workflow and was closed cleanly.",
+    "A two-approach driver allowance of 128 interpreter steps paused normally; the successful pair used 512, below the unchanged CLI default of 1024.",
+    "Broader BW regression runs exposed missing test-environment dependencies and outdated discovery/model-identity fixtures. The fixtures now use consistent IDs and the actual discovery contract; production validation was not relaxed.",
+    "A related COW restart fixture still expected process-scoped 404 operation lookup. It now supplies production checkpoint annotations and checks the persisted exact receipt through both GET and original POST, without additional model work.",
+    "The first retained-workflow replay driver read the launch envelope at the wrong nesting level and stopped before invoking BW; the corrected driver leaves the original envelope unchanged.",
+    "Completed offline workflow replay incorrectly contacted COW for new capability discovery. BW 211717d checks capabilities only for unfinished work; the original real HTTP/subprocess regression and six retained native workflows verify offline replay."
+  ],
+  "limits": [
+    "No training, new model weights, C++ math kernel changes or upstream source import in this increment.",
+    "Task outcomes are bounded code-repair/test/finish checks, not general model competence.",
+    "LAN storage peers do not claim execution on AMD/P4/4090; returned caches were executed on the original llm-60 native profile.",
+    "Storage-only listeners are test fixtures, not a shipped standalone cache daemon.",
+    "Prefill/decode roles divide root creation/input preparation and continuation requests; continuation suffix prefill remains with its decode worker.",
+    "No remote inference RPC, cross-profile state portability, running-request migration or grouped native restore.",
+    "No WAN cache bandwidth testing to A100; A100 peer transfer evidence is local HTTP.",
+    "No broad throughput gain or cumulative G1-G5 qualification."
+  ]
+}

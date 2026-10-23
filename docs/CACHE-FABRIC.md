@@ -66,8 +66,9 @@ Missing rates retain stable warm affinity. Rates are process-local moving
 averages; output work is a bound, not a prediction of actual response length.
 Forward service observations include host orchestration and capture overhead;
 the separately measured native restore interval is subtracted to avoid counting
-it twice. Disk preload is currently a shared-server cost, not a measured LAN
-transfer. No network bandwidth estimate or cross-server placement is claimed.
+it twice. Disk preload is a shared-server cost. Configured peer recovery
+separately records successful transfer seconds per byte; it does not dispatch
+inference remotely.
 
 The status endpoint reports the last placement estimate and rates. Already
 running native batches are not preempted or moved. A cache hint is never a
@@ -88,7 +89,8 @@ checkpoint reservation or a successful restore receipt.
 
 Passing metadata or synthetic scheduler tests does not establish GPU throughput,
 native restore correctness, BW task quality, or cumulative G1-G5 certification.
-Experimental code remains on its experimental branch pending those checks.
+Feature controls remain experimental and off by default; the bounded completed
+checks below do not qualify the broader claims.
 
 ## Ownership and feature controls
 
@@ -102,16 +104,93 @@ never advances a BW workflow; a scheduler never mutates a checkpoint.
 | --- | --- | --- | --- |
 | Inventory publication | `--cache-inventory` | No inventory journal; endpoint rejects observation | RAM/disk and idle native images within one server |
 | Placement costs | `--scheduling transfer-aware` | FIFO remains default; weighted-prefix remains independently selectable | Measured local native restore and forward service costs |
-| Peer discovery/transfer | Separate explicit peer configuration, not yet implemented | No peer listeners, polling or transfer tasks | Planned |
-| Prefill/decode separation | Separate execution-role option, not yet implemented | Ordinary combined serving | Planned |
-| Tokenizer backend | Separate explicit backend choice, not yet implemented | Existing Wen tokenizer | Planned |
+| Peer export | `--cache-transfer --cache-inventory` | No checkpoint export | Existing, compatible disk checkpoint bytes; authenticated even on localhost |
+| Peer recovery | `--cache-peers /absolute/private/peers.json` | No peer requests | Reuse for locally owned canonical histories, including an identical new root |
+| Prefill/decode separation | `--prefill-gpus 3 --decode-gpus 0 --gpu 0,3` | Ordinary combined serving | Independent workers; root prefill versus continuation requests |
+| Tokenizer backend | `--tokenizer-backend fastokens` | Existing Python tokenizer | Optional fastokens 0.3.4 for long ordinary pieces; original splitting and cache |
 
-No future flag is advertised as currently accepted by the launcher. Compatibility
+These options are accepted by both setup and the configured launcher. Compatibility
 APIs and BW's native API remain independent of these switches. Missing optional
 peer data must permit ordinary serving, but present incompatible or corrupt
 checkpoint data remains an integrity error. A fallback must not silently replay
 tools, reset a controller, change input tokens, or violate a strict restore
 request. Reconstructing an evicted cache uses COW's existing explicit semantics.
+
+## Configured checkpoint peers
+
+The exporting server enables inventory and checkpoint export. A receiving server
+uses a private, owned configuration file and separate private key files:
+
+```json
+{"schema":1,"peers":[{"name":"cache-a","url":"http://cache-host:8099","api_key_file":"/home/you/.config/cow/cache-a.key"}]}
+```
+
+Set these files to mode 600. Configuration accepts 1–16 explicit origins; it
+does not follow redirects, use ambient HTTP proxies, or discover arbitrary peers.
+The existing server API key authenticates the read-only export. Transport on an
+untrusted network requires the existing trusted-LAN/tunnel or TLS boundary.
+
+Inventories expire after five seconds and recover through bounded pages. Both
+model and execution identities must match. Missing, busy or unreachable optional
+cache locations permit COW's existing rebuild path. Wrong credentials, mismatched
+identities and present corrupt payloads fail explicitly. A peer never supplies a
+canonical history, moves a branch or publishes a BW result.
+
+Transfers use the existing checkpoint envelope and payload. The source holds a
+history read lease and disk pin; the destination reserves its existing RAM/disk
+budgets, checks length, SHA-256, finite frontier and execution schedule, then
+publishes atomically. Defaults permit two transfers, one-MiB chunks, a 64-GiB
+checkpoint ceiling and a 300-second deadline. Retry of an already checked image
+copies zero payload bytes. The existing collector recovers abandoned staging and
+process reservations; timeout, cancellation and a real killed receiver are tested.
+
+Measured peer copy costs can avoid a transfer when a supplied reconstruction cost
+is lower. Unknown rates retain configuration order. This is cache-source selection,
+not a distributed inference scheduler or a universal remote RAM/disk allocator.
+
+## Execution roles and tokenizer
+
+Both GPU role sets must be specified, contain independent workers and cover the
+selected GPU set. They may overlap to permit a combined worker. Root creation and
+input preparation use the prefill set; continuation requests use the decode set.
+New suffix prefill within a continuation stays with that decode worker. Existing
+shared checkpoints, controllers and publication rules perform the handoff. No
+running native request is migrated or preempted by this option.
+
+The optional tokenizer requires a separately installed `fastokens==0.3.4`. It
+builds its BPE table from the model's own GGUF and downloads no tokenizer. COW
+retains its Unicode splitting, protected literal spans, special-token rules and
+bounded piece cache. Short pieces use the original implementation; long pieces
+use native BPE. Text, grammar admission and workspace projections use the same
+startup tokenizer. Missing dependencies or unsupported versions fail before GPU
+startup; there is no silent backend fallback or process-wide monkeypatch.
+
+## Bounded qualification
+
+The [final receipt](../experimental/branching_context/evidence/STACK-UNIFICATION-FINAL-20261023.json)
+records exact identities and measurements. On A100, a real Wen checkpoint moved
+from GPU 3's completed prefill to GPU 0: complete tokens and controller matched,
+with zero saved-prefix recomputation. An identical newly created root also reused
+that peer image. A complete BW coding workflow passed with combined workers and
+with explicit prefill/decode roles. That pair did not establish a speed advantage.
+
+LAN storage tests used llm-60 with llm-49, llm-79 and r730, without WAN cache
+transfer to A100. Two real Wen payloads (55,814,626 and 122,972,642 bytes) crossed
+each link, passed validation and idempotent retry, and returned to llm-60. All six
+native restored responses and controllers matched, with zero prefix recomputation.
+Two simultaneous receivers also passed. The test's storage-only listeners needed
+no remote GPU or weights; they are a bounded probe, not a shipped cache daemon or
+proof of execution on the peers' different GPUs. All four services and their
+temporary payload directories were cleaned up.
+
+Fastokens matched 5,180 actual Wen/Qwen token-ID, literal, Unicode, prefix-cut and
+chat-rendering checks. Both models passed complete BW code-repair/test/finish,
+pause/resume and completed-replay checks with the option off and on. For the
+54,000-byte long-piece fixture, cold encoding changed from 7.95 to 3.78 ms on Wen
+and 34.34 to 3.29 ms on Qwen. Ordinary code remained approximately 9–10 ms;
+warm long-piece cache hits were already fast. These are three-run median tokenizer
+timings on one host, not whole-workflow throughput gains. The all-piece native
+alternative was rejected because it slightly slowed ordinary code.
 
 All work follows local edits, box-git publication, GitHub publication and remote
 pulls. Each increment has its own commit and evidence; deployment never copies
@@ -137,7 +216,7 @@ the bounded response behavior tested. Broader G1-G5 certification stays separate
 
 ## Scale and failure boundaries
 
-The eventual manager holds location and scheduling metadata, not model payloads.
+The peer manager holds location and scheduling metadata, not model payloads.
 Workers retain local residency authority; cache bytes travel directly between
 the selected source and destination. Peer inventories require freshness/expiry
 and an explicit resynchronization protocol before influencing remote placement.
@@ -174,10 +253,12 @@ designs. In particular, this implementation was inspired by:
   [DeepInfra's KVCR fork](https://github.com/deepinfra/kvcr): keeping cache
   transport and residency separate from GPU execution ownership.
 - [fastokens](https://github.com/crusoecloud/fastokens) and
-  [DeepInfra's fork](https://github.com/deepinfra/fastokens): the planned tokenizer
+  [DeepInfra's fork](https://github.com/deepinfra/fastokens): the optional tokenizer
   comparison and safe reuse of tokenized prefixes.
 
-The inventory journal and placement code here were written for COW; no upstream
-implementation was copied into this increment. No upstream contribution is
-required. Further selective code reuse must preserve its original notices and
-license, as well as identify its exact revision.
+The inventory, scheduling, transport and tokenizer adapter code were written for
+COW. No upstream repository was copied into this worktree. The optional fastokens
+0.3.4 dependency remains a separately installed Apache-2.0 package, with its own
+notices. The qualified native library hash is in the receipt. No upstream
+contribution is required. Further selective code reuse must preserve its original
+notices and license and identify its exact revision.

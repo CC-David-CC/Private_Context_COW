@@ -1,7 +1,8 @@
 # BW, COW and native capability integration
 
-The implementation is on `feat/stack-unification-20261023`. Work is incremental;
-code presence is not a native qualification or a main-release claim.
+The integration was developed on `feat/stack-unification-20261023`. Its optional
+features have bounded qualification below; code presence alone is not native
+qualification or a claim that every backend supports the same operations.
 
 Strata and the dense native adapters own execution, native state and GPU work.
 COW owns immutable histories/controllers, branches, checkpoints, placement and
@@ -88,7 +89,51 @@ workflows left COW branch heads unchanged. Both configurations shut down with
 zero ephemeral session directories. Wen additionally recovered the complete
 ten-location inventory over ten HTTP pages with duplicate delivery. These are
 bounded full-task checks, not broad model-quality, throughput or G1-G5 claims.
-Peer transfers, execution-role placement and tokenizer qualification remain open.
+Those first receipts remain unchanged; the subsequent increments are recorded in
+[STACK-UNIFICATION-FINAL-20261023.json](../experimental/branching_context/evidence/STACK-UNIFICATION-FINAL-20261023.json).
+
+The final CPU campaign at `9b90735` passed 2,077 tests with no failures, errors,
+skips or expected failures. G0 passed 51, and tokenizer/HTTP/setup regressions
+passed 27. A transfer fault selection at the same revision passed 25 overlapping
+tests, including deadline expiry and killing a receiver during actual staging.
+These counts must not be added together.
+
+BW at `211717d` passed 158 focused integration tests. The broader selection
+exposed an offline-replay regression: completed workflows unnecessarily queried
+server capabilities. Discovery now applies to unfinished work; completed replay
+uses the original ledger. The real HTTP/subprocess test closes the listener
+before reopening the finished result. Outdated synthetic model IDs/discovery
+fixtures were corrected without relaxing production identity checks.
+The related COW HTTP/recovery selection at `1c3c08b` passed 53 tests. Its older
+restart fixture now checks the existing durable operation-lookup contract with
+production checkpoint annotations. Six saved native BW workflows reopened with
+their servers stopped, returning identical results and unchanged ledger/journal
+bytes. No GPU was allocated for those final replay checks.
+
+Native configured-peer recovery on A100 passed for an existing source and an
+identical new root. GPU 3 supplied the completed checkpoint; GPU 0 produced the
+same complete response and controller without repeating prefix work. Full BW
+workflows also passed with combined workers and with explicit prefill/decode
+roles. Roles divide root creation/input preparation from continuation requests;
+suffix prefill remains on the generation worker.
+
+LAN cache storage round-trips from llm-60 through llm-49, llm-79 and r730 passed
+checksums, canonical-state preservation, duplicate handling and six complete
+native response/controller comparisons on return to llm-60. Two concurrent
+receivers passed. No A100 WAN cache bandwidth test was run. Storage-peer CPU
+validation does not establish native execution on another GPU architecture.
+
+Optional fastokens 0.3.4 passed 5,180 token-ID checks across Wen 1.1 and Qwen Flash
+Q4. Both models passed complete BW workflows with it off and on, including
+pause/resume and replay of finished work. The selected adapter retains COW's
+ordinary short-piece path and accelerates long BPE pieces. Default configuration
+still uses the Python tokenizer. Dependencies were installed only on llm-60.
+
+See [CACHE-FABRIC.md](CACHE-FABRIC.md) for accepted flags, bounds, configuration,
+measured timings and scope. Remote inference dispatch, a production storage-only
+cache service, cross-profile checkpoint portability, grouped native restore and
+running-request migration remain outside this increment. The Strata C++ kernels
+were not changed. No broad throughput or cumulative G1-G5 claim is made.
 
 ## Inspiration
 

@@ -1,3 +1,18 @@
+2026-10-23: bounded Strata/COW/BW integration qualification. The CPU campaign
+passed 2,077 tests and G0 passed 51; BW's focused integration selection passed
+158. Native Wen and Qwen completed tool/test/finish, pause/resume and replay
+with optional features off/on. Wen additionally completed two independently
+verified approaches and selection. Configured peer recovery and GPU roles passed
+on A100; LAN storage round-trips through llm-49, llm-79 and r730 passed six full
+response/controller comparisons on llm-60, with no repeated prefix work.
+No A100 WAN cache bandwidth test was run. Optional fastokens passed 5,180 exact
+token-ID checks. These are bounded results, not cumulative G1-G5, arbitrary task
+quality or broad throughput claims. See
+[STACK-UNIFICATION-FINAL-20261023.json](STACK-UNIFICATION-FINAL-20261023.json)
+and [capability scope](../../../docs/STACK-CAPABILITIES.md). The new features
+remain individually selectable and off by default. Historical active-process
+notes below are retained evidence, not current service status.
+
 2026-10-22: opt-in weighted-prefix admission CPU controls and G0 pass. See
 [WEIGHTED-PREFIX-20261022.md](WEIGHTED-PREFIX-20261022.md). GPU queue throughput,
 Wen trainable-import numerical comparison and LoRA integration remain pending.
