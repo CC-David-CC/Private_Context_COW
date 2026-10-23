@@ -100,6 +100,19 @@ main()
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn('EXISTING_COW_ENTRY_REACHED', result.stdout)
 
+    def test_selected_virtual_environment_is_not_resolved_to_system_python(self):
+        import venv
+        with tempfile.TemporaryDirectory() as folder:
+            directory = Path(folder)
+            environment = directory/'selected-venv'
+            venv.EnvBuilder(with_pip=False, symlinks=True).create(environment)
+            python = environment/'bin/python'
+            profile = directory/'profile.json'; profile.write_text(json.dumps(self.profile()))
+            (directory/'server.json').write_text(json.dumps(dict(self.configuration(), profile=str(profile))))
+            session = DenseCandidateSession(directory, python=python, gpu_uuid='GPU-selected')
+            prefix = subprocess.check_output([session.python, '-c', 'import sys; print(sys.prefix)'], text=True).strip()
+            self.assertEqual(Path(prefix), environment)
+
     def test_owned_process_is_stopped_and_reaped(self):
         process = subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(300)'], start_new_session=True)
         try:

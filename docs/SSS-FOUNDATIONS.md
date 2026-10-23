@@ -113,7 +113,7 @@ loses its connection. Every session preserves raw frontend traces, exact prompt
 token receipts, owned process/allocation identities and settlement. Errors raise
 without retrying an evaluation request or inventing a model grade.
 
-Seven CPU tests exercise resource refusal, runtime/candidate binding, loopback and
+Eight CPU tests exercise resource refusal, runtime/candidate binding, loopback and
 non-recursive configuration, and actual owned-process stop/reap. Live candidate
 quality remains a separate measurement; this API alone does not establish it.
 
@@ -121,3 +121,9 @@ The initial live wrapper attempt stopped before inference because its isolated
 process lacked the runtime import path. The failed operation was preserved with
 zero evaluated cases and no training. A fresh-process regression test reproduces
 that failure and passes with the runtime path initialized before frontend imports.
+
+A second pre-inference attempt exposed interpreter-path handling: resolving a
+virtual environment Python symlink selected the system Python and lost its
+installed dependencies. The wrapper now preserves the configured interpreter
+path. A real disposable-venv test reproduces the wrong-prefix failure and passes
+with the fix. Both failed attempts contain zero evaluations and zero updates.

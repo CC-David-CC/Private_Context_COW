@@ -119,7 +119,12 @@ class DenseCandidateSession:
                 or not 0 < maximum_activity <= 100 or not 0 < reserve_mib < minimum_free_mib
                 or not gpu_uuid.startswith('GPU-')):
             raise ValueError('Explicit bounded owner GPU/time limits required')
-        self.python = str(Path(python).resolve(strict=True))
+        # A venv's python is often a symlink to the system binary. Resolving
+        # that link discards its environment and changes available dependencies.
+        interpreter = Path(python).absolute()
+        if not interpreter.is_file() or not os.access(interpreter, os.X_OK):
+            raise ValueError('Existing executable Python interpreter required')
+        self.python = str(interpreter)
         self.gpu_uuid = gpu_uuid
         self.deadline = deadline_seconds
         self.maximum_activity = maximum_activity
