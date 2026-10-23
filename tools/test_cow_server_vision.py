@@ -10,6 +10,15 @@ class ConfiguredVisionTests(unittest.TestCase):
   self.config=dict(profile='/p',store='/s',host='127.0.0.1',port=8099,ram_gib=16,disk_gib=16,min_available_gib=12,checkpoint_idle_seconds=1800)
  def test_default_arguments_remain_identical(self):
   self.assertEqual(cow_server.configured_argv(self.root,self.config,'test-key'),['cow-http','--profile','/p','--store','/s','--host','127.0.0.1','--port','8099','--api-key','test-key','--ram-gib','16','--disk-gib','16','--min-available-gib','12','--checkpoint-idle-seconds','1800','--text','--grammar-store',str(self.root/'grammars')])
+ def test_option_looking_api_keys_reach_argparse_unchanged(self):
+  import argparse
+  parser=argparse.ArgumentParser();parser.add_argument('--api-key')
+  for key in ('-leading-dash', '--text', '--', '-9', 'plain-key'):
+   with self.subTest(key=key):
+    argv=cow_server.configured_argv(self.root,self.config,key)
+    parsed,remaining=parser.parse_known_args(argv[1:])
+    self.assertEqual(parsed.api_key,key)
+    self.assertIn('--text',remaining)
  def test_weighted_scheduler_is_forwarded_only_when_opted_in(self):
   args=cow_server.configured_argv(self.root,dict(self.config,scheduling='weighted-prefix'),'test-key')
   self.assertEqual(args[-2:],['--scheduling','weighted-prefix'])

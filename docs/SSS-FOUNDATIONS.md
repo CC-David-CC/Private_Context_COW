@@ -62,3 +62,11 @@ remaining live-model checks and the operator's next authorized experiment.
 CPU checkpoint: [dated validation](../validation/foundations-20261023/README.md).
 
 Training admission follow-up: Owner-configured schema-2 lessons now use the tokenizer control-token mode for already-rendered chat spans. Schema-1 text keeps its previous plain-text tokenization. Seventeen lesson/segment checks passed, including the configured-service control-token distinction; native CPU guard integration passed.
+
+## Read-only native training admission
+
+The native executable accepts `--admit-training REQUEST.json`. It checks the same geometry, sequence policy and memory plan as `--train`, then reports `MEMORY_ADMISSION_PASS` or `MEMORY_ADMISSION_REFUSED` without loading weight tensors, updating weights or writing a candidate. A pass does not qualify graph allocation, derivatives or model quality. The normal training path still refuses insufficient memory before loading weights.
+
+The 2026-10-23 Wen foundation pack passed exact rendering at 58–375 tokens. The current ordinary LoRA planner estimated 336.9 GiB for its longest lesson, so the single-A100 attempt was refused. Wen weights stayed unchanged. See the [S³ pilot evidence and limits](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FOUNDATION-TRAINING-PILOT.md).
+
+The configured launcher also preserves API keys beginning with a dash by binding their argument value explicitly. Ordinary launcher arguments remain unchanged.

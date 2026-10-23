@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "scope": "bounded foundation-training adapter and read-only memory admission",
+  "adapter_tests": 6,
+  "guard_regression_tests": 4,
+  "launcher_tests": 7,
+  "native_cpu_self_test": "PASS",
+  "native_cpu_chain_test": "PASS",
+  "native_cpu_mixed": {
+    "examples": 18,
+    "skills": 9,
+    "settled_sessions": 4,
+    "model": "generated tiny fixture",
+    "evaluation": "controlled reference; no model inference"
+  },
+  "wen_token_admission": {
+    "examples": 108,
+    "minimum": 58,
+    "maximum": 375
+  },
+  "wen_weights_updated": false,
+  "wen_training_memory": {
+    "status": "MEMORY_ADMISSION_REFUSED",
+    "estimated_bytes": 361705465072,
+    "free_bytes": 78056128512,
+    "weights_loaded": false,
+    "graph_allocation_qualified": false
+  },
+  "formal_mastery_qualification": false,
+  "promoted": false,
+  "source_sha256": {
+    "experimental/native_training/native_train.cpp": "cc55b49931378200715bd9ea17c1dcd653125772c82335f32b4030241a991d83",
+    "tools/cow_server.py": "c533ce3c5f321b6ccf4b1f5bf37efd08a05cba8d05cc8592e50bf23a5cc13794",
+    "tools/test_cow_server_vision.py": "7f7bce4573fb57b8cccc5e539150ba321592840cd0100afd980f029183bf3e15",
+    "experimental/native_training/test_memory_admission.py": "f6f6c53a3f0942e6f025cfe60a613ead58b69a363dccd25c07da3fe05ec19839"
+  },
+  "native_admission_regression_cases": 8
+}

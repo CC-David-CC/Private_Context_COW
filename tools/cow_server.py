@@ -71,8 +71,11 @@ def configured_argv(directory,config,key):
     Native --vision consumes embeddings. It does not encode uploaded images.
     serve.cow_http validates the producer and its file hashes before GPU startup.
     """
+    # argparse treats an option-looking value as another flag unless attached.
+    # Preserve ordinary argv exactly and accept every token_urlsafe key.
+    key_args=["--api-key="+key] if key.startswith("-") else ["--api-key",key]
     argv=["cow-http","--profile",config["profile"],"--store",config["store"],
-              "--host",config["host"],"--port",str(config["port"]),"--api-key",key,
+              "--host",config["host"],"--port",str(config["port"]),*key_args,
               "--ram-gib",str(config["ram_gib"]),"--disk-gib",str(config["disk_gib"]),
               "--min-available-gib",str(config.get("min_available_gib",16)),
               "--checkpoint-idle-seconds",str(config["checkpoint_idle_seconds"]),

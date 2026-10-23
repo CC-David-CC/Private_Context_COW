@@ -591,7 +591,7 @@ struct GGUFSource {
         need(count==size_t(gguf_get_n_tensors(adapter.file)),"Unexpected warm-start adapter tensors");
     }
 };
-static json memory_plan(Chain&model,const json&config){
+static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
     std::map<std::string,size_t>persistent,scratch,activations;
     size_t length=0;for(auto&e:config.at("examples"))length=std::max(length,e.at("tokens").size());
     const auto&h=model.h;
@@ -628,8 +628,9 @@ static json memory_plan(Chain&model,const json&config){
         }
         size_t estimate=persistent[d->name]+scratch[d->name]+activations[d->name]+reserve;
         size_t cap=config.contains("device_budget_bytes")?config.at("device_budget_bytes").at(d->name).get<size_t>():free;
-        need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
+        if(!inspect_only)need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
         plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"host_graph_allowance",graph_host},{"reserve",reserve},{"admission_estimate",estimate}});
+        if(inspect_only)plans.back()["admitted"]=estimate<=free&&estimate<=cap;
     }
     return plans;
 }
@@ -719,7 +720,15 @@ static json train_model(const json&config){
             need(selected>0&&selected<=256,"Long CPU fixture profile supports at most 256 selected target positions");
         }
     }
-    auto plan=memory_plan(model,config);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;source.load(model);
+    const bool admission_only=config.value("admission_only",false);
+    auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
+    if(admission_only){
+        bool admitted=true;for(const auto&row:plan)admitted=admitted&&row.at("admitted").get<bool>();
+        return {{"native",true},{"status",admitted?"MEMORY_ADMISSION_PASS":"MEMORY_ADMISSION_REFUSED"},
+            {"memory_plan",plan},{"model_layers",model.h.layers},{"weights_loaded",false},{"weights_updated",false},
+            {"graph_allocation_qualified",false},{"promoted",false}};
+    }
+    source.load(model);
     if(config.contains("initial_adapter"))source.load_adapter(model,config.at("initial_adapter"),config.at("base_sha256"));
     auto examples=config.at("examples");need(examples.is_array()&&!examples.empty(),"Explicit training examples required");
     int batch=config.value("batch_size",1),steps=config.value("steps",1);float lr=config.value("learning_rate",.0001f);
@@ -746,8 +755,10 @@ int main(int argc,char**argv){try{
     setenv("GGML_NO_BACKTRACE","1",1);
     ggml_set_abort_callback([](const char*message){std::cerr<<"NATIVE_ABORT "<<message<<std::endl;void*frames[32];int n=backtrace(frames,32);backtrace_symbols_fd(frames,n,2);});
     if(argc==3&&std::string(argv[1])=="--inspect"){std::cout<<inspect_model(argv[2]).dump(2)<<std::endl;return 0;}
-    if(argc==3&&std::string(argv[1])=="--train"){
-        std::ifstream in(argv[2]);need(bool(in),"Cannot read private training request");json config;in>>config;std::cout<<train_model(config).dump(2)<<std::endl;return 0;
+    if(argc==3&&(std::string(argv[1])=="--train"||std::string(argv[1])=="--admit-training")){
+        std::ifstream in(argv[2]);need(bool(in),"Cannot read private training request");json config;in>>config;
+        if(std::string(argv[1])=="--admit-training")config["admission_only"]=true;
+        std::cout<<train_model(config).dump(2)<<std::endl;return 0;
     }
     if(argc==3&&std::string(argv[1])=="--concat-test"){if(std::string(argv[2])!="CPU")load_cuda();std::cout<<concat_test(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--gradient-diagnostic"){
