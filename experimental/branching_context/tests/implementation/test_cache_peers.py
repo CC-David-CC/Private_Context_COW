@@ -1,5 +1,6 @@
 """Authenticated CPU HTTP transfers; real native restore is qualified separately."""
 import json
+from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 import socket
 import threading
 from types import SimpleNamespace
@@ -94,6 +95,42 @@ class PeerCacheTests(unittest.TestCase):
         with self.assertRaisesRegex(IntegrityError,'HTTP 409'):peers.recover(self.target,self.snapshot)
         self.assertFalse((self.target.checkpoint_directory/(self.snapshot+'.json')).exists())
         self.assert_released(self.incoming);self.assert_released(self.outgoing)
+
+    def test_missing_payload_of_present_manifest_is_integrity_failure(self):
+        _,peers=self.serving()
+        (self.source.checkpoint_directory/(self.envelope['manifest']['payload_sha256']+'.state')).unlink()
+        with self.assertRaisesRegex(IntegrityError,'HTTP 409'):peers.recover(self.target,self.snapshot)
+
+    def test_redirect_cannot_forward_peer_credentials(self):
+        captured=[]
+        class Handler(BaseHTTPRequestHandler):
+            def log_message(self,*args):pass
+            def do_GET(self):
+                if self.path=='/stolen':captured.append(self.headers.get('Authorization'))
+                self.send_response(302);self.send_header('Location','/stolen');self.end_headers()
+        server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+        thread=threading.Thread(target=server.serve_forever);thread.start()
+        self.addCleanup(lambda:(server.shutdown(),server.server_close(),thread.join(5)))
+        peer=ConfiguredPeer('redirect','http://127.0.0.1:'+str(server.server_port),'private-test-token')
+        with self.assertRaisesRegex(IntegrityError,'HTTP 302'):
+            PeerCaches([peer],self.incoming).recover(self.target,self.snapshot)
+        self.assertEqual(captured,[])
+
+    def test_launcher_keeps_peer_features_independently_disabled_by_default(self):
+        from tools.cow_server import configured_argv
+        from tools.cow_server_setup import cache_peer_config
+        config=dict(profile='/profile.json',store='/store',host='127.0.0.1',port=12345,
+            ram_gib=100,disk_gib=100,min_available_gib=16,checkpoint_idle_seconds=1800)
+        original=configured_argv(self.base,config,'private-key')
+        self.assertNotIn('--cache-transfer',original);self.assertNotIn('--cache-peers',original)
+        self.assertEqual(cache_peer_config(SimpleNamespace()),{})
+        enabled=configured_argv(self.base,dict(config,cache_transfer=True),'private-key')
+        self.assertEqual(enabled,original+['--cache-transfer'])
+        with self.assertRaises(ValueError):configured_argv(self.base,dict(config,cache_transfer='yes'),'private-key')
+
+    def test_serving_refuses_unauthenticated_peer_exports_even_on_localhost(self):
+        with self.assertRaisesRegex(ValueError,'API key'):
+            make_server(SimpleNamespace(cache_transfer_enabled=lambda:True))
 
     def test_bounded_private_configuration_and_credentials(self):
         key=self.base/'peer.key';key.write_text('test-key\n');key.chmod(0o600)
