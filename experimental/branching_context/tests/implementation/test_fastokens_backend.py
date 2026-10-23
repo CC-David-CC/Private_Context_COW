@@ -102,7 +102,7 @@ class FastokensBoundaryTests(unittest.TestCase):
             components=model_text_components('fixture.gguf',tokenizer_backend='fastokens')
         load.assert_called_once_with('fixture.gguf',backend='fastokens')
         self.assertIs(components['tokenizer'],self.fast)
-        self.assertIs(components['encode_rendered'].__self__.tokenizer,self.fast)
+        self.assertIs(components['encode_rendered'].__self__.tok,self.fast)
 
     def test_launcher_defaults_and_optional_backend_are_explicit(self):
         from tools.cow_server import configured_argv
@@ -110,15 +110,15 @@ class FastokensBoundaryTests(unittest.TestCase):
         config=dict(profile='profile',store='store',host='127.0.0.1',port=8099,
             ram_gib=100,disk_gib=100,checkpoint_idle_seconds=1800)
         self.assertEqual(tokenizer_config(SimpleNamespace()),{})
-        self.assertNotIn('--tokenizer-backend',configured_argv(config,Path('/tmp/server'),'key'))
+        self.assertNotIn('--tokenizer-backend',configured_argv(Path('/tmp/server'),config,'key'))
         config.update(tokenizer_config(SimpleNamespace(tokenizer_backend='fastokens')))
-        argv=configured_argv(config,Path('/tmp/server'),'key')
+        argv=configured_argv(Path('/tmp/server'),config,'key')
         self.assertEqual(argv[argv.index('--tokenizer-backend')+1],'fastokens')
         for invalid in ('auto',True,None):
             with self.subTest(invalid=invalid),self.assertRaises(ValueError):
                 tokenizer_config(SimpleNamespace(tokenizer_backend=invalid))
             with self.subTest(invalid=invalid),self.assertRaises(ValueError):
-                configured_argv(dict(config,tokenizer_backend=invalid),Path('/tmp/server'),'key')
+                configured_argv(Path('/tmp/server'),dict(config,tokenizer_backend=invalid),'key')
 
     def test_explicit_backend_failure_does_not_fall_back(self):
         from serve.cow_http import model_text_components

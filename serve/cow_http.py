@@ -37,13 +37,13 @@ def plain(value):
 
 
 def model_text_components(model_path,template_kwargs=None,*,model_contract_id=None,mixed_inputs=False,
-                          tokenizer_backend='python'):
+                          tokenizer_backend='python',tokenizer=None):
     """Load only tokenizer/template metadata; computation stays on its worker."""
     from tools.fastokens_tokenizer import load_tokenizer
     from tools.gguf_reader import GGUFFile
     from serve.frontend import ChatTemplate
     from serve.cow_prompt_encoder import CowPromptEncoder
-    tokenizer=load_tokenizer(model_path,backend=tokenizer_backend)
+    if tokenizer is None:tokenizer=load_tokenizer(model_path,backend=tokenizer_backend)
     source=GGUFFile(Path(model_path)).metadata.get('tokenizer.chat_template')
     if not isinstance(source,str) or not source: raise ValueError('Model has no chat template')
     with tempfile.TemporaryDirectory(prefix='cow-template-') as directory:
@@ -384,7 +384,7 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                         inline_grammars=feature(grammar_catalog is not None))
                     if text_adapter is not None:
                         report['features']['tokenizer_fastokens']=feature(True,
-                            getattr(text_adapter.tokenizer,'backend_name','python')=='fastokens',
+                            getattr(getattr(text_adapter,'tokenizer',None),'backend_name','python')=='fastokens',
                             qualification='experimental')
                     return self.json(200,dict(schema=1,service='context-cow',
                         model_contract_id=description['model_contract_id'],
@@ -930,10 +930,8 @@ def main():
     grammar_catalog=None
     # Resolve the optional dependency before loading native workers, and use
     # one tokenizer for text, grammar admission and workspace projections.
-    components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
-        model_contract_id=profile['model_contract_id'],
-        mixed_inputs=profile['execution'].get('resume_contract')=='identical-mixed-native-operators-v1',
-        tokenizer_backend=args.tokenizer_backend) if args.text else None
+    from tools.fastokens_tokenizer import load_tokenizer
+    startup_tokenizer=load_tokenizer(profile['model_path'],backend=args.tokenizer_backend) if args.text else None
     if args.grammar_store is not None and (not args.text or not args.api_key):
         raise ValueError('--grammar-store requires --text and --api-key')
     if args.grammar_registry is not None or args.grammar_store is not None:
@@ -941,7 +939,6 @@ def main():
             raise ValueError('--grammar-registry requires --text')
         try:
             from serve.cow_grammar import GrammarRegistry
-            startup_tokenizer=components['tokenizer']
             if args.grammar_registry is not None:
                 grammar_registry=GrammarRegistry.load(args.grammar_registry,startup_tokenizer,
                     profile['execution'].get('eos_tokens',[]))
@@ -955,6 +952,10 @@ def main():
     if profile.get('backend')=='qwen35-llama.cpp':
         from context_time_travel.qwen35_backend import device_name_for_worker
         for gpu in config.gpus:device_name_for_worker(profile,gpu)
+    components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
+        model_contract_id=profile['model_contract_id'],
+        mixed_inputs=profile['execution'].get('resume_contract')=='identical-mixed-native-operators-v1',
+        tokenizer_backend=args.tokenizer_backend,tokenizer=startup_tokenizer) if args.text else None
     preparer=None
     if args.vision_config is not None:
         from context_time_travel.store import Store
