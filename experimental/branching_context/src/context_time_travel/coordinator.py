@@ -1787,7 +1787,7 @@ class ContextCoordinator:
             prefill_coalescing=feature(True,self.config.scheduling!='fifo'),
             peer_transfer=feature(True,self.config.cache_transfer,qualification='experimental'),
             peer_cache_recovery=feature(True,self._peers is not None,qualification='experimental'),
-            prefill_decode_placement=feature(False),
+            prefill_decode_placement=feature(True,self.config.prefill_gpus is not None,qualification='experimental'),
             tokenizer_fastokens=feature(False))
         return dict(workers=workers,features=features,limits=dict(
             ram_cache_bytes=self.config.ram_bytes,disk_cache_bytes=self.config.disk_bytes,
@@ -1908,6 +1908,7 @@ class ContextCoordinator:
                     try:
                         compatible = [gpu for gpu,w in self._workers.items()
                             if w['health']=='healthy' and w['model'] is not None
+                            and self.config.allows_role(gpu,job.kind)
                             and self._compatible(w['model'],job)]
                     except Exception as error:
                         self._pending.remove(job);self._fail(job,error);continue
@@ -1990,6 +1991,8 @@ class ContextCoordinator:
             return saved
         key = self._key(model,snapshot)
         manifest = None
+        if key not in self.pool and not os.path.lexists(model.checkpoint_directory/(snapshot+'.json')):
+            self._try_peer_recovery(model,job,snapshot)
         deadline = time.monotonic() + self._admission_timeout
         while True:
             remaining = deadline - time.monotonic()
@@ -3053,6 +3056,8 @@ class ContextCoordinator:
                 failure_reason=w['failure_reason'],active=w['active'],max_active=w['max_active'],
                 pid=getattr(getattr(getattr(w.get('model'),'backend',None),'process',None),'pid',None))
                 for gpu,w in self._workers.items()}
+            if self.config.prefill_gpus is not None:
+                for gpu in self._workers:result['workers'][worker_key(gpu)]['role']=self.config.execution_role(gpu)
             result['scheduling']=dict(policy=self.config.scheduling,
                 inflight_prefills=len(self._prefills),
                 waiting_on_prefill=sum(job.prefill_key in self._prefills for job in self._pending),

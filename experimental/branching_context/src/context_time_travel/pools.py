@@ -134,6 +134,8 @@ class PoolConfig:
     scheduling: str = 'fifo'
     cache_inventory: bool = False
     cache_transfer: bool = False
+    prefill_gpus: tuple | None = None
+    decode_gpus: tuple | None = None
 
     def __post_init__(self):
         if self.scheduling not in ('fifo','weighted-prefix','transfer-aware'):
@@ -142,6 +144,16 @@ class PoolConfig:
         if type(self.cache_transfer) is not bool:raise ValueError('cache_transfer must be boolean')
         ids = normalize_gpu_selection(self.gpus)
         object.__setattr__(self,'gpus',ids)
+        if (self.prefill_gpus is None)!=(self.decode_gpus is None):
+            raise ValueError('Explicit placement requires both prefill and decode GPU sets')
+        if self.prefill_gpus is not None:
+            prefill=normalize_gpu_selection(self.prefill_gpus)
+            decode=normalize_gpu_selection(self.decode_gpus)
+            if (any(type(gpu) is not int for gpu in ids+prefill+decode)
+                    or set(prefill)|set(decode)!=set(ids)):
+                raise ValueError('Placement roles must cover exactly the selected independent GPUs')
+            object.__setattr__(self,'prefill_gpus',prefill)
+            object.__setattr__(self,'decode_gpus',decode)
         for name in ('ram_bytes','disk_bytes','min_available_bytes'):
             n = getattr(self,name)
             if type(n) is not int or n < (0 if name == 'min_available_bytes' else 1):
@@ -156,6 +168,14 @@ class PoolConfig:
     @property
     def physical_gpus(self):
         return tuple(n for item in self.gpus for n in ((item,) if type(item) is int else item))
+
+    def allows_role(self,gpu,kind):
+        if self.prefill_gpus is None:return True
+        return gpu in (self.prefill_gpus if kind in ('create','prepare_inputs') else self.decode_gpus)
+
+    def execution_role(self,gpu):
+        if self.prefill_gpus is None or gpu in self.prefill_gpus and gpu in self.decode_gpus:return 'combined'
+        return 'prefill' if gpu in self.prefill_gpus else 'decode'
 
 
 def checkpoint_bytes(checkpoint):

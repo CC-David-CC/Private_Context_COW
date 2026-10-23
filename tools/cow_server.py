@@ -89,6 +89,14 @@ def configured_argv(directory,config,key):
         from context_time_travel.cache_peers import load_peers
         load_peers(config['cache_peers'])
         argv += ['--cache-peers',config['cache_peers']]
+    if (config.get('prefill_gpus') is None)!=(config.get('decode_gpus') is None):
+        raise ValueError('Both execution role sets must be configured')
+    for name in ('prefill_gpus','decode_gpus'):
+        if config.get(name) is not None:
+            from context_time_travel.pools import normalize_gpu_selection
+            selection=normalize_gpu_selection(config[name])
+            if any(type(gpu) is not int for gpu in selection):raise ValueError('Roles require independent GPUs')
+            argv += ['--'+name.replace('_','-'),json.dumps(selection)]
     if config.get('openai_port') is not None:
         argv += ['--openai-port',str(config['openai_port']),
                  '--openai-model',config.get('openai_model','cow'),

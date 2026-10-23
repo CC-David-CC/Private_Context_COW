@@ -862,7 +862,8 @@ def pool_config_from_args(args,profile=None):
         disk_bytes=args.disk_gib*1024**3,min_available_bytes=args.min_available_gib*1024**3,
         checkpoint_idle_seconds=args.checkpoint_idle_seconds,
         scheduling=getattr(args,'scheduling','fifo'),cache_inventory=getattr(args,'cache_inventory',False),
-        cache_transfer=getattr(args,'cache_transfer',False))
+        cache_transfer=getattr(args,'cache_transfer',False),
+        prefill_gpus=getattr(args,'prefill_gpus',None),decode_gpus=getattr(args,'decode_gpus',None))
 
 
 def main():
@@ -878,6 +879,8 @@ def main():
     parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
     parser.add_argument('--cache-transfer',action='store_true',help='Allow authenticated export of existing checkpoints')
     parser.add_argument('--cache-peers',type=Path,help='Private explicit peer configuration for optional cache recovery')
+    parser.add_argument('--prefill-gpus',type=json.loads,help='JSON array of workers for root prefill/input preparation')
+    parser.add_argument('--decode-gpus',type=json.loads,help='JSON array of workers for continuation requests')
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',
         help='Opt in to shared-prefill admission with backlog weights and bounded-wait aging')
     parser.add_argument('--min-available-gib',type=int,default=16,help='Positive host RAM headroom; guided setup sizes this for the server.')
