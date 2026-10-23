@@ -83,6 +83,14 @@ Wen 1.1 tool-use trial. A same-suite leaderboard across all Flash quants and Wen
 has not yet been established. No day-long real-world inference campaign is
 claimed by these small tests.
 
+The completed first Wen pair scored **5/9 for Wen 1 and 4/9 for Wen 1.1** on
+identical S³ mock-tool tasks/settings on one A100. There were no backend errors.
+The extra 1.1 failure returned correct read content but omitted the required
+finish action. Both had newline/content failures whose model-versus-parser
+origin was not isolated. Treat these as bounded stack results, not a broad
+ranking or proof that 1.1 has worse reading ability. The linked S³ report retains
+every case, source/model hashes, budgets and attribution limits.
+
 ## How testing and learning fit together
 
 [Skills³ (S³): Skills, Scoring, Stability](https://github.com/CC-David-CC/sss)

@@ -136,6 +136,11 @@ hardware story here; BW summarizes the practical task story. The current Wen 1
 and 1.1 comparison uses the same S³ tool fixtures. Historical Flash throughput
 is a separate campaign, not a score on those tasks.
 
+The first matched A100 trial finished at **Wen 1: 5/9; Wen 1.1: 4/9**. These
+are strict mock-tool completion scores, including correct answers that omitted
+the required finish action; newline failures have unresolved parser/model
+attribution. [Read the full results and limitations](https://github.com/CC-David-CC/sss/blob/main/docs/MODEL-COMPARISON.md).
+
 [Smaller Q4/IQ3/IQ2 trials](validation/lower-quants-llm49-20261021/) have their own
 results and limitations. Ordinary upstream Strata hardware support does not imply
 that every COW adapter supports the same hardware. The guided Flash/COW setup
