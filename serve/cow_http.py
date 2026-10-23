@@ -359,11 +359,15 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                     return self.json(404 if isinstance(error,NotFound) else 409,{'error':str(error)})
             if path=='/cow/cache/inventory':
                 try:
+                    from context_time_travel.cache_inventory import RecoveryRequired
                     query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
-                    if query and (set(query)!={'epoch','since'} or any(len(v)!=1 for v in query.values())):
-                        raise ValueError('Use both epoch and since, or no cursor')
-                    cursor={} if not query else dict(epoch=query['epoch'][0],since=int(query['since'][0]))
+                    if (set(query)-{'epoch','since','page_size','cursor'}
+                            or any(len(v)!=1 for v in query.values())
+                            or ('epoch' in query)!=('since' in query)):
+                        raise ValueError('Invalid inventory query')
+                    cursor={k:(int(v[0]) if k in ('since','page_size') else v[0]) for k,v in query.items()}
                     return self.json(200,adapter.cache_inventory(**cursor))
+                except RecoveryRequired as error:return self.json(409,dict(error=str(error)))
                 except ValueError as error:return self.json(400,dict(error=str(error)))
                 except Exception as error:return self.json(409,dict(error=str(error)))
             if path=='/cow/status':

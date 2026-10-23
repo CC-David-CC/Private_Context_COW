@@ -3,9 +3,13 @@
 Inspired by DeepInfra's kv-local-indexer and NVIDIA Dynamo/KVCR. This is an
 independent implementation of snapshot recovery after missed inventory events.
 """
-from collections import deque
+from collections import deque, OrderedDict
 import copy
+import hashlib
+import json
+import math
 import threading
+import time
 import uuid
 
 
@@ -48,14 +52,20 @@ def _entries(values,limit):
 
 
 class InventoryJournal:
-    def __init__(self,node,*,event_limit=1024,entry_limit=16384):
+    def __init__(self,node,*,event_limit=1024,entry_limit=16384,
+                 snapshot_limit=4,snapshot_ttl=60,clock=time.monotonic):
         self.node=_text(node)
-        if any(type(n) is not int or n<=0 for n in (event_limit,entry_limit)):
+        if any(type(n) is not int or n<=0 for n in (event_limit,entry_limit,snapshot_limit)):
             raise ValueError('Invalid inventory bounds')
+        if (type(snapshot_ttl) not in (int,float) or not math.isfinite(snapshot_ttl)
+                or snapshot_ttl<=0 or not callable(clock)):
+            raise ValueError('Invalid snapshot lifetime')
         self.epoch=uuid.uuid4().hex
         self.entry_limit=entry_limit
         self._entries={}; self._events=deque(maxlen=event_limit); self._seq=0
         self._lock=threading.RLock()
+        self._snapshots=OrderedDict()
+        self._snapshot_limit,self._snapshot_ttl,self._clock=snapshot_limit,snapshot_ttl,clock
 
     def reconcile(self,entries):
         """Publish a fresh availability observation; changes are atomic."""
@@ -68,20 +78,55 @@ class InventoryJournal:
                 self._events.append(dict(seq=self._seq,action=action,entry=row))
             self._entries=next_entries
 
-    def read(self,*,epoch=None,since=None):
+    def read(self,*,epoch=None,since=None,page_size=None,cursor=None):
         if (epoch is None)!=(since is None):raise ValueError('Use both epoch and since')
         if since is not None and (type(since) is not int or since<0):
             raise ValueError('Invalid inventory cursor')
         if epoch is not None:_text(epoch)
+        if page_size is not None and (type(page_size) is not int or not 1<=page_size<=1024):
+            raise ValueError('Page size must be between 1 and 1024')
+        if cursor is not None and (page_size is None or epoch is not None):
+            raise ValueError('Page cursor requires page_size and no event cursor')
         with self._lock:
+            if cursor is not None:return self._page(page_size,cursor)
             packet=dict(schema=1,node=self.node,epoch=self.epoch,seq=self._seq)
             oldest=self._events[0]['seq']-1 if self._events else self._seq
             if epoch==self.epoch and oldest<=since<=self._seq:
                 packet.update(kind='delta',base=since,
                               events=[e for e in self._events if e['seq']>since])
             else:
+                if page_size is not None:return self._page(page_size,None)
                 packet.update(kind='snapshot',entries=[v for _,v in sorted(self._entries.items())])
             return copy.deepcopy(packet)
+
+    def _page(self,size,cursor):
+        # Called under the journal lock. A page never mixes two observations.
+        now=self._clock()
+        if type(now) not in (int,float) or not math.isfinite(now):
+            raise ValueError('Invalid inventory clock')
+        for identity,row in list(self._snapshots.items()):
+            if now>=row['expires']:del self._snapshots[identity]
+        if cursor is None:
+            while len(self._snapshots)>=self._snapshot_limit:self._snapshots.popitem(last=False)
+            identity=uuid.uuid4().hex; offset=0
+            row=dict(seq=self._seq,expires=now+self._snapshot_ttl,size=size,
+                entries=[dict(v) for _,v in sorted(self._entries.items())])
+            self._snapshots[identity]=row
+        else:
+            _text(cursor)
+            try:
+                identity,number=cursor.split(':'); offset=int(number)
+                if number!=str(offset) or offset<=0:raise ValueError()
+            except ValueError:raise ValueError('Invalid page cursor') from None
+            row=self._snapshots.get(identity)
+            if row is None:raise RecoveryRequired('Inventory snapshot expired or was evicted')
+            if size!=row['size'] or offset%size or offset>=len(row['entries']):
+                raise ValueError('Page cursor does not match its snapshot')
+        total=len(row['entries']); stop=min(total,offset+size)
+        return dict(schema=2,node=self.node,epoch=self.epoch,seq=row['seq'],
+            kind='snapshot_page',snapshot=identity,offset=offset,total=total,
+            entries=[dict(v) for v in row['entries'][offset:stop]],
+            next_cursor=identity+':'+str(stop) if stop<total else None)
 
 
 class InventoryView:
@@ -89,6 +134,7 @@ class InventoryView:
     def __init__(self,node,*,entry_limit=16384,event_limit=32768):
         self.node=_text(node); self.entry_limit=entry_limit; self.event_limit=event_limit
         self._epoch=None; self._seq=0; self._entries={}; self._retired=set()
+        self._pending_page=None; self._completed_page=None
 
     @property
     def cursor(self):return dict(epoch=self._epoch,since=self._seq) if self._epoch else {}
@@ -97,6 +143,8 @@ class InventoryView:
     def entries(self):return [dict(v) for _,v in sorted(self._entries.items())]
 
     def apply(self,packet):
+        if type(packet) is dict and type(packet.get('schema')) is int and packet['schema']==2:
+            return self._apply_page(packet)
         if type(packet) is not dict or packet.get('schema')!=1 or type(packet.get('schema')) is not int:
             raise ValueError('Unsupported inventory protocol')
         if packet.get('node')!=self.node:raise ValueError('Inventory node mismatch')
@@ -134,3 +182,42 @@ class InventoryView:
             if len(self._retired)>=128:raise RecoveryRequired('Reconnect with a fresh consumer')
             self._retired.add(self._epoch)
         self._entries,self._epoch,self._seq=next_entries,epoch,seq
+        self._pending_page=None
+
+    def _apply_page(self,packet):
+        fields={'schema','node','epoch','seq','kind','snapshot','offset','total','entries','next_cursor'}
+        if (set(packet)!=fields or packet['node']!=self.node or packet['kind']!='snapshot_page'):
+            raise ValueError('Unsupported inventory page')
+        epoch=_text(packet['epoch']); identity=_text(packet['snapshot'])
+        seq,offset,total=packet['seq'],packet['offset'],packet['total']
+        if (any(type(n) is not int or n<0 for n in (seq,offset,total))
+                or total>self.entry_limit or offset>total):
+            raise ValueError('Invalid inventory page extent')
+        checked=_entries(packet['entries'],min(1024,self.entry_limit)); stop=offset+len(checked)
+        if (stop>total or (not checked and total!=0)
+                or packet['next_cursor']!=(identity+':'+str(stop) if stop<total else None)):
+            raise ValueError('Invalid inventory page continuation')
+        if epoch in self._retired or (epoch==self._epoch and seq<self._seq):
+            raise RecoveryRequired('Stale inventory page')
+        digest=hashlib.sha256(json.dumps(packet,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        signature=(epoch,seq,identity,total)
+        complete=self._completed_page
+        if complete is not None and complete['signature']==signature:
+            if complete['hashes'].get(offset)!=digest:raise RecoveryRequired('Changed repeated inventory page')
+            return
+        pending=self._pending_page
+        if pending is not None and pending['signature']==signature and offset in pending['hashes']:
+            if pending['hashes'][offset]!=digest:raise RecoveryRequired('Changed repeated inventory page')
+            return
+        if offset==0:
+            pending=dict(signature=signature,entries={},hashes={})
+        if pending is None or pending['signature']!=signature or offset!=len(pending['entries']):
+            raise RecoveryRequired('Inventory page gap; restart recovery')
+        if pending['entries'].keys() & checked.keys():raise ValueError('Duplicate paged inventory location')
+        entries=dict(pending['entries']); entries.update(checked)
+        hashes=dict(pending['hashes']); hashes[offset]=digest
+        if stop==total:
+            self.apply(dict(schema=1,node=self.node,epoch=epoch,seq=seq,kind='snapshot',entries=list(entries.values())))
+            self._completed_page=dict(signature=signature,hashes=hashes)
+        else:
+            self._pending_page=dict(signature=signature,entries=entries,hashes=hashes)
