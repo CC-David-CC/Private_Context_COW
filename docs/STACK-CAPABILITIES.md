@@ -73,7 +73,22 @@ BW at `8b821b0` passed 63 focused connection, receipt, retry, lost-acknowledgmen
 and stream tests against the actual COW CPU HTTP/CLI stack. The isolated test
 environment includes the pinned `llguidance==1.9.1` dependency and explicitly
 selects this checkout's `tools/cow_cli.py`. These results establish CPU boundary
-behavior only. Native Wen/Qwen workflows and later delivery gates remain open.
+behavior only.
+
+The inventory/notification increment at `e46921f` passed 2,039 Linux CPU tests
+with no failures, errors, skips or expected failures, plus all 51 G0 tests.
+Child-process import paths are part of the campaign environment. A full CPU
+campaign without its required C++ compiler reports BLOCKED before imports;
+explicit pure-Python module selections remain usable on such a host.
+
+Wen 1.1 on A100 and Qwen Flash Q4 on RTX PRO 6000 each passed a complete BW
+code-repair/test/finish workflow with the optional features off and on. The
+Wen BW client ran on a separate LAN host over SSH forwarding. Reopening completed
+workflows left COW branch heads unchanged. Both configurations shut down with
+zero ephemeral session directories. Wen additionally recovered the complete
+ten-location inventory over ten HTTP pages with duplicate delivery. These are
+bounded full-task checks, not broad model-quality, throughput or G1-G5 claims.
+Peer transfers, execution-role placement and tokenizer qualification remain open.
 
 ## Inspiration
 

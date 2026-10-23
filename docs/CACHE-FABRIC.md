@@ -39,9 +39,24 @@ for `?epoch=...&since=...`; missed events within the window produce a delta.
 Older cursors or a restarted producer produce a complete snapshot instead.
 `InventoryView` validates a complete packet before replacing its view, rejects
 sequence gaps and retired epochs, and tolerates duplicate delta delivery.
-The journal is derived from observations at polling time, not an audit log of
-every transient cache mutation. Inventory is capped at 16,384 locations. Its
-bounded Python metadata is separate from checkpoint payload budgets.
+The journal is derived from observations, not an audit log of every transient
+cache mutation. Inventory is capped at 16,384 locations. Its bounded Python
+metadata is separate from checkpoint payload budgets.
+
+Optional `page_size=1..1024` requests use schema 2 frozen snapshot pages. Continue
+with the returned `next_cursor` and the same page size. Each producer retains at
+most four snapshots for 60 seconds; an expired cursor returns HTTP 409 and the
+consumer starts recovery again. `InventoryView` stages pages without exposing a
+partial view, tolerates exact duplicate pages, and rejects gaps, changed repeats
+and conflicting identities. The final page atomically replaces the visible view.
+Clients that omit paging retain the original schema 1 snapshot/delta protocol.
+
+RAM and disk pools publish bounded metadata notifications (1,024 events). An
+unchanged inventory read avoids rescanning disk manifests. A missed notification,
+startup, changed worker identity or 30-second reconciliation interval triggers a
+full scan. These events carry locations only and never call user callbacks while
+pool locks are held. All notifications and recovery metadata are disabled when
+`--cache-inventory` is absent.
 
 Transfer-aware placement retains grouped-prefix admission, in-flight prefill
 coalescing and two-second aging. It compares measured forward-work cost and
@@ -130,11 +145,12 @@ Queue size, concurrent transfers, per-peer staging, metadata and recovery packet
 sizes must all have limits. Active DMA must settle before its memory can be
 released, including after cancellation or timeout.
 
-The current local inventory reconciles disk metadata during polling. It is
-bounded, but its scan cost has not been qualified for large stores. Event-driven
-pool notifications and a paged full-inventory protocol are candidates for that
-qualification; neither is claimed implemented. Likewise, local moving averages
-are not a distributed network cost model or a throughput guarantee.
+The current local inventory uses pool notifications and paged full recovery.
+CPU tests cover frozen snapshots, duplicate/gapped delivery, notification overrun,
+and unchanged-read scan avoidance. A real Wen/BW workflow recovered ten locations
+over ten HTTP pages, each delivered twice. Large-store scan cost remains
+unqualified. Local moving averages are not a distributed network cost model or
+a throughput guarantee.
 
 Disable/rollback uses a stopped, drained server and the prior pinned executable,
 source and configuration. Changes to runtime source create a different execution

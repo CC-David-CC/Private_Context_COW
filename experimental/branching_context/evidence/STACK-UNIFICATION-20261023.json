@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "cow_revision": "e46921f9ce3480b6a50c077a315d986ec3110e96",
+  "bw_revision": "8b821b0d8fe40c30e567ee0741ea2c34b8e84488",
+  "scope": "Checked native capabilities, CPU campaign repair, inventory pages and pool notifications",
+  "cpu": {
+    "tests": 2039,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "expected_failures": 0,
+    "manifest_sha256": "9bd4483e1115cc4cbd191b3dde525aaabe5a93fc3d1040cde17a32c4dba71054"
+  },
+  "reference_G0": {
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "bw_focused": {
+    "tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "native": {
+    "wen": {
+      "model": "Wen 1.1 BF16",
+      "server_device": "A100",
+      "client": "separate LAN host over SSH forwarding",
+      "modes": {
+        "disabled": {
+          "private_server_receipt_sha256": "9734f92ae25a0f71696368eeeea9d95cfe52a1f37190674fae757504dd2d8ed2",
+          "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+          "execution_profile_id": "6a80f3fd9a6d054402968fbbce115a7831bab62b8fe54c3895af0db1bb8f77bc",
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          },
+          "inventory": null,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "private_client_receipt_sha256": "fa6817ce50bfa1494357c17150382df19300ef76e93d318e6506f0fcaeee642b",
+          "workflow_exit": 0,
+          "verified": true,
+          "status": "complete",
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "replay_exit": 0,
+          "replay_heads_unchanged": true
+        },
+        "enabled": {
+          "private_server_receipt_sha256": "44d16a2a22c1600a42c4cd9b91da02fc02bb8ca93dde8ff8b5863c6a3926092c",
+          "model_contract_id": "2311dbffed1f0556aef8390d12608ff48f0204c74fd64d1dbcc26f02f61119f1",
+          "execution_profile_id": "6a80f3fd9a6d054402968fbbce115a7831bab62b8fe54c3895af0db1bb8f77bc",
+          "limits": {
+            "ram_cache_bytes": 107374182400,
+            "disk_cache_bytes": 107374182400,
+            "minimum_available_ram_bytes": 17179869184
+          },
+          "inventory": {
+            "entries": 10,
+            "tiers": [
+              "disk",
+              "ram"
+            ],
+            "pages": 10,
+            "paged_recovery_exact": true,
+            "duplicate_pages_safe": true
+          },
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0,
+          "private_client_receipt_sha256": "df99809d216fd849158f11de4c2f46e437f4d02be58b8d1c5c5e174697b33c95",
+          "workflow_exit": 0,
+          "verified": true,
+          "status": "complete",
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "replay_exit": 0,
+          "replay_heads_unchanged": true
+        }
+      }
+    },
+    "qwen": {
+      "model": "Qwen Flash Q4",
+      "server_device": "RTX PRO 6000 Blackwell 96 GB",
+      "model_contract_id": "387bbc46f184b148ff455b50a9037132da32d6fed83abba7eb63e57b33f12b53",
+      "execution_profile_id": "7c6d0529f824ce36a02f45b957f7f6a10d870d31a4caafb072ce763bc3bdf87a",
+      "private_report_sha256": "cd157ca0c79daf26b06a4c47fb98650217475ed0fc8da0aaa64ccf95c4d3eb00",
+      "modes": {
+        "disabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "journal_records": 7,
+          "pending": 0,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0
+        },
+        "enabled": {
+          "verified": true,
+          "workflow_exit": 0,
+          "configuration_unchanged": true,
+          "source_unchanged": true,
+          "journal_records": 7,
+          "pending": 0,
+          "completed_replay_exit": 0,
+          "replay_heads_unchanged": true,
+          "server_exit": 0,
+          "remaining_ephemeral_sessions": 0
+        }
+      },
+      "enabled_inventory": {
+        "entries": 15,
+        "tiers": [
+          "disk",
+          "native",
+          "ram"
+        ],
+        "empty_delta": true
+      }
+    }
+  },
+  "earlier_failures": [
+    "Initial 16K Qwen context was too small for the BW system prefix; rerun used the pinned 98K capacity.",
+    "An initial fixture omitted read permission for its test file; corrected fixture grants both files.",
+    "A100 GPU 7 lost available memory to another job; the owned failed process exited and subsequent runs used GPU 0.",
+    "A100 /usr ownership is incompatible with BW tool admission; the unmodified BW client ran on a LAN host.",
+    "The r730 full CPU campaign lacked g++; this is a blocked prerequisite, not a passed native or CPU suite."
+  ],
+  "limits": [
+    "One bounded code-repair/test/finish task per mode and model; no broad task-quality claim.",
+    "No throughput or performance improvement claim from these runs.",
+    "No peer transfer, execution-role placement, fastokens or cumulative G1-G5 qualification."
+  ]
+}

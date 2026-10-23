@@ -8241,3 +8241,20 @@ A separate 1024-token prompt plus 128 greedy decode tokens measures one real ran
 ## Initial BW mixed self-OPD pilots, 2026-10-22
 
 Two real unadapted Wen/BW CLI code-repair/test/finish workflows pass host verification. A separate compact action curriculum passes 15/19 before training. Two four-update rank-8 final-MLP gate/up/down pilots accumulate nine microbatch-one examples per update on one A100; exported candidates are evaluated by native mixed COW on a separate Blackwell host. Both retain 15/19 and repair none of the four writing failures. Neither candidate is promoted. The first pilot exposes misleading teacher execution wording; the revised teacher demonstrates both 37-word write actions and the trainer now gates on those repairs. Student prompts remain identical. Six exported adapter tensors read back exactly equal to PEFT. Original model remains immutable, serving is shut down, and training/inference GPU allocations are released. See docs/WEN-TRAINING.md and validation/wen-precision-20261022/bw-self-opd-pilot.json. This is a private operational prototype, not an integrated production learning service or a general LoRA gain claim.
+
+## 2026-10-23: stack capabilities and recoverable inventory
+
+At `e46921f`, the classified Linux CPU campaign passes 2,039 tests with zero
+failures/errors/skips/expected failures; G0 passes 51. BW at `8b821b0` passes 63
+focused connection/HTTP/CLI/receipt/retry tests. Historical failed campaigns are
+retained; native prerequisites are selected before import, not counted as passes.
+
+Wen 1.1/A100 and Qwen Flash Q4/Blackwell each pass a complete BW repair/test/finish
+workflow with the optional features disabled and enabled. The Wen client runs on
+a separate LAN host. Completed-workflow replay leaves branch heads unchanged.
+Native servers exit cleanly with zero ephemeral session directories. Wen's
+ten-location inventory recovers exactly through ten HTTP pages, including exact
+duplicate delivery. CPU adversarial checks cover notification overrun, frozen
+pages, atomic recovery and avoiding unchanged disk rescans. This qualifies the
+bounded A/B increment only; peer transfer, prefill/decode roles, fastokens and
+cumulative G1-G5 certification remain separate. See `STACK-UNIFICATION-20261023.json`.
