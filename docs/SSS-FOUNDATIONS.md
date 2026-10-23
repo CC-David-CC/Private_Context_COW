@@ -80,3 +80,39 @@ two A100s at 64 and 375 tokens. A separate real Wen 1.1 gradient-only check pass
 at 178 tokens across four A100s, without updating weights or writing a candidate.
 The longest full-pack lessons and an actual guarded learning campaign still need
 separate admission and evidence. See the [native profile and limits](../experimental/native_training/README.md#bounded-dense-sequence-profile).
+
+
+## Real candidate sessions for S³
+
+`tools.pcc_foundation_session.DenseCandidateSession` supplies the host-owned
+session expected by S³'s `FoundationGuardEvaluator`. Prepare a fresh baseline
+server directory with the existing `cow_server_setup.py` after freezing the source.
+Use a loopback OpenAI-compatible endpoint and one explicitly selected GPU.
+
+```python
+from tools.pcc_foundation_session import DenseCandidateSession
+from sss.adapters.foundation_training import FoundationGuardEvaluator
+
+session = DenseCandidateSession(server_directory, python=server_python,
+    gpu_uuid=selected_uuid, deadline_seconds=900,
+    maximum_activity=50, minimum_free_mib=32768, reserve_mib=8192)
+evaluator = FoundationGuardEvaluator(tree, pack, session,
+    base_sha256=base_sha256, runtime_id=session.runtime_id)
+```
+
+This adapter rebuilds each exact candidate profile with the existing PCC profile
+builder and runs the existing COW server. Source, native build, geometry,
+execution settings, thinking and output limits remain bound to the baseline.
+Full candidates select their own weights; LoRA candidates select the immutable
+base plus the exact adapter. Neither is automatically promoted.
+
+Five spaced GPU samples must meet the declared utilization and memory limits.
+PCC owns the actual GPU lease. The inherited training-worker lease stays open in
+the server subprocess; a process deadline remains effective if the operator
+loses its connection. Every session preserves raw frontend traces, exact prompt
+token receipts, owned process/allocation identities and settlement. Errors raise
+without retrying an evaluation request or inventing a model grade.
+
+Six CPU tests exercise resource refusal, runtime/candidate binding, loopback and
+non-recursive configuration, and actual owned-process stop/reap. Live candidate
+quality remains a separate measurement; this API alone does not establish it.
