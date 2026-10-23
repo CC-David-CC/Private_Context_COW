@@ -34,12 +34,18 @@ finite, nonzero gradients. These counts describe the tiny fixture, not Wen's
 Four native candidate runs occur, including full continuation; reconciliation
 does not create a fifth run. No GPU is used for this proof.
 
-The reusable BW `tests/lesson_native_cpu.py` harness also passes with the final
+The reusable `lesson_native_cpu` harness also passes with the final
 controller and client sources. It generates the fixture itself and accepts
 explicit PCC checkout, CPU executable and fresh output paths. Its first launch
 on an incomplete test snapshot failed before training because that snapshot
 lacked the fixture generator; supplying the matching source resolved it. The
 training-only HTTP fixture does not qualify production inference startup.
+
+The harness and shared fixtures have since moved to the independent
+[Skills³ project](https://github.com/CC-David-CC/sss). Run
+`python -m sss_integration.lesson_native_cpu` from its checkout with explicit BW,
+PCC, CPU-executable and output paths. The original receipts above retain their
+original source/runtime identities; the S³ extraction has separate rerun evidence.
 
 Additional tests cover changed operation bytes, changed token materializations,
 wrong model, arbitrary client paths, partial batches, insufficient step budgets,

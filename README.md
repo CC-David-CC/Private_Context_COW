@@ -199,6 +199,15 @@ yet establish a model that reliably improves with each lesson.
 
 ## What has been checked?
 
+The skill tree, evaluation suites and mixed-practice policy now belong to the
+independent **[Skills³ (S³)](https://github.com/CC-David-CC/sss)** package. PCC
+retains native computation/training, resource leases, immutable candidates and
+context identity. Its optional owner-configured S³ adapter can evaluate all
+active skills between bounded training rounds and prioritize a regression's
+separate practice examples. It does not turn test answers into training labels.
+See [S³ integration](https://github.com/CC-David-CC/sss/blob/main/docs/INTEGRATION.md)
+for the current five-skill arithmetic scope and broader unmeasured admin/code map.
+
 Real Wen 1.1 and Qwen Flash Q4 runs completed small BW read/edit/test/finish tasks
 with the optional features off and on. Separate checks covered pause/resume,
 offline reopening of completed BW work, A100 checkpoint handoff, separate GPU

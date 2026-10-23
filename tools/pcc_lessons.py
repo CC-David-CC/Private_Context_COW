@@ -24,8 +24,10 @@ def digest(value):return hashlib.sha256(canonical(value)).hexdigest()
 
 def validate_lesson(value):
     fields={'schema','title','model_contract_id','prompt','completion','rationale','scope','evidence'}
-    if type(value) is not dict or set(value)!=fields or type(value['schema']) is not int or value['schema']!=1:
+    if type(value) is not dict or set(value) not in (fields,fields|{'skill_id'}) or type(value['schema']) is not int or value['schema']!=1:
         raise ValueError('Lesson schema 1 requires explicit teaching text and evidence')
+    if 'skill_id' in value and (type(value['skill_id']) is not str or not re.fullmatch(r'[a-z][a-z0-9_.-]{0,95}',value['skill_id'])):
+        raise ValueError('Invalid lesson skill_id')
     if not HEX.fullmatch(str(value['model_contract_id'])) or value['scope']!='owned-training':
         raise ValueError('Lesson requires an owned training split and exact model identity')
     for key,limit in [('title',256),('prompt',65536),('completion',65536),('rationale',8192)]:
@@ -34,7 +36,7 @@ def validate_lesson(value):
     evidence=value['evidence']
     if type(evidence) is not dict or set(evidence)!={'method','failed_result_sha256','corrected_result_sha256','verification_sha256'}:
         raise ValueError('Keep original failure, correction and independent check identities')
-    if evidence['method'] not in ('bw-verified-correction-v1','host-verified-correction-v1'):
+    if evidence['method'] not in ('bw-verified-correction-v1','host-verified-correction-v1','host-verified-replay-v1'):
         raise ValueError('Explicit host verification method required')
     if any(not HEX.fullmatch(str(evidence[key])) for key in evidence if key!='method'):
         raise ValueError('Verification evidence requires SHA-256 identities')
@@ -72,6 +74,10 @@ class LessonService:
             record=self._read(path)
             if record.get('state') in ('queued','running'):
                 record['state']='interrupted';self._write(path,record)
+        bind=getattr(self.runner,'bind',None)
+        # Lessons are immutable atomic files. Admission already owns the record
+        # lock; calling the public locking reader here would nest flock handles.
+        if bind is not None:bind(self._lesson,self._example,self.tokenize,self.model)
         self.executor=ThreadPoolExecutor(max_workers=1,thread_name_prefix='pcc-training')
 
     def close(self):
@@ -145,7 +151,12 @@ class LessonService:
                 if operation['path']=='/cow/training/jobs':
                     for identity in operation['request']['lesson_ids']:selected.setdefault(identity,[]).append(operation['acceptance']['job_id'])
             return dict(schema=1,model_contract_id=self.model,lessons=[dict(lesson_id=v['lesson_id'],title=v['lesson']['title'],tokens=len(v['example']['tokens']),
-                selected_in=sorted(selected.get(v['lesson_id'],[])),pending=v['lesson_id'] not in selected) for v in rows])
+                skill_id=v['lesson'].get('skill_id'),selected_in=sorted(selected.get(v['lesson_id'],[])),pending=v['lesson_id'] not in selected) for v in rows])
+
+    def skills(self):
+        describe=getattr(self.runner,'describe_skills',None)
+        if describe is None:raise ValueError('This server has no configured skill guard')
+        return describe()
 
     def job(self,identity):
         if not OP.fullmatch(identity):raise ValueError('Invalid job ID')
@@ -153,12 +164,19 @@ class LessonService:
         if record['path']!='/cow/training/jobs':raise ValueError('Operation is not a training job')
         result=dict(schema=1,job_id=identity,state=record['state'],request_sha256=record['acceptance']['request_sha256'],
                     lesson_ids=record['request']['lesson_ids'],mode=record['request']['mode'],promoted=False)
+        if 'skill_guard' in record['request'] and record['state'] in ('queued','running'):
+            path=self.root/'runs'/identity/'progress.json'
+            if path.exists():
+                progress=self._read(path)
+                if progress.get('policy_id')!=record['request']['skill_guard']['policy_id']:raise ValueError('Skill progress belongs to another policy')
+                result['skill_guard_progress']=progress
         if 'candidate' in record:
             c=record['candidate'];result['candidate']=dict(sha256=c['candidate_sha256'],mode=c['mode'])
             result['steps']=[{**{key:step[key] for key in ('step','before','after','examples','example_cursor')},
                 'gradient_tensors':len(step.get('gradients',[])),
                 'nonzero_gradients':sum(g['l2']>0 for g in step.get('gradients',[]))} for step in c['receipt']['steps']]
             result['example_cursor']=c['receipt']['example_cursor']
+            if 'skill_guard' in c:result['skill_guard']={k:v for k,v in c['skill_guard'].items() if k!='protected_pass_ids'}
         if record['state']=='failed':result['error']='Training failed; private operator logs retained. No automatic retry.'
         return result
 
@@ -187,9 +205,9 @@ class LessonService:
                 acceptance['lesson_id']=identity;state='recorded'
             else:
                 required={'operation_id','lesson_ids','mode','batch_size','steps','learning_rate','rank','parent_job_id'}
-                if set(request)!=required:raise ValueError('Training accepts only lesson IDs and bounded update settings')
+                if set(request) not in (required,required|{'skill_guard'}):raise ValueError('Training accepts only lesson IDs and bounded update settings')
                 ids=request['lesson_ids']
-                if type(ids) is not list or not 1<=len(ids)<=4096 or len(set(ids))!=len(ids):raise ValueError('Select 1–4096 distinct lesson IDs')
+                if type(ids) is not list or not 1<=len(ids)<=4096 or len(set(ids))!=len(ids):raise ValueError('Select 1â€“4096 distinct lesson IDs')
                 for identity in ids:self._lesson(identity)
                 if request['mode'] not in ('lora','full'):raise ValueError('Explicit LoRA or full mode required')
                 for key,maximum in [('batch_size',128),('steps',self.max_steps),('rank',256)]:
@@ -198,6 +216,10 @@ class LessonService:
                     raise ValueError('Step budget must cover every selected lesson at least once')
                 lr=request['learning_rate']
                 if type(lr) not in (int,float) or not math.isfinite(lr) or not 0<lr<=.01:raise ValueError('Learning rate must be positive and at most 0.01')
+                if 'skill_guard' in request:
+                    validate=getattr(self.runner,'validate_request',None)
+                    if validate is None:raise ValueError('Skill guard is not configured on this server')
+                    validate(request)
                 parent=request['parent_job_id']
                 if parent is not None:
                     if type(parent) is not str or not OP.fullmatch(parent):raise ValueError('Invalid parent job')
@@ -264,9 +286,17 @@ class NativeRunner:
 
 def configured_service(config_path,profile,tokenizer):
     config=json.loads(Path(config_path).read_bytes())
-    if set(config)!={'schema','directory','max_tokens','max_steps','runner'} or config['schema']!=1:
+    fields={'schema','directory','max_tokens','max_steps','runner'}
+    if set(config) not in (fields,fields|{'skill_guard_config'}) or config['schema']!=1:
         raise ValueError('Invalid optional training configuration')
     if Path(config['runner']['model']).resolve()!=Path(profile['model_path']).resolve():
         raise ValueError('Training tokenizer must belong to the configured serving model')
-    return LessonService(config['directory'],profile['model_contract_id'],tokenizer.encode,NativeRunner(config['runner']),
+    runner=NativeRunner(config['runner'])
+    if 'skill_guard_config' in config:
+        try:from sss.adapters.pcc import configured_guard
+        except ModuleNotFoundError as error:
+            if error.name=='sss':raise ValueError('Install the optional Skills³ package from CC-David-CC/sss before enabling skill_guard_config') from None
+            raise
+        runner=configured_guard(config['skill_guard_config'],runner,tokenizer)
+    return LessonService(config['directory'],profile['model_contract_id'],tokenizer.encode,runner,
                          max_tokens=config['max_tokens'],max_steps=config['max_steps'])

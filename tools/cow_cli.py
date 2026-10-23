@@ -935,6 +935,7 @@ def _training_post(client,journal,path,body):
 
 def _training_run(args,client,journal):
     action=args.lesson_action
+    if action=='skills':return _print_json(client.request('GET','/cow/training/skills'))
     if action in ('list','show','status'):
         resource='jobs' if action=='status' else 'lessons'
         identity=getattr(args,'identity',None)
@@ -949,7 +950,7 @@ def _training_run(args,client,journal):
         value=_training_post(client,journal,'/cow/training/lessons',body)
         if not args.train_now:return _print_json(value)
         ids=[value['lesson_id']];op+='-train'
-        mode=args.mode;batch=1;steps=1;rate=args.learning_rate;rank=args.rank
+        mode=args.mode;batch=args.batch_size if args.skill_guard else 1;steps=(args.steps if args.steps is not None else 16) if args.skill_guard else 1;rate=args.learning_rate;rank=args.rank
     else:
         if (args.all or args.pending) and args.lesson_ids:raise ClientError('Choose explicit lesson IDs or a queue selection')
         saved=journal.get(op)
@@ -958,8 +959,12 @@ def _training_run(args,client,journal):
              [r['lesson_id'] for r in client.request('GET','/cow/training/lessons')['lessons'] if not args.pending or r['pending']]
              if args.all or args.pending else args.lesson_ids)
         if not ids:raise ClientError('Select at least one lesson')
-        mode=args.mode;batch=args.batch_size;steps=args.steps if args.steps is not None else frozen['steps'] if frozen else (len(ids)+batch-1)//batch;rate=args.learning_rate;rank=args.rank
+        mode=args.mode;batch=args.batch_size;steps=args.steps if args.steps is not None else frozen['steps'] if frozen else 16 if args.skill_guard else (len(ids)+batch-1)//batch;rate=args.learning_rate;rank=args.rank
     body=dict(operation_id=op,lesson_ids=ids,mode=mode,batch_size=batch,steps=steps,learning_rate=rate,rank=rank,parent_job_id=args.parent_job_id)
+    if args.skill_guard:
+        previous=journal.get(op)
+        prior=json.loads(previous['body_json']) if previous is not None and previous['path']=='/cow/training/jobs' else None
+        body['skill_guard']=prior['skill_guard'] if prior is not None and 'skill_guard' in prior else dict(policy_id=client.request('GET','/cow/training/skills')['policy_id'])
     _print_json(_training_post(client,journal,'/cow/training/jobs',body))
 
 def run(args):
@@ -1199,13 +1204,16 @@ def parser():
     lesson=subs.add_parser('lesson',help='Queue checked lessons and request native single/batch updates.')
     actions=lesson.add_subparsers(dest='lesson_action',required=True)
     actions.add_parser('list')
+    actions.add_parser('skills')
     for name in ('show','status'):
         child=actions.add_parser(name);child.add_argument('identity')
     child=actions.add_parser('submit');child.add_argument('file',type=Path);child.add_argument('--operation-id',required=True)
     child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id')
+    child.add_argument('--skill-guard',action='store_true');child.add_argument('--batch-size',type=positive_int,default=8);child.add_argument('--steps',type=positive_int)
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--learning-rate',type=float,default=.0001);child.add_argument('--rank',type=positive_int,default=4)
     child=actions.add_parser('train');child.add_argument('lesson_ids',nargs='*');selection=child.add_mutually_exclusive_group();selection.add_argument('--all',action='store_true');selection.add_argument('--pending',action='store_true')
     child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id')
+    child.add_argument('--skill-guard',action='store_true')
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--batch-size',type=positive_int,default=4)
     child.add_argument('--steps',type=positive_int,help='Default: cover the selected lessons once.');child.add_argument('--rank',type=positive_int,default=4)
     child.add_argument('--learning-rate',type=float,default=.0001)

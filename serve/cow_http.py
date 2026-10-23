@@ -338,6 +338,7 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 try:
                     if urlsplit(self.path).query:raise ValueError('Training reads take no query parameters')
                     if path=='/cow/training/lessons':return self.json(200,training_service.lessons())
+                    if path=='/cow/training/skills':return self.json(200,training_service.skills())
                     for prefix,read in [('/cow/training/lessons/',training_service.lesson),('/cow/training/jobs/',training_service.job),('/cow/training/operations/',training_service.operation)]:
                         if path.startswith(prefix):return self.json(200,read(path[len(prefix):]))
                     return self.json(404,dict(error='Unknown training resource'))

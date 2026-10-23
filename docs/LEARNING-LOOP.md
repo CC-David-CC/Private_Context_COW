@@ -1,5 +1,19 @@
 # Checked lessons and native training
 
+Skill definitions, model tests and regression-aware practice are maintained in
+the separate [Skills³ (S³)](https://github.com/CC-David-CC/sss) package. PCC keeps
+the native runner, private lesson/job records and model/resource ownership.
+Ordinary serving and unguarded updates do not import S³. Optional legacy study
+entry points delegate to S³; install that package before using them.
+
+An owner can add `skill_guard_config` to this guide's training configuration;
+its tree/evaluator and bounded mixed-practice settings are described in
+[the S³ integration guide](https://github.com/CC-David-CC/sss/blob/main/docs/INTEGRATION.md).
+BW's `--skill` tags a lesson; `--skill-guard` explicitly requests that policy.
+Its step budget bounds all native updates across rounds. Original operation
+and policy identities remain frozen across retries. Guarded parent hats must
+qualify under the same policy; changed trees require a deliberate new baseline.
+
 BW can now write a lesson from a failed check and a verified correction. PCC can
 train one lesson immediately or collect lessons for a later batch. A lesson is a
 short teaching input and the corrected answer, with references to the original
