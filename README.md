@@ -191,6 +191,12 @@ The owner must enable training and configure resources. Read the
 [lesson workflow and setup](docs/LEARNING-LOOP.md) and
 [native training status and limits](experimental/native_training/README.md).
 
+The [first 1,000-variation Wen learning study](validation/wen-learning-quality-20261023/README.md)
+learned the selection pattern (2/48 to 48/48), but lost five of sixteen unrelated
+checks and reached only 3/16 on differently worded blind cases. It failed the
+declared quality gate and remains unpromoted. Working training controls do not
+yet establish a model that reliably improves with each lesson.
+
 ## What has been checked?
 
 Real Wen 1.1 and Qwen Flash Q4 runs completed small BW read/edit/test/finish tasks

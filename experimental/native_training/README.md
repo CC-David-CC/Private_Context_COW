@@ -207,3 +207,7 @@ Independent repair, held-out and preservation evaluations remain necessary
 before using trained versions for real work. Outstanding qualification also
 includes longer sequences/datasets, true mid-step crash recovery, hardware routes
 and sustained resource pressure. Never promote solely because training loss fell.
+
+The [completed 1,000-variation Wen study](../../validation/wen-learning-quality-20261023/README.md)
+measures substantial selection-pattern learning, preservation regressions and
+weak blind transfer. It qualifies no candidate and changes no live model.

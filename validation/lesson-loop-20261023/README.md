@@ -77,5 +77,6 @@ admitted as lessons. Lower loss alone does not pass the learning gate.
 
 The observed baseline is18/64 on training-pool probes,2/48 on held-out cases and
 16/16 on preservation controls. The study compares1,32,256 and1,000-example
-candidates. Its outcome must be read from the completed dated quality report;
-this CPU proof does not claim a Wen learning gain.
+candidates. The [completed quality report](../wen-learning-quality-20261023/README.md)
+records strong selection-pattern learning, preservation regressions and weak
+blind transfer. No candidate qualified. This CPU proof remains a wiring result.

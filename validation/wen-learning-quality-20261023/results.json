@@ -1,0 +1,244 @@
+{
+  "status": "NO_QUALIFIED_GAIN",
+  "promoted": false,
+  "base_unchanged": true,
+  "manifest": {
+    "policy": {
+      "repair": "initial training-pool failure must pass",
+      "held_out_minimum_accuracy": 0.9,
+      "held_out_minimum_repaired_error_fraction": 0.25,
+      "preservation": "all baseline-passing controls must remain passing",
+      "preservation_minimum_baseline_controls": 8,
+      "candidate_selection": "eligible checkpoints: most held-out passes, then fewer examples; otherwise final candidate for diagnosis only",
+      "blind_final": "untouched until selection; at least90% and no fewer passes than original model",
+      "generation": "greedy return-expression completion, newline stop,24-token cap; fresh full-prefill oracle",
+      "no_automatic_promotion": true
+    },
+    "training_sha256": "8e87bcd9f37ee9922a2ea296e45e32381023f14aae7597bf16e3291539a23ea1",
+    "evaluation_sha256": "fcde635c234caf82aaaa4eba69f887abeb65246a5af43a72d107d4ae2248e47a",
+    "blind_sha256": "13db59dd30f9fac6bd65093eba4a3fcabe429a39e3f4ee4b899d4695b7558b07",
+    "training_count": 1000,
+    "evaluation_count": 64,
+    "checkpoints": [
+      1,
+      32,
+      256,
+      1000
+    ],
+    "native_executable_sha256": "e817f5066a893f3a10e557201a2df9da3d9cc454850052891254fc6ea9fba475",
+    "oracle_sha256": "b0b7337221b5b971333957ac7b7d9fd10fb26b785aa539157acb3aa1e72d298a",
+    "base_sha256": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34",
+    "rank": 8,
+    "batch_size": 8,
+    "learning_rate": 0.001
+  },
+  "original_failure_id": "b67b389d420b517a8ce863747f97795525a4a92654e8148e8111bbb16773c1b2",
+  "checkpoints": [
+    {
+      "examples": 1,
+      "job_id": "quality-through-1",
+      "candidate_sha256": "478c126c7f21230d181a8b75c18f1b3b8c64f365391d7b160c645f2facc506bd",
+      "held_out_passed": 2,
+      "held_out_total": 48,
+      "baseline_held_out_passed": 2,
+      "preserved": 16,
+      "preservation_baseline_passed": 16,
+      "original_failure_repaired": false,
+      "gates": {
+        "repairs": false,
+        "held_out": false,
+        "preservation": true
+      },
+      "learning_pass": false,
+      "promoted": false,
+      "training_pool_probes": {
+        "passed": 18,
+        "total": 64
+      }
+    },
+    {
+      "examples": 32,
+      "job_id": "quality-through-32",
+      "candidate_sha256": "2954958de193b79e96adf8f56058f9ae3bd2d243af81f19977ea4deaa573cbe0",
+      "held_out_passed": 2,
+      "held_out_total": 48,
+      "baseline_held_out_passed": 2,
+      "preserved": 16,
+      "preservation_baseline_passed": 16,
+      "original_failure_repaired": false,
+      "gates": {
+        "repairs": false,
+        "held_out": false,
+        "preservation": true
+      },
+      "learning_pass": false,
+      "promoted": false,
+      "training_pool_probes": {
+        "passed": 19,
+        "total": 64
+      }
+    },
+    {
+      "examples": 256,
+      "job_id": "quality-through-256",
+      "candidate_sha256": "1ae1ddc7cad1d9546f155f9fe9b15ad9a36c618ad0e128fb8e87c7afd7d5cffc",
+      "held_out_passed": 6,
+      "held_out_total": 48,
+      "baseline_held_out_passed": 2,
+      "preserved": 16,
+      "preservation_baseline_passed": 16,
+      "original_failure_repaired": false,
+      "gates": {
+        "repairs": false,
+        "held_out": false,
+        "preservation": true
+      },
+      "learning_pass": false,
+      "promoted": false,
+      "training_pool_probes": {
+        "passed": 26,
+        "total": 64
+      }
+    },
+    {
+      "examples": 1000,
+      "job_id": "quality-through-1000",
+      "candidate_sha256": "531fd3699e9f4473b3c433239e6fa5d8860180194257e6ede89003a2aa052513",
+      "held_out_passed": 48,
+      "held_out_total": 48,
+      "baseline_held_out_passed": 2,
+      "preserved": 11,
+      "preservation_baseline_passed": 16,
+      "original_failure_repaired": true,
+      "gates": {
+        "repairs": true,
+        "held_out": true,
+        "preservation": false
+      },
+      "learning_pass": false,
+      "promoted": false,
+      "training_pool_probes": {
+        "passed": 63,
+        "total": 64
+      }
+    }
+  ],
+  "selected_candidate_sha256": "531fd3699e9f4473b3c433239e6fa5d8860180194257e6ede89003a2aa052513",
+  "selected_examples": 1000,
+  "blind": {
+    "baseline_passed": 2,
+    "candidate_passed": 3,
+    "total": 16,
+    "passed": false
+  },
+  "qualification": "generated return-expression benchmark only; not general BW task competence or sustained load",
+  "baseline": {
+    "held_out": {
+      "passed": 2,
+      "total": 48
+    },
+    "preservation": {
+      "passed": 16,
+      "total": 16
+    },
+    "train": {
+      "passed": 18,
+      "total": 64
+    }
+  },
+  "preservation_regressions_by_kind": {
+    "floor": 4,
+    "abs": 1
+  },
+  "training_execution": {
+    "unique_selected_examples": 1000,
+    "total_updates": 126,
+    "jobs": [
+      {
+        "through_examples": 1,
+        "selected_examples": 1,
+        "steps": 1,
+        "processed_examples": 1,
+        "candidate_sha256": "478c126c7f21230d181a8b75c18f1b3b8c64f365391d7b160c645f2facc506bd",
+        "mode": "lora",
+        "rank": 8,
+        "first_before": 0.5457896590232849,
+        "first_after": 0.5435752272605896,
+        "last_before": 0.5457896590232849,
+        "last_after": 0.5435752272605896,
+        "gradient_tensors": 498,
+        "nonzero_gradients": 249
+      },
+      {
+        "through_examples": 32,
+        "selected_examples": 31,
+        "steps": 4,
+        "processed_examples": 31,
+        "candidate_sha256": "2954958de193b79e96adf8f56058f9ae3bd2d243af81f19977ea4deaa573cbe0",
+        "mode": "lora",
+        "rank": 8,
+        "first_before": 0.5665119886398315,
+        "first_after": 0.5647263526916504,
+        "last_before": 0.5551897883415222,
+        "last_after": 0.553349494934082,
+        "gradient_tensors": 498,
+        "nonzero_gradients": 498
+      },
+      {
+        "through_examples": 256,
+        "selected_examples": 224,
+        "steps": 28,
+        "processed_examples": 224,
+        "candidate_sha256": "1ae1ddc7cad1d9546f155f9fe9b15ad9a36c618ad0e128fb8e87c7afd7d5cffc",
+        "mode": "lora",
+        "rank": 8,
+        "first_before": 0.5689582824707031,
+        "first_after": 0.5670340657234192,
+        "last_before": 0.5173097252845764,
+        "last_after": 0.5151418447494507,
+        "gradient_tensors": 498,
+        "nonzero_gradients": 498
+      },
+      {
+        "through_examples": 1000,
+        "selected_examples": 744,
+        "steps": 93,
+        "processed_examples": 744,
+        "candidate_sha256": "531fd3699e9f4473b3c433239e6fa5d8860180194257e6ede89003a2aa052513",
+        "mode": "lora",
+        "rank": 8,
+        "first_before": 0.45547711849212646,
+        "first_after": 0.4535417854785919,
+        "last_before": 0.17966513335704803,
+        "last_after": 0.1770123690366745,
+        "gradient_tensors": 498,
+        "nonzero_gradients": 498
+      }
+    ],
+    "ordered_training_sha256": "7e7cb92269f018db0b52fd3aac9dcae334a7b2eafd3b2fb7dbac96f9bc9a71fc"
+  },
+  "source_sha256_at_training_launch": {
+    "pcc_learning_quality.py": "bab69fa6e6ef10bb37060936390c13c38761b69139395d6abcc00c13faf5ee21",
+    "pcc_learning_cases.py": "cc44e82319c34f4211be74c01ec0d60eb0a2379bfeee11938ab1752f7f3227d0",
+    "pcc_lessons.py": "218a639d2bf89612ac66a6913a5e582904aa73d951073b14c004d43797928e35"
+  },
+  "final_evaluation_harness_sha256": "6285a9bee8fe872bf5d0d227ac4a477c3011fa673b37cdf8d1064bef45e27fb4",
+  "evaluation_recovery": {
+    "reason": "Immediate post-evaluation idle/headroom admission refused",
+    "method": "Bounded wait retaining original idle/free thresholds; final evaluation only",
+    "new_training_jobs": 0
+  },
+  "resource_settlement": {
+    "original_training_children_gone": true,
+    "training_run_directories": 4,
+    "account_gpu_leases_free": {
+      "3": true,
+      "7": true,
+      "5": true
+    }
+  },
+  "observed_training_memory_mib": [
+    17034,
+    18580
+  ]
+}

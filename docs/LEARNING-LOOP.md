@@ -18,7 +18,7 @@ After a Work task has failed a test, been corrected and passed its checks, a BW
 terminal user can write and train a compact lesson:
 
 ```text
-/lesson create --prompt "Python double(n):" --completion " 2*n" --title "Use multiplication" --operation-id double-lesson --train-now
+/lesson create --prompt "def double(n): return" --completion " 2*n" --title "Use multiplication" --operation-id double-lesson --train-now
 ```
 
 This uses the latest Work task's existing ledger. Failure and correction can be
@@ -167,3 +167,14 @@ outside training. Fresh native greedy completions are checked semantically;
 equivalent correct expressions are accepted. It records a policy and data hashes
 before baseline evaluation and compares declared checkpoints. This is a bounded
 code-completion study, not general agent or day-long inference qualification.
+
+The [completed 1,000-variation Wen study](../validation/wen-learning-quality-20261023/README.md)
+shows why these checks matter: selection accuracy rises from 2/48 to 48/48, but
+unrelated controls fall from 16/16 to 11/16 and differently worded blind cases
+improve only from 2/16 to 3/16. The candidate is unqualified and unpromoted.
+The plumbing works; an always-improving model has not been established.
+
+If final evaluation is interrupted after every checkpoint completed, use the
+same owner arguments and work directory with `--resume-final-evaluation`. It
+validates saved evidence and evaluates only remaining frozen blind cases. It
+cannot submit another training update or overwrite a completed study result.
