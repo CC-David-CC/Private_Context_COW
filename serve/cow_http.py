@@ -36,13 +36,14 @@ def plain(value):
     return asdict(value) if is_dataclass(value) else value
 
 
-def model_text_components(model_path,template_kwargs=None,*,model_contract_id=None,mixed_inputs=False):
+def model_text_components(model_path,template_kwargs=None,*,model_contract_id=None,mixed_inputs=False,
+                          tokenizer_backend='python'):
     """Load only tokenizer/template metadata; computation stays on its worker."""
-    from tools.strata_tokenizer import Tokenizer
+    from tools.fastokens_tokenizer import load_tokenizer
     from tools.gguf_reader import GGUFFile
     from serve.frontend import ChatTemplate
     from serve.cow_prompt_encoder import CowPromptEncoder
-    tokenizer=Tokenizer.from_gguf(model_path)
+    tokenizer=load_tokenizer(model_path,backend=tokenizer_backend)
     source=GGUFFile(Path(model_path)).metadata.get('tokenizer.chat_template')
     if not isinstance(source,str) or not source: raise ValueError('Model has no chat template')
     with tempfile.TemporaryDirectory(prefix='cow-template-') as directory:
@@ -70,10 +71,10 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
 
 
 def model_text_adapter(token_adapter,model_path,template_kwargs=None,*,model_contract_id=None,
-                       grammar_registry=None,mixed_inputs=False,vision_preparer=None):
+                       grammar_registry=None,mixed_inputs=False,vision_preparer=None,tokenizer_backend='python'):
     from serve.cow_text_adapter import CowTextAdapter
     return CowTextAdapter(token_adapter,**model_text_components(model_path,template_kwargs,
-        model_contract_id=model_contract_id,mixed_inputs=mixed_inputs),grammar_registry=grammar_registry,
+        model_contract_id=model_contract_id,mixed_inputs=mixed_inputs,tokenizer_backend=tokenizer_backend),grammar_registry=grammar_registry,
         vision_preparer=vision_preparer)
 
 
@@ -381,6 +382,10 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                     report=adapter.capabilities()
                     report['features'].update(text=feature(text_adapter is not None),
                         inline_grammars=feature(grammar_catalog is not None))
+                    if text_adapter is not None:
+                        report['features']['tokenizer_fastokens']=feature(True,
+                            getattr(text_adapter.tokenizer,'backend_name','python')=='fastokens',
+                            qualification='experimental')
                     return self.json(200,dict(schema=1,service='context-cow',
                         model_contract_id=description['model_contract_id'],
                         execution_profile_id=description['execution_profile_id'],**report))
@@ -887,6 +892,8 @@ def main():
     parser.add_argument('--checkpoint-idle-seconds',type=float,
         help='Expire unused eligible RAM/disk checkpoint copies; testing: 1800, production example: 10800. Omit to disable.')
     parser.add_argument('--text',action='store_true',help='Enable literal-safe model-template text endpoints')
+    parser.add_argument('--tokenizer-backend',choices=('python','fastokens'),default='python',
+        help='Optional long-piece BPE accelerator for text/grammars; requires fastokens==0.3.4')
     parser.add_argument('--vision-config',type=Path,
         help='Pinned image producer JSON; requires --text, --api-key and a compatible mixed-input profile. Omit for restore-only.')
     parser.add_argument('--grammar-registry',type=Path,help='Opt in to a fixed server-owned GBNF/JSON Schema registry (requires --text and llguidance 1.9.1)')
@@ -894,6 +901,7 @@ def main():
     parser.add_argument('--pool-trace-output',type=Path,
         help='Optional private local trace path; written only after ready service closes cleanly')
     args=parser.parse_args()
+    if args.tokenizer_backend!='python' and not args.text:parser.error('--tokenizer-backend requires --text')
     if args.cache_transfer and not args.api_key:parser.error('--cache-transfer requires --api-key')
     peers=()
     if args.cache_peers is not None:
@@ -920,6 +928,12 @@ def main():
         raise ValueError('--vision-config requires --text and --api-key')
     grammar_registry=None
     grammar_catalog=None
+    # Resolve the optional dependency before loading native workers, and use
+    # one tokenizer for text, grammar admission and workspace projections.
+    components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
+        model_contract_id=profile['model_contract_id'],
+        mixed_inputs=profile['execution'].get('resume_contract')=='identical-mixed-native-operators-v1',
+        tokenizer_backend=args.tokenizer_backend) if args.text else None
     if args.grammar_store is not None and (not args.text or not args.api_key):
         raise ValueError('--grammar-store requires --text and --api-key')
     if args.grammar_registry is not None or args.grammar_store is not None:
@@ -927,8 +941,7 @@ def main():
             raise ValueError('--grammar-registry requires --text')
         try:
             from serve.cow_grammar import GrammarRegistry
-            from tools.strata_tokenizer import Tokenizer
-            startup_tokenizer=Tokenizer.from_gguf(profile['model_path'])
+            startup_tokenizer=components['tokenizer']
             if args.grammar_registry is not None:
                 grammar_registry=GrammarRegistry.load(args.grammar_registry,startup_tokenizer,
                     profile['execution'].get('eos_tokens',[]))
@@ -942,9 +955,6 @@ def main():
     if profile.get('backend')=='qwen35-llama.cpp':
         from context_time_travel.qwen35_backend import device_name_for_worker
         for gpu in config.gpus:device_name_for_worker(profile,gpu)
-    components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
-        model_contract_id=profile['model_contract_id'],
-        mixed_inputs=profile['execution'].get('resume_contract')=='identical-mixed-native-operators-v1') if args.text else None
     preparer=None
     if args.vision_config is not None:
         from context_time_travel.store import Store

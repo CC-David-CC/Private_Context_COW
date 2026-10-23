@@ -94,10 +94,17 @@ def execution_role_config(args):
     return dict(prefill_gpus=list(config.prefill_gpus),decode_gpus=list(config.decode_gpus))
 
 
+def tokenizer_config(args):
+    backend=getattr(args,'tokenizer_backend','python')
+    if backend not in ('python','fastokens'):raise ValueError('Unknown tokenizer backend')
+    return {} if backend=='python' else dict(tokenizer_backend=backend)
+
+
 def _make_profile(args,output):
     compatibility=compatibility_config(args)
     peers=cache_peer_config(args)
     roles=execution_role_config(args)
+    tokenizer=tokenizer_config(args)
     sys.path[:0]=[str(ROOT),str(ROOT/"experimental/branching_context/src")]
     from tools.gguf_reader import GGUFFile
     from context_time_travel.strata_backend import _digest
@@ -130,6 +137,7 @@ def _make_profile(args,output):
         configuration.update(compatibility)
         configuration.update(peers)
         configuration.update(roles)
+        configuration.update(tokenizer)
         write_json(output/"server.json",configuration)
         print("Qwen server configured in "+str(output));return profile
     if getattr(args,'math_profile','native')!='native':raise ValueError('This math profile is currently supported only by the dense native adapter')
@@ -236,6 +244,7 @@ def _make_profile(args,output):
     server_config.update(compatibility)
     server_config.update(peers)
     server_config.update(roles)
+    server_config.update(tokenizer)
     write_json(output/"server.json",server_config)
     print("Server setup saved in "+str(output))
     print("Show the key privately with: cat "+str(key))
@@ -268,6 +277,8 @@ def main():
     parser.add_argument('--cache-inventory',action='store_true',help='Expose recoverable cache-location hints')
     parser.add_argument('--cache-transfer',action='store_true',help='Allow authenticated checkpoint export to configured clients')
     parser.add_argument('--cache-peers',type=Path,help='Private explicit peer configuration for optional cache recovery')
+    parser.add_argument('--tokenizer-backend',choices=('python','fastokens'),default='python',
+        help='Optional long-piece BPE accelerator; fastokens==0.3.4 must be installed separately')
     parser.add_argument('--prefill-gpus',type=parse_gpus,help='Optional workers for root prefill/input preparation; requires --decode-gpus')
     parser.add_argument('--decode-gpus',type=parse_gpus,help='Optional workers for continuation requests; both sets must cover --gpu')
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',

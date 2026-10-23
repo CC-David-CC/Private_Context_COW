@@ -79,6 +79,9 @@ def configured_argv(directory,config,key):
               "--text","--grammar-store",str(directory/"grammars")]
     if config.get('scheduling','fifo')!='fifo':
         argv += ['--scheduling',config['scheduling']]
+    tokenizer=config.get('tokenizer_backend','python')
+    if tokenizer not in ('python','fastokens'):raise ValueError('Unknown tokenizer backend')
+    if tokenizer!='python':argv += ['--tokenizer-backend',tokenizer]
     if type(config.get('cache_inventory',False)) is not bool:
         raise ValueError('cache_inventory must be boolean')
     if config.get('cache_inventory',False):argv += ['--cache-inventory']
