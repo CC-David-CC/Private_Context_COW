@@ -85,6 +85,21 @@ class FoundationSessionTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     DenseCandidateSession(directory, python=sys.executable, gpu_uuid='GPU-selected')
 
+    def test_entry_imports_runtime_in_a_fresh_isolated_process(self):
+        root = Path(__file__).resolve().parents[1]
+        code = """import sys
+sys.path.insert(0, sys.argv[1])
+from tools import cow_server
+cow_server.main = lambda: print('EXISTING_COW_ENTRY_REACHED')
+sys.argv = ['session', '/unused/private-server', '/unused/private-trace']
+from tools.pcc_foundation_session import main
+main()
+"""
+        result = subprocess.run([sys.executable, '-I', '-c', code, str(root)],
+                                capture_output=True, text=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('EXISTING_COW_ENTRY_REACHED', result.stdout)
+
     def test_owned_process_is_stopped_and_reaped(self):
         process = subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(300)'], start_new_session=True)
         try:

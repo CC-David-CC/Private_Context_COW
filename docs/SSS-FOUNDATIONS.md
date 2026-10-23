@@ -113,6 +113,11 @@ loses its connection. Every session preserves raw frontend traces, exact prompt
 token receipts, owned process/allocation identities and settlement. Errors raise
 without retrying an evaluation request or inventing a model grade.
 
-Six CPU tests exercise resource refusal, runtime/candidate binding, loopback and
+Seven CPU tests exercise resource refusal, runtime/candidate binding, loopback and
 non-recursive configuration, and actual owned-process stop/reap. Live candidate
 quality remains a separate measurement; this API alone does not establish it.
+
+The initial live wrapper attempt stopped before inference because its isolated
+process lacked the runtime import path. The failed operation was preserved with
+zero evaluated cases and no training. A fresh-process regression test reproduces
+that failure and passes with the runtime path initialized before frontend imports.

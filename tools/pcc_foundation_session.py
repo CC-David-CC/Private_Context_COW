@@ -256,6 +256,8 @@ def main():
     parser.add_argument('directory', type=Path)
     parser.add_argument('trace', type=Path)
     args = parser.parse_args()
+    root = Path(__file__).resolve().parents[1]
+    sys.path[:0] = [str(root), str(root / "experimental/branching_context/src")]
     import serve.cow_compat as compatibility
     from tools import cow_server
     compatibility.Frontend = functools.partial(compatibility.Frontend, trace=args.trace)
