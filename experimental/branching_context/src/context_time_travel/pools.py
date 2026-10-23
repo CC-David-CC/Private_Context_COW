@@ -226,7 +226,7 @@ class SharedCheckpointPool:
     without that copy; retained original inputs and exact re-encoding belong to
     the artifact owner. Dirty checkpoints still wait for publication or failure.
     """
-    def __init__(self,byte_limit,*,transition_trace=None,checkpoint_idle_seconds=None,clock=None):
+    def __init__(self,byte_limit,*,transition_trace=None,checkpoint_idle_seconds=None,clock=None,notifications=None):
         if type(byte_limit) is not int or byte_limit <= 0: raise ValueError('Invalid RAM budget')
         if transition_trace is not None and type(transition_trace) is not PoolTransitionTrace:
             raise TypeError('transition_trace must be a PoolTransitionTrace')
@@ -235,6 +235,10 @@ class SharedCheckpointPool:
         if not callable(self._idle_clock): raise TypeError('clock must be callable')
         self.byte_limit = byte_limit
         self._transition_trace=transition_trace
+        from .cache_inventory import PoolNotifications
+        if notifications is not None and type(notifications) is not PoolNotifications:
+            raise TypeError('notifications must be PoolNotifications')
+        self._notifications=notifications
         self._entries = OrderedDict()
         self._buffers = {}
         self._reserved = 0
@@ -257,6 +261,7 @@ class SharedCheckpointPool:
 
     def _drop(self,key):
         entry = self._entries.pop(key)
+        self._notify_inventory(key)
         digest = _pool_identity(entry['checkpoint'])
         row = self._buffers[digest]
         row['refs'] -= 1
@@ -264,6 +269,10 @@ class SharedCheckpointPool:
             del self._buffers[digest]
             return row['bytes']
         return 0
+
+    def _notify_inventory(self,key):
+        if self._notifications is not None and type(key) is tuple and len(key)==3:
+            self._notifications.record('ram',key)
 
     def reserve(self,size,*,timeout=0):
         if type(size) is not int or not 0 <= size <= self.byte_limit:
@@ -335,6 +344,7 @@ class SharedCheckpointPool:
             entry=dict(checkpoint=checkpoint,durable=bool(durable or preserve_durable),pins=0,failed=False)
             self._mark_used(entry)
             self._entries[key] = entry
+            self._notify_inventory(key)
             reservation.release()
             self._peak = max(self._peak,self._bytes()+self._reserved)
             self._condition.notify_all()
@@ -393,8 +403,10 @@ class SharedCheckpointPool:
     def mark_durable(self,key):
         with self._condition:
             if key in self._entries:
+                was_failed=self._entries[key]['failed']
                 self._entries[key]['durable'] = True
                 self._entries[key]['failed'] = False
+                if was_failed:self._notify_inventory(key)
             self._condition.notify_all()
 
     def mark_failed(self,key):
@@ -407,6 +419,7 @@ class SharedCheckpointPool:
         with self._condition:
             if key in self._entries and not self._entries[key]['durable']:
                 self._entries[key]['failed']=True
+                self._notify_inventory(key)
             self._condition.notify_all()
 
     def collect_expired(self):
@@ -533,12 +546,16 @@ class DiskCheckpointPool:
     other pool instances and restarts observe the same expiry age. Manifest
     contents and canonical history are not changed.
     """
-    def __init__(self,store,byte_limit,*,checkpoint_idle_seconds=None,clock_ns=None):
+    def __init__(self,store,byte_limit,*,checkpoint_idle_seconds=None,clock_ns=None,notifications=None):
         if type(byte_limit) is not int or byte_limit <= 0: raise ValueError('Invalid disk budget')
         self.checkpoint_idle_seconds=_validate_checkpoint_idle_seconds(checkpoint_idle_seconds)
         self._clock_ns=time.time_ns if clock_ns is None else clock_ns
         if not callable(self._clock_ns): raise TypeError('clock_ns must be callable')
         self.store,self.byte_limit = store,byte_limit
+        from .cache_inventory import PoolNotifications
+        if notifications is not None and type(notifications) is not PoolNotifications:
+            raise TypeError('notifications must be PoolNotifications')
+        self._notifications=notifications
         self.directory = store.root/'checkpoints'
         self.directory.mkdir(mode=0o700,exist_ok=True)
         self._reservation_directory = store.root/'.checkpoint-pool-reservations'
@@ -592,7 +609,9 @@ class DiskCheckpointPool:
         """
         self.store.authorize(snapshot,'materialize')
         path=self.directory/(snapshot+'.json')
-        return self._touch_path(path,snapshot)
+        stamp=self._touch_path(path,snapshot)
+        if self._notifications is not None:self._notifications.record('disk',snapshot)
+        return stamp
 
     def touch_embedding(self,digest):
         """Touch a validated derived image copy under the caller's digest lease."""
@@ -820,6 +839,8 @@ class DiskCheckpointPool:
                 digest=None if path.suffix=='.sve' else payload_by_manifest[path.stem]
                 size=path.stat().st_size
                 path.unlink();self._evictions+=1;changed=True
+                if path.suffix=='.json' and self._notifications is not None:
+                    self._notifications.record('disk',path.stem)
                 if idle_expired: self._idle_evictions+=1
                 used-=size
                 self._recency.pop(self._recency_id(path),None)

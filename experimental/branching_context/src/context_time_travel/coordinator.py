@@ -27,7 +27,7 @@ from .strata_backend import StrataImage
 from .input_spans import InputHistory, history_for_snapshot, history_segment, history_digest, generated_text
 from .grammar_first import _valid_name as _valid_grammar_state_name
 from .prefix_scheduler import order_jobs, select_worker
-from .cache_inventory import InventoryJournal
+from .cache_inventory import InventoryJournal, PoolNotifications
 from .transfer_costs import TransferCosts
 
 
@@ -121,10 +121,11 @@ class ContextCoordinator:
         self.store = Store(directory)
         if transition_trace is not None and type(transition_trace) is not PoolTransitionTrace:
             raise TypeError('transition_trace must be a PoolTransitionTrace')
+        self._pool_notifications=PoolNotifications() if config.cache_inventory else None
         self.pool = SharedCheckpointPool(config.ram_bytes,transition_trace=transition_trace,
-            checkpoint_idle_seconds=config.checkpoint_idle_seconds)
+            checkpoint_idle_seconds=config.checkpoint_idle_seconds,notifications=self._pool_notifications)
         self.disk = DiskCheckpointPool(self.store,config.disk_bytes,
-            checkpoint_idle_seconds=config.checkpoint_idle_seconds)
+            checkpoint_idle_seconds=config.checkpoint_idle_seconds,notifications=self._pool_notifications)
         self._process_lock = (self.store.root/'pool.lock').open('a+b')
         try: fcntl.flock(self._process_lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
         except OSError:
@@ -142,6 +143,8 @@ class ContextCoordinator:
         self._last_placement=None
         self._inventory=InventoryJournal(os.uname().nodename) if config.cache_inventory else None
         self._inventory_lock=threading.Lock()
+        self._inventory_pool_seq=None; self._inventory_scan_at=0.
+        self._inventory_disk={}; self._inventory_ram=[]; self._inventory_models=()
         self._workers = {gpu:dict(queue=queue.Queue(),ready=Future(),busy=False,model=None,
             active=0,max_active=0,last_root=None,health='starting',restarts=0,
             failure_reason=None,model_contract_id=None,execution_profile_id=None,native_inventory=[])
@@ -1771,6 +1774,8 @@ class ContextCoordinator:
             images=feature(bool(native) and all(n is not None and 'image' in n['inputs'] for n in native),
                            self._input_preparer is not None),
             cache_inventory=feature(True,self.config.cache_inventory,qualification='experimental'),
+            cache_inventory_pages=feature(True,self.config.cache_inventory,qualification='experimental'),
+            cache_notifications=feature(True,self.config.cache_inventory,qualification='experimental'),
             transfer_aware_scheduling=feature(True,self.config.scheduling=='transfer-aware',qualification='experimental'),
             prefill_coalescing=feature(True,self.config.scheduling!='fifo'),
             peer_transfer=feature(False),prefill_decode_placement=feature(False),
@@ -1790,34 +1795,52 @@ class ContextCoordinator:
                 if cp is not None and isinstance(cp.blob,StrataImage)]
 
     def cache_inventory(self,**cursor):
-        """Reconcile current locations; consumers recover using a bounded journal.
+        """Observe pool changes; rescan at startup, overrun or every 30 seconds.
 
         This is a hint, not a pin, checkpoint validation or a history export.
         Busy workers are omitted rather than inspected from another thread.
         """
         if self._inventory is None:raise InvalidOperation('Cache inventory is not enabled')
         with self._inventory_lock:
-            rows=self.pool.inventory()
+            if cursor.get('cursor') is not None:
+                return self._inventory.read(**cursor)
+            changes=self._pool_notifications.read(self._inventory_pool_seq)
+            native_rows=[]
             with self._condition:
                 models={}
                 for w in self._workers.values():
                     model=w['model']
                     if w['health']=='healthy' and model is not None:
                         models[(model.profile['model_contract_id'],model.profile['execution_profile_id'])]=model
-                        if not w['busy']:rows.extend(w['native_inventory'])
+                        if not w['busy']:native_rows.extend(w['native_inventory'])
+            now=time.monotonic()
+            force=(changes['reset'] or tuple(sorted(models))!=self._inventory_models
+                   or now-self._inventory_scan_at>=30)
+            ram=(self.pool.inventory() if force or any(tier=='ram' for tier,_ in changes['events'])
+                 else self._inventory_ram)
+            disk={} if force else dict(self._inventory_disk)
+            affected={key for tier,key in changes['events'] if tier=='disk'}
             for (contract,execution),model in models.items():
-                for path in sorted(model.checkpoint_directory.glob('*.json')):
+                paths=(model.checkpoint_directory.glob('*.json') if force else
+                       (model.checkpoint_directory/(snapshot+'.json') for snapshot in sorted(affected)))
+                for count,path in enumerate(paths,1):
+                    if count>self._inventory.entry_limit:raise InvalidOperation('Cache inventory capacity exceeded')
+                    key=(contract,execution,path.stem); disk.pop(key,None)
                     try:
                         manifest=model.checkpoint_manifest(path.stem)
                         size=manifest['state_bytes']+4*manifest['logits_count']
                         payload=model.checkpoint_directory/(manifest['payload_sha256']+'.state')
                         if payload.stat().st_size!=size:continue
-                        rows.append(dict(model=contract,execution=execution,snapshot=path.stem,
-                            tier='disk',worker='pool',checksum=manifest['payload_sha256'],bytes=size))
+                        disk[key]=dict(model=contract,execution=execution,snapshot=path.stem,
+                            tier='disk',worker='pool',checksum=manifest['payload_sha256'],bytes=size)
                     except (OSError,ValueError,IntegrityError):continue
-                    if len(rows)>self._inventory.entry_limit:
+                    if len(disk)>self._inventory.entry_limit:
                         raise InvalidOperation('Cache inventory capacity exceeded')
+            rows=ram+native_rows+list(disk.values())
             self._inventory.reconcile(rows)
+            self._inventory_ram,self._inventory_disk=ram,disk
+            self._inventory_models=tuple(sorted(models)); self._inventory_pool_seq=changes['seq']
+            if force:self._inventory_scan_at=now
             return self._inventory.read(**cursor)
 
     def _dispatch(self):

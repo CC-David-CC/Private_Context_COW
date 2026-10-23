@@ -51,6 +51,35 @@ def _entries(values,limit):
     return result
 
 
+class PoolNotifications:
+    """Bounded internal invalidations; consumers rescan after a missed window.
+
+    This lock owns only metadata. Pool code never calls external observers while
+    holding its admission or pinning lock.
+    """
+    def __init__(self,limit=1024):
+        if type(limit) is not int or limit<=0:raise ValueError('Invalid notification bound')
+        self._events=deque(maxlen=limit); self._seq=0; self._lock=threading.Lock()
+
+    def record(self,tier,key):
+        if tier=='ram':
+            if type(key) is not tuple or len(key)!=3:raise ValueError('Invalid RAM location')
+            for value in key:_text(value)
+        elif tier=='disk':_text(key)
+        else:raise ValueError('Invalid notification tier')
+        with self._lock:
+            self._seq+=1; self._events.append((self._seq,tier,key))
+
+    def read(self,since):
+        if since is not None and (type(since) is not int or since<0):
+            raise ValueError('Invalid pool notification cursor')
+        with self._lock:
+            oldest=self._events[0][0]-1 if self._events else self._seq
+            reset=since is None or not oldest<=since<=self._seq
+            return dict(seq=self._seq,reset=reset,events=[] if reset else
+                        [(tier,key) for seq,tier,key in self._events if seq>since])
+
+
 class InventoryJournal:
     def __init__(self,node,*,event_limit=1024,entry_limit=16384,
                  snapshot_limit=4,snapshot_ttl=60,clock=time.monotonic):
