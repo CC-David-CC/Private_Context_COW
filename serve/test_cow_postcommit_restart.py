@@ -106,6 +106,13 @@ class CowPostcommitRestartTests(unittest.TestCase):
         allow_ack = threading.Event()
 
         def commit_then_pause(name, expected_revision, snapshot, operation_id, **kwargs):
+            # Bind the same durable checkpoint metadata as the production writer.
+            # The legacy FlowModel otherwise omits these optional annotations.
+            checkpoint = first_model.cache[snapshot]
+            kwargs['checkpoint_receipt'] = dict(schema=1, snapshot=snapshot,
+                payload_sha256=checkpoint.checksum,
+                model_contract_id=checkpoint.model_contract_id,
+                execution_profile_id=checkpoint.execution_profile_id)
             result = original_move(name, expected_revision, snapshot, operation_id, **kwargs)
             if operation_id == 'answer-after-move':
                 move_completed.set()
@@ -154,18 +161,25 @@ class CowPostcommitRestartTests(unittest.TestCase):
         replay_server, replay_thread = self._start_http()
         self.addCleanup(self._shutdown_http, replay_server, replay_thread)
 
-        # Operation status is deliberately coordinator-process scoped. The
-        # exact answer POST, backed by the Store move receipt and signed intent,
-        # is the durable recovery path after process recreation.
-        status, _ = self._call(replay_server,
+        # Canonical publication survives coordinator recreation. Both lookup
+        # and the original POST recover the exact receipt without model work.
+        status, raw = self._call(replay_server,
             '/cow/operation?operation=answer-after-move')
-        self.assertEqual(status, 404)
+        self.assertEqual(status, 200)
+        observed = json.loads(raw)
+        self.assertTrue(observed['durable'])
+        self.assertEqual(observed['scope'], 'canonical-presentation')
+        self.assertEqual(observed['receipt'], original_receipt)
+        self.assertEqual(new_model.work_counters(), new_work_before_replay)
+        self.assertEqual(self.coordinator.store.head('restart-chat'), committed_head)
         status, raw = self._call(replay_server, '/cow/text/answer', answer_body)
         self.assertEqual(status, 200)
         replay_events = [json.loads(line) for line in raw.splitlines()]
         complete = [event for event in replay_events if event.get('event') == 'complete']
         self.assertEqual(len(complete), 1)
         self.assertEqual(complete[0]['receipt'], original_receipt)
+        self.assertEqual(complete[0]['answer']['tokens'], [257])
+        self.assertEqual(complete[0]['answer']['text'], 'hi')
         self.assertEqual(new_model.work_counters(), new_work_before_replay)
         self.assertEqual(self.coordinator.store.head('restart-chat'), committed_head)
         self.assertEqual(first_model.work_counters(), first_work_after_commit)
