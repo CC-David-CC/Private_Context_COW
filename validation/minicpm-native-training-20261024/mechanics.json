@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "date_utc": "2026-10-24",
+  "kind": "ordinary_llama_native_training_mechanics",
+  "cpu": {
+    "status": "PASS",
+    "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+    "checks": [
+      {
+        "name": "layer",
+        "independent": {
+          "status": "PASS",
+          "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+          "checks": [
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 8.18346301834083e-09,
+              "step_sensitivity": 1.0408340855860843e-11,
+              "failures": [],
+              "layer": 0,
+              "fp64_value": -0.045035178899301344,
+              "native_value": -0.04503517970442772
+            },
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 3.3092688811464654e-08,
+              "step_sensitivity": 2.949029909160572e-11,
+              "failures": [],
+              "layer": 1,
+              "fp64_value": 0.05895722491203145,
+              "native_value": 0.05895721912384033
+            }
+          ]
+        }
+      },
+      {
+        "name": "complete",
+        "independent": {
+          "status": "PASS",
+          "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+          "checks": [
+            {
+              "scalar_gradients": 364,
+              "max_absolute_gradient_error": 3.192433837284625e-07,
+              "step_sensitivity": 8.659739592076221e-09,
+              "failures": [],
+              "mode": "full",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 5.630700994352367e-08
+            },
+            {
+              "scalar_gradients": 278,
+              "max_absolute_gradient_error": 9.62280921612546e-10,
+              "step_sensitivity": 3.3306690738754696e-10,
+              "failures": [],
+              "mode": "lora",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 5.630700994352367e-08
+            }
+          ]
+        }
+      },
+      {
+        "name": "f16-decode-and-forward",
+        "max_absolute_logit_error": 4.039852315868009e-08,
+        "loss_error": 2.1782292769501055e-07
+      },
+      {
+        "name": "f32-decode-and-forward",
+        "max_absolute_logit_error": 5.460657512279532e-08,
+        "loss_error": 4.201067005382697e-08
+      },
+      {
+        "name": "full-batch-update-and-reload",
+        "parameters": 21,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true,
+        "tensors_with_changed_values": 21
+      },
+      {
+        "name": "lora-batch-update-and-reload",
+        "parameters": 30,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true
+      },
+      {
+        "name": "forty-two-layer-standard-backprop",
+        "parameter_tensors": 381,
+        "weights_updated": false
+      }
+    ],
+    "negative_cases": 6,
+    "gpu_used": false,
+    "devices": [
+      "CPU"
+    ],
+    "promoted": false
+  },
+  "cpu_native_source_sha256": "7a86738aee8098fe1117a34d8a966930fe1fcddcf7a40b06a6cd2ac4560f28fe",
+  "earlier_two_a100_cuda": {
+    "status": "PASS",
+    "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+    "checks": [
+      {
+        "name": "layer",
+        "independent": {
+          "status": "PASS",
+          "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+          "checks": [
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 1.1509446729007777e-08,
+              "step_sensitivity": 1.0408340855860843e-11,
+              "failures": [],
+              "layer": 0,
+              "fp64_value": -0.045035178899301344,
+              "native_value": -0.04503517597913742
+            },
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 1.9043951970942885e-08,
+              "step_sensitivity": 2.949029909160572e-11,
+              "failures": [],
+              "layer": 1,
+              "fp64_value": 0.05895722491203145,
+              "native_value": 0.05895721912384033
+            }
+          ]
+        }
+      },
+      {
+        "name": "complete",
+        "independent": {
+          "status": "PASS",
+          "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+          "checks": [
+            {
+              "scalar_gradients": 364,
+              "max_absolute_gradient_error": 2.308009641183162e-07,
+              "step_sensitivity": 8.659739592076221e-09,
+              "failures": [],
+              "mode": "full",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426998615264893,
+              "max_absolute_logit_error": 1.1694612174484309e-07
+            },
+            {
+              "scalar_gradients": 278,
+              "max_absolute_gradient_error": 1.120383785746526e-09,
+              "step_sensitivity": 3.3306690738754696e-10,
+              "failures": [],
+              "mode": "lora",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426998615264893,
+              "max_absolute_logit_error": 1.1694612174484309e-07
+            }
+          ]
+        }
+      },
+      {
+        "name": "f16-decode-and-forward",
+        "max_absolute_logit_error": 3.056366404408095e-08,
+        "loss_error": 2.059565140655195e-08
+      },
+      {
+        "name": "f32-decode-and-forward",
+        "max_absolute_logit_error": 5.7013241572256845e-08,
+        "loss_error": 4.201067005382697e-08
+      },
+      {
+        "name": "full-batch-update-and-reload",
+        "parameters": 21,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true,
+        "tensors_with_changed_values": 21
+      },
+      {
+        "name": "lora-batch-update-and-reload",
+        "parameters": 30,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true
+      },
+      {
+        "name": "forty-two-layer-standard-backprop",
+        "parameter_tensors": 381,
+        "weights_updated": false
+      }
+    ],
+    "negative_cases": 5,
+    "gpu_used": true,
+    "devices": [
+      "CUDA0",
+      "CUDA1"
+    ],
+    "promoted": false
+  },
+  "cuda_native_source_sha256": "f57afaa469bd200f4f9a6910b7d5868850f51a8941f8adb6f4ab50ce95fd56fd",
+  "cuda_executable_sha256": "bcc92bea66ce018cdb2d2704b19dd428f7739bf8fbb2f56321f02774810126d0",
+  "cuda_backend_sha256": "4751f95d6b5c0ced341ae6d7c79d7f35bc778f69697eb3ad4fdfc30d6c5fc348",
+  "cuda_allocation": {
+    "supervised_driver_settled": true,
+    "allocation_gpu_count": 2,
+    "allocated_seconds": 53.88921971432865,
+    "allocation_gpu_hours": 0.029938455396849247,
+    "real_model_weights_updated": false
+  },
+  "current_revision_cuda_requalification": "pending after a format-admission guard; earlier native CUDA math results retained separately",
+  "default_hybrid_fixture_bytes_unchanged": true,
+  "hybrid_dense_profile_regression": "PASS",
+  "offline_native_training_admission_tests": 12,
+  "optimizer_implemented": "sgd",
+  "real_minicpm_forward_qualified": false,
+  "real_minicpm_weights_updated": false,
+  "real_minicpm_candidate_accepted": false,
+  "adamw_implemented": false,
+  "muon_implemented": false,
+  "limitations": [
+    "Generated tiny fixtures only; no real MiniCPM language learning or model release.",
+    "The latest F16 admission guard has CPU coverage; its exact latest CUDA revision must be rechecked on the LAN host.",
+    "The tiny ordinary-Llama full test required learning rate .001 after independently verified .01 overshoot. This is not a production learning-rate default.",
+    "Checkpointed optimizer state is not implemented for adaptive/momentum optimizers; only stateless SGD is admitted."
+  ],
+  "source_sha256": {
+    "experimental/native_training/native_train.cpp": "7a86738aee8098fe1117a34d8a966930fe1fcddcf7a40b06a6cd2ac4560f28fe",
+    "experimental/native_training/llama_reference.py": "7f99de576bd3d9dbbafff4ea09e513cc468d531e4afca1c9565f9b4eab921fe8",
+    "experimental/native_training/make_llama_fixture.py": "80aef5c40d7d4d61459791816e102be8f65b33dbeb22782e8a3efbb16b563853",
+    "experimental/native_training/test_llama_profile.py": "69de51d3c3b00570814162ec94fedd703ac69cb768758537d37e5b9d859df1c1",
+    "tools/pcc_native_training.py": "e89c01184dd6b3de8d34dc5809b4fa84da1acb3448dafbc120056a5b77058530"
+  }
+}

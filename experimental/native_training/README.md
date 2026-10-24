@@ -4,6 +4,12 @@ This is a research preview with opt-in BW/CLI lesson controls and offline helper
 Mechanics checks do not establish useful task learning or an always improving
 model. No serving model or adapter has been promoted.
 
+[MiniCPM/ordinary Llama qualification](MINICPM-QUALIFICATION.md) adds an opt-in
+short-sequence route with F16 source decoding and independently checked tiny
+full/LoRA graphs. Real MiniCPM forward/training qualification is still pending.
+[Muon comparison plan](../../docs/OPTIMIZER-COMPARISON.md) records the next
+optimizer work; the current implementation supports only SGD.
+
 Both LoRA updates and direct base-weight backpropagation use native GGML without
 PyTorch. Direct full-weight training is distinct from merging a LoRA into a base.
 The [learning-loop guide](../../docs/LEARNING-LOOP.md) explains checked lessons,
@@ -124,9 +130,11 @@ two-second samples are observations, not exact allocator high-water marks.
 
 Read the [dated results and fingerprints](../../validation/native-training-20261023/README.md).
 
-The implementation currently targets dense Wen/Qwen3.5 hybrid recurrent and
-full-attention models, not every model PCC can serve. BF16/F32 inputs become F32
-master weights. Quantized training inputs are refused. Full exports save active
+The implementation targets dense Wen/Qwen3.5 hybrid recurrent/full-attention
+models and an explicitly selected ordinary Llama short profile, not every model
+PCC can serve. BF16/F32 inputs become F32 master weights; the ordinary Llama
+profile additionally admits F16. Its current evidence is tiny-fixture mechanics,
+not real MiniCPM training. Quantized training inputs are refused. Full exports save active
 decoder weights in F32 and preserve inactive source extras unchanged.
 
 ## Building and running small checks

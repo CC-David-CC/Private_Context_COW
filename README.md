@@ -297,3 +297,11 @@ Server/API source is in `serve/cow_http.py`, `serve/cow_adapter.py` and
 work is in `src/`, `include/` and `experimental/branching_context/native/`.
 
 MiniCPM5-2B ordinary dense contexts now have CPU/CUDA and tokenizer integration evidence: [setup and current qualification limits](experimental/branching_context/MINICPM-NATIVE.md). MiniCPM training is not yet qualified.
+
+## MiniCPM training development checkpoint
+
+[Native ordinary-Llama mechanics](experimental/native_training/MINICPM-QUALIFICATION.md)
+now pass independently checked tiny full/LoRA CPU graphs; an earlier revision
+also passed on two A100s. The exact final CUDA guard, real MiniCPM forward and
+learning remain unqualified. [Muon comparison](docs/OPTIMIZER-COMPARISON.md) is
+planned at a fixed compute budget; only SGD exists in the trainer today.

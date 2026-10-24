@@ -125,8 +125,8 @@ struct Graph {
     static constexpr size_t default_capacity=262144;
     size_t capacity;bool efficient_sequence;
     Device &device;Context ctx;ggml_cgraph*g;
-    static size_t bounded_capacity(size_t tokens,size_t layers){
-        need((tokens<=32768&&layers<=2)||(tokens<=512&&layers<=32),"Bounded sequence graph limits exceeded");
+    static size_t bounded_capacity(size_t tokens,size_t layers,bool llama_dense=false){
+        need((tokens<=32768&&layers<=2)||(tokens<=512&&layers<=size_t(llama_dense?42:32)),"Bounded sequence graph limits exceeded");
         size_t wanted=tokens*layers*256+65536,result=default_capacity;
         while(result<wanted)result*=2;
         return result;
@@ -267,7 +267,7 @@ struct Graph {
 struct Geometry {
     int hidden=4,ffn=8,vocab=7,layers=2,heads=2,kvheads=1,head=2;
     int state=2,kheads=1,vheads=2,kernel=3,interval=2,rotary=2,rope_type=0;
-    int context=32768;float eps=1e-6f,freq=10000;
+    int context=32768;float eps=1e-6f,freq=10000;bool llama_dense=false;
     int sections[4]={0,0,0,0};
 };
 static T*column(Graph&g,T*x,int t){return ggml_view_1d(g.ctx.p,x,x->ne[0],size_t(t)*x->nb[1]);}
@@ -338,12 +338,14 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
 static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int n){
     auto*c=g.ctx.p;int d=h.head,hq=h.heads,hk=h.kvheads;
     auto*qg=g.linear(b,p+"attn_q.weight",x);
-    auto*q=ggml_cont(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,0));
-    auto*gate=ggml_cont_2d(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,d*4),d*hq,n);
+    auto*q=h.llama_dense?ggml_reshape_3d(c,qg,d,hq,n):ggml_cont(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,0));
+    T*gate=h.llama_dense?nullptr:ggml_cont_2d(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,d*4),d*hq,n);
     auto*k=ggml_reshape_3d(c,g.linear(b,p+"attn_k.weight",x),d,hk,n);
     auto*v=ggml_reshape_3d(c,g.linear(b,p+"attn_v.weight",x),d,hk,n);
-    q=g.norm(q,b.params.at(p+"attn_q_norm.weight").w,h.eps);
-    k=g.norm(k,b.params.at(p+"attn_k_norm.weight").w,h.eps);
+    if(!h.llama_dense){
+        q=g.norm(q,b.params.at(p+"attn_q_norm.weight").w,h.eps);
+        k=g.norm(k,b.params.at(p+"attn_k_norm.weight").w,h.eps);
+    }
     std::vector<int32_t>positions(n*4);for(int i=0;i<n*4;++i)positions[i]=i%n;
     if(h.rope_type){
         auto*pos=g.indices(positions);
@@ -364,14 +366,14 @@ static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     auto*vp=ggml_cont(c,ggml_permute(c,v,1,2,0,3));
     auto*y=ggml_mul_mat(c,vp,scores);ggml_mul_mat_set_prec(y,GGML_PREC_F32);
     y=ggml_cont_2d(c,ggml_permute(c,y,0,2,1,3),d*hq,n);
-    y=ggml_mul(c,y,g.sigmoid(gate));return g.linear(b,p+"attn_output.weight",y);
+    if(gate)y=ggml_mul(c,y,g.sigmoid(gate));return g.linear(b,p+"attn_output.weight",y);
 }
 static T*layer(Graph&g,Block&b,int index,T*x,const Geometry&h,int n){
     auto*c=g.ctx.p;std::string p="blk."+std::to_string(index)+".";
     auto*y=g.norm(x,b.params.at(p+"attn_norm.weight").w,h.eps);
-    y=(index+1)%h.interval?recurrent(g,b,p,y,h,n):attention(g,b,p,y,h,n);
+    y=(!h.llama_dense&&(index+1)%h.interval)?recurrent(g,b,p,y,h,n):attention(g,b,p,y,h,n);
     auto*res=ggml_add(c,x,y);
-    y=g.norm(res,b.params.at(p+"post_attention_norm.weight").w,h.eps);
+    y=g.norm(res,b.params.at(p+(h.llama_dense?"ffn_norm.weight":"post_attention_norm.weight")).w,h.eps);
     auto*up=g.linear(b,p+"ffn_up.weight",y);auto*gate=g.linear(b,p+"ffn_gate.weight",y);
     y=g.linear(b,p+"ffn_down.weight",ggml_mul(c,up,ggml_silu(c,gate)));
     return ggml_add(c,res,y);
@@ -382,18 +384,18 @@ static T*layer(Graph&g,Block&b,int index,T*x,const Geometry&h,int n){
 static void populate(Block&b,const Geometry&h,int i){
     std::string p="blk."+std::to_string(i)+".";
     auto add=[&](std::string n,int a,int c=1,bool linear=false){b.add(p+n,a,c,linear);};
-    add("attn_norm.weight",h.hidden);add("post_attention_norm.weight",h.hidden);
+    add("attn_norm.weight",h.hidden);add(h.llama_dense?"ffn_norm.weight":"post_attention_norm.weight",h.hidden);
     add("ffn_up.weight",h.hidden,h.ffn,true);add("ffn_gate.weight",h.hidden,h.ffn,true);add("ffn_down.weight",h.ffn,h.hidden,true);
-    if((i+1)%h.interval){
+    if(!h.llama_dense&&(i+1)%h.interval){
         int channels=h.state*(2*h.kheads+h.vheads);
         add("attn_qkv.weight",h.hidden,channels,true);add("attn_gate.weight",h.hidden,h.state*h.vheads,true);
         add("ssm_beta.weight",h.hidden,h.vheads,true);add("ssm_alpha.weight",h.hidden,h.vheads,true);
         add("ssm_dt.bias",h.vheads);add("ssm_a",h.vheads);add("ssm_conv1d.weight",h.kernel,channels);
         add("ssm_norm.weight",h.state);add("ssm_out.weight",h.state*h.vheads,h.hidden,true);
     }else{
-        add("attn_q.weight",h.hidden,2*h.head*h.heads,true);add("attn_k.weight",h.hidden,h.head*h.kvheads,true);
+        add("attn_q.weight",h.hidden,(h.llama_dense?1:2)*h.head*h.heads,true);add("attn_k.weight",h.hidden,h.head*h.kvheads,true);
         add("attn_v.weight",h.hidden,h.head*h.kvheads,true);add("attn_output.weight",h.head*h.heads,h.hidden,true);
-        add("attn_q_norm.weight",h.head);add("attn_k_norm.weight",h.head);
+        if(!h.llama_dense){add("attn_q_norm.weight",h.head);add("attn_k_norm.weight",h.head);}
     }
 }
 struct Chain {
@@ -460,7 +462,7 @@ struct Chain {
     float standard_sample(const json&sample,bool backward,float weight=1,std::vector<float>*observed_logits=nullptr){
         auto tokens=sample.at("tokens").get<std::vector<int32_t>>();int n=tokens.size();need(n>=2&&n<=maximum_sequence,"Bounded sequence required");
         for(auto t:tokens)need(t>=0&&t<h.vocab,"Invalid input token");
-        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
+        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
         for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n);g.stage(x,blocks[i+1]->device);}
         auto&head=*blocks.back();x=g.norm(x,head.params.at("output_norm.weight").w,h.eps);auto*logits=g.linear(head,"output.weight",x);g.stage(logits,head.device);
@@ -499,11 +501,22 @@ struct Chain {
         }
     }
 };
-static json chain_test(const std::vector<std::string>&names,bool efficient=false){
-    Geometry h;json reports=json::array();
+static json chain_test(const std::vector<std::string>&names,bool efficient=false,bool llama_dense=false,bool diagnostic=false){
+    Geometry h;h.llama_dense=llama_dense;if(llama_dense)h.interval=1;json reports=json::array();
     json example={{"tokens",{0,1,2,3}},{"targets",{1,2,3,4}},{"loss_mask",{false,true,true,true}}};
     for(bool full:{true,false}){
-        Chain m(h,names,full,2);m.efficient_sequence=efficient;m.allocate();m.randomize();m.zero();float before=m.standard_sample(example,true);
+        Chain m(h,names,full,2);m.efficient_sequence=efficient;m.allocate();m.randomize();m.zero();
+        std::vector<float>logits;float before=m.standard_sample(example,true,1,diagnostic?&logits:nullptr);
+        json fixture=json::object();
+        if(diagnostic){
+            fixture={{"example",example},{"logits",logits},{"geometry",{{"hidden",h.hidden},{"heads",h.heads},{"kvheads",h.kvheads},{"head",h.head},{"layers",h.layers},{"rotary",h.rotary},{"freq",h.freq},{"eps",h.eps}}},{"parameters",json::object()}};
+            if(!full){
+                fixture["base_parameters"]=json::object();
+                for(auto&b:m.blocks)for(auto&entry:b->params){auto*w=entry.second.w;fixture["base_parameters"][entry.first]={{"shape",{w->ne[0],w->ne[1]}},{"values",read_tensor(w)}};}
+            }
+            for(auto&b:m.blocks)for(auto[w,dw]:b->trainable())fixture["parameters"][w->name]={{"shape",{w->ne[0],w->ne[1]}},{"values",read_tensor(w)},{"gradient",read_tensor(dw)}};
+        }
+        if(diagnostic&&full)std::cerr<<"LLAMA_FULL_FIXTURE "<<json({{"before",before},{"fixture",fixture}}).dump()<<std::endl;
         auto gradients=m.gradients();
         if(full){auto grad=read_tensor(m.blocks.front()->params.at("token_embd.weight").grad);double norm=0;for(int i=0;i<h.hidden;++i)norm+=double(grad[i])*grad[i];need(norm>1e-16,"Masked prompt context lost its gradient");}
         // Check one parameter direction in every stage of the whole chain.
@@ -529,13 +542,21 @@ static json chain_test(const std::vector<std::string>&names,bool efficient=false
         for(size_t i=0;i<all.size();++i){auto actual=read_tensor(all[i].second);
             for(size_t j=0;j<actual.size();++j){double expected=(double(first[i][j])+second[i][j])*.5,error=std::abs(actual[j]-expected);
                 batch_error=std::max(batch_error,error);++batch_scalars;need(error<=1e-6+1e-4*std::abs(expected),"Native gradient accumulation mismatch");}}
-        m.zero();m.standard_sample(example,true);m.update(.01f);m.zero();float after=m.standard_sample(example,false);need(after<before,"Tiny-chain update did not reduce objective");
+        // The tiny ordinary-Llama full fixture has high curvature: .01 overshoots
+        // with independently correct FP64 gradients. This fixed test rate is not
+        // a production training default or a relaxed gradient tolerance.
+        const float test_rate=llama_dense&&full?.001f:.01f;
+        m.zero();m.standard_sample(example,true);m.update(test_rate);m.zero();float after=m.standard_sample(example,false);
+        if(llama_dense)std::cerr<<"LLAMA_UPDATE_DIAGNOSTIC "<<json({{"mode",full?"full":"lora"},{"before",before},{"after",after},{"gradients",gradients}}).dump()<<std::endl;
+        need(after<before,"Tiny-chain update did not reduce objective in "+std::string(full?"full":"lora"));
         reports.push_back({{"mode",full?"full":"lora"},{"before",before},{"after",after},{"stage_directions",checks},{"worst_absolute_error",worst},{"batch_scalar_gradients",batch_scalars},{"batch_gradient_max_error",batch_error},{"gradients",gradients}});
+        if(diagnostic)reports.back()["fixture"]=fixture;
+        if(llama_dense)reports.back()["learning_rate"]=test_rate;
     }
-    return {{"status","PASS"},{"devices",names},{"scope","tiny complete hybrid chain; model weights have not been trained"},{"reports",reports}};
+    return {{"status","PASS"},{"devices",names},{"scope",llama_dense?"tiny complete ordinary Llama chain; not real-model qualification":"tiny complete hybrid chain; model weights have not been trained"},{"reports",reports}};
 }
-static json self_test(const std::string&backend,bool diagnostic=false){
-    Device d(backend);Geometry h;std::mt19937 rng(183);std::normal_distribution<float>normal(0,.15f);
+static json self_test(const std::string&backend,bool diagnostic=false,bool llama_dense=false){
+    Device d(backend);Geometry h;h.llama_dense=llama_dense;if(llama_dense)h.interval=1;std::mt19937 rng(183);std::normal_distribution<float>normal(0,.15f);
     json records=json::array();
     for(int which=0;which<2;++which){
         Block b(d,true,2);populate(b,h,which);b.allocate();
@@ -570,16 +591,17 @@ static json self_test(const std::string&backend,bool diagnostic=false){
             records.back()["directions"]=directions;records.back()["failures"]=failures;
             json weights=json::object();for(auto&[name,p]:b.params)weights[name]={{"shape",{p.w->ne[0],p.w->ne[1]}},{"values",read_tensor(p.w)}};
             records.back()["fixture"]={{"input",x},{"upstream",dy},{"tokens",n},{"weights",weights}};
+            if(llama_dense)records.back()["fixture"]["geometry"]={{"head",h.head},{"heads",h.heads},{"kvheads",h.kvheads},{"rotary",h.rotary},{"freq",h.freq},{"eps",h.eps}};
         }
         std::cerr<<"LAYER_GRADIENT_GATE "<<records.back().dump()<<std::endl;
     }
     bool passed=true;for(auto&r:records)if(r.value("failures",0))passed=false;
-    return {{"status",passed?"PASS":"FAIL"},{"backend",backend},{"scope","tiny recurrent and attention layer VJPs; not full model qualification"},{"checks",records}};
+    return {{"status",passed?"PASS":"FAIL"},{"backend",backend},{"scope",llama_dense?"tiny ordinary Llama attention layer VJPs; not full model qualification":"tiny recurrent and attention layer VJPs; not full model qualification"},{"checks",records}};
 }
 static json inspect_model(const std::string&path){
     ggml_context*ctx=nullptr;auto*f=gguf_init_from_file(path.c_str(),{true,&ctx});need(f,"Cannot read GGUF");
     json meta=json::object(),tensors=json::array();
-    for(int64_t i=0;i<gguf_get_n_kv(f);++i){std::string key=gguf_get_key(f,i);if(key.rfind("wen1.",0)&&key.rfind("qwen35.",0)&&key!="general.architecture")continue;
+    for(int64_t i=0;i<gguf_get_n_kv(f);++i){std::string key=gguf_get_key(f,i);if(key.rfind("wen1.",0)&&key.rfind("qwen35.",0)&&key.rfind("llama.",0)&&key!="general.architecture")continue;
         switch(gguf_get_kv_type(f,i)){
             case GGUF_TYPE_UINT32:meta[key]=gguf_get_val_u32(f,i);break;
             case GGUF_TYPE_INT32:meta[key]=gguf_get_val_i32(f,i);break;
@@ -598,13 +620,15 @@ struct GGUFSource {
     std::string path;ggml_context*ctx=nullptr;gguf_context*file=nullptr;
     explicit GGUFSource(const std::string&p):path(p){file=gguf_init_from_file(path.c_str(),{true,&ctx});need(file,"Cannot read source GGUF");}
     ~GGUFSource(){gguf_free(file);ggml_free(ctx);}
-    std::vector<float>values(const std::string&name){
+    std::vector<float>values(const std::string&name,bool ordinary_f16=false){
         int64_t i=gguf_find_tensor(file,name.c_str());need(i>=0,"Missing source tensor "+name);
-        auto type=gguf_get_tensor_type(file,i);need(type==GGML_TYPE_F32||type==GGML_TYPE_BF16,"Native training requires F32/BF16 weights: "+name);
+        auto type=gguf_get_tensor_type(file,i);need(type==GGML_TYPE_F32||type==GGML_TYPE_BF16||(ordinary_f16&&type==GGML_TYPE_F16),"Native training requires F32/BF16 or qualified ordinary-Llama F16 weights: "+name);
         const auto*ne=gguf_get_tensor_ne(file,i);size_t count=ne[0]*ne[1]*ne[2]*ne[3];std::vector<float>out(count);
         std::ifstream stream(path,std::ios::binary);need(bool(stream),"Cannot open immutable source");
         stream.seekg(gguf_get_data_offset(file)+gguf_get_tensor_offset(file,i));
         if(type==GGML_TYPE_F32)stream.read(reinterpret_cast<char*>(out.data()),count*4);
+        else if(type==GGML_TYPE_F16){std::vector<ggml_fp16_t>raw(count);stream.read(reinterpret_cast<char*>(raw.data()),count*2);
+            ggml_fp16_to_fp32_row(raw.data(),out.data(),count);}
         else{std::vector<uint16_t>raw(count);stream.read(reinterpret_cast<char*>(raw.data()),count*2);
             for(size_t j=0;j<count;++j){uint32_t bits=uint32_t(raw[j])<<16;std::memcpy(&out[j],&bits,4);}}
         need(bool(stream),"Incomplete source tensor "+name);
@@ -613,28 +637,46 @@ struct GGUFSource {
     }
     Geometry geometry(){
         Geometry h;auto arch=std::string(gguf_get_val_str(file,gguf_find_key(file,"general.architecture")));
-        need(arch=="wen1"||arch=="qwen35","This trainer currently implements dense Wen/Qwen3.5 only");
+        need(arch=="wen1"||arch=="qwen35"||arch=="llama","This trainer implements dense Wen/Qwen hybrid and ordinary Llama only");
+        h.llama_dense=arch=="llama";
         auto integer=[&](const std::string&key){auto i=gguf_find_key(file,(arch+"."+key).c_str());need(i>=0,"Missing geometry "+key);return int(gguf_get_val_u32(file,i));};
         auto real=[&](const std::string&key){auto i=gguf_find_key(file,(arch+"."+key).c_str());need(i>=0,"Missing geometry "+key);return gguf_get_val_f32(file,i);};
         h.hidden=integer("embedding_length");h.ffn=integer("feed_forward_length");h.layers=integer("block_count");
         h.heads=integer("attention.head_count");h.kvheads=integer("attention.head_count_kv");h.head=integer("attention.key_length");
-        h.state=integer("ssm.state_size");h.vheads=integer("ssm.time_step_rank");h.kheads=integer("ssm.group_count");h.kernel=integer("ssm.conv_kernel");
-        h.interval=integer("full_attention_interval");h.context=integer("context_length");h.rotary=integer("rope.dimension_count");
-        h.freq=real("rope.freq_base");h.eps=real("attention.layer_norm_rms_epsilon");h.rope_type=GGML_ROPE_TYPE_IMROPE;
-        auto sections=gguf_find_key(file,(arch+".rope.dimension_sections").c_str());need(sections>=0&&gguf_get_arr_n(file,sections)==4,"Four explicit rotary sections required");
-        auto*s=(const int32_t*)gguf_get_arr_data(file,sections);std::copy(s,s+4,h.sections);
+        h.context=integer("context_length");h.rotary=integer("rope.dimension_count");
+        h.freq=real("rope.freq_base");h.eps=real("attention.layer_norm_rms_epsilon");
+        if(h.llama_dense){
+            h.interval=1;h.rope_type=GGML_ROPE_TYPE_NORMAL;
+            need(integer("attention.value_length")==h.head&&h.hidden==h.heads*h.head,
+                 "Ordinary Llama requires matching Q/K/V head dimensions");
+            auto scaling=gguf_find_key(file,"llama.rope.scaling.type");
+            need(scaling<0||std::string(gguf_get_val_str(file,scaling))=="none","Scaled Llama rotary training is not qualified");
+            for(const auto&key:{"llama.embedding_scale","llama.attention.scale","llama.residual_scale","llama.logit_scale"})
+                need(gguf_find_key(file,key)<0,"Additional Llama scaling is not qualified");
+        }else{
+            h.state=integer("ssm.state_size");h.vheads=integer("ssm.time_step_rank");h.kheads=integer("ssm.group_count");h.kernel=integer("ssm.conv_kernel");
+            h.interval=integer("full_attention_interval");h.rope_type=GGML_ROPE_TYPE_IMROPE;
+            auto sections=gguf_find_key(file,(arch+".rope.dimension_sections").c_str());need(sections>=0&&gguf_get_arr_n(file,sections)==4,"Four explicit rotary sections required");
+            auto*s=(const int32_t*)gguf_get_arr_data(file,sections);std::copy(s,s+4,h.sections);
+        }
         auto emb=gguf_find_tensor(file,"token_embd.weight");need(emb>=0,"Missing embeddings");h.vocab=gguf_get_tensor_ne(file,emb)[1];
-        need(h.layers>0&&h.layers<=128&&h.hidden>0&&h.state*h.vheads>0&&h.heads%h.kvheads==0&&h.vheads%h.kheads==0,"Unsupported model geometry");return h;
+        need(h.layers>0&&h.layers<=128&&h.hidden>0&&h.ffn>0&&h.head>0&&h.kvheads>0&&h.heads>0&&h.kheads>0&&h.interval>0&&h.context>=2&&h.rotary>0&&h.rotary<=h.head&&h.rotary%2==0&&std::isfinite(h.freq)&&h.freq>0&&std::isfinite(h.eps)&&h.eps>0,"Unsupported model geometry");
+        need(h.state*h.vheads>0&&h.heads%h.kvheads==0&&h.vheads%h.kheads==0,"Unsupported attention grouping");return h;
     }
     void load(Chain&model){
         // Validate complete parameter coverage before allocating any model buffers.
         for(auto&b:model.blocks)for(auto&[name,p]:b->params){
             auto i=gguf_find_tensor(file,name.c_str());need(i>=0,"Missing active decoder parameter "+name);auto*ne=gguf_get_tensor_ne(file,i);
             need(ne[0]==p.w->ne[0]&&ne[1]==p.w->ne[1]&&ne[2]==1&&ne[3]==1,"Source geometry mismatch "+name);
-            auto type=gguf_get_tensor_type(file,i);need(type==GGML_TYPE_F32||type==GGML_TYPE_BF16,"Unsupported trainable source dtype");
+            auto type=gguf_get_tensor_type(file,i);need(type==GGML_TYPE_F32||type==GGML_TYPE_BF16||(model.h.llama_dense&&type==GGML_TYPE_F16),"Unsupported trainable source dtype");
+        }
+        if(model.h.llama_dense){
+            std::set<std::string>active;for(auto&b:model.blocks)for(auto&entry:b->params)active.insert(entry.first);
+            need(active.size()==size_t(gguf_get_n_tensors(file)),"Ordinary Llama extra/tied parameter layouts are not qualified");
+            for(int64_t i=0;i<gguf_get_n_tensors(file);++i)need(active.count(gguf_get_tensor_name(file,i))==1,"Unqualified extra Llama tensor");
         }
         model.allocate();
-        for(size_t i=0;i<model.blocks.size();++i){auto&b=*model.blocks[i];for(auto&[name,p]:b.params)put(p.w,values(name));
+        for(size_t i=0;i<model.blocks.size();++i){auto&b=*model.blocks[i];for(auto&[name,p]:b.params)put(p.w,values(name,model.h.llama_dense));
             std::cerr<<"MODEL_BLOCK_LOADED "<<i<<" "<<b.device.name<<std::endl;}
     }
     void load_adapter(Chain&model,const std::string&adapter_path,const std::string&expected_base){
@@ -661,14 +703,14 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
         size_t active=0;
         if(index>0&&index+1<model.blocks.size()){
             active=length*size_t(h.ffn)*4*20;
-            if(index%h.interval)active+=length*size_t(h.state)*h.state*h.vheads*4*16;
+            if(!h.llama_dense&&index%h.interval)active+=length*size_t(h.state)*h.state*h.vheads*4*16;
             else active+=size_t(h.heads)*length*length*4*12;
         }else if(index+1==model.blocks.size())active=length*size_t(h.vocab)*4*12;
         activations[b->device.name]+=active;
     }
     size_t graph_host=0;
     if(model.efficient_sequence){
-        size_t nodes=Graph::bounded_capacity(length,h.layers);
+        size_t nodes=Graph::bounded_capacity(length,h.layers,h.llama_dense);
         // Metadata, scheduler tables/placements, host masks and input copies.
         size_t labels=0;for(auto&e:config.at("examples")){size_t count=0;for(auto&m:e.at("loss_mask"))if(m.get<bool>())++count;labels=std::max(labels,count);}
         graph_host=Graph::metadata_bytes(nodes)+nodes*128+length*length*8+length*size_t(h.vocab)*8;
@@ -786,14 +828,22 @@ static json train_model(const json&config){
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4),config.value("block_devices",std::vector<int>{}));
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
-    need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1","Unknown sequence qualification profile");
+    need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Unknown sequence qualification profile");
+    if(model.h.llama_dense)need(sequence_profile=="dense-llama-short-v1","Ordinary Llama requires its explicit bounded sequence profile");
     if(sequence_profile=="tiny-cpu-long-v1"){
         const auto&h=model.h;
         need(names==std::vector<std::string>{"CPU"}&&h.layers<=2&&h.hidden<=64&&h.ffn<=128&&h.vocab<=512&&h.heads<=2&&h.state<=8&&h.kernel<=4,
              "Long sequence profile is qualified only for bounded tiny CPU fixtures, not Wen");
         model.maximum_sequence=32768;model.efficient_sequence=true;
     }
+    if(sequence_profile=="dense-llama-short-v1"){
+        const auto&h=model.h;
+        need(h.llama_dense&&h.layers<=42&&h.hidden<=4096&&h.ffn<=12288&&h.vocab<=262144&&h.heads<=32&&h.kvheads<=8&&h.head<=256,
+             "Ordinary Llama short profile exceeds its inspected geometry bounds");
+        model.maximum_sequence=512;model.efficient_sequence=true;
+    }
     if(sequence_profile=="dense-short-v1"){
+        need(!model.h.llama_dense,"Use the explicit ordinary Llama sequence profile");
         const auto&h=model.h;
         need(h.layers<=32&&h.hidden<=4096&&h.ffn<=12288&&h.vocab<=262144&&h.heads<=16&&h.kvheads<=4&&h.head<=256&&h.state<=128&&h.vheads<=32&&h.kheads<=16&&h.kernel<=4,
              "Dense short profile exceeds its inspected geometry bounds");
@@ -812,10 +862,11 @@ static json train_model(const json&config){
     const std::string memory_profile=config.value("memory_profile",std::string("conservative-v1"));
     need(memory_profile=="conservative-v1"||memory_profile=="allocator-v1","Unknown memory admission profile");
     const bool allocator=memory_profile=="allocator-v1";
-    need(!allocator||sequence_profile=="dense-short-v1","Allocator admission is limited to the bounded dense profile");
+    need(!allocator||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Allocator admission is limited to bounded dense profiles");
     const bool admission_only=config.value("admission_only",false);
     auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
     auto finish=[&](json result){
+        if(model.h.llama_dense){result["architecture_contract"]="llama-dense-v1";result["sequence_profile"]=sequence_profile;}
         if(allocator){
             result["memory_profile"]=memory_profile;result["allocation_peaks"]=json::array();
             for(auto&d:model.devices)result["allocation_peaks"].push_back({{"device",d->name},{"planned_graph_buffer_bytes",d->peak_planned_graph},{"checked_graphs",d->checked_graphs}});
@@ -871,14 +922,15 @@ int main(int argc,char**argv){try{
         std::cout<<train_model(config).dump(2)<<std::endl;return 0;
     }
     if(argc==3&&std::string(argv[1])=="--concat-test"){if(std::string(argv[2])!="CPU")load_cuda();std::cout<<concat_test(argv[2]).dump(2)<<std::endl;return 0;}
-    if(argc==3&&std::string(argv[1])=="--gradient-diagnostic"){
-        if(std::string(argv[2])!="CPU")load_cuda();auto report=self_test(argv[2],true);std::cout<<report.dump(2)<<std::endl;return report.at("status")=="PASS"?0:3;
+    if(argc==3&&(std::string(argv[1])=="--gradient-diagnostic"||std::string(argv[1])=="--llama-gradient-diagnostic")){
+        if(std::string(argv[2])!="CPU")load_cuda();auto report=self_test(argv[2],true,std::string(argv[1])=="--llama-gradient-diagnostic");std::cout<<report.dump(2)<<std::endl;return report.at("status")=="PASS"?0:3;
     }
-    if(argc==3&&(std::string(argv[1])=="--chain-test"||std::string(argv[1])=="--chain-test-efficient")){
+    if(argc==3&&(std::string(argv[1])=="--chain-test"||std::string(argv[1])=="--chain-test-efficient"||std::string(argv[1])=="--llama-chain-test"||std::string(argv[1])=="--llama-chain-diagnostic")){
         std::vector<std::string>names;std::string value=argv[2];size_t begin=0,end;
         while((end=value.find(',',begin))!=std::string::npos){names.push_back(value.substr(begin,end-begin));begin=end+1;}names.push_back(value.substr(begin));
         for(auto&name:names)if(name!="CPU"){load_cuda();break;}
-        std::cout<<chain_test(names,std::string(argv[1])=="--chain-test-efficient").dump(2)<<std::endl;return 0;
+        const bool llama=std::string(argv[1]).rfind("--llama-chain-",0)==0;
+        std::cout<<chain_test(names,std::string(argv[1])=="--chain-test-efficient"||llama,llama,std::string(argv[1])=="--llama-chain-diagnostic").dump(2)<<std::endl;return 0;
     }
     need(argc==3&&std::string(argv[1])=="--self-test","Usage: pcc-native-train --self-test CPU|CUDA0");
     if(std::string(argv[2])!="CPU")load_cuda();

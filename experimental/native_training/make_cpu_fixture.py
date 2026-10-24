@@ -9,7 +9,8 @@ import math
 import random
 import struct
 
-def make_fixture(destination, context_length=256):
+def make_fixture(destination, context_length=256, *, dtype="f32"):
+    if dtype not in ("f32","f16"):raise ValueError("Explicit floating fixture dtype required")
     if type(context_length) is not int or not 2<=context_length<=32768:raise ValueError("Bounded fixture context required")
     rng=random.Random(20261023);tensors=[];metadata=[]
     def string(value):
@@ -31,7 +32,7 @@ def make_fixture(destination, context_length=256):
         data=[rng.gauss(0,.1) for _ in range(a*b)]
         if 'norm.weight' in name:data=[v+1 for v in data]
         if name.endswith('ssm_a'):data=[-math.exp(v) for v in data]
-        tensors.append((name,[a] if b==1 else [a,b],struct.pack('<'+'f'*len(data),*data)))
+        tensors.append((name,[a] if b==1 else [a,b],struct.pack('<'+('e' if dtype=='f16' else 'f')*len(data),*data)))
     add('token_embd.weight',16,256)
     for index in range(2):
         prefix='blk.'+str(index)+'.'
@@ -49,7 +50,7 @@ def make_fixture(destination, context_length=256):
     descriptors=[];data=bytearray()
     for name,shape,raw in tensors:
         data.extend(b'\0'*((-len(data))%32));offset=len(data)
-        descriptors.append(string(name)+struct.pack('<I',len(shape))+struct.pack('<'+'Q'*len(shape),*shape)+struct.pack('<IQ',0,offset))
+        descriptors.append(string(name)+struct.pack('<I',len(shape))+struct.pack('<'+'Q'*len(shape),*shape)+struct.pack('<IQ',1 if dtype=='f16' else 0,offset))
         data.extend(raw)
     header+=b''.join(descriptors);header+=b'\0'*((-len(header))%32)
     destination=Path(destination)
