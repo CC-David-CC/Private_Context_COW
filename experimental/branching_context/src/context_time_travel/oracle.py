@@ -12,6 +12,9 @@ def FreshOracle(profile):
     if kind == 'qwen35-llama.cpp':
         from .qwen35_backend import Qwen35FreshOracle
         return Qwen35FreshOracle(profile)
+    if kind == 'llama-dense-llama.cpp':
+        from .llama_dense_backend import LlamaDenseFreshOracle
+        return LlamaDenseFreshOracle(profile)
     if kind == 'strata':
         from .strata_backend import StrataFreshOracle
         return StrataFreshOracle(profile)

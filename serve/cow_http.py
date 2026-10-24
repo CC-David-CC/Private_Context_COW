@@ -53,6 +53,9 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
     if metadata.get('general.architecture') in ('qwen35','wen1'):
         from serve.cow_qwen35_prompt import Qwen35PromptEncoder
         encoder=Qwen35PromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
+    elif metadata.get('general.architecture')=='llama' and metadata.get('tokenizer.ggml.pre')=='minicpm5':
+        from serve.cow_minicpm_prompt import MiniCPMPromptEncoder
+        encoder=MiniCPMPromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
     else:
         encoder=CowPromptEncoder(tokenizer,template,template_kwargs=template_kwargs)
     renderer_id=None
@@ -974,7 +977,7 @@ def main():
         except ImportError as error:
             raise RuntimeError('Grammar serving requires the optional pinned llguidance==1.9.1 dependency') from error
     config=pool_config_from_args(args,profile)
-    if profile.get('backend')=='qwen35-llama.cpp':
+    if profile.get('backend') in ('qwen35-llama.cpp','llama-dense-llama.cpp'):
         from context_time_travel.qwen35_backend import device_name_for_worker
         for gpu in config.gpus:device_name_for_worker(profile,gpu)
     components=model_text_components(profile['model_path'],profile['execution'].get('text_template_kwargs'),
@@ -986,9 +989,12 @@ def main():
         from context_time_travel.store import Store
         preparer=vision_preparer_from_config(Store(args.store),components['mixed_renderer'],profile,args.vision_config)
     def factory(gpu):
-        if profile.get('backend')=='qwen35-llama.cpp':
+        if profile.get('backend') in ('qwen35-llama.cpp','llama-dense-llama.cpp'):
             from context_time_travel.qwen35_backend import load_qwen35_backend
-            backend=load_qwen35_backend(profile,gpu_id=gpu)
+            if profile.get('backend')=='llama-dense-llama.cpp':
+                from context_time_travel.llama_dense_backend import LlamaDenseBackend
+                backend=LlamaDenseBackend(profile,gpu_id=gpu)
+            else:backend=load_qwen35_backend(profile,gpu_id=gpu)
         else:
             backend=StrataBackend(profile,gpu_id=gpu)
         return BranchingModel(args.store,backend,profile)

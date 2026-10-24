@@ -14,7 +14,19 @@
 static thread_local std::string error_text;
 struct Lease { llama_context *ctx; int vocab; uint64_t work=0, calls=0; bool valid=true; std::vector<float> frontier; };
 static void require(bool ok,const char *message) { if(!ok) throw std::runtime_error(message); }
+#ifdef PCC_CTT_LLAMA_DENSE
+static constexpr uint64_t CTT_STATE_MAGIC=0x3154534c4c414d41ULL;
+#else
+static constexpr uint64_t CTT_STATE_MAGIC=0x3154533533574f43ULL;
+#endif
 extern "C" {
+const char *ctt_architecture_contract(){
+#ifdef PCC_CTT_LLAMA_DENSE
+ return "llama-dense-v1";
+#else
+ return "qwen35-hybrid-v1";
+#endif
+}
 void *ctt_lora_load(void*m,const char*path){try{return qwen35_load_adapter((llama_model*)m,path);}catch(const std::exception&e){error_text=e.what();return nullptr;}}
 void ctt_lora_free(void*a){llama_adapter_lora_free((llama_adapter_lora*)a);}
 int ctt_lora_attach(void*x,void*a,float scale){try{qwen35_attach_adapter(((Lease*)x)->ctx,(llama_adapter_lora*)a,scale);return 0;}catch(const std::exception&e){error_text=e.what();return -1;}}
@@ -25,8 +37,13 @@ static void *ctt_load_impl(const char *path,const char *device){
   ggml_backend_dev_t devices[2]={};qwen35_select_device(p,device,devices);
   auto *m=llama_model_load_from_file(path,p);require(m,"Model load failed");
   char arch[64]={};llama_model_meta_val_str(m,"general.architecture",arch,sizeof(arch));
+#ifdef PCC_CTT_LLAMA_DENSE
+  if(std::string(arch)!="llama" || llama_model_is_hybrid(m) || llama_model_has_encoder(m)){
+   llama_model_free(m);throw std::runtime_error("Requires qualified dense Llama text decoder");}
+#else
   if((std::string(arch)!="qwen35" && std::string(arch)!="wen1") || !llama_model_is_hybrid(m) || llama_model_has_encoder(m)){
    llama_model_free(m);throw std::runtime_error("Requires qwen35 hybrid text decoder");}
+#endif
   return m;
  }catch(const std::exception&e){error_text=e.what();return nullptr;}
 }
@@ -80,7 +97,7 @@ size_t ctt_export(void*x,void*out,size_t size){
  auto*l=(Lease*)x;
  try{
   size_t need=ctt_state_size(x);require(need>24 && size==need,"Wrong state export size");
-  uint64_t header[3]={0x3154533533574f43ULL,llama_state_get_size(l->ctx),(uint64_t)l->vocab};
+  uint64_t header[3]={CTT_STATE_MAGIC,llama_state_get_size(l->ctx),(uint64_t)l->vocab};
   auto*p=(uint8_t*)out;memcpy(p,header,24);
   require(llama_state_get_data(l->ctx,p+24,header[1])==header[1],"Incomplete native export");
   memcpy(p+24+header[1],l->frontier.data(),4*l->vocab);return need;
@@ -90,7 +107,7 @@ size_t ctt_import(void*x,const void*in,size_t size){
  auto*l=(Lease*)x;
  try{
   require(l->valid && size>=24,"Invalid state import");uint64_t h[3];memcpy(h,in,24);
-  require(h[0]==0x3154533533574f43ULL && h[2]==(uint64_t)l->vocab,"State format/vocab mismatch");
+  require(h[0]==CTT_STATE_MAGIC && h[2]==(uint64_t)l->vocab,"State format/vocab mismatch");
   require(h[1]<=size-24 && size-24-h[1]==4*h[2],"Truncated or trailing state bytes");
   auto*p=(const uint8_t*)in;std::vector<float>f(l->vocab);memcpy(f.data(),p+24+h[1],4*h[2]);
   for(float v:f)require(std::isfinite(v),"Invalid saved frontier");

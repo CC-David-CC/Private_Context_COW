@@ -6,12 +6,13 @@ None of that needs the 35 GB of weights, so it is extracted into the pack's `tok
 (docs/pack-format.md §6) and this module is what reads it back.  A C++ port follows and is tested against
 this one.
 
-THE DECISIVE PROPERTY IS THE ROUND TRIP.  Byte-level BPE maps each BYTE to a printable unicode character so
+ROUND TRIP AND NATIVE TOKEN ID PARITY ARE BOTH REQUIRED.  Byte-level BPE maps each BYTE to a printable unicode character so
 that any UTF-8 input is representable with no UNK token.  Every failure mode of that mapping - the wrong
 offset for a byte, a merge applied in the wrong order, a pre-tokenizer split that drops a character - still
-produces plausible token ids.  `decode(encode(s)) == s` is the check that sees them, and it is exact because
+produces plausible token ids.  `decode(encode(s)) == s` detects dropped or changed bytes, and it is exact because
 the byte layer is lossless.  It is asserted over a corpus chosen to hit the boundaries: multi-byte UTF-8,
 emoji (4-byte), combining marks, whitespace runs, and C0 control bytes.
+Lossless round trips do not establish trained segmentation. Native token-ID parity is a separate gate.
 """
 from __future__ import annotations
 
@@ -64,6 +65,22 @@ QWEN35_PATTERN = (
 )
 
 
+# llama.cpp 972d2313, src/llama-vocab.cpp LLAMA_VOCAB_PRE_TYPE_MINICPM5.
+# Apply these sequentially, preserving unmatched spans between matches. Numeric
+# splitting also terminates adjacent whitespace spans: one alternation is NOT
+# equivalent because trailing-whitespace lookahead sees different boundaries.
+MINICPM5_PATTERNS = (
+    r"\p{N}{1,3}",
+    r"(?:'[sS]|'[tT]|'[rR][eE]|'[vV][eE]|'[mM]|'[lL][lL]|'[dD])"
+    r"|[^\r\n\p{L}\p{N}]?\p{L}+"
+    r"|\p{N}+"
+    r"| ?[^\s\p{L}\p{N}]+[\r\n]*"
+    r"|\s*[\r\n]+"
+    r"|\s+(?!\S)"
+    r"|\s+"
+)
+
+
 class Tokenizer:
     def __init__(self, tokens: list[str], merges: list[str], token_types: list[int] | None = None,
                  pre: str = "qwen35", special_ids: dict[str, int] | None = None):
@@ -86,7 +103,9 @@ class Tokenizer:
             if parts[0] not in self.ids or parts[1] not in self.ids:
                 raise ValueError("merge %d names a token outside the vocabulary: %r" % (i, m))
             self.ranks[(parts[0], parts[1])] = i
-        self._re = regex.compile(QWEN35_PATTERN)
+        self.pre_patterns = MINICPM5_PATTERNS if pre == "minicpm5" else (QWEN35_PATTERN,)
+        self._split_patterns = tuple(regex.compile(pattern) for pattern in self.pre_patterns)
+        self._re = self._split_patterns[-1]
 
         # The literals matched directly instead of being run through BPE.  GGUF token types: 3 = CONTROL,
         # 4 = USER_DEFINED.  The two classes behave DIFFERENTLY and llama.cpp's own tokenizer settled which:
@@ -225,12 +244,31 @@ class Tokenizer:
             got.append(i)
         return got
 
+    def _pieces(self, text: str) -> list[str]:
+        if len(self._split_patterns) == 1:
+            return self._re.findall(text)
+        spans = [text] if text else []
+        for pattern in self._split_patterns:
+            divided = []
+            for span in spans:
+                cursor = 0
+                for match in pattern.finditer(span):
+                    if match.start() > cursor:
+                        divided.append(span[cursor:match.start()])
+                    if match.end() > match.start():
+                        divided.append(match.group())
+                    cursor = match.end()
+                if cursor < len(span):
+                    divided.append(span[cursor:])
+            spans = divided
+        return spans
+
     def _encode_plain(self, text: str) -> list[int]:
         out: list[int] = []
         # A piece's ids depend on the piece alone, so repeated pieces (most of a resent conversation) are looked up
         # instead of merged again.  The ids are the ones _bpe gives: this only skips the work.
         cache = self._piece_ids
-        for piece in self._re.findall(text):
+        for piece in self._pieces(text):
             got = cache.get(piece)
             if got is None:
                 got = self._encode_piece(piece)
@@ -311,9 +349,11 @@ class Tokenizer:
 # ------------------------------------------------------------------ the pack's tokenizer/ directory
 def extract(gguf_path, out_dir) -> dict:
     """Write the tokenizer into `<out_dir>/tokenizer/` so the engine never opens the weight shards for it."""
+    tk = Tokenizer.from_gguf(gguf_path)
+    if len(tk.pre_patterns) != 1:
+        raise ValueError("Sequential pre-tokenizer splitting is not qualified by the Strata pack reader; use the GGUF-native MiniCPM path")
     out = pathlib.Path(out_dir) / "tokenizer"
     out.mkdir(parents=True, exist_ok=True)
-    tk = Tokenizer.from_gguf(gguf_path)
     cfg = {
         "model": "gpt2",
         "pre": tk.pre,
@@ -323,8 +363,9 @@ def extract(gguf_path, out_dir) -> dict:
         "add_bos_token": False,
         # The pattern is SHIPPED, not recomputed by the reader: it is transcribed from llama.cpp for the
         # declared `pre` type, and a C++ port that re-derived it would be free to get `\p{M}` wrong again.
-        "pre_pattern": QWEN35_PATTERN,
-        "pre_pattern_source": ".ref/llama.cpp src/llama-vocab.cpp L396 (LLAMA_VOCAB_PRE_TYPE_QWEN35)",
+        "pre_pattern": tk.pre_patterns[0],
+        "pre_pattern_source": ("llama.cpp 972d2313 src/llama-vocab.cpp LLAMA_VOCAB_PRE_TYPE_MINICPM5"
+            if tk.pre == "minicpm5" else ".ref/llama.cpp src/llama-vocab.cpp L396 (LLAMA_VOCAB_PRE_TYPE_QWEN35)"),
     }
     (out / "vocab.json").write_text(json.dumps(tk.ids, ensure_ascii=False), encoding="utf-8")
     (out / "merges.txt").write_text("\n".join("%s %s" % k for k, _ in

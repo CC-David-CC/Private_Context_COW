@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "date_utc": "2026-10-24",
+  "kind": "native_minicpm_dense_branch_and_tokenizer_integration",
+  "model_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "engine_revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "cpu": {
+    "passed": true,
+    "checks": [
+      "fresh_oracle_repeated_full_work",
+      "root_frontier",
+      "independent_suffix_a",
+      "independent_suffix_b",
+      "parent_immutable",
+      "wrong_sibling_history_detected",
+      "disk_checkpoint_restore",
+      "mismatched_execution_profile_rejected",
+      "evicted_exact_computation_not_silently_replayed",
+      "explicit_reconstruction_after_full_cache_eviction",
+      "rewind_to_original_root"
+    ],
+    "logit_comparisons": [
+      {
+        "label": "root_frontier",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_a",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_b",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "disk_checkpoint_restore",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "explicit_reconstruction_after_full_cache_eviction",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "rewind_to_original_root",
+        "maximum_error": 0.0
+      }
+    ],
+    "oracle_requests": 7,
+    "oracle_tokens_computed": 90,
+    "backend_counters": {
+      "consumed_tokens": 39,
+      "forward_tokens": 39,
+      "forward_calls": 5,
+      "sampling_calls": 0,
+      "checkpoint_export_bytes": 5326745,
+      "checkpoint_import_bytes": 30963953
+    },
+    "seconds": 6.054232700960711,
+    "batching_drift_fresh_contexts": {
+      "a": 0.015477180480957031,
+      "b": 0.01455068588256836
+    }
+  },
+  "cuda": {
+    "passed": true,
+    "checks": [
+      "fresh_oracle_repeated_full_work",
+      "root_frontier",
+      "independent_suffix_a",
+      "independent_suffix_b",
+      "parent_immutable",
+      "wrong_sibling_history_detected",
+      "disk_checkpoint_restore",
+      "mismatched_execution_profile_rejected",
+      "evicted_exact_computation_not_silently_replayed",
+      "explicit_reconstruction_after_full_cache_eviction",
+      "rewind_to_original_root"
+    ],
+    "logit_comparisons": [
+      {
+        "label": "root_frontier",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_a",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_b",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "disk_checkpoint_restore",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "explicit_reconstruction_after_full_cache_eviction",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "rewind_to_original_root",
+        "maximum_error": 0.0
+      }
+    ],
+    "oracle_requests": 7,
+    "oracle_tokens_computed": 90,
+    "backend_counters": {
+      "consumed_tokens": 39,
+      "forward_tokens": 39,
+      "forward_calls": 5,
+      "sampling_calls": 0,
+      "checkpoint_export_bytes": 5326745,
+      "checkpoint_import_bytes": 30963953
+    },
+    "seconds": 5.453299928922206,
+    "batching_drift_fresh_contexts": {
+      "a": 0.016570091247558594,
+      "b": 0.020795345306396484
+    }
+  },
+  "tokenizer": {
+    "schema": 1,
+    "passed": true,
+    "token_id_comparisons": 2438,
+    "token_id_mismatches": [],
+    "vocabulary_pieces_compared": 130560,
+    "piece_mismatches": [],
+    "framing_checks": [
+      "root_bos_and_native_ids_thinking_false",
+      "append_after_1_thinking_false",
+      "append_after_130073_thinking_false",
+      "literal_controls_are_data_thinking_false",
+      "root_bos_and_native_ids_thinking_true",
+      "append_after_1_thinking_true",
+      "append_after_130073_thinking_true",
+      "literal_controls_are_data_thinking_true"
+    ],
+    "seconds": 3.8008959048893303,
+    "weights_updated": false,
+    "forward_passes": 0
+  },
+  "logical_G0": {
+    "passed": 58,
+    "required_real_backend_cases": 0
+  },
+  "legacy_default_cpu_compile": true,
+  "eos_tokens": [
+    1,
+    130073
+  ],
+  "capacity_ceiling": 131072,
+  "physical_prefix_sharing_qualified": false,
+  "full_G1_to_G5_certification": false,
+  "training_qualified": false,
+  "weights_updated": false,
+  "limitations": [
+    "Whole native checkpoints establish semantic independence, not physical shared-prefix memory.",
+    "Fresh oracle comparisons preserve native batch arrangements; differently batched fresh evaluations exhibited measurable drift.",
+    "MiniCPM LoRA attachment, full-gradient updates and candidate training are not qualified by these probes.",
+    "The sequential MiniCPM tokenizer is supported on the GGUF-native path. Strata pack export fails explicitly until its reader supports sequential splitting."
+  ],
+  "source_overlay_sha256": {
+    "tools/strata_tokenizer.py": "9e1eaccc699780818d18ce2f6fc329b85a5a4bef7ed4b7e28c6c44d93e380f22",
+    "serve/cow_minicpm_prompt.py": "c7735e59b8131f5ef56e740ba15fd3f22c86a96dc75d51eced1a46935e216801",
+    "experimental/branching_context/src/context_time_travel/llama_dense_backend.py": "ec4614645c756cb551a691bb237f57078a69c192cb5a210fbf781d1fbd35df40"
+  },
+  "tokenizer_intent": {
+    "schema": 1,
+    "profile_sha256": "69f1364ca74ffce39ddda4516b7dba2f819f32d1fce8b4b2dfd1ff81702e5edc",
+    "model_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+    "source_sha256": "5158dca4281287a0517e90c00b45301f903d4ee4f1c78b8f42eea5ffeb5a72b7",
+    "implementation_sha256": {
+      "tools/strata_tokenizer.py": "9e1eaccc699780818d18ce2f6fc329b85a5a4bef7ed4b7e28c6c44d93e380f22",
+      "serve/cow_minicpm_prompt.py": "c7735e59b8131f5ef56e740ba15fd3f22c86a96dc75d51eced1a46935e216801",
+      "serve/cow_prompt_encoder.py": "ccfdebd6114ff22aee39671325f57c0bbd40b5198c4db786cdc2ed43c84c06dc"
+    },
+    "corpus_sha256": "d2ed0ad2be1f51afc676de631d21e76de764dc3d8037def9214d044017b15f7c",
+    "unique_texts": 1219,
+    "parse_special_modes": [
+      false,
+      true
+    ],
+    "weights_updated": false,
+    "forward_passes": 0
+  }
+}

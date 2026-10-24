@@ -93,6 +93,10 @@ class _QwenLease:
         self.backend._release(self.pointer);self.pointer=None
 
 class Qwen35Backend(NativeBackend):
+    BACKEND="qwen35-llama.cpp"
+    GEOMETRY=_GEOMETRY
+    GEOMETRY_VALIDATOR=staticmethod(validate_geometry)
+    ATTENTION_KIND="qwen35-hybrid-gdn-full-attention"
     STATE_FORMAT="qwen35-hybrid-frontier-v1"
     RESUME_CONTRACT="identical-native-batches-v1"
     def capabilities(self):
@@ -107,7 +111,7 @@ class Qwen35Backend(NativeBackend):
             gpu_id=workers[0]
         self.gpu_id=gpu_id;self._device_name=device_name_for_worker(profile,gpu_id)
         validate_math_profile(profile)
-        if (profile.get('backend')!='qwen35-llama.cpp' or e.get('kv_dtype') not in ('FP16','FP32')
+        if (profile.get('backend')!=self.BACKEND or e.get('kv_dtype') not in ('FP16','FP32')
                 or e.get('sampling_location')!='native-cpu-frontier'
                 or e.get('state_format')!=self.STATE_FORMAT
                 or e.get('resume_contract')!=self.RESUME_CONTRACT
@@ -121,11 +125,11 @@ class Qwen35Backend(NativeBackend):
         super().__init__(profile)
         md={key:self.metadata(key) for key in ['general.architecture','tokenizer.ggml.model']}
         architecture=md['general.architecture']
-        for key in _GEOMETRY:
+        for key in self.GEOMETRY:
             value=self.metadata(architecture+'.'+key)
-            try:md[architecture+'.'+key]=int(value)
+            try:md[architecture+'.'+key]=type(self.GEOMETRY[key])(value)
             except (ValueError,TypeError):md[architecture+'.'+key]=None
-        try:validate_geometry(md)
+        try:self.GEOMETRY_VALIDATOR(md)
         except BaseException:self.close();raise
         fn=self.lib.ctt_new_config;fn.argtypes=[C.c_void_p,C.c_int,C.c_int,C.c_int];fn.restype=C.c_void_p
         fn=self.lib.ctt_tokenize;fn.argtypes=[C.c_void_p,C.c_char_p,C.c_int,C.c_void_p,C.c_int,C.c_bool,C.c_bool];fn.restype=C.c_int
@@ -170,7 +174,7 @@ class Qwen35Backend(NativeBackend):
         return data.value.decode()
 
     def contract_fields(self):
-        fields=dict(attention='qwen35-hybrid-gdn-full-attention',state_kind=self.STATE_FORMAT)
+        fields=dict(attention=self.ATTENTION_KIND,state_kind=self.STATE_FORMAT)
         if self._adapter_spec is not None:
             fields['adapters']=((self._adapter_spec['sha256'],self._adapter_spec['scale']),)
         return fields

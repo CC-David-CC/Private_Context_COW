@@ -52,8 +52,10 @@ def describe_dense(profile):
     mixed = e.get('state_format') == 'qwen35-hybrid-mrope-frontier-v2'
     expected = ('identical-mixed-native-operators-v1' if mixed
                 else 'identical-native-batches-v1')
-    if (profile.get('backend') != 'qwen35-llama.cpp'
-            or e.get('state_format') not in ('qwen35-hybrid-frontier-v1', 'qwen35-hybrid-mrope-frontier-v2')
+    llama=profile.get('backend')=='llama-dense-llama.cpp'
+    formats=(('llama-dense-frontier-v1',) if llama else ('qwen35-hybrid-frontier-v1','qwen35-hybrid-mrope-frontier-v2'))
+    if (profile.get('backend') not in ('qwen35-llama.cpp','llama-dense-llama.cpp')
+            or e.get('state_format') not in formats
             or e.get('resume_contract') != expected
             or e.get('generated_operator') != 'llama-forward-consumed-v1'
             or e.get('selected_token_protocol') != 'consumed-selected-receipt-v1'

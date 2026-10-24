@@ -28,9 +28,15 @@ int main(int argc, char ** argv) {
         auto * model = llama_model_load_from_file(argv[1], mp);
         if (!model) throw std::runtime_error("Model load failed");
         char arch[64]={}; llama_model_meta_val_str(model,"general.architecture",arch,sizeof(arch));
+#ifdef PCC_CTT_LLAMA_DENSE
+        if (std::string(arch)!="llama" || llama_model_is_hybrid(model) || llama_model_has_encoder(model)) {
+            throw std::runtime_error("Oracle requires qualified dense Llama decoder");
+        }
+#else
         if ((std::string(arch)!="qwen35" && std::string(arch)!="wen1") || !llama_model_is_hybrid(model) || llama_model_has_encoder(model)) {
             throw std::runtime_error("Oracle requires qwen35 hybrid decoder");
         }
+#endif
         std::unique_ptr<llama_adapter_lora,decltype(&llama_adapter_lora_free)>adapter(has_lora?qwen35_load_adapter(model,argv[base_argc+1]):nullptr,llama_adapter_lora_free);
         float adapter_scale=has_lora?std::stof(argv[base_argc+2]):1.f;
         auto * vocab = llama_model_get_vocab(model);

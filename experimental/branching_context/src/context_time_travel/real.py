@@ -28,6 +28,10 @@ def supports_consumed_selection(profile):
     """Declared operator boundary; the factory separately verifies native code."""
     e=profile.get('execution',{})
     if e.get('selected_token_protocol')!='consumed-selected-receipt-v1':return False
+    if profile.get('backend')=='llama-dense-llama.cpp':
+        return (e.get('generated_operator')=='llama-forward-consumed-v1'
+            and e.get('resume_contract')=='identical-native-batches-v1'
+            and e.get('state_format')=='llama-dense-frontier-v1')
     if profile.get('backend')=='qwen35-llama.cpp':
         return (e.get('generated_operator')=='llama-forward-consumed-v1' and (
             (e.get('resume_contract')=='identical-native-batches-v1' and e.get('state_format')=='qwen35-hybrid-frontier-v1') or
@@ -256,6 +260,9 @@ class BranchingModel:
         if kind == 'qwen35-llama.cpp':
             from .qwen35_backend import load_qwen35_backend
             return load_qwen35_backend(profile)
+        if kind == 'llama-dense-llama.cpp':
+            from .llama_dense_backend import LlamaDenseBackend
+            return LlamaDenseBackend(profile)
         if kind == 'strata':
             from .strata_backend import StrataBackend
             return StrataBackend(profile)
@@ -549,7 +556,7 @@ class BranchingModel:
         started = time.monotonic()
         self.store.authorize(snapshot,'append')
         execution = self.profile.get('execution',{})
-        if self.profile.get('backend')=='qwen35-llama.cpp':
+        if self.profile.get('backend') in ('qwen35-llama.cpp','llama-dense-llama.cpp'):
             return self.run_sampled_request(snapshot,ids,max_steps,
                 sampling=dict(temperature=0,min_p=0,top_k=0,top_p=1,repetition_penalty=1),
                 stream=stream,on_token=on_token,cancelled=cancelled,
@@ -1360,10 +1367,13 @@ class BranchingModel:
         started = time.monotonic()
         execution = self.profile.get('execution',{})
         mixed = execution.get('resume_contract') == RESUME_CONTRACT
-        if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
+        dense_llama=(self.profile.get('backend')=='llama-dense-llama.cpp'
+            and supports_consumed_selection(self.profile)
+            and execution.get('resume_contract')=='identical-native-batches-v1')
+        if not dense_llama and (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
                 or execution.get('generated_operator') != 'normal-verifier-decode'
                 or execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'):
-            raise InvalidOperation('History reconstruction requires the native greedy execution profile')
+            raise InvalidOperation('History reconstruction requires a qualified explicit native profile')
         with self.store.read_lease(snapshot):
             record = self.store.get_snapshot(snapshot)
             if record['model_contract_id'] != self.profile['model_contract_id']:

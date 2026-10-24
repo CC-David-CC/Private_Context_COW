@@ -183,3 +183,5 @@ argument instead of supplying a private machine path; its mathematical rules
 are unchanged. [The source manifest](evidence/source-manifest.json) records that
 packaging boundary. Public evidence omits private paths and host identifiers;
 the original artifact hashes and measurement scopes are retained.
+
+Ordinary dense MiniCPM integration: [build, qualification and current limits](MINICPM-NATIVE.md).

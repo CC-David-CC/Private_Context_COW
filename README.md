@@ -295,3 +295,5 @@ you must install alongside PCC and BW.
 Server/API source is in `serve/cow_http.py`, `serve/cow_adapter.py` and
 `experimental/branching_context/src/context_time_travel/`. Native engine and adapter
 work is in `src/`, `include/` and `experimental/branching_context/native/`.
+
+MiniCPM5-2B ordinary dense contexts now have CPU/CUDA and tokenizer integration evidence: [setup and current qualification limits](experimental/branching_context/MINICPM-NATIVE.md). MiniCPM training is not yet qualified.
