@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "kind": "pcc.exploratory-saved-weight-geometry.v1",
+  "model": "MiniCPM5-2B",
+  "base_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "layers": [
+    0,
+    21,
+    41
+  ],
+  "tensor_names": [
+    "blk.0.attn_q.weight",
+    "blk.0.attn_output.weight",
+    "blk.0.ffn_down.weight",
+    "blk.21.attn_q.weight",
+    "blk.21.attn_output.weight",
+    "blk.21.ffn_down.weight",
+    "blk.41.attn_q.weight",
+    "blk.41.attn_output.weight",
+    "blk.41.ffn_down.weight"
+  ],
+  "method": "Exact float64 SVD of complete selected matrices",
+  "metrics": [
+    "stable_rank",
+    "entropy_effective_rank",
+    "energy_participation_rank",
+    "frobenius_norm",
+    "rms",
+    "spectral_norm"
+  ],
+  "comparisons": [
+    "base",
+    "adamw-control",
+    "muon-standard",
+    "muon-rms-decay",
+    "muon-fast-refine"
+  ],
+  "scope": "Saved weight geometry and accumulated difference from base; not per-step orthogonality, activation rank, or capability evidence",
+  "selection_timing": "Exploratory protocol after first AdamW behavior result, before Muon results; fixed positional/role selection, no spectrum results inspected",
+  "execution": "Extract after the current study releases llm-60; exact SVD on authorized CPU host",
+  "source_sha256": "398f7261f92c28b1718be44740a2a8b3bb1aa4190834a8c6a1dfd073d800ef3f",
+  "weights_updated": false
+}

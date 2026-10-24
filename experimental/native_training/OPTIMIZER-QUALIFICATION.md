@@ -242,3 +242,34 @@ S3's [current MiniCPM baseline and fixed-budget study](https://github.com/CC-Dav
 uses this control for four full-update candidates, with held-out learning and
 retention measured independently of optimizer mechanics. The earlier next-step
 text above is historical; real-model update/reload mechanics are already qualified.
+
+
+## Saved-weight geometry diagnostics
+
+`matrix_geometry.py` adds offline exact float64 SVD of explicitly selected full
+F16/F32 GGUF matrices. It can extract checksummed matrix subsets for another
+CPU analysis host, avoiding a whole-model transfer. It reports stable rank,
+singular-value entropy effective rank, energy participation rank, Frobenius norm,
+RMS and spectral norm for weights and accumulated changes from a pinned base.
+It does not train, use autograd or promote a model. Three analytic/actual-GGUF
+checks pass, covering known spectra, scale invariance, zero changes, immutable
+source hashes and subset corruption refusal.
+
+The [exploratory measurement protocol](validation/matrix-geometry-protocol.json)
+fixes Q, attention-output and FFN-down matrices in layers 0, 21 and 41 across the
+base and all four candidates. It was declared after the first AdamW behavior
+result, before Muon results, without inspecting spectra. Execution waits for the
+current study to release its host. No measured rank result is claimed yet.
+Orthogonalizing an optimizer update does not guarantee higher rank in saved
+weights or better activation features. These diagnostics remain separate from
+held-out task scores and compute measurements.
+
+```sh
+python -m experimental.native_training.matrix_geometry extract \
+  --model /models/candidate.gguf --model-sha256 PINNED_SHA256 \
+  --names blk.0.attn_q.weight blk.0.attn_output.weight blk.0.ffn_down.weight \
+  --output /new/candidate-subset
+OPENBLAS_NUM_THREADS=8 python -m experimental.native_training.matrix_geometry measure \
+  --subset /new/candidate-subset --baseline-subset /data/base-subset \
+  --output /new/matrix-geometry.json
+```
