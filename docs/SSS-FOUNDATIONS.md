@@ -146,3 +146,11 @@ reload (loss difference below 2e-8), and all owned allocations settled. It remai
 unqualified and unpromoted. S³ preserves the
 [complete aggregate result](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/validation/foundations-20261023/wen-full-pack-update.json)
 and prepared larger mixed-practice packs with unchanged protected tests.
+
+## Reusable learning campaign
+
+S3 now documents the [learning-program objective and completion evidence](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/LEARNING-PROGRAM.md).
+Wen helps exercise the machinery for Codi; they are separate models. PCC supplies
+[bounded read-only GPU observation](GPU-OBSERVATION.md) for owner-run studies.
+Candidate weights remain on the training host; public reports contain aggregate
+results and content identities. Resource telemetry does not itself authorize a launch.

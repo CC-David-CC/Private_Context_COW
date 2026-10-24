@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Bounded read-only GPU observation",
+  "unit_tests": 7,
+  "driver_observation": {
+    "devices": 8,
+    "source_sha256": "acc18c8a318e22390c9db61be830257643aef12310560bb41aee87c00bd3fbf0",
+    "first_sample_utc": "2026-10-24T02:27:49.572042+00:00",
+    "unavailable_samples": 0
+  },
+  "allocates_gpus": false,
+  "controls_jobs": false,
+  "measures_per_process_compute": false,
+  "limitations": "A snapshot is not resource admission, a reservation, allocation-hour accounting, or a guarantee of later availability",
+  "command": "python -m unittest tools.test_gpu_observer -v"
+}
