@@ -273,3 +273,9 @@ OPENBLAS_NUM_THREADS=8 python -m experimental.native_training.matrix_geometry me
   --subset /new/candidate-subset --baseline-subset /data/base-subset \
   --output /new/matrix-geometry.json
 ```
+
+
+The [supported continuous-learning design](../../docs/NATIVE-LEARNING-LOOP.md) defines
+PCC execution/lifecycle ownership, S3 curriculum/scoring and BW as a client. It
+separates implemented native mechanics from the planned durable API/CLI and
+shared-forward-graph consolidation.

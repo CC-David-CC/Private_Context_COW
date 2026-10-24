@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "wall_seconds": 110.04527417989448,
+  "gpu_used": false,
+  "quantizer_sha256": "b0f8cfb6f727c08781c8f23c163c33c847f5d59a047357138aa223efa0f96b52"
+}

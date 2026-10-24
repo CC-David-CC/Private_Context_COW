@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "all_saved_weight_values_equal": true,
+  "parameter_tensors": 381,
+  "elements": 2516756480,
+  "scope": "Weight values only; inference kernel/behavior parity still needs measurement"
+}

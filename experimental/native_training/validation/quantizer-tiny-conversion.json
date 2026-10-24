@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Actual tiny GGUF F16/F32 conversion; Q1_0 header geometry; immutable-source/output refusal",
+  "cases": [
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "9676647d4c4ed448d5f0119499d5498d8baaefb3d858a4560fd071309a99670b",
+      "model_sha256": "a2247c2c2026f57f3b0b171f7f08310e1c685b0b64fbcb141e7455eb1b448712",
+      "requested_format": "F16",
+      "bytes": 2848,
+      "tensor_types": {
+        "F16": 21
+      },
+      "tensor_type_ids": {
+        "1": 21
+      },
+      "tensors": 21,
+      "conversion_wall_seconds": 0.00787871121428907,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "9676647d4c4ed448d5f0119499d5498d8baaefb3d858a4560fd071309a99670b",
+      "model_sha256": "10d22694265bb72225e2b1bc84b95ee41e0ea9598adf86d23a7a6e94166f948e",
+      "requested_format": "F32",
+      "bytes": 3488,
+      "tensor_types": {
+        "F32": 16,
+        "F16": 5
+      },
+      "tensor_type_ids": {
+        "0": 16,
+        "1": 5
+      },
+      "tensors": 21,
+      "conversion_wall_seconds": 0.007803092012181878,
+      "behavior_measured": false,
+      "weights_published": false
+    }
+  ]
+}

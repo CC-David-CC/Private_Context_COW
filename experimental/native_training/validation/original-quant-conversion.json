@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "status": "COMPLETE",
+  "formats": [
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "2323c47d8bf14fb2906e1275688aa784768cf39a364729bc52bf6ba5c0742764",
+      "requested_format": "F32",
+      "bytes": 10072171488,
+      "tensor_types": {
+        "F32": 381
+      },
+      "tensor_type_ids": {
+        "0": 381
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 60.669835104141384,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "c5415f8989bf88a8288f1b55a3cc371af53c07b0faa220a63bd7a990cfaba078",
+      "requested_format": "Q8_0",
+      "bytes": 2679710688,
+      "tensor_types": {
+        "Q8_0": 296,
+        "F32": 85
+      },
+      "tensor_type_ids": {
+        "8": 296,
+        "0": 85
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 10.673819840885699,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "9d4359dd536582b341cdfd4207aaf62915e5aceebd0cc82f2296133cb9d7e3cb",
+      "requested_format": "Q5_K_M",
+      "bytes": 1808061408,
+      "tensor_types": {
+        "Q5_K": 253,
+        "F32": 85,
+        "Q6_K": 43
+      },
+      "tensor_type_ids": {
+        "14": 43,
+        "0": 85,
+        "13": 253
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 28.792779482901096,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "ec2d5801640099e97d8d7e8003ad4d81f336e757811f03a26173dddf386602fd",
+      "requested_format": "Q4_K_M",
+      "bytes": 1561318368,
+      "tensor_types": {
+        "Q4_K": 253,
+        "F32": 85,
+        "Q6_K": 43
+      },
+      "tensor_type_ids": {
+        "14": 43,
+        "0": 85,
+        "12": 253
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 32.344006069004536,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "7a533055f3e5f24c9429a1a1cbd5906c747ce165966eede257296453b51f30ff",
+      "requested_format": "Q3_K_M",
+      "bytes": 1291420640,
+      "tensor_types": {
+        "Q3_K": 169,
+        "Q4_K": 122,
+        "F32": 85,
+        "Q5_K": 4,
+        "Q6_K": 1
+      },
+      "tensor_type_ids": {
+        "14": 1,
+        "0": 85,
+        "11": 169,
+        "12": 122,
+        "13": 4
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 18.595598604995757,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "bcfcb4fb0e4c220b9fafa52fbd52b7fa887f0052142eb919590d3b489cb91def",
+      "requested_format": "Q2_K",
+      "bytes": 1039926240,
+      "tensor_types": {
+        "Q2_K": 169,
+        "F32": 85,
+        "Q3_K": 84,
+        "Q4_K": 42,
+        "Q6_K": 1
+      },
+      "tensor_type_ids": {
+        "14": 1,
+        "0": 85,
+        "10": 169,
+        "11": 84,
+        "12": 42
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 23.229497669031844,
+      "behavior_measured": false,
+      "weights_published": false
+    },
+    {
+      "schema": 1,
+      "status": "CONVERTED_NOT_EVALUATED",
+      "source_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+      "model_sha256": "a050f9517b90126e49ef749d0d10b219c86efffa954d9ffdc7b9a3c471692e64",
+      "requested_format": "Q1_0",
+      "bytes": 541475808,
+      "tensor_types": {
+        "Q1_0": 295,
+        "F32": 85,
+        "Q6_K": 1
+      },
+      "tensor_type_ids": {
+        "14": 1,
+        "0": 85,
+        "41": 295
+      },
+      "tensors": 381,
+      "conversion_wall_seconds": 8.880342080025002,
+      "behavior_measured": false,
+      "weights_published": false
+    }
+  ],
+  "behavior_measured": false,
+  "weights_published": false
+}
