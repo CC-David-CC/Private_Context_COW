@@ -305,3 +305,8 @@ now pass independently checked tiny full/LoRA CPU graphs; an earlier revision
 also passed on two A100s. The exact final CUDA guard, real MiniCPM forward and
 learning remain unqualified. [Muon comparison](docs/OPTIMIZER-COMPARISON.md) is
 planned at a fixed compute budget; only SGD exists in the trainer today.
+
+[Native AdamW/Muon checkpoint](experimental/native_training/OPTIMIZER-QUALIFICATION.md):
+CPU/CUDA math and exact completed-state continuation pass. Actual MiniCPM short
+forward agrees with FP64; the earlier 0.011 discrepancy is isolated to inference
+output selection/execution shape. No MiniCPM weights have been trained yet.

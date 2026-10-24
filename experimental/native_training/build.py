@@ -90,8 +90,8 @@ def main():
         libraries.append(matches[0])
     runtime=':'.join(dict.fromkeys(str(p.parent) for p in libraries));engine=ll/'build/bin'
     cmd=['c++','-std=c++17','-O2','-g','-rdynamic','-I'+str(ll/'include'),'-I'+str(dependency/'include'),
-         '-I'+str(ll/'vendor'),'-DPCC_CUDA_BACKEND="'+('' if args.cpu_only else str(engine/'libggml-cuda.so'))+'"',
-         str(source),'-Wl,-rpath,'+runtime,
+         '-I'+str(ll/'vendor'),'-I'+str(ll/'vendor/hash'),'-DPCC_CUDA_BACKEND="'+('' if args.cpu_only else str(engine/'libggml-cuda.so'))+'"',
+         str(source),str(ll/'vendor/hash/sha256/sha256.c'),'-Wl,-rpath,'+runtime,
          '-o',str(out/'pcc-native-train'),*map(str,libraries),'-ldl','-pthread']
     subprocess.run(cmd,check=True)
     linked=subprocess.check_output(['ldd',str(out/'pcc-native-train')],text=True)
@@ -99,6 +99,10 @@ def main():
     receipt=dict(pin=PIN,command=cmd,linked=linked,source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
                  dependency_patch='materialize-strided-noninplace-scale-v1+concat-adjoint-v1+bounded-assigned-allocator-v1',
                  dependency_allocator=allocator_patch,
+                  optimizer_source_sha256=hashlib.sha256(source.with_name('native_optimizer.h').read_bytes()).hexdigest(),
+                  optimizer_state_source_sha256=hashlib.sha256(source.with_name('optimizer_state.h').read_bytes()).hexdigest(),
+                  sha256_dependency_sha256=hashlib.sha256((ll/'vendor/hash/sha256/sha256.c').read_bytes()).hexdigest(),
+                  sha256_rotate_dependency_sha256=hashlib.sha256((ll/'vendor/hash/rotate-bits/rotate-bits.h').read_bytes()).hexdigest(),
                  dependency_core_sha256=hashlib.sha256(core.read_bytes()).hexdigest(),
                  cpu_only=args.cpu_only,
                  cuda_sha256=None if args.cpu_only else hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),

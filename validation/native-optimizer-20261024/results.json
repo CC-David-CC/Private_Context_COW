@@ -1,0 +1,740 @@
+{
+  "schema": 1,
+  "date_utc": "2026-10-24",
+  "kind": "native_optimizer_qualification_checkpoint",
+  "implemented_in": "PCC experimental native trainer and offline operator helper",
+  "bw_cli_muon_exposed": false,
+  "sss_learning_campaign_run": false,
+  "model_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "cpu_math": {
+    "status": "PASS",
+    "backend": "CPU",
+    "scope": "Native optimizer tiny-tensor mechanics only; not MiniCPM training or learning",
+    "cases": [
+      {
+        "label": "0",
+        "optimizer": "adamw",
+        "settings": {
+          "schema": 1
+        },
+        "status": "PASS",
+        "scalar_comparisons": 804,
+        "max_absolute_error": 3.628228645302656e-08,
+        "failures": []
+      },
+      {
+        "label": "1",
+        "optimizer": "adamw",
+        "settings": {
+          "schema": 1,
+          "weight_decay": 0.1,
+          "aux_weight_decay": 0.03
+        },
+        "status": "PASS",
+        "scalar_comparisons": 804,
+        "max_absolute_error": 2.1512573222803866e-08,
+        "failures": []
+      },
+      {
+        "label": "2",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "nesterov": false
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 4.2067983825611055e-08,
+        "failures": []
+      },
+      {
+        "label": "3",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "nesterov": true
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 5.51462239276046e-08,
+        "failures": []
+      },
+      {
+        "label": "4",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "scaling": "rms",
+          "weight_decay": 0.1,
+          "aux_weight_decay": 0.03
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 4.309315387862611e-08,
+        "failures": []
+      },
+      {
+        "label": "5",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "projection": "fast-refine-v1",
+          "refine_start_step": 2,
+          "refine_steps": 5,
+          "scaling": "rms",
+          "weight_decay": 0.1
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 8.396170184110652e-08,
+        "failures": []
+      }
+    ],
+    "promoted": false
+  },
+  "cuda_math": {
+    "status": "PASS",
+    "backend": "CUDA0",
+    "scope": "Native optimizer tiny-tensor mechanics only; not MiniCPM training or learning",
+    "cases": [
+      {
+        "label": "0",
+        "optimizer": "adamw",
+        "settings": {
+          "schema": 1
+        },
+        "status": "PASS",
+        "scalar_comparisons": 804,
+        "max_absolute_error": 4.7209262277192465e-08,
+        "failures": []
+      },
+      {
+        "label": "1",
+        "optimizer": "adamw",
+        "settings": {
+          "schema": 1,
+          "weight_decay": 0.1,
+          "aux_weight_decay": 0.03
+        },
+        "status": "PASS",
+        "scalar_comparisons": 804,
+        "max_absolute_error": 4.7209262277192465e-08,
+        "failures": []
+      },
+      {
+        "label": "2",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "nesterov": false
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 3.9701250620360895e-08,
+        "failures": []
+      },
+      {
+        "label": "3",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "nesterov": true
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 4.9117357625583224e-08,
+        "failures": []
+      },
+      {
+        "label": "4",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "scaling": "rms",
+          "weight_decay": 0.1,
+          "aux_weight_decay": 0.03
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 3.085312083594971e-08,
+        "failures": []
+      },
+      {
+        "label": "5",
+        "optimizer": "muon",
+        "settings": {
+          "schema": 1,
+          "projection": "fast-refine-v1",
+          "refine_start_step": 2,
+          "refine_steps": 5,
+          "scaling": "rms",
+          "weight_decay": 0.1
+        },
+        "status": "PASS",
+        "scalar_comparisons": 664,
+        "max_absolute_error": 6.75860806348405e-08,
+        "failures": []
+      }
+    ],
+    "promoted": false
+  },
+  "cpu_completed_training_continuation": {
+    "status": "PASS",
+    "scope": "Generated tiny ordinary-Llama full backprop and completed optimizer continuation; not MiniCPM learning",
+    "devices": [
+      "CPU"
+    ],
+    "cases": [
+      {
+        "arm": "adamw",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 42,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon-rms",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon-refine",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": true
+      }
+    ],
+    "negative_cases": 14,
+    "promoted": false
+  },
+  "cuda_completed_training_continuation": {
+    "status": "PASS",
+    "scope": "Generated tiny ordinary-Llama full backprop and completed optimizer continuation; not MiniCPM learning",
+    "devices": [
+      "CUDA0"
+    ],
+    "cases": [
+      {
+        "arm": "adamw",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 42,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon-rms",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": false
+      },
+      {
+        "arm": "muon-refine",
+        "status": "PASS",
+        "weight_tensors": 21,
+        "state_tensors": 28,
+        "resumed_equals_uninterrupted_weights": true,
+        "resumed_equals_uninterrupted_moments": true,
+        "completed_steps": 3,
+        "example_cursor": 5,
+        "partial_final_batch": true,
+        "optimizer_refinement_active": true
+      }
+    ],
+    "negative_cases": 14,
+    "promoted": false
+  },
+  "cpu_sgd_regression": {
+    "status": "PASS",
+    "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+    "checks": [
+      {
+        "name": "layer",
+        "independent": {
+          "status": "PASS",
+          "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+          "checks": [
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 8.18346301834083e-09,
+              "step_sensitivity": 1.0408340855860843e-11,
+              "failures": [],
+              "layer": 0,
+              "fp64_value": -0.045035178899301344,
+              "native_value": -0.04503517970442772
+            },
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 3.3092688811464654e-08,
+              "step_sensitivity": 2.949029909160572e-11,
+              "failures": [],
+              "layer": 1,
+              "fp64_value": 0.05895722491203145,
+              "native_value": 0.05895721912384033
+            }
+          ]
+        }
+      },
+      {
+        "name": "complete",
+        "independent": {
+          "status": "PASS",
+          "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+          "checks": [
+            {
+              "scalar_gradients": 364,
+              "max_absolute_gradient_error": 3.192433837284625e-07,
+              "step_sensitivity": 8.659739592076221e-09,
+              "failures": [],
+              "mode": "full",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 5.630700994352367e-08
+            },
+            {
+              "scalar_gradients": 278,
+              "max_absolute_gradient_error": 9.62280921612546e-10,
+              "step_sensitivity": 3.3306690738754696e-10,
+              "failures": [],
+              "mode": "lora",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 5.630700994352367e-08
+            }
+          ]
+        }
+      },
+      {
+        "name": "f16-decode-and-forward",
+        "max_absolute_logit_error": 4.039852315868009e-08,
+        "loss_error": 2.1782292769501055e-07
+      },
+      {
+        "name": "f32-decode-and-forward",
+        "max_absolute_logit_error": 5.460657512279532e-08,
+        "loss_error": 4.201067005382697e-08
+      },
+      {
+        "name": "full-batch-update-and-reload",
+        "parameters": 21,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true,
+        "tensors_with_changed_values": 21
+      },
+      {
+        "name": "lora-batch-update-and-reload",
+        "parameters": 30,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true
+      },
+      {
+        "name": "forty-two-layer-standard-backprop",
+        "parameter_tensors": 381,
+        "weights_updated": false
+      }
+    ],
+    "negative_cases": 6,
+    "gpu_used": false,
+    "devices": [
+      "CPU"
+    ],
+    "promoted": false
+  },
+  "cuda_sgd_regression": {
+    "status": "PASS",
+    "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+    "checks": [
+      {
+        "name": "layer",
+        "independent": {
+          "status": "PASS",
+          "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+          "checks": [
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 7.252530132006996e-09,
+              "step_sensitivity": 1.0408340855860843e-11,
+              "failures": [],
+              "layer": 0,
+              "fp64_value": -0.045035178899301344,
+              "native_value": -0.04503517597913742
+            },
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 1.1593371374019057e-08,
+              "step_sensitivity": 2.949029909160572e-11,
+              "failures": [],
+              "layer": 1,
+              "fp64_value": 0.05895722491203145,
+              "native_value": 0.058957211673259735
+            }
+          ]
+        }
+      },
+      {
+        "name": "complete",
+        "independent": {
+          "status": "PASS",
+          "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+          "checks": [
+            {
+              "scalar_gradients": 364,
+              "max_absolute_gradient_error": 3.5001025366909744e-07,
+              "step_sensitivity": 8.659739592076221e-09,
+              "failures": [],
+              "mode": "full",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 1.1591165471891429e-07
+            },
+            {
+              "scalar_gradients": 278,
+              "max_absolute_gradient_error": 1.2556782280626066e-09,
+              "step_sensitivity": 3.3306690738754696e-10,
+              "failures": [],
+              "mode": "lora",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 1.1591165471891429e-07
+            }
+          ]
+        }
+      },
+      {
+        "name": "f16-decode-and-forward",
+        "max_absolute_logit_error": 5.97195009832685e-08,
+        "loss_error": 2.059565140655195e-08
+      },
+      {
+        "name": "f32-decode-and-forward",
+        "max_absolute_logit_error": 4.517669077719333e-08,
+        "loss_error": 4.201067005382697e-08
+      },
+      {
+        "name": "full-batch-update-and-reload",
+        "parameters": 21,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true,
+        "tensors_with_changed_values": 21
+      },
+      {
+        "name": "lora-batch-update-and-reload",
+        "parameters": 30,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true
+      },
+      {
+        "name": "forty-two-layer-standard-backprop",
+        "parameter_tensors": 381,
+        "weights_updated": false
+      }
+    ],
+    "negative_cases": 6,
+    "gpu_used": true,
+    "devices": [
+      "CUDA0"
+    ],
+    "promoted": false
+  },
+  "offline_contract_tests": 12,
+  "actual_model_fp64_forward": {
+    "status": "PASS",
+    "scope": "Actual ordinary-Llama short FP64 forward versus retained native logits; not learning",
+    "model_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+    "max_absolute_tolerance": 0.0002,
+    "rms_tolerance": 5e-05,
+    "checks": [
+      {
+        "case": 0,
+        "tokens": 10,
+        "vocabulary": 130560,
+        "max_absolute_error": 3.940058306195482e-05,
+        "rms_error": 7.052272174758259e-06,
+        "all_positions_max_absolute_error": 3.940058306195482e-05,
+        "all_positions_rms_error": 5.0307654602400845e-06,
+        "same_top_token": true,
+        "fp64_loss": 8.882030791507463,
+        "passed": true
+      },
+      {
+        "case": 1,
+        "tokens": 8,
+        "vocabulary": 130560,
+        "max_absolute_error": 3.2439478612644734e-05,
+        "rms_error": 4.994143474477399e-06,
+        "all_positions_max_absolute_error": 4.4533369296217984e-05,
+        "all_positions_rms_error": 4.737755659447695e-06,
+        "same_top_token": true,
+        "fp64_loss": 7.3677259316170005,
+        "passed": true
+      }
+    ],
+    "seconds": 8.560981484130025,
+    "weights_updated": false,
+    "promoted": false
+  },
+  "initial_default_attention_comparison": [
+    {
+      "tokens": 10,
+      "vocabulary": 130560,
+      "max_absolute_error": 0.01117086410522461,
+      "rms_error": 0.002323492199710801,
+      "same_top_token": true,
+      "native_tensor_parameters": 381,
+      "passed": false
+    },
+    {
+      "tokens": 8,
+      "vocabulary": 130560,
+      "max_absolute_error": 0.011119484901428223,
+      "rms_error": 0.0035181950185845592,
+      "same_top_token": true,
+      "native_tensor_parameters": 381,
+      "passed": false
+    }
+  ],
+  "fp32_attention_final_logit_only_comparison": [
+    {
+      "tokens": 10,
+      "vocabulary": 130560,
+      "max_absolute_error": 0.010190010070800781,
+      "rms_error": 0.0025325734629908538,
+      "same_top_token": true,
+      "native_tensor_parameters": 381,
+      "passed": false
+    },
+    {
+      "tokens": 8,
+      "vocabulary": 130560,
+      "max_absolute_error": 0.0044727325439453125,
+      "rms_error": 0.0009494303791558166,
+      "same_top_token": true,
+      "native_tensor_parameters": 381,
+      "passed": false
+    }
+  ],
+  "native_output_selection_and_batch_controls": {
+    "status": "MEASURED",
+    "scope": "Native same-model execution controls; not learning",
+    "checks": [
+      {
+        "case": 0,
+        "comparison": "default identical fresh repeats",
+        "max_absolute_error": 0.0,
+        "rms_error": 0.0,
+        "same_top_token": true,
+        "total_variation": 0.0,
+        "kl_a_to_b": 0.0
+      },
+      {
+        "case": 1,
+        "comparison": "default identical fresh repeats",
+        "max_absolute_error": 0.0,
+        "rms_error": 0.0,
+        "same_top_token": true,
+        "total_variation": 0.0,
+        "kl_a_to_b": 0.0
+      },
+      {
+        "case": 0,
+        "comparison": "all identical fresh repeats",
+        "max_absolute_error": 0.0,
+        "rms_error": 0.0,
+        "same_top_token": true,
+        "total_variation": 0.0,
+        "kl_a_to_b": 0.0
+      },
+      {
+        "case": 1,
+        "comparison": "all identical fresh repeats",
+        "max_absolute_error": 0.0,
+        "rms_error": 0.0,
+        "same_top_token": true,
+        "total_variation": 0.0,
+        "kl_a_to_b": 0.0
+      },
+      {
+        "case": 0,
+        "comparison": "default_vs_all_whole",
+        "max_absolute_error": 0.010186195373535156,
+        "rms_error": 0.0025326667171901187,
+        "same_top_token": true,
+        "total_variation": 0.0005485641720179961,
+        "kl_a_to_b": 1.1675905347252298e-06
+      },
+      {
+        "case": 0,
+        "comparison": "default_whole_vs_single",
+        "max_absolute_error": 0.022065162658691406,
+        "rms_error": 0.004943145015155674,
+        "same_top_token": true,
+        "total_variation": 0.0016784972562241794,
+        "kl_a_to_b": 8.546041552985088e-06
+      },
+      {
+        "case": 0,
+        "comparison": "all_whole_vs_single",
+        "max_absolute_error": 0.026772499084472656,
+        "rms_error": 0.006600144907890278,
+        "same_top_token": true,
+        "total_variation": 0.0017961156949380494,
+        "kl_a_to_b": 9.57723015817688e-06
+      },
+      {
+        "case": 0,
+        "comparison": "training_vs_all_whole",
+        "max_absolute_error": 1.9431114196777344e-05,
+        "rms_error": 3.7283723384354003e-06,
+        "same_top_token": true,
+        "total_variation": 1.5336020022402097e-06,
+        "kl_a_to_b": 7.327862649881979e-12
+      },
+      {
+        "case": 0,
+        "comparison": "training_vs_default_whole",
+        "max_absolute_error": 0.010190010070800781,
+        "rms_error": 0.0025325734629908538,
+        "same_top_token": true,
+        "total_variation": 0.0005485737272626226,
+        "kl_a_to_b": 1.1685064805908653e-06
+      },
+      {
+        "case": 1,
+        "comparison": "default_vs_all_whole",
+        "max_absolute_error": 0.004468202590942383,
+        "rms_error": 0.0009492207564979319,
+        "same_top_token": true,
+        "total_variation": 0.00029112823365409464,
+        "kl_a_to_b": 3.9145056729666516e-07
+      },
+      {
+        "case": 1,
+        "comparison": "default_whole_vs_single",
+        "max_absolute_error": 0.016526222229003906,
+        "rms_error": 0.002935851363292322,
+        "same_top_token": true,
+        "total_variation": 0.0006276932794011314,
+        "kl_a_to_b": 1.3874403877295399e-06
+      },
+      {
+        "case": 1,
+        "comparison": "all_whole_vs_single",
+        "max_absolute_error": 0.016872644424438477,
+        "rms_error": 0.0028794130064163097,
+        "same_top_token": true,
+        "total_variation": 0.0006756443508104562,
+        "kl_a_to_b": 1.5152188156428494e-06
+      },
+      {
+        "case": 1,
+        "comparison": "training_vs_all_whole",
+        "max_absolute_error": 2.2590160369873047e-05,
+        "rms_error": 4.399201317848699e-06,
+        "same_top_token": true,
+        "total_variation": 1.977589306716427e-06,
+        "kl_a_to_b": 1.2815336195428977e-11
+      },
+      {
+        "case": 1,
+        "comparison": "training_vs_default_whole",
+        "max_absolute_error": 0.0044727325439453125,
+        "rms_error": 0.0009494303791558166,
+        "same_top_token": true,
+        "total_variation": 0.00029114104575742766,
+        "kl_a_to_b": 3.914719085247561e-07
+      }
+    ],
+    "weights_updated": false,
+    "promoted": false
+  },
+  "numerical_contract": {
+    "max_absolute_tolerance": 0.0002,
+    "rms_tolerance": 5e-05,
+    "same_top_token_required": true,
+    "scope": "Matched full-output, whole-input schedule and F32 reference math; not arbitrary cross-profile equality",
+    "thresholds_widened": false,
+    "low_level_kernel_algorithm_identified": false
+  },
+  "hardware": {
+    "cuda": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "a100_used_for_this_checkpoint": false,
+    "training_cuda_fast_math": false,
+    "reference_cuda_fast_math": true
+  },
+  "qualified_native_sources": {
+    "native_train.cpp": "b943fb75af3c37754034290ce366d81f61465ecd6d55193d09aab68ed66ab125",
+    "native_optimizer.h": "163e753756be09ebc926624b2531775049f8a77c25e5f3fc7fa5e2dafaecfbdf",
+    "optimizer_state.h": "4eb5e8cd3bc39baab33d8e6f071e8992ed8f3edf8040d33387f5c0577ccd056e"
+  },
+  "native_dependency_pin": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+  "cuda_backend_sha256": "05d16f74c9c26adbeb0a8a7cd9af1d7c35eb601d2d7d71835b7327e68ffd615f",
+  "cuda_source_sha256": "168f3d5c708c9f3800ec1cf25e230ba430f574a5225297c08219b39cddc12acb",
+  "oracle_control_source_sha256": "fc9d36a44279266183302166e689a996ba21b3509f1e86327b2d916e9acaf495",
+  "gpu_settled": true,
+  "real_minicpm_weights_updated": false,
+  "real_minicpm_candidate_accepted": false,
+  "limitations": [
+    "Tiny generated tensors/graphs establish optimizer mechanics, not MiniCPM learning quality.",
+    "Actual MiniCPM checks use two short inputs of ten and eight tokens; 130560 is vocabulary size, not context length.",
+    "Muon uses explicitly declared native F32 math; this is not bitwise equivalence to the creator BF16 implementation.",
+    "No actual-model gradient/update/save-resume pilot or fixed-compute learning comparison has run yet.",
+    "No A100 Muon qualification, multi-device optimizer qualification, within-matrix momentum gather or live state offload is established.",
+    "Refinement is a declared experimental Jordan-then-cubic schedule, not Polar Express or a presumed quality improvement."
+  ]
+}

@@ -7,8 +7,9 @@ model. No serving model or adapter has been promoted.
 [MiniCPM/ordinary Llama qualification](MINICPM-QUALIFICATION.md) adds an opt-in
 short-sequence route with F16 source decoding and independently checked tiny
 full/LoRA graphs. Real MiniCPM forward/training qualification is still pending.
-[Muon comparison plan](../../docs/OPTIMIZER-COMPARISON.md) records the next
-optimizer work; the current implementation supports only SGD.
+[Native AdamW/Muon qualification](OPTIMIZER-QUALIFICATION.md) now covers CPU/CUDA
+mechanics, completed state continuation and actual-model FP64 forward controls.
+SGD stays the default; MiniCPM updates and learning acceptance remain pending.
 
 Both LoRA updates and direct base-weight backpropagation use native GGML without
 PyTorch. Direct full-weight training is distinct from merging a LoRA into a base.
@@ -90,7 +91,8 @@ training** changes active decoder weights themselves, without training an adapte
 and merging it afterward. Full mode includes embeddings, layers, norms and head.
 LoRA adapts linear projections and the head, not embeddings, convolutions or norms.
 
-The C++/GGML engine performs forward, backward and SGD updates. Python checks
+The C++/GGML engine performs forward, backward and default SGD updates; the
+explicit ordinary-Llama full route adds native AdamW/Muon updates. Python checks
 offline requests and records candidates; NumPy is used only for independent
 verification. COW's saved context is neither a training example nor a weight
 checkpoint. New model/adapter identities require separate compatible caches.
@@ -175,8 +177,10 @@ NumPy is required for FP64 verification, not for native training.
 Use `tools/pcc_native_training.py`'s `execute_native()` from an offline operator
 script with a fresh private run directory. Supply pinned model SHA-256, explicit
 devices/per-device budgets, `mode="lora"` or `mode="full"`, examples, learning
-rate, batch size and steps. Only SGD without momentum is implemented; other
-optimizer requests fail rather than silently substituting.
+rate, batch size and steps. SGD without momentum remains the default. The explicit ordinary-Llama full
+route additionally admits native AdamW/Muon with a pinned optimizer-state
+contract; see [qualification and request fields](OPTIMIZER-QUALIFICATION.md).
+Unsupported optimizer/settings requests fail rather than silently substituting.
 
 Examples contain exactly `id`, `tokens`, `targets`, `loss_mask`, `verified` and
 `provenance_sha256`. Tokenize with the exact base tokenizer. Each target is the

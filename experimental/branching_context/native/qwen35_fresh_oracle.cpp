@@ -43,6 +43,9 @@ int main(int argc, char ** argv) {
         const int32_t nv = llama_vocab_n_tokens(vocab);
         const int capacity=std::stoi(argv[2]), max_batch=std::stoi(argv[3]), threads=std::stoi(argv[4]);
         if(capacity<128 || max_batch<1 || max_batch>capacity || threads<1) throw std::runtime_error("Invalid oracle configuration");
+        const char * all_logits_env = std::getenv("PCC_ORACLE_ALL_LOGITS");
+        if (all_logits_env && std::string(all_logits_env)!="0" && std::string(all_logits_env)!="1") throw std::runtime_error("Invalid all-logits oracle flag");
+        const bool all_logits = all_logits_env && std::string(all_logits_env)=="1";
         std::string line;
         while (std::getline(std::cin, line)) {
             if (line.rfind("T ", 0) == 0) {
@@ -97,7 +100,7 @@ int main(int argc, char ** argv) {
                     batch.pos[j] = start+j;
                     batch.n_seq_id[j] = 1;
                     batch.seq_id[j][0] = 0;
-                    batch.logits[j] = (j == n-1);
+                    batch.logits[j] = all_logits || (j == n-1);
                 }
                 int rc = llama_decode(ctx, batch);
                 llama_batch_free(batch);

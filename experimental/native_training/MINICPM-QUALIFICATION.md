@@ -2,9 +2,11 @@
 
 The new opt-in `dense-llama-short-v1` profile implements ordinary dense Llama
 attention and full-graph backpropagation for the inspected MiniCPM architecture.
-**Tiny generated fixtures pass; real MiniCPM training is not yet qualified.**
-Only native SGD is implemented. AdamW and Muon are planned, and unsupported
-optimizer requests fail explicitly. No MiniCPM weights have been updated or
+**Tiny generated fixtures and the newer short actual-model forward controls pass;
+real MiniCPM training is not yet qualified.**
+The first checkpoint used SGD. The subsequent [native optimizer
+qualification](OPTIMIZER-QUALIFICATION.md) adds opt-in AdamW/Muon and actual-model
+short FP64 forward evidence. Unsupported optimizer requests fail explicitly. No MiniCPM weights have been updated or
 candidate accepted. This path uses C++/GGML; independent verification uses NumPy
 FP64, without PyTorch or GGML differentiation.
 

@@ -7,11 +7,14 @@
 #include "gguf.h"
 #include "nlohmann/json.hpp"
 #include <algorithm>
+#include <chrono>
+#include "hash/sha256/sha256.h"
 #include <cmath>
 #include <cstring>
 #include <fstream>
 #include <filesystem>
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <execinfo.h>
 #include <dlfcn.h>
 #include <iostream>
@@ -501,6 +504,32 @@ struct Chain {
         }
     }
 };
+#include "native_optimizer.h"
+#include "optimizer_state.h"
+
+static json optimizer_diagnostic(const json&request){
+    auto c=OptimizerConfig::parse(request);need(c.kind!="sgd","Adaptive optimizer diagnostic requires AdamW or Muon");
+    Device device(request.value("backend",std::string("CPU")));Block block(device,true,2);
+    const auto&parameters=request.at("parameters");need(parameters.is_array()&&!parameters.empty()&&parameters.size()<=32,"Bounded diagnostic parameters required");
+    auto finite=[](const std::vector<float>&v){return std::all_of(v.begin(),v.end(),[](float x){return std::isfinite(x);});};
+    for(const auto&p:parameters){std::string name=p.at("name");auto shape=p.at("shape").get<std::vector<int>>();
+        need(!name.empty()&&name.size()<48&&!block.params.count(name)&&shape.size()==2&&shape[0]>0&&shape[0]<=32&&shape[1]>0&&shape[1]<=32,"Bounded unique diagnostic tensor required");
+        block.add(name,shape[0],shape[1],false);
+    }
+    block.allocate();for(const auto&p:parameters){auto values=p.at("values").get<std::vector<float>>();need(finite(values),"Finite diagnostic weights required");put(block.params.at(p.at("name").get<std::string>()).w,values);}
+    NativeOptimizer optimizer({&block},c);optimizer.allocate();json reports=json::array();
+    const auto&steps=request.at("gradients");need(steps.is_array()&&!steps.empty()&&steps.size()<=32,"Bounded diagnostic steps required");
+    for(const auto&step:steps){need(step.is_object()&&step.size()==block.params.size(),"Complete diagnostic gradient map required");
+        for(auto&[name,p]:block.params){auto values=step.at(name).get<std::vector<float>>();need(finite(values),"Finite diagnostic gradients required");put(p.grad,values);}
+        json row=optimizer.step();row["parameters"]=json::object();
+        for(auto&b:optimizer.blocks)for(auto&state:b->states){auto weights=read_tensor(state.w),m=read_tensor(state.m);need(finite(weights)&&finite(m),"Nonfinite optimizer diagnostic output");
+            row["parameters"][state.w->name]={{"weights",weights},{"m",m}};
+            if(state.v){auto v=read_tensor(state.v);need(finite(v),"Nonfinite optimizer second moment");row["parameters"][state.w->name]["v"]=v;}}
+        reports.push_back(row);
+    }
+    return {{"status","MECHANICS_EXECUTED"},{"scope","bounded native optimizer tensors; no language-model training"},{"config",c.canonical()},{"backend",device.name},{"groups",optimizer.groups()},{"steps",reports},{"promoted",false}};
+}
+
 static json chain_test(const std::vector<std::string>&names,bool efficient=false,bool llama_dense=false,bool diagnostic=false){
     Geometry h;h.llama_dense=llama_dense;if(llama_dense)h.interval=1;json reports=json::array();
     json example={{"tokens",{0,1,2,3}},{"targets",{1,2,3,4}},{"loss_mask",{false,true,true,true}}};
@@ -693,13 +722,16 @@ struct GGUFSource {
     }
 };
 static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
+    const auto optimizer_config=OptimizerConfig::parse(config);
     std::map<std::string,size_t>persistent,scratch,activations;
     size_t length=0;for(auto&e:config.at("examples"))length=std::max(length,e.at("tokens").size());
     const auto&h=model.h;
     for(size_t index=0;index<model.blocks.size();++index){auto&b=model.blocks[index];size_t bytes=0;for(auto&[name,p]:b->params)bytes+=ggml_nbytes(p.w);
         size_t train=0;for(auto[w,dw]:b->trainable())train+=ggml_nbytes(dw);
         for(auto&[name,p]:b->params)if(p.a)bytes+=ggml_nbytes(p.a)+ggml_nbytes(p.b);
-        persistent[b->device.name]+=bytes+train;scratch[b->device.name]=std::max(scratch[b->device.name],bytes*2);
+        size_t optimizer_bytes=0;
+        if(optimizer_config.kind!="sgd")for(auto[w,dw]:b->trainable())optimizer_bytes+=ggml_nbytes(w)*((optimizer_config.kind=="muon"&&optimizer_hidden_matrix(w))?1:2);
+        persistent[b->device.name]+=bytes+train+optimizer_bytes;scratch[b->device.name]=std::max(scratch[b->device.name],bytes*2);
         size_t active=0;
         if(index>0&&index+1<model.blocks.size()){
             active=length*size_t(h.ffn)*4*20;
@@ -746,7 +778,7 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
         if(!inspect_only)need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
         plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"host_graph_allowance",graph_host},{"reserve",reserve},{"admission_estimate",estimate}});
         if(inspect_only)plans.back()["admitted"]=estimate<=free&&estimate<=cap;
-        if(allocator){
+        if(allocator||optimizer_config.kind!="sgd"){
             plans.back()["admission_stage"]="persistent-and-host; graph checked before allocation";
             plans.back()["conservative_estimate"]=conservative;
             d->allocation_guard=true;d->fixed_bytes=fixed;d->scratch_bytes=scratch[d->name];d->reserve_bytes=reserve;d->budget_bytes=cap;
@@ -822,11 +854,17 @@ static json train_model(const json&config){
     need(deadline>=1&&deadline<=3600,"Native deadline must be 1..3600 seconds");
     alarm(unsigned(deadline));
     need(config.value("backprop_mode",std::string("standard"))=="standard","This entry point requires ordinary end-to-end backpropagation");
-    need(config.value("optimizer",std::string("sgd"))=="sgd","Only native SGD is currently implemented");
+    const auto optimizer_config=OptimizerConfig::parse(config);
+    if(optimizer_config.kind!="sgd"){
+        need(config.value("optimizer_state_mode",std::string())=="fresh"||config.value("optimizer_state_mode",std::string())=="resume","Explicit fresh/resume optimizer state mode required");
+        need(!config.value("gradient_probe_only",false)&&!config.value("evaluate_only",false),"Forward/gradient-only probes do not consume adaptive optimizer state; select SGD for those checks");
+        need(native_file_sha256(config.at("model"))==config.at("base_sha256"),"Native adaptive training base SHA-256 mismatch");
+    }
     auto names=config.at("devices").get<std::vector<std::string>>();need(!names.empty(),"Explicit devices required");
     for(auto&name:names)if(name!="CPU"){load_cuda();break;}
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4),config.value("block_devices",std::vector<int>{}));
+    if(optimizer_config.kind!="sgd")need(mode=="full"&&model.h.llama_dense,"Adaptive optimizer route is currently bounded ordinary-Llama full training only");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Unknown sequence qualification profile");
     if(model.h.llama_dense)need(sequence_profile=="dense-llama-short-v1","Ordinary Llama requires its explicit bounded sequence profile");
@@ -900,20 +938,42 @@ static json train_model(const json&config){
         return finish({{"native",true},{"status","FORWARD_EXECUTED"},{"backprop_mode","standard"},{"losses",losses},{"memory_plan",plan},{"model_layers",model.h.layers},{"promoted",false}});
     }
     json reports=json::array();size_t cursor=config.value("example_cursor",size_t(0));
+    std::unique_ptr<NativeOptimizer>optimizer;std::string dataset_hash;
+    if(optimizer_config.kind!="sgd"){
+        const std::string dataset=examples.dump();dataset_hash=native_digest_hex(reinterpret_cast<const unsigned char*>(dataset.data()),dataset.size());
+        const std::string state_mode=config.at("optimizer_state_mode");
+        need(config.contains("optimizer_state_output"),"Completed optimizer state output is required");
+        const std::string state_output=config.at("optimizer_state_output");const std::string candidate=config.at("candidate");
+        need(!std::filesystem::exists(state_output)&&!std::filesystem::exists(candidate),"Adaptive output artifact already exists");
+        need(std::filesystem::absolute(state_output)!=std::filesystem::absolute(candidate)&&std::filesystem::absolute(state_output)!=std::filesystem::absolute(source.path),"Optimizer state must have its own output path");
+        std::vector<Block*>parts;for(auto&b:model.blocks)parts.push_back(b.get());optimizer=std::make_unique<NativeOptimizer>(parts,optimizer_config);optimizer->allocate();
+        if(state_mode=="resume"){
+            need(config.contains("initial_optimizer_state")&&config.contains("initial_optimizer_state_sha256")&&config.contains("example_cursor"),"Complete pinned optimizer resume request required");
+            load_optimizer_state(*optimizer,config.at("initial_optimizer_state"),config.at("initial_optimizer_state_sha256"),config.at("base_sha256"),dataset_hash,cursor);
+        }else need(!config.contains("initial_optimizer_state")&&!config.contains("initial_optimizer_state_sha256")&&cursor==0,"Fresh optimizer state cannot silently reuse a cursor or supplied moments");
+    }
     for(int step=0;step<steps;++step){
         model.zero();int count=std::min(size_t(batch),examples.size()-(cursor%examples.size()));float before=0;
         for(int j=0;j<count;++j)before+=model.standard_sample(examples[(cursor+j)%examples.size()],true,1.f/count)/count;
-        auto gradients=model.gradients();model.update(lr);float after=0;
+        auto gradients=model.gradients();json optimizer_step;if(optimizer)optimizer_step=optimizer->step();else model.update(lr);float after=0;
         for(int j=0;j<count;++j)after+=model.standard_sample(examples[(cursor+j)%examples.size()],false)/count;
         cursor+=count;reports.push_back({{"step",step},{"before",before},{"after",after},{"examples",count},{"example_cursor",cursor},{"gradients",gradients}});
+        if(optimizer)reports.back()["optimizer_step"]=optimizer_step;
         std::cerr<<"NATIVE_STANDARD_STEP "<<step<<" "<<before<<" "<<after<<std::endl;
     }
     auto output=config.at("candidate").get<std::string>();need(std::filesystem::absolute(output)!=std::filesystem::absolute(source.path),"Base overwrite forbidden");save_candidate(model,source,output,config.at("base_sha256"));
-    return finish({{"status","MECHANICS_EXECUTED"},{"native",true},{"backprop_mode","standard"},{"mode",mode},{"optimizer","sgd"},{"model_layers",model.h.layers},{"memory_plan",plan},{"steps",reports},{"candidate",output},{"example_cursor",cursor},{"promoted",false},{"save_reload_qualified",false}});
+    json result={{"status","MECHANICS_EXECUTED"},{"native",true},{"backprop_mode","standard"},{"mode",mode},{"optimizer",optimizer_config.kind},{"model_layers",model.h.layers},{"memory_plan",plan},{"steps",reports},{"candidate",output},{"example_cursor",cursor},{"promoted",false},{"save_reload_qualified",false}};
+    if(optimizer){
+        const std::string state_path=config.at("optimizer_state_output");const auto candidate_hash=native_file_sha256(output);
+        const auto state_hash=save_optimizer_state(*optimizer,state_path,candidate_hash,dataset_hash,cursor);
+        result["optimizer_checkpoint"]={{"path",state_path},{"sha256",state_hash},{"candidate_sha256",candidate_hash},{"dataset_sha256",dataset_hash},{"completed_steps",optimizer->completed_steps},{"example_cursor",cursor},{"config",optimizer_config.canonical()},{"groups",optimizer->groups()},{"state_bytes",optimizer->state_bytes()},{"scope","completed update; not mid-step transactional recovery"}};
+    }
+    return finish(result);
 }
 int main(int argc,char**argv){try{
     setenv("GGML_NO_BACKTRACE","1",1);
     ggml_set_abort_callback([](const char*message){std::cerr<<"NATIVE_ABORT "<<message<<std::endl;void*frames[32];int n=backtrace(frames,32);backtrace_symbols_fd(frames,n,2);});
+    if(argc==3&&std::string(argv[1])=="--optimizer-diagnostic"){std::ifstream in(argv[2]);need(bool(in),"Cannot read optimizer diagnostic request");json request;in>>request;std::cout<<optimizer_diagnostic(request).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--inspect"){std::cout<<inspect_model(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&(std::string(argv[1])=="--train"||std::string(argv[1])=="--admit-training"||std::string(argv[1])=="--probe-gradients")){
         std::ifstream in(argv[2]);need(bool(in),"Cannot read private training request");json config;in>>config;

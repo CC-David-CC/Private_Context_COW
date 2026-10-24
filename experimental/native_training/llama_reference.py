@@ -115,6 +115,29 @@ def read_gguf(path):
  h={key:md['llama.'+field] for key,field in [('hidden','embedding_length'),('layers','block_count'),('head','attention.key_length'),('heads','attention.head_count'),('kvheads','attention.head_count_kv'),('rotary','rope.dimension_count'),('freq','rope.freq_base'),('eps','attention.layer_norm_rms_epsilon')]}
  return weights,h
 
+class LazyGGUFWeights:
+ """Read one F16/F32 tensor at a time into FP64 for bounded forward checks.
+
+ A real model's entire FP64 parameter set need not fit RAM at once. This reader
+ does not provide differentiation or mutable training weights.
+ """
+ def __init__(self,path):
+  from tools.gguf_reader import GGUFFile
+  self.path=Path(path);self.file=GGUFFile(self.path)
+  if self.file.metadata['general.architecture']!='llama':raise ValueError('Ordinary Llama source required')
+  self.tensors={t.name:t for t in self.file.tensors}
+ def __getitem__(self,name):
+  t=self.tensors[name]
+  if t.type_name not in ['F16','F32']:raise ValueError('Independent lazy oracle admits F16/F32 only')
+  shape=(t.shape[1] if len(t.shape)>1 else 1,t.shape[0])
+  raw=np.memmap(self.path,dtype='<f2' if t.type_name=='F16' else '<f4',mode='r',offset=self.file.data_start+t.offset,shape=shape)
+  return raw.astype(np.float64)
+
+def read_lazy_gguf(path):
+ weights=LazyGGUFWeights(path);md=weights.file.metadata
+ h={key:md['llama.'+field] for key,field in [('hidden','embedding_length'),('layers','block_count'),('head','attention.key_length'),('heads','attention.head_count'),('kvheads','attention.head_count_kv'),('rotary','rope.dimension_count'),('freq','rope.freq_base'),('eps','attention.layer_norm_rms_epsilon')]}
+ return weights,h
+
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('kind',choices=['layers','chain']);p.add_argument('report',type=Path);a=p.parse_args()
  result=(verify_layers if a.kind=='layers' else verify_chain)(json.loads(a.report.read_text()))

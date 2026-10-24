@@ -1,8 +1,10 @@
 # Native Muon comparison plan
 
-Status: planned, 2026-10-24. The current native trainer implements **SGD only**.
-There are no MiniCPM AdamW/Muon training results yet. This document records the
-approved comparison, not an implementation or a winning optimizer.
+Status: mechanics implemented, 2026-10-24. Native AdamW and Muon now pass bounded
+CPU/CUDA math and completed-state continuation checks. SGD remains the default.
+[Qualification and actual-model forward evidence](../experimental/native_training/OPTIMIZER-QUALIFICATION.md)
+separate that implementation from the planned fixed-budget learning comparison.
+No real MiniCPM weights have been updated or accepted.
 
 ## Main question and priority
 
