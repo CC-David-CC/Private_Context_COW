@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "scope": "Tiny ordinary-Llama whole-update timing and completed state; not model learning",
+  "devices": [
+    "CUDA0"
+  ],
+  "capability": {
+    "completed_update_budget": {
+      "boundary": "whole_update",
+      "clock": "steady_training_phase",
+      "field": "training_budget_seconds",
+      "mode": "full",
+      "schema": 1,
+      "sequence_profile": "dense-llama-short-v1"
+    },
+    "kind": "pcc.native-training-capabilities.v1",
+    "schema": 1
+  },
+  "cases": [
+    {
+      "arm": "adamw",
+      "status": "PASS",
+      "completed_budget_updates": 2,
+      "global_step": 2,
+      "example_cursor": 3,
+      "partial_final_batch": true,
+      "weights_and_moments_bit_exact": true,
+      "refinement_active": false,
+      "first_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.127422699,
+        "overrun_seconds": 0.127422698999,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      },
+      "resumed_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.107232933,
+        "overrun_seconds": 0.107232932999,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      }
+    },
+    {
+      "arm": "muon-refine",
+      "status": "PASS",
+      "completed_budget_updates": 2,
+      "global_step": 2,
+      "example_cursor": 3,
+      "partial_final_batch": true,
+      "weights_and_moments_bit_exact": true,
+      "refinement_active": true,
+      "first_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.122035506,
+        "overrun_seconds": 0.122035505999,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      },
+      "resumed_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.114546247,
+        "overrun_seconds": 0.114546246999,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      }
+    }
+  ],
+  "negative_cases": 19,
+  "step_cap_passed": true,
+  "default_unbudgeted_receipt_preserved": true,
+  "default_sgd_step_passed": true,
+  "promoted": false,
+  "allocation": {
+    "status": "PASS",
+    "wall_seconds": 126.76017264998518,
+    "allocated_seconds": 3.7296637310646474,
+    "physical_gpus": 1
+  },
+  "native_executable_sha256": "58e14db2d7927ef120c7e90d73dc95967a3ef69e7217fa5c6576e6485118021d",
+  "source_archive_sha256": "348fc0e30bb61b5ecb40e1b07594ac7bed2370a39a5780a13869a44a38dd9ef7"
+}

@@ -199,3 +199,46 @@ candidate. State follows the selected block owners, but multi-device optimizer
 qualification, within-matrix gathers, live offload and compute-efficiency claims
 remain outstanding. The next gate is an actual-model gradient/update/reload pilot,
 then the fixed-budget S³ learning/retention comparison.
+
+
+## Completed-update training budgets
+
+The ordinary-Llama full-update route now supports an opt-in
+`training_budget_seconds` below `deadline_seconds`. Its steady training-phase
+clock starts after model/optimizer load and state restoration, and includes
+complete gradient/coverage computation, optimizer work and post-update batch
+loss checks. Loading, candidate/state serialization and operator reload are
+outside that clock. The hard native deadline still bounds the job. At least one
+whole update completes; the receipt exposes elapsed time, remaining/overrun time,
+completed updates, step cap, stop reason and per-update phase timings. Overrun is
+bounded by the last completed update's span, not silently discarded.
+
+The Python helper requires the executable's `--capabilities` contract before
+launch and validates returned budget/cursor/state accounting. Default unbudgeted
+receipts retain their prior shape, including SGD's omitted-step default. This is
+completed-state continuation, not mid-update transactional recovery. No budget
+or loss receipt promotes a candidate.
+
+CPU and CUDA checks pass exact tiny AdamW/Muon resumed-versus-uninterrupted
+weights/moments, global refinement continuation, partial batches, step caps and
+19 refusal checks per backend. [CPU evidence](validation/completed-update-cpu-budget.json),
+[CUDA evidence](validation/completed-update-cuda-budget.json). CUDA allocated
+3.73 seconds on the dedicated Blackwell GPU; this is not a shared A100 timing.
+The new time-budget option has not yet been qualified on A100, HIP or SYCL.
+
+```sh
+python -m experimental.native_training.test_training_budget \
+  --executable /path/to/new/pcc-native-train --output /new/budget-proof \
+  --devices CPU --old-executable /path/to/previous/pcc-native-train
+```
+
+For CUDA, use the qualified FP32 backend and the existing owner lease/admission
+procedure, with explicit physical-to-visible device identity. The optional old
+executable verifies refusal before it can ignore a budget. The tiny test's
+1e-12-second budget deliberately exercises the first whole-update boundary; it
+is not a recommended training setting.
+
+S3's [current MiniCPM baseline and fixed-budget study](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/MINICPM-NATIVE-LEARNING.md)
+uses this control for four full-update candidates, with held-out learning and
+retention measured independently of optimizer mechanics. The earlier next-step
+text above is historical; real-model update/reload mechanics are already qualified.

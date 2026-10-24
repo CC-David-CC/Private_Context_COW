@@ -848,11 +848,24 @@ static json concat_test(const std::string&name){
     }
     return {{"status","PASS"},{"scope","odd concatenation shapes, every axis; ordinary backward"},{"checks",checks}};
 }
+static json native_training_capabilities(){
+    return {{"schema",1},{"kind","pcc.native-training-capabilities.v1"},
+        {"completed_update_budget",{{"schema",1},{"field","training_budget_seconds"},{"boundary","whole_update"},
+            {"clock","steady_training_phase"},{"mode","full"},{"sequence_profile","dense-llama-short-v1"}}}};
+}
 static json train_model(const json&config){
     // The native child retains its own deadline if its Python owner disconnects.
     const int deadline=config.value("deadline_seconds",3600);
     need(deadline>=1&&deadline<=3600,"Native deadline must be 1..3600 seconds");
     alarm(unsigned(deadline));
+    const bool timed=config.contains("training_budget_seconds");double training_limit=0;
+    if(timed){
+        need(config.at("training_budget_seconds").is_number(),"Numeric training phase budget required");
+        training_limit=config.at("training_budget_seconds").get<double>();
+        need(std::isfinite(training_limit)&&training_limit>0&&training_limit<deadline,"Training phase budget must be positive, finite and below the job deadline");
+        need(!config.value("gradient_probe_only",false)&&!config.value("evaluate_only",false),"Training phase budget does not apply to forward/gradient-only probes");
+    }
+
     need(config.value("backprop_mode",std::string("standard"))=="standard","This entry point requires ordinary end-to-end backpropagation");
     const auto optimizer_config=OptimizerConfig::parse(config);
     if(optimizer_config.kind!="sgd"){
@@ -866,6 +879,7 @@ static json train_model(const json&config){
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4),config.value("block_devices",std::vector<int>{}));
     if(optimizer_config.kind!="sgd")need(mode=="full"&&model.h.llama_dense,"Adaptive optimizer route is currently bounded ordinary-Llama full training only");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
+    if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
     need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Unknown sequence qualification profile");
     if(model.h.llama_dense)need(sequence_profile=="dense-llama-short-v1","Ordinary Llama requires its explicit bounded sequence profile");
     if(sequence_profile=="tiny-cpu-long-v1"){
@@ -952,17 +966,32 @@ static json train_model(const json&config){
             load_optimizer_state(*optimizer,config.at("initial_optimizer_state"),config.at("initial_optimizer_state_sha256"),config.at("base_sha256"),dataset_hash,cursor);
         }else need(!config.contains("initial_optimizer_state")&&!config.contains("initial_optimizer_state_sha256")&&cursor==0,"Fresh optimizer state cannot silently reuse a cursor or supplied moments");
     }
+    using TrainingClock=std::chrono::steady_clock;
+    const auto phase_start=TrainingClock::now();double phase_seconds=0;
     for(int step=0;step<steps;++step){
+        if(timed&&step>0&&phase_seconds>=training_limit)break;
+        const auto step_start=TrainingClock::now();const double previous_boundary=phase_seconds;
         model.zero();int count=std::min(size_t(batch),examples.size()-(cursor%examples.size()));float before=0;
         for(int j=0;j<count;++j)before+=model.standard_sample(examples[(cursor+j)%examples.size()],true,1.f/count)/count;
-        auto gradients=model.gradients();json optimizer_step;if(optimizer)optimizer_step=optimizer->step();else model.update(lr);float after=0;
+        auto gradients=model.gradients();const auto gradient_end=TrainingClock::now();
+        json optimizer_step;if(optimizer)optimizer_step=optimizer->step();else model.update(lr);const auto optimizer_end=TrainingClock::now();float after=0;
         for(int j=0;j<count;++j)after+=model.standard_sample(examples[(cursor+j)%examples.size()],false)/count;
+        const auto evaluation_end=TrainingClock::now();
         cursor+=count;reports.push_back({{"step",step},{"before",before},{"after",after},{"examples",count},{"example_cursor",cursor},{"gradients",gradients}});
         if(optimizer)reports.back()["optimizer_step"]=optimizer_step;
         std::cerr<<"NATIVE_STANDARD_STEP "<<step<<" "<<before<<" "<<after<<std::endl;
+        phase_seconds=std::chrono::duration<double>(TrainingClock::now()-phase_start).count();
+        if(timed)reports.back()["timing"]={{"seconds",phase_seconds-previous_boundary},
+            {"gradient_and_coverage_seconds",std::chrono::duration<double>(gradient_end-step_start).count()},
+            {"optimizer_seconds",std::chrono::duration<double>(optimizer_end-gradient_end).count()},
+            {"post_update_evaluation_seconds",std::chrono::duration<double>(evaluation_end-optimizer_end).count()}};
     }
     auto output=config.at("candidate").get<std::string>();need(std::filesystem::absolute(output)!=std::filesystem::absolute(source.path),"Base overwrite forbidden");save_candidate(model,source,output,config.at("base_sha256"));
     json result={{"status","MECHANICS_EXECUTED"},{"native",true},{"backprop_mode","standard"},{"mode",mode},{"optimizer",optimizer_config.kind},{"model_layers",model.h.layers},{"memory_plan",plan},{"steps",reports},{"candidate",output},{"example_cursor",cursor},{"promoted",false},{"save_reload_qualified",false}};
+    if(timed)result["training_budget"]={{"schema",1},{"requested_seconds",training_limit},{"elapsed_seconds",phase_seconds},
+        {"overrun_seconds",std::max(0.,phase_seconds-training_limit)},{"remaining_seconds",std::max(0.,training_limit-phase_seconds)},
+        {"completed_updates",reports.size()},{"step_cap",steps},{"stop_reason",reports.size()==size_t(steps)?"step_cap":"training_budget"},
+        {"boundary","whole_update"},{"clock","steady_training_phase"}};
     if(optimizer){
         const std::string state_path=config.at("optimizer_state_output");const auto candidate_hash=native_file_sha256(output);
         const auto state_hash=save_optimizer_state(*optimizer,state_path,candidate_hash,dataset_hash,cursor);
@@ -973,6 +1002,7 @@ static json train_model(const json&config){
 int main(int argc,char**argv){try{
     setenv("GGML_NO_BACKTRACE","1",1);
     ggml_set_abort_callback([](const char*message){std::cerr<<"NATIVE_ABORT "<<message<<std::endl;void*frames[32];int n=backtrace(frames,32);backtrace_symbols_fd(frames,n,2);});
+    if(argc==2&&std::string(argv[1])=="--capabilities"){std::cout<<native_training_capabilities().dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--optimizer-diagnostic"){std::ifstream in(argv[2]);need(bool(in),"Cannot read optimizer diagnostic request");json request;in>>request;std::cout<<optimizer_diagnostic(request).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--inspect"){std::cout<<inspect_model(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&(std::string(argv[1])=="--train"||std::string(argv[1])=="--admit-training"||std::string(argv[1])=="--probe-gradients")){

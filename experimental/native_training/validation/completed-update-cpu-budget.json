@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "scope": "Tiny ordinary-Llama whole-update timing and completed state; not model learning",
+  "devices": [
+    "CPU"
+  ],
+  "capability": {
+    "completed_update_budget": {
+      "boundary": "whole_update",
+      "clock": "steady_training_phase",
+      "field": "training_budget_seconds",
+      "mode": "full",
+      "schema": 1,
+      "sequence_profile": "dense-llama-short-v1"
+    },
+    "kind": "pcc.native-training-capabilities.v1",
+    "schema": 1
+  },
+  "cases": [
+    {
+      "arm": "adamw",
+      "status": "PASS",
+      "completed_budget_updates": 2,
+      "global_step": 2,
+      "example_cursor": 3,
+      "partial_final_batch": true,
+      "weights_and_moments_bit_exact": true,
+      "refinement_active": false,
+      "first_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.033764659,
+        "overrun_seconds": 0.033764658999000004,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      },
+      "resumed_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.025087747,
+        "overrun_seconds": 0.025087746999000002,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      }
+    },
+    {
+      "arm": "muon-refine",
+      "status": "PASS",
+      "completed_budget_updates": 2,
+      "global_step": 2,
+      "example_cursor": 3,
+      "partial_final_batch": true,
+      "weights_and_moments_bit_exact": true,
+      "refinement_active": true,
+      "first_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.033576731,
+        "overrun_seconds": 0.033576730999,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      },
+      "resumed_budget": {
+        "boundary": "whole_update",
+        "clock": "steady_training_phase",
+        "completed_updates": 1,
+        "elapsed_seconds": 0.027608593,
+        "overrun_seconds": 0.027608592999000002,
+        "remaining_seconds": 0.0,
+        "requested_seconds": 1e-12,
+        "schema": 1,
+        "step_cap": 5,
+        "stop_reason": "training_budget"
+      }
+    }
+  ],
+  "negative_cases": 19,
+  "step_cap_passed": true,
+  "default_unbudgeted_receipt_preserved": true,
+  "default_sgd_step_passed": true,
+  "promoted": false
+}

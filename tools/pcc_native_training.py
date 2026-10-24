@@ -163,6 +163,51 @@ def finalize_candidate(versions,base,candidate,mode,receipt):
         if temporary.exists():temporary.unlink()
     return value
 
+def validate_training_budget_request(request):
+    if 'training_budget_seconds' not in request:return False
+    value=request['training_budget_seconds'];deadline=request.get('deadline_seconds',3600)
+    if type(value) not in (int,float) or not math.isfinite(value) or value<=0 or type(deadline) is not int or not 1<=deadline<=3600 or value>=deadline:
+        raise ValueError('Positive finite training phase budget below the job deadline required')
+    if request.get('mode')!='full' or request.get('sequence_profile')!='dense-llama-short-v1' or request.get('evaluate_only') or request.get('gradient_probe_only'):
+        raise ValueError('Training phase budget requires ordinary-Llama full standard backpropagation')
+    if type(request.get('steps',1)) is not int or not 1<=request.get('steps',1)<=1000 or type(request.get('batch_size',1)) is not int or request.get('batch_size',1)<1:
+        raise ValueError('Bounded positive update cap and batch size required')
+    return True
+
+
+def require_training_budget_capability(executable,*,environment=None,pass_fds=()):
+    result=subprocess.run([str(executable),'--capabilities'],capture_output=True,text=True,timeout=10,env=environment,pass_fds=pass_fds)
+    try:value=json.loads(result.stdout)
+    except (ValueError,TypeError):value={}
+    expected=dict(schema=1,field='training_budget_seconds',boundary='whole_update',clock='steady_training_phase',mode='full',sequence_profile='dense-llama-short-v1')
+    if result.returncode or type(value) is not dict or value.get('schema')!=1 or value.get('kind')!='pcc.native-training-capabilities.v1' or value.get('completed_update_budget')!=expected:
+        raise ValueError('Native executable does not advertise the completed-update training budget; no update launched')
+    return value
+
+
+def validate_training_budget_receipt(request,receipt):
+    budget=receipt.get('training_budget');rows=receipt.get('steps');cap=request.get('steps',1)
+    if type(budget) is not dict or budget.get('schema')!=1 or budget.get('boundary')!='whole_update' or budget.get('clock')!='steady_training_phase' or budget.get('requested_seconds')!=request['training_budget_seconds'] or budget.get('step_cap')!=cap:
+        raise ValueError('Native training-budget receipt differs from the admitted request')
+    if type(rows) is not list or not 1<=len(rows)<=cap or type(budget.get('completed_updates')) is not int or budget['completed_updates']!=len(rows):
+        raise ValueError('Completed-update budget counters differ')
+    numbers=[budget.get(k) for k in ('elapsed_seconds','overrun_seconds','remaining_seconds')]
+    if any(type(v) not in (int,float) or not math.isfinite(v) or v<0 for v in numbers):raise ValueError('Finite training-budget accounting required')
+    elapsed,overrun,remaining=numbers;requested=request['training_budget_seconds'];spans=[];cursor=request.get('example_cursor',0)
+    for index,row in enumerate(rows):
+        timing=row.get('timing',{});values=[timing.get(k) for k in ('seconds','gradient_and_coverage_seconds','optimizer_seconds','post_update_evaluation_seconds')]
+        if any(type(v) not in (int,float) or not math.isfinite(v) or v<0 for v in values) or values[0]<=0 or sum(values[1:])>values[0]+1e-8:raise ValueError('Finite completed-update timing required')
+        spans.append(values[0]);count=min(request.get('batch_size',1),len(request['examples'])-(cursor%len(request['examples'])));cursor+=count
+        if row.get('step')!=index or row.get('examples')!=count or row.get('example_cursor')!=cursor:raise ValueError('Budgeted example cursor differs from completed batches')
+    close=lambda a,b:math.isclose(a,b,rel_tol=1e-10,abs_tol=1e-8)
+    if not close(sum(spans),elapsed) or not close(overrun,max(0.,elapsed-requested)) or not close(remaining,max(0.,requested-elapsed)) or overrun>spans[-1]+1e-8:
+        raise ValueError('Completed-update budget accounting is inconsistent')
+    reason='step_cap' if len(rows)==cap else 'training_budget'
+    if budget.get('stop_reason')!=reason or (reason=='training_budget' and elapsed<requested) or receipt.get('example_cursor')!=cursor:
+        raise ValueError('Training budget did not stop at the declared completed boundary')
+    return len(rows)
+
+
 def execute_native(executable,request,run_directory,*,timeout=3600,environment=None,pass_fds=()):
     """Run one explicit native update request and preserve its exact receipts.
 
@@ -179,6 +224,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     if request.get('mode') not in ('lora','full'):
         raise ValueError('Explicit LoRA or direct full-weight update required')
     optimizer_kind=validate_optimizer_request(request)
+    timed=validate_training_budget_request(request)
     rank=request.get('rank',4)
     if type(rank) is not int or not 0<rank<=256:
         raise ValueError('Explicit bounded LoRA rank required')
@@ -204,6 +250,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
             raise ValueError('Optimizer state candidate/dataset/cursor mismatch')
         request['initial_optimizer_state']=str(state)
     executable=Path(executable).resolve(strict=True)
+    capabilities=require_training_budget_capability(executable,environment=environment,pass_fds=pass_fds) if timed else None
     run_directory=Path(run_directory).resolve()
     run_directory.mkdir(mode=0o700,parents=True,exist_ok=False)
     request['model']=str(base)
@@ -214,6 +261,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     config.chmod(0o600)
     launch=dict(executable=str(executable),executable_sha256=sha256(executable),
                 request_sha256=sha256(config),base_sha256=original,parent_adapter_sha256=parent_adapter)
+    if capabilities is not None:launch['capabilities']=capabilities
     (run_directory/'launch.json').write_text(json.dumps(launch)+'\n')
     try:
         with (run_directory/'stdout-private.json').open('x',encoding='utf-8') as out, (run_directory/'stderr.log').open('x',encoding='utf-8') as err:
@@ -233,12 +281,13 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
         if receipt.get('native') is not True or receipt.get('backprop_mode')!='standard' or receipt.get('mode')!=request['mode']:
             raise ValueError('Native execution receipt does not match the admitted request')
         if receipt.get('optimizer','sgd')!=optimizer_kind:raise ValueError('Native optimizer differs from the admitted request')
+        completed_updates=validate_training_budget_receipt(request,receipt) if timed else request.get('steps',1)
         if optimizer_kind!='sgd':
             checkpoint=receipt.get('optimizer_checkpoint',{})
             if checkpoint.get('path')!=request['optimizer_state_output'] or checkpoint.get('candidate_sha256')!=sha256(request['candidate']) or checkpoint.get('dataset_sha256')!=optimizer_dataset_sha256(request['examples']):
                 raise ValueError('Optimizer checkpoint is not bound to the completed candidate/dataset')
             state=read_optimizer_state(checkpoint['path'],checkpoint['sha256'])
-            expected_steps=(0 if parent_optimizer is None else parent_optimizer['completed_steps'])+request['steps']
+            expected_steps=(0 if parent_optimizer is None else parent_optimizer['completed_steps'])+completed_updates
             if state['completed_steps']!=expected_steps or state['example_cursor']!=receipt['example_cursor'] or state['model_sha256']!=checkpoint['candidate_sha256'] or state['config']!=checkpoint['config']:
                 raise ValueError('Optimizer checkpoint counters/configuration differ from completion')
         receipt.update(request_sha256=launch['request_sha256'],parent_adapter_sha256=parent_adapter)
