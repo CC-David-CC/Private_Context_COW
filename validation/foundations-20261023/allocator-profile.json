@@ -75,6 +75,294 @@
     "base_unchanged": true,
     "scope": "tiny native allocator admission, ordinary updates and reload; not Wen qualification"
   },
-  "cuda": null,
-  "wen": null
+  "cuda": {
+    "status": "PASS",
+    "source_commit": "79073d4298e8fb58a85ef493fa8becc1e4d925b9",
+    "results": [
+      {
+        "status": "PASS",
+        "checks": [
+          {
+            "mode": "lora",
+            "length": 64,
+            "before": 5.326946258544922,
+            "after": 5.326946258544922,
+            "candidate_sha256": "f3c2fb5a8aac8ee4ea17a6f4814093a27ddf2b827d8a43483677e9ba8a2a1269",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 8,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 509440
+              }
+            ]
+          },
+          {
+            "mode": "lora",
+            "length": 375,
+            "before": 6.040988922119141,
+            "after": 6.040988445281982,
+            "candidate_sha256": "40418875af7fd936c16071726ec638872dda85c37e5b174d2ec41a1a9d42b11f",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 8,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 4391808
+              }
+            ]
+          },
+          {
+            "mode": "full",
+            "length": 64,
+            "before": 5.326946258544922,
+            "after": 5.32391881942749,
+            "candidate_sha256": "a2d72c466d8c466c6e6d6a4dbd52ba418b89e56775a8eab503ec2a8fc3580240",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 10,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 532736
+              }
+            ]
+          },
+          {
+            "mode": "full",
+            "length": 375,
+            "before": 6.040988922119141,
+            "after": 6.037052154541016,
+            "candidate_sha256": "d0f29fc013310e3d79350f914448cea71bad1754441b32c6e3c1ef81e0f524dd",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 10,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 4495232
+              }
+            ]
+          }
+        ],
+        "negative_cases": 7,
+        "devices": [
+          "CUDA0"
+        ],
+        "previous_binary_compared": true,
+        "base_unchanged": true,
+        "scope": "tiny native allocator admission, ordinary updates and reload; not Wen qualification"
+      },
+      {
+        "status": "PASS",
+        "checks": [
+          {
+            "mode": "lora",
+            "length": 64,
+            "before": 5.326946258544922,
+            "after": 5.326946258544922,
+            "candidate_sha256": "f3c2fb5a8aac8ee4ea17a6f4814093a27ddf2b827d8a43483677e9ba8a2a1269",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 4,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 150272
+              },
+              {
+                "checked_graphs": 6,
+                "device": "CUDA1",
+                "planned_graph_buffer_bytes": 375680
+              }
+            ]
+          },
+          {
+            "mode": "lora",
+            "length": 375,
+            "before": 6.040988922119141,
+            "after": 6.040988445281982,
+            "candidate_sha256": "40418875af7fd936c16071726ec638872dda85c37e5b174d2ec41a1a9d42b11f",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 4,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 3033984
+              },
+              {
+                "checked_graphs": 6,
+                "device": "CUDA1",
+                "planned_graph_buffer_bytes": 2174336
+              }
+            ]
+          },
+          {
+            "mode": "full",
+            "length": 64,
+            "before": 5.326946258544922,
+            "after": 5.32391881942749,
+            "candidate_sha256": "a2d72c466d8c466c6e6d6a4dbd52ba418b89e56775a8eab503ec2a8fc3580240",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 6,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 155008
+              },
+              {
+                "checked_graphs": 6,
+                "device": "CUDA1",
+                "planned_graph_buffer_bytes": 391040
+              }
+            ]
+          },
+          {
+            "mode": "full",
+            "length": 375,
+            "before": 6.040988922119141,
+            "after": 6.037052154541016,
+            "candidate_sha256": "d0f29fc013310e3d79350f914448cea71bad1754441b32c6e3c1ef81e0f524dd",
+            "candidate_bytes_identical": true,
+            "reload_agreement": true,
+            "allocation_peaks": [
+              {
+                "checked_graphs": 6,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 3085056
+              },
+              {
+                "checked_graphs": 6,
+                "device": "CUDA1",
+                "planned_graph_buffer_bytes": 2270336
+              }
+            ]
+          }
+        ],
+        "negative_cases": 7,
+        "devices": [
+          "CUDA0",
+          "CUDA1"
+        ],
+        "previous_binary_compared": true,
+        "base_unchanged": true,
+        "scope": "tiny native allocator admission, ordinary updates and reload; not Wen qualification"
+      }
+    ],
+    "cpu_loss_agreement_tolerance": 1e-05,
+    "gpu_allocations_settled": true,
+    "timings_comparable": false
+  },
+  "wen": {
+    "gradient": {
+      "status": "PASS",
+      "scope": "one full-pack maximum 375-token Wen1.1 ordinary LoRA gradient probe; no optimizer update",
+      "allocation_peaks": [
+        {
+          "checked_graphs": 13,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 22147041024
+        },
+        {
+          "checked_graphs": 12,
+          "device": "CUDA1",
+          "planned_graph_buffer_bytes": 21610473856
+        },
+        {
+          "checked_graphs": 11,
+          "device": "CUDA2",
+          "planned_graph_buffer_bytes": 21423312768
+        }
+      ],
+      "tokens": 375,
+      "selected_targets": 26,
+      "loss": 0.736629068851471,
+      "gradient_tensors": 498,
+      "nonzero_gradients": 249,
+      "block_devices": [
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0
+      ],
+      "seconds": 86.38887707609683,
+      "base_unchanged": true,
+      "weights_updated": false,
+      "candidate_written": false,
+      "promoted": false,
+      "gpus": 3,
+      "gpu_allocations_settled": true
+    },
+    "forward": {
+      "status": "PASS",
+      "scope": "375-token Wen1.1 dense whole-graph forward versus fresh strict FP32 PCC inference",
+      "comparisons": [
+        {
+          "tokens": 350,
+          "max_abs": 0.00017023086547851562,
+          "rms": 3.215903975662962e-05,
+          "same_top1": true
+        },
+        {
+          "tokens": 363,
+          "max_abs": 7.745623588562012e-05,
+          "rms": 1.6598697084713543e-05,
+          "same_top1": true
+        },
+        {
+          "tokens": 375,
+          "max_abs": 0.00012230873107910156,
+          "rms": 2.5909126881922228e-05,
+          "same_top1": true
+        }
+      ],
+      "native_seconds": 55.91477090585977,
+      "oracle_seconds": 7.357275361195207,
+      "base_unchanged": true,
+      "weights_updated": false,
+      "candidate_written": false,
+      "native_gpus": 3,
+      "oracle_gpus": 1,
+      "gpu_allocations_settled": true,
+      "bounds": {
+        "max_abs": 0.0002,
+        "rms": 5e-05,
+        "same_top1": true
+      }
+    }
+  }
 }

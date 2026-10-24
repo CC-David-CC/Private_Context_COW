@@ -127,3 +127,13 @@ virtual environment Python symlink selected the system Python and lost its
 installed dependencies. The wrapper now preserves the configured interpreter
 path. A real disposable-venv test reproduces the wrong-prefix failure and passes
 with the fix. Both failed attempts contain zero evaluations and zero updates.
+
+
+The first actual Wen foundation update has completed: 18 interleaved examples,
+one native SGD update, rank-four LoRA, and a separate 45,426,096-byte adapter.
+Training loss changed from 0.43516219 to 0.43349394. Protected validation stayed
+at 17/54, with no gained passes or regressions. The candidate was served through
+PCC, but did not qualify and was not promoted; blind checks were therefore not
+run. This proves the live loop, not a capability gain. Full detail and the public
+aggregate receipt are in S³'s
+[foundation pilot](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FOUNDATION-TRAINING-PILOT.md).

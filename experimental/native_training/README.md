@@ -285,7 +285,17 @@ reload loss agreement within 1e-5, and byte-identical candidates against the
 previous native binary and conservative allocation. Four intentionally small
 budgets pass persistent admission but refuse the first graph before an update;
 three further cases reject invalid settings or insufficient persistent memory.
-CUDA and real Wen capacity for this option are pending separate measurements.
+The same checks also passed on one and two shared A100s, including identical
+candidate bytes versus the previous CUDA binary and CPU loss agreement within
+1e-5. All owned GPU allocations settled. A separate real Wen 1.1 check passed the full pack's longest lesson (375 tokens,
+26 selected targets) on three shared A100s: 498 finite adapter gradients, 249
+initially nonzero, no optimizer update. Planned graph buffers peaked at
+22,147,041,024 / 21,610,473,856 / 21,423,312,768 bytes; these exclude persistent
+weights and scratch/reserves. Native forward agreed with fresh strict FP32 PCC
+at 350/363/375-token prefixes (maximum absolute error 0.00017024, RMS 0.00003216,
+same top token), within predeclared 0.0002/0.00005 limits. All owned allocations
+settled. This establishes capacity and numerical checks for this bounded pack,
+not broader context capacity, speed or learned skills.
 
 ```sh
 python -m experimental.native_training.test_allocator_profile \
