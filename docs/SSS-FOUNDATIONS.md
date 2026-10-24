@@ -137,3 +137,12 @@ PCC, but did not qualify and was not promoted; blind checks were therefore not
 run. This proves the live loop, not a capability gain. Full detail and the public
 aggregate receipt are in S³'s
 [foundation pilot](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FOUNDATION-TRAINING-PILOT.md).
+
+
+A follow-up consumed the full 108-example pack in 18 ordinary native updates on
+three shared A100s. The protected score again stayed at 17/54, with zero gains
+or regressions. The saved hat passed actual PCC serving and native final-batch
+reload (loss difference below 2e-8), and all owned allocations settled. It remains
+unqualified and unpromoted. S³ preserves the
+[complete aggregate result](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/validation/foundations-20261023/wen-full-pack-update.json)
+and prepared larger mixed-practice packs with unchanged protected tests.
