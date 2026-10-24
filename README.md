@@ -1,4 +1,10 @@
 # Private Context COW (PCC)
+
+[Wen's full-weight update pilot](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/WEN-FULL-UPDATE-PILOT.md)
+completed ordinary native backprop and FP32 save/reload. Protected checks moved
+from 17/54 to 19/54, with three gains and one regression; the candidate was not
+promoted. [Harness comparisons](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/HARNESS-COMPARISON.md) hold weights
+fixed and measure a separate intervention.
 Development checkpoint: [foundations and workflow validation](validation/foundations-20261023/README.md). Live-model qualification remains pending.
 
 

@@ -174,3 +174,23 @@ passed at 375 input tokens on four shared A100s: all 427 parameter tensors had
 finite nonzero gradients. It settled all allocations after 0.0925 GPU-hours.
 This run made no optimizer step and wrote no candidate; full-update reload and
 quality qualification remain separate work.
+
+## 2026-10-24 full update, reload and protected checks
+
+After the gradient-only qualification, one actual full-weight SGD update used
+the same 18-example token/target/mask set as the earlier LoRA pilot. All 427
+active parameter tensors had finite nonzero gradients. Training loss changed
+from 0.4351621866 to 0.2650510669; independent checks changed from 17/54 to 19/54.
+Three answers improved and one previously correct answer regressed. The guard
+rejected the candidate, and blind checks were not run.
+
+The 31,876,841,504-byte FP32 GGUF passed separate native reload on all 18 examples
+without an additional update. The four measured stages settled after 0.6216
+A100 allocation GPU-hours. The source model stayed unchanged; no candidate was
+promoted or transferred. See [S³'s full report](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/WEN-FULL-UPDATE-PILOT.md)
+and [aggregate receipts](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/validation/learning-program-20261024/wen-full-update.json).
+
+[Harness comparisons](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/HARNESS-COMPARISON.md) keep those weights
+fixed and test another intervention. PCC owns inference/context/native receipts;
+S³ owns comparison and scoring, while each host harness owns tool execution.
+The offline comparison contract is tested; live host adapters remain unqualified.
