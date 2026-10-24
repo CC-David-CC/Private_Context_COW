@@ -4,7 +4,16 @@
 completed ordinary native backprop and FP32 save/reload. Protected checks moved
 from 17/54 to 19/54, with three gains and one regression; the candidate was not
 promoted. [Harness comparisons](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/HARNESS-COMPARISON.md) hold weights
-fixed and measure a separate intervention.
+fixed and measure a separate intervention. The
+[larger paired assessment](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/WEN-PAIRED-ASSESSMENT.md)
+found place value 23/96 to 29/96, seven gains and one loss, with unchanged
+outcomes on 96 review questions; the candidate remains unpromoted.
+[Real-client CPU checks](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/REAL-HARNESS-SETUP.md)
+verify PCC's existing Responses formatter with Codex and real file/tool loops
+in Codex/OpenCode/pi. These mock-reply checks do not measure Wen quality.
+[Joint learning and harness hill-climbing](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/JOINT-LEARNING-LOOP.md)
+keeps separate per-harness improvements and mixed-review training measurable;
+the full live coupled cycle remains to be established.
 Development checkpoint: [foundations and workflow validation](validation/foundations-20261023/README.md). Live-model qualification remains pending.
 
 
