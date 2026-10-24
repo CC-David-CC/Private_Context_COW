@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "Real tiny CPU native AdamW/Muon jobs via existing authenticated PCC training service, not model learning",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PASS",
+      "actual_http_native_jobs": 3,
+      "global_resume_steps": 2,
+      "completed_resume_weights_and_moments_bit_exact": true,
+      "new_block_keeps_weights_and_resets_moments": true,
+      "partial_budget_coverage_exposed": true,
+      "duplicate_operation_not_retrained": true,
+      "actual_cli_discovery_and_new_block": true,
+      "private_named_gguf_preservation_idempotent": true,
+      "promoted": false
+    },
+    {
+      "optimizer": "muon",
+      "status": "PASS",
+      "actual_http_native_jobs": 3,
+      "global_resume_steps": 2,
+      "completed_resume_weights_and_moments_bit_exact": true,
+      "new_block_keeps_weights_and_resets_moments": true,
+      "partial_budget_coverage_exposed": true,
+      "duplicate_operation_not_retrained": true,
+      "actual_cli_discovery_and_new_block": true,
+      "private_named_gguf_preservation_idempotent": true,
+      "promoted": false
+    }
+  ],
+  "negative_cases": 24,
+  "weights_published": false,
+  "promoted": false,
+  "regression_tests": 41,
+  "native_executable_sha256": "790c1f324ee4ac2b08b3ca8b4cb4977d11e07cfd051b6382f095c17521ab1060"
+}

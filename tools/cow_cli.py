@@ -111,7 +111,7 @@ class RequestJournal:
         allowed_paths = {'/cow/namespace','/cow/reseed','/cow/text/context','/cow/text/prepare','/cow/text/ask',
                          '/cow/text/answer','/cow/text/resume','/cow/text/append-user','/cow/text/retry',
                          '/cow/fork','/cow/rewind','/cow/evaluate','/cow/evaluation/adopt',
-                         '/cow/training/lessons','/cow/training/jobs'}
+                         '/cow/training/lessons','/cow/training/jobs','/cow/training/exports'}
         if (not isinstance(record, dict) or set(record) not in (
                 required, required | {'receipt'}, required | {'receipt', 'answer'})
                 or record.get('schema') != self.SCHEMA or record.get('operation_id') != op
@@ -548,7 +548,7 @@ def _mutation_binding(path, body):
 
 def _validate_mutation_ack(path, value, *, branch=None, operation=None, revision=None,
                            snapshot=None, streamed=False,training_body=None):
-    if path in ('/cow/training/lessons','/cow/training/jobs'):
+    if path in ('/cow/training/lessons','/cow/training/jobs','/cow/training/exports'):
         if training_body is None:raise ClientError('Training validation requires original request bytes')
         return _training_ack(path,training_body,value)
     if streamed:
@@ -899,9 +899,18 @@ def sampling_settings(args):
 
 
 def _training_ack(path,body,value):
-    field='lesson_id' if path.endswith('/lessons') else 'job_id'
     canonical=lambda value:json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()
     expected=hashlib.sha256(canonical([path,body])).hexdigest()
+    if path=='/cow/training/exports':
+        fields={'schema','operation_id','request_sha256','export_id','name','model_sha256','file','weights_published'}
+        if (type(value) is not dict or set(value)!=fields or type(value['schema']) is not int or value['schema']!=1
+                or value['operation_id']!=body['operation_id'] or value['request_sha256']!=expected
+                or re.fullmatch(r'[a-f0-9]{64}',str(value['export_id'])) is None
+                or value['name']!=body['name'] or value['file']!=body['name']+'.gguf'
+                or value['model_sha256']!=body['expected_sha256'] or value['weights_published'] is not False):
+            raise ClientError('Model preservation acceptance does not bind the original request')
+        return value
+    field='lesson_id' if path.endswith('/lessons') else 'job_id'
     identity=hashlib.sha256(canonical(body['lesson'])).hexdigest() if field=='lesson_id' else body['operation_id']
     if (type(value) is not dict or set(value)!={'schema','operation_id','request_sha256',field}
             or type(value['schema']) is not int or value['schema']!=1 or value['operation_id']!=body['operation_id']
@@ -936,6 +945,19 @@ def _training_post(client,journal,path,body):
 def _training_run(args,client,journal):
     action=args.lesson_action
     if action=='skills':return _print_json(client.request('GET','/cow/training/skills'))
+    if action=='optimizers':return _print_json(client.request('GET','/cow/training/optimizer-profiles'))
+    if action=='exports':return _print_json(client.request('GET','/cow/training/exports'))
+    if action=='preserve':
+        if re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,119}',args.operation_id) is None:raise ClientError('Use a bounded explicit operation ID')
+        try:notes='' if args.notes_file is None else args.notes_file.read_text(encoding='utf-8')
+        except OSError as error:raise ClientError('Cannot read model notes: '+str(error)) from None
+        body=dict(operation_id=args.operation_id,job_id=args.identity,name=args.name,expected_sha256=args.expected_sha256,notes=notes,report_sha256=args.report_sha256)
+        return _print_json(_training_post(client,journal,'/cow/training/exports',body))
+    optimizer_profile=getattr(args,'optimizer_profile_id',None)
+    if optimizer_profile is not None:
+        if re.fullmatch(r'[a-f0-9]{64}',optimizer_profile) is None:raise ClientError('Use a registered optimizer profile SHA-256')
+        if args.mode!='full':raise ClientError('Native optimizer profiles require full-weight mode')
+        if action=='submit' and not args.train_now:raise ClientError('Optimizer selection applies to a training request')
     if action in ('list','show','status'):
         resource='jobs' if action=='status' else 'lessons'
         identity=getattr(args,'identity',None)
@@ -961,6 +983,7 @@ def _training_run(args,client,journal):
         if not ids:raise ClientError('Select at least one lesson')
         mode=args.mode;batch=args.batch_size;steps=args.steps if args.steps is not None else frozen['steps'] if frozen else 16 if args.skill_guard else (len(ids)+batch-1)//batch;rate=args.learning_rate;rank=args.rank
     body=dict(operation_id=op,lesson_ids=ids,mode=mode,batch_size=batch,steps=steps,learning_rate=rate,rank=rank,parent_job_id=args.parent_job_id)
+    if optimizer_profile is not None:body['optimizer_profile_id']=optimizer_profile
     if args.skill_guard:
         previous=journal.get(op)
         prior=json.loads(previous['body_json']) if previous is not None and previous['path']=='/cow/training/jobs' else None
@@ -1205,14 +1228,18 @@ def parser():
     actions=lesson.add_subparsers(dest='lesson_action',required=True)
     actions.add_parser('list')
     actions.add_parser('skills')
+    actions.add_parser('optimizers',help='List owner-registered native optimizer policies.')
+    actions.add_parser('exports',help='List private named standalone models.')
+    child=actions.add_parser('preserve',help='Preserve a completed full-weight job as a named private GGUF.')
+    child.add_argument('identity');child.add_argument('--operation-id',required=True);child.add_argument('--name',required=True);child.add_argument('--expected-sha256',required=True);child.add_argument('--notes-file',type=Path);child.add_argument('--report-sha256')
     for name in ('show','status'):
         child=actions.add_parser(name);child.add_argument('identity')
     child=actions.add_parser('submit');child.add_argument('file',type=Path);child.add_argument('--operation-id',required=True)
-    child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id')
+    child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id');child.add_argument('--optimizer-profile-id')
     child.add_argument('--skill-guard',action='store_true');child.add_argument('--batch-size',type=positive_int,default=8);child.add_argument('--steps',type=positive_int)
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--learning-rate',type=float,default=.0001);child.add_argument('--rank',type=positive_int,default=4)
     child=actions.add_parser('train');child.add_argument('lesson_ids',nargs='*');selection=child.add_mutually_exclusive_group();selection.add_argument('--all',action='store_true');selection.add_argument('--pending',action='store_true')
-    child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id')
+    child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id');child.add_argument('--optimizer-profile-id')
     child.add_argument('--skill-guard',action='store_true')
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--batch-size',type=positive_int,default=4)
     child.add_argument('--steps',type=positive_int,help='Default: cover the selected lessons once.');child.add_argument('--rank',type=positive_int,default=4)

@@ -151,3 +151,11 @@ The full supported loop/API and shared graph consolidation remain unfinished.
 The [quantization-retention study](MINICPM-QUANTIZATION-STUDY.md) is an approved
 part of export qualification. GGUF creation and successful loading do not prove
 that a smaller deployment format preserves the learned behavior.
+
+
+## Implemented incremental pathway
+
+[Native optimizer jobs and private named GGUF preservation](NATIVE-LEARNING-JOBS.md)
+now have real CPU HTTP/CLI evidence. The dedicated multi-round run coordinator
+and BW driver above remain planned; the new commands extend the existing
+LessonService/NativeRunner and operation journal.

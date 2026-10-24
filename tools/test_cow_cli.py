@@ -124,6 +124,10 @@ class CowCliTests(unittest.TestCase):
         cls.server.shutdown(); cls.server.server_close(); cls.thread.join()
 
     def setUp(self):
+        self.journal_temp=tempfile.TemporaryDirectory()
+        self.addCleanup(self.journal_temp.cleanup)
+        self.journal_environment=mock.patch.dict(os.environ,{'COW_CLI_STATE_DIR':self.journal_temp.name})
+        self.journal_environment.start();self.addCleanup(self.journal_environment.stop)
         FakeCowHandler.calls = []
         FakeCowHandler.stream_mode = 'good'
         FakeCowHandler.retry_mode = 'good'

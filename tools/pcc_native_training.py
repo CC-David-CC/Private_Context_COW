@@ -1,6 +1,7 @@
 """Offline PCC native-training admission and immutable candidate registration.
 
-No BW CLI/HTTP hook and no PyTorch training. A training candidate is never an
+The optional PCC lesson/job service reuses this executor; no PyTorch training.
+A training candidate is never an
 automatic replacement for the model/adapter pinned by a serving request.
 """
 from pathlib import Path

@@ -170,6 +170,18 @@ class LessonService:
         if describe is None:raise ValueError('This server has no configured skill guard')
         return describe()
 
+    def exports(self):
+        with self.locked():
+            root=self.root/'exports'
+            if root.is_symlink():raise ValueError('Export store link rejected')
+            from tools.pcc_model_exports import read_export
+            return dict(schema=1,model_contract_id=self.model,exports=[read_export(p,self.model) for p in sorted(root.glob('*.json'))])
+
+    def optimizer_profiles(self):
+        describe=getattr(self.runner,'describe_optimizer_profiles',None)
+        if describe is None:return dict(schema=1,model_contract_id=self.model,profiles=[])
+        return dict(schema=1,model_contract_id=self.model,profiles=describe())
+
     def job(self,identity):
         if not OP.fullmatch(identity):raise ValueError('Invalid job ID')
         with self.locked():record=self._read(self.root/'operations'/(identity+'.json'))
@@ -189,11 +201,23 @@ class LessonService:
                 'nonzero_gradients':sum(g['l2']>0 for g in step.get('gradients',[]))} for step in c['receipt']['steps']]
             result['example_cursor']=c['receipt']['example_cursor']
             if 'skill_guard' in c:result['skill_guard']={k:v for k,v in c['skill_guard'].items() if k!='protected_pass_ids'}
+        if 'optimizer_profile_id' in record['request']:
+            result['optimizer_profile_id']=record['request']['optimizer_profile_id']
+            if 'candidate' in record:
+                receipt=record['candidate']['receipt'];result['optimizer']=receipt['optimizer']
+                result['optimizer_completed_steps']=receipt['optimizer_checkpoint']['completed_steps']
+                result['consumed_example_presentations']=sum(row['examples'] for row in receipt['steps'])
+                ids=record['request']['lesson_ids'];result['selected_lessons']=len(ids)
+                consumed={index%len(ids) for row in receipt['steps'] for index in range(row['example_cursor']-row['examples'],row['example_cursor'])}
+                result['consumed_lesson_ids_this_job']=[v for index,v in enumerate(ids) if index in consumed]
+                result['unconsumed_lesson_ids_this_job']=[v for index,v in enumerate(ids) if index not in consumed]
+                result['training_budget']=receipt.get('training_budget')
+                result['optimizer_state_policy']=record['candidate']['optimizer_state_policy']
         if record['state']=='failed':result['error']='Training failed; private operator logs retained. No automatic retry.'
         return result
 
     def submit(self,path,request):
-        if path not in ('/cow/training/lessons','/cow/training/jobs'):raise ValueError('Unknown training mutation')
+        if path not in ('/cow/training/lessons','/cow/training/jobs','/cow/training/exports'):raise ValueError('Unknown training mutation')
         operation=request.get('operation_id')
         if type(operation) is not str or not OP.fullmatch(operation):raise ValueError('Explicit training operation ID required')
         binding=digest([path,request]);target=self.root/'operations'/(operation+'.json')
@@ -215,9 +239,17 @@ class LessonService:
                     if self._read(lesson_path)!=value:raise ValueError('Conflicting lesson bytes')
                 else:self._write(lesson_path,value)
                 acceptance['lesson_id']=identity;state='recorded'
+            elif path=='/cow/training/exports':
+                fields={'operation_id','job_id','name','expected_sha256','notes','report_sha256'}
+                if set(request)!=fields or type(request['job_id']) is not str or not OP.fullmatch(request['job_id']):raise ValueError('Preservation requires a known job ID and exact model/export metadata')
+                prior=self._read(self.root/'operations'/(request['job_id']+'.json'))
+                if prior['path']!='/cow/training/jobs' or prior['state']!='complete':raise ValueError('Preserve only a completed registered native job')
+                from tools.pcc_model_exports import preserve
+                saved=preserve(self.root,self.model,prior['candidate'],job_id=request['job_id'],name=request['name'],expected_sha256=request['expected_sha256'],notes=request['notes'],report_sha256=request['report_sha256'],write=self._write)
+                acceptance.update(export_id=saved['export_id'],name=saved['name'],model_sha256=saved['model_sha256'],file=saved['file'],weights_published=False);state='preserved'
             else:
                 required={'operation_id','lesson_ids','mode','batch_size','steps','learning_rate','rank','parent_job_id'}
-                if set(request) not in (required,required|{'skill_guard'}):raise ValueError('Training accepts only lesson IDs and bounded update settings')
+                if not required<=set(request) or set(request)-required-{'skill_guard','optimizer_profile_id'}:raise ValueError('Training accepts only lesson IDs and bounded update settings')
                 ids=request['lesson_ids']
                 if type(ids) is not list or not 1<=len(ids)<=4096 or len(set(ids))!=len(ids):raise ValueError('Select 1â€“4096 distinct lesson IDs')
                 for identity in ids:self._lesson(identity)
@@ -228,6 +260,10 @@ class LessonService:
                     raise ValueError('Step budget must cover every selected lesson at least once')
                 lr=request['learning_rate']
                 if type(lr) not in (int,float) or not math.isfinite(lr) or not 0<lr<=.01:raise ValueError('Learning rate must be positive and at most 0.01')
+                if 'optimizer_profile_id' in request:
+                    validate_optimizer=getattr(self.runner,'validate_optimizer_request',None)
+                    if validate_optimizer is None:raise ValueError('Native optimizer profiles are not configured on this runner')
+                    validate_optimizer(request)
                 if 'skill_guard' in request:
                     validate=getattr(self.runner,'validate_request',None)
                     if validate is None:raise ValueError('Skill guard is not configured on this server')
@@ -268,7 +304,7 @@ class NativeRunner:
     def __init__(self,config):
         self.config=copy.deepcopy(config)
         required={'model','base_sha256','executable','devices','device_budget_bytes','reserve_bytes','gpu_uuids'}
-        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds','memory_profile'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
+        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds','memory_profile','optimizer_profiles'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
         if sha256(config['model'])!=config['base_sha256']:raise ValueError('Training model hash mismatch')
         from tools.pcc_native_training import validate_devices
         names=validate_devices(config['devices'])
@@ -278,6 +314,11 @@ class NativeRunner:
         validate_memory_profile(config.get('memory_profile','conservative-v1'),config.get('sequence_profile','short-v1'))
         if type(config.get('timeout_seconds',3600)) is not int or not 1<=config.get('timeout_seconds',3600)<=3600:
             raise ValueError('Owner native timeout must be 1..3600 seconds')
+        from tools.pcc_optimizer_profiles import profiles
+        self.registered_optimizer_profiles=profiles(config.get('optimizer_profiles',{}),sequence_profile=config.get('sequence_profile','short-v1'),deadline=config.get('timeout_seconds',3600))
+        if any(p['training_budget_seconds'] is not None for p in self.registered_optimizer_profiles.values()):
+            from tools.pcc_native_training import require_training_budget_capability
+            require_training_budget_capability(config['executable'])
         if 'block_devices' in config:
             placement=config['block_devices']
             if type(placement) is not list or not 3<=len(placement)<=34 or any(type(i) is not int or not 0<=i<len(names) for i in placement):
@@ -289,8 +330,19 @@ class NativeRunner:
         elif names!=['CUDA'+str(i) for i in range(len(names))] or len(config['gpu_uuids'])!=len(names) or len(set(config['gpu_uuids']))!=len(names):
             raise ValueError('Training requires a distinct physical UUID per visible CUDA device')
 
+    def describe_optimizer_profiles(self):
+        from tools.pcc_optimizer_profiles import identity
+        if any(identity(p)!=key for key,p in self.registered_optimizer_profiles.items()):raise ValueError('Owner optimizer profiles changed after configuration')
+        return [dict(id=key,**copy.deepcopy(p),may_stop_before_all_selected_lessons=p['training_budget_seconds'] is not None) for key,p in sorted(self.registered_optimizer_profiles.items())]
+
+    def validate_optimizer_request(self,request):
+        from tools.pcc_optimizer_profiles import select
+        return select(self.registered_optimizer_profiles,request)
+
     def __call__(self,request,examples,run,parent,worker_fd):
         c=self.config;environment=dict(os.environ);fds=[worker_fd]
+        profile=self.validate_optimizer_request(request)
+        if profile:environment.update(GGML_CUDA_F32_ACTIVATIONS='1',NVIDIA_TF32_OVERRIDE='0')
         with ExitStack() as stack:
             if c['gpu_uuids']:
                 rows=subprocess.check_output(['nvidia-smi','--query-gpu=index,uuid','--format=csv,noheader,nounits'],text=True)
@@ -309,7 +361,16 @@ class NativeRunner:
                 if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
                 else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
             native['deadline_seconds']=c.get('timeout_seconds',3600)
-            return execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds))
+            if profile:
+                native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
+                if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
+                if profile['state_policy']=='resume':
+                    if parent is None or parent.get('mode')!='full':raise ValueError('Completed full-weight parent required for optimizer resume')
+                    checkpoint=parent['receipt']['optimizer_checkpoint']
+                    native.update(initial_optimizer_state=checkpoint['path'],initial_optimizer_state_sha256=checkpoint['sha256'],example_cursor=parent['receipt']['example_cursor'])
+            candidate=execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds))
+            if profile:candidate.update(optimizer_profile_id=request['optimizer_profile_id'],optimizer_state_policy=profile['state_policy'])
+            return candidate
 
 def configured_service(config_path,profile,tokenizer):
     config=json.loads(Path(config_path).read_bytes())
@@ -320,6 +381,7 @@ def configured_service(config_path,profile,tokenizer):
         raise ValueError('Training tokenizer must belong to the configured serving model')
     runner=NativeRunner(config['runner'])
     if 'skill_guard_config' in config:
+        if runner.registered_optimizer_profiles:raise ValueError('Native optimizer profiles currently require explicit lesson blocks; legacy multi-round skill_guard integration is not yet qualified')
         try:from sss.adapters.pcc import configured_guard
         except ModuleNotFoundError as error:
             if error.name=='sss':raise ValueError('Install the optional Skills³ package from CC-David-CC/sss before enabling skill_guard_config') from None
