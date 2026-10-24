@@ -79,6 +79,24 @@ fast-refine actual-model learning tests remain pending.
 
 [Runnable S³ integration, practice TXT and full results](https://github.com/CC-David-CC/sss/blob/feat/minicpm-optimizer-pilot-20261024/docs/MINICPM-OPTIMIZER-PILOT.md).
 
+## Additional A100 qualification
+
+The same native trainer and optimizer/state headers now pass on an A100-SXM4-
+80GB with a separately built strict F32 CUDA backend. Six independent tiny
+optimizer cases cover 4,264 scalar comparisons, worst error 8.40e-8. All four
+tiny full-backprop/save-resume arms and 14 negative state checks pass. An actual
+MiniCPM 120-token gradient-only probe covers all 381 parameters with finite,
+nonzero gradients; it performs no real-model update. This is coverage evidence,
+not an independent full-model derivative-value comparison.
+
+The owned GPU phases used 0.00967 A100 allocation-hours on a shared card. The
+owner permits admission based on free VRAM despite active shared compute;
+contention remains part of the evidence. This is not a controlled performance
+comparison against the separate Blackwell pilot. All these owned jobs settled.
+The larger S³ set now passes actual token/lesson admission, with 379-token
+maximum training inputs and separate 96-case-per-leaf evaluation splits.
+[Qualification, checked dataset and remaining fixed-budget gates](https://github.com/CC-David-CC/sss/blob/feat/minicpm-fixed-budget-20261024/docs/FIXED-COMPUTE-PREPARATION.md).
+
 ## Why an earlier comparison differed by 0.011
 
 The earlier independent inference comparison failed the fixed 0.0002 maximum

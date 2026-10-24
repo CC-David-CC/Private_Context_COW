@@ -4,7 +4,9 @@ Status: mechanics implemented, 2026-10-24. Native AdamW and Muon now pass bounde
 CPU/CUDA math and completed-state continuation checks. SGD remains the default.
 [Qualification and actual-model forward evidence](../experimental/native_training/OPTIMIZER-QUALIFICATION.md)
 separate that implementation from the planned fixed-budget learning comparison.
-No real MiniCPM weights have been updated or accepted.
+The real MiniCPM pilot passes updates, reload and exact completed continuation;
+no candidate has been accepted. A100 mechanics qualification also passes.
+[Data preparation and remaining execution gates](https://github.com/CC-David-CC/sss/blob/feat/minicpm-fixed-budget-20261024/docs/FIXED-COMPUTE-PREPARATION.md).
 
 ## Main question and priority
 
