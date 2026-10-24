@@ -2,8 +2,9 @@
 
 Native Muon now exists in **PCC's experimental trainer**, with native AdamW as a
 control and auxiliary optimizer. Both use C++/GGML on CPU/CUDA; no PyTorch is
-imported or linked. **No real MiniCPM weights have been updated, and no learning
-winner or accepted candidate is established.** SGD remains the default path.
+imported or linked. The subsequent real MiniCPM pilot now passes full-weight updates, fresh reload
+and completed Muon continuation. **No learning winner or accepted candidate is
+established.** SGD remains the default path.
 
 | Component | Responsibility and current status |
 | --- | --- |
@@ -51,7 +52,32 @@ a hardware-generation comparison.
 | Completed save/resume | All four arms produce bit-identical final weights and moments to uninterrupted training on each backend, including the refinement transition across resume. |
 | State refusal | Fourteen reuse/identity/configuration/corruption/coverage/truncation/trailing/nonfinite checks per backend. No automatic repeated update. |
 | Existing route | Tiny ordinary-Llama SGD checks, six negative cases and twelve offline admission/version checks still pass. |
-| Actual MiniCPM forward | A lazy independent FP64 calculation checks all positions on two inputs of ten and eight tokens: 2,350,080 logit values. Maximum errors 3.94e-5 and 4.45e-5; last-position top tokens agree. No actual-model backward/update is claimed. |
+| Actual MiniCPM forward | A lazy independent FP64 calculation checks all positions on two inputs of ten and eight tokens: 2,350,080 logit values. Maximum errors 3.94e-5 and 4.45e-5; last-position top tokens agree. This is forward-only evidence; actual-model update evidence follows below. |
+
+## Subsequent real MiniCPM optimizer pilot
+
+A bounded S³-owned pilot now runs three independently checked practice examples
+through this qualified native trainer on the RTX PRO 6000 Blackwell. It passes
+finite/nonzero gradient coverage for all 381 parameter tensors, fresh Muon and
+AdamW updates, immutable candidate/state export and fresh-process candidate
+reload. Muon uses 294 hidden matrices plus 87 auxiliary AdamW tensors. Ordinary
+complete backprop is used; this does not exercise the experimental sectionwise
+route.
+
+After two updates, resumed versus uninterrupted Muon matches every weight and
+moment bit for bit: 381 weight tensors, 468 moment tensors and 5,568,460,800
+scalar values. Candidate/state hashes differ because their lineage headers
+are different; complete arrays, counters and configuration were compared.
+Reload-loss errors are at most 1.20e-7. All owned GPU jobs are settled.
+
+Muon state is 12.21 GB versus AdamW's 20.13 GB, but optimizer-only update time
+is about 2.63 seconds versus 0.061 seconds on this small batch. The pilot used
+0.16943 Blackwell allocation-hours; checkpoint I/O is substantial. It is not a
+fixed-compute learning comparison, and lower training loss is not acceptance.
+No protected behavioral scores or promotion were produced. RMS-scaled and
+fast-refine actual-model learning tests remain pending.
+
+[Runnable S³ integration, practice TXT and full results](https://github.com/CC-David-CC/sss/blob/feat/minicpm-optimizer-pilot-20261024/docs/MINICPM-OPTIMIZER-PILOT.md).
 
 ## Why an earlier comparison differed by 0.011
 
