@@ -828,6 +828,30 @@ static void save_candidate(Chain&model,GGUFSource&source,const std::string&path,
     }catch(...){if(fd>=0)::close(fd);gguf_free(out);throw;}
     gguf_free(out);
 }
+static json merge_adapter_model(const json&config){
+    const int deadline=config.value("deadline_seconds",3600);need(deadline>=1&&deadline<=3600,"Bounded merge lifecycle deadline required");alarm(unsigned(deadline));
+    const std::string base=config.at("model"),adapter=config.at("initial_adapter"),output=config.at("candidate");
+    need(native_file_sha256(base)==config.at("base_sha256")&&native_file_sha256(adapter)==config.at("initial_adapter_sha256"),"Pinned base/adapter hash mismatch");
+    need(!std::filesystem::exists(output)&&std::filesystem::absolute(output)!=std::filesystem::absolute(base)&&std::filesystem::absolute(output)!=std::filesystem::absolute(adapter),"Exclusive merged output required");
+    auto names=config.at("devices").get<std::vector<std::string>>();for(auto&name:names)if(name!="CPU"){load_cuda();break;}
+    GGUFSource source(base);Chain model(source.geometry(),names,false,config.at("rank"));
+    need(model.h.llama_dense,"Merged adapter export currently qualifies ordinary Llama only");
+    need(config.value("sequence_profile",std::string())=="dense-llama-short-v1","Explicit ordinary Llama profile required");
+    model.maximum_sequence=512;model.efficient_sequence=true;
+    auto plan=memory_plan(model,config,false); // Enforces current memory/cap/reserve before allocation.
+    source.load(model);source.load_adapter(model,adapter,config.at("base_sha256"));
+    size_t merged=0;
+    for(auto&b:model.blocks)for(auto&entry:b->params){auto&p=entry.second;if(!p.a)continue;
+        Graph graph(b->device);auto*ctx=graph.ctx.p;
+        auto*delta=ggml_mul_mat(ctx,ggml_cont(ctx,ggml_transpose(ctx,p.a)),p.b);ggml_mul_mat_set_prec(delta,GGML_PREC_F32);
+        auto*value=ggml_add(ctx,p.w,delta);graph.forward(value);graph.compute();put(p.w,read_tensor(value));++merged;
+    }
+    // Reuse the native full-GGUF writer. Frozen tensors are also saved as F32;
+    // inference never rounds this comparator back through F16 or a quant.
+    model.full=true;save_candidate(model,source,output,config.at("base_sha256"));
+    need(native_file_sha256(base)==config.at("base_sha256")&&native_file_sha256(adapter)==config.at("initial_adapter_sha256"),"Merge input changed");
+    return {{"schema",1},{"native",true},{"status","MERGED_NOT_EVALUATED"},{"mode","full"},{"storage","F32"},{"merged_matrices",merged},{"rank",model.rank},{"alpha",model.rank},{"scale",1.0},{"base_sha256",config.at("base_sha256")},{"adapter_sha256",config.at("initial_adapter_sha256")},{"candidate",output},{"candidate_sha256",native_file_sha256(output)},{"promoted",false}};
+}
 static json concat_test(const std::string&name){
     Device device(name);json checks=json::array();
     for(int dim=0;dim<4;++dim){
@@ -877,7 +901,7 @@ static json train_model(const json&config){
     for(auto&name:names)if(name!="CPU"){load_cuda();break;}
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4),config.value("block_devices",std::vector<int>{}));
-    if(optimizer_config.kind!="sgd")need(mode=="full"&&model.h.llama_dense,"Adaptive optimizer route is currently bounded ordinary-Llama full training only");
+    if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"),"Adaptive route requires ordinary-Llama full training or explicit AdamW LoRA");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
     need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Unknown sequence qualification profile");
@@ -932,7 +956,10 @@ static json train_model(const json&config){
             {"graph_allocation_qualified",false},{"promoted",false}});
     }
     source.load(model);
-    if(config.contains("initial_adapter"))source.load_adapter(model,config.at("initial_adapter"),config.at("base_sha256"));
+    if(config.contains("initial_adapter")){
+        if(optimizer_config.kind!="sgd")need(config.contains("initial_adapter_sha256")&&native_file_sha256(config.at("initial_adapter"))==config.at("initial_adapter_sha256"),"Native adaptive parent adapter SHA-256 mismatch");
+        source.load_adapter(model,config.at("initial_adapter"),config.at("base_sha256"));
+    }
     auto examples=config.at("examples");need(examples.is_array()&&!examples.empty(),"Explicit training examples required");
     int batch=config.value("batch_size",1),steps=config.value("steps",1);float lr=config.value("learning_rate",.0001f);
     need(batch>0&&steps>0&&steps<=1000&&std::isfinite(lr)&&lr>0,"Invalid training budget");
@@ -963,7 +990,8 @@ static json train_model(const json&config){
         std::vector<Block*>parts;for(auto&b:model.blocks)parts.push_back(b.get());optimizer=std::make_unique<NativeOptimizer>(parts,optimizer_config);optimizer->allocate();
         if(state_mode=="resume"){
             need(config.contains("initial_optimizer_state")&&config.contains("initial_optimizer_state_sha256")&&config.contains("example_cursor"),"Complete pinned optimizer resume request required");
-            load_optimizer_state(*optimizer,config.at("initial_optimizer_state"),config.at("initial_optimizer_state_sha256"),config.at("base_sha256"),dataset_hash,cursor);
+            if(mode=="lora")need(config.contains("initial_adapter")&&config.contains("initial_adapter_sha256"),"LoRA optimizer resume requires its exact parent adapter");
+            load_optimizer_state(*optimizer,config.at("initial_optimizer_state"),config.at("initial_optimizer_state_sha256"),mode=="lora"?config.at("initial_adapter_sha256"):config.at("base_sha256"),dataset_hash,cursor);
         }else need(!config.contains("initial_optimizer_state")&&!config.contains("initial_optimizer_state_sha256")&&cursor==0,"Fresh optimizer state cannot silently reuse a cursor or supplied moments");
     }
     using TrainingClock=std::chrono::steady_clock;
@@ -981,7 +1009,7 @@ static json train_model(const json&config){
         if(optimizer)reports.back()["optimizer_step"]=optimizer_step;
         std::cerr<<"NATIVE_STANDARD_STEP "<<step<<" "<<before<<" "<<after<<std::endl;
         phase_seconds=std::chrono::duration<double>(TrainingClock::now()-phase_start).count();
-        if(timed)reports.back()["timing"]={{"seconds",phase_seconds-previous_boundary},
+        if(timed||config.value("record_timing",false))reports.back()["timing"]={{"seconds",phase_seconds-previous_boundary},
             {"gradient_and_coverage_seconds",std::chrono::duration<double>(gradient_end-step_start).count()},
             {"optimizer_seconds",std::chrono::duration<double>(optimizer_end-gradient_end).count()},
             {"post_update_evaluation_seconds",std::chrono::duration<double>(evaluation_end-optimizer_end).count()}};
@@ -1003,6 +1031,7 @@ int main(int argc,char**argv){try{
     setenv("GGML_NO_BACKTRACE","1",1);
     ggml_set_abort_callback([](const char*message){std::cerr<<"NATIVE_ABORT "<<message<<std::endl;void*frames[32];int n=backtrace(frames,32);backtrace_symbols_fd(frames,n,2);});
     if(argc==2&&std::string(argv[1])=="--capabilities"){std::cout<<native_training_capabilities().dump(2)<<std::endl;return 0;}
+    if(argc==3&&std::string(argv[1])=="--merge-adapter"){std::ifstream in(argv[2]);need(bool(in),"Cannot read merge request");json request;in>>request;std::cout<<merge_adapter_model(request).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--optimizer-diagnostic"){std::ifstream in(argv[2]);need(bool(in),"Cannot read optimizer diagnostic request");json request;in>>request;std::cout<<optimizer_diagnostic(request).dump(2)<<std::endl;return 0;}
     if(argc==3&&std::string(argv[1])=="--inspect"){std::cout<<inspect_model(argv[2]).dump(2)<<std::endl;return 0;}
     if(argc==3&&(std::string(argv[1])=="--train"||std::string(argv[1])=="--admit-training"||std::string(argv[1])=="--probe-gradients")){

@@ -49,8 +49,10 @@ def validate_optimizer_request(request):
         if any(k in request for k in ('optimizer_settings','initial_optimizer_state','initial_optimizer_state_sha256','optimizer_state_mode','optimizer_state_output')):
             raise ValueError('SGD does not consume adaptive optimizer state/settings')
         return kind
-    if request.get('mode')!='full' or request.get('sequence_profile')!='dense-llama-short-v1':
-        raise ValueError('Adaptive optimizers currently require explicit ordinary-Llama full training')
+    if request.get('sequence_profile')!='dense-llama-short-v1' or (request.get('mode')!='full' and not (kind=='adamw' and request.get('mode')=='lora')):
+        raise ValueError('Adaptive optimizers require ordinary-Llama full training or explicit AdamW LoRA')
+    if request.get('mode')=='lora' and request.get('optimizer_state_mode')=='resume' and not request.get('initial_adapter'):
+        raise ValueError('AdamW LoRA state resume requires its exact parent adapter')
     if request.get('optimizer_state_mode') not in ('fresh','resume'):raise ValueError('Explicit fresh/resume optimizer state mode required')
     settings=request.get('optimizer_settings',{})
     allowed={'schema','aux_learning_rate','beta1','beta2','epsilon','momentum','nesterov','ns_steps','projection','scaling','weight_decay','aux_weight_decay','normalization_epsilon','refine_start_step','refine_steps','precision'}
@@ -247,7 +249,8 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     if optimizer_kind!='sgd' and request['optimizer_state_mode']=='resume':
         state=Path(request['initial_optimizer_state']).resolve(strict=True)
         parent_optimizer=read_optimizer_state(state,request['initial_optimizer_state_sha256'])
-        if parent_optimizer['model_sha256']!=original or parent_optimizer['dataset_sha256']!=optimizer_dataset_sha256(request['examples']) or parent_optimizer['example_cursor']!=request['example_cursor']:
+        trained_identity=parent_adapter if request['mode']=='lora' else original
+        if parent_optimizer['model_sha256']!=trained_identity or parent_optimizer['dataset_sha256']!=optimizer_dataset_sha256(request['examples']) or parent_optimizer['example_cursor']!=request['example_cursor']:
             raise ValueError('Optimizer state candidate/dataset/cursor mismatch')
         request['initial_optimizer_state']=str(state)
     executable=Path(executable).resolve(strict=True)

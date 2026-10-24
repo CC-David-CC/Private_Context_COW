@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "scope": "Native tiny mechanics; not full-model learning or real-model LoRA parity",
+  "cuda_training": {
+    "schema": 1,
+    "status": "PASS",
+    "device": "CUDA0",
+    "native_adamw_lora": true,
+    "exact_three_update_uninterrupted_vs_resumed_weights_and_moments": true,
+    "first_update_zero_A_gradient_expected": true,
+    "unchanged_full_adamw_muon_weights_and_moments": true,
+    "timing_without_training_phase_budget": true,
+    "refusal_cases": 4,
+    "promoted": false
+  },
+  "cuda_training_executable_sha256": "d2cd5353d5d6598be45b36dc720a3374a1469de9d576616cf630ed468e0a7c56",
+  "cpu_merge": {
+    "schema": 1,
+    "status": "PASS",
+    "scope": "Tiny native merge mechanics, not real-model LoRA qualification",
+    "device": "CPU",
+    "native_f32_merge": true,
+    "merged_tensors": 21,
+    "independent_FP64_weight_max_error": 1.4411657922597243e-08,
+    "adapter_vs_merged_loss_error": 0.0,
+    "adapter_vs_merged_logit_max_error": 7.450580596923828e-08,
+    "actual_tensor_storage": "F32",
+    "refusal_cases": 3,
+    "promoted": false
+  },
+  "merge_executable_sha256": "2b298750403440f41500cc7235dd0e841b569d9bb72a7a819c9cae092992e952",
+  "merge_qualified_device": "CPU",
+  "full_model_LoRA_parity": "Gated at actual step1",
+  "training_time_budget": null,
+  "model_files_published": false,
+  "cpu_training": {
+    "schema": 1,
+    "status": "PASS",
+    "device": "CPU",
+    "native_adamw_lora": true,
+    "exact_three_update_uninterrupted_vs_resumed_weights_and_moments": true,
+    "first_update_zero_A_gradient_expected": true,
+    "unchanged_full_adamw_muon_weights_and_moments": true,
+    "timing_without_training_phase_budget": true,
+    "refusal_cases": 4,
+    "promoted": false
+  },
+  "admission_regression_tests": 19,
+  "source_sha256": {
+    "experimental/native_training/native_train.cpp": "9503130fc2627d55f07ea4e23eeb597fd4fdf905fc9e8df2e605f9d6738e3270",
+    "tools/pcc_native_training.py": "e3ad018ccc4d4e98d61f7556739285acce7ea14110e6655e1fb4264f04555efc",
+    "tools/test_lora_adamw_native.py": "c3372a7e76909a144bd96f006d7892e04ccde49370684ad57f7f5b2f7772a968",
+    "tools/test_native_lora_merge.py": "be7b98457a4228f65e6bd235de9382ff491a3b1728807ef964f97026a5d0ed3d"
+  },
+  "source_build_identities": {
+    "training_native_train_sha256": "f4ffb5e6fdf7f1989b9a23d94b0e3660f7d3fd43f61605f50da432c749e48f24",
+    "merge_native_train_sha256": "9503130fc2627d55f07ea4e23eeb597fd4fdf905fc9e8df2e605f9d6738e3270",
+    "note": "Merge build adds the F32 export entry; no update equations changed after training continuity qualification"
+  }
+}

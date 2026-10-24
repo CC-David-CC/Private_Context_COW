@@ -4,7 +4,10 @@ PCC now exposes owner-registered AdamW/Muon policies and private named GGUF
 preservation through its existing authenticated lesson/job service and CLI.
 The same operation receipts, native executor and immutable candidates are used;
 there is no second training framework or parallel task ledger. This checkpoint
-is qualified with real tiny native CPU updates through HTTP and CLI. The full
+is qualified with real tiny native CPU updates through HTTP and CLI. A full-model
+AdamW HTTP/CLI block has also completed, including native saved-weight reload,
+864-case assessment and private named preservation; that block did not improve
+on its immediate parent. The full
 continuous-run coordinator, BW driver and shared forward-graph consolidation in
 [the design](NATIVE-LEARNING-LOOP.md) remain unfinished.
 
@@ -22,10 +25,10 @@ Add `optimizer_profiles` to the runner: a map from each profile's SHA-256 to its
 exact descriptor. For example, save this descriptor as `adamw-policy.json`:
 
 ```json
-{"schema":1,"title":"AdamW mixed block, 300 training seconds",
+{"schema":1,"title":"AdamW mixed block, explicit update count",
  "optimizer":"adamw","learning_rate":0.000001,
  "optimizer_settings":{"schema":1,"weight_decay":0.0,"aux_weight_decay":0.0},
- "state_policy":"fresh","training_budget_seconds":300.0}
+ "state_policy":"fresh","training_budget_seconds":null}
 ```
 
 Calculate its ID with the existing canonical identity function:
@@ -136,3 +139,17 @@ idempotent named GGUF preservation.24 refusal/corruption cases pass.41 existing
 CLI/lesson/schema/profile tests also pass. The CLI tests now isolate their
 journals so a previous test run cannot collide with a user's persistent operations.
 These are mechanics results, not full-model learning or new GPU qualification.
+
+## Per-update studies and native LoRA
+
+The current comparison uses matched updates and identical ordered practice.
+Leave the profile training budget null; measure compute as an outcome. Optional
+time budgets remain available for explicitly requested bounded jobs and historical
+receipts, but they are not this study's organizing principle. The native
+`record_timing` option collects per-update phase costs without a training-phase
+time cap. An execution deadline remains a hang/lifecycle guard.
+
+[Native per-update mechanics and experimental LoRA](NATIVE-PER-UPDATE-CURVES.md)
+describes exact state continuation, the new AdamW LoRA executor route and native
+F32 merged export. Registered HTTP/CLI profiles still select full-weight jobs;
+the new LoRA route is an explicit experimental native-owner integration.
