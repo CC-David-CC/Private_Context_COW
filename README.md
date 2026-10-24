@@ -1,5 +1,8 @@
 # Private Context COW (PCC)
 
+[What we are discovering](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FINDINGS.md): readable findings about context
+cost, tool differences, training, forgetting and practical next steps.
+
 [Wen's full-weight update pilot](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/WEN-FULL-UPDATE-PILOT.md)
 completed ordinary native backprop and FP32 save/reload. Protected checks moved
 from 17/54 to 19/54, with three gains and one regression; the candidate was not
