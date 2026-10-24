@@ -253,3 +253,43 @@ python -m experimental.native_training.test_memory_admission --executable /path/
 ```
 
 See [the sanitized evidence](../../validation/foundations-20261023/dense-short-profile.json).
+
+The longer real-model forward was also checked at three answer-prefix lengths
+(164, 171 and 178 tokens) against fresh strict FP32 PCC inference. All comparisons
+met the previously declared maximum-error 0.0002 and RMS-error 0.00005 bounds,
+with identical top tokens. The largest observed difference was 0.00009966;
+maximum RMS was 0.00001474. This verifies bounded forward agreement, not a
+candidate's learned answer quality. Both phases released their owned allocations.
+
+### Allocator memory admission (opt-in, provisional)
+
+`memory_profile: "allocator-v1"` is an optional owner setting for
+`dense-short-v1` only. The default remains `conservative-v1`. Admission first
+checks persistent weights, gradients, scratch allowance and reserves. It then
+measures every complete graph with the native allocator before allocating its
+tensor buffers. Each device must fit both its owner budget and current free
+memory after reserves. The private scheduler helper measures and allocates the
+same explicit device assignments, including transfer tensors. It does not reset
+placements, split twice, change backward math or allow CPU compute fallback.
+
+`--admit-training` reports only `PERSISTENT_ADMISSION_PASS` for this option;
+that is not proof that the graph fits. Actual execution records
+`GRAPH_ALLOCATION_PLAN` and per-device graph-buffer peaks. Those are allocator
+buffer sizes, not whole-process VRAM peaks: persistent storage, backend scratch,
+context overhead and other users' allocations remain separate. A concurrent
+allocation can still make an admitted allocation fail; no automatic retry or
+candidate promotion follows a refusal.
+
+The tiny CPU regression checks ordinary LoRA/full updates at 64 and 375 tokens,
+reload loss agreement within 1e-5, and byte-identical candidates against the
+previous native binary and conservative allocation. Four intentionally small
+budgets pass persistent admission but refuse the first graph before an update;
+three further cases reject invalid settings or insufficient persistent memory.
+CUDA and real Wen capacity for this option are pending separate measurements.
+
+```sh
+python -m experimental.native_training.test_allocator_profile \
+  --executable /path/to/pcc-native-train \
+  --reference-executable /path/to/previous/pcc-native-train \
+  --output /new/private/allocator-proof
+```

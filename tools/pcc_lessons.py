@@ -268,12 +268,14 @@ class NativeRunner:
     def __init__(self,config):
         self.config=copy.deepcopy(config)
         required={'model','base_sha256','executable','devices','device_budget_bytes','reserve_bytes','gpu_uuids'}
-        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
+        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds','memory_profile'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
         if sha256(config['model'])!=config['base_sha256']:raise ValueError('Training model hash mismatch')
         from tools.pcc_native_training import validate_devices
         names=validate_devices(config['devices'])
         from tools.pcc_native_training import validate_sequence_profile
         validate_sequence_profile(config.get('sequence_profile','short-v1'),names)
+        from tools.pcc_native_training import validate_memory_profile
+        validate_memory_profile(config.get('memory_profile','conservative-v1'),config.get('sequence_profile','short-v1'))
         if type(config.get('timeout_seconds',3600)) is not int or not 1<=config.get('timeout_seconds',3600)<=3600:
             raise ValueError('Owner native timeout must be 1..3600 seconds')
         if 'block_devices' in config:
@@ -301,7 +303,7 @@ class NativeRunner:
                 environment.update(CUDA_DEVICE_ORDER='PCI_BUS_ID',CUDA_VISIBLE_DEVICES=','.join(c['gpu_uuids']))
             native={k:c[k] for k in ['model','base_sha256','devices','device_budget_bytes','reserve_bytes']}
             native.update({k:request[k] for k in ['mode','rank','batch_size','steps','learning_rate']},examples=examples,optimizer='sgd',backprop_mode='standard')
-            for key in ('sequence_profile','block_devices','host_reserve_bytes'):
+            for key in ('sequence_profile','block_devices','host_reserve_bytes','memory_profile'):
                 if key in c:native[key]=c[key]
             if parent:
                 if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])

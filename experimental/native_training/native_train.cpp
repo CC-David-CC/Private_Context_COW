@@ -56,6 +56,24 @@ struct Context {
 struct Device {
     ggml_backend_t backend=nullptr;
     std::string name;
+    bool allocation_guard=false;
+    size_t fixed_bytes=0,scratch_bytes=0,reserve_bytes=0,budget_bytes=0,host_reserve_bytes=0;
+    size_t peak_planned_graph=0,checked_graphs=0;
+    static size_t host_available(){
+        std::ifstream in("/proc/meminfo");std::string line;
+        while(std::getline(in,line))if(line.rfind("MemAvailable:",0)==0)return std::stoull(line.substr(13))*1024;
+        throw std::runtime_error("Cannot establish current host memory");
+    }
+    static size_t room(size_t total,size_t charged){return total>charged?total-charged:0;}
+    size_t graph_limit(){
+        size_t free=0,total=0;ggml_backend_dev_memory(ggml_backend_get_device(backend),&free,&total);
+        if(name=="CPU")free=host_available();
+        return std::min(room(free,scratch_bytes+reserve_bytes),room(budget_bytes,fixed_bytes+scratch_bytes+reserve_bytes));
+    }
+    void observed_graph(size_t bytes,size_t limit){
+        ++checked_graphs;peak_planned_graph=std::max(peak_planned_graph,bytes);
+        std::cerr<<"GRAPH_ALLOCATION_PLAN "<<json({{"device",name},{"buffer_bytes",bytes},{"limit_bytes",limit},{"admitted",bytes<=limit}}).dump()<<std::endl;
+    }
     explicit Device(const std::string &n):name(n){
         if(n=="CPU")backend=ggml_backend_cpu_init();
         else if(n.rfind("CUDA",0)==0){load_cuda();auto id=n.substr(4);need(!id.empty()&&std::all_of(id.begin(),id.end(),::isdigit)&&id==std::to_string(std::stoi(id)),"Canonical explicit CUDA device index required");backend=cuda_init(std::stoi(id));}
@@ -179,7 +197,14 @@ struct Graph {
             // reserves metadata for every possible split; avoid that irrelevant
             // upper bound while executing the identical complete graph.
             direct_allocator=ggml_gallocr_new(ggml_backend_get_default_buffer_type(device.backend));
-            need(direct_allocator&&ggml_gallocr_alloc_graph(direct_allocator,g),"Single-backend graph allocation failed");
+            need(direct_allocator,"Single-backend allocator construction failed");
+            if(device.allocation_guard){
+                size_t bytes=0;ggml_gallocr_reserve_n_size(direct_allocator,g,nullptr,nullptr,&bytes);
+                const size_t limit=device.graph_limit();device.observed_graph(bytes,limit);
+                need(bytes<=limit,"Graph allocation admission refused on "+device.name);
+                need(ggml_gallocr_reserve(direct_allocator,g),"Admitted graph buffer allocation failed");
+            }
+            need(ggml_gallocr_alloc_graph(direct_allocator,g),"Single-backend graph allocation failed");
             std::cerr<<"DIRECT_GRAPH_ALLOCATION bytes="<<ggml_gallocr_get_buffer_size(direct_allocator,0)<<std::endl;
         }else{
         std::vector<ggml_backend_t>backends;for(auto*d:devices)backends.push_back(d->backend);
@@ -215,7 +240,21 @@ struct Graph {
             need(ggml_backend_supports_op(owner->backend,t),"Assigned GPU cannot execute "+std::string(ggml_op_name(t->op)));
             placements[t]=owner;ggml_backend_sched_set_tensor_backend(sched,t,owner->backend);
         }
-        need(sched&&ggml_backend_sched_alloc_graph(sched,g),"Graph allocation failed on "+device.name);
+        need(sched,"Scheduler construction failed");
+        if(device.allocation_guard){
+            std::vector<size_t>limits(backends.size()),sizes(backends.size());
+            for(size_t i=0;i<devices.size();++i)limits[i]=devices[i]->graph_limit();
+            if(backends.size()>devices.size())limits.back()=Device::room(Device::host_available(),device.host_reserve_bytes);
+            const bool allocated=ggml_backend_sched_alloc_graph_bounded(sched,g,limits.data(),sizes.data());
+            bool admitted=true;
+            for(size_t i=0;i<devices.size();++i){devices[i]->observed_graph(sizes[i],limits[i]);admitted=admitted&&sizes[i]<=limits[i];}
+            if(backends.size()>devices.size()){
+                admitted=admitted&&sizes.back()<=limits.back();
+                std::cerr<<"GRAPH_HOST_TRANSFER_PLAN "<<json({{"buffer_bytes",sizes.back()},{"limit_bytes",limits.back()}}).dump()<<std::endl;
+            }
+            need(admitted,"Graph allocation admission refused on assigned backends");
+            need(allocated,"Bounded graph allocation failed on "+device.name);
+        }else need(ggml_backend_sched_alloc_graph(sched,g),"Graph allocation failed on "+device.name);
         for(int i=0;i<ggml_graph_n_nodes(g);++i){auto*t=ggml_graph_node(g,i);if(t->op!=GGML_OP_NONE&&device.name!="CPU")need(ggml_backend_sched_get_tensor_backend(sched,t)!=scheduler_cpu->backend,"Unexpected CPU compute in GPU training graph");}
         }
         for(auto &[t,v]:data){need(t->buffer,"Unallocated/unused floating graph input");put(t,v);}
@@ -657,11 +696,20 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
             while(std::getline(meminfo,line))if(line.rfind("MemAvailable:",0)==0){free=std::stoull(line.substr(13))*1024;break;}
             need(free>0,"Cannot establish available host memory for CPU training");
         }
-        size_t estimate=persistent[d->name]+scratch[d->name]+activations[d->name]+reserve;
+        const size_t conservative=persistent[d->name]+scratch[d->name]+activations[d->name]+reserve;
+        const bool allocator=config.value("memory_profile",std::string("conservative-v1"))=="allocator-v1";
+        const size_t fixed=persistent[d->name]+(d->name=="CPU"?graph_host:0);
+        size_t estimate=allocator?fixed+scratch[d->name]+reserve:conservative;
         size_t cap=config.contains("device_budget_bytes")?config.at("device_budget_bytes").at(d->name).get<size_t>():free;
         if(!inspect_only)need(estimate<=free&&estimate<=cap,"Training memory admission refused on "+d->name);
         plans.push_back({{"device",d->name},{"free",free},{"total",total},{"persistent",persistent[d->name]},{"scratch_allowance",scratch[d->name]},{"activation_allowance",activations[d->name]},{"host_graph_allowance",graph_host},{"reserve",reserve},{"admission_estimate",estimate}});
         if(inspect_only)plans.back()["admitted"]=estimate<=free&&estimate<=cap;
+        if(allocator){
+            plans.back()["admission_stage"]="persistent-and-host; graph checked before allocation";
+            plans.back()["conservative_estimate"]=conservative;
+            d->allocation_guard=true;d->fixed_bytes=fixed;d->scratch_bytes=scratch[d->name];d->reserve_bytes=reserve;d->budget_bytes=cap;
+            d->host_reserve_bytes=config.value("host_reserve_bytes",size_t(8ull<<30));
+        }
     }
     return plans;
 }
@@ -761,13 +809,24 @@ static json train_model(const json&config){
             need(selected>0&&selected<=256,"Balanced sequence profiles support at most 256 selected target positions");
         }
     }
+    const std::string memory_profile=config.value("memory_profile",std::string("conservative-v1"));
+    need(memory_profile=="conservative-v1"||memory_profile=="allocator-v1","Unknown memory admission profile");
+    const bool allocator=memory_profile=="allocator-v1";
+    need(!allocator||sequence_profile=="dense-short-v1","Allocator admission is limited to the bounded dense profile");
     const bool admission_only=config.value("admission_only",false);
     auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
+    auto finish=[&](json result){
+        if(allocator){
+            result["memory_profile"]=memory_profile;result["allocation_peaks"]=json::array();
+            for(auto&d:model.devices)result["allocation_peaks"].push_back({{"device",d->name},{"planned_graph_buffer_bytes",d->peak_planned_graph},{"checked_graphs",d->checked_graphs}});
+        }
+        return result;
+    };
     if(admission_only){
         bool admitted=true;for(const auto&row:plan)admitted=admitted&&row.at("admitted").get<bool>();
-        return {{"native",true},{"status",admitted?"MEMORY_ADMISSION_PASS":"MEMORY_ADMISSION_REFUSED"},
+        return finish({{"native",true},{"status",admitted?(allocator?"PERSISTENT_ADMISSION_PASS":"MEMORY_ADMISSION_PASS"):(allocator?"PERSISTENT_ADMISSION_REFUSED":"MEMORY_ADMISSION_REFUSED")},
             {"memory_plan",plan},{"model_layers",model.h.layers},{"weights_loaded",false},{"weights_updated",false},
-            {"graph_allocation_qualified",false},{"promoted",false}};
+            {"graph_allocation_qualified",false},{"promoted",false}});
     }
     source.load(model);
     if(config.contains("initial_adapter"))source.load_adapter(model,config.at("initial_adapter"),config.at("base_sha256"));
@@ -780,14 +839,14 @@ static json train_model(const json&config){
         model.zero();const float loss=model.standard_sample(examples[0],true);
         auto gradients=model.gradients();int nonzero=0;for(const auto&row:gradients)nonzero+=row.at("l2").get<float>()>0;
         need(nonzero>0,"Gradient probe produced no nonzero parameter derivatives");
-        return {{"native",true},{"status","GRADIENT_PROBE_PASS"},{"backprop_mode","standard"},{"mode",mode},
+        return finish({{"native",true},{"status","GRADIENT_PROBE_PASS"},{"backprop_mode","standard"},{"mode",mode},
             {"loss",loss},{"gradients",gradients},{"memory_plan",plan},{"model_layers",model.h.layers},
-            {"weights_updated",false},{"candidate_written",false},{"promoted",false}};
+            {"weights_updated",false},{"candidate_written",false},{"promoted",false}});
     }
     if(config.value("evaluate_only",false)){
         json losses=json::array();for(auto&e:examples){std::vector<float>logits;losses.push_back(model.standard_sample(e,false,1,config.contains("logits_output")?&logits:nullptr));
             if(config.contains("logits_output")){need(examples.size()==1,"One example per explicit logits artifact");auto path=config.at("logits_output").get<std::string>();int fd=::open(path.c_str(),O_CREAT|O_EXCL|O_WRONLY,0600);need(fd>=0,"Logits output already exists or is inaccessible");write_all(fd,logits.data(),logits.size()*4);need(::fsync(fd)==0,"Logits fsync failed");::close(fd);}}
-        return {{"native",true},{"status","FORWARD_EXECUTED"},{"backprop_mode","standard"},{"losses",losses},{"memory_plan",plan},{"model_layers",model.h.layers},{"promoted",false}};
+        return finish({{"native",true},{"status","FORWARD_EXECUTED"},{"backprop_mode","standard"},{"losses",losses},{"memory_plan",plan},{"model_layers",model.h.layers},{"promoted",false}});
     }
     json reports=json::array();size_t cursor=config.value("example_cursor",size_t(0));
     for(int step=0;step<steps;++step){
@@ -799,7 +858,7 @@ static json train_model(const json&config){
         std::cerr<<"NATIVE_STANDARD_STEP "<<step<<" "<<before<<" "<<after<<std::endl;
     }
     auto output=config.at("candidate").get<std::string>();need(std::filesystem::absolute(output)!=std::filesystem::absolute(source.path),"Base overwrite forbidden");save_candidate(model,source,output,config.at("base_sha256"));
-    return {{"status","MECHANICS_EXECUTED"},{"native",true},{"backprop_mode","standard"},{"mode",mode},{"optimizer","sgd"},{"model_layers",model.h.layers},{"memory_plan",plan},{"steps",reports},{"candidate",output},{"example_cursor",cursor},{"promoted",false},{"save_reload_qualified",false}};
+    return finish({{"status","MECHANICS_EXECUTED"},{"native",true},{"backprop_mode","standard"},{"mode",mode},{"optimizer","sgd"},{"model_layers",model.h.layers},{"memory_plan",plan},{"steps",reports},{"candidate",output},{"example_cursor",cursor},{"promoted",false},{"save_reload_qualified",false}});
 }
 int main(int argc,char**argv){try{
     setenv("GGML_NO_BACKTRACE","1",1);

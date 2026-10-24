@@ -1,0 +1,80 @@
+{
+  "cpu": {
+    "status": "PASS",
+    "checks": [
+      {
+        "mode": "lora",
+        "length": 64,
+        "before": 5.32694673538208,
+        "after": 5.326946258544922,
+        "candidate_sha256": "f7ddbc575eeff31676ca6e481c0190e558f8b08a3ffac97b62a75162ce7237c2",
+        "candidate_bytes_identical": true,
+        "reload_agreement": true,
+        "allocation_peaks": [
+          {
+            "checked_graphs": 8,
+            "device": "CPU",
+            "planned_graph_buffer_bytes": 472512
+          }
+        ]
+      },
+      {
+        "mode": "lora",
+        "length": 375,
+        "before": 6.040988922119141,
+        "after": 6.040988445281982,
+        "candidate_sha256": "b286648d34e6b21f4946c3b9b9333b6c7bdceb90a20f380b98a66373eeed8141",
+        "candidate_bytes_identical": true,
+        "reload_agreement": true,
+        "allocation_peaks": [
+          {
+            "checked_graphs": 8,
+            "device": "CPU",
+            "planned_graph_buffer_bytes": 4173440
+          }
+        ]
+      },
+      {
+        "mode": "full",
+        "length": 64,
+        "before": 5.32694673538208,
+        "after": 5.32391881942749,
+        "candidate_sha256": "04d4f914a1a69a1f96781bd48312d270904cdd792965d1e1ef7e5d3525be3261",
+        "candidate_bytes_identical": true,
+        "reload_agreement": true,
+        "allocation_peaks": [
+          {
+            "checked_graphs": 10,
+            "device": "CPU",
+            "planned_graph_buffer_bytes": 495808
+          }
+        ]
+      },
+      {
+        "mode": "full",
+        "length": 375,
+        "before": 6.040988922119141,
+        "after": 6.037052631378174,
+        "candidate_sha256": "628969cc05ff6469bb9bcb3e37a15e8924482bcb8aa906025baa89babee2888b",
+        "candidate_bytes_identical": true,
+        "reload_agreement": true,
+        "allocation_peaks": [
+          {
+            "checked_graphs": 10,
+            "device": "CPU",
+            "planned_graph_buffer_bytes": 4276896
+          }
+        ]
+      }
+    ],
+    "negative_cases": 7,
+    "devices": [
+      "CPU"
+    ],
+    "previous_binary_compared": true,
+    "base_unchanged": true,
+    "scope": "tiny native allocator admission, ordinary updates and reload; not Wen qualification"
+  },
+  "cuda": null,
+  "wen": null
+}

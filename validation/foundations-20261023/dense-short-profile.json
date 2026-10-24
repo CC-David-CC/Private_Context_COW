@@ -60,5 +60,43 @@
     "No long-context Wen training qualification",
     "HIP and SYCL not targeted by this standalone CPU/CUDA experiment"
   ],
-  "promoted": false
+  "promoted": false,
+  "wen_forward": {
+    "status": "PASS",
+    "tokens": 178,
+    "training_gpus": 4,
+    "reference_gpus": 1,
+    "comparison": "fresh strict FP32 PCC inference; native complete dense graph",
+    "bounds": {
+      "max_abs": 0.0002,
+      "rms": 5e-05,
+      "same_top1": true
+    },
+    "rows": [
+      {
+        "tokens": 164,
+        "max_abs": 6.29425048828125e-05,
+        "rms": 1.295033734690968e-05,
+        "same_top1": true
+      },
+      {
+        "tokens": 171,
+        "max_abs": 3.528594970703125e-05,
+        "rms": 4.9798543205581564e-06,
+        "same_top1": true
+      },
+      {
+        "tokens": 178,
+        "max_abs": 9.965896606445312e-05,
+        "rms": 1.4742432675439123e-05,
+        "same_top1": true
+      }
+    ],
+    "native_seconds": 53.75001916475594,
+    "oracle_seconds": 6.80102364346385,
+    "base_unchanged": true,
+    "weights_updated": false,
+    "candidate_written": false,
+    "owned_allocations_settled": true
+  }
 }

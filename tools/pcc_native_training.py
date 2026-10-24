@@ -25,6 +25,11 @@ def validate_sequence_profile(profile,devices):
         raise ValueError('Long sequence profile is only for tiny CPU fixtures')
     return profile
 
+def validate_memory_profile(profile,sequence_profile):
+    if profile not in ('conservative-v1','allocator-v1') or (profile=='allocator-v1' and sequence_profile!='dense-short-v1'):
+        raise ValueError('Allocator admission requires the bounded dense sequence profile')
+    return profile
+
 def validate_examples(examples,*,sequence_profile='short-v1'):
     if sequence_profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
     maximum=SEQUENCE_PROFILES[sequence_profile]
@@ -115,6 +120,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     request=copy.deepcopy(request)
     request['devices']=validate_devices(request['devices'])
     profile=validate_sequence_profile(request.get('sequence_profile','short-v1'),request['devices'])
+    validate_memory_profile(request.get('memory_profile','conservative-v1'),profile)
     request['examples']=validate_examples(request['examples'],sequence_profile=profile)
     request['backprop_mode']=validate_backprop_mode(request.get('backprop_mode'),devices=len(request['devices']))
     if request.get('mode') not in ('lora','full'):

@@ -23,6 +23,13 @@ class NativeTrainingContracts(unittest.TestCase):
                     loss_mask=[False,True,True], verified=True,
                     provenance_sha256='a'*64)
 
+    def test_allocator_admission_is_explicit_and_dense_only(self):
+        for sequence in self.m.SEQUENCE_PROFILES:
+            self.assertEqual(self.m.validate_memory_profile('conservative-v1',sequence),'conservative-v1')
+        self.assertEqual(self.m.validate_memory_profile('allocator-v1','dense-short-v1'),'allocator-v1')
+        for memory,sequence in [('unknown','dense-short-v1'),('allocator-v1','short-v1'),('allocator-v1','cpu-long-v1')]:
+            with self.assertRaises(ValueError):self.m.validate_memory_profile(memory,sequence)
+
     def test_response_mask_required(self):
         v=self.example();v['loss_mask']=[False]*3
         with self.assertRaises(ValueError):self.m.validate_examples([v])

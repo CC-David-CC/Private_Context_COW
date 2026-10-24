@@ -74,6 +74,8 @@ def main():
     if concat_backward not in patched:
         assert patched.count(anchor)==1, 'Unrecognized pinned backward switch'
         core.write_text(patched.replace(anchor,concat_backward+anchor),newline='\n')
+    from allocator_guard import apply as apply_allocator_guard
+    allocator_patch=apply_allocator_guard(dependency)
     # Embed GGML as the original engine does. Its vendored tree does not ship
     # the pkg-config template required by GGML's standalone install project.
     (out/'CMakeLists.txt').write_text('cmake_minimum_required(VERSION 3.16)\nproject(PCCNativeTrainingBackend LANGUAGES C CXX ASM)\nadd_subdirectory(ggml-source)\n')
@@ -87,7 +89,7 @@ def main():
         matches=list(build.rglob(name));assert len(matches)==1,(name,matches)
         libraries.append(matches[0])
     runtime=':'.join(dict.fromkeys(str(p.parent) for p in libraries));engine=ll/'build/bin'
-    cmd=['c++','-std=c++17','-O2','-g','-rdynamic','-I'+str(ll/'include'),'-I'+str(ll/'ggml/include'),
+    cmd=['c++','-std=c++17','-O2','-g','-rdynamic','-I'+str(ll/'include'),'-I'+str(dependency/'include'),
          '-I'+str(ll/'vendor'),'-DPCC_CUDA_BACKEND="'+('' if args.cpu_only else str(engine/'libggml-cuda.so'))+'"',
          str(source),'-Wl,-rpath,'+runtime,
          '-o',str(out/'pcc-native-train'),*map(str,libraries),'-ldl','-pthread']
@@ -95,7 +97,8 @@ def main():
     linked=subprocess.check_output(['ldd',str(out/'pcc-native-train')],text=True)
     assert 'torch' not in linked.lower()
     receipt=dict(pin=PIN,command=cmd,linked=linked,source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
-                 dependency_patch='materialize-strided-noninplace-scale-v1+concat-adjoint-v1',
+                 dependency_patch='materialize-strided-noninplace-scale-v1+concat-adjoint-v1+bounded-assigned-allocator-v1',
+                 dependency_allocator=allocator_patch,
                  dependency_core_sha256=hashlib.sha256(core.read_bytes()).hexdigest(),
                  cpu_only=args.cpu_only,
                  cuda_sha256=None if args.cpu_only else hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),
