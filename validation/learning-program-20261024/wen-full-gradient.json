@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Real Wen ordinary full-weight gradient; no optimizer step",
+  "model": "Wen 1.1 BF16",
+  "base_sha256": "49425fd802b04b400a1725e8afe527c405bb15e828d0275ff295e38396839f34",
+  "pcc_source_commit": "79073d4298e8fb58a85ef493fa8becc1e4d925b9",
+  "native_source_sha256": "b481d006090199598eed7e48141dec81d3ff6527dd57d1417a8fb60bad710773",
+  "operator_sha256": "06be8f5ff3a6898d44b014acbadfbf6e1a74cf2e1c3fba2842b22ada82f11d32",
+  "hardware": "Four shared A100 80GB GPUs",
+  "tokens": 375,
+  "selected_targets": 26,
+  "loss": 0.736629068851471,
+  "gradient_tensors": 427,
+  "nonzero_gradients": 427,
+  "all_gradients_finite": true,
+  "planned_graph_buffer_bytes": [
+    18795684736,
+    16499171840,
+    16505281536,
+    16487422976
+  ],
+  "memory_note": "Allocator graph buffers, not whole-process peak VRAM",
+  "allocation": {
+    "gpu_count": 4,
+    "elapsed_seconds": 83.24926515482366,
+    "gpu_seconds": 332.99706061929464,
+    "gpu_hours": 0.09249918350535963,
+    "settled": true,
+    "owned_gpu_allocations_remaining": 0,
+    "account_leases_available": true,
+    "operator_terminal": true
+  },
+  "base_unchanged": true,
+  "weights_updated": false,
+  "candidate_written": false,
+  "promoted": false,
+  "limits": [
+    "This proves the full gradient path at the stated length, not a full optimizer update",
+    "Saved full-weight candidate reload and paired quality evaluation remain to qualify",
+    "Shared-machine timing includes contention and is not a standalone speed benchmark"
+  ]
+}

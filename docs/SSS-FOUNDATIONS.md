@@ -154,3 +154,23 @@ Wen helps exercise the machinery for Codi; they are separate models. PCC supplie
 [bounded read-only GPU observation](GPU-OBSERVATION.md) for owner-run studies.
 Candidate weights remain on the training host; public reports contain aggregate
 results and content identities. Resource telemetry does not itself authorize a launch.
+
+## Reasoning curriculum boundary
+
+S³'s curriculum is strengthened by ideas incorporated from
+[LearnHarness](https://github.com/amosblomqvist/learnharness): joint-premise proofs,
+premise withdrawal, smallest sufficient assumptions, method selection and a
+checked delayed archive revisit. The original generators, checkers and lesson
+argument records live in S³. BW accesses them through its existing optional S³
+import. PCC acquires no new argument-graph or tutoring runtime.
+
+[Coverage, provenance and commands are in S³](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/REASONING-CURRICULUM.md).
+These new practice artifacts have not trained Wen. Existing frozen training packs
+keep their original sources and checks; admitting longer lessons still requires
+the real model renderer, token count, native memory bounds and owned resources.
+
+The [real Wen full-gradient check](../validation/learning-program-20261024/wen-full-gradient.json)
+passed at 375 input tokens on four shared A100s: all 427 parameter tensors had
+finite nonzero gradients. It settled all allocations after 0.0925 GPU-hours.
+This run made no optimizer step and wrote no candidate; full-update reload and
+quality qualification remain separate work.
