@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "source_commit": "f9265f69c2e06524341443c66cc485567c9d6482",
+  "execution_profile_id": "f7a128040af93c5b44df86ab3d3e2e7bf3744d401cb015c1dc6392392ae48051",
+  "cpu_only": true,
+  "synthetic_case_families": 2,
+  "conditions": 3,
+  "actual_model_generation_requests": 4,
+  "model_temperature": 0,
+  "seed": 0,
+  "thinking": false,
+  "max_output_per_turn": 256,
+  "grammar": null,
+  "weights_updated": false,
+  "promoted": false,
+  "results": {
+    "typed_original": {
+      "schema": 1,
+      "task": "Fresh synthetic two-turn pure echo interoperability; no shell/files/network tool effects",
+      "source_commit": "f9265f69c2e06524341443c66cc485567c9d6482",
+      "cpu_only": true,
+      "weights_updated": false,
+      "promoted": false,
+      "first_call_correct": false,
+      "tool_executed": false,
+      "final_receipt_correct": false,
+      "exactly_once_or_recovery_qualified": false,
+      "passed": false,
+      "error_type": "HTTPError",
+      "error": "HTTP Error 400: Bad Request",
+      "seconds": 7.463648186996579
+    },
+    "typed_json_guidance": {
+      "schema": 1,
+      "condition": "same synthetic task with explicit strict-JSON system guidance",
+      "source_commit": "f9265f69c2e06524341443c66cc485567c9d6482",
+      "cpu_only": true,
+      "weights_updated": false,
+      "promoted": false,
+      "first_call_correct": false,
+      "tool_executed": false,
+      "final_receipt_correct": false,
+      "exactly_once_or_recovery_qualified": false,
+      "passed": false,
+      "error_type": "RuntimeError",
+      "error": "HTTP 400: {\"error\": {\"message\": \"Incomplete or malformed MiniCPM call\", \"type\": \"invalid_request_error\", \"param\": null, \"code\": null}}",
+      "seconds": 7.684225243981928
+    },
+    "string_only": {
+      "schema": 1,
+      "condition": "separate string-only CDATA two-turn baseline; typed-object failures retained",
+      "source_commit": "f9265f69c2e06524341443c66cc485567c9d6482",
+      "cpu_only": true,
+      "weights_updated": false,
+      "promoted": false,
+      "first_call_correct": true,
+      "tool_executed": true,
+      "final_receipt_correct": true,
+      "exactly_once_or_recovery_qualified": false,
+      "first_finish_reason": "tool_calls",
+      "first_usage": {
+        "prompt_tokens": 255,
+        "completion_tokens": 32,
+        "total_tokens": 287,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "second_finish_reason": "stop",
+      "second_usage": {
+        "prompt_tokens": 142,
+        "completion_tokens": 6,
+        "total_tokens": 148,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "passed": true,
+      "seconds": 8.496059678960592
+    }
+  },
+  "observed_typed_failure": "Nested object emitted as Python representation with single-quoted keys, True and None; strict parser refused before any tool action",
+  "typed_guidance_generated_text_identical": true,
+  "prompt_generation_prefix_checked_against_native_consumed_tokens": true,
+  "string_success_scope": "One actual two-turn string/CDATA echo call, exact argument bytes, real tool result, exact final receipt, natural stops",
+  "raw_native_evidence_sha256": "5bc0ee68eadfc7370e634a91fb2e08fcae8304fb1f572a44785f08cd3573087e",
+  "raw_evidence_private": true,
+  "typed_case_tool_execution_count": 0,
+  "string_case_tool_execution_count": 1,
+  "clean_shutdown": {
+    "server_exit": 0,
+    "queued": 0,
+    "pending_branches": 0,
+    "active": 0,
+    "exact_owned_process_gone": true,
+    "ports_closed": true
+  },
+  "missing_evidence": [
+    "Original first HTTP400 response body not captured; status and original native snapshots retained",
+    "Raw HTTP request serialization bytes not captured; exact request field values and native consumed token histories retained"
+  ],
+  "limitations": [
+    "Two variants of one typed case and one string-only case are not a population benchmark",
+    "String-only success does not qualify arbitrary typed arguments or complete harness quality",
+    "Standard compatibility API idempotence/recovery/cancellation receipts are not qualified by this check",
+    "No model training or promotion; malformed output is not silently repaired"
+  ],
+  "evidence_hashes": {
+    "echo-result.json": "20f45b7540c853e22f62745df2841d35031cf2b9f82089794f32f12f7e6f72a1",
+    "echo-json-guidance-result.json": "c3e822afa2f38ecfcd2cecf0decfd341826948b67a44681b20e1ce8433aa6f70",
+    "echo-string-result.json": "9272b455893a0005791356dd9e24981f72b3c89bf10001bc31d5c0f10e4bd89e",
+    "echo-pool-trace.json": "6f75e37f060b9e69c187041350797b1ceff343e7ae9242dbe3ce1b39eb4e849a",
+    "echo-terminal-status-before-close.json": "027cfb0a28aba1d6df3f533edc245f29e6ee8cd0a05fd414e5f56dea3d36e6ea"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "source_commit": "f9265f69c2e06524341443c66cc485567c9d6482",
+  "model_weights_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "model_contract_id": "f0d116cb417edd0595238c1347b42974af8246a7c5a8a878e0c1e62a049e5c3f",
+  "execution_profile_id": "f7a128040af93c5b44df86ab3d3e2e7bf3744d401cb015c1dc6392392ae48051",
+  "profile_sha256": "f2741bd0f5ad4f02ec62dda9d610ab9628215620823a1972802d6329b30b2caf",
+  "cpu_only": true,
+  "context": 4096,
+  "prefill_batch": 256,
+  "threads": 8,
+  "tokenizer": {
+    "result_sha256": "81d5977d958b4cb26608e98b479ced296381f3d8148d7b8d334c25d8c639f460",
+    "schema": 1,
+    "passed": true,
+    "token_id_comparisons": 2438,
+    "token_id_mismatches": [],
+    "vocabulary_pieces_compared": 130560,
+    "piece_mismatches": [],
+    "framing_checks": [
+      "root_bos_and_native_ids_thinking_false",
+      "append_after_1_thinking_false",
+      "append_after_130073_thinking_false",
+      "literal_controls_are_data_thinking_false",
+      "root_bos_and_native_ids_thinking_true",
+      "append_after_1_thinking_true",
+      "append_after_130073_thinking_true",
+      "literal_controls_are_data_thinking_true"
+    ],
+    "seconds": 4.021075992844999,
+    "weights_updated": false,
+    "forward_passes": 0
+  },
+  "branch_restore": {
+    "result_sha256": "d2d3c06b32dda551bd9fecae593ab2402011e4f3662e2568cf8e52a5cb67514a",
+    "passed": true,
+    "checks": [
+      "fresh_oracle_repeated_full_work",
+      "root_frontier",
+      "independent_suffix_a",
+      "independent_suffix_b",
+      "parent_immutable",
+      "wrong_sibling_history_detected",
+      "disk_checkpoint_restore",
+      "mismatched_execution_profile_rejected",
+      "evicted_exact_computation_not_silently_replayed",
+      "explicit_reconstruction_after_full_cache_eviction",
+      "rewind_to_original_root"
+    ],
+    "logit_comparisons": [
+      {
+        "label": "root_frontier",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_a",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "independent_suffix_b",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "disk_checkpoint_restore",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "explicit_reconstruction_after_full_cache_eviction",
+        "maximum_error": 0.0
+      },
+      {
+        "label": "rewind_to_original_root",
+        "maximum_error": 0.0
+      }
+    ],
+    "batching_drift_fresh_contexts": {
+      "a": 0.015477180480957031,
+      "b": 0.01455068588256836
+    },
+    "atol": 0.01,
+    "rtol": 0.001,
+    "oracle_requests": 7,
+    "oracle_tokens_computed": 90,
+    "seconds": 8.893326041987166,
+    "scope": "Bounded initial adapter probe; full G1-G5 matrix not claimed"
+  },
+  "weights_updated": false,
+  "promoted": false,
+  "tool_behavior_covered": false
+}

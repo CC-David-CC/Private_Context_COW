@@ -129,3 +129,40 @@ actual-header/template/factory gate. It reads metadata only and performs no mode
 inference. The HTTP tests script a fake COW request to check both API dialects,
 streaming, typed arguments, refusals and identity separation. Native model tool
 loops remain a separate qualification step; CPU codec success is not model success.
+
+
+## First native CPU qualification, 2026-10-25
+
+The reviewed codec source is `f9265f69c2e06524341443c66cc485567c9d6482`.
+A fresh source-bound CPU profile passed all 2,438 Python/native token-ID
+comparisons, all 130,560 vocabulary-piece comparisons and eight framing checks.
+The bounded branch/restore probe passed eleven checks, including immutable parent,
+independent suffixes, checkpoint restore, incorrect-sibling detection and explicit
+reconstruction after eviction. All six matching-batch logit comparisons had zero
+maximum difference. Different fresh-context batching showed approximately 0.0155
+maximum drift; that is reported separately, not hidden by changing tolerances.
+The existing comparison tolerances remain absolute 0.01 and relative 0.001.
+These are correctness observations on CPU, not GPU throughput measurements.
+
+The real model completed one string-only two-turn echo conversation: its CDATA
+string preserved newlines, markup, ampersands and quotes; the tool actually ran;
+the model then returned the exact receipt after seeing the tool result. A separate
+nested-object case emitted Python object syntax instead of strict JSON. PCC
+returned an error and no tool ran. Adding explicit strict-JSON system guidance
+produced the identical malformed output for that case. This is two variants of
+one typed case, not a measured general failure rate or a successful mitigation.
+Native consumed tokens also confirmed the assistant generation prefix was prompt
+input. The typed failure is not evidence that thinking tags were wrongly generated
+or that the prompt prefix was missing.
+
+The original failure remains preserved in the owner's private, unreviewed
+failure-class collection. No teaching pair has been approved and no weights were
+updated. The service shut down cleanly with no queued, active or pending work.
+String-only interoperability does not qualify arbitrary typed tools, model task
+quality, production deployment or compatibility-API recovery/idempotence.
+
+Sanitized evidence: [native CPU gates](../validation/minicpm-tool-codec-20261025/native-cpu-bn.json)
+and [native tool probe](../validation/minicpm-tool-codec-20261025/native-tool-probe-bn.json).
+Raw diagnostic inputs/outputs remain private; the original first HTTP error body
+and raw request wire serialization were not captured and are not reconstructed
+as observed evidence.
