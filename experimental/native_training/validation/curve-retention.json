@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Owned artifact retention mechanics; opaque fixtures, not model learning",
+  "filesystem_tests": 6,
+  "source_sha256": {
+    "tools/pcc_curve_retention.py": "4fb839150a9aaa368eeabedd879e4a283bfa4acfaacb46ef2d288f17853a2c54",
+    "tools/test_pcc_curve_retention.py": "3a367b17b938838816be928b14abd6018a20e53a818b6213651e1671c37dd99e"
+  },
+  "score_selection": "SSS owns milestones, live parent and best-so-far identities",
+  "after_report_requires_report_identity": true,
+  "original_base_and_other_tasks_protected": true,
+  "model_files_published": false
+}

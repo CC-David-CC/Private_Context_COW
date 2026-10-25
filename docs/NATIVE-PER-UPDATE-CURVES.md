@@ -73,3 +73,23 @@ and CUDA compatibility checks. [Measured mechanics](../experimental/native_train
 Repeat the source tests with `tools/test_lora_adamw_native.py` and
 `tools/test_native_lora_merge.py` against an isolated native build. No model
 files or protected evaluation answers are part of the public evidence.
+
+## Verified artifact retention
+
+`tools/pcc_curve_retention.py` is an owner-only archive helper. S3 selects
+milestones, the live parent and best-so-far identities; PCC verifies the private
+owned archive, original copy receipt, immutable measured-point evidence and a
+qualified later checkpoint before retiring superseded binaries. It operates
+only on the exact model/state roles in this experiment's manifests. Scores,
+response evidence, source and numerical evidence remain.
+
+Retirement writes and fsyncs its original intent before unlink, then records
+completion. Reconciliation follows that same intent. Named GGUF hardlinks are
+retired with the corresponding model. Changed bytes, links or mismatched
+receipts are refused before deletion. Six actual filesystem tests pass.
+
+After-report cleanup additionally requires the completed report's SHA and
+publication commit. It preserves the selected current model while retiring
+superseded study checkpoints/states. The original base and other project
+artifacts are outside this archive's authority. This is separate from COW
+context/cache eviction and is not a remotely selectable filesystem API.
