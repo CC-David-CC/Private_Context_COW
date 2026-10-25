@@ -103,7 +103,8 @@
     "Two variants of one typed case and one string-only case are not a population benchmark",
     "String-only success does not qualify arbitrary typed arguments or complete harness quality",
     "Standard compatibility API idempotence/recovery/cancellation receipts are not qualified by this check",
-    "No model training or promotion; malformed output is not silently repaired"
+    "No model training or promotion; malformed output is not silently repaired",
+    "Pinned upstream MiniCPM tool path can enforce a schema grammar; this probe used no grammar. A matched constrained rerun is needed before attributing syntax failures solely to weights or comparing harnesses."
   ],
   "evidence_hashes": {
     "echo-result.json": "20f45b7540c853e22f62745df2841d35031cf2b9f82089794f32f12f7e6f72a1",
@@ -111,5 +112,14 @@
     "echo-string-result.json": "9272b455893a0005791356dd9e24981f72b3c89bf10001bc31d5c0f10e4bd89e",
     "echo-pool-trace.json": "6f75e37f060b9e69c187041350797b1ceff343e7ae9242dbe3ce1b39eb4e849a",
     "echo-terminal-status-before-close.json": "027cfb0a28aba1d6df3f533edc245f29e6ee8cd0a05fd414e5f56dea3d36e6ea"
+  },
+  "native_grammar_source_comparison": {
+    "schema": 1,
+    "revision": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+    "file": "common/parsers/minicpm5.cpp",
+    "sha256": "2bfc737b9b99961835338261a2c7c3e3e7b05969652ef4b269dab77155261900",
+    "source_observation": "Native MiniCPM parser builds a schema grammar when tools exist and tool_choice is not none; auto is lazy-triggered at <function, required immediate.",
+    "pcc_probe_grammar": null,
+    "scope": "Source inspection only; no matched constrained model rerun performed. Do not attribute measured typed failure solely to weights or compare it as an equivalent native-harness test."
   }
 }

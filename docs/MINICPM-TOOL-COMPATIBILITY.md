@@ -166,3 +166,16 @@ and [native tool probe](../validation/minicpm-tool-codec-20261025/native-tool-pr
 Raw diagnostic inputs/outputs remain private; the original first HTTP error body
 and raw request wire serialization were not captured and are not reconstructed
 as observed evidence.
+
+
+### Grammar coverage is a separate harness variable
+
+The pinned upstream MiniCPM implementation builds a schema grammar when tools
+are present and tool choice is not `none`. Automatic tool choice activates that
+grammar lazily at a function-call trigger; required tool choice constrains it
+immediately. This PCC compatibility probe used no output grammar. Source
+inspection establishes that implementation difference; no matched constrained
+model rerun has been performed. The observed syntax failures therefore do not
+isolate a need for weight training or establish a comparison against the earlier
+native harness runs. Grammar can enforce valid syntax while argument semantics,
+tool selection and task completion still require independent checks.
