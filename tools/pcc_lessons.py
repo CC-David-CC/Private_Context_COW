@@ -422,8 +422,9 @@ class NativeRunner:
 def configured_service(config_path,profile,tokenizer):
     config=json.loads(Path(config_path).read_bytes())
     fields={'schema','directory','max_tokens','max_steps','runner'}
-    if set(config) not in (fields,fields|{'skill_guard_config'}) or config['schema']!=1:
-        raise ValueError('Invalid optional training configuration')
+    if (not fields<=set(config) or set(config)-fields-{'skill_guard_config','learning_config'}
+            or {'skill_guard_config','learning_config'}<=set(config) or config['schema']!=1):
+        raise ValueError('Invalid optional training configuration; select one owner learning controller')
     if Path(config['runner']['model']).resolve()!=Path(profile['model_path']).resolve():
         raise ValueError('Training tokenizer must belong to the configured serving model')
     runner=NativeRunner(config['runner'])
@@ -434,6 +435,13 @@ def configured_service(config_path,profile,tokenizer):
             if error.name=='sss':raise ValueError('Install the optional Skills³ package from CC-David-CC/sss before enabling skill_guard_config') from None
             raise
         runner=configured_guard(config['skill_guard_config'],runner,tokenizer)
+    policies=None
+    if 'learning_config' in config:
+        try:from sss.adapters.cow_learning import configured_policies
+        except ModuleNotFoundError as error:
+            if error.name=='sss':raise ValueError('Install optional Skills³ from CC-David-CC/sss before enabling learning_config') from None
+            raise
+        policies=configured_policies(config['learning_config'],runner,profile,tokenizer)
     return LessonService(config['directory'],profile['model_contract_id'],tokenizer.encode,runner,
                          max_tokens=config['max_tokens'],max_steps=config['max_steps'],sequence_profile=config['runner'].get('sequence_profile','short-v1'),
-                         rendered_tokenize=lambda text:tokenizer.encode(text,parse_special=True))
+                         rendered_tokenize=lambda text:tokenizer.encode(text,parse_special=True),learning_policies=policies)

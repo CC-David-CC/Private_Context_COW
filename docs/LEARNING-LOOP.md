@@ -205,3 +205,19 @@ If final evaluation is interrupted after every checkpoint completed, use the
 same owner arguments and work directory with `--resume-final-evaluation`. It
 validates saved evidence and evaluates only remaining frozen blind cases. It
 cannot submit another training update or overwrite a completed study result.
+
+## Owner-configured multi-round learning over COW
+
+The optional `learning_config` field installs registered S3 evaluation and
+learning policies through the normal training-service configuration. It cannot
+be combined with `skill_guard_config`. The
+[S3 owner guide](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/CONFIGURED-COW-LEARNING.md)
+provides complete configuration and exact recovery limits.
+
+The actual MiniCPM COW qualification completed two native LoRA updates, three
+shared-prefix assessments and both real BW/COW CLI clients. Its small 15-case
+panel measured 1 -> 5 -> 5 correct and 3 -> 9 -> 13 naturally finished. There were no
+baseline answer losses and repeated commands created no extra jobs. These are
+machinery observations, not broad model acceptance. PCC keeps native execution,
+leases and durable identity; S3 owns checks and reports; BW requests steps using
+the existing service. No competing scheduler or sampler was introduced.
