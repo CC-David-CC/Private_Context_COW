@@ -22,10 +22,10 @@ Add `optimizer_profiles` to the runner: a map from each profile's SHA-256 to its
 exact descriptor. For example, save this descriptor as `adamw-policy.json`:
 
 ```json
-{"schema":1,"title":"AdamW mixed block, 300 training seconds",
+{"schema":1,"title":"AdamW mixed block, explicit update count",
  "optimizer":"adamw","learning_rate":0.000001,
  "optimizer_settings":{"schema":1,"weight_decay":0.0,"aux_weight_decay":0.0},
- "state_policy":"fresh","training_budget_seconds":300.0}
+ "state_policy":"fresh","training_budget_seconds":null}
 ```
 
 Calculate its ID with the existing canonical identity function:
@@ -38,8 +38,12 @@ Use that exact ID as the `runner.optimizer_profiles` key. Any profile change
 requires a different ID. `optimizer` can be `adamw` or `muon`; the settings pass
 through the native optimizer's validation. A positive training-phase budget must
 be below the owner's hard native deadline; null uses the explicit step cap.
-The helper preflights completed-update budget support before advertising timed
-profiles. Qualified profile runs set FP32 activations and disable TF32.
+The current learning study uses null: requested updates and actual practice
+exposure organize the comparison, while compute cost is measured. An optional
+time limit remains available for explicitly timed experiments; it is not the
+quality stopping rule. The helper preflights completed-update budget support
+before advertising timed profiles. Qualified runs set FP32 activations and
+disable TF32.
 
 `state_policy="fresh"` continues a registered parent's WEIGHTS with new moments
 and a new data cursor. Use it when choosing a different lesson block. A separate
@@ -61,7 +65,7 @@ python -m tools.cow_cli --url http://127.0.0.1:8099 lesson optimizers
 python -m tools.cow_cli --url http://127.0.0.1:8099 lesson submit checked-lesson.json \
   --operation-id admit-example-01
 python -m tools.cow_cli --url http://127.0.0.1:8099 lesson train LESSON_ID \
-  --operation-id learn-block-01 --mode full --batch-size 1 --steps 1000 \
+  --operation-id learn-block-01 --mode full --batch-size 1 --steps 68 \
   --learning-rate 0.000001 --optimizer-profile-id PROFILE_SHA256
 python -m tools.cow_cli --url http://127.0.0.1:8099 lesson status learn-block-01
 ```
@@ -73,7 +77,8 @@ The job rate must match the advertised profile. A new operation ID is a NEW
 update request. Reusing the same ID/bytes reconciles its existing receipt; a lost
 response is not permission to train again with another ID.
 
-A time budget stops at a completed update and may finish before visiting every
+If an explicitly timed profile is selected, it stops at a completed update and
+may finish before visiting every
 selected lesson. The cap must be large enough to cover the selection, but that is
 not a guarantee the time budget will do so. Read actual completed steps, consumed
 presentations and `consumed_lesson_ids_this_job` /
