@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "TARGETED_OPERATOR_PASS_BROADER_CHECKS_OPEN",
+  "upstream_pr": "https://github.com/ggml-org/llama.cpp/pull/30142",
+  "upstream_author": "edenfunf",
+  "upstream_commit": "fdb4a0553f6ecb00450f04cc8da5b2b38dd9146d",
+  "tested_base_commit": "6050b467c07a95c7b87debd4ddac2f8ba8d9b807",
+  "hardware": "RTX 4090",
+  "control_exit": -6,
+  "patched_out_prod_passed": 103,
+  "patched_out_prod_total": 103,
+  "unmodified_thresholds": true,
+  "actual_model_rank1_qualified": false,
+  "scope": "Upstream synthetic operator checks against CPU reference, not model quality",
+  "checks": [
+    {
+      "name": "control-out-prod",
+      "returncode": -6,
+      "log_sha256": "1dcded2a99a155e24ccf1a0a21af418887262055ab58a4c81f1aa00902436201"
+    },
+    {
+      "name": "patched-rebuild",
+      "returncode": 0,
+      "log_sha256": "366adfe644a589188cecc8c7804e7222c88c9ce6429a96c639517ee4fa258f6d"
+    },
+    {
+      "name": "patched-out-prod",
+      "returncode": 0,
+      "log_sha256": "e3252c5fb8b830d30dd902c445fe7bb8cab4bef1f3a51200aac5a220afe5353b"
+    },
+    {
+      "name": "patched-mul-mat-grad",
+      "returncode": 1,
+      "log_sha256": "dc7168f1bca8acde6825368fc46f4ecbed840498180ac4515b34add340d080a9"
+    }
+  ],
+  "strict_f32_gradient_check": {
+    "returncode": 1,
+    "seconds": 28.05135839083232,
+    "environment": {
+      "NVIDIA_TF32_OVERRIDE": "0"
+    },
+    "thresholds_changed": false,
+    "prior_default_precision_failures_retained": true,
+    "log_sha256": "668028f79b63ad6c0c4273121667b2288d5340ec712afa7dcdf565dd624e6e11"
+  },
+  "broader_checker_reported_counts": {
+    "default_precision": {
+      "passed": 22399,
+      "total": 22430
+    },
+    "tf32_disabled": {
+      "passed": 22423,
+      "total": 22430
+    },
+    "note": "Tool-reported totals include unsupported/skipped configurations; not a count of completed finite-difference checks"
+  },
+  "scope_limits": [
+    "Broader matrix numerical failures remain unresolved; no overall PASS claim",
+    "Different initialization draws may affect repeated operator runs; this is not a training-seed campaign",
+    "No HIP or SYCL qualification claimed",
+    "A100 actual-model rank1 update, reload, COW inference and resume acceptance pending",
+    "Original running study libraries unchanged"
+  ]
+}

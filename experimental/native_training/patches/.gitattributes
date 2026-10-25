@@ -1,0 +1,2 @@
+# Mail patches retain context-line spaces and the original author trailer.
+*.patch -whitespace

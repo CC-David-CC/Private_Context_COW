@@ -13,6 +13,7 @@ def main():
     p.add_argument('--llama',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--cpu-only',action='store_true',help='Build without a CUDA backend; CUDA device requests then fail explicitly')
+    p.add_argument('--cuda-out-prod-singletons',action='store_true',help='Require and record the imported llama.cpp PR 30142 CUDA source patch')
     args=p.parse_args();ll=args.llama.resolve();out=args.output.resolve()
     assert subprocess.check_output(['git','-C',str(ll),'rev-parse','HEAD'],text=True).strip()==PIN
     cuda_source=ll/'ggml/src/ggml-cuda/ggml-cuda.cu'
@@ -20,6 +21,17 @@ def main():
     if not args.cpu_only:
         assert 'GGML_CUDA_F32_ACTIVATIONS' in cuda_source.read_text(), 'Build against the inspected --f32-activations engine tree'
         assert b'GGML_CUDA_F32_ACTIVATIONS' in cuda_binary.read_bytes(), 'Rebuild the FP32 CUDA backend before training'
+    out_prod_patch=None
+    if args.cuda_out_prod_singletons:
+        if args.cpu_only:raise ValueError('The CUDA singleton patch requires a CUDA build')
+        out_prod=ll/'ggml/src/ggml-cuda/out-prod.cu'
+        actual=hashlib.sha256(out_prod.read_bytes()).hexdigest()
+        if actual!='a0b8fb1e07b8a8d1caa33680367f4ba36c7f38df55e22bf03c280779b4dcbae8':
+            raise ValueError('Apply the pinned PR 30142 patch in a new isolated dependency tree before building')
+        out_prod_patch=dict(upstream_pr='https://github.com/ggml-org/llama.cpp/pull/30142',
+            upstream_author='edenfunf',upstream_commit='fdb4a0553f6ecb00450f04cc8da5b2b38dd9146d',
+            source_sha256=actual,cuda_library_sha256=hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),
+            qualification='Source and library identities only; operator and rank-one runtime checks still required')
     out.mkdir(parents=True,exist_ok=True)
     source=Path(__file__).with_name('native_train.cpp')
     # A private dependency build leaves every serving executable untouched.
@@ -108,6 +120,7 @@ def main():
                  cuda_sha256=None if args.cpu_only else hashlib.sha256(cuda_binary.read_bytes()).hexdigest(),
                  cuda_source_sha256=None if args.cpu_only else hashlib.sha256(cuda_source.read_bytes()).hexdigest(),
                  cuda_math_profile=None if args.cpu_only else 'GGML_CUDA_F32_ACTIVATIONS=1; NVIDIA_TF32_OVERRIDE=0')
+    if out_prod_patch is not None:receipt['cuda_out_prod_patch']=out_prod_patch
     (out/'build.json').write_text(json.dumps(receipt,indent=2)+'\n')
 
 if __name__=='__main__':main()
