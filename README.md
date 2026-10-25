@@ -9,6 +9,10 @@ Other loads were active on the server. These timings cover small forward-work
 and restore checks; full-assessment and complete training-loop timings are
 separate measurements.
 
+First full original-model assessment: **116.5 minutes to 19.1 minutes (6.1x)**,
+with identical tokens and outcomes on all 864 questions. Different shared A100
+cards and other active loads affect timing. Read the [first data block](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/COW-FIRST-DATA-BLOCK.md).
+
 Read the [implementation and numerical evidence](docs/COW-EVALUATION.md) and
 [S3's detailed evaluation guide](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/COW-EVALUATION.md).
 
