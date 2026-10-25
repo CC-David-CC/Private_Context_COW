@@ -107,3 +107,6 @@ publication commit. It preserves the selected current model while retiring
 superseded study checkpoints/states. The original base and other project
 artifacts are outside this archive's authority. This is separate from COW
 context/cache eviction and is not a remotely selectable filesystem API.
+
+
+See [shared COW evaluation path](COW-EVALUATION.md) for the existing engine connection and its measured scope.

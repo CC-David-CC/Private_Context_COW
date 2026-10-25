@@ -1,5 +1,17 @@
 # Private Context COW (PCC)
 
+## 4.8x faster on small forward-work probes
+
+S3's evaluator can now use existing COW context reuse through the same native
+consumed-request code used by BW. Two shared-A100 probes measured 4.8x and 7.1x
+speedups; **4.8x is the lower observed ratio**, not a universal lower bound.
+Other loads were active on the server. These timings cover small forward-work
+and restore checks; full-assessment and complete training-loop timings are
+separate measurements.
+
+Read the [implementation and numerical evidence](docs/COW-EVALUATION.md) and
+[S3's detailed evaluation guide](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/COW-EVALUATION.md).
+
 [What we are discovering](https://github.com/CC-David-CC/sss/blob/feat/foundations-20261023/docs/FINDINGS.md): readable findings about context
 cost, tool differences, training, forgetting and practical next steps.
 

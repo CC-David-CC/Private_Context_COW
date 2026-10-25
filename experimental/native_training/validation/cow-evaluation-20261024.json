@@ -1,0 +1,157 @@
+{
+  "status": "QUALIFIED",
+  "checks": [
+    {
+      "case": 0,
+      "step": 0,
+      "maximum": 4.7326087951660156e-05,
+      "rms": 5.1043712602658745e-06,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 1,
+      "maximum": 3.0517578125e-05,
+      "rms": 4.654329939227046e-06,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 2,
+      "maximum": 5.53131103515625e-05,
+      "rms": 1.0097549791185897e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 3,
+      "maximum": 5.817413330078125e-05,
+      "rms": 1.142394681283895e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 4,
+      "maximum": 7.677078247070312e-05,
+      "rms": 1.5032005617823819e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 5,
+      "maximum": 7.367134094238281e-05,
+      "rms": 1.5165375517561687e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 6,
+      "maximum": 7.05718994140625e-05,
+      "rms": 1.3927425186586784e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 7,
+      "maximum": 6.008148193359375e-05,
+      "rms": 1.282656795022128e-05,
+      "same_top": true
+    },
+    {
+      "case": 0,
+      "step": 8,
+      "maximum": 5.2928924560546875e-05,
+      "rms": 1.0640969768024647e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 0,
+      "maximum": 3.6716461181640625e-05,
+      "rms": 4.379597738187632e-06,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 1,
+      "maximum": 5.269050598144531e-05,
+      "rms": 1.0714960778835826e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 2,
+      "maximum": 4.00543212890625e-05,
+      "rms": 7.4901450989542e-06,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 3,
+      "maximum": 6.341934204101562e-05,
+      "rms": 1.1168083578760002e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 4,
+      "maximum": 6.246566772460938e-05,
+      "rms": 1.2388262690785944e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 5,
+      "maximum": 6.866455078125e-05,
+      "rms": 1.3342711972689621e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 6,
+      "maximum": 6.985664367675781e-05,
+      "rms": 1.4046397620816471e-05,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 7,
+      "maximum": 5.1975250244140625e-05,
+      "rms": 9.586401048440794e-06,
+      "same_top": true
+    },
+    {
+      "case": 1,
+      "step": 8,
+      "maximum": 7.152557373046875e-05,
+      "rms": 1.0275517773173656e-05,
+      "same_top": true
+    }
+  ],
+  "performance": {
+    "fresh_case_0": 4.654385235160589,
+    "fresh_case_1": 3.361093821004033,
+    "cow_case_0": 0.6573350727558136,
+    "cow_case_1": 0.7028415966778994
+  },
+  "allocated_seconds": 36.85285880975425,
+  "independent_restore_bitexact": true,
+  "canonical_cow_request_repeated": true,
+  "weights_updated": false,
+  "timing_scope": "Shared GPU; allocation wall time includes model load, contention and host work",
+  "hardware": "Shared NVIDIA A100; other users active; timings reflect contention",
+  "bounds": {
+    "maximum": 0.0002,
+    "rms": 5e-05
+  },
+  "model_sha256": "2323c47d8bf14fb2906e1275688aa784768cf39a364729bc52bf6ba5c0742764",
+  "source_provenance": {
+    "source_package_sha256": "7378d73c470d8fc5fae9b6d5d013f9ef68a2c04915d7495d08bbcd37afa2c45f",
+    "adapter_source_sha256_at_probe": "5a70dc5ed32b40d9248f6957a94819dac64dcb23fee9b4ee77f423fa0ef111bb",
+    "adapter_source_sha256_after_formatting": "75b5dbb4504c1c9f81faa8bf94dbbc077668ba3477b889112162c1b8267ade48",
+    "ast_identical": true,
+    "format_change": "Removed trailing blank line at EOF",
+    "bridge_binary_sha256": "4759fd89cff8fd14dd7885b05380418621046fa3fcae7b69aa67dd6fdb359954",
+    "independent_oracle_binary_sha256": "1e20b291b6c922b015dba2d8213f808b5109787308ca9f8243117a2c6a470bfa"
+  }
+}
