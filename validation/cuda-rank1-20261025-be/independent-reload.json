@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "NATIVE_UPDATE_AND_RELOAD_PASS",
+  "scope": "One actual MiniCPM rank1 update and independent reload, not COW held-out learning or merge acceptance",
+  "rank": 1,
+  "updates": 1,
+  "presentations": 27,
+  "before": 4.2636284828186035,
+  "after": 4.1450324058532715,
+  "finite_gradient_tensors": 590,
+  "reload_error": 1.2583202746441202e-07,
+  "reload_bound": 0.0002,
+  "candidate_sha256": "6a847decbbc4c0155968a07c2f6967c9612d9928888e45b4382a4576e7cf0d9b",
+  "optimizer_state_sha256": "c3a4b99fc4cb4b21fc035aa172d27dd217efa554f3f5378464d5b172748e8cba",
+  "native_sha256": "a4cf0a8f176300e276bfb95c47fe040792acd917126d792d0d3a76d5a13049ce",
+  "upstream_pr": "https://github.com/ggml-org/llama.cpp/pull/30142",
+  "upstream_author": "edenfunf",
+  "upstream_commit": "fdb4a0553f6ecb00450f04cc8da5b2b38dd9146d",
+  "additional_updates_after_reload_probe_failure": 0,
+  "training_gpu_uuid_not_recorded": true,
+  "reload_gpu_uuid": "GPU-d2dc9b43-a6b4-f8e8-2aad-de903f0bcf9a",
+  "promoted": false
+}

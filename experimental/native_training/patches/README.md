@@ -9,7 +9,8 @@ llama.cpp's source and license remain with the dependency.
 
 Local checkpoint: the patched operator passes 103/103 CPU-reference cases on
 RTX4090, and an actual A100 MiniCPM rank-one update completes with finite
-gradients. Independent reload and broader acceptance remain pending.
+gradients. Independent reload also passes (1.26e-7 error, unchanged 2e-4
+bound); broader acceptance remains pending.
 [Local evidence](../../../validation/cuda-rank1-20261025-be/README.md) records
 passing checks, the reload-probe error, metadata limits and numerical failures.
 Upstream author test results are not PCC test results. No running

@@ -17,9 +17,11 @@ optimizer state. See [native update](native-update.json) for exact identities
 and values. This is training mechanics, not a held-out improvement claim.
 
 The first independent reload command mistakenly retained optimizer_state_output
-in its evaluation-only SGD request and was refused. The corrected probe reloads
-the existing saved adapter without another update; final reload qualification
-is pending in this checkpoint. Its original driver also omitted the physical
+in its evaluation-only SGD request and was refused. The corrected probe reloaded
+the existing saved adapter without another update and passed: absolute loss
+error 1.2583202746441202e-7 against the unchanged 2e-4 bound. See the
+[independent reload receipt](independent-reload.json). The earlier
+[native-update-only snapshot](native-update.json) retains its original status. Its original driver also omitted the physical
 training GPU UUID, so that metadata gap is explicit. The corrected reload
 records its selected physical GPU.
 
