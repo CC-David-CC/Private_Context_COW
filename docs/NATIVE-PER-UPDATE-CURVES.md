@@ -74,6 +74,12 @@ Repeat the source tests with `tools/test_lora_adamw_native.py` and
 `tools/test_native_lora_merge.py` against an isolated native build. No model
 files or protected evaluation answers are part of the public evidence.
 
+The same native source also builds on the A100 host and passes the CPU LoRA
+continuity/full-update compatibility and independent F32-merge checks there.
+[CPU portability evidence](../experimental/native_training/validation/a100-curve-cpu-mechanics.json).
+That check allocates no GPU and does not qualify A100 CUDA execution or allow
+its results to be substituted into an existing frozen-runtime curve.
+
 ## Verified artifact retention
 
 `tools/pcc_curve_retention.py` is an owner-only archive helper. S3 selects

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Native CPU LoRA continuity, unchanged full AdamW/Muon compatibility and F32 merge on the A100 host; no CUDA job or real-model update",
+  "source_sha256": "9503130fc2627d55f07ea4e23eeb597fd4fdf905fc9e8df2e605f9d6738e3270",
+  "source_archive_sha256": "159e6b88bbe05c6188058abd8c04eb2b28f89736556cdc8c4cae782663997bf2",
+  "tests_archive_sha256": "491f1e8b4107491f0bba626597bf5eb6596679761c88f56d64969b037447d071",
+  "executable_sha256": "2d4cc15b1fd5229f4dd9390f82e75ffd7bdf32f98ba7c084c268eb2fd315bb77",
+  "build_receipt_sha256": "e7caf4e4bf18c17563705b866726124a75c989424463fe8ee4f370d5565756df",
+  "build_seconds": 64.02223350852728,
+  "lora": {
+    "schema": 1,
+    "status": "PASS",
+    "device": "CPU",
+    "native_adamw_lora": true,
+    "exact_three_update_uninterrupted_vs_resumed_weights_and_moments": true,
+    "first_update_zero_A_gradient_expected": true,
+    "unchanged_full_adamw_muon_weights_and_moments": true,
+    "timing_without_training_phase_budget": true,
+    "refusal_cases": 4,
+    "promoted": false
+  },
+  "merge": {
+    "schema": 1,
+    "status": "PASS",
+    "scope": "Tiny native merge mechanics, not real-model LoRA qualification",
+    "device": "CPU",
+    "native_f32_merge": true,
+    "merged_tensors": 21,
+    "independent_FP64_weight_max_error": 1.4411657922597243e-08,
+    "adapter_vs_merged_loss_error": 0.0,
+    "adapter_vs_merged_logit_max_error": 7.450580596923828e-08,
+    "actual_tensor_storage": "F32",
+    "refusal_cases": 3,
+    "promoted": false
+  },
+  "qualification_seconds": 3.8213124945759773,
+  "initial_driver_failure": "Missing LoRA test source was corrected before any native test operation; original log retained",
+  "gpu_job": false,
+  "allocated_gpu_seconds": 0,
+  "real_model_weights_updated": false,
+  "promoted": false
+}
