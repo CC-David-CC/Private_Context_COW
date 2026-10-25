@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "CPU recheck of the unchanged actual GPU artifacts with stricter finite-byte comparator",
+  "released_probe_source_sha256": "c221c4441765cc90a03a741999240ebfea48754708dc495d1d8acd425e1b356c",
+  "gpu_executed_probe_source_sha256": "55af397083a60433d0a50d80ec4263ccd63f4dba3ed25943b13a39428fcde50c",
+  "exact_finite_adapter_tensor_bytes": true,
+  "exact_finite_optimizer_moment_bytes": true,
+  "exact_whole_adapter_file_hash": true,
+  "exact_whole_optimizer_file_hash": true,
+  "change": "The released comparator additionally distinguishes signed zero and requires finite arrays, exact dtype and shape; GPU execution code remains frozen as executed-probe.txt",
+  "gpu_used": false,
+  "native_updates_repeated": false,
+  "promoted": false
+}

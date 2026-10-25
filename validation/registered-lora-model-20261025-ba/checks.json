@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Actual MiniCPM service/client integration with the previously qualified native A100 engine",
+  "source_sha256": {
+    "sss/sss_integration/registered_lora_model.py": "55af397083a60433d0a50d80ec4263ccd63f4dba3ed25943b13a39428fcde50c",
+    "pcc/tools/pcc_lessons.py": "c95c1ee19427eb5ad7d44710f406fb1dafa1ddecabb8b88cabdd6bd1c782f387",
+    "pcc/tools/pcc_optimizer_profiles.py": "73e9c478896bd2c9dbbe9a158455319fe57dfd0abe4e9142b3755c18ba80712e",
+    "pcc/tools/pcc_native_training.py": "e3ad018ccc4d4e98d61f7556739285acce7ea14110e6655e1fb4264f04555efc",
+    "pcc/tools/pcc_lesson_segments.py": "b5ad9f1d9cfbcc55fdabc5e7794d46ba0f009c4fd35ddc321cb53cf390dd1dd4",
+    "pcc/serve/cow_minicpm_prompt.py": "c7735e59b8131f5ef56e740ba15fd3f22c86a96dc75d51eced1a46935e216801",
+    "pcc/tools/strata_tokenizer.py": "9e1eaccc699780818d18ce2f6fc329b85a5a4bef7ed4b7e28c6c44d93e380f22"
+  },
+  "configuration_sha256": "66709e8923c57ccd5a9268cd25c611999f7c1265fbd64f79da3a09ce9318aefc",
+  "profile_sha256": "e77c9dac845ff48a12fcfc65e8e8b64f36e917aa9a2f8dba2afef172f2fae0d5",
+  "exact_final_adapter_file_hash_match": true,
+  "exact_final_optimizer_file_hash_match": true,
+  "completed_operation_receipts": [
+    {
+      "job_id": "first-train",
+      "record_sha256": "91fc15b14278c98f550a99178c30e78d5607c59fc2496b33b1b2619478ad7d7a",
+      "state": "complete"
+    },
+    {
+      "job_id": "resumed",
+      "record_sha256": "1cfa0291b394d44fda2ae6b307d4ff01d61a9874ee563ffb7e2ed6c98bcf0a84",
+      "state": "complete"
+    },
+    {
+      "job_id": "uninterrupted",
+      "record_sha256": "94e85c2c30accced2ce0dd053643f4d3fb892126150d27af4b846e9f97c1495a",
+      "state": "complete"
+    }
+  ],
+  "reservation": {
+    "gpu_count": 1,
+    "seconds": 182.7955515179783,
+    "allocation_gpu_hours": 0.05077654208832731,
+    "shared_loads_present": true,
+    "includes_model_io_cpu_checks_and_waiting": true,
+    "not_a_kernel_compute_benchmark": true
+  },
+  "admission_refusal": {
+    "stage": "Before dispatch",
+    "reason": "Existing owner placement lease busy",
+    "training_jobs_created": 0,
+    "original_owner_missing": true,
+    "original_evidence_retained": true,
+    "no_native_update_retried": true
+  },
+  "limits": [
+    "Synthetic checked practice, not an observed LLM failure or held-out improvement",
+    "Only one short rendered example and this exact native/model recipe",
+    "No merged LoRA, broad acceptance, long-context qualification or unattended loop",
+    "No study settings changed or model files transferred"
+  ],
+  "promoted": false,
+  "all_probe_owners_missing_after_completion": true,
+  "whole_probe_rerun_refused_before_service_start": true,
+  "original_operation_record_hashes_unchanged_on_refused_rerun": true,
+  "no_new_native_run_on_refused_rerun": true
+}

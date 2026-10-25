@@ -5,10 +5,12 @@ lesson/job service. Both BW and COW select it by its content hash. This uses
 the same native backprop, immutable candidates and operation receipts as full
 training; no separate trainer, task ledger or automatic model promotion is added.
 
-The new service path is qualified with real tiny CPU updates. Separate native
-MiniCPM LoRA training is running on A100, but this CPU integration result does
-not qualify every model, GPU, long training context or unattended learning loop.
-The running fixed-practice comparison was not changed by this addition.
+The service path has real tiny CPU proofs and a separate actual MiniCPM A100
+qualification through both clients. One update plus a resumed update produced
+the same complete adapter and optimizer-state file hashes as two uninterrupted
+updates. This qualifies that short integration case, not every model, GPU, long
+training context or unattended learning loop. The running fixed-practice
+comparison was not changed by this addition.
 
 ## Owner policy
 
@@ -130,3 +132,36 @@ and [source/regression receipts](../validation/lora-policy-20261025-az/checks.js
 record the exact qualification scope. The initial development fixture used an
 out-of-vocabulary target and correctly failed native admission; that fixture
 was corrected. It was an authoring error, not a measured model regression.
+
+## Actual MiniCPM through both clients
+
+A separate shared-A100 integration run used the original F16 MiniCPM5-2B base,
+rank-16 AdamW LoRA at 1e-4 and S3's existing checked practice generator/renderer.
+Its one selected example had 59 consumed tokens and three supervised answer/
+terminator targets. This was owned synthetic practice, not a claimed spontaneous
+model failure or copied development question.
+
+BW submitted the first one-update job; COW continued its exact registered
+adapter, moments and cursor. A separate COW job performed two updates from the
+same original base. The final **whole adapter file hashes and whole optimizer
+file hashes matched**, as did every inspected saved tensor/moment. The resumed
+step/cursor were both two; all 590 reported gradient groups per update were
+finite. Native training loss on this example moved 7.7261 → 2.4041 → 0.08077.
+This is not a held-out learning or forgetting measurement.
+
+Original client requests were retried without additional updates. A subsequent
+attempt to rerun the whole probe was refused before service startup, leaving
+all original operation hashes unchanged. The base stayed unchanged. The three
+jobs reserved one shared A100 placement for 182.8 seconds (0.0508 allocation
+GPU-hours), including model I/O and CPU checks; this is not a kernel-compute
+benchmark. One initial placement attempt was refused before dispatch because
+another owner held its lease; no native update was retried.
+
+[Actual-model integration](../validation/registered-lora-model-20261025-ba/integration.json),
+[source/recovery checks](../validation/registered-lora-model-20261025-ba/checks.json)
+and [the repeatable owner-run probe](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/REGISTERED-LORA-MODEL-PROBE.md)
+keep this qualification separate from the ongoing 68-update learning curves.
+No inference harness, merged deployment, broad acceptance or automatic learning
+coordinator is qualified merely by this result.
+
+The [stricter finite-byte recheck](../validation/registered-lora-model-20261025-ba/byte-comparison.json) also passed on those unchanged saved artifacts. The frozen executed helper is retained alongside the receipt; no GPU updates were repeated for that comparison refinement.

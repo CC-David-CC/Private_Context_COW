@@ -159,6 +159,8 @@ time cap. An execution deadline remains a hang/lifecycle guard.
 describes exact state continuation, the new AdamW LoRA executor route and native
 F32 merged export. [Registered LoRA AdamW](REGISTERED-LORA-ADAMW.md) now exposes
 that optimizer through both actual CLIs with an explicit versioned policy. The
-new service route has real CPU qualification; the separate MiniCPM native GPU
-study remains a separate execution series. Merged-export acceptance remains
-independent of successful attached training.
+new service route has real CPU qualification and a separate short MiniCPM
+A100 check through BW/COW, with identical final adapter and optimizer file
+hashes for resumed versus uninterrupted updates. The ongoing native learning
+study remains separate. Merged-export acceptance remains independent of
+successful attached training.

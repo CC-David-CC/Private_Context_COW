@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Actual MiniCPM registered LoRA AdamW service/client integration, not held-out learning",
+  "native_executable_sha256": "2d4cc15b1fd5229f4dd9390f82e75ffd7bdf32f98ba7c084c268eb2fd315bb77",
+  "model_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "model_contract_id": "f45043a0b33f3613fcd0f42200c564cb5be81ba09205d2fb847c7651923b67f6",
+  "fresh_policy_id": "5a8fd7645e5fa3d6022e6095bfa3fa69e60ded202748ff0e7f5e8b7c9a4def3f",
+  "resume_policy_id": "a4549a6fec4acbbacd97a88dd29a98cd9ad5c6b77927491b54b2b229a6685039",
+  "declared_recipe": {
+    "mode": "lora",
+    "rank": 16,
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "optimizer_settings": {
+      "schema": 1,
+      "weight_decay": 0.0
+    }
+  },
+  "target_policy": "actions_answer",
+  "practice_selection": {
+    "skill_id": "math.add.carry",
+    "gate": "independent",
+    "ordinal": 0,
+    "exercise_id": "371344e50a2f0a3767dca59b0324951d884fe0d2393cce8032348e417dd95342",
+    "lesson_id": "33691eee90bb6f0747cac1dc27edbf000c31de42dd8ad6dd9899146a3e49dd88",
+    "selected_targets": 3,
+    "consumed_tokens": 59,
+    "verification_sha256": "cbe9399223f6eecf5d95c87c4fbd0567cd2008fcc9ef383436828f8a610086a5"
+  },
+  "origin": "owned synthetic practice, not observed model failures",
+  "real_http_native_jobs": 3,
+  "actual_gpu_uuids": [
+    "GPU-f5a6dc6c-80cd-0fc0-f5d7-64f23a8634d9"
+  ],
+  "conditions": [
+    {
+      "job_id": "first-train",
+      "candidate_sha256": "4bb265adf0c00fa42f519ae8150b1153fbd58d947351037b195be8c8b10572eb",
+      "optimizer_state_sha256": "1106033db78c36d29c5194441d76faec81a4e740d742343e710d06026e2f2fc3",
+      "optimizer_completed_steps": 1,
+      "example_cursor": 1,
+      "steps": [
+        {
+          "before": 7.726125240325928,
+          "after": 2.404097080230713,
+          "examples": 1,
+          "gradient_tensors": 590
+        }
+      ]
+    },
+    {
+      "job_id": "resumed",
+      "candidate_sha256": "b8b8776b880f9a65056a89a79484f5f42ac3acec6ab0de5d667398b54d14e9b0",
+      "optimizer_state_sha256": "5f16ea7016c069ac81644c927cc8206e7efd0d2aa05e7a31dff1f3aea2e685c7",
+      "optimizer_completed_steps": 2,
+      "example_cursor": 2,
+      "steps": [
+        {
+          "before": 2.404097080230713,
+          "after": 0.08077318221330643,
+          "examples": 1,
+          "gradient_tensors": 590
+        }
+      ]
+    },
+    {
+      "job_id": "uninterrupted",
+      "candidate_sha256": "b8b8776b880f9a65056a89a79484f5f42ac3acec6ab0de5d667398b54d14e9b0",
+      "optimizer_state_sha256": "5f16ea7016c069ac81644c927cc8206e7efd0d2aa05e7a31dff1f3aea2e685c7",
+      "optimizer_completed_steps": 2,
+      "example_cursor": 2,
+      "steps": [
+        {
+          "before": 7.726125240325928,
+          "after": 2.404097080230713,
+          "examples": 1,
+          "gradient_tensors": 590
+        },
+        {
+          "before": 2.404097080230713,
+          "after": 0.08077318221330643,
+          "examples": 1,
+          "gradient_tensors": 590
+        }
+      ]
+    }
+  ],
+  "adapter_tensors_bit_exact": true,
+  "all_optimizer_moments_bit_exact": true,
+  "original_operation_retries_not_retrained": true,
+  "base_unchanged": true,
+  "protected_cases_exported": false,
+  "promoted": false
+}

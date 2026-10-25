@@ -1,0 +1,158 @@
+"""Qualify registered MiniCPM LoRA jobs through real clients and native code.
+
+This optional owner-run integration probe trains checked S3 synthetic practice,
+not observed model failures. It does not measure held-out learning or promotion.
+"""
+from pathlib import Path
+import argparse, hashlib, json, math, os, subprocess, sys, threading, time
+
+
+def write(path, value):
+    with Path(path).open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False); stream.write('\n')
+
+
+def sha(path):
+    with Path(path).open('rb') as stream: return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('action',choices=('prepare','run'))
+    for name in ('pcc-root','bw-root','service-config','profile','output'):
+        parser.add_argument('--'+name,type=Path,required=True)
+    args=parser.parse_args()
+    pcc=args.pcc_root.resolve(strict=True);bw=args.bw_root.resolve(strict=True)
+    sys.path[:0]=[str(pcc),str(pcc/'experimental/branching_context/src'),str(bw)]
+    from tools.pcc_lessons import configured_service
+    from tools.pcc_optimizer_profiles import recipe
+    from tools.fastokens_tokenizer import load_tokenizer
+    from tools.gguf_reader import GGUFFile
+    from serve.cow_http import model_text_components, make_server
+    from sss.records import digest
+    from sss.adapters.optimizer_pilot import prepare
+    from sss.adapters.pcc_foundation_render import PCCFoundationRenderer
+    output=args.output.absolute()
+    config=json.loads(args.service_config.read_bytes());profile=json.loads(args.profile.read_bytes())
+    model=Path(config['runner']['model']).resolve(strict=True)
+    if Path(config['directory']).resolve()!=output/'service':
+        raise ValueError('Use a new dedicated service store inside the probe output')
+    metadata=GGUFFile(model).metadata
+    if metadata.get('general.architecture')!='llama' or metadata.get('tokenizer.ggml.pre')!='minicpm5':
+        raise ValueError('This probe currently qualifies the MiniCPM5 ordinary-Llama route')
+    source_paths=[Path(__file__),pcc/'tools/pcc_lessons.py',pcc/'tools/pcc_optimizer_profiles.py',
+        pcc/'tools/pcc_native_training.py',pcc/'tools/pcc_lesson_segments.py',
+        pcc/'serve/cow_minicpm_prompt.py',pcc/'tools/strata_tokenizer.py']
+    pins=dict(configuration_sha256=sha(args.service_config),profile_sha256=sha(args.profile),
+        model_sha256=sha(model),native_executable_sha256=sha(config['runner']['executable']),
+        source_sha256={str(p):sha(p) for p in source_paths})
+    if pins['model_sha256']!=config['runner']['base_sha256']:
+        raise ValueError('Actual base differs from owner configuration')
+    tokenizer=load_tokenizer(model)
+    service=None;server=None;thread=None
+    try:
+        if args.action=='prepare':output.mkdir(mode=0o700,parents=True,exist_ok=False)
+        else:
+            previous=json.loads((output/'prepared-private.json').read_bytes())
+            if previous['pins']!=pins:raise ValueError('Prepared inputs/source changed; do not dispatch')
+            if (output/'run-intent-private.json').exists():
+                raise ValueError('Original run already started: reconcile its actual jobs, never rerun this probe blindly')
+        service=configured_service(args.service_config,profile,tokenizer)
+        registered=service.runner.registered_optimizer_profiles
+        fresh=[(key,p) for key,p in registered.items() if p['schema']==2 and p['mode']=='lora' and p['state_policy']=='fresh']
+        resume=[(key,p) for key,p in registered.items() if p['schema']==2 and p['mode']=='lora' and p['state_policy']=='resume']
+        if len(fresh)!=1 or len(resume)!=1 or recipe(fresh[0][1])!=recipe(resume[0][1]):
+            raise ValueError('Exactly one matching explicit fresh/resume LoRA recipe required')
+        fresh_id,policy=fresh[0];resume_id,_=resume[0]
+        if args.action=='prepare':
+            components=model_text_components(model,dict(enable_thinking=False),model_contract_id=service.model,tokenizer=tokenizer)
+            renderer=PCCFoundationRenderer(components)
+            pilot=prepare(service,renderer,output/'practice',tokenizer_sha256=digest({
+                k:v for k,v in metadata.items() if k.startswith('tokenizer.')}),
+                model_sha256=pins['model_sha256'],coordinates=(('math.add.carry','independent',0),))
+            selection=pilot['selection'][0];lesson=service.lesson(selection['lesson_id'])['lesson']
+            write(output/'selected-lesson-private.json',lesson)
+            write(output/'prepared-private.json',dict(schema=1,pins=pins,pilot_id=pilot['pilot_id'],
+                selection=selection,fresh_policy_id=fresh_id,resume_policy_id=resume_id,
+                cpu_preparation_only=True,origin=pilot['origin']))
+            print(json.dumps(dict(status='PREPARED',selection=selection,gpu_used=False)));return
+        prepared=json.loads((output/'prepared-private.json').read_bytes());identity=prepared['selection']['lesson_id']
+        write(output/'run-intent-private.json',dict(schema=1,pins=pins,lesson_id=identity,
+            fresh_policy_id=fresh_id,resume_policy_id=resume_id,updates=[1,1,2],
+            comparison='One plus one resumed versus two uninterrupted updates, same deterministic initialization',
+            origin=prepared['origin'],no_automatic_retry=True))
+        key='model-probe-'+os.urandom(24).hex()
+        server=make_server(object(),api_key=key,training_service=service)
+        thread=threading.Thread(target=server.serve_forever);thread.start()
+        url='http://127.0.0.1:'+str(server.server_port)
+        connection=dict(endpoint_url=url,endpoint_pin=digest(dict(url=url)),model_contract_id=service.model,
+            execution_profile_id=digest(dict(probe='training-only',native=pins['native_executable_sha256'])),eos_tokens=[1])
+        connection_file=output/'connection-private.json';write(connection_file,connection)
+        env=dict(os.environ,PYTHONPATH=os.pathsep.join([str(bw),str(pcc),str(pcc/'experimental/branching_context/src'),str(Path(__file__).resolve().parents[1])]),
+            BW_COW_API_KEY=key,COW_API_KEY=key)
+        bwcli=[sys.executable,'-m','branchwrite','lesson','--connection',str(connection_file),'--state-dir',str(output/'bw-journal')]
+        cowcli=[sys.executable,'-m','tools.cow_cli','--url',url,'--state-dir',str(output/'cow-journal'),'lesson']
+        def call(cli,arguments,name):
+            done=subprocess.run([*cli,*arguments],env=env,capture_output=True,text=True,timeout=60)
+            (output/(name+'.stdout')).write_text(done.stdout);(output/(name+'.stderr')).write_text(done.stderr)
+            if done.returncode:raise RuntimeError(name+' failed; preserve private client logs')
+            return json.loads(done.stdout)
+        def wait(op):
+            deadline=time.monotonic()+900
+            while time.monotonic()<deadline:
+                result=service.job(op)
+                if result['state'] not in ('queued','running'):
+                    if result['state']!='complete':raise RuntimeError('Original native job '+op+' failed; preserve its private logs')
+                    return result
+                time.sleep(.25)
+            raise TimeoutError('Original job remains unresolved; reconcile it without another update')
+        def candidate(op):return service._read(service.root/'operations'/(op+'.json'))['candidate']
+        shared=['--mode','lora','--rank',str(policy['rank']),'--learning-rate',str(policy['learning_rate'])]
+        discovered=call(bwcli,['optimizers'],'discovery')
+        if {v['id'] for v in discovered['profiles']}!={fresh_id,resume_id}:raise ValueError('Profile discovery differs')
+        first_args=['submit',str(output/'selected-lesson-private.json'),'--operation-id','first','--train-now',
+            *shared,'--steps','1','--optimizer-profile-id',fresh_id]
+        first_ack=call(bwcli,first_args,'first');first=wait('first-train');parent=candidate('first-train')
+        resumed_args=['train',identity,'--operation-id','resumed',*shared,'--steps','1','--batch-size','1',
+            '--optimizer-profile-id',resume_id,'--parent-job-id','first-train','--expected-parent-sha256',parent['candidate_sha256']]
+        resumed_ack=call(cowcli,resumed_args,'resumed');resumed=wait('resumed');continued=candidate('resumed')
+        control_args=['train',identity,'--operation-id','uninterrupted',*shared,'--steps','2','--batch-size','1','--optimizer-profile-id',fresh_id]
+        call(cowcli,control_args,'uninterrupted');control=wait('uninterrupted');straight=candidate('uninterrupted')
+        import numpy as np
+        from experimental.native_training.test_optimizer_training import state_arrays
+        def tensors(path):
+            info=GGUFFile(path)
+            return {t.name:np.fromfile(path,dtype={'F16':'<f2','F32':'<f4'}[t.type_name],count=t.elements,
+                offset=info.data_start+t.offset) for t in info.tensors}
+        x=tensors(continued['candidate_path']);y=tensors(straight['candidate_path'])
+        weights_exact=x.keys()==y.keys() and all(np.array_equal(x[k],y[k]) for k in x)
+        _,x=state_arrays(continued['optimizer_state_path']);_,y=state_arrays(straight['optimizer_state_path'])
+        moments_exact=x.keys()==y.keys() and all(np.array_equal(x[k],y[k]) for k in x)
+        if not weights_exact or not moments_exact:raise ValueError('GPU resumed/uninterrupted comparison differs; retain all evidence')
+        if resumed['optimizer_completed_steps']!=2 or resumed['example_cursor']!=2:raise ValueError('Resume counters differ')
+        if call(bwcli,first_args,'repeat-first')!=first_ack or call(cowcli,resumed_args,'repeat-resumed')!=resumed_ack:
+            raise ValueError('Original operation acceptance changed')
+        if len(list((service.root/'runs').iterdir()))!=3:raise ValueError('An accepted operation trained twice')
+        if sha(model)!=pins['model_sha256']:raise ValueError('Base changed')
+        rows=[]
+        for op in ('first-train','resumed','uninterrupted'):
+            c=candidate(op);receipt=c['receipt']
+            if any(not math.isfinite(g['l2']) for s in receipt['steps'] for g in s['gradients']):raise ValueError('Nonfinite gradient')
+            rows.append(dict(job_id=op,candidate_sha256=c['candidate_sha256'],optimizer_state_sha256=c['optimizer_state_sha256'],
+                optimizer_completed_steps=c['optimizer_completed_steps'],example_cursor=receipt['example_cursor'],
+                steps=[dict(before=s['before'],after=s['after'],examples=s['examples'],gradient_tensors=len(s['gradients'])) for s in receipt['steps']]))
+        result=dict(schema=1,status='PASS',scope='Actual MiniCPM registered LoRA AdamW service/client integration, not held-out learning',
+            native_executable_sha256=pins['native_executable_sha256'],model_sha256=pins['model_sha256'],
+            model_contract_id=service.model,fresh_policy_id=fresh_id,resume_policy_id=resume_id,
+            declared_recipe=recipe(policy),
+            target_policy='actions_answer',practice_selection=prepared['selection'],origin=prepared['origin'],
+            real_http_native_jobs=3,actual_gpu_uuids=config['runner']['gpu_uuids'],conditions=rows,
+            adapter_tensors_bit_exact=weights_exact,all_optimizer_moments_bit_exact=moments_exact,
+            original_operation_retries_not_retrained=True,base_unchanged=True,protected_cases_exported=False,promoted=False)
+        write(output/'result.json',result);print(json.dumps(result))
+    finally:
+        if server is not None:server.shutdown();server.server_close();thread.join()
+        if service is not None:service.close()
+
+
+if __name__=='__main__':main()
