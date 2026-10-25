@@ -16,6 +16,8 @@ def main():
     p.add_argument('--build-engine',action='store_true')
     p.add_argument('--cpu-only',action='store_true')
     p.add_argument('--f32-activations',action='store_true')
+    p.add_argument('--enable-lora',action='store_true',
+        help='Declare the existing immutable per-lease LoRA API; qualify numerical behavior separately')
     a=p.parse_args()
     from prepare_wen_llama import validate_checkout
     patch=validate_checkout(a.llama,f32_activations=a.f32_activations)
@@ -50,7 +52,8 @@ def main():
     hashes={str(f.resolve()):hashlib.sha256(f.read_bytes()).hexdigest() for f in files}
     build=dict(backend_revision=PIN,architecture_contract='llama-dense-v1',
         device_binding='cpu-only-v1' if a.cpu_only else 'cuda-single-device-v1',
-        lora_binding='unqualified',attention_precision_binding='fp32-attention-v1',
+        lora_binding='llama-adapter-per-lease-v1' if a.enable_lora else 'unqualified',
+        attention_precision_binding='fp32-attention-v1',
         commands=commands,sha256=hashes,**patch)
     (a.output/'build.json').write_text(json.dumps(build,indent=2)+'\n')
     print(a.output/'build.json')

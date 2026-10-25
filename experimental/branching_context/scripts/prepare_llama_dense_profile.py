@@ -13,7 +13,6 @@ from context_time_travel.llama_dense_backend import validate_geometry,terminal_t
 from tools.gguf_reader import GGUFFile
 
 def make_profile(model,build_dir,output,capacity,batch,threads,gpus=None,lora=None,lora_scale=1.,math_profile='native'):
-    if lora is not None:raise ValueError('Dense Llama adapter attachment is not qualified')
     if (type(capacity) is not int or not 128<=capacity<=131072 or type(batch) is not int
             or not 1<=batch<=capacity or type(threads) is not int or threads<1):
         raise ValueError('Explicit bounded context, prefill and CPU thread count required')
@@ -69,6 +68,11 @@ def make_profile(model,build_dir,output,capacity,batch,threads,gpus=None,lora=No
         native_build=build,execution=execution,hardware=hardware,geometry=geometry,
         bridge_library=str((build_dir/'libllamadensectt.so').resolve()),vocab_size=vocab,
         oracle_binary=str((build_dir/'llama-dense-fresh-oracle').resolve()))
+    if lora is not None:
+        from tools.pcc_cow_profile import bind_dense_adapter
+        path=Path(lora).absolute()
+        with path.open('rb') as f:adapter_sha=hashlib.file_digest(f,'sha256').hexdigest()
+        profile=bind_dense_adapter(profile,adapter_path=path,adapter_sha256=adapter_sha,scale=lora_scale)
     output=Path(output);output.parent.mkdir(parents=True,exist_ok=True)
     with output.open('x') as f:json.dump(profile,f,indent=2);f.write('\n')
     output.chmod(0o600);return profile
@@ -79,7 +83,9 @@ def main():
     p.add_argument('--output',type=Path,required=True);p.add_argument('--context',type=int,default=16384)
     p.add_argument('--batch',type=int,default=512);p.add_argument('--threads',type=int,default=8)
     p.add_argument('--gpus',type=int,nargs='+');p.add_argument('--math-profile',default='native')
-    a=p.parse_args();make_profile(a.model,a.build,a.output,a.context,a.batch,a.threads,gpus=a.gpus,math_profile=a.math_profile)
+    p.add_argument('--lora',type=Path);p.add_argument('--lora-scale',type=float,default=1.)
+    a=p.parse_args();make_profile(a.model,a.build,a.output,a.context,a.batch,a.threads,gpus=a.gpus,
+        lora=a.lora,lora_scale=a.lora_scale,math_profile=a.math_profile)
     print(a.output)
 
 if __name__=='__main__':main()

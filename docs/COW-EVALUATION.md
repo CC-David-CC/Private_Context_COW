@@ -86,7 +86,7 @@ history, changed evidence, duplicate/conflicting audits and invalid allocations.
 
 ## Bind a candidate profile before loading it
 
-Owner drivers can use 	ools.pcc_cow_profile.bind_dense_profile() to bind a
+Owner drivers can use 	ools.pcc_cow_profile.bind_dense_profile()` to bind a
 new dense FP32 model artifact and an observed GPU to a copied execution profile.
 It preserves the template and its numerical policy, updates the weight contract,
 physical placement and execution fingerprint, and returns the copied profile.
@@ -107,3 +107,6 @@ different bytes. The new binding helper has CPU tests against that original
 native validator, including changed model/GPU bindings, policy tampering and
 invalid placement inputs. The validator test constructs an uninitialized backend
 and calls only its metadata validation method, so no model or library is loaded.
+
+Attached dense LoRA candidates have a separate immutable profile and an explicit
+opt-in native build declaration. See [the owner workflow and qualification limits](DENSE-LORA-COW.md).

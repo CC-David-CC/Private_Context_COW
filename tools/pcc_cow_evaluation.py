@@ -20,6 +20,8 @@ def verify_sources(profile, runtime_root):
                 'experimental/branching_context/src/context_time_travel/real.py',
                 'experimental/branching_context/src/context_time_travel/qwen35_backend.py',
                 'experimental/branching_context/src/context_time_travel/llama_dense_backend.py')
+    if profile.get('adapter') is not None:
+        required += ('experimental/branching_context/src/context_time_travel/qwen35_lora.py',)
     if any(name not in closure for name in required):
         raise ValueError('COW evaluation requires its complete pinned source closure')
     base = Path(runtime_root).resolve(strict=True)
@@ -154,3 +156,6 @@ class CowEvaluationSession:
             verify_sources(self.profile, self.runtime_root)
             if sha(self.profile['model_path']) != self.profile['model_weights_sha256']:
                 raise ValueError('COW evaluation model changed during execution')
+            if self.profile.get('adapter') is not None:
+                from context_time_travel.llama_dense_backend import validate_dense_adapter
+                validate_dense_adapter(self.profile)

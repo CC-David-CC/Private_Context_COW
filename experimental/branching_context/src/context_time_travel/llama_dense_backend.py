@@ -1,12 +1,27 @@
 """Explicit MiniCPM5 dense Llama contract over the shared native dense runtime.
 
 Whole-state checkpoint copies preserve semantics; physical prefix sharing is
-not advertised. Other Llama geometries and adapters require their own evidence.
+not advertised. Other Llama geometries require their own evidence. LoRA uses
+the existing immutable per-lease binding and a distinct composite contract.
 """
 import ctypes as C
 import math
 from .qwen35_backend import Qwen35Backend, Qwen35FreshOracle
 from .store import InvalidOperation, IntegrityError
+from .qwen35_lora import validate_adapter
+
+
+def validate_dense_adapter(profile):
+ """Reject foreign-base or incomplete identities before native loading."""
+ adapter=validate_adapter(profile)
+ if adapter is not None:
+  expected=dict(weights_sha256=profile['model_weights_sha256'],architecture='llama',
+   state_kind='llama-dense-frontier-v1',positions='absolute-zero-based',
+   kv_dtype=profile['execution']['kv_dtype'],input_kind='token_ids',
+   adapters=[dict(sha256=adapter['sha256'],scale=adapter['scale'])])
+  if profile.get('model_contract')!=expected:
+   raise ValueError('Dense adapter contract differs from the exact base model and state semantics')
+ return adapter
 
 GEOMETRY={'block_count':42,'embedding_length':2048,'feed_forward_length':6144,
  'context_length':131072,'attention.head_count':16,'attention.head_count_kv':2,
@@ -38,8 +53,7 @@ class LlamaDenseBackend(Qwen35Backend):
  GEOMETRY_VALIDATOR=staticmethod(validate_geometry)
  ATTENTION_KIND='llama-causal-full-gqa'
  def __init__(self,profile,gpu_id=None):
-  if profile.get('adapter') is not None or profile.get('execution',{}).get('adapter') is not None:
-   raise IntegrityError('Dense Llama adapter attachment is not yet qualified')
+  validate_dense_adapter(profile)
   super().__init__(profile,gpu_id=gpu_id)
   actual=[i for i in range(self.vocab_size) if self.is_eog(i)]
   if profile['execution'].get('eos_tokens')!=actual:
