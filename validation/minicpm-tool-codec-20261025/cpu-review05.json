@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "status": "cpu-boundary-pass-native-tool-loop-unqualified",
+  "base_commit": "abdaf0a7ee4cdce713c430ce2938087879343fbc",
+  "source_files_sha256": {
+    "serve/cow_minicpm_tools.py": "cad2c2c4f3fa5a4cb6703aa3d815dcec60d749533f9affeda7b2c44c6ffd9ff8",
+    "serve/frontend.py": "bbf56a92523c3e0350b714eb38c5bb5cf7009075a79f5a506ab2b30b06d9c9df",
+    "serve/cow_compat.py": "14263decb60b2ce753af71219bd61436368ca7330869fec5c093f52943685634",
+    "serve/cow_minicpm_prompt.py": "19366e9444631d03af9cf88471bc5e580b9fd4cebab9299c4ac56d295e7d9ee6",
+    "serve/cow_renderer.py": "e4e05f2db6d52c075a20f54bf6ee9a0e2d5d264644a806b461546b0f64726b64",
+    "serve/cow_http.py": "c9e2b6b180041b23630d82acd220e746ca05e2219b39ec97cc43234eadf84add",
+    "serve/test_minicpm_tools.py": "3c1be54a4c1f84314cfc127cc129a0dbeda5a3f4cf27fec37d166225bb8f42c5",
+    "serve/test_minicpm_compat.py": "c3761b9766fead89b849a4e66fc2bd4cd1d9be9d18c08326cb4e818adf3575e2",
+    "serve/fixtures/minicpm_external_tool_schemas.json": "c6ecf9830fec814bd6e63c7bee033a7e57a992d276cb5b4460a07bc3d5220b24",
+    "docs/MINICPM-TOOL-COMPATIBILITY.md": "63733e74e3390ad91d16d3d37bfef8ed5a1452d6581c7930fd9ab216cf7dc91b"
+  },
+  "test_command": "PYTHONPATH=.:experimental/branching_context/src PCC_MINICPM_GGUF=/path/to/local/official-model.gguf python -B -m unittest serve.test_minicpm_tools serve.test_minicpm_compat tools.test_cow_compat_frontend tools.test_cow_compat_cache tools.test_cow_compat_setup serve.test_frontend serve.test_parser_track serve.test_reasoning_tools serve.test_tool_name_space serve.test_cow_renderer serve.test_literal_boundaries",
+  "checks": {
+    "tests": 114,
+    "passed": 114,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 13.335,
+    "command_exit": 0,
+    "wrapper_exit": 0
+  },
+  "log_sha256": {
+    "stderr": "646b19bb1f4f45f407b46b3b899296d8a4e08129ba0c1db7e4f7b916a20d02d8",
+    "stdout": "ba4e556345df5dab2c79960bde790c5de2751a5adf7602f4632f663badddc5b5"
+  },
+  "template_sha256": "cc945752db555d60949b16989df4ccfeb52a313d6b4b5c5229dd786e2e9fcf1c",
+  "scope": [
+    "Actual official GGUF header metadata, no tensor loading",
+    "All 28 Hermes and DeepSeek declaration schemas, no protected task messages",
+    "Chat Completions and Responses, streaming and nonstreaming, typed history and strict refusals",
+    "Renderer/cache identity isolation and existing Qwen protocol regressions"
+  ],
+  "not_qualified": [
+    "Real-model tool-loop behavior",
+    "Native numerical or broad model-quality acceptance",
+    "Deployment or migration of existing source profiles"
+  ],
+  "warnings": [
+    "Pre-existing telemetry ResourceWarnings for unclosed /proc files; no test failures"
+  ],
+  "weights_updated": false,
+  "gpu_jobs_launched": false,
+  "models_transferred": false
+}

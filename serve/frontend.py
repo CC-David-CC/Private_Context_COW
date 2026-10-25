@@ -40,19 +40,28 @@ class TemplateRequestError(jinja2.exceptions.TemplateError, ValueError):
 class ChatTemplate:
     """The model's chat template, rendered with the same Jinja settings as transformers' apply_chat_template."""
 
-    def __init__(self, path: str | Path):
+    def __init__(self, path: str | Path, *, tool_binding=None):
         def raise_exception(message):
             raise TemplateRequestError(message)
 
         def tojson(x, ensure_ascii=False, indent=None, separators=None, sort_keys=False):
             return json.dumps(x, ensure_ascii=ensure_ascii, indent=indent, separators=separators, sort_keys=sort_keys)
 
-        env = ImmutableSandboxedEnvironment(trim_blocks=True, lstrip_blocks=True, extensions=["jinja2.ext.loopcontrols"])
+        self.source = Path(path).read_text(encoding="utf-8")
+        self.tool_binding = tool_binding
+        finalize = None
+        if tool_binding is not None:
+            from .cow_minicpm_tools import validate_binding, json_value_finalizer
+            validate_binding(tool_binding, self.source)
+            finalize = json_value_finalizer
+        env = ImmutableSandboxedEnvironment(trim_blocks=True, lstrip_blocks=True, extensions=["jinja2.ext.loopcontrols"], finalize=finalize)
         env.filters["tojson"] = tojson
         env.globals["raise_exception"] = raise_exception
-        self.source = Path(path).read_text(encoding="utf-8")
         self.template = env.from_string(self.source)
         self.caps = self._detect_caps()
+        if tool_binding is not None:
+            from .cow_minicpm_tools import template_capabilities
+            self.caps.update(template_capabilities(self))
 
     def render(self, messages: list[dict], tools: list[dict] | None = None, add_generation_prompt: bool = True,
                **kwargs) -> str:

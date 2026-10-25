@@ -1,0 +1,700 @@
+{
+  "schema": 1,
+  "provenance": "Semantic tool declaration schemas from existing Hermes and DeepSeek harness requests; descriptions/title annotations removed. No messages or task text.",
+  "declarations": {
+    "hermes": [
+      {
+        "name": "patch",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "old_string": {
+              "type": "string"
+            },
+            "new_string": {
+              "type": "string"
+            },
+            "replace_all": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "path",
+            "old_string",
+            "new_string"
+          ]
+        }
+      },
+      {
+        "name": "read_file",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "offset": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "limit": {
+              "type": "integer",
+              "default": 2000,
+              "maximum": 2000
+            }
+          },
+          "required": [
+            "path"
+          ]
+        }
+      },
+      {
+        "name": "search_files",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string",
+              "enum": [
+                "content",
+                "files"
+              ],
+              "default": "content"
+            },
+            "path": {
+              "type": "string",
+              "default": "."
+            },
+            "file_glob": {
+              "type": "string"
+            },
+            "limit": {
+              "type": "integer",
+              "default": 50
+            },
+            "offset": {
+              "type": "integer",
+              "default": 0
+            },
+            "order": {
+              "type": "string",
+              "enum": [
+                "discovery",
+                "modified"
+              ],
+              "default": "discovery"
+            },
+            "output_mode": {
+              "type": "string",
+              "enum": [
+                "content",
+                "files_only",
+                "count"
+              ],
+              "default": "content"
+            },
+            "context": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      },
+      {
+        "name": "terminal",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string"
+            },
+            "background": {
+              "type": "boolean",
+              "default": false
+            },
+            "timeout": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "workdir": {
+              "type": "string"
+            },
+            "pty": {
+              "type": "boolean",
+              "default": false
+            },
+            "notify": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "heartbeat": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            },
+            "persist_on_release": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "command"
+          ]
+        }
+      },
+      {
+        "name": "write_file",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        }
+      },
+      {
+        "name": "tool_search",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "queries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "limit": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "queries"
+          ]
+        }
+      },
+      {
+        "name": "tool_describe",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "names": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "names"
+          ]
+        }
+      },
+      {
+        "name": "tool_call",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "calls": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "arguments": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "name",
+                  "arguments"
+                ]
+              }
+            }
+          },
+          "required": [
+            "calls"
+          ]
+        }
+      }
+    ],
+    "dsh": [
+      {
+        "name": "bash",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "command": {
+              "type": "string"
+            },
+            "timeoutMs": {
+              "type": "number"
+            },
+            "workdir": {
+              "type": "string"
+            },
+            "run_in_background": {
+              "type": "boolean"
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "description",
+            "command"
+          ]
+        }
+      },
+      {
+        "name": "create_goal",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "objective": {
+              "type": "string"
+            },
+            "max_goal_rounds": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "objective"
+          ]
+        }
+      },
+      {
+        "name": "edit",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "old_string": {
+              "type": "string"
+            },
+            "new_string": {
+              "type": "string"
+            },
+            "replace_all": {
+              "type": "boolean"
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path",
+            "old_string",
+            "new_string"
+          ]
+        }
+      },
+      {
+        "name": "exit_plan_mode",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "plan"
+          ]
+        }
+      },
+      {
+        "name": "get_goal",
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "glob",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      },
+      {
+        "name": "grep",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "pattern": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "include": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        }
+      },
+      {
+        "name": "job_kill",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      },
+      {
+        "name": "job_list",
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "job_output",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "job_id": {
+              "type": "string"
+            },
+            "wait": {
+              "type": "boolean"
+            },
+            "timeout_ms": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "job_id"
+          ]
+        }
+      },
+      {
+        "name": "read",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "offset": {
+              "type": "number"
+            },
+            "limit": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      },
+      {
+        "name": "read_image",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        }
+      },
+      {
+        "name": "skill",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      {
+        "name": "todo_write",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "todos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "in_progress",
+                      "completed"
+                    ]
+                  }
+                },
+                "required": [
+                  "content",
+                  "status"
+                ]
+              }
+            }
+          },
+          "required": [
+            "todos"
+          ]
+        }
+      },
+      {
+        "name": "update_goal",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "goal_id": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "number"
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "edit",
+                "pause",
+                "resume",
+                "complete",
+                "blocked"
+              ]
+            },
+            "objective": {
+              "type": "string"
+            },
+            "max_goal_rounds": {
+              "type": "number"
+            },
+            "blocked_reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "goal_id",
+            "revision",
+            "action"
+          ]
+        }
+      },
+      {
+        "name": "web_fetch",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        }
+      },
+      {
+        "name": "web_search",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "queries": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "queries"
+          ]
+        }
+      },
+      {
+        "name": "workflow",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "script": {
+              "type": "string"
+            },
+            "meta": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "whenToUse": {
+                  "type": "string"
+                },
+                "phases": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "model": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "description"
+              ]
+            },
+            "args": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "run_in_background": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "script",
+            "meta"
+          ]
+        }
+      },
+      {
+        "name": "working_directory",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "cd": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "write",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "sandbox_permissions": {
+              "type": "string",
+              "enum": [
+                "workspace-write",
+                "danger-full-access"
+              ]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path",
+            "content"
+          ]
+        }
+      }
+    ]
+  }
+}

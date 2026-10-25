@@ -7,6 +7,7 @@ inspect GET /cow/operation afterward because publication may win the race.
 Cancellation never publishes provisional token output.
 """
 import argparse
+import hashlib
 from concurrent.futures import CancelledError
 from dataclasses import asdict, is_dataclass
 import hmac
@@ -48,7 +49,13 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
     if not isinstance(source,str) or not source: raise ValueError('Model has no chat template')
     with tempfile.TemporaryDirectory(prefix='cow-template-') as directory:
         path=Path(directory)/'chat_template.jinja';path.write_text(source,encoding='utf-8')
-        template=ChatTemplate(path)
+        metadata=GGUFFile(Path(model_path)).metadata
+        tool_binding=None
+        if metadata.get("general.architecture")=="llama" and metadata.get("tokenizer.ggml.pre")=="minicpm5":
+            from serve.cow_minicpm_tools import bind_template, compatible_template
+            if compatible_template(source):
+                tool_binding=bind_template(source, expected_template_sha256=hashlib.sha256(source.encode()).hexdigest())
+        template=ChatTemplate(path, tool_binding=tool_binding)
     metadata=GGUFFile(Path(model_path)).metadata
     if metadata.get('general.architecture') in ('qwen35','wen1'):
         from serve.cow_qwen35_prompt import Qwen35PromptEncoder
@@ -62,7 +69,8 @@ def model_text_components(model_path,template_kwargs=None,*,model_contract_id=No
     if model_contract_id is not None:
         from serve.cow_renderer import renderer_identity
         renderer_id=renderer_identity(tokenizer,source,encoder.template_kwargs,
-            model_contract_id=model_contract_id)
+            model_contract_id=model_contract_id, tool_binding=tool_binding)
+    encoder.renderer_id=renderer_id
     mixed_renderer=None
     if mixed_inputs:
         from serve.cow_vision import CowVisionPromptEncoder

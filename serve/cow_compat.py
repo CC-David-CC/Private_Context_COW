@@ -22,7 +22,21 @@ class Frontend:
         if type(thinking) is not bool:raise ValueError('Explicit thinking mode required')
         self.thinking=thinking
         self.adapter, self.encoder, self.profile, self.model = adapter, encoder, profile, model
+        self.tool_binding = getattr(encoder, "tool_binding", None)
+        if getattr(encoder.template, "tool_binding", None) != self.tool_binding:
+            raise ValueError("MiniCPM encoder/template owner bindings differ or are missing")
+        self.minicpm = self.tool_binding is not None or getattr(encoder, "tool_family", None) == "minicpm5"
         renderer = hashlib.sha256(encoder.template.source.encode()).hexdigest()
+        if self.tool_binding is not None:
+            from .cow_minicpm_tools import validate_binding
+            from .cow_renderer import renderer_identity
+            validate_binding(self.tool_binding, encoder.template.source)
+            renderer = renderer_identity(encoder.tok, encoder.template.source,
+                getattr(encoder, "template_kwargs", None), model_contract_id=profile['model_contract_id'],
+                tool_binding=self.tool_binding)
+            owner_renderer = getattr(encoder, "renderer_id", None)
+            if owner_renderer is not None and owner_renderer != renderer:
+                raise ValueError("MiniCPM owner renderer identity is stale or mismatched")
         self.cache = CachedCow(adapter, (profile['model_contract_id'],
                                        profile['execution_profile_id'], renderer) if not thinking else (profile['model_contract_id'],profile['execution_profile_id'],renderer,'thinking-on'))
         self.max_output, self.trace = max_output, trace
@@ -34,12 +48,16 @@ class Frontend:
         if req.get('model', self.model) != self.model: raise ValueError('Unknown model')
         if type(req.get('n', 1)) is not int or req.get('n', 1) != 1: raise ValueError('Only n=1 is supported')
         if type(req.get('stream', False)) is not bool: raise ValueError('stream must be boolean')
+        if self.minicpm:
+            from .cow_minicpm_tools import validate_wire_history
+            validate_wire_history(req, dialect)
         if dialect == 'responses':
             responses.check_request(req)
             if req.get('store'): raise ValueError('Stored Responses are unsupported; send full history with store=false')
             messages = responses.input_messages(req)
             tools, names, skipped = responses.request_tools(req)
             if skipped: raise ValueError('Hosted tools are unsupported: '+', '.join(skipped))
+            declared_tools = responses.request_tools(dict(req, tool_choice='auto'))[0]
             fmt = responses.text_format(req)
             if fmt and fmt.get('type') != 'text': raise ValueError('Structured final-answer format is not qualified')
         else:
@@ -48,6 +66,7 @@ class Frontend:
             fmt = req.get('response_format') or {}
             if not isinstance(fmt,dict) or fmt.get('type', 'text') != 'text':
                 raise ValueError('Structured final-answer format is not qualified')
+            declared_tools = tools
             if req.get('tool_choice') == 'none': tools = None
         if not messages: raise ValueError('At least one input message is required')
         for message in messages:
@@ -61,6 +80,21 @@ class Frontend:
             if req.get(field): raise ValueError(field+' is unsupported')
         if 'enable_thinking' in req and (type(req['enable_thinking']) is not bool or req['enable_thinking']!=self.thinking):
             raise ValueError('Request thinking mode differs from the owner-configured profile')
+        parallel = req.get("parallel_tool_calls", True)
+        if self.tool_binding is not None and type(parallel) is not bool:
+            raise ValueError("parallel_tool_calls must be boolean")
+        historical_calls = any(message.get("tool_calls") for message in messages)
+        if tools or historical_calls:
+            if self.minicpm and self.tool_binding is None:
+                raise ValueError("This MiniCPM template has no supported tool codec")
+            if self.tool_binding is not None:
+                from .cow_minicpm_tools import admit_tools, validate_history
+                schemas = admit_tools(declared_tools)
+                validate_history(messages, schemas)
+                if not getattr(self.encoder.template, "caps", {}).get("supports_tool_calls"):
+                    raise ValueError("MiniCPM template/codec roundtrip is not supported")
+            elif not getattr(self.encoder.template, "caps", {}).get("supports_tool_calls"):
+                raise ValueError("This owner template has no supported tool codec")
         kwargs = dict(enable_thinking=self.thinking)
         full = tuple(Service.encode_prompt(self.encoder, messages, tools,
                      dict(kwargs, add_generation_prompt=True)))
@@ -80,7 +114,7 @@ class Frontend:
         stops = req.get('stop')
         if isinstance(stops, str): stops = [stops]
         return dict(req=req, dialect=dialect, messages=messages, tools=tools, names=names,
-                    full=full, closed=closed, bound=bound, settings=settings, seed=seed, stops=stops)
+                    full=full, closed=closed, bound=bound, settings=settings, seed=seed, stops=stops, parallel_tools=parallel)
 
     def events(self, plan, cancelled):
         req, dialect = plan['req'], plan['dialect']
@@ -102,9 +136,15 @@ class Frontend:
             settings=plan['settings'], cancelled=cancelled, seed=plan['seed'], text_stops=plan['stops'])
         view = CowTextRequest(request, self.encoder.tok,
             controller_reader=self.adapter.snapshot_controller, text_stops=plan['stops'] or ())
-        parser = OutputParser(thinking=self.thinking, tools=plan['tools'], stream_tools=False)
+        if self.tool_binding is not None:
+            from .cow_minicpm_tools import MiniCPMOutputParser
+            parser = MiniCPMOutputParser(thinking=self.thinking, tools=plan["tools"], parallel=plan["parallel_tools"])
+        else:
+            parser = OutputParser(thinking=self.thinking, tools=plan["tools"], stream_tools=False)
         text, reasoning, calls, raw = [], [], [], []
         def output(event):
+            if self.minicpm and self.tool_binding is None and event.kind == "tool_call":
+                raise ValueError("This MiniCPM template cannot emit tool actions")
             if event.kind == 'content': text.append(event.text)
             elif event.kind == 'reasoning': reasoning.append(event.text)
             elif event.kind == 'tool_call': calls.append(event.call)
@@ -122,10 +162,14 @@ class Frontend:
                 for parsed in parser.feed(event['text']): yield from output(parsed)
         receipt = request.durable.result()
         answer = request.snapshot.result()
-        self.cache.committed(branch, receipt)
+        if self.tool_binding is None:
+            self.cache.committed(branch, receipt)
         controller = self.adapter.snapshot_controller(receipt['snapshot'])
         length = controller.get('status') == 'active'
-        for parsed in parser.finish('length' if length else 'stop'): yield from output(parsed)
+        finished = parser.finish('length' if length else 'stop')
+        if self.tool_binding is not None:
+            self.cache.committed(branch, receipt)
+        for parsed in finished: yield from output(parsed)
         n = len(answer['tokens'])
         done = dict(finish='length' if length else 'tool_calls' if calls else 'stop',
                     prompt_tokens=len(plan['full']), completion_tokens=n, reused=reused)
@@ -169,7 +213,12 @@ def make_server(frontend, host, port, key, shutdown):
             if path == '/v1/models':
                 return self.send_json(200, dict(object='list', data=[dict(id=frontend.model, object='model',
                     created=0, owned_by='local', context_length=frontend.profile['execution']['capacity'])]))
-            if self.path == '/health': return self.send_json(200, dict(status='ok', service='context-cow', compatibility='text-chat-responses-v1'))
+            if self.path == '/health':
+                health = dict(status='ok', service='context-cow', compatibility='text-chat-responses-v1')
+                if frontend.tool_binding is not None:
+                    health['tool_codec'] = dict(frontend.tool_binding.receipt(), qualification='cpu-codec-tests-only',
+                        native_tool_loop_qualified=False, model_quality_qualified=False)
+                return self.send_json(200, health)
             return self.send_json(404, dict(error='Not found'))
         def do_POST(self):
             if not self.authorized(): return self.send_json(401, dict(error='Unauthorized'))
@@ -180,7 +229,12 @@ def make_server(frontend, host, port, key, shutdown):
             try:
                 size = int(self.headers.get('Content-Length', '0'))
                 if not 0 < size <= 8*1024**2: raise ValueError('Request body exceeds bounds')
-                req = json.loads(self.rfile.read(size))
+                raw_request = self.rfile.read(size)
+                if frontend.minicpm:
+                    from .cow_minicpm_tools import load_json
+                    req = load_json(raw_request)
+                else:
+                    req = json.loads(raw_request)
                 dialect = 'responses' if path.endswith('/responses') else 'chat'
                 plan = frontend.prepare(req, dialect)
                 frontend.sessions.admit(session)

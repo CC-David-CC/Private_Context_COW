@@ -143,7 +143,7 @@ def _dependency_versions() -> dict[str, str]:
 
 def renderer_identity_receipt(tokenizer: Any, template_source: str,
                                template_kwargs: Mapping[str, Any], *,
-                               model_contract_id: str) -> dict[str, Any]:
+                               model_contract_id: str, tool_binding=None) -> dict[str, Any]:
     """Return canonical, path-independent fingerprints for loaded render inputs."""
     if not isinstance(template_source, str) or not template_source:
         raise ValueError("template_source must be a nonempty exact string")
@@ -155,7 +155,7 @@ def renderer_identity_receipt(tokenizer: Any, template_source: str,
     # Canonical encoding validates JSON compatibility and rejects non-string map keys,
     # NaN, and unsupported objects before a digest can silently omit their meaning.
     kwargs_bytes = _canonical_bytes(template_kwargs)
-    return {
+    receipt = {
         "schema": _SCHEMA,
         "model_contract_id": model_contract_id,
         "tokenizer": _tokenizer_metadata(tokenizer),
@@ -164,12 +164,20 @@ def renderer_identity_receipt(tokenizer: Any, template_source: str,
         "implementation_sha256": _implementation_hashes(),
         "dependencies": _dependency_versions(),
     }
+    if tool_binding is not None:
+        from .cow_minicpm_tools import validate_binding
+        validate_binding(tool_binding, template_source)
+        receipt["tool_codec"] = tool_binding.receipt()
+        root = Path(__file__).resolve().parents[1]
+        receipt["tool_implementation_sha256"] = {name: _sha256((root / name).read_bytes())
+            for name in ("serve/cow_minicpm_tools.py", "serve/cow_minicpm_prompt.py")}
+    return receipt
 
 
 def renderer_identity(tokenizer: Any, template_source: str,
                       template_kwargs: Mapping[str, Any], *,
-                      model_contract_id: str) -> str:
+                      model_contract_id: str, tool_binding=None) -> str:
     """Return the SHA-256 identity to compute once when a renderer is loaded."""
     receipt = renderer_identity_receipt(tokenizer, template_source, template_kwargs,
-                                        model_contract_id=model_contract_id)
+                                        model_contract_id=model_contract_id, tool_binding=tool_binding)
     return _sha256(_canonical_bytes(receipt))

@@ -9,6 +9,11 @@ class MiniCPMPromptEncoder(CowPromptEncoder):
     MiniCPM can stop on </s> as well as ChatML im_end. Appending a tool result
     never removes either consumed token or re-renders the retained assistant.
     """
+    def __init__(self, tokenizer, template, template_kwargs=None):
+        super().__init__(tokenizer, template, template_kwargs)
+        self.tool_binding = getattr(template, "tool_binding", None)
+        self.tool_family = "minicpm5"
+
     def _control(self,text):
         ids=tuple(self.tok.encode(text,parse_special=True))
         if len(ids)!=1:raise ValueError('MiniCPM requires a single '+text+' control token')
