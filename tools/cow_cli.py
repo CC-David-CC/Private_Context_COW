@@ -953,6 +953,11 @@ def _training_run(args,client,journal):
         except OSError as error:raise ClientError('Cannot read model notes: '+str(error)) from None
         body=dict(operation_id=args.operation_id,job_id=args.identity,name=args.name,expected_sha256=args.expected_sha256,notes=notes,report_sha256=args.report_sha256)
         return _print_json(_training_post(client,journal,'/cow/training/exports',body))
+    expected=getattr(args,'expected_parent_sha256',None)
+    if expected is not None:
+        if re.fullmatch(r'[a-f0-9]{64}',expected) is None or args.parent_job_id is None:
+            raise ClientError('Expected parent SHA256 requires --parent-job-id and a SHA256')
+        if action=='submit' and not args.train_now:raise ClientError('Expected parent selection applies to a training request')
     optimizer_profile=getattr(args,'optimizer_profile_id',None)
     if optimizer_profile is not None:
         if re.fullmatch(r'[a-f0-9]{64}',optimizer_profile) is None:raise ClientError('Use a registered optimizer profile SHA-256')
@@ -983,6 +988,7 @@ def _training_run(args,client,journal):
         if not ids:raise ClientError('Select at least one lesson')
         mode=args.mode;batch=args.batch_size;steps=args.steps if args.steps is not None else frozen['steps'] if frozen else 16 if args.skill_guard else (len(ids)+batch-1)//batch;rate=args.learning_rate;rank=args.rank
     body=dict(operation_id=op,lesson_ids=ids,mode=mode,batch_size=batch,steps=steps,learning_rate=rate,rank=rank,parent_job_id=args.parent_job_id)
+    if expected is not None:body['expected_parent_sha256']=expected
     if optimizer_profile is not None:body['optimizer_profile_id']=optimizer_profile
     if args.skill_guard:
         previous=journal.get(op)
@@ -1235,11 +1241,11 @@ def parser():
     for name in ('show','status'):
         child=actions.add_parser(name);child.add_argument('identity')
     child=actions.add_parser('submit');child.add_argument('file',type=Path);child.add_argument('--operation-id',required=True)
-    child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id');child.add_argument('--optimizer-profile-id')
+    child.add_argument('--train-now',action='store_true');child.add_argument('--parent-job-id');child.add_argument('--expected-parent-sha256');child.add_argument('--optimizer-profile-id')
     child.add_argument('--skill-guard',action='store_true');child.add_argument('--batch-size',type=positive_int,default=8);child.add_argument('--steps',type=positive_int)
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--learning-rate',type=float,default=.0001);child.add_argument('--rank',type=positive_int,default=4)
     child=actions.add_parser('train');child.add_argument('lesson_ids',nargs='*');selection=child.add_mutually_exclusive_group();selection.add_argument('--all',action='store_true');selection.add_argument('--pending',action='store_true')
-    child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id');child.add_argument('--optimizer-profile-id')
+    child.add_argument('--operation-id',required=True);child.add_argument('--parent-job-id');child.add_argument('--expected-parent-sha256');child.add_argument('--optimizer-profile-id')
     child.add_argument('--skill-guard',action='store_true')
     child.add_argument('--mode',choices=('lora','full'),default='lora');child.add_argument('--batch-size',type=positive_int,default=4)
     child.add_argument('--steps',type=positive_int,help='Default: cover the selected lessons once.');child.add_argument('--rank',type=positive_int,default=4)

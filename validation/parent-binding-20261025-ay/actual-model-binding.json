@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "COMPLETE",
+  "scope": "Readonly actual MiniCPM update16 artifact, optimizer and scored reference resolution; no inference or native updates",
+  "results": [
+    {
+      "mode": "full",
+      "status": "RESOLVED",
+      "native_completed_steps": 16,
+      "example_cursor": 432,
+      "dataset_sha256": "4c21029544f77cbc2a9904b50b4d21d50caacb06087caf694685b52dd683d2cf",
+      "candidate_sha256": "53585082e91e5c9b1312546e89fa5dd0911d5a575995ff9e9e84c96a7c939c53",
+      "model_contract_id": "bca690921b339859a77777ea9e36a135b7e3d0fecc90efdffa304e74e697182b",
+      "reference_binding": "base-weights-only",
+      "resolution_id": "325aa0a02c339a587a0d54a9743eec32a594bd1b66f1c6e0b643cd29aa1752b1",
+      "candidate_version_sha256": "be14e0afc7a4a9fca07c205780299e37ac3e775d4ac363834a6712091030c75a",
+      "checkpoint_receipt_sha256": "f9d30774a1b2ed7dfa2c05d66965cf4a827adf9ba4bc217bd198b7ed1d85cf21",
+      "old_cache_candidate_still_exists": false,
+      "wall_seconds": 282.67052650265396
+    },
+    {
+      "mode": "lora",
+      "status": "RESOLVED",
+      "native_completed_steps": 16,
+      "example_cursor": 432,
+      "dataset_sha256": "4c21029544f77cbc2a9904b50b4d21d50caacb06087caf694685b52dd683d2cf",
+      "candidate_sha256": "419c0e29164c7d62c9a03359ce05a743e89a2cf16c5ff9e9a9cf91b68b87159f",
+      "model_contract_id": "a4f3009154684643655af1a99dc31bc6cd8d69c7e786815fd3d27648d2e9f8fc",
+      "reference_binding": "measured-composite",
+      "resolution_id": "4142bb21b3ebc15f6b4ffbcd6dc8f6e02f8b2c7b819d885a568ad020841b0a42",
+      "candidate_version_sha256": "1291550532018bdba5b21b02b0902238c1765acbad4770f8d14df6432c4781be",
+      "checkpoint_receipt_sha256": "a7b0ee8203e1405f8ecb543c0939248359395eb087027547b7f4ba72b5c3d437",
+      "old_cache_candidate_still_exists": false,
+      "wall_seconds": 6.764566202647984
+    }
+  ],
+  "gpu_used": false,
+  "native_updates_repeated": false,
+  "promoted": false,
+  "kind": "pcc.actual-native-parent-resolution.v1",
+  "resolver_logic_sha256": "9a0d19604920e5c4f21eb938be8dde0324ae9ac4a63cac58a29f77ecc963650a",
+  "source_sha256": {
+    "pcc_candidate_parent.py": "9ecf8522209e289f9183c3ba3ae4163db10cd3351cc80b91f8aefa2c8adc43af",
+    "pcc_native_training.py": "e3ad018ccc4d4e98d61f7556739285acce7ea14110e6655e1fb4264f04555efc",
+    "pcc_cow_profile.py": "e10b8e22a56fce91436269a50af5d450837fd211644d3255605650138bccff78",
+    "gguf_reader.py": "38582a9e555d95bc24e2d2eeb67d37d2baa035aaeb36e52bdc8d797eb757d5d9"
+  },
+  "shared_storage_timing": true,
+  "actual_parent_cache_already_retired": true,
+  "private_paths_published": false
+}

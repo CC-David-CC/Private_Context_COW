@@ -326,3 +326,8 @@ planned at a fixed compute budget; only SGD exists in the trainer today.
 CPU/CUDA math and exact completed-state continuation pass. Actual MiniCPM short
 forward agrees with FP64; the earlier 0.011 discrepancy is isolated to inference
 output selection/execution shape. No MiniCPM weights have been trained yet.
+
+[Resolve exact native training parents](docs/RESOLVING-TRAINING-PARENTS.md): verify
+weights, hats and saved moments, including explicit milestone copies. BW/COW
+clients can pin registered parents by hash. This is identity and continuation
+machinery; it does not promote a model or replace inference/resource checks.

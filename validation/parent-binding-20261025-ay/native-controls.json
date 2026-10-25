@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Generated tiny CPU native parent identity, continuation and refusal mechanics; no model quality or GPU qualification",
+  "checks": [
+    {
+      "check": "full-resolved-resume-matches-uninterrupted-weights-and-moments",
+      "passed": true
+    },
+    {
+      "check": "full-changed-practice-cannot-resume",
+      "passed": true
+    },
+    {
+      "check": "full-new-block-fresh-moments-retains-learned-parent",
+      "passed": true
+    },
+    {
+      "check": "full-foreign-measured-contract",
+      "passed": true
+    },
+    {
+      "check": "full-state-and-receipt-cursor-must-match",
+      "passed": true
+    },
+    {
+      "check": "full-retired-original-does-not-guess-another-path",
+      "passed": true
+    },
+    {
+      "check": "full-verified-durable-copy-resolves-after-cache-retirement",
+      "passed": true
+    },
+    {
+      "check": "full-missing-moments-never-silently-reset",
+      "passed": true
+    },
+    {
+      "check": "full-explicit-fresh-can-use-retained-weights-without-old-moments",
+      "passed": true
+    },
+    {
+      "check": "lora-resolved-resume-matches-uninterrupted-weights-and-moments",
+      "passed": true
+    },
+    {
+      "check": "lora-changed-practice-cannot-resume",
+      "passed": true
+    },
+    {
+      "check": "lora-new-block-fresh-moments-retains-learned-parent",
+      "passed": true
+    },
+    {
+      "check": "lora-foreign-measured-contract",
+      "passed": true
+    },
+    {
+      "check": "lora-state-and-receipt-cursor-must-match",
+      "passed": true
+    },
+    {
+      "check": "scaled-hat-cannot-silently-warm-start-at-one",
+      "passed": true
+    },
+    {
+      "check": "same-base-does-not-identify-another-hat",
+      "passed": true
+    },
+    {
+      "check": "missing-base-is-not-inferred-from-a-hat",
+      "passed": true
+    },
+    {
+      "check": "lora-retired-original-does-not-guess-another-path",
+      "passed": true
+    },
+    {
+      "check": "lora-verified-durable-copy-resolves-after-cache-retirement",
+      "passed": true
+    },
+    {
+      "check": "lora-missing-moments-never-silently-reset",
+      "passed": true
+    },
+    {
+      "check": "lora-explicit-fresh-can-use-retained-weights-without-old-moments",
+      "passed": true
+    },
+    {
+      "check": "muon-standard-resolved-resume-matches-uninterrupted-weights-and-moments",
+      "passed": true
+    },
+    {
+      "check": "muon-rms-resolved-resume-matches-uninterrupted-weights-and-moments",
+      "passed": true
+    },
+    {
+      "check": "muon-refine-resolved-resume-matches-uninterrupted-weights-and-moments",
+      "passed": true
+    },
+    {
+      "check": "actual-cli-writes-private-new-receipt-and-refuses-overwrite",
+      "passed": true
+    },
+    {
+      "check": "symlink-candidate-cannot-expand-owner-roots",
+      "passed": true
+    }
+  ],
+  "passed": 26,
+  "executable_sha256": "4115c0cebe16e6f648655281f931b9f72848946fde930bd48e3ec97aff93421f",
+  "base_unchanged": true,
+  "gpu_used": false,
+  "promoted": false
+}

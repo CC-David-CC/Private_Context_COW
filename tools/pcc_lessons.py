@@ -213,6 +213,8 @@ class LessonService:
                 result['unconsumed_lesson_ids_this_job']=[v for index,v in enumerate(ids) if index not in consumed]
                 result['training_budget']=receipt.get('training_budget')
                 result['optimizer_state_policy']=record['candidate']['optimizer_state_policy']
+        if 'expected_parent_sha256' in record['request']:
+            result['expected_parent_sha256']=record['request']['expected_parent_sha256']
         if record['state']=='failed':result['error']='Training failed; private operator logs retained. No automatic retry.'
         return result
 
@@ -249,7 +251,7 @@ class LessonService:
                 acceptance.update(export_id=saved['export_id'],name=saved['name'],model_sha256=saved['model_sha256'],file=saved['file'],weights_published=False);state='preserved'
             else:
                 required={'operation_id','lesson_ids','mode','batch_size','steps','learning_rate','rank','parent_job_id'}
-                if not required<=set(request) or set(request)-required-{'skill_guard','optimizer_profile_id'}:raise ValueError('Training accepts only lesson IDs and bounded update settings')
+                if not required<=set(request) or set(request)-required-{'skill_guard','optimizer_profile_id','expected_parent_sha256'}:raise ValueError('Training accepts only lesson IDs and bounded update settings')
                 ids=request['lesson_ids']
                 if type(ids) is not list or not 1<=len(ids)<=4096 or len(set(ids))!=len(ids):raise ValueError('Select 1â€“4096 distinct lesson IDs')
                 for identity in ids:self._lesson(identity)
@@ -269,11 +271,17 @@ class LessonService:
                     if validate is None:raise ValueError('Skill guard is not configured on this server')
                     validate(request)
                 parent=request['parent_job_id']
+                expected=request.get('expected_parent_sha256')
+                if 'expected_parent_sha256' in request:
+                    if type(expected) is not str or HEX.fullmatch(expected) is None or parent is None:
+                        raise ValueError('Expected parent SHA256 requires an explicit completed parent job')
                 if parent is not None:
                     if type(parent) is not str or not OP.fullmatch(parent):raise ValueError('Invalid parent job')
                     prior=self._read(self.root/'operations'/(parent+'.json'))
                     if prior['path']!='/cow/training/jobs' or prior['state']!='complete' or prior['request']['mode']!=request['mode']:raise ValueError('Parent must be a complete candidate of the same mode')
                     if request['mode']=='lora' and prior['request']['rank']!=request['rank']:raise ValueError('LoRA continuation must retain its parent rank')
+                    if expected is not None and prior['candidate']['candidate_sha256']!=expected:
+                        raise ValueError('Completed parent job differs from the expected candidate SHA256')
                 acceptance['job_id']=operation;state='queued'
             record=dict(path=path,request=copy.deepcopy(request),acceptance=acceptance,state=state)
             self._write(target,record)
@@ -293,6 +301,8 @@ class LessonService:
                 if request['parent_job_id']:
                     p=self.root/'operations'/(request['parent_job_id']+'.json')
                     parent=self._read(p)['candidate']
+                    if request.get('expected_parent_sha256',parent['candidate_sha256'])!=parent['candidate_sha256']:
+                        raise ValueError('Original parent candidate changed before training execution')
                 candidate=self.runner(request,examples,self.root/'runs'/operation,parent,lease.fileno())
                 with self.locked():
                     record=self._read(target);record.update(state='complete',candidate=candidate);self._write(target,record)
