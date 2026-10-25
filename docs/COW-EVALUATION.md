@@ -83,3 +83,27 @@ change active allocations, measured settlements or the campaign ceiling.
 The owner must establish actual allocation from original phase/process evidence;
 the API verifies evidence identity, not its interpretation. Tests cover retained
 history, changed evidence, duplicate/conflicting audits and invalid allocations.
+
+## Bind a candidate profile before loading it
+
+Owner drivers can use 	ools.pcc_cow_profile.bind_dense_profile() to bind a
+new dense FP32 model artifact and an observed GPU to a copied execution profile.
+It preserves the template and its numerical policy, updates the weight contract,
+physical placement and execution fingerprint, and returns the copied profile.
+It does not select a GPU, grant authority, load weights or qualify a build.
+Normal COW source, artifact and memory checks still apply.
+
+An integration driver accidentally used the compact S3 record digest to generate
+COW execution fingerprints. The existing native validator rejected three such
+assessments before model loading, with zero model calls. Those engineering
+failures and their original checkpoints were retained. The corrected drivers
+reuse those exact native checkpoints and call the original CPU-only native
+validator before starting the evaluator; no training update is repeated.
+
+COW execution fingerprints use the established sorted JSON representation in
+NativeBackend.validate_execution_profile(). S3 record identities use a separate
+canonical representation. Both can be valid SHA256 values while identifying
+different bytes. The new binding helper has CPU tests against that original
+native validator, including changed model/GPU bindings, policy tampering and
+invalid placement inputs. The validator test constructs an uninitialized backend
+and calls only its metadata validation method, so no model or library is loaded.
