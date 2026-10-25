@@ -80,6 +80,14 @@ continuity/full-update compatibility and independent F32-merge checks there.
 That check allocates no GPU and does not qualify A100 CUDA execution or allow
 its results to be substituted into an existing frozen-runtime curve.
 
+## Active training storage
+
+[Owner working-storage helpers](NATIVE-TRAINING-WORKSPACE.md) add bounded
+resource reservations, verified milestone copies, preserved response evidence
+and interruption-safe retirement of superseded RAM-cache binaries. They do not
+implement a second optimizer or workflow runtime. Four actual filesystem tests
+pass; real model/runtime qualification remains separately scoped.
+
 ## Verified artifact retention
 
 `tools/pcc_curve_retention.py` is an owner-only archive helper. S3 selects

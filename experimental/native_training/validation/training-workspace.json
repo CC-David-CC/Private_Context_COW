@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Actual owner-filesystem storage and conservative resource-accounting mechanics; not language quality or numerical GPU qualification",
+  "tests": 4,
+  "test_command": "python3 -m unittest tools.test_training_workspace -v",
+  "test_log_sha256": "c64c3cb95bf6be28787c371605da2f9ed8053b9ff8a450034ceec192f569dbd5",
+  "source_sha256": "48c5974e066596dcd3d77c3c5fc0f6b84cf98de7f224be74461e245eac07796c",
+  "cases": [
+    "reservation overcommit and unknown settlement",
+    "verified copy and evidence retained after cache retirement",
+    "corrupt/link/unqualified-successor refusal",
+    "partial unlink interruption and original-intent reconciliation"
+  ],
+  "model_weights_updated": false
+}
