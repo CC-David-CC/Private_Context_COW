@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "scope": "Opt-in CPU filesystem machinery; no native/model/GPU/live phase qualification",
+  "base": "4824493aa29294272b11c902c6ee64f98c71caaf",
+  "source_sha256": {
+    "experimental/native_training/phase_reservations.py": "3565f7338a69900de8c8170b64095fd1c636f5038702ad845e94866b678e6a64",
+    "experimental/native_training/test_phase_reservations.py": "c97515219274cf067d2cc65fa81236992f686f5eeb45b07391c8ee1ed53691f4",
+    "experimental/native_training/PHASE-RESERVATIONS.md": "dc33bf1fdb3e272bd88a5afffdad924497ecc050f915c65d4ae35151346ffd90"
+  },
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "-v",
+    "experimental.native_training.test_phase_reservations"
+  ],
+  "passed": 32,
+  "failed": 0,
+  "skipped": 0,
+  "live_changes": false,
+  "unqualified": [
+    "Native/COW allocation byte caps",
+    "NFS distributed flock/fsync semantics",
+    "Power-loss recovery",
+    "Production service integration",
+    "Host-wide floor against foreign allocation",
+    "Throughput effect"
+  ],
+  "review_fix": "Pinned original admission and complete transition chain/current/completed structural integrity",
+  "status": "CPU_PROTOTYPE_QUALIFIED_LIVE_INTEGRATION_UNQUALIFIED",
+  "earlier_failure": {
+    "passed": 22,
+    "failed": 1,
+    "cause": "Test fork inherited global lock; fixture moved child startup before acquiring parent global lock"
+  },
+  "no_model_calls_or_gpu_jobs": true,
+  "qualification_note": "Synthetic owner-qualified bounds in CPU tests do not authorize lower native/COW reservations. No current controller, floor, ledger or scientific study changed."
+}
