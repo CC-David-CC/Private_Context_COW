@@ -1,5 +1,8 @@
 # Private Context COW (PCC)
 
+
+[Registered LoRA AdamW through BW and COW](https://github.com/CC-David-CC/Private_Context_COW/blob/feat/native-learning-curves-20261024/docs/REGISTERED-LORA-ADAMW.md) now has real tiny CPU checks for exact continuation, new lesson blocks and retry safety. It is explicit and optional; existing default training recipes are unchanged.
+
 ## 4.8x faster on small forward-work probes
 
 S3's evaluator can now use existing COW context reuse through the same native

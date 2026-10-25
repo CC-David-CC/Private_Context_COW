@@ -961,7 +961,7 @@ def _training_run(args,client,journal):
     optimizer_profile=getattr(args,'optimizer_profile_id',None)
     if optimizer_profile is not None:
         if re.fullmatch(r'[a-f0-9]{64}',optimizer_profile) is None:raise ClientError('Use a registered optimizer profile SHA-256')
-        if args.mode!='full':raise ClientError('Native optimizer profiles require full-weight mode')
+        if args.skill_guard:raise ClientError('Native optimizer profiles currently use explicit lesson blocks, not the legacy skill guard')
         if action=='submit' and not args.train_now:raise ClientError('Optimizer selection applies to a training request')
     if action in ('list','show','status'):
         resource='jobs' if action=='status' else 'lessons'
@@ -977,7 +977,7 @@ def _training_run(args,client,journal):
         value=_training_post(client,journal,'/cow/training/lessons',body)
         if not args.train_now:return _print_json(value)
         ids=[value['lesson_id']];op+='-train'
-        mode=args.mode;batch=args.batch_size if args.skill_guard else 1;steps=(args.steps if args.steps is not None else 16) if args.skill_guard else 1;rate=args.learning_rate;rank=args.rank
+        mode=args.mode;batch=args.batch_size if args.skill_guard else 1;steps=(args.steps if args.steps is not None else 16) if args.skill_guard else args.steps if optimizer_profile is not None and args.steps is not None else 1;rate=args.learning_rate;rank=args.rank
     else:
         if (args.all or args.pending) and args.lesson_ids:raise ClientError('Choose explicit lesson IDs or a queue selection')
         saved=journal.get(op)

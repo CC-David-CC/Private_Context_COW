@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Versioned registered LoRA AdamW API/client mechanics and relevant legacy regressions, CPU only",
+  "source_sha256": {
+    "pcc-native-learning-curves/tools/pcc_optimizer_profiles.py": "73e9c478896bd2c9dbbe9a158455319fe57dfd0abe4e9142b3755c18ba80712e",
+    "pcc-native-learning-curves/tools/pcc_lessons.py": "c95c1ee19427eb5ad7d44710f406fb1dafa1ddecabb8b88cabdd6bd1c782f387",
+    "pcc-native-learning-curves/tools/cow_cli.py": "801bc6ff18465c467d4ee9e5d564d9bdceeedbb665f9f8793027f08336e88189",
+    "pcc-native-learning-curves/tools/test_optimizer_profiles_v2.py": "cb61ea581b16f568aa2a464655335d8a4b09b42f1c5c98e7f0fccd8fccc7c69f",
+    "bw-native-learning-path/branchwrite/lesson_cli.py": "09c6f527a462911478d2f48414fd0ebdfdd72d2c8709e9b5e8be26cc718790d3",
+    "sss-minicpm-baseline/sss_integration/lora_policy_cpu.py": "2bd6c4365d3edeb62c7e03d0c48aa175f83fe22f342257b5abcd037a20c8edfb"
+  },
+  "processes": [
+    {
+      "name": "pcc-regression",
+      "exit_code": 0,
+      "seconds": 3.8703998210839927,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c59ef03992ab1ffa4a8ffa1cd86daa01be859c1ceab84d16a4faa486f9a5287e"
+    },
+    {
+      "name": "bw-regression",
+      "exit_code": 0,
+      "seconds": 0.916034139925614,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "10f523b6357d02794921225c82185975bb9084e611b6162dbfb3295ef87c1b76"
+    },
+    {
+      "name": "sss-regression",
+      "exit_code": 0,
+      "seconds": 0.16401858488097787,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0e5f83f9fe1e584b633fb921a8818c3372095e837d32df34dd59ee9caad2e684"
+    },
+    {
+      "name": "full-native-jobs",
+      "exit_code": 0,
+      "seconds": 2.8172794519923627,
+      "stdout_sha256": "a6e7ba98619f832e51ab4f0d7172d906f87163a42750ffe5274de3963c386fe1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "default-parent-cli",
+      "exit_code": 0,
+      "seconds": 2.968001197092235,
+      "stdout_sha256": "5f9ef8f7f28b2d1588702938ef44ea3484342727c348d8b8e98584d033476a39",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lora-policy-cli",
+      "exit_code": 0,
+      "seconds": 4.520183995133266,
+      "stdout_sha256": "8d86b1f412393c751f2a97361d4a62494b432006b6e79c84c843fd1f30b867d1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "regression_test_counts": {
+    "pcc": 39,
+    "bw": 9,
+    "sss": 13
+  },
+  "native_matrix": {
+    "lora_actual_service_jobs": 8,
+    "lora_independent_native_controls": 4,
+    "legacy_full_adamw_muon_service_jobs": 6,
+    "default_sgd_service_jobs": 6
+  },
+  "initial_development_failure": {
+    "cause": "Two authored fixture completions used token IDs outside the seven-token fixture vocabulary",
+    "classification": "Fixture authoring error, not model regression; corrected examples independently checked before successful matrix",
+    "original_private_run_retained": true
+  },
+  "default_paths": "Schema-1 profile descriptors/IDs remain full-only; no-profile SGD and default request shapes retained",
+  "limits": [
+    "Tiny generated ordinary-Llama CPU fixture, not capability learning or GPU qualification",
+    "Running 68-update study sources, settings and checkpoints unchanged",
+    "Legacy multi-round skill guard cannot be combined with adaptive profiles",
+    "Offline candidates are not imported as service jobs",
+    "No weights promoted, merged for release, uploaded or downloaded"
+  ],
+  "gpu_used": false,
+  "promoted": false
+}

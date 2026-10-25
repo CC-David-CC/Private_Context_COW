@@ -100,10 +100,10 @@ job. This reader does not invent that job ID or import arbitrary files into a
 service. Owner-side offline execution can consume the resolved fields through
 the existing admission/executor; service clients need an actual completed job.
 
-Native/offline LoRA AdamW state is covered by this reader. The existing service's
-registered adaptive-optimizer profiles are still full-mode policies; its default
-LoRA client path remains SGD. File resolution does not extend that registration
-policy or silently select a different optimizer.
+Native/offline LoRA AdamW state is covered by this reader. The service now has
+explicit [schema-2 LoRA AdamW policies](REGISTERED-LORA-ADAMW.md); schema-1
+profiles remain full-only and the default LoRA client path remains SGD. File
+resolution does not silently register a job or choose its optimizer.
 
 ## Evidence and limits
 

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Real tiny CPU LoRA AdamW through both actual CLIs and authenticated PCC service; no model learning or GPU qualification",
+  "conditions": [
+    {
+      "client": "bw",
+      "status": "PASS",
+      "actual_service_native_jobs": 4,
+      "uninterrupted_native_controls": 2,
+      "registered_lora_adamw": true,
+      "single_example_explicit_steps": 2,
+      "resumed_global_steps": 5,
+      "resumed_cursor": 5,
+      "weights_and_all_moments_bit_exact": true,
+      "new_block_retains_hat_and_resets_moments": true,
+      "final_partial_batch": [
+        2,
+        1
+      ],
+      "pending_selection_frozen": true,
+      "operation_retries_not_retrained": true,
+      "refused_before_queue": 8,
+      "promoted": false
+    },
+    {
+      "client": "cow",
+      "status": "PASS",
+      "actual_service_native_jobs": 4,
+      "uninterrupted_native_controls": 2,
+      "registered_lora_adamw": true,
+      "single_example_explicit_steps": 2,
+      "resumed_global_steps": 5,
+      "resumed_cursor": 5,
+      "weights_and_all_moments_bit_exact": true,
+      "new_block_retains_hat_and_resets_moments": true,
+      "final_partial_batch": [
+        2,
+        1
+      ],
+      "pending_selection_frozen": true,
+      "operation_retries_not_retrained": true,
+      "refused_before_queue": 8,
+      "promoted": false
+    }
+  ],
+  "base_unchanged": true,
+  "executable_sha256": "4115c0cebe16e6f648655281f931b9f72848946fde930bd48e3ec97aff93421f",
+  "gpu_used": false,
+  "promoted": false
+}

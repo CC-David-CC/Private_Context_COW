@@ -17,8 +17,9 @@ The optional training configuration still has `schema`, `directory`, `max_tokens
 `max_steps` and `runner`. Keep the executable, devices/physical GPU UUIDs, memory
 reserves and timeout in owner configuration. Clients never submit those paths or
 resource grants. Ordinary dense adaptive training uses
-`sequence_profile="dense-llama-short-v1"`, `mode="full"`, a qualified native
-trainer and at most512 consumed tokens. Longer inference contexts do not qualify
+`sequence_profile="dense-llama-short-v1"`, a qualified native trainer and at
+most 512 consumed tokens. Schema-1 policies remain full-only. Explicit schema-2
+policies can select LoRA AdamW with a pinned rank, or full AdamW/Muon. Longer inference contexts do not qualify
 longer training examples.
 
 Add `optimizer_profiles` to the runner: a map from each profile's SHA-256 to its
@@ -156,5 +157,8 @@ time cap. An execution deadline remains a hang/lifecycle guard.
 
 [Native per-update mechanics and experimental LoRA](NATIVE-PER-UPDATE-CURVES.md)
 describes exact state continuation, the new AdamW LoRA executor route and native
-F32 merged export. Registered HTTP/CLI profiles still select full-weight jobs;
-the new LoRA route is an explicit experimental native-owner integration.
+F32 merged export. [Registered LoRA AdamW](REGISTERED-LORA-ADAMW.md) now exposes
+that optimizer through both actual CLIs with an explicit versioned policy. The
+new service route has real CPU qualification; the separate MiniCPM native GPU
+study remains a separate execution series. Merged-export acceptance remains
+independent of successful attached training.

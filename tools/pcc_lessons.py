@@ -280,6 +280,8 @@ class LessonService:
                     prior=self._read(self.root/'operations'/(parent+'.json'))
                     if prior['path']!='/cow/training/jobs' or prior['state']!='complete' or prior['request']['mode']!=request['mode']:raise ValueError('Parent must be a complete candidate of the same mode')
                     if request['mode']=='lora' and prior['request']['rank']!=request['rank']:raise ValueError('LoRA continuation must retain its parent rank')
+                    validate_parent=getattr(self.runner,'validate_optimizer_parent',None)
+                    if validate_parent is not None:validate_parent(request,prior)
                     if expected is not None and prior['candidate']['candidate_sha256']!=expected:
                         raise ValueError('Completed parent job differs from the expected candidate SHA256')
                 acceptance['job_id']=operation;state='queued'
@@ -300,7 +302,10 @@ class LessonService:
                 parent=None
                 if request['parent_job_id']:
                     p=self.root/'operations'/(request['parent_job_id']+'.json')
-                    parent=self._read(p)['candidate']
+                    parent_record=self._read(p)
+                    validate_parent=getattr(self.runner,'validate_optimizer_parent',None)
+                    if validate_parent is not None:validate_parent(request,parent_record)
+                    parent=parent_record['candidate']
                     if request.get('expected_parent_sha256',parent['candidate_sha256'])!=parent['candidate_sha256']:
                         raise ValueError('Original parent candidate changed before training execution')
                 candidate=self.runner(request,examples,self.root/'runs'/operation,parent,lease.fileno())
@@ -349,6 +354,10 @@ class NativeRunner:
         from tools.pcc_optimizer_profiles import select
         return select(self.registered_optimizer_profiles,request)
 
+    def validate_optimizer_parent(self,request,parent_record):
+        from tools.pcc_optimizer_profiles import validate_parent
+        validate_parent(self.registered_optimizer_profiles,request,parent_record)
+
     def __call__(self,request,examples,run,parent,worker_fd):
         c=self.config;environment=dict(os.environ);fds=[worker_fd]
         profile=self.validate_optimizer_request(request)
@@ -375,7 +384,7 @@ class NativeRunner:
                 native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
                 if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
                 if profile['state_policy']=='resume':
-                    if parent is None or parent.get('mode')!='full':raise ValueError('Completed full-weight parent required for optimizer resume')
+                    if parent is None or parent.get('mode')!=request['mode']:raise ValueError('Completed same-mode parent required for optimizer resume')
                     checkpoint=parent['receipt']['optimizer_checkpoint']
                     native.update(initial_optimizer_state=checkpoint['path'],initial_optimizer_state_sha256=checkpoint['sha256'],example_cursor=parent['receipt']['example_cursor'])
             candidate=execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds))
