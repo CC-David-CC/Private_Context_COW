@@ -53,3 +53,33 @@ Full frozen 864-case behavioral comparisons are a separate assessment.
 This first connection qualifies dense MiniCPM F32 at a 512-token context, not
 all models, precision formats, long contexts or attached adapters. The native
 fresh-context oracle remains independent and unchanged as the reference.
+
+## Shared roots in the evaluation adapter
+
+`CowEvaluationSession.prepare_shared_prefix(tokens)` materializes one existing
+COW root before any request. `complete()` then verifies each question extends
+that input, calls the same consumed request with its suffix, and retains only
+the shared root between questions. Native work counters include root setup
+separately from suffix/decode work. Closing or poisoning a session evicts the
+remaining materializations. There is no second cache or sampler.
+
+Nine PCC adapter tests now cover the original boundary/failure checks and this
+wiring. S3 owns prefix selection, grading, runtime policy and optional case
+partition/merge. Existing COW branch proofs are reused rather than recertified.
+The actual 864-case shared-root baseline and migrated owner continuations are
+running; no completed speedup for that new mode is claimed yet.
+
+The full earlier COW path matched every sampled token for both original and
+trained F32 MiniCPM. Observed evaluation ratios were 6.1x (original) and 2.7x
+(AdamW update 1); shared loads and different cards limit timing conclusions.
+See [the graphs and evidence in S3](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/COW-FIRST-DATA-BLOCK.md).
+
+## Allocation audits
+
+`ResourceBudget.reconcile()` accepts pinned private owner evidence for an
+already settled unknown allocation. It preserves the original settlement and
+appends an idempotent adjustment, under the existing budget lock. It cannot
+change active allocations, measured settlements or the campaign ceiling.
+The owner must establish actual allocation from original phase/process evidence;
+the API verifies evidence identity, not its interpretation. Tests cover retained
+history, changed evidence, duplicate/conflicting audits and invalid allocations.

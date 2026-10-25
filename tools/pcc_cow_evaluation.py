@@ -54,6 +54,34 @@ class CowEvaluationSession:
             raise
         self.closed = False
         self.failed = False
+        self.shared_root = None
+        self.shared_prefix = ()
+        self.requests = 0
+
+    def prepare_shared_prefix(self, prefix):
+        """Retain one real COW root for independently branched input suffixes."""
+        if (self.closed or self.failed or self.shared_root is not None or self.requests
+                or type(prefix) not in (list, tuple) or not prefix
+                or len(prefix) >= self.profile['execution']['capacity']
+                or any(type(t) is not int or not 0 <= t < self.backend.vocab_size for t in prefix)):
+            raise ValueError('Prepare one bounded shared root before any evaluation request')
+        before = self.backend.work_counters()
+        try:
+            root, reused = self.model.create_with_reuse(tuple(prefix))
+            if (self.model.history(root) != tuple(prefix)
+                    or self.model.cache[root].consumed != len(prefix)):
+                raise ValueError('Shared root omitted its consumed input boundary')
+            after = self.backend.work_counters()
+            delta = {k: after[k] - before[k] for k in before}
+            if delta['consumed_tokens'] != (0 if reused else len(prefix)):
+                raise ValueError('Shared root work receipt differs')
+            self.shared_root, self.shared_prefix = root, tuple(prefix)
+            return dict(root_snapshot=root, prefix_tokens=len(prefix),
+                        already_materialized=reused, counters=delta)
+        except BaseException:
+            self.failed = True
+            self.model.evict_all()
+            raise
 
     def complete(self, prefix, *, maximum, stream):
         e = self.profile['execution']
@@ -65,11 +93,19 @@ class CowEvaluationSession:
                 or len(prefix) + maximum > e['capacity']
                 or type(stream) is not str or not stream):
             raise ValueError('Explicit bounded COW prefix, output and stream required')
+        if self.shared_root is not None and tuple(prefix[:len(self.shared_prefix)]) != self.shared_prefix:
+            raise ValueError('Case input does not extend the retained shared root')
         before = self.backend.work_counters()
+        self.requests += 1
         try:
-            root, reused = self.model.create_with_reuse(tuple(prefix))
+            if self.shared_root is None:
+                root, reused = self.model.create_with_reuse(tuple(prefix))
+                suffix = ()
+            else:
+                root, reused = self.shared_root, True
+                suffix = tuple(prefix[len(self.shared_prefix):])
             # BW's COW server dispatches to this same request implementation.
-            result = self.model.run_greedy_request(root, (), maximum, stream=stream)
+            result = self.model.run_greedy_request(root, suffix, maximum, stream=stream)
             tokens = result['tokens']
             expected_history = tuple(prefix) + tuple(tokens)
             if (not tokens or len(tokens) > maximum
@@ -84,24 +120,36 @@ class CowEvaluationSession:
                 raise ValueError('COW stopping receipt differs from the sampled boundary')
             after = self.backend.work_counters()
             delta = {k: after[k] - before[k] for k in before}
-            expected_work = len(tokens) + (0 if reused else len(prefix))
+            input_work = (len(suffix) if self.shared_root is not None else (0 if reused else len(prefix)))
+            expected_work = len(tokens) + input_work
             if delta['consumed_tokens'] != expected_work:
                 raise ValueError('COW consumed-work receipt differs')
-            return dict(**result, root_snapshot=root, prefix_reused=reused,
+            if self.shared_root is not None and self.shared_root not in self.model.cache:
+                raise ValueError('Retained shared prefix materialization was lost')
+            answer = dict(**result, root_snapshot=root, prefix_reused=reused,
                         counters=delta, stop_reason='eos' if stopped else 'length',
                         stop_token_id=tokens[-1] if stopped else None,
                         execution_path='cow-consumed-request-v1')
+            if self.shared_root is not None:
+                answer.update(shared_prefix_tokens=len(self.shared_prefix), input_prefix_tokens_consumed=input_work)
+            return answer
         except BaseException:
             self.failed = True
             raise
         finally:
-            # This benchmark has independent cases. Keep canonical history and
-            # controller records, but bound rebuildable binary RAM to one case.
-            self.model.evict_all()
+            # Retain only the explicitly prepared immutable root. Case tails
+            # stay canonical on disk; their derived numerical buffers are evicted.
+            if self.shared_root is None or self.failed:
+                self.model.evict_all()
+            else:
+                for key in list(self.model.cache):
+                    if key != self.shared_root:
+                        self.model.cache.pop(key)
 
     def close(self):
         if not self.closed:
             self.closed = True
+            self.model.evict_all()
             self.backend.close()
             verify_sources(self.profile, self.runtime_root)
             if sha(self.profile['model_path']) != self.profile['model_weights_sha256']:

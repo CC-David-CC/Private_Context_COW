@@ -69,6 +69,41 @@ class ResourceBudget:
             del data['active'][operation];data['settled'][operation]=record;data['charged_gpu_seconds']+=charge;atomic(path,data)
             return record
 
+    def reconcile(self,operation,*,allocated_gpu_seconds,evidence,evidence_sha256):
+        """Audit a formerly unknown settlement; never erase its original charge.
+
+        The owner must establish the allocation from original process/phase
+        evidence. This accounting API verifies the private evidence bytes, not
+        their scientific interpretation. Active work cannot be reconciled.
+        """
+        evidence=Path(evidence)
+        if (evidence.is_symlink() or not evidence.is_file()
+                or evidence.stat().st_uid!=os.getuid() or evidence.stat().st_mode&0o077
+                or sha(evidence)!=evidence_sha256
+                or type(allocated_gpu_seconds) not in (int,float)
+                or not math.isfinite(allocated_gpu_seconds) or allocated_gpu_seconds<0):
+            raise ValueError('Pinned private allocation audit required')
+        with self.locked():
+            path=self.root/'resource-budget.json';data=json.loads(path.read_text())
+            if operation in data['active']:raise ValueError('Active work cannot be reconciled')
+            record=data['settled'][operation]
+            if record['accounting']!='Upper-bound reservation charged':
+                raise ValueError('Only an unknown upper-bound settlement can be audited')
+            audit=dict(operation=operation,allocated_gpu_seconds=allocated_gpu_seconds,
+                       evidence_path=str(evidence.resolve()),evidence_sha256=evidence_sha256)
+            previous=next((x for x in data.get('reconciliations',[]) if x['operation']==operation),None)
+            if previous is not None:
+                if {k:previous[k] for k in audit}!=audit:raise ValueError('Original reconciliation differs')
+                return previous
+            if allocated_gpu_seconds>record['maximum_gpu_seconds']:
+                raise ValueError('Reconciliation exceeds the original reservation')
+            audit.update(original_charged_gpu_seconds=record['charged_gpu_seconds'],
+                         adjustment_gpu_seconds=allocated_gpu_seconds-record['charged_gpu_seconds'],
+                         reconciled_epoch=time.time())
+            data.setdefault('reconciliations',[]).append(audit)
+            data['charged_gpu_seconds']+=audit['adjustment_gpu_seconds']
+            atomic(path,data);return audit
+
 
 def copy_checkpoint(destination,candidate):
     """Persist exactly the completed model and moments, with byte verification."""
