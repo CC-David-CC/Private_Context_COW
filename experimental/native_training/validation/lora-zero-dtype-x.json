@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "COMPLETE",
+  "scope": "Read-only numeric controls; no training, capability score or gate waiver",
+  "pairs": [
+    {
+      "left": "full-f16",
+      "right": "zero-lora-f16",
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "positions_with_different_argmax": 0,
+      "positions": 379
+    },
+    {
+      "left": "full-f16",
+      "right": "full-f32",
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "positions_with_different_argmax": 0,
+      "positions": 379
+    },
+    {
+      "left": "zero-lora-f16",
+      "right": "full-f32",
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "positions_with_different_argmax": 0,
+      "positions": 379
+    }
+  ],
+  "allocated_gpu_seconds": 45.34261289052665,
+  "original_adapter_unchanged": true,
+  "original_logit_gate_unchanged": true
+}

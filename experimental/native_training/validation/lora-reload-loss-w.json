@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Saved adapter reload and merged batch loss only; no new training or promotion",
+  "completed_native_updates": 1,
+  "presentations": 27,
+  "original_after_loss": 2.9028494358062744,
+  "results": {
+    "direct-adapter": {
+      "mean_loss": 2.9028497448673956,
+      "error_from_original_after": 3.0906112113981976e-07,
+      "examples": 27
+    },
+    "merged-f32": {
+      "mean_loss": 2.902850016399666,
+      "error_from_original_after": 5.80593391585893e-07,
+      "examples": 27
+    }
+  },
+  "reload_loss_bound": 0.0002,
+  "allocated_gpu_seconds": 32.313564038835466,
+  "original_all_position_merge_gate_still_failed": true,
+  "artifacts_unchanged": true
+}

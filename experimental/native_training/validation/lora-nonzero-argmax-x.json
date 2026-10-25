@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "status": "COMPLETE",
+  "scope": "CPU analysis of original saved teacher-forced practice logits; no free-generation capability claim",
+  "positions": 379,
+  "vocabulary": 130560,
+  "positions_with_different_argmax": 0,
+  "last_position_argmax_identical": true,
+  "original_all_position_logit_gate_still_failed": true
+}
