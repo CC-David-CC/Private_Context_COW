@@ -41,8 +41,23 @@ foreign-base contracts, unbound identities, unsupported build declarations,
 symlinks, changed artifact bytes and mutation detected when evaluation closes.
 S³ tests reject mixed-adapter shards even when their base GGUF hashes match.
 
-Native GPU qualification for this new execution path is pending. Passing these
-CPU controls is not evidence of numerical equivalence or learning quality.
+The attached rank-16 hat passed a bounded native check on a shared A100. Eight
+full-vocabulary frontiers (130,560 logits each) were bit-exact against the
+independent fresh oracle at two practice prefixes, with three continuation
+boundaries each. Both state restores were exact with zero forward work. Two
+shared-root COW requests matched the independent greedy outputs (2 and 8 tokens);
+a different adapter scale was rejected before any forward work. Allocation was
+25.19 seconds, including host work and shared contention.
+
+See [the measured qualification and CPU controls](../experimental/native_training/validation/direct-lora-cow-20261025.json).
+Two owner setup attempts were refused before model loading because their new
+receipts omitted inherited precision capability fields. Those attempts remain
+retained; a new receipt passed all native math, profile and source preflight
+checks before GPU admission. No tolerance or model weight changed.
+
+This qualifies the bounded attached-hat execution path, not learning quality,
+arbitrary contexts or broad COW gates. The 864-case baselines and hat assessment
+are running independently.
 The earlier adapter-versus-merged-weight gate remains failed and unchanged; see
 [the measured diagnostics](LORA-MERGE-DIAGNOSTICS.md). A directly attached hat and
 a merged deployment are distinct measurements. Neither substitutes for the other.

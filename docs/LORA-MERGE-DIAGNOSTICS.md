@@ -93,3 +93,10 @@ same practice input. Record all-position logits for each of the three conditions
 then compare maximum/RMS error and per-position argmax independently. Compare
 the unmodified trained adapter and merge separately. Use new output paths,
 retain original failures, and recheck source artifact hashes after execution.
+
+## Direct attached-hat COW qualification
+
+The separately bound native hat now matches eight independent fresh-oracle
+frontiers exactly and preserves restored state and consumed COW request outputs.
+See [the qualification and limits](DENSE-LORA-COW.md). This measures the attached
+hat and does not change the earlier failed merged-weight equivalence result.

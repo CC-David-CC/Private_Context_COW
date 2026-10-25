@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "status": "QUALIFIED",
+  "scope": "Bounded direct attached-LoRA COW execution, not merged deployment or a learning-quality result",
+  "source_commits": {
+    "pcc": "7129b64272611320f16765cce3c7258a82aab057",
+    "sss": "ef2b95d86cfe7ffa2bb8072c80e28017f42c06b2"
+  },
+  "source_archive_sha256": "5f7845956e14cc512c3749dcb8c97bd228da661cbd22148d81da9b10c2a3de74",
+  "native_build_proof_sha256": "6f587a2f4abef3e9bea300c3baa425bc1d7b0caa541f7f829d2316c22c29c022",
+  "hardware": "Shared NVIDIA A100 80GB; timings include contention and host bookkeeping",
+  "base_model": "MiniCPM5-2B F16, immutable original",
+  "base_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "adapter_sha256": "5ccb54dd813516499dcf15bf4af1c1b8e64bb76ef9824ff6707f731a5f39e125",
+  "candidate_model_contract_id": "59f5c3be92671bfbca1ef5880565e7b8c4e63216d77b7f9b24cee0a46651eba1",
+  "bounds": {
+    "maximum": 0.0002,
+    "rms": 5e-05
+  },
+  "vocabulary_size": 130560,
+  "forced_prefix_frontiers": [
+    {
+      "case": 0,
+      "step": 0,
+      "positions": 72,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "d341fd3cac1b82b94168274be43d3d3ca3315c5f5e1787d1ecd816967c74e30c",
+      "reference_logits_sha256": "d341fd3cac1b82b94168274be43d3d3ca3315c5f5e1787d1ecd816967c74e30c"
+    },
+    {
+      "case": 0,
+      "step": 1,
+      "positions": 73,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "838c20ab0efd209101ca7c53b2da5ad3f78bf146f3282475d15692268637a8a1",
+      "reference_logits_sha256": "838c20ab0efd209101ca7c53b2da5ad3f78bf146f3282475d15692268637a8a1"
+    },
+    {
+      "case": 0,
+      "step": 2,
+      "positions": 74,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "a1a9bfc6fe9236078f052417c2c37f8105a5b4bdbbf47c86077edf9309f796e9",
+      "reference_logits_sha256": "a1a9bfc6fe9236078f052417c2c37f8105a5b4bdbbf47c86077edf9309f796e9"
+    },
+    {
+      "case": 0,
+      "step": 3,
+      "positions": 75,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "6a7f774a85b489027e9fff98912b3f72964134d7e33492dbc52672c1ed788769",
+      "reference_logits_sha256": "6a7f774a85b489027e9fff98912b3f72964134d7e33492dbc52672c1ed788769"
+    },
+    {
+      "case": 1,
+      "step": 0,
+      "positions": 354,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "22d45eaa70fdbeef3d0a45a13335e3247ed50785d74493f33657cf4cd7a87d9f",
+      "reference_logits_sha256": "22d45eaa70fdbeef3d0a45a13335e3247ed50785d74493f33657cf4cd7a87d9f"
+    },
+    {
+      "case": 1,
+      "step": 1,
+      "positions": 355,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "80081029356970b1e88ebda88e1fbaba56c93733d2b28d0c971f2e75aa4cc5c2",
+      "reference_logits_sha256": "80081029356970b1e88ebda88e1fbaba56c93733d2b28d0c971f2e75aa4cc5c2"
+    },
+    {
+      "case": 1,
+      "step": 2,
+      "positions": 356,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "44281d051e49cae0b58b19d7fb05a8d5a044e5ce7823397a5f500e184c4429fc",
+      "reference_logits_sha256": "44281d051e49cae0b58b19d7fb05a8d5a044e5ce7823397a5f500e184c4429fc"
+    },
+    {
+      "case": 1,
+      "step": 3,
+      "positions": 357,
+      "maximum": 0.0,
+      "rms": 0.0,
+      "same_top": true,
+      "cow_logits_sha256": "78760eebce827292d5b4921f628403898010c7c7489b5022dfef6823c84b8c01",
+      "reference_logits_sha256": "78760eebce827292d5b4921f628403898010c7c7489b5022dfef6823c84b8c01"
+    }
+  ],
+  "restores": [
+    {
+      "case": 0,
+      "bit_exact": true,
+      "forward_tokens": 0
+    },
+    {
+      "case": 1,
+      "bit_exact": true,
+      "forward_tokens": 0
+    }
+  ],
+  "generations": [
+    {
+      "case": 0,
+      "exact_tokens": true,
+      "sampled_tokens": 2,
+      "consumed_output_boundary": true,
+      "work_counters": {
+        "consumed_tokens": 46,
+        "forward_tokens": 46,
+        "forward_calls": 3,
+        "sampling_calls": 2,
+        "checkpoint_export_bytes": 6889369,
+        "checkpoint_import_bytes": 2932081
+      }
+    },
+    {
+      "case": 1,
+      "exact_tokens": true,
+      "sampled_tokens": 8,
+      "consumed_output_boundary": true,
+      "work_counters": {
+        "consumed_tokens": 334,
+        "forward_tokens": 334,
+        "forward_calls": 9,
+        "sampling_calls": 8,
+        "checkpoint_export_bytes": 31665433,
+        "checkpoint_import_bytes": 2932081
+      }
+    }
+  ],
+  "shared_prefix_tokens": 28,
+  "wrong_adapter_contract_rejected": true,
+  "allocated_gpu_seconds": 25.19161868095398,
+  "weights_updated": false,
+  "promoted": false,
+  "merge_gate_waived": false,
+  "cpu_tests": {
+    "pcc_focused": 18,
+    "cow_reference_G0": 58,
+    "qwen_existing_controls": 26,
+    "sss_integration": 27,
+    "sss_shard_collation": 7,
+    "skips": 0
+  },
+  "retained_setup_refusals": {
+    "count": 2,
+    "model_calls": 0,
+    "reason": "Isolated owner receipt omitted inherited precision capability fields; refused before model loading",
+    "corrective_action": "New immutable receipt, pinned existing engine/patch, all native math/profile/source CPU preflight checks before GPU admission"
+  },
+  "limits": [
+    "Two practice prefixes, not broad model contexts",
+    "No quality or promotion decision from this check",
+    "Earlier merged-weight gate remains failed at original bounds",
+    "864-case baselines and hat assessment separate and in progress"
+  ]
+}
