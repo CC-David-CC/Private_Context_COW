@@ -54,7 +54,7 @@ class LessonService:
     devices, environment overrides or shell commands. Verification is an
     authenticated owner's attestation, not a remote execution of client tests.
     """
-    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16,sequence_profile='short-v1',rendered_tokenize=None):
+    def __init__(self,directory,model_contract_id,tokenize,runner,*,max_tokens=256,max_steps=16,sequence_profile='short-v1',rendered_tokenize=None,learning_policies=None):
         if not HEX.fullmatch(model_contract_id):raise ValueError('Exact model contract required')
         self.root=Path(directory).absolute()
         if self.root.is_symlink():raise ValueError('Training store cannot be a symlink')
@@ -87,6 +87,30 @@ class LessonService:
         # lock; calling the public locking reader here would nest flock handles.
         if bind is not None:bind(self._lesson,self._example,self.tokenize,self.model)
         self.executor=ThreadPoolExecutor(max_workers=1,thread_name_prefix='pcc-training')
+        self.learning=None
+        if learning_policies is not None:self.configure_learning(learning_policies)
+
+    def configure_learning(self,policies):
+        if self.learning is not None:raise ValueError('Learning policies already configured')
+        from tools.pcc_learning_runs import LearningRuns
+        self.learning=LearningRuns(self,policies)
+        self.runner.record_process_identity=True
+
+    def learning_policies(self):
+        if self.learning is None:return dict(schema=1,policies=[],enabled=False)
+        return dict(self.learning.capabilities(),enabled=True)
+
+    def learning_runs(self):
+        if self.learning is None:raise ValueError('Learning runs are not configured')
+        return self.learning.listing()
+
+    def learning_run(self,identity):
+        if self.learning is None:raise ValueError('Learning runs are not configured')
+        return self.learning.status(identity)
+
+    def learning_round(self,identity,number):
+        if self.learning is None:raise ValueError('Learning runs are not configured')
+        return self.learning.round_status(identity,number)
 
     def close(self):
         self.executor.shutdown(wait=True);self.lease.close()
@@ -219,6 +243,9 @@ class LessonService:
         return result
 
     def submit(self,path,request):
+        if path in ('/cow/training/learning-runs','/cow/training/learning-steps'):
+            if self.learning is None:raise ValueError('Learning runs are not configured')
+            return self.learning.submit(path,request)
         if path not in ('/cow/training/lessons','/cow/training/jobs','/cow/training/exports'):raise ValueError('Unknown training mutation')
         operation=request.get('operation_id')
         if type(operation) is not str or not OP.fullmatch(operation):raise ValueError('Explicit training operation ID required')
@@ -380,6 +407,7 @@ class NativeRunner:
                 if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
                 else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
             native['deadline_seconds']=c.get('timeout_seconds',3600)
+            if getattr(self,'record_process_identity',False):native['record_process_identity']=True
             if profile:
                 native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
                 if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']

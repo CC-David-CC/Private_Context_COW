@@ -344,6 +344,14 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                     if path=='/cow/training/skills':return self.json(200,training_service.skills())
                     if path=='/cow/training/optimizer-profiles':return self.json(200,training_service.optimizer_profiles())
                     if path=='/cow/training/exports':return self.json(200,training_service.exports())
+                    if path=='/cow/training/learning-policies':return self.json(200,training_service.learning_policies())
+                    if path=='/cow/training/learning-runs':return self.json(200,training_service.learning_runs())
+                    if path.startswith('/cow/training/learning-runs/'):
+                        parts=path[len('/cow/training/learning-runs/'):].split('/')
+                        if len(parts)==1:return self.json(200,training_service.learning_run(parts[0]))
+                        if len(parts)==3 and parts[1]=='rounds':
+                            return self.json(200,training_service.learning_round(parts[0],int(parts[2])))
+                        raise ValueError('Invalid learning run read')
                     for prefix,read in [('/cow/training/lessons/',training_service.lesson),('/cow/training/jobs/',training_service.job),('/cow/training/operations/',training_service.operation)]:
                         if path.startswith(prefix):return self.json(200,read(path[len(prefix):]))
                     return self.json(404,dict(error='Unknown training resource'))

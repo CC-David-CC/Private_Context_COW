@@ -1,5 +1,8 @@
 # Private Context COW (PCC)
 
+[The durable learning loop: ELI5, master's, PhD, and applied guide](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/LEARNING-MACHINERY.md) explains ownership, recovery, paired learning/forgetting, expanding assessments, commands, and current qualification limits. The new machinery checks are separate from the fixed 68-update comparison.
+
+
 
 [Registered LoRA AdamW through BW and COW](https://github.com/CC-David-CC/Private_Context_COW/blob/feat/native-learning-curves-20261024/docs/REGISTERED-LORA-ADAMW.md) now has real CPU checks and a short MiniCPM A100 qualification through both actual clients. Resumed and uninterrupted GPU updates produced identical adapter and optimizer-state file hashes. It is explicit and optional; existing default training recipes are unchanged.
 

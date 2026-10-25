@@ -111,7 +111,8 @@ class RequestJournal:
         allowed_paths = {'/cow/namespace','/cow/reseed','/cow/text/context','/cow/text/prepare','/cow/text/ask',
                          '/cow/text/answer','/cow/text/resume','/cow/text/append-user','/cow/text/retry',
                          '/cow/fork','/cow/rewind','/cow/evaluate','/cow/evaluation/adopt',
-                         '/cow/training/lessons','/cow/training/jobs','/cow/training/exports'}
+                         '/cow/training/lessons','/cow/training/jobs','/cow/training/exports',
+                         '/cow/training/learning-runs','/cow/training/learning-steps'}
         if (not isinstance(record, dict) or set(record) not in (
                 required, required | {'receipt'}, required | {'receipt', 'answer'})
                 or record.get('schema') != self.SCHEMA or record.get('operation_id') != op
@@ -901,6 +902,15 @@ def sampling_settings(args):
 def _training_ack(path,body,value):
     canonical=lambda value:json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()
     expected=hashlib.sha256(canonical([path,body])).hexdigest()
+    if path in ('/cow/training/learning-runs','/cow/training/learning-steps'):
+        fields={'schema','operation_id','request_sha256','run_id'}
+        if path.endswith('/learning-steps'):fields.add('step_id')
+        if (type(value) is not dict or set(value)!=fields or type(value['schema']) is not int or value['schema']!=1
+                or value['operation_id']!=body['operation_id'] or value['request_sha256']!=expected
+                or value['run_id']!=(body['run_id'] if 'step_id' in fields else body['operation_id'])
+                or ('step_id' in fields and value['step_id']!=body['operation_id'])):
+            raise ClientError('Learning acceptance does not bind the original request')
+        return value
     if path=='/cow/training/exports':
         fields={'schema','operation_id','request_sha256','export_id','name','model_sha256','file','weights_published'}
         if (type(value) is not dict or set(value)!=fields or type(value['schema']) is not int or value['schema']!=1

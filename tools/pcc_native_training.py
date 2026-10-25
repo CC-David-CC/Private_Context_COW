@@ -219,6 +219,9 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     blindly launches the executable again. This helper does not promote output.
     """
     request=copy.deepcopy(request)
+    record_identity=request.get('record_process_identity',False)
+    if type(record_identity) is not bool or (record_identity and not Path('/proc/self/stat').is_file()):
+        raise ValueError('Exact native process identity requires the qualified Linux host')
     request['devices']=validate_devices(request['devices'])
     profile=validate_sequence_profile(request.get('sequence_profile','short-v1'),request['devices'])
     validate_memory_profile(request.get('memory_profile','conservative-v1'),profile)
@@ -272,6 +275,9 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
             proc=subprocess.Popen([str(executable),'--train',str(config)],stdout=out,stderr=err,
                                   start_new_session=(os.name=='posix'),env=environment,pass_fds=pass_fds)
             launch['pid']=proc.pid
+            if record_identity:
+                stat=Path('/proc',str(proc.pid),'stat').read_text().rsplit(')',1)[1].split()
+                launch['process_identity']=dict(pid=proc.pid,start_ticks=int(stat[19]),boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip())
             (run_directory/'launch.json').write_text(json.dumps(launch)+'\n')
             try:code=proc.wait(timeout=timeout)
             except subprocess.TimeoutExpired:
