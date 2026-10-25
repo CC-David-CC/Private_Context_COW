@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "captured_utc": "2026-10-25T20:32:01Z",
+  "scope": "Original saved rank-one update assessment and exact optimizer continuation; not uninterrupted-vs-resumed bitwise parity or standalone LoRA merge acceptance.",
+  "cases": 864,
+  "evaluation_id": "a65ccad42c14b44dbf8fb37d3a84374df2c58d2e39fc5ff18469933d054c35d4",
+  "runtime_id": "7960ca4a3a3a4dbadd8ff66e83b56e6e6cdff57076c4cab19b62205a1d221c0d",
+  "baseline": {
+    "correct": 59,
+    "naturally_finished": 415,
+    "cases": 864,
+    "base_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+    "result_sha256": "b4fc192dd36fc911697b950b81fdf35201bf527fd195d34c57eadf9c0d3858e4",
+    "settlement_sha256": "eeb4af67d9cad5ca040dcb023570055a8c79f2cee69180b1d98b15f241e461f3"
+  },
+  "first_update": {
+    "rank": 1,
+    "update": 1,
+    "presentations": 27,
+    "correct": 60,
+    "naturally_finished": 418,
+    "cases": 864,
+    "original_answer_gains": 1,
+    "original_answer_losses": 0,
+    "original_completion_gains": 8,
+    "original_completion_losses": 5,
+    "adapter_sha256": "6a847decbbc4c0155968a07c2f6967c9612d9928888e45b4382a4576e7cf0d9b",
+    "candidate_model_contract_id": "926b4ee9cebf6574eacd881fd0c1020b66d11f342a25405e0ebfbb1186bda4e7",
+    "result_sha256": "f81710c7be6c713ab62aa09e86ba91158b7b336a34be158311d4913be2d74196",
+    "settlement_sha256": "de31def097e3b9b2adc91be830629fade72c9dd8a906b487d3b9f80d29fa2b55",
+    "absolute_point_sha256": "848c50cf31e3840252718b16b9c8f9aa053c653708251f8e91ac98b92065a338",
+    "promoted": false,
+    "native_mechanics_sha256": "d25b80db2f1a1adf9e88324e6b21dbc41c752fdb3a74d1890451cc0e3c8fe3f7",
+    "native_reload_loss_error": 1.2583202746441202e-07,
+    "optimizer_state_sha256": "c3a4b99fc4cb4b21fc035aa172d27dd217efa554f3f5378464d5b172748e8cba",
+    "alpha": 1.0,
+    "alpha_divided_by_rank": 1.0,
+    "native_executable_sha256": "a4cf0a8f176300e276bfb95c47fe040792acd917126d792d0d3a76d5a13049ce",
+    "native_request_sha256": "eac102baf7c4e7ba7c36d32ca83554ae237fe79b442ec44c59dbb487944ddded"
+  },
+  "mechanics": {
+    "update1": {
+      "status": "PASS",
+      "original_adapter_sha256": "6a847decbbc4c0155968a07c2f6967c9612d9928888e45b4382a4576e7cf0d9b",
+      "original_optimizer_state_sha256": "c3a4b99fc4cb4b21fc035aa172d27dd217efa554f3f5378464d5b172748e8cba",
+      "finite_gradient_tensors": 590,
+      "reload_loss_error": 1.2583202746441202e-07,
+      "reload_bound": 0.0002,
+      "qualification_sha256": "1749633bd5913b1ae6d6344b68feffce4b313534d61bb43743e0c281958fedd8",
+      "original_update_repeated": false,
+      "original_training_gpu_uuid_not_recorded": true
+    },
+    "update2": {
+      "status": "EXACT_PARENT_AND_OPTIMIZER_RESUME_PASS",
+      "completed_steps": 2,
+      "example_cursor": 54,
+      "finite_gradient_tensors": 590,
+      "all_finite": true,
+      "reload_loss_error": 1.986821489552426e-07,
+      "reload_bound": 0.0002,
+      "initial_adapter_sha256": "6a847decbbc4c0155968a07c2f6967c9612d9928888e45b4382a4576e7cf0d9b",
+      "initial_optimizer_state_sha256": "c3a4b99fc4cb4b21fc035aa172d27dd217efa554f3f5378464d5b172748e8cba",
+      "candidate_sha256": "b75c9e6c82bb173e1affeb88f6839365293298d0c42219eb29fc0b3897c65927",
+      "optimizer_state_sha256": "5bb8273809c09f45e9e0e3a4ed9108c03df6a3f470317f1ba12338eec1f49465",
+      "native_request_sha256": "ad51dbf08b02306f5096037b31eb6423cdef46713959399a0494a27ea2b807ca",
+      "native_mechanics_sha256": "68b4e31fccdf020449e61c9da20f11eee9481eb5b716ef132ae206962e5108ff",
+      "assessment_status": "PENDING"
+    },
+    "native_executable_sha256": "a4cf0a8f176300e276bfb95c47fe040792acd917126d792d0d3a76d5a13049ce",
+    "upstream": {
+      "pr_url": "https://github.com/ggml-org/llama.cpp/pull/30142",
+      "author": "edenfunf",
+      "commit": "fdb4a0553f6ecb00450f04cc8da5b2b38dd9146d"
+    }
+  },
+  "evidence_url": "https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/validation/lora-rank-extension-20261025-bh/summary.json"
+}

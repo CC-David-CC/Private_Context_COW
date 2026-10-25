@@ -31,6 +31,19 @@ operator runs can draw different inputs. Do not infer a precise cause or a
 patch regression from those totals alone. Unsupported/skipped configurations
 are included in the tool's totals; these are not all completed gradient checks.
 
-Actual rank-one COW inference, optimizer resume equivalence, held-out behavior,
-and baked-model equivalence remain pending. No HIP/SYCL result is claimed.
-Original running-study libraries and recorded failed evidence are preserved.
+The original saved rank-one update has now completed all 864 frozen COW
+assessment cases: 60 correct and 418 naturally finished, versus 59 and 415 for
+the original model. That is one additional correct answer, with no original
+correct answer lost; completion gains/losses were 8/5. This small development
+observation establishes neither broad mastery nor a release.
+
+A second native update resumed the exact first adapter and AdamW state, reached
+54 practice presentations, retained 590 finite gradient tensors, and passed
+independent reload at 1.9868e-7 against the unchanged 2e-4 bound. See the
+[continuation snapshot](continuation.json) and
+[S³ rank report](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/LORA-RANK-EXTENSION.md).
+The snapshot was captured before assessment 2 completed. This validates the
+recorded continuation, not bitwise equivalence against an uninterrupted two-update
+run. Baked-model equivalence and broader numerical qualification remain pending.
+No HIP/SYCL result is claimed. Original running-study libraries and recorded
+failed evidence are preserved.
