@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Native trainer adapter versus native serving adapter, last-logit vectors on three owned prefixes; original failed all-position merge gate remains unchanged",
+  "checks": [
+    {
+      "tokens": 72,
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "same_top_token": true,
+      "repeat_bit_exact": true,
+      "passed": true
+    },
+    {
+      "tokens": 354,
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "same_top_token": true,
+      "repeat_bit_exact": true,
+      "passed": true
+    },
+    {
+      "tokens": 379,
+      "maximum_absolute_error": 0.0,
+      "rms_error": 0.0,
+      "same_top_token": true,
+      "repeat_bit_exact": true,
+      "passed": true
+    }
+  ],
+  "base_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "adapter_sha256": "5ccb54dd813516499dcf15bf4af1c1b8e64bb76ef9824ff6707f731a5f39e125",
+  "allocated_gpu_seconds": 50.83253571484238,
+  "weights_updated": false,
+  "model_bytes_transferred": false,
+  "hardware": "Shared NVIDIA A100; other users active; timings reflect contention"
+}
