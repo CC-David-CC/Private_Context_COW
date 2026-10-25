@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "COMPLETE_RANK1_UPDATE2_ASSESSMENT_ADDENDUM",
+  "captured_utc": "2026-10-25T21:02:13Z",
+  "scope": "Separate immutable addendum to original rank-extension snapshot; direct-adapter frozen development evidence only",
+  "cases": 864,
+  "evaluation_id": "a65ccad42c14b44dbf8fb37d3a84374df2c58d2e39fc5ff18469933d054c35d4",
+  "runtime_id": "7960ca4a3a3a4dbadd8ff66e83b56e6e6cdff57076c4cab19b62205a1d221c0d",
+  "rank": 1,
+  "update": 2,
+  "presentations": 54,
+  "correct": 61,
+  "naturally_finished": 452,
+  "original_baseline": {
+    "correct": 59,
+    "naturally_finished": 415,
+    "cases": 864
+  },
+  "paired_original": {
+    "answer_gains": 2,
+    "answer_losses": 0,
+    "completion_gains": 46,
+    "completion_losses": 9,
+    "status": "REJECTED",
+    "policy_explanation": "Strict no-prior-completion-loss policy rejects due to9lost original completions; this descriptive observation is preserved and does not promote a model."
+  },
+  "base_sha256": "0ffba3682a853295566b98bc38c0ab755d6b2d91b994bc031ed727a08cfcdf25",
+  "adapter_sha256": "b75c9e6c82bb173e1affeb88f6839365293298d0c42219eb29fc0b3897c65927",
+  "optimizer_state_sha256": "5bb8273809c09f45e9e0e3a4ed9108c03df6a3f470317f1ba12338eec1f49465",
+  "candidate_model_contract_id": "694d96be32f27b169da7a4dfdd739233023a921e09a4f06f8b104765a71a85a9",
+  "source_hashes": {
+    "absolute_point_sha256": "5132368dff839f5399d83dda9ab2b3af8706c685f48bb6e0a5e62981ebcbf208",
+    "result_sha256": "a165ced5d3e006a3076181d12a87fed3d8c44f965f200ea7a5365abb20ecdf9e",
+    "settlement_sha256": "9aaebb89d29bd3ba2d540c74080f89e6b12fe5b679a845f62d81cfa9173c8f6f",
+    "mechanics_sha256": "68b4e31fccdf020449e61c9da20f11eee9481eb5b716ef132ae206962e5108ff",
+    "native_request_sha256": "ad51dbf08b02306f5096037b31eb6423cdef46713959399a0494a27ea2b807ca",
+    "baseline_result_sha256": "b4fc192dd36fc911697b950b81fdf35201bf527fd195d34c57eadf9c0d3858e4",
+    "baseline_settlement_sha256": "eeb4af67d9cad5ca040dcb023570055a8c79f2cee69180b1d98b15f241e461f3"
+  },
+  "native_mechanics": {
+    "completed_updates": 2,
+    "example_cursor": 54,
+    "reload_loss_error": 1.986821489552426e-07,
+    "reload_error_bound": 0.0002,
+    "finite_gradient_tensors": 590,
+    "native_sha256": "a4cf0a8f176300e276bfb95c47fe040792acd917126d792d0d3a76d5a13049ce"
+  },
+  "practice": {
+    "presentations_per_update": 27,
+    "ordered_dataset_sha256": "4c21029544f77cbc2a9904b50b4d21d50caacb06087caf694685b52dd683d2cf",
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "alpha_divided_by_rank": 1.0,
+    "new_seed_campaigns_added": false
+  },
+  "upstream_credit": {
+    "author": "edenfunf",
+    "pull_request": "https://github.com/ggml-org/llama.cpp/pull/30142"
+  },
+  "promoted": false,
+  "broad_harness_acceptance": false,
+  "merged_model_equivalence_waived": false,
+  "limitation": "Direct-adapter development assessment; no release acceptance or rank optimality established"
+}

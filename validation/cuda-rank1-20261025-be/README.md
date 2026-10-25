@@ -47,3 +47,12 @@ recorded continuation, not bitwise equivalence against an uninterrupted two-upda
 run. Baked-model equivalence and broader numerical qualification remain pending.
 No HIP/SYCL result is claimed. Original running-study libraries and recorded
 failed evidence are preserved.
+
+## Later completed second assessment
+
+The [separate update-2 assessment](assessment-update2.json) now records 61/864
+correct and 452 naturally finished. Original-answer gains/losses are 2/0;
+completion gains/losses are 46/9. The existing strict retention promotion gate
+rejects the candidate because nine original cases stop finishing. The observed
+learning and numerical continuation remain valid evidence, and the fixed study
+continues without promoting a model or relaxing the gate.
