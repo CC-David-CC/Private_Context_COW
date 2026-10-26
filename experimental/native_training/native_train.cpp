@@ -904,19 +904,20 @@ static json train_model(const json&config){
     if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"),"Adaptive route requires ordinary-Llama full training or explicit AdamW LoRA");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
-    need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Unknown sequence qualification profile");
-    if(model.h.llama_dense)need(sequence_profile=="dense-llama-short-v1","Ordinary Llama requires its explicit bounded sequence profile");
+    const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1";
+    need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||llama_profile,"Unknown sequence qualification profile");
+    if(model.h.llama_dense)need(llama_profile,"Ordinary Llama requires its explicit bounded sequence profile");
     if(sequence_profile=="tiny-cpu-long-v1"){
         const auto&h=model.h;
         need(names==std::vector<std::string>{"CPU"}&&h.layers<=2&&h.hidden<=64&&h.ffn<=128&&h.vocab<=512&&h.heads<=2&&h.state<=8&&h.kernel<=4,
              "Long sequence profile is qualified only for bounded tiny CPU fixtures, not Wen");
         model.maximum_sequence=32768;model.efficient_sequence=true;
     }
-    if(sequence_profile=="dense-llama-short-v1"){
+    if(llama_profile){
         const auto&h=model.h;
         need(h.llama_dense&&h.layers<=42&&h.hidden<=4096&&h.ffn<=12288&&h.vocab<=262144&&h.heads<=32&&h.kvheads<=8&&h.head<=256,
-             "Ordinary Llama short profile exceeds its inspected geometry bounds");
-        model.maximum_sequence=512;model.efficient_sequence=true;
+             "Ordinary Llama bounded profile exceeds its inspected geometry bounds");
+        model.maximum_sequence=sequence_profile=="dense-llama-short-v1"?512:8192;model.efficient_sequence=true;
     }
     if(sequence_profile=="dense-short-v1"){
         need(!model.h.llama_dense,"Use the explicit ordinary Llama sequence profile");
@@ -938,7 +939,7 @@ static json train_model(const json&config){
     const std::string memory_profile=config.value("memory_profile",std::string("conservative-v1"));
     need(memory_profile=="conservative-v1"||memory_profile=="allocator-v1","Unknown memory admission profile");
     const bool allocator=memory_profile=="allocator-v1";
-    need(!allocator||sequence_profile=="dense-short-v1"||sequence_profile=="dense-llama-short-v1","Allocator admission is limited to bounded dense profiles");
+    need(!allocator||sequence_profile=="dense-short-v1"||llama_profile,"Allocator admission is limited to bounded dense profiles");
     const bool admission_only=config.value("admission_only",false);
     auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
     auto finish=[&](json result){

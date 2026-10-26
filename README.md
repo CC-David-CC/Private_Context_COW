@@ -344,3 +344,5 @@ Owner learning-loop maintenance: [closed evaluation store retention](docs/CLOSED
 keeps completed COW test stores from filling the fast workspace after verified
 archival. [Unified runtime qualification](docs/UNIFIED-LEARNING-RUNTIME.md) records
 the tested API/execution source, native recovery follow-up and remaining scope.
+
+Optional native action training: [8k profile and qualification](docs/DENSE-LLAMA-ACTION-TRAINING.md). CPU/CUDA tiny-fixture mechanics pass; real MiniCPM allocation and quality remain separate checks.

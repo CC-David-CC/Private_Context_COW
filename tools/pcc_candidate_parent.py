@@ -206,7 +206,11 @@ def resolve_parent(reference,version_file,profile_file,*,artifact_roots,state_po
     if state_policy=='resume':
         if state_path is None or examples is None:raise ValueError('Exact optimizer state and explicit same-stream examples required')
         p=inputs.path(state_path);state=read_optimizer_state(p,version['optimizer_state_sha256'])
-        checked=validate_examples(examples,sequence_profile='dense-llama-short-v1')
+        sequence=receipt.get('sequence_profile','dense-llama-short-v1')
+        from tools.pcc_native_training import LLAMA_DENSE_PROFILES
+        if sequence not in LLAMA_DENSE_PROFILES:
+            raise ValueError('Completed ordinary-Llama optimizer sequence profile required')
+        checked=validate_examples(examples,sequence_profile=sequence)
         saved=receipt.get('optimizer_checkpoint',{});config=state['config']
         if type(saved) is not dict or type(config) is not dict:raise ValueError('Completed optimizer configuration required')
         if (state['model_sha256']!=version['candidate_sha256']

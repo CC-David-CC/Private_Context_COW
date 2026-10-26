@@ -49,7 +49,7 @@ def validate_optimizer_request(request):
         if any(k in request for k in ('optimizer_settings','initial_optimizer_state','initial_optimizer_state_sha256','optimizer_state_mode','optimizer_state_output')):
             raise ValueError('SGD does not consume adaptive optimizer state/settings')
         return kind
-    if request.get('sequence_profile')!='dense-llama-short-v1' or (request.get('mode')!='full' and not (kind=='adamw' and request.get('mode')=='lora')):
+    if request.get('sequence_profile') not in LLAMA_DENSE_PROFILES or (request.get('mode')!='full' and not (kind=='adamw' and request.get('mode')=='lora')):
         raise ValueError('Adaptive optimizers require ordinary-Llama full training or explicit AdamW LoRA')
     if request.get('mode')=='lora' and request.get('optimizer_state_mode')=='resume' and not request.get('initial_adapter'):
         raise ValueError('AdamW LoRA state resume requires its exact parent adapter')
@@ -68,7 +68,9 @@ def validate_optimizer_request(request):
         if any(k not in request for k in ('initial_optimizer_state','initial_optimizer_state_sha256','example_cursor')):raise ValueError('Complete pinned optimizer resume request required')
     return kind
 
-SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768,'dense-short-v1':512,'dense-llama-short-v1':512}
+LLAMA_DENSE_PROFILES=('dense-llama-short-v1','dense-llama-action-8k-v1')
+SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768,'dense-short-v1':512,
+                   'dense-llama-short-v1':512,'dense-llama-action-8k-v1':8192}
 
 def validate_sequence_profile(profile,devices):
     if profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
@@ -77,7 +79,7 @@ def validate_sequence_profile(profile,devices):
     return profile
 
 def validate_memory_profile(profile,sequence_profile):
-    if profile not in ('conservative-v1','allocator-v1') or (profile=='allocator-v1' and sequence_profile not in ('dense-short-v1','dense-llama-short-v1')):
+    if profile not in ('conservative-v1','allocator-v1') or (profile=='allocator-v1' and sequence_profile not in ('dense-short-v1',*LLAMA_DENSE_PROFILES)):
         raise ValueError('Allocator admission requires the bounded dense sequence profile')
     return profile
 
@@ -103,7 +105,7 @@ def validate_examples(examples,*,sequence_profile='short-v1'):
             raise ValueError('Nonnegative integer token IDs required')
         if any(type(m) is not bool for m in e['loss_mask']) or not any(e['loss_mask']):
             raise ValueError('Nonempty explicit completion-loss mask required')
-        if sequence_profile in ('tiny-cpu-long-v1','dense-short-v1','dense-llama-short-v1') and sum(e['loss_mask'])>256:raise ValueError('Balanced profiles admit at most 256 selected targets')
+        if sequence_profile in ('tiny-cpu-long-v1','dense-short-v1',*LLAMA_DENSE_PROFILES) and sum(e['loss_mask'])>256:raise ValueError('Balanced profiles admit at most 256 selected targets')
         if e['targets'][:-1]!=e['tokens'][1:]:
             raise ValueError('Targets must describe the next consumed token')
     return copy.deepcopy(examples)

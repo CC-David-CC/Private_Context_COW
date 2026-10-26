@@ -85,3 +85,5 @@ uses generated owned fixtures and no downloaded language-model weights.
 [Current optimizer comparison plan](../../docs/OPTIMIZER-COMPARISON.md) prioritizes
 Muon and its defined variants at a fixed compute budget. Broad ablations are
 stretch goals, not a reason to delay the main comparison.
+
+A separate opt-in [8k action-training profile](../../docs/DENSE-LLAMA-ACTION-TRAINING.md) now has tiny CPU/CUDA and actual CPU service qualification. Existing 512-token studies remain unchanged; this does not establish real MiniCPM long-context training quality.
