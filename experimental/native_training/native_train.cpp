@@ -128,7 +128,15 @@ struct Graph {
     static constexpr size_t default_capacity=262144;
     size_t capacity;bool efficient_sequence;
     Device &device;Context ctx;ggml_cgraph*g;
-    static size_t bounded_capacity(size_t tokens,size_t layers,bool llama_dense=false){
+    static size_t bounded_capacity(size_t tokens,size_t layers,bool llama_dense=false,bool dense_action=false){
+        if(dense_action){
+            need(llama_dense&&tokens>=2&&tokens<=8192&&layers>=1&&layers<=42,"Bounded dense-action graph limits exceeded");
+            // Ordinary-Llama attention/MLP operators batch the token dimension;
+            // they do not unroll one operator chain per token as the recurrent
+            // path does. Keep the existing hard node arena, with <=256 selected
+            // loss columns. Tensor-buffer admission remains per actual graph.
+            return default_capacity;
+        }
         need((tokens<=32768&&layers<=2)||(tokens<=512&&layers<=size_t(llama_dense?42:32)),"Bounded sequence graph limits exceeded");
         size_t wanted=tokens*layers*256+65536,result=default_capacity;
         while(result<wanted)result*=2;
@@ -405,7 +413,7 @@ struct Chain {
     Geometry h;
     std::vector<std::unique_ptr<Device>> devices;
     std::vector<std::unique_ptr<Block>> blocks;
-    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;
+    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r,const std::vector<int>&placement={}):h(geometry),full(train_full),rank(r){
         need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
         need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
@@ -465,7 +473,7 @@ struct Chain {
     float standard_sample(const json&sample,bool backward,float weight=1,std::vector<float>*observed_logits=nullptr){
         auto tokens=sample.at("tokens").get<std::vector<int32_t>>();int n=tokens.size();need(n>=2&&n<=maximum_sequence,"Bounded sequence required");
         for(auto t:tokens)need(t>=0&&t<h.vocab,"Invalid input token");
-        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
+        std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense,dense_action_graph):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
         for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n);g.stage(x,blocks[i+1]->device);}
         auto&head=*blocks.back();x=g.norm(x,head.params.at("output_norm.weight").w,h.eps);auto*logits=g.linear(head,"output.weight",x);g.stage(logits,head.device);
@@ -742,7 +750,7 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
     }
     size_t graph_host=0;
     if(model.efficient_sequence){
-        size_t nodes=Graph::bounded_capacity(length,h.layers,h.llama_dense);
+        size_t nodes=Graph::bounded_capacity(length,h.layers,h.llama_dense,model.dense_action_graph);
         // Metadata, scheduler tables/placements, host masks and input copies.
         size_t labels=0;for(auto&e:config.at("examples")){size_t count=0;for(auto&m:e.at("loss_mask"))if(m.get<bool>())++count;labels=std::max(labels,count);}
         graph_host=Graph::metadata_bytes(nodes)+nodes*128+length*length*8+length*size_t(h.vocab)*8;
@@ -918,6 +926,7 @@ static json train_model(const json&config){
         need(h.llama_dense&&h.layers<=42&&h.hidden<=4096&&h.ffn<=12288&&h.vocab<=262144&&h.heads<=32&&h.kvheads<=8&&h.head<=256,
              "Ordinary Llama bounded profile exceeds its inspected geometry bounds");
         model.maximum_sequence=sequence_profile=="dense-llama-short-v1"?512:8192;model.efficient_sequence=true;
+        model.dense_action_graph=sequence_profile=="dense-llama-action-8k-v1";
     }
     if(sequence_profile=="dense-short-v1"){
         need(!model.h.llama_dense,"Use the explicit ordinary Llama sequence profile");

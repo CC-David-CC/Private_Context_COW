@@ -49,6 +49,27 @@ Rank-one CUDA qualification used the dependency fix from
 PCC's existing build option pins and records that imported patch. This profile
 does not claim authorship of the size-one outer-product fix.
 
+## Deep-model graph planning correction
+
+The first real MiniCPM probe exposed another limit that the one-layer 8k fixture
+could not cover: graph bookkeeping still restricted models deeper than two
+layers to 512 tokens. The native process refused the 3,663-token request in
+memory planning, before loading the real weights. That original failure remains
+preserved; no real training update or completed gradient probe was repeated.
+
+The action profile now uses the existing bounded 262,144-node arena for ordinary
+Llama's vectorized graph. The older token-times-layer estimate belongs to the
+token-unrolled recurrent path. At 42 layers and the maximum 256 selected targets,
+both 513-token and 1,024-token native gradients used exactly 5,878 nodes on CPU
+and CUDA. Both covered all 381 gradient tensors. Node metadata was bounded at
+128 MiB. Numerical tensor-buffer allocation is still measured and admitted for
+the actual graph; a small node count does not make a large attention tensor free.
+
+The old short/recurrent profiles keep their previous planning path. The
+[additional qualification receipt](../validation/native-action-graph-arena-20261026.json)
+records the depth/context tests. This correction does not by itself establish
+that a real 42-layer model at every length up to 8k fits one GPU.
+
 ## Run the qualification
 
 Use an authorized Linux host and a fresh output directory for each command.

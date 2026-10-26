@@ -117,6 +117,21 @@ def run(executable,output,devices):
  assert largest_update['receipt']['sequence_profile']==PROFILE
  checks.append(dict(name='8192-token-standard-full-backprop',parameter_tensors=len(largest_update['receipt']['steps'][0]['gradients']),
      graph_peaks=largest_update['receipt']['allocation_peaks'],weights_updated=True))
+ # The old graph-arena guard admitted long sequences only at <=2 layers.
+ # Exercise depth and the maximum selected-target count together, not merely
+ # an 8k one-layer fixture. Numerical tensor allocation remains independently
+ # checked; a node arena is not a promise that every model fits a given GPU.
+ deep=make_fixture(output/'tiny-deep-42-f32.gguf',dtype='f32',layers=42,context_length=8192)
+ for n in (513,1024):
+  deep_example=example(n);deep_example['loss_mask']=[i>=n-256 for i in range(n)]
+  request=dict(common,model=str(deep),base_sha256=sha(deep),examples=[deep_example],gradient_probe_only=True,
+      candidate=str(output/('deep-'+str(n)+'-never.gguf')))
+  actual=native('deep-42-'+str(n)+'-gradient',request)
+  assert actual['model_layers']==42 and len(actual['gradients'])==381 and actual['weights_updated'] is False
+  assert all(np.isfinite(row['l2'])for row in actual['gradients'])
+  assert not Path(request['candidate']).exists()
+  checks.append(dict(name='42-layer-'+str(n)+'-token-256-target-standard-gradient',
+      gradient_tensors=381,graph_peaks=actual['allocation_peaks'],weights_updated=False))
  # Adaptive states must remain usable for the exact long-example stream.
  for mode,kind in [('full','adamw'),('full','muon'),('lora','adamw')]:
   label=mode+'-'+kind;request=dict(common,mode=mode,optimizer=kind,optimizer_state_mode='fresh',examples=[e])
