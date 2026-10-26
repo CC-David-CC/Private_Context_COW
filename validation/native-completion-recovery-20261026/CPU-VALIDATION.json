@@ -1,0 +1,60 @@
+{
+  "base": "0efae044fc73c719a14e3b792747139cdeef0080",
+  "kind": "pcc.native-completion-recovery-cpu-validation.v1",
+  "limitations": [
+    "No retrospective proof/adoption for legacy or frozen68 jobs without original opt-in gates",
+    "No new SSS lesson registration/provider or promotion authority",
+    "No actual loaded-library/kernel/optimizer/model quality qualification from fake saved bytes",
+    "Source closure is owner-declared; use actual native build dependency closure",
+    "No default new reload or changed native request when completion_recovery absent"
+  ],
+  "model_or_gpu_training_started": false,
+  "original_fixed_studies_modified": false,
+  "qualification": "CPU engineering with controlled NONMODEL saved evidence and fake child processes; real native model recovery qualification UNRUN",
+  "receipt_sha256": {
+    "cpu-final02b-command-private.json": "f8d31a0d2299ed321284d436febc47e2351e6130fdeb6c778c73145168b0a528",
+    "cpu-final02b.stderr": "0f3bfe58750c6ada749006407e502524edc4a932f01c98da4c6c715a01a9d763",
+    "cpu-final02b.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "schema": 1,
+  "semantics": [
+    "inspect/adopt/completion-reconcile start no native/model work",
+    "normal future opt-in training alone inserts independent reload; native save_reload_qualified false unchanged",
+    "original job/round/request/parent/candidate/state/gate/source/config/env revalidated before candidate_pending",
+    "historical completed adoption ack is not current eligibility",
+    "pending metadata can resume only same original operation/body; no native replay",
+    "dedicated owner CLI reconciliation preflight excludes training/training_pending and old/missing typed reason",
+    "journal/original GET ack gets retry priority after lost response",
+    "all root framing source bytes copied unchanged from isolated framing worktree",
+    "Explicit metadata root/step/gradient/timing/checkpoint guards return typed ineligible instead of AttributeError",
+    "Normal service-complete job needs no adoption: original_job_already_complete with original-job/learning status next actions",
+    "Malformed adoption operation IDs and candidate envelope are refused before path binding or round advancement"
+  ],
+  "source_sha256": {
+    "docs/LESSON-TARGET-FRAMING.md": "43c5ec915af3e8ad768f9fc89e4c9b66e0fb8d043a70d551508519d73bbc3b6f",
+    "docs/NATIVE-COMPLETION-RECOVERY.md": "2e8319e9f45a3261f410d34a2429a47a8fba9e2bc8e7c9b3ffb8f58e9b331888",
+    "serve/cow_http.py": "65549a197321dd2624f9c394f0f6d0e10ddcdf650a4ade0016f6c09a52f4f3c8",
+    "tools/cow_cli.py": "1de760e1b83628d96b86e73a9bd67e1845e458b3b761a824d7ff056ac2023f90",
+    "tools/pcc_learning_runs.py": "4e7a511aaaeb1bb7d5117c7078000b0e468f40f0051df6617b5d8dfc53c657db",
+    "tools/pcc_lesson_segments.py": "5e35873ed82113288b1fb673b231e9f355e570e616e19677504e9775dea9b2f3",
+    "tools/pcc_lessons.py": "602be7801d152e526d8bacf3b117267543a0ad0460097b56c7b949ab4f92365f",
+    "tools/pcc_native_completion.py": "be86ec87d6ae0ed69903dcc8cab557ab1437a5d1ffb0daea9c3f7a14a9a2323a",
+    "tools/pcc_native_training.py": "2912f322f98f5181439d00074a2ff55d7c247a7f06e2a1650ff5d690be15663f",
+    "tools/test_native_completion.py": "d7b0efa90b52f7770941529091d795c5a2454b6523c39497e556379297c391f4",
+    "tools/test_pcc_lesson_segments.py": "ef9cfd34bd560d7b695ae9439def5f35cf5d4656fa1f94c650a9b3bf97376f39"
+  },
+  "tests": {
+    "failed": 0,
+    "modules": [
+      "tools.test_native_completion",
+      "tools.test_native_training",
+      "tools.test_pcc_lessons",
+      "tools.test_optimizer_profiles",
+      "tools.test_optimizer_profiles_v2",
+      "tools.test_pcc_lesson_segments"
+    ],
+    "passed": 80,
+    "seconds": 4.898,
+    "skipped": 0
+  }
+}

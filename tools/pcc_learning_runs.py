@@ -116,10 +116,14 @@ class LearningRuns:
                 if descriptor['training']['mode']=='full' and run['working_parent_job_id'] is not None:
                     actions.append(dict(action='preserve',required_fields=['name','notes']))
                 actions.append(dict(action='stop',required_fields=[]))
-            elif phase=='needs_operator':actions=[dict(action='stop',required_fields=[])]
+            elif phase=='needs_operator':
+                actions=[dict(action='stop',required_fields=[])]
+                if run.get('operator_reason_code')=='native_job_unresolved':
+                    try:self._adopted_native(run);actions.insert(0,dict(action='reconcile',required_fields=[]))
+                    except (ValueError,FileNotFoundError,KeyError):pass
             result['available_actions']=actions if policy_active else []
 
-            for key in ('training_job_id','last_report','last_assessment','operator_reason','preserved_export'):
+            for key in ('training_job_id','last_report','last_assessment','operator_reason','operator_reason_code','preserved_export'):
                 if key in run:result[key]=copy.deepcopy(run[key])
             job_id=run.get('training_job_id')
         if job_id and (self.service.root/'operations'/(job_id+'.json')).exists():
@@ -217,7 +221,12 @@ class LearningRuns:
                 else:raise ValueError('Phase is not advanceable; inspect status or reconcile original work')
             elif action=='reconcile':
                 if set(request)!=base:raise ValueError('Reconciliation takes no changed training settings')
-                if phase in ('training_pending','training'):
+                if phase=='needs_operator':
+                    adoption=self._adopted_native(run)
+                    run.setdefault('recovery_history',[]).append(dict(original_reason=run.get('operator_reason'),
+                        original_reason_code=run['operator_reason_code'],completion_adoption=copy.deepcopy(adoption),reconciled_by=op))
+                    run.update(phase='candidate_pending');run.pop('operator_reason',None);run.pop('operator_reason_code',None)
+                elif phase in ('training_pending','training'):
                     dispatch=('train',run['run_id'],op,copy.deepcopy(run['training_request']))
                 elif phase=='preservation_pending':
                     dispatch=('preserve',run['run_id'],op,copy.deepcopy(run['preservation_request']))
@@ -253,6 +262,40 @@ class LearningRuns:
             else:self._dispatch(*dispatch)
         return acceptance
 
+    def _adopted_native(self,run):
+        if run.get('operator_reason_code')!='native_job_unresolved':raise ValueError('Only the original native interruption is recoverable here')
+        expected='learning-job-'+digest(dict(run=run['run_id'],round=run['round'],policy=run['policy_id']))
+        request=run['training_request'];training=self._policy(run['policy_id']).describe()['training']
+        if any(request.get(key)!=value for key,value in training.items()):raise ValueError('Original adopted job differs from registered learning recipe')
+        if run['completed_rounds']>=run['round']:raise ValueError('Original native round is already reported')
+        if request.get('parent_job_id')!=run['working_parent_job_id']:raise ValueError('Original adopted job parent differs')
+        if run['training_job_id']!=expected or request['operation_id']!=expected:raise ValueError('Original derived native job differs')
+        round_record=self._read(self._directory(run['run_id'])/('round-%06d.json'%run['round']))
+        if round_record['training_request']!=request or round_record['parent_job_id']!=run['working_parent_job_id']:
+            raise ValueError('Original learning round/request/parent differs')
+        job=self.service._read(self.service.root/'operations'/(expected+'.json'))
+        if job.get('path')!='/cow/training/jobs' or job.get('state')!='complete' or job['request']!=request:
+            raise ValueError('Original native job has not been adopted as complete')
+        adoption=job.get('completion_adoption')
+        if type(adoption) is not dict or adoption.get('promoted') is not False:raise ValueError('Original explicit completion adoption is missing')
+        if type(adoption.get('operation_id')) is not str or not OP.fullmatch(adoption['operation_id']):
+            raise ValueError('Original adoption operation requires a registered ID')
+        if type(job.get('candidate')) is not dict:raise ValueError('Original adopted candidate envelope requires an object')
+        operation=self.service._read(self.service.root/'operations'/(adoption['operation_id']+'.json'))
+        if (operation.get('path')!='/cow/training/job-reconciliations' or operation.get('state')!='complete'
+                or operation['request']['job_id']!=expected or operation['acceptance'].get('candidate_sha256')!=job['candidate']['candidate_sha256']
+                or operation['validated_evidence_sha256']!=adoption['evidence_sha256']):
+            raise ValueError('Original owner completion adoption binding differs')
+        # A historical acknowledgment is not evidence that candidate/source/gate
+        # bytes are still valid. Admission already holds the service record lock;
+        # acquire its existing worker boundary without nesting record flock FDs.
+        from tools.pcc_native_completion import worker_idle,adopted_value
+        with worker_idle(self.service):
+            value=adopted_value(self.service,expected)
+        if value['candidate']!=job['candidate'] or value['evidence_sha256']!=adoption['evidence_sha256']:
+            raise ValueError('Original adopted completion changed before learning reconciliation')
+        return adoption
+
     def _dispatch(self,kind,identity,operation,request):
         # Original native/export requests were committed before this call. Their
         # ordinary PCC operation IDs make reconnection idempotent across the gap.
@@ -271,7 +314,7 @@ class LearningRuns:
                 job=self.service._read(self.service.root/'operations'/(request['operation_id']+'.json'))
                 if job['state']=='complete':run['phase']='candidate_pending'
                 elif job['state'] in ('queued','running'):run['phase']='training'
-                else:run.update(phase='needs_operator',operator_reason='Original native job '+request['operation_id']+' is '+job['state']+'; no automatic retry')
+                else:run.update(phase='needs_operator',operator_reason_code='native_job_unresolved',operator_reason='Original native job '+request['operation_id']+' is '+job['state']+'; no automatic retry')
             else:run.update(preserved_export=acceptance,phase='round_complete')
             original_step=run.pop('pending_step_id',None)
             run['revision']+=1;self._save(run)

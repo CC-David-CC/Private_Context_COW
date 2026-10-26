@@ -23,13 +23,14 @@ def validate_segments_lesson(value):
     for row in rows:
         if type(row) is not dict or set(row)!={'role','kind','rendered','verified','scope'}:raise ValueError('Exact rendered spans required')
         if row['scope']!='practice' or row['role'] not in ('system','user','assistant','tool'):raise ValueError('Evaluation data cannot enter training context')
-        if row['kind'] not in ('instruction','question','observation','thinking','action','answer','summary') or type(row['verified']) is not bool:raise ValueError('Invalid segment')
+        if row['kind'] not in ('instruction','question','observation','thinking','action','answer','summary','framing') or type(row['verified']) is not bool:raise ValueError('Invalid segment')
         if type(row['rendered']) is not str or not row['rendered']:raise ValueError('Empty or invalid rendered span')
         total+=len(row['rendered'].encode())
         if total>2*1024*1024:raise ValueError('Rendered lesson exceeds byte budget')
         selected=row['kind'] in ('thinking','action','answer','summary')
         if selected and row['role']!='assistant':raise ValueError('Assistant span has wrong role')
-        if row['role']=='assistant' and not selected:raise ValueError('Unknown assistant target kind')
+        if row['kind']=='framing' and (row['role']!='assistant' or row['verified'] is not False):raise ValueError('Template framing must be unverified assistant context')
+        if row['role']=='assistant' and not selected and row['kind']!='framing':raise ValueError('Unknown assistant target kind')
         if row['kind']=='thinking' and value['target_policy']=='actions_answer':selected=False
         if selected and not row['verified']:raise ValueError('Unverified text cannot be a target')
         targets.append(selected)
@@ -39,7 +40,7 @@ def validate_segments_lesson(value):
 def tokenize_segments(lesson,tokenize,maximum):
     value=validate_segments_lesson(lesson);text='';tokens=[];labels=[]
     for row in value['segments']:
-        selected=row['role']=='assistant' and (row['kind']!='thinking' or value['target_policy']=='verified_thinking_actions_answer')
+        selected=row['role']=='assistant' and row['kind'] in ('thinking','action','answer','summary') and (row['kind']!='thinking' or value['target_policy']=='verified_thinking_actions_answer')
         text+=row['rendered'];current=tokenize(text)
         if type(current) is not list or any(type(t) is not int or t<0 for t in current):raise ValueError('Invalid tokenizer output')
         if current[:len(tokens)]!=tokens:raise ValueError('Rendered role boundary does not align to tokenizer')

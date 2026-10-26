@@ -211,7 +211,7 @@ def validate_training_budget_receipt(request,receipt):
     return len(rows)
 
 
-def execute_native(executable,request,run_directory,*,timeout=3600,environment=None,pass_fds=()):
+def execute_native(executable,request,run_directory,*,timeout=3600,environment=None,pass_fds=(),completion_context=None):
     """Run one explicit native update request and preserve its exact receipts.
 
     Run-directory identity prevents an uncertain completion from turning into
@@ -269,20 +269,38 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
     launch=dict(executable=str(executable),executable_sha256=sha256(executable),
                 request_sha256=sha256(config),base_sha256=original,parent_adapter_sha256=parent_adapter)
     if capabilities is not None:launch['capabilities']=capabilities
+    if completion_context is not None:
+        from tools.pcc_native_completion import runtime_values
+        actual_environment=runtime_values(environment)
+        if actual_environment!=completion_context['runtime_environment']:
+            raise ValueError('Original native runtime environment differs before dispatch')
+        launch['runtime_environment']=actual_environment
     (run_directory/'launch.json').write_text(json.dumps(launch)+'\n')
+    completion_intent=None
+    if completion_context is not None:
+        from tools.pcc_native_completion import prepare
+        (run_directory/'launch.json').chmod(0o600)
+        completion_intent=prepare(run_directory,completion_context,request)
     try:
         with (run_directory/'stdout-private.json').open('x',encoding='utf-8') as out, (run_directory/'stderr.log').open('x',encoding='utf-8') as err:
+            if completion_context is not None:
+                (run_directory/'stdout-private.json').chmod(0o600);(run_directory/'stderr.log').chmod(0o600)
             proc=subprocess.Popen([str(executable),'--train',str(config)],stdout=out,stderr=err,
                                   start_new_session=(os.name=='posix'),env=environment,pass_fds=pass_fds)
             launch['pid']=proc.pid
             if record_identity:
-                stat=Path('/proc',str(proc.pid),'stat').read_text().rsplit(')',1)[1].split()
-                launch['process_identity']=dict(pid=proc.pid,start_ticks=int(stat[19]),boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip())
+                if completion_context is not None:
+                    from tools.pcc_native_completion import process_identity
+                    launch['process_identity']=process_identity(proc.pid)
+                else:
+                    stat=Path('/proc',str(proc.pid),'stat').read_text().rsplit(')',1)[1].split()
+                    launch['process_identity']=dict(pid=proc.pid,start_ticks=int(stat[19]),boot_id=Path('/proc/sys/kernel/random/boot_id').read_text().strip())
             (run_directory/'launch.json').write_text(json.dumps(launch)+'\n')
             try:code=proc.wait(timeout=timeout)
             except subprocess.TimeoutExpired:
                 proc.kill();proc.wait();raise
         (run_directory/'command.exit').write_text(str(code)+'\n')
+        if completion_context is not None:(run_directory/'command.exit').chmod(0o600)
         if code:
             raise RuntimeError('Native training failed; preserve this run and inspect stderr.log')
         if sha256(base)!=original:
@@ -300,6 +318,10 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
             expected_steps=(0 if parent_optimizer is None else parent_optimizer['completed_steps'])+completed_updates
             if state['completed_steps']!=expected_steps or state['example_cursor']!=receipt['example_cursor'] or state['model_sha256']!=checkpoint['candidate_sha256'] or state['config']!=checkpoint['config']:
                 raise ValueError('Optimizer checkpoint counters/configuration differ from completion')
+        if completion_context is not None:
+            from tools.pcc_native_completion import reload_gate
+            reload_gate(run_directory,request,receipt,completion_intent,executable=executable,
+                environment=environment,pass_fds=pass_fds,timeout=timeout)
         receipt.update(request_sha256=launch['request_sha256'],parent_adapter_sha256=parent_adapter)
         return finalize_candidate(run_directory/'versions',base,request['candidate'],request['mode'],receipt)
     except subprocess.TimeoutExpired:

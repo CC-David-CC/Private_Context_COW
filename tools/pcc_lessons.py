@@ -152,7 +152,11 @@ class LessonService:
 
     def operation(self,identity):
         if not OP.fullmatch(identity):raise ValueError('Invalid operation ID')
-        with self.locked():return self._read(self.root/'operations'/(identity+'.json'))['acceptance']
+        with self.locked():
+            record=self._read(self.root/'operations'/(identity+'.json'))
+            if record.get('path')=='/cow/training/job-reconciliations' and record.get('state')!='complete':
+                raise ValueError('Original completion adoption is pending; replay the exact owner approval to reconcile metadata')
+            return copy.deepcopy(record['acceptance'])
 
     def lesson(self,identity):
         with self.locked():return self._lesson(identity)
@@ -239,10 +243,19 @@ class LessonService:
                 result['optimizer_state_policy']=record['candidate']['optimizer_state_policy']
         if 'expected_parent_sha256' in record['request']:
             result['expected_parent_sha256']=record['request']['expected_parent_sha256']
+        if 'completion_adoption' in record:result['completion_adoption']=copy.deepcopy(record['completion_adoption'])
         if record['state']=='failed':result['error']='Training failed; private operator logs retained. No automatic retry.'
         return result
 
+    def completion_recovery(self,identity):
+        if type(identity) is not str or not OP.fullmatch(identity):raise ValueError('Invalid original job ID')
+        from tools.pcc_native_completion import public_inspection
+        return public_inspection(self,identity)
+
     def submit(self,path,request):
+        if path=='/cow/training/job-reconciliations':
+            from tools.pcc_native_completion import adopt
+            return adopt(self,request)
         if path in ('/cow/training/learning-runs','/cow/training/learning-steps'):
             if self.learning is None:raise ValueError('Learning runs are not configured')
             return self.learning.submit(path,request)
@@ -345,8 +358,10 @@ class LessonService:
 class NativeRunner:
     def __init__(self,config):
         self.config=copy.deepcopy(config)
+        from tools.pcc_native_completion import configuration
+        configuration(config.get('completion_recovery'))
         required={'model','base_sha256','executable','devices','device_budget_bytes','reserve_bytes','gpu_uuids'}
-        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds','memory_profile','optimizer_profiles'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
+        if not required<=set(config) or set(config)-required-{'sequence_profile','block_devices','host_reserve_bytes','timeout_seconds','memory_profile','optimizer_profiles','completion_recovery'}:raise ValueError('Training runner requires exact owner-configured model, executable and device limits')
         if sha256(config['model'])!=config['base_sha256']:raise ValueError('Training model hash mismatch')
         from tools.pcc_native_training import validate_devices
         names=validate_devices(config['devices'])
@@ -385,6 +400,30 @@ class NativeRunner:
         from tools.pcc_optimizer_profiles import validate_parent
         validate_parent(self.registered_optimizer_profiles,request,parent_record)
 
+    def bind(self,lesson_reader,example_reader,tokenize,model_contract_id):
+        self.completion_lesson_reader=lesson_reader;self.completion_model=model_contract_id
+
+    def native_request(self,request,examples,parent):
+        c=self.config;profile=self.validate_optimizer_request(request)
+        native={k:c[k] for k in ['model','base_sha256','devices','device_budget_bytes','reserve_bytes']}
+        native.update({k:request[k] for k in ['mode','rank','batch_size','steps','learning_rate']},examples=examples,optimizer='sgd',backprop_mode='standard')
+        for key in ('sequence_profile','block_devices','host_reserve_bytes','memory_profile'):
+            if key in c:native[key]=c[key]
+        if parent:
+            if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
+            else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
+        native['deadline_seconds']=c.get('timeout_seconds',3600)
+        if getattr(self,'record_process_identity',False):native['record_process_identity']=True
+        if profile:
+            native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
+            if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
+            if profile['state_policy']=='resume':
+                if parent is None or parent.get('mode')!=request['mode']:raise ValueError('Completed same-mode parent required for optimizer resume')
+                checkpoint=parent['receipt']['optimizer_checkpoint']
+                native.update(initial_optimizer_state=checkpoint['path'],initial_optimizer_state_sha256=checkpoint['sha256'],example_cursor=parent['receipt']['example_cursor'])
+        if c.get('completion_recovery') is not None:native['record_process_identity']=True
+        return native
+
     def __call__(self,request,examples,run,parent,worker_fd):
         c=self.config;environment=dict(os.environ);fds=[worker_fd]
         profile=self.validate_optimizer_request(request)
@@ -399,23 +438,17 @@ class NativeRunner:
                     lock=stack.enter_context((directory/f'gpu-{indices[identity]}.lock').open('a+'))
                     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);fds.append(lock.fileno())
                 environment.update(CUDA_DEVICE_ORDER='PCI_BUS_ID',CUDA_VISIBLE_DEVICES=','.join(c['gpu_uuids']))
-            native={k:c[k] for k in ['model','base_sha256','devices','device_budget_bytes','reserve_bytes']}
-            native.update({k:request[k] for k in ['mode','rank','batch_size','steps','learning_rate']},examples=examples,optimizer='sgd',backprop_mode='standard')
-            for key in ('sequence_profile','block_devices','host_reserve_bytes','memory_profile'):
-                if key in c:native[key]=c[key]
-            if parent:
-                if request['mode']=='lora':native.update(initial_adapter=parent['candidate_path'],initial_adapter_sha256=parent['candidate_sha256'])
-                else:native.update(model=parent['candidate_path'],base_sha256=parent['candidate_sha256'])
-            native['deadline_seconds']=c.get('timeout_seconds',3600)
-            if getattr(self,'record_process_identity',False):native['record_process_identity']=True
-            if profile:
-                native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
-                if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
-                if profile['state_policy']=='resume':
-                    if parent is None or parent.get('mode')!=request['mode']:raise ValueError('Completed same-mode parent required for optimizer resume')
-                    checkpoint=parent['receipt']['optimizer_checkpoint']
-                    native.update(initial_optimizer_state=checkpoint['path'],initial_optimizer_state_sha256=checkpoint['sha256'],example_cursor=parent['receipt']['example_cursor'])
-            candidate=execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds))
+            native=self.native_request(request,examples,parent)
+            recovery=None
+            if c.get('completion_recovery') is not None:
+                from tools.pcc_native_completion import context
+                recovery=context(self,request,examples,parent)
+            completion={} if recovery is None else dict(completion_context=recovery)
+            candidate=execute_native(c['executable'],native,run,timeout=c.get('timeout_seconds',3600)+15,environment=environment,pass_fds=tuple(fds),**completion)
+            if recovery is not None:
+                from tools.pcc_native_completion import read
+                gate=read(run/'completion-gate.json');intent=read(run/'completion-intent.json')
+                candidate['completion_recovery']=dict(intent_sha256=intent['intent_sha256'],gate_id=gate['gate_id'])
             if profile:candidate.update(optimizer_profile_id=request['optimizer_profile_id'],optimizer_state_policy=profile['state_policy'])
             return candidate
 
@@ -429,6 +462,7 @@ def configured_service(config_path,profile,tokenizer):
         raise ValueError('Training tokenizer must belong to the configured serving model')
     runner=NativeRunner(config['runner'])
     if 'skill_guard_config' in config:
+        if runner.config.get('completion_recovery') is not None:raise ValueError('Completion adoption currently supports explicit native jobs, not legacy skill_guard')
         if runner.registered_optimizer_profiles:raise ValueError('Native optimizer profiles currently require explicit lesson blocks; legacy multi-round skill_guard integration is not yet qualified')
         try:from sss.adapters.pcc import configured_guard
         except ModuleNotFoundError as error:

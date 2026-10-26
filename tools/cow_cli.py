@@ -111,7 +111,7 @@ class RequestJournal:
         allowed_paths = {'/cow/namespace','/cow/reseed','/cow/text/context','/cow/text/prepare','/cow/text/ask',
                          '/cow/text/answer','/cow/text/resume','/cow/text/append-user','/cow/text/retry',
                          '/cow/fork','/cow/rewind','/cow/evaluate','/cow/evaluation/adopt',
-                         '/cow/training/lessons','/cow/training/jobs','/cow/training/exports',
+                         '/cow/training/lessons','/cow/training/jobs','/cow/training/exports','/cow/training/job-reconciliations',
                          '/cow/training/learning-runs','/cow/training/learning-steps'}
         if (not isinstance(record, dict) or set(record) not in (
                 required, required | {'receipt'}, required | {'receipt', 'answer'})
@@ -549,7 +549,7 @@ def _mutation_binding(path, body):
 
 def _validate_mutation_ack(path, value, *, branch=None, operation=None, revision=None,
                            snapshot=None, streamed=False,training_body=None):
-    if path in ('/cow/training/lessons','/cow/training/jobs','/cow/training/exports'):
+    if path in ('/cow/training/lessons','/cow/training/jobs','/cow/training/exports','/cow/training/job-reconciliations'):
         if training_body is None:raise ClientError('Training validation requires original request bytes')
         return _training_ack(path,training_body,value)
     if streamed:
@@ -900,6 +900,12 @@ def sampling_settings(args):
 
 
 def _training_ack(path,body,value):
+    if path=='/cow/training/job-reconciliations':
+        from tools.pcc_native_completion import digest
+        expected=dict(schema=1,operation_id=body['operation_id'],request_sha256=digest([path,body]),
+            job_id=body['job_id'],candidate_sha256=body['expected_candidate_sha256'],adopted=True,promoted=False)
+        if value!=expected:raise ClientError('Native adoption acknowledgment differs from original owner approval')
+        return value
     canonical=lambda value:json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()
     expected=hashlib.sha256(canonical([path,body])).hexdigest()
     if path in ('/cow/training/learning-runs','/cow/training/learning-steps'):
@@ -942,6 +948,14 @@ def _training_post(client,journal,path,body):
     print('operation_id='+operation,file=sys.stderr,flush=True)
     if previous is not None:
         _post_may_have_been_sent=True
+        if path=='/cow/training/job-reconciliations':
+            # Original metadata-only approval may finish its durable commit. This
+            # exception never resubmits a native job or changed request bytes.
+            try:value=client.request('POST',path,body)
+            except ClientError:
+                try:value=client.request('GET','/cow/training/operations/'+operation)
+                except ClientError:raise ClientError('Original completion adoption remains unresolved; retain and replay this exact approval') from None
+            value=_training_ack(path,body,value);journal.complete(record,value);return value
         try:value=client.request('GET','/cow/training/operations/'+operation)
         except ClientError:raise ClientError('Original training acceptance is unknown; retain this operation ID and inspect it before any new update') from None
     else:
@@ -952,8 +966,53 @@ def _training_post(client,journal,path,body):
             except ClientError:raise ClientError('Training acceptance is unknown; original request retained for reconciliation') from None
     value=_training_ack(path,body,value);journal.complete(record,value);return value
 
+def _reconcile_completion(client,journal,identity,operation,revision):
+    """Only adopted-completion metadata, never generic pending-training retry."""
+    global _last_operation_id, _post_may_have_been_sent
+    path='/cow/training/learning-steps'
+    body=dict(operation_id=operation,run_id=identity,expected_revision=revision,action='reconcile')
+    raw=json.dumps(body,ensure_ascii=False).encode();previous=journal.get(operation)
+    _last_operation_id=operation
+    if previous is not None:
+        if previous['url']!=client.base_url or previous['path']!=path or previous['body_json']!=raw.decode():
+            raise ClientError('Original completion reconciliation operation binds different bytes')
+        if previous['state']=='complete':return _training_ack(path,body,previous['receipt'])
+        # A lost acknowledgment can already have advanced the run. Read the
+        # original operation before applying any current-phase preflight.
+        try:value=client.request('GET','/cow/training/operations/'+operation)
+        except ClientError:pass
+        else:
+            value=_training_ack(path,body,value);journal.complete(previous,value);return value
+    status=client.request('GET','/cow/training/learning-runs/'+identity)
+    if (type(status) is not dict or type(status.get('schema')) is not int or status['schema']!=1
+            or status.get('run_id')!=identity or status.get('phase')!='needs_operator'
+            or type(status.get('revision')) is not int or status['revision']!=revision
+            or status.get('operator_reason_code')!='native_job_unresolved'
+            or type(status.get('available_actions')) is not list
+            or dict(action='reconcile',required_fields=[]) not in status.get('available_actions',[])):
+        raise ClientError('HOLD: current run is not the exact adopted-completion reconciliation boundary')
+    record=previous if previous is not None else journal.begin(operation,client.base_url,path,raw)
+    print('operation_id='+operation,file=sys.stderr,flush=True);_post_may_have_been_sent=True
+    try:value=client.request('POST',path,body)
+    except ExplicitRejection:raise
+    except ClientError:
+        try:value=client.request('GET','/cow/training/operations/'+operation)
+        except ClientError:raise ClientError('Original completion reconciliation is unresolved; retain this exact step ID and request') from None
+    value=_training_ack(path,body,value);journal.complete(record,value);return value
+
 def _training_run(args,client,journal):
     action=args.lesson_action
+    if action=='learning-status':return _print_json(client.request('GET','/cow/training/learning-runs/'+args.identity))
+    if action=='reconcile-completion':
+        return _print_json(_reconcile_completion(client,journal,args.identity,args.operation_id,args.expected_revision))
+    if action=='inspect-completion':return _print_json(client.request('GET','/cow/training/jobs/'+args.identity+'/completion-recovery'))
+    if action=='adopt-completion':
+        from tools.pcc_native_completion import APPROVAL,ROUTE
+        if not args.approve_original_completion:raise ClientError('Explicit owner completion adoption approval required')
+        body=dict(operation_id=args.operation_id,job_id=args.identity,approval=APPROVAL,
+            expected_job_record_sha256=args.expected_job_record_sha256,expected_evidence_sha256=args.expected_evidence_sha256,
+            expected_candidate_sha256=args.expected_candidate_sha256)
+        return _print_json(_training_post(client,journal,ROUTE,body))
     if action=='skills':return _print_json(client.request('GET','/cow/training/skills'))
     if action=='optimizers':return _print_json(client.request('GET','/cow/training/optimizer-profiles'))
     if action=='exports':return _print_json(client.request('GET','/cow/training/exports'))
@@ -1246,6 +1305,17 @@ def parser():
     actions.add_parser('skills')
     actions.add_parser('optimizers',help='List owner-registered native optimizer policies.')
     actions.add_parser('exports',help='List private named standalone models.')
+    child=actions.add_parser('learning-status',help='Inspect typed learning state and available actions without dispatch.')
+    child.add_argument('identity')
+    child=actions.add_parser('reconcile-completion',help='Reconcile only an adopted original completion; never start training or evaluate.')
+    child.add_argument('identity');child.add_argument('--operation-id',required=True)
+    child.add_argument('--expected-revision',type=positive_int,required=True)
+    child=actions.add_parser('inspect-completion',help='Inspect complete original interrupted native evidence without dispatch.')
+    child.add_argument('identity')
+    child=actions.add_parser('adopt-completion',help='Explicitly adopt a completed original native job; no retraining or promotion.')
+    child.add_argument('identity');child.add_argument('--operation-id',required=True)
+    child.add_argument('--expected-job-record-sha256',required=True);child.add_argument('--expected-evidence-sha256',required=True)
+    child.add_argument('--expected-candidate-sha256',required=True);child.add_argument('--approve-original-completion',action='store_true')
     child=actions.add_parser('preserve',help='Preserve a completed full-weight job as a named private GGUF.')
     child.add_argument('identity');child.add_argument('--operation-id',required=True);child.add_argument('--name',required=True);child.add_argument('--expected-sha256',required=True);child.add_argument('--notes-file',type=Path);child.add_argument('--report-sha256')
     for name in ('show','status'):

@@ -57,3 +57,55 @@ class Segments(unittest.TestCase):
                 self.assertEqual(legacy['tokens'][:3],list(b'<U>'))
                 self.assertNotIn(250,legacy['tokens'])
             finally:service.close()
+
+
+class TemplateFraming(unittest.TestCase):
+    @staticmethod
+    def token_ids(text):
+        # Explicit synthetic EOS is one token; no model or native engine runs.
+        result=[]
+        while text:
+            if text.startswith('<EOS>'):
+                result.append(256);text=text[5:]
+            else:
+                result.append(ord(text[0]));text=text[1:]
+        return result
+
+    def sample(self,policy):
+        value=lesson(policy)
+        value['segments']=[dict(role='user',kind='question',rendered='Q:',verified=False,scope='practice'),
+            dict(role='assistant',kind='answer',rendered='answer<EOS>',verified=True,scope='practice'),
+            dict(role='assistant',kind='framing',rendered='\n',verified=False,scope='practice')]
+        return value
+
+    def test_template_tail_is_retained_but_never_a_target(self):
+        for policy in ('actions_answer','verified_thinking_actions_answer'):
+            with self.subTest(policy=policy):
+                value=tokenize_segments(self.sample(policy),self.token_ids,256)
+                self.assertEqual(value['tokens'],self.token_ids('Q:answer<EOS>'))
+                self.assertEqual(value['targets'],self.token_ids(':answer<EOS>\n'))
+                self.assertEqual(value['loss_mask'],[False]+[True]*7+[False])
+                self.assertEqual(value['targets'][-2],256)
+                self.assertTrue(value['loss_mask'][-2])
+                self.assertFalse(value['loss_mask'][-1])
+
+    def test_framing_cannot_claim_verification_or_another_role(self):
+        for field,value in [('verified',True),('role','user'),('scope','development')]:
+            item=self.sample('actions_answer');item['segments'][-1][field]=value
+            with self.subTest(field=field),self.assertRaises(ValueError):validate_segments_lesson(item)
+        item=self.sample('actions_answer');item['segments'][1]['verified']=False
+        with self.assertRaises(ValueError):validate_segments_lesson(item)
+        item=self.sample('actions_answer');item['segments'][1]['kind']='framing';item['segments'][1]['verified']=False
+        with self.assertRaises(ValueError):validate_segments_lesson(item)
+
+    def test_real_service_admission_preserves_mask_and_idempotency(self):
+        with tempfile.TemporaryDirectory() as root:
+            service=LessonService(root,'a'*64,self.token_ids,lambda *args:None,rendered_tokenize=self.token_ids)
+            try:
+                request=dict(operation_id='record-framed-answer',lesson=self.sample('actions_answer'))
+                first=service.submit('/cow/training/lessons',request)
+                self.assertEqual(first,service.submit('/cow/training/lessons',request))
+                saved=service.lesson(first['lesson_id'])['example']
+                expected=tokenize_segments(request['lesson'],self.token_ids,256)
+                for key in ('tokens','targets','loss_mask'):self.assertEqual(saved[key],expected[key])
+            finally:service.close()
