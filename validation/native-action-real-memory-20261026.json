@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "status": "PARTIAL_REAL_MODEL_QUALIFICATION",
+  "scope": "Dedicated RTX PRO 6000 native gradient and allocation diagnostics on learned MiniCPM weights; not model learning or release acceptance",
+  "model_sha256": "ce673b360122f1be1bda4c1de2903efbd72d031e910d64e817e83362b20791fb",
+  "native_executable_sha256": "1d4a8ffa1be43c8cfdee21cb0fe2fc15a01957d555325483284e34a1da0886e0",
+  "effective_cpp_source_sha256": "af4ef7d2c782685e72202fab186cebc1a75d2d78fe9135be6d81251faed46db2",
+  "effective_cpp_source_commit": "a323af12d0154b9b559a1b5719524bade697ad67",
+  "profile": "dense-llama-action-8k-v1",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "successful_full_gradient": {
+    "label": "most-selected-3663",
+    "status": "PASS",
+    "input_tokens": 3663,
+    "selected_targets": 108,
+    "gradient_tensors": 381,
+    "nonzero_gradient_tensors": 381,
+    "loss": 0.40153032541275024,
+    "allocation_peaks": [
+      {
+        "checked_graphs": 45,
+        "device": "CUDA0",
+        "planned_graph_buffer_bytes": 68163612160
+      }
+    ],
+    "memory_plan": [
+      {
+        "activation_allowance": 944571538944,
+        "admission_estimate": 26568130560,
+        "admission_stage": "persistent-and-host; graph checked before allocation",
+        "conservative_estimate": 971139669504,
+        "device": "CUDA0",
+        "free": 101372723200,
+        "host_graph_allowance": 4101042952,
+        "persistent": 20134051840,
+        "reserve": 4294967296,
+        "scratch_allowance": 2139111424,
+        "total": 101973491712
+      }
+    ],
+    "observed_process_peak_mib": 84946,
+    "samples": 19,
+    "result_sha256": "c03761de3d44d77f97ae8a623be81995f7c74f2ebc1c16001458c0f4d2719798",
+    "model_updates": 0,
+    "synthetic_allocation_extension": false
+  },
+  "refused_full_gradient": {
+    "status": "RESOURCE_REFUSED",
+    "input_tokens": 4873,
+    "selected_targets": 19,
+    "graph_plan": {
+      "admitted": false,
+      "buffer_bytes": 105778299392,
+      "device": "CUDA0",
+      "limit_bytes": 74715807744
+    },
+    "native_exit": 2,
+    "source_stderr_sha256": "a0f0451a03579cdb77dc1474e78dcc9fb152f7c11a4240bb809be3319a1158bb",
+    "model_updates": 0,
+    "model_pass_or_failure": false
+  },
+  "remaining_diagnostics": [
+    {
+      "label": "lora16-longest-4873",
+      "mode": "lora",
+      "kind": "gradient",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 2,
+      "graph_plans": [
+        {
+          "admitted": false,
+          "buffer_bytes": 102385755904,
+          "device": "CUDA0",
+          "limit_bytes": 84572225536
+        }
+      ],
+      "observed_process_peak_mib": 10420,
+      "samples": 17,
+      "model_updates": 0,
+      "status": "RESOURCE_REFUSED",
+      "weights_updated": false,
+      "model_pass_or_failure": false
+    },
+    {
+      "label": "full-allocation-only-8192",
+      "mode": "full",
+      "kind": "gradient",
+      "input_tokens": 8192,
+      "selected_targets": 19,
+      "returncode": 2,
+      "graph_plans": [
+        {
+          "admitted": false,
+          "buffer_bytes": 250520332416,
+          "device": "CUDA0",
+          "limit_bytes": 74715807744
+        }
+      ],
+      "observed_process_peak_mib": 19836,
+      "samples": 28,
+      "model_updates": 0,
+      "status": "RESOURCE_REFUSED",
+      "weights_updated": false,
+      "model_pass_or_failure": false
+    },
+    {
+      "label": "persistent-only-adamw-3663",
+      "mode": "full",
+      "kind": "persistent-only",
+      "input_tokens": 3663,
+      "selected_targets": 108,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": null,
+      "samples": 0,
+      "model_updates": 0,
+      "status": "PASS",
+      "native_status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 944571538944,
+          "admission_estimate": 46702182400,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 991273721344,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 4101042952,
+          "persistent": 40268103680,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "label": "persistent-only-adamw-4873",
+      "mode": "full",
+      "kind": "persistent-only",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": null,
+      "samples": 0,
+      "model_updates": 0,
+      "status": "PASS",
+      "native_status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 993796345344,
+          "admission_estimate": 46702182400,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 1040498527744,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 5447492232,
+          "persistent": 40268103680,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "label": "persistent-only-muon-3663",
+      "mode": "full",
+      "kind": "persistent-only",
+      "input_tokens": 3663,
+      "selected_targets": 108,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": null,
+      "samples": 0,
+      "model_updates": 0,
+      "status": "PASS",
+      "native_status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 944571538944,
+          "admission_estimate": 38774947840,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 983346486784,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 4101042952,
+          "persistent": 32340869120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "label": "persistent-only-muon-4873",
+      "mode": "full",
+      "kind": "persistent-only",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": 550,
+      "samples": 1,
+      "model_updates": 0,
+      "status": "PASS",
+      "native_status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 993796345344,
+          "admission_estimate": 38774947840,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 1032571293184,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 5447492232,
+          "persistent": 32340869120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ]
+    }
+  ],
+  "original_model_unchanged": true,
+  "real_weight_updates": 0,
+  "training_approved": false,
+  "promoted": false,
+  "caveats": [
+    "Observed NVML peaks are samples, not guaranteed upper bounds.",
+    "Persistent admission is not graph admission or proof that an optimizer update fits.",
+    "The 8192-token extension is synthetic allocation data and is not an approved lesson.",
+    "Current ordinary attention materializes quadratic tensors across layers; these are implementation costs, not intrinsic model-size requirements."
+  ],
+  "source_receipts_sha256": {
+    "original_gradient": "c03761de3d44d77f97ae8a623be81995f7c74f2ebc1c16001458c0f4d2719798",
+    "original_gradient_summary": "46912e27d093a46347a5fd0c27fe76ce7481f242afed32f5ddcf41de6d15a1f3",
+    "remaining": "8fbf9fb60b6d935d6918f1cd19681aa9ab7647a102b72b0516ea91ef3409a57c"
+  },
+  "resource_ledger": [
+    {
+      "label": "full-3663",
+      "mode": "full",
+      "tokens": 3663,
+      "persistent_bytes": 20134051840,
+      "planned_peak_graph_bytes": 68163612160,
+      "reserve_bytes": 4294967296,
+      "total_device_bytes": 101973491712,
+      "tensor_bytes_plus_reserve": 92592631296,
+      "gradient_pass": true,
+      "sampled_process_peak_mib": 84946,
+      "optimizer_state_included": false,
+      "synthetic_allocation_only": false
+    },
+    {
+      "label": "full-4873",
+      "mode": "full",
+      "tokens": 4873,
+      "persistent_bytes": 20134051840,
+      "planned_peak_graph_bytes": 105778299392,
+      "reserve_bytes": 4294967296,
+      "total_device_bytes": 101973491712,
+      "tensor_bytes_plus_reserve": 130207318528,
+      "gradient_pass": false,
+      "sampled_process_peak_mib": null,
+      "optimizer_state_included": false,
+      "synthetic_allocation_only": false
+    },
+    {
+      "label": "lora16-4873",
+      "mode": "lora",
+      "tokens": 4873,
+      "persistent_bytes": 10284933120,
+      "planned_peak_graph_bytes": 102385755904,
+      "reserve_bytes": 4294967296,
+      "total_device_bytes": 101973491712,
+      "tensor_bytes_plus_reserve": 116965656320,
+      "gradient_pass": false,
+      "sampled_process_peak_mib": null,
+      "optimizer_state_included": false,
+      "synthetic_allocation_only": false
+    },
+    {
+      "label": "full-8192-allocation-only",
+      "mode": "full",
+      "tokens": 8192,
+      "persistent_bytes": 20134051840,
+      "planned_peak_graph_bytes": 250520332416,
+      "reserve_bytes": 4294967296,
+      "total_device_bytes": 101973491712,
+      "tensor_bytes_plus_reserve": 274949351552,
+      "gradient_pass": false,
+      "sampled_process_peak_mib": null,
+      "optimizer_state_included": false,
+      "synthetic_allocation_only": true
+    }
+  ]
+}

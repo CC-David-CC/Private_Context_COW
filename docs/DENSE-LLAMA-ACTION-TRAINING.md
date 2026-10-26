@@ -129,3 +129,11 @@ The old `dense-llama-short-v1` stays at 512 tokens. Existing fixed-study setting
 cases, registries and budgets are not migrated. No training-time budget is added
 to this new profile. Evaluation, retention decisions, named private GGUF export
 and release acceptance remain responsibilities of the composed S³/BW/PCC pathway.
+
+## Real-model resource findings
+
+The [real MiniCPM memory report](MINICPM-ACTION-MEMORY.md) now records a completed
+3,663-token full-gradient probe with all 381 tensors finite/nonzero, plus guarded
+resource refusals for the longer full/LoRA cases and an allocation-only 8k probe.
+No real weights were updated. This is partial allocation/gradient qualification;
+the complete longer-context training and learning-quality loop remains unfinished.
