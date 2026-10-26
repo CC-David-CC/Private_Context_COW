@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "distinct_tests": 7,
+  "skips": 0,
+  "model_calls": 0,
+  "training_updates": 0,
+  "checks": [
+    "F32-rounded mathematical scalar reference and multi-chunk coverage",
+    "Artifact byte preservation",
+    "Positive gradient alignment is reported without acceptance",
+    "One excessive component is visible",
+    "Pinned artifact corruption refused",
+    "Nonfinite first moment refused",
+    "Unsupported optimizer/state/decay refused",
+    "Owner CLI job checksum and existing output refused"
+  ],
+  "log_sha256": [
+    "7a79b6aa2b1bc5a6f241800fbca0cdc0583da1689f0b0cd962b222dafe7dddb3",
+    "e41fa676b90eba1247108bd67a3f7cfa2b8f071dc14f08946300f37a3eda83ef"
+  ],
+  "native_weight_audit_inference_calls": 0,
+  "native_weight_audit_training_updates": 0,
+  "native_source_sha256": "3c859da47121790ffb0738b0401c3bc2d7c92a1f12a60f04af592360342122e2"
+}

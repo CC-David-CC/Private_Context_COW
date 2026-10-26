@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "results": [
+    {
+      "multiplier": 0.01,
+      "mean_loss": 0.3794160807899191,
+      "model_sha256": "6ba4c4b047a5f903420dfff51e0c5a7bbd9cfc1495e12bf29ead5b5d9dee2f6b",
+      "model_bytes": 10072171584,
+      "training_updates": 0,
+      "heldout_model_calls": 0
+    },
+    {
+      "multiplier": 0.1,
+      "mean_loss": 0.28124224078575416,
+      "model_sha256": "17570490fbc71cd2f68b18f5f1b03578ca7fef2f02f7eb55bff59d8e7c3d1341",
+      "model_bytes": 10072171584,
+      "training_updates": 0,
+      "heldout_model_calls": 0
+    }
+  ],
+  "base_loss": 0.41972559690475464,
+  "full_step_loss": 1.2127760648727417,
+  "promoted": false,
+  "training_updates": 0,
+  "models_published": false,
+  "receipt_sha256": "c480853b8b0e5c158f75fe1e9aab6119b331460f10ae34628a0d952b296bd01a",
+  "protocol_sha256": "7e3be8ddf08c4c9b130ae48f564a55dd5ce2bb3b7648bc3750b973cd7b9b58f9",
+  "temporary_files_pending_cleanup": true,
+  "interpretation": "Smaller fractions reduce this owned-practice objective; no held-out retention or quality qualification for these interpolated files"
+}

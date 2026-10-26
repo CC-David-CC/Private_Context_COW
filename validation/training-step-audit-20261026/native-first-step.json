@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "AUDIT_COMPLETE",
+  "scope": "First fresh full AdamW step only; no acceptance or gradient-check claim",
+  "base_sha256": "050e75d6cca444068e77e88132e2a93f8e1d4e653472ee3c7e905382309cb5d9",
+  "candidate_sha256": "444026933262bced581a84cae77fe20c38cd90aead873233eb45db0d69cbe1a9",
+  "optimizer_state_sha256": "6404d01d6f192985c4c69209c75c03a85dc97e20968c33210edaab2020176ca2",
+  "learning_rate": 9.999999747378752e-06,
+  "tensor_count": 381,
+  "elements": 2516756480,
+  "changed_elements": 2246759994,
+  "component_bound_violations": 0,
+  "recorded_gradient_dot_delta": -4.488962749033478,
+  "maximum_gradient_l2_relative_error": 1.0849820016223183e-07,
+  "bound_allowance": "0.1 percent plus two F32 spacings per component",
+  "model_calls": 0,
+  "training_updates": 0,
+  "promoted": false,
+  "report_sha256": "f4cec88d58cb63006e79703e48aefb78554206e35bf73c60fbabab9c57580587",
+  "source_sha256": "3c859da47121790ffb0738b0401c3bc2d7c92a1f12a60f04af592360342122e2",
+  "base_forward_loss_check": {
+    "status": "PASS",
+    "reported_backward_loss_before": 0.41972559690475464,
+    "forward_only_loss_before": 0.41972557097116286,
+    "absolute_error": 2.593359177405219e-08,
+    "bound": 0.0002,
+    "model_sha256": "050e75d6cca444068e77e88132e2a93f8e1d4e653472ee3c7e905382309cb5d9",
+    "repeated_training_updates": 0,
+    "examples": 28
+  },
+  "training_loss_before": 0.41972559690475464,
+  "training_loss_after": 1.2127760648727417
+}
