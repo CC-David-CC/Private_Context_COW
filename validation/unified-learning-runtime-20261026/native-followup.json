@@ -1,0 +1,88 @@
+{
+  "acceptance": {
+    "full_joined_native_learning_cycle_complete": false,
+    "promoted": false,
+    "weights_published": false
+  },
+  "crash": {
+    "additional_interpreter_steps": 1,
+    "commit_state_unknown_at_kill": true,
+    "deliberately_injected": true,
+    "endpoint_bind_probe_succeeded": true,
+    "explicit_crashed_server_adoption": true,
+    "first_native_generation_observed_pending": true,
+    "may_recompute_unsettled_native_work": true,
+    "original_child_exit_code": -9,
+    "original_clean_server_receipt_missing": true,
+    "original_failed_assessment_rewritten": false,
+    "original_id_replayed": true,
+    "original_operation_id": "bwnative-3b0de1e57633ae17e34921f719d5f1677ef932382781329b",
+    "owner_cli_entry_point_used": true,
+    "previously_completed_operations_preserved": 3,
+    "recovery_server_retired": true,
+    "tool_effect_replay": false
+  },
+  "evidence_sha256": {
+    "archive-native02-state-exit-private.json": "b72ba068315a7b7a1ab9afc3b1dadf38462b43dd41bd73c0c55b0e72745fd3d8",
+    "cow-smoke-exit-private.json": "f1eef3eb3402e6ac9621c532d800e0fad3037160eb63e66ea7d7e112822956ff",
+    "owned-crash-exit-private.json": "c499c06e0818bb639e118e187d85074dfc07f002a94aee5a762142e485f05e8c",
+    "owned-crash-recovery01/crashed-server-retirement-private.json": "13ea2953cd472b6a7bf1ba911f4976fee5ca300568853cc14ab4861d0d2b703e",
+    "owned-crash-recovery01/operator-exit-private.json": "30cf8f1ce193a502598f0f598052e7df8af6118dfd318af9855c219dcad6883a",
+    "owned-crash-recovery01/result-private.json": "5c2f651c7578bafddc0bec038499210a71b0f4e689971bb01b04ea1989af2a8f",
+    "owned-crash-recovery01/server-retired-private.json": "a18f0fbb1e0b3aee49c0965f22f0273d3db8f7114c72f90e923302dcf7973439",
+    "owned-crash-signal-intent-private.json": "29741094374676de456e231911411f221aa47df2435a78ced7bc0bbd75f39c03",
+    "owned-crash-source-preflight-private.json": "162b408944280b51609a7f791fd5f7a6be93ee0c1cab98775f680948681b879e",
+    "source-preflight-private.json": "ad59d67b4933997c0c0b7477a5637b079d691cf61704722be34cf5b69642c095"
+  },
+  "kind": "bounded-native-source-and-crash-recovery-qualification",
+  "models_transferred": 0,
+  "native_build_files_verified": 19,
+  "native_smoke": {
+    "actual_shared_prefix_reused": true,
+    "consumed_output_tokens": 4,
+    "execution_profile_id": "fad9d7cf4804449514ff94d67912724fc535e64cd4b8220b5990c6bf1ccd531f",
+    "independent_branches_identical": true,
+    "is_capability_assessment": false,
+    "is_training": false,
+    "model_sha256": "050e75d6cca444068e77e88132e2a93f8e1d4e653472ee3c7e905382309cb5d9",
+    "native_binary_recompiled": false,
+    "promoted": false,
+    "requests": 2,
+    "schema": 1,
+    "scope": "Single unified PCC API/execution root, unchanged qualified SM120 binaries; bounded COW branch control",
+    "shared_prefix_tokens": 32,
+    "status": "PASS",
+    "wall_seconds": 10.764682100852951,
+    "weights_updated": false
+  },
+  "operator_source_sha256": {
+    "cli": "a8273713e181713fdaffb7ac9bd8d2e6b59ca0f71835e8b2927d3e63dfffa8ab",
+    "helper": "8ccae69773a2fbf1451652e55c66f6b2270059e8c622ce357112b4a3359dae6c"
+  },
+  "schema": 1,
+  "single_pcc_api_and_execution_root": true,
+  "source_python_files_verified": 1273,
+  "source_revisions": {
+    "bw": "3166255a4de62af6330a6cfc8a9e7caaca6b21aa",
+    "original_sss": "17afd079d73c343caf63a1016b19c0d72b030577",
+    "pcc": "9deb594cb2791156aa51b3c92255b3fea749fc7d"
+  },
+  "status": "PASS",
+  "storage": {
+    "models_preserved": true,
+    "optimizer_state_preserved_on_durable_lan_storage": true,
+    "restore_required_before_old_state_use": true,
+    "retired_local_optimizer_bytes": 20134145385,
+    "source_operation_unchanged": true
+  },
+  "task": {
+    "explanation": "One-step recovery restored a model-turn boundary; the original bad program remained unrepaired.",
+    "finished": false,
+    "is_capability_improvement_claim": false,
+    "is_frozen_comparison_case": false,
+    "new_owned_mechanics_case": true,
+    "oracle_status": "fail",
+    "passed": false
+  },
+  "training_updates": 0
+}

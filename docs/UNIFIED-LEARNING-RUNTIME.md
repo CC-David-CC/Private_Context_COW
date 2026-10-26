@@ -58,3 +58,17 @@ Historical layered runs remain reproducible with their original roots. The
 unified branch is an integration checkpoint, not a claim that the complete
 joined native learning loop has been qualified or that either research
 candidate has been promoted.
+
+## Native follow-up and storage lifecycle
+
+The [native follow-up receipt](../validation/unified-learning-runtime-20261026/native-followup.json)
+records a bounded native COW smoke check and recovery through the exact owner CLI
+after deliberately killing a new owned evaluator child. The same original
+request ID was explicitly replayed; three completed operations were preserved.
+The one-step continuation left the coding task unfinished, with an independent
+artifact failure. This qualifies recovery mechanics, not a learned capability or
+a complete joined learning round. No new training or weight publication occurred.
+
+The [closed-store retention command](CLOSED-STORE-RETENTION.md) provides bounded
+maintenance beside existing experiment workers. It has separate CPU/filesystem
+qualification and does not modify the selected native execution files.

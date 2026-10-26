@@ -339,3 +339,8 @@ output selection/execution shape. No MiniCPM weights have been trained yet.
 weights, hats and saved moments, including explicit milestone copies. BW/COW
 clients can pin registered parents by hash. This is identity and continuation
 machinery; it does not promote a model or replace inference/resource checks.
+
+Owner learning-loop maintenance: [closed evaluation store retention](docs/CLOSED-STORE-RETENTION.md)
+keeps completed COW test stores from filling the fast workspace after verified
+archival. [Unified runtime qualification](docs/UNIFIED-LEARNING-RUNTIME.md) records
+the tested API/execution source, native recovery follow-up and remaining scope.

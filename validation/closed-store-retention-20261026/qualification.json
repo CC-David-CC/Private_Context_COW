@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "name": "closed-store-retention-green03-cf.log",
+      "sha256": "2eee1cfa3354e890e12c6031bf8a2e5493dcbad965e123810c4f56592a15e9ef",
+      "tests": 13
+    }
+  ],
+  "counterexamples": [
+    "matching outer archive hash with wrong member bytes",
+    "live original evaluator",
+    "changed source store",
+    "missing archive",
+    "linked point",
+    "nonprivate actual point",
+    "interrupted retirement and exact intent reconciliation"
+  ],
+  "initial_a100_pass": {
+    "archive_member_bytes_verified": true,
+    "bytes_retired": 5562787630,
+    "models_deleted": 0,
+    "optimizer_states_deleted": 0,
+    "raw_responses_and_scores_preserved": true,
+    "stores": 8
+  },
+  "initial_failures": [
+    {
+      "name": "closed-store-retention-red-cf.log",
+      "sha256": "c87bedd0c1288adedd598485fa6a8018b2c7194e280a80973c4bbd427c1c9f32",
+      "tests": null
+    },
+    {
+      "name": "closed-store-group-mode-red-cf.log",
+      "sha256": "1df4c81ad54b5e54ce538cc94578ad77f645d38b45c0c693ae283fd3ab48ecee",
+      "tests": null
+    }
+  ],
+  "initial_native_layout_refusal": "Grouping directory inherited readable mode; first pass refused before retirement. Actual point/archive privacy remains required.",
+  "limitations": [
+    "Initial supported store is owned JSON/lock files, at most8GiB; numerical checkpoint payloads use the COW pool.",
+    "Finite maintenance process, not a persistent system service or another workflow runtime."
+  ],
+  "schema": 1,
+  "scope": "Owner-only closed COW evaluation storage maintenance; no inference or training",
+  "source_sha256": {
+    "tools/pcc_closed_store_retention.py": "2a90eda1d43589c2ca801984d2ae141df4acdb43f4cfb7b82d56fee46d37ab16",
+    "tools/pcc_training_workspace.py": "ea57bcab5729e7d48af9dcc0e57a95bf39c4287162c88a639b7549aed713e713",
+    "tools/test_closed_store_retention.py": "da8a1d91325d0dc258432a739734973bf37df38a12275053d63c5d87181b16bd"
+  },
+  "status": "PASS"
+}
