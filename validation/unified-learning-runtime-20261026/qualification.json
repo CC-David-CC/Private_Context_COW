@@ -1,0 +1,36 @@
+{
+  "bw_commit": "3166255a4de62af6330a6cfc8a9e7caaca6b21aa",
+  "checks": [
+    {
+      "name": "unified-learning-runtime-ce.log",
+      "sha256": "797c392d88168272a22c50a8e311a88cea2cf5395fb24f29c4ffb9583c933506",
+      "status": "PASS",
+      "tests": 108
+    },
+    {
+      "name": "unified-learning-runtime-g0-ce.log",
+      "sha256": "b79d3f03bdba5418acc2a942be6a4d1ef19fa70fd516e319e326e7fafc72ed8a",
+      "status": "PASS",
+      "tests": 58
+    }
+  ],
+  "code_commit": "e48c2af0ad3529e8545a8f229deae1ec58af2885",
+  "native_binary_rebuilt": false,
+  "native_model_calls": 0,
+  "outstanding": [
+    "new source-bound profile and native qualification",
+    "complete joined native learning round"
+  ],
+  "parents": [
+    "4a536ab6e26a7d97f200452479a201b414ce55fb",
+    "56a80cb45e1a15cf7581906867524a9f8e2c93ad"
+  ],
+  "recorded_utc": "2026-10-26T15:31:26.760814+00:00",
+  "schema": 1,
+  "scope": "Unified PCC source integration; CPU contracts only, not native GPU qualification",
+  "sss_commit": "17afd079d73c343caf63a1016b19c0d72b030577",
+  "status": "PASS",
+  "tracked_python_files": 1273,
+  "tracked_python_sha256": "79a2ac7f17ff11daccf2dbf6d773e70f1fae0e676c1ccdfac29101f215f528c2",
+  "training_updates": 0
+}

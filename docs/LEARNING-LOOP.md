@@ -221,3 +221,10 @@ baseline answer losses and repeated commands created no extra jobs. These are
 machinery observations, not broad model acceptance. PCC keeps native execution,
 leases and durable identity; S3 owns checks and reports; BW requests steps using
 the existing service. No competing scheduler or sampler was introduced.
+
+## Unified learning runtime
+
+The [unified source checkpoint](UNIFIED-LEARNING-RUNTIME.md) combines the native
+learning/completion API with explicit Lark and grammar-aware replay in one PCC
+checkout. CPU integration is qualified; a new source-bound native profile and
+joined learning round remain required. Historical source snapshots stay intact.
