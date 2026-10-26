@@ -3,7 +3,9 @@
 `dense-llama-action-selected-head-8k-v1` is an opt-in ordinary-Llama native
 training profile. It keeps the whole context and ordinary full backprop, but
 computes vocabulary predictions only at positions selected by the loss mask.
-The previous 512-token and 8k profiles retain their original paths.
+It also shares the non-trainable causal mask across layers and uses GGML's
+existing scale/mask/softmax operation and its ordinary adjoint. The previous
+512-token and 8k profiles retain their original paths.
 
 Long BW action lessons contain thousands of context tokens but select only the
 current action through EOS. Computing a full vocabulary vector for every context
@@ -89,3 +91,37 @@ actual BW workflows, mixed-review retention and acceptance remain required befor
 claiming a successful action-learning round. The [original action profile](DENSE-LLAMA-ACTION-TRAINING.md)
 and [real-model memory refusals](MINICPM-ACTION-MEMORY.md) remain original evidence.
 The frozen 68-update optimizer/rank comparison is not migrated to this profile.
+
+## Initial real-model finding and attention follow-up
+
+The first selected-head-only build was tested on the learned MiniCPM parent,
+without any weight update. Its 3,029-, 3,663- and 4,278-token rank-16 LoRA
+gradient probes passed; each exposed 590 finite tensor gradients with the expected
+295 nonzero B gradients at zero-initialized B. The 4,873-token LoRA graph still
+required 96,270,881,792 bytes and exceeded the card's guarded graph budget.
+Full 4,873-token backprop was also resource-refused. Those original outcomes
+remain in the [initial real-model receipt](../validation/selected-head-real-initial-memory-20261026.json).
+No production lesson or learning-quality approval follows from these probes.
+
+At 3,663 tokens, full standard backprop used a 63,547,054,080-byte planned graph
+and a sampled native-process peak of 80,544 MiB. Its loss differed from the saved
+dense-head result by 1.49e-7. All 381 gradient-tensor norms agreed under unchanged
+rtol=1e-4, atol=1e-5; the largest absolute norm difference was 1.72e-5. This compares
+norms, not every component. Both probes used the same unchanged learned weights.
+Optimizer persistent-only plans in that record are not adaptive training proofs.
+
+The follow-up keeps the selected head and shares one non-trainable causal mask
+per graph instead of copying an identical input for every layer. The fused
+`ggml_soft_max_ext` operation incorporates the same scale and additive mask;
+its existing derivative supplies the scale during ordinary whole-graph backward.
+No custom CUDA kernel, precision reduction, CPU fallback or section-gradient
+training is introduced.
+
+The complete generated-fixture CPU/CUDA and actual CPU HTTP/native qualifications
+passed again for this changed native implementation, including independent FP64
+checks, full/LoRA saved-update agreement and strict old-executable compatibility.
+The 42-layer, 1,024-token CUDA fixture's planned buffer fell from 537,187,456 to
+376,640,640 bytes. That tiny-fixture reduction is not a real-model memory estimate
+or an end-to-end speed claim. The [follow-up receipt](../validation/selected-head-shared-mask-native-20261026.json)
+binds the new source and results; the earlier source/results remain recorded.
+The complete real lesson block must still qualify on this updated implementation.

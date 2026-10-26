@@ -1,0 +1,773 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Generated tiny CPU/CUDA standard backprop with shared causal mask and scaled masked softmax; no real-model training",
+  "profile": "dense-llama-action-selected-head-8k-v1",
+  "attention_profile": "scaled-masked-softmax-shared-mask-v1",
+  "cpp_sha256": "e92924e11a0958a6b956ce2094f0b4e213553a0895d08cf2eb621aba6623d770",
+  "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+  "results": {
+    "cpu-selected": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Generated tiny selected-head native mechanics; no real model learning",
+      "profile": "dense-llama-action-selected-head-8k-v1",
+      "devices": [
+        "CPU"
+      ],
+      "existing_action_qualification": {
+        "schema": 1,
+        "status": "PASS",
+        "scope": "Generated tiny ordinary-Llama 8k native mechanics; not real MiniCPM learning or model quality",
+        "profile": "dense-llama-action-selected-head-8k-v1",
+        "devices": [
+          "CPU"
+        ],
+        "gpu_used": false,
+        "checks": [
+          {
+            "name": "old-short-profile",
+            "tokens": 4,
+            "loss_error": 1.0172109288220099e-07,
+            "maximum_absolute_logit_error": 8.372506837828197e-08,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 512
+              }
+            ]
+          },
+          {
+            "name": "new-profile-short-input",
+            "tokens": 4,
+            "loss_error": 1.0172109288220099e-07,
+            "maximum_absolute_logit_error": 8.372506837828197e-08,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 512
+              }
+            ]
+          },
+          {
+            "name": "old-short-forward-byte-equivalence",
+            "status": "PASS"
+          },
+          {
+            "name": "beyond-old-bound-forward",
+            "tokens": 513,
+            "loss_error": 1.7100161997518626e-07,
+            "maximum_absolute_logit_error": 1.5075439419032222e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 3191136
+              }
+            ]
+          },
+          {
+            "name": "513-token-full-backprop-vs-independent-fp64-finite-differences",
+            "checked_tensor_directions": 12,
+            "maximum_absolute_gradient_error": 3.1319461690874906e-06,
+            "step_sensitivity": 5.329070518200751e-10
+          },
+          {
+            "name": "full-update-independent-reload",
+            "tokens": 513,
+            "loss_error": 3.5105593099160615e-08,
+            "maximum_absolute_logit_error": 1.4654103530631346e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 3191136
+              }
+            ]
+          },
+          {
+            "name": "513-token-rank-one-backprop-vs-independent-fp64",
+            "checked_b_directions": 8,
+            "maximum_absolute_gradient_error": 6.029481787982183e-10,
+            "independent_after_loss_error": 4.927199048765374e-08
+          },
+          {
+            "name": "8192-token-forward",
+            "tokens": 8192,
+            "loss_error": 2.0657906052434782e-08,
+            "maximum_absolute_logit_error": 1.9058794797910394e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 805830720
+              }
+            ]
+          },
+          {
+            "name": "8192-token-standard-full-backprop",
+            "parameter_tensors": 12,
+            "graph_peaks": [
+              {
+                "checked_graphs": 8,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 1343094912
+              }
+            ],
+            "weights_updated": true
+          },
+          {
+            "name": "42-layer-513-token-256-target-standard-gradient",
+            "gradient_tensors": 381,
+            "graph_peaks": [
+              {
+                "checked_graphs": 45,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 97464256
+              }
+            ],
+            "weights_updated": false
+          },
+          {
+            "name": "42-layer-1024-token-256-target-standard-gradient",
+            "gradient_tensors": 381,
+            "graph_peaks": [
+              {
+                "checked_graphs": 45,
+                "device": "CPU",
+                "planned_graph_buffer_bytes": 376615968
+              }
+            ],
+            "weights_updated": false
+          },
+          {
+            "name": "full-adamw-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          },
+          {
+            "name": "full-muon-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          },
+          {
+            "name": "lora-adamw-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          }
+        ],
+        "negative_cases": 4,
+        "source_sha256": "6b2a860ac14d3017cdfde018b1715eb5b19a302573c76637077bd041faa43ead",
+        "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+        "original_base_unchanged": true,
+        "promoted": false
+      },
+      "additional_checks": [
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "mode": "full",
+          "updates": 1,
+          "maximum_weight_difference": 0.0,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "selected-head-vs-independent-fp64",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "scalar_directions": 212,
+          "all_scalars": true,
+          "maximum_absolute_gradient_error": 5.320727503029671e-06,
+          "maximum_step_sensitivity": 1.5987211554602254e-09
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "mode": "lora",
+          "updates": 2,
+          "maximum_weight_difference": 0.0,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "mode": "full",
+          "updates": 1,
+          "maximum_weight_difference": 0.0,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "selected-head-vs-independent-fp64",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "scalar_directions": 12,
+          "all_scalars": false,
+          "maximum_absolute_gradient_error": 2.1259685567490832e-06,
+          "maximum_step_sensitivity": 5.717648576819556e-10
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "mode": "lora",
+          "updates": 2,
+          "maximum_weight_difference": 0.0,
+          "maximum_loss_difference": 0.0
+        }
+      ],
+      "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+      "test_source_sha256": "ecf72dc97521f19b2e7c20575f9601512e38f62169809870975e428af9d97acb",
+      "real_model_updates": 0,
+      "promoted": false
+    },
+    "cuda-selected": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Generated tiny selected-head native mechanics; no real model learning",
+      "profile": "dense-llama-action-selected-head-8k-v1",
+      "devices": [
+        "CUDA0"
+      ],
+      "existing_action_qualification": {
+        "schema": 1,
+        "status": "PASS",
+        "scope": "Generated tiny ordinary-Llama 8k native mechanics; not real MiniCPM learning or model quality",
+        "profile": "dense-llama-action-selected-head-8k-v1",
+        "devices": [
+          "CUDA0"
+        ],
+        "gpu_used": true,
+        "checks": [
+          {
+            "name": "old-short-profile",
+            "tokens": 4,
+            "loss_error": 1.7488196668580258e-08,
+            "maximum_absolute_logit_error": 7.668687340700586e-08,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 1152
+              }
+            ]
+          },
+          {
+            "name": "new-profile-short-input",
+            "tokens": 4,
+            "loss_error": 1.7488196668580258e-08,
+            "maximum_absolute_logit_error": 7.668687340700586e-08,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 1152
+              }
+            ]
+          },
+          {
+            "name": "old-short-forward-byte-equivalence",
+            "status": "PASS"
+          },
+          {
+            "name": "beyond-old-bound-forward",
+            "tokens": 513,
+            "loss_error": 6.741695912637624e-08,
+            "maximum_absolute_logit_error": 2.1388916676690073e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 3192192
+              }
+            ]
+          },
+          {
+            "name": "513-token-full-backprop-vs-independent-fp64-finite-differences",
+            "checked_tensor_directions": 12,
+            "maximum_absolute_gradient_error": 3.1319461690874906e-06,
+            "step_sensitivity": 5.329070518200751e-10
+          },
+          {
+            "name": "full-update-independent-reload",
+            "tokens": 513,
+            "loss_error": 3.2200656363556845e-08,
+            "maximum_absolute_logit_error": 2.0704059783271944e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 3192192
+              }
+            ]
+          },
+          {
+            "name": "513-token-rank-one-backprop-vs-independent-fp64",
+            "checked_b_directions": 8,
+            "maximum_absolute_gradient_error": 1.3979402097713534e-09,
+            "independent_after_loss_error": 4.927199048765374e-08
+          },
+          {
+            "name": "8192-token-forward",
+            "tokens": 8192,
+            "loss_error": 9.855138349834647e-08,
+            "maximum_absolute_logit_error": 8.564710380354335e-07,
+            "graph_peaks": [
+              {
+                "checked_graphs": 1,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 805830912
+              }
+            ]
+          },
+          {
+            "name": "8192-token-standard-full-backprop",
+            "parameter_tensors": 12,
+            "graph_peaks": [
+              {
+                "checked_graphs": 8,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 1343095296
+              }
+            ],
+            "weights_updated": true
+          },
+          {
+            "name": "42-layer-513-token-256-target-standard-gradient",
+            "gradient_tensors": 381,
+            "graph_peaks": [
+              {
+                "checked_graphs": 45,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 97553152
+              }
+            ],
+            "weights_updated": false
+          },
+          {
+            "name": "42-layer-1024-token-256-target-standard-gradient",
+            "gradient_tensors": 381,
+            "graph_peaks": [
+              {
+                "checked_graphs": 45,
+                "device": "CUDA0",
+                "planned_graph_buffer_bytes": 376640640
+              }
+            ],
+            "weights_updated": false
+          },
+          {
+            "name": "full-adamw-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          },
+          {
+            "name": "full-muon-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          },
+          {
+            "name": "lora-adamw-long-context-state-continuation",
+            "completed_updates": 2,
+            "example_cursor": 2
+          }
+        ],
+        "negative_cases": 4,
+        "source_sha256": "6b2a860ac14d3017cdfde018b1715eb5b19a302573c76637077bd041faa43ead",
+        "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+        "original_base_unchanged": true,
+        "promoted": false
+      },
+      "additional_checks": [
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "mode": "full",
+          "updates": 1,
+          "maximum_weight_difference": 0.0,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "selected-head-vs-independent-fp64",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "scalar_directions": 212,
+          "all_scalars": true,
+          "maximum_absolute_gradient_error": 5.320727503029671e-06,
+          "maximum_step_sensitivity": 1.5987211554602254e-09
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 7,
+          "selected_positions": [
+            0,
+            2,
+            5
+          ],
+          "mode": "lora",
+          "updates": 2,
+          "maximum_weight_difference": 1.1368683772161603e-13,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "mode": "full",
+          "updates": 1,
+          "maximum_weight_difference": 9.313225746154785e-10,
+          "maximum_loss_difference": 0.0
+        },
+        {
+          "name": "selected-head-vs-independent-fp64",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "scalar_directions": 12,
+          "all_scalars": false,
+          "maximum_absolute_gradient_error": 2.1259685567490832e-06,
+          "maximum_step_sensitivity": 5.717648576819556e-10
+        },
+        {
+          "name": "dense-selected-saved-update-agreement",
+          "tokens": 513,
+          "selected_positions": [
+            0,
+            3,
+            241,
+            512
+          ],
+          "mode": "lora",
+          "updates": 2,
+          "maximum_weight_difference": 1.8189894035458565e-12,
+          "maximum_loss_difference": 0.0
+        }
+      ],
+      "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+      "test_source_sha256": "ecf72dc97521f19b2e7c20575f9601512e38f62169809870975e428af9d97acb",
+      "real_model_updates": 0,
+      "promoted": false
+    },
+    "service-selected": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Synthetic digit-token tiny CPU jobs through actual PCC HTTP/lesson/native/reload boundaries; not model learning",
+      "profile": "dense-llama-action-selected-head-8k-v1",
+      "cases": [
+        {
+          "mode": "full",
+          "optimizer": "adamw",
+          "status": "PASS",
+          "actual_native_updates": 2,
+          "example_presentations": 4,
+          "input_tokens": 516,
+          "schema2_action_mask": true,
+          "automatic_independent_reload": true,
+          "original_completion_intent": true,
+          "duplicate_operation_did_not_retrain": true,
+          "long_parent_state_resolved": true,
+          "changed_stream_resume_refused": true
+        },
+        {
+          "mode": "full",
+          "optimizer": "muon",
+          "status": "PASS",
+          "actual_native_updates": 2,
+          "example_presentations": 4,
+          "input_tokens": 516,
+          "schema2_action_mask": true,
+          "automatic_independent_reload": true,
+          "original_completion_intent": true,
+          "duplicate_operation_did_not_retrain": true,
+          "long_parent_state_resolved": true,
+          "changed_stream_resume_refused": true
+        },
+        {
+          "mode": "lora",
+          "optimizer": "adamw",
+          "status": "PASS",
+          "actual_native_updates": 2,
+          "example_presentations": 4,
+          "input_tokens": 516,
+          "schema2_action_mask": true,
+          "automatic_independent_reload": true,
+          "original_completion_intent": true,
+          "duplicate_operation_did_not_retrain": true,
+          "long_parent_state_resolved": true,
+          "changed_stream_resume_refused": true
+        }
+      ],
+      "native_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+      "test_source_sha256": "0902d278100249e10cdc00036c7a6c0c78b2e6da126b451079ef7450a0d74dba",
+      "source_base_unchanged": true,
+      "gpu_used": false,
+      "promoted": false
+    },
+    "cuda-old-short": {
+      "status": "PASS",
+      "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+      "checks": [
+        {
+          "name": "layer",
+          "independent": {
+            "status": "PASS",
+            "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+            "checks": [
+              {
+                "scalar_gradients": 152,
+                "max_absolute_gradient_error": 8.663805672881608e-09,
+                "step_sensitivity": 1.0408340855860843e-11,
+                "failures": [],
+                "layer": 0,
+                "fp64_value": -0.045035178899301344,
+                "native_value": -0.04503517597913742
+              },
+              {
+                "scalar_gradients": 152,
+                "max_absolute_gradient_error": 1.9043951970942885e-08,
+                "step_sensitivity": 2.949029909160572e-11,
+                "failures": [],
+                "layer": 1,
+                "fp64_value": 0.05895722491203145,
+                "native_value": 0.05895722657442093
+              }
+            ]
+          }
+        },
+        {
+          "name": "complete",
+          "independent": {
+            "status": "PASS",
+            "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+            "checks": [
+              {
+                "scalar_gradients": 364,
+                "max_absolute_gradient_error": 3.5001025366909744e-07,
+                "step_sensitivity": 8.659739592076221e-09,
+                "failures": [],
+                "mode": "full",
+                "fp64_loss": 1.7426998895781398,
+                "native_loss": 1.7426999807357788,
+                "max_absolute_logit_error": 6.362818470717624e-08
+              },
+              {
+                "scalar_gradients": 278,
+                "max_absolute_gradient_error": 1.1021512591469218e-09,
+                "step_sensitivity": 3.3306690738754696e-10,
+                "failures": [],
+                "mode": "lora",
+                "fp64_loss": 1.7426998895781398,
+                "native_loss": 1.7426999807357788,
+                "max_absolute_logit_error": 6.362818470717624e-08
+              }
+            ]
+          }
+        },
+        {
+          "name": "f16-decode-and-forward",
+          "max_absolute_logit_error": 3.056366404408095e-08,
+          "loss_error": 2.059565140655195e-08
+        },
+        {
+          "name": "f32-decode-and-forward",
+          "max_absolute_logit_error": 5.7013241572256845e-08,
+          "loss_error": 4.201067005382697e-08
+        },
+        {
+          "name": "full-batch-update-and-reload",
+          "parameters": 21,
+          "partial_final_batch": true,
+          "reload_loss_error": 0.0,
+          "base_unchanged": true,
+          "tensors_with_changed_values": 21
+        },
+        {
+          "name": "lora-batch-update-and-reload",
+          "parameters": 30,
+          "partial_final_batch": true,
+          "reload_loss_error": 0.0,
+          "base_unchanged": true
+        },
+        {
+          "name": "forty-two-layer-standard-backprop",
+          "parameter_tensors": 381,
+          "weights_updated": false
+        }
+      ],
+      "negative_cases": 6,
+      "gpu_used": true,
+      "devices": [
+        "CUDA0"
+      ],
+      "promoted": false
+    },
+    "cpu-compatibility": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Generated tiny old-profile compatibility with prior executable; not real-model learning",
+      "device": "CPU",
+      "checks": [
+        {
+          "profile": "dense-llama-short-v1",
+          "input_tokens": 4,
+          "mode": "full",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 12
+        },
+        {
+          "profile": "dense-llama-short-v1",
+          "input_tokens": 4,
+          "mode": "lora",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 16
+        },
+        {
+          "profile": "dense-llama-action-8k-v1",
+          "input_tokens": 513,
+          "mode": "full",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 12
+        },
+        {
+          "profile": "dense-llama-action-8k-v1",
+          "input_tokens": 513,
+          "mode": "lora",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 16
+        }
+      ],
+      "current_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+      "reference_executable_sha256": "d7ef8a0fc2b40af67e93c8c24419a965c524c23bc8856f1c9849c7c1bccff67b",
+      "test_source_sha256": "adcd6e8381004d5786b8522d46ac86770438725e2e115647b3181c75d8892e89",
+      "real_model_updates": 0
+    },
+    "cuda-compatibility": {
+      "schema": 1,
+      "status": "PASS",
+      "scope": "Generated tiny old-profile compatibility with prior executable; not real-model learning",
+      "device": "CUDA0",
+      "checks": [
+        {
+          "profile": "dense-llama-short-v1",
+          "input_tokens": 4,
+          "mode": "full",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 12
+        },
+        {
+          "profile": "dense-llama-short-v1",
+          "input_tokens": 4,
+          "mode": "lora",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 16
+        },
+        {
+          "profile": "dense-llama-action-8k-v1",
+          "input_tokens": 513,
+          "mode": "full",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 12
+        },
+        {
+          "profile": "dense-llama-action-8k-v1",
+          "input_tokens": 513,
+          "mode": "lora",
+          "all_saved_tensors_bit_value_identical": true,
+          "forward_logit_bytes_identical": true,
+          "parameter_tensors": 16
+        }
+      ],
+      "current_executable_sha256": "08efc2cc206c7cf4d77e89478ff1a078b9f449305baba8d594e9ce5f32206536",
+      "reference_executable_sha256": "d7ef8a0fc2b40af67e93c8c24419a965c524c23bc8856f1c9849c7c1bccff67b",
+      "test_source_sha256": "adcd6e8381004d5786b8522d46ac86770438725e2e115647b3181c75d8892e89",
+      "real_model_updates": 0
+    }
+  },
+  "result_sha256": {
+    "cpu-selected": "95710f02150963e0788786887546563d55b40a812ff10f2c589753ac4539d3b4",
+    "cuda-selected": "31be582bc950aa5d1f6902954a63b819b2feea3277878cf5b3665ed11620a45c",
+    "service-selected": "ae48f26bc993d4992b97e005d7a8e0b0fc199f7408c6d1d9f5ea9d210ae3f3b6",
+    "cuda-old-short": "aca3d4b928b48049ac7bff0fa9ae028f5f853cf04ca5c5ec54f6092ec63004fd",
+    "cpu-compatibility": "ce6b7ce8bbab47ebbe3f8fe8437c146afea55369ceecbe64835d3b0d5bb562a8",
+    "cuda-compatibility": "78ab50d32b1a699ace4952d8e3af1116d2d6340580ac32152a9cd1ff83207a22"
+  },
+  "python_controls_reference": "selected-head-native-20261026.json; Python admission and completion implementations unchanged",
+  "build": {
+    "pin": "972d2313bc0bf0a45f634f77d95c9fb03aeab12c",
+    "source_sha256": "e92924e11a0958a6b956ce2094f0b4e213553a0895d08cf2eb621aba6623d770",
+    "optimizer_source_sha256": "163e753756be09ebc926624b2531775049f8a77c25e5f3fc7fa5e2dafaecfbdf",
+    "optimizer_state_source_sha256": "4eb5e8cd3bc39baab33d8e6f071e8992ed8f3edf8040d33387f5c0577ccd056e",
+    "dependency_core_sha256": "bb7c28f7c3506f42e5a53ec241d756d3d7f42b5ba86be9aeb1eb4d2d7c3dda2d",
+    "cuda_sha256": "62f4f9a38a89c8c667f29c1efdb704d86c28a29944c1af3c7b9bb1b181ba98c8",
+    "cuda_source_sha256": "168f3d5c708c9f3800ec1cf25e230ba430f574a5225297c08219b39cddc12acb",
+    "cuda_math_profile": "GGML_CUDA_F32_ACTIVATIONS=1; NVIDIA_TF32_OVERRIDE=0",
+    "cuda_out_prod_patch": {
+      "upstream_pr": "https://github.com/ggml-org/llama.cpp/pull/30142",
+      "upstream_author": "edenfunf",
+      "upstream_commit": "fdb4a0553f6ecb00450f04cc8da5b2b38dd9146d",
+      "source_sha256": "a0b8fb1e07b8a8d1caa33680367f4ba36c7f38df55e22bf03c280779b4dcbae8",
+      "cuda_library_sha256": "62f4f9a38a89c8c667f29c1efdb704d86c28a29944c1af3c7b9bb1b181ba98c8",
+      "qualification": "Source and library identities only; operator and rank-one runtime checks still required"
+    }
+  },
+  "real_model_updates": 0,
+  "real_model_memory_qualified": false,
+  "weights_published": false,
+  "promoted": false
+}

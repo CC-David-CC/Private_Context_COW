@@ -153,6 +153,7 @@ struct Graph {
     ggml_gallocr_t direct_allocator=nullptr;
     std::vector<std::pair<T*,std::vector<float>>> data;
     std::vector<std::pair<T*,std::vector<int32_t>>> ids;
+    std::map<int,T*> causal_masks;
     explicit Graph(Device&d):Graph(std::vector<Device*>{&d}){}
     explicit Graph(const std::vector<Device*>&ds,size_t nodes=default_capacity,bool efficient=false):
         capacity(nodes),efficient_sequence(efficient),device(*ds.at(0)),ctx(metadata_bytes(nodes)),devices(ds){
@@ -167,6 +168,12 @@ struct Graph {
     }
     T*constant(float v){return input(1,1,{v});}
     T*indices(const std::vector<int32_t>&v){auto*t=ggml_new_tensor_1d(ctx.p,GGML_TYPE_I32,v.size());ggml_set_input(t);ids.push_back({t,v});return t;}
+    T*shared_causal_mask(int n){
+        auto found=causal_masks.find(n);if(found!=causal_masks.end())return found->second;
+        std::vector<float>values(size_t(n)*n,0);
+        for(int query=0;query<n;++query)for(int key=query+1;key<n;++key)values[size_t(query)*n+key]=-INFINITY;
+        auto*t=input(n,n,values);causal_masks.emplace(n,t);return t;
+    }
     T*sigmoid(T*x){auto*one=ggml_repeat(ctx.p,constant(1),x);return ggml_div(ctx.p,one,ggml_add(ctx.p,one,ggml_exp(ctx.p,ggml_neg(ctx.p,x))));}
     T*norm(T*x,T*w,float eps){return ggml_mul(ctx.p,ggml_rms_norm(ctx.p,x,eps),w);}
     T*linear(Block&block,const std::string&name,T*x){
@@ -346,7 +353,7 @@ static T*recurrent(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     out=ggml_mul(c,out,ggml_silu(c,ggml_reshape_3d(c,z,d,hv,n)));
     return g.linear(b,p+"ssm_out.weight",ggml_reshape_2d(c,out,d*hv,n));
 }
-static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int n){
+static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int n,bool efficient_mask=false){
     auto*c=g.ctx.p;int d=h.head,hq=h.heads,hk=h.kvheads;
     auto*qg=g.linear(b,p+"attn_q.weight",x);
     auto*q=h.llama_dense?ggml_reshape_3d(c,qg,d,hq,n):ggml_cont(c,ggml_view_3d(c,qg,d,hq,n,d*2*4,d*2*hq*4,0));
@@ -372,17 +379,24 @@ static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
     auto*scores=ggml_mul_mat(c,k,q);ggml_mul_mat_set_prec(scores,GGML_PREC_F32);
     // A constant additive causal mask has an ordinary softmax derivative and
     // avoids the pinned CUDA backend's unsupported DIAG_MASK_ZERO backward op.
-    std::vector<float>mask(n*n,0);for(int query=0;query<n;++query)for(int key=query+1;key<n;++key)mask[query*n+key]=-INFINITY;
-    scores=ggml_soft_max(c,ggml_add(c,ggml_scale(c,scores,1/std::sqrt(float(d))),g.input(n,n,mask)));
+    if(efficient_mask){
+        // The same non-trainable causal mask serves every layer in this graph.
+        // GGML's ordinary softmax adjoint includes this explicit scale, so no
+        // detached history or externally supplied section gradient is needed.
+        scores=ggml_soft_max_ext(c,scores,g.shared_causal_mask(n),1/std::sqrt(float(d)),0.0f);
+    }else{
+        std::vector<float>mask(n*n,0);for(int query=0;query<n;++query)for(int key=query+1;key<n;++key)mask[query*n+key]=-INFINITY;
+        scores=ggml_soft_max(c,ggml_add(c,ggml_scale(c,scores,1/std::sqrt(float(d))),g.input(n,n,mask)));
+    }
     auto*vp=ggml_cont(c,ggml_permute(c,v,1,2,0,3));
     auto*y=ggml_mul_mat(c,vp,scores);ggml_mul_mat_set_prec(y,GGML_PREC_F32);
     y=ggml_cont_2d(c,ggml_permute(c,y,0,2,1,3),d*hq,n);
     if(gate)y=ggml_mul(c,y,g.sigmoid(gate));return g.linear(b,p+"attn_output.weight",y);
 }
-static T*layer(Graph&g,Block&b,int index,T*x,const Geometry&h,int n){
+static T*layer(Graph&g,Block&b,int index,T*x,const Geometry&h,int n,bool efficient_mask=false){
     auto*c=g.ctx.p;std::string p="blk."+std::to_string(index)+".";
     auto*y=g.norm(x,b.params.at(p+"attn_norm.weight").w,h.eps);
-    y=(!h.llama_dense&&(index+1)%h.interval)?recurrent(g,b,p,y,h,n):attention(g,b,p,y,h,n);
+    y=(!h.llama_dense&&(index+1)%h.interval)?recurrent(g,b,p,y,h,n):attention(g,b,p,y,h,n,efficient_mask);
     auto*res=ggml_add(c,x,y);
     y=g.norm(res,b.params.at(p+(h.llama_dense?"ffn_norm.weight":"post_attention_norm.weight")).w,h.eps);
     auto*up=g.linear(b,p+"ffn_up.weight",y);auto*gate=g.linear(b,p+"ffn_gate.weight",y);
@@ -475,7 +489,7 @@ struct Chain {
         for(auto t:tokens)need(t>=0&&t<h.vocab,"Invalid input token");
         std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense,dense_action_graph):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
-        for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n);g.stage(x,blocks[i+1]->device);}
+        for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n,selected_loss_head);g.stage(x,blocks[i+1]->device);}
         auto targets=sample.at("targets").get<std::vector<int32_t>>();auto mask=sample.at("loss_mask").get<std::vector<bool>>();
         need(int(targets.size())==n&&int(mask.size())==n,"Misaligned targets/mask");
         // RMS norm and the output projection operate independently per hidden
@@ -968,7 +982,10 @@ static json train_model(const json&config){
     const bool admission_only=config.value("admission_only",false);
     auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
     auto finish=[&](json result){
-        if(model.selected_loss_head)result["loss_projection"]=config.contains("logits_output")?"full-logits-diagnostic-v1":"selected-hidden-columns-v1";
+        if(model.selected_loss_head){
+            result["loss_projection"]=config.contains("logits_output")?"full-logits-diagnostic-v1":"selected-hidden-columns-v1";
+            result["attention_profile"]="scaled-masked-softmax-shared-mask-v1";
+        }
         if(model.h.llama_dense){result["architecture_contract"]="llama-dense-v1";result["sequence_profile"]=sequence_profile;}
         if(allocator){
             result["memory_profile"]=memory_profile;result["allocation_peaks"]=json::array();
