@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Generated tiny multi-GPU standard backprop and long/deep gradient agreement; not real model learning",
+  "devices": [
+    "CUDA0",
+    "CUDA1"
+  ],
+  "existing_short_qualification": {
+    "status": "PASS",
+    "scope": "Tiny ordinary Llama native mechanics, not real MiniCPM learning",
+    "checks": [
+      {
+        "name": "layer",
+        "independent": {
+          "status": "PASS",
+          "scope": "Independent tiny ordinary Llama layer scalar derivatives",
+          "checks": [
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 1.99025766978167e-08,
+              "step_sensitivity": 1.0408340855860843e-11,
+              "failures": [],
+              "layer": 0,
+              "fp64_value": -0.045035178899301344,
+              "native_value": -0.04503517597913742
+            },
+            {
+              "scalar_gradients": 152,
+              "max_absolute_gradient_error": 1.9043951970942885e-08,
+              "step_sensitivity": 2.949029909160572e-11,
+              "failures": [],
+              "layer": 1,
+              "fp64_value": 0.05895722491203145,
+              "native_value": 0.05895721912384033
+            }
+          ]
+        }
+      },
+      {
+        "name": "complete",
+        "independent": {
+          "status": "PASS",
+          "scope": "All scalar derivatives of tiny complete ordinary Llama full-weight and LoRA graphs",
+          "checks": [
+            {
+              "scalar_gradients": 364,
+              "max_absolute_gradient_error": 4.3845267327924375e-07,
+              "step_sensitivity": 8.659739592076221e-09,
+              "failures": [],
+              "mode": "full",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 1.1694612174484309e-07
+            },
+            {
+              "scalar_gradients": 278,
+              "max_absolute_gradient_error": 2.0517063603620045e-09,
+              "step_sensitivity": 3.3306690738754696e-10,
+              "failures": [],
+              "mode": "lora",
+              "fp64_loss": 1.7426998895781398,
+              "native_loss": 1.7426999807357788,
+              "max_absolute_logit_error": 1.1694612174484309e-07
+            }
+          ]
+        }
+      },
+      {
+        "name": "f16-decode-and-forward",
+        "max_absolute_logit_error": 3.955875625683003e-08,
+        "loss_error": 2.059565140655195e-08
+      },
+      {
+        "name": "f32-decode-and-forward",
+        "max_absolute_logit_error": 5.7013241572256845e-08,
+        "loss_error": 4.201067005382697e-08
+      },
+      {
+        "name": "full-batch-update-and-reload",
+        "parameters": 21,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true,
+        "tensors_with_changed_values": 21
+      },
+      {
+        "name": "lora-batch-update-and-reload",
+        "parameters": 30,
+        "partial_final_batch": true,
+        "reload_loss_error": 0.0,
+        "base_unchanged": true
+      },
+      {
+        "name": "forty-two-layer-standard-backprop",
+        "parameter_tensors": 381,
+        "weights_updated": false
+      }
+    ],
+    "negative_cases": 6,
+    "gpu_used": true,
+    "devices": [
+      "CUDA0",
+      "CUDA1"
+    ],
+    "promoted": false
+  },
+  "context_tokens": 1024,
+  "layers": 42,
+  "selected_targets": 256,
+  "gradient_tensors": 381,
+  "maximum_l2_norm_difference_from_single_gpu": 4.76837158203125e-07,
+  "reference_sha256": "e1f5558858bae94c35938a0d21663812a600ecfdf006f5554377c5a9ffa21807",
+  "reference_scope": "Prior independent single-GPU tiny fixture; device generations can differ",
+  "allocation_peaks": [
+    {
+      "checked_graphs": 23,
+      "device": "CUDA0",
+      "planned_graph_buffer_bytes": 197263360
+    },
+    {
+      "checked_graphs": 23,
+      "device": "CUDA1",
+      "planned_graph_buffer_bytes": 197243008
+    }
+  ],
+  "native_executable_sha256": "0dfe674f1fa10e340391f9cdb26cbb6dce1b761f5b4f19313a7c3743a7e60d69",
+  "test_source_sha256": "bfa0b9658d834640ddbf8c29a5a99a974655b55606235f07cad94b97839e2a61",
+  "real_model_updates": 0,
+  "experimental_section_backprop_used": false,
+  "promoted": false
+}

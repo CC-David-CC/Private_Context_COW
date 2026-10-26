@@ -40,7 +40,7 @@ optimizer-profile and completion/recovery controls passed.
 
 These are tiny-fixture mechanics results, not real MiniCPM training, an improved
 BW score or a release decision. They do not qualify larger model geometries,
-multi-GPU long-context training, HIP or SYCL. The existing native trainer exposes
+real-model multi-GPU long-context training, HIP or SYCL. The existing native trainer exposes
 CPU/CUDA device routes; no new backend is added here. Real MiniCPM allocation and
 the subsequent target/workflow/retention round remain separate qualification.
 
@@ -137,3 +137,36 @@ The [real MiniCPM memory report](MINICPM-ACTION-MEMORY.md) now records a complet
 resource refusals for the longer full/LoRA cases and an allocation-only 8k probe.
 No real weights were updated. This is partial allocation/gradient qualification;
 the complete longer-context training and learning-quality loop remains unfinished.
+
+## Two-GPU standard backprop qualification
+
+The generated-fixture qualification also passed on two shared A100 GPUs. The
+existing independent FP64 layer/full-model/LoRA derivative checks, saved full and
+LoRA updates, F16/F32 inputs, negative controls and 42-layer short-context gradient
+probe all passed with both CUDA backends selected.
+
+A separate 42-layer, 1,024-token graph with 256 selected targets exercised ordinary
+standard backprop across both devices. All 381 gradient-tensor L2 norms agreed
+with the saved independent single-RTX-4090 run: maximum absolute norm difference
+4.76837158203125e-7, within the unchanged rtol=1e-4, atol=1e-5 gate. This compares
+norms, not every gradient component. Both devices received parameter gradients.
+Planned graph-buffer peaks were approximately 188 MiB per device for this tiny
+fixture. The test did not use experimental section-gradient training.
+
+The [two-GPU receipt](../validation/native-action-multi-gpu-20261026.json) records
+the source/executable/reference hashes and checked outcomes. Run the new test
+after generating the single-device action fixture above; its reference file is
+`deep-42-1024-gradient-stdout.json`. Compute that file's actual SHA-256 and pass it
+explicitly. Select and lease two physical GPUs before mapping logical devices:
+
+```sh
+python -m experimental.native_training.test_llama_action_multi \
+  --executable /absolute/path/pcc-native-train \
+  --output /private/fresh-multi-gpu-proof --devices CUDA0 CUDA1 \
+  --reference /private/prior-single-gpu-proof/deep-42-1024-gradient-stdout.json \
+  --reference-sha256 ACTUAL_REFERENCE_SHA256
+```
+
+This establishes generated tiny-model mechanics on two GPUs. It does not qualify
+real MiniCPM allocation, optimizer-state residency, longer lessons, learning
+quality or release acceptance. Shared-load timings are not a speed comparison.
