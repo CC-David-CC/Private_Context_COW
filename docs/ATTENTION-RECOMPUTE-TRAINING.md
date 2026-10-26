@@ -99,3 +99,8 @@ memory have qualified. Install independently checked practice through S³'s
 registry and enable completion recovery before dispatch. Target skill, actual
 BW workflow, mixed-review retention and acceptance remain separate learning-loop
 gates. The frozen 68-update comparison is not changed by this profile.
+
+The [real MiniCPM memory report](REAL-ACTION-RECOMPUTE-MEMORY.md) records all
+four action-context gradient probes passing on one 96 GB-class card, including
+the 4,873-token full-weight and LoRA cases. No real weights were updated; adaptive
+optimizer residency and the actual S³/BW learning round remain separate gates.

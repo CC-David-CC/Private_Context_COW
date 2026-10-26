@@ -350,3 +350,8 @@ Optional native action training: [8k profile and qualification](docs/DENSE-LLAMA
 Optional native [selected-output action training](docs/SELECTED-HEAD-ACTION-TRAINING.md) keeps full context/backprop while projecting supervised positions only. Tiny CPU/CUDA and actual CPU service controls pass; real-model residency and learning remain separate gates.
 
 Optional [whole-graph attention recomputation](docs/ATTENTION-RECOMPUTE-TRAINING.md) has independent tiny CPU/CUDA and actual CPU service qualification. Real-model residency and learning remain separate gates.
+
+The [real MiniCPM memory report](docs/REAL-ACTION-RECOMPUTE-MEMORY.md) records all
+four action-context gradient probes passing on one 96 GB-class card, including
+the 4,873-token full-weight and LoRA cases. No real weights were updated; adaptive
+optimizer residency and the actual S³/BW learning round remain separate gates.

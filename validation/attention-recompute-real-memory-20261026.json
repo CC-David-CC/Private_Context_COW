@@ -1,0 +1,2115 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Real MiniCPM native gradient/resource comparison, no weight update, optimizer step, training approval or release acceptance",
+  "model_sha256": "ce673b360122f1be1bda4c1de2903efbd72d031e910d64e817e83362b20791fb",
+  "cpp_sha256": "e02586d1dba80a2afc79d0d6fbf755ae6d435d6a1f547f4653449c0ff58e9d2f",
+  "native_executable_sha256": "b44292572c682c75d17a6dfd1d558da1e726ee8b5fd766836b986d6ed61c4acf",
+  "profile": "dense-llama-action-recompute-8k-v1",
+  "source_receipts_sha256": {
+    "original": "3fd18e3e029be3cdb988497ca6af287ebf41dcd4a26073fe0942ea670945ca92",
+    "selected_head": "386afe67057595dc1d749d18e78671f6f9b4b8ffa3dadcd901659ea7351de656",
+    "shared_mask": "2c4ed8edfb0c7310c49351cfe27b2cb2e4a99507b57819d6621c5d84c3041c15",
+    "recompute": "6c7da1167ab3993f3fafd57380ebcb32eb3d7f71d09e0daa5dc5ed3527ecb7ca"
+  },
+  "hardware": "Dedicated NVIDIA RTX PRO 6000 Blackwell, 96 GB class",
+  "comparison": [
+    {
+      "case": "full-3663",
+      "title": "Full weights, 3,663 tokens",
+      "variant": "original",
+      "planned_graph_bytes": 68163612160,
+      "status": "PASS",
+      "sampled_process_peak_mib": 84946
+    },
+    {
+      "case": "full-3663",
+      "title": "Full weights, 3,663 tokens",
+      "variant": "selected_head",
+      "planned_graph_bytes": 63547054080,
+      "status": "PASS",
+      "sampled_process_peak_mib": 80544,
+      "graph_limit_bytes": 74715807744
+    },
+    {
+      "case": "full-3663",
+      "title": "Full weights, 3,663 tokens",
+      "variant": "shared_mask",
+      "planned_graph_bytes": 62884441600,
+      "status": "PASS",
+      "sampled_process_peak_mib": 79912,
+      "graph_limit_bytes": 74715807744
+    },
+    {
+      "case": "full-3663",
+      "title": "Full weights, 3,663 tokens",
+      "variant": "recompute",
+      "planned_graph_bytes": 27439520256,
+      "status": "PASS",
+      "sampled_process_peak_mib": 46110,
+      "graph_limit_bytes": 74715807744
+    },
+    {
+      "case": "lora16-4873",
+      "title": "LoRA rank 16, 4,873 tokens",
+      "variant": "original",
+      "planned_graph_bytes": 102385755904,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": null
+    },
+    {
+      "case": "lora16-4873",
+      "title": "LoRA rank 16, 4,873 tokens",
+      "variant": "selected_head",
+      "planned_graph_bytes": 96270881792,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": 10420,
+      "graph_limit_bytes": 84572225536
+    },
+    {
+      "case": "lora16-4873",
+      "title": "LoRA rank 16, 4,873 tokens",
+      "variant": "shared_mask",
+      "planned_graph_bytes": 96155779456,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": 10420,
+      "graph_limit_bytes": 84572225536
+    },
+    {
+      "case": "lora16-4873",
+      "title": "LoRA rank 16, 4,873 tokens",
+      "variant": "recompute",
+      "planned_graph_bytes": 33935696128,
+      "status": "PASS",
+      "sampled_process_peak_mib": 42888,
+      "graph_limit_bytes": 84572225536
+    },
+    {
+      "case": "full-4873",
+      "title": "Full weights, 4,873 tokens",
+      "variant": "original",
+      "planned_graph_bytes": 105778299392,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": null
+    },
+    {
+      "case": "full-4873",
+      "title": "Full weights, 4,873 tokens",
+      "variant": "selected_head",
+      "planned_graph_bytes": 99623505664,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": 19836,
+      "graph_limit_bytes": 74715807744
+    },
+    {
+      "case": "full-4873",
+      "title": "Full weights, 4,873 tokens",
+      "variant": "shared_mask",
+      "planned_graph_bytes": 99411722624,
+      "status": "RESOURCE_REFUSED",
+      "sampled_process_peak_mib": 19836,
+      "graph_limit_bytes": 74715807744
+    },
+    {
+      "case": "full-4873",
+      "title": "Full weights, 4,873 tokens",
+      "variant": "recompute",
+      "planned_graph_bytes": 37191639296,
+      "status": "PASS",
+      "sampled_process_peak_mib": 55410,
+      "graph_limit_bytes": 74715807744
+    }
+  ],
+  "current_results": [
+    {
+      "label": "lora16-4873",
+      "mode": "lora",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 33935696128,
+          "device": "CUDA0",
+          "limit_bytes": 84572225536
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 8487040,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        }
+      ],
+      "observed_process_peak_mib": 42888,
+      "samples": 14,
+      "model_updates": 0,
+      "native_result_sha256": "4678c8bde635c32caf6f9f9d7f6e29e1787122bbd9135ba56a25c5004b8cfaca",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 867048697344,
+          "admission_estimate": 16735985664,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 883784683008,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 377586312,
+          "persistent": 10284933120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2156085248,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 7535
+        }
+      ],
+      "gradient_tensors": 590,
+      "nonzero_gradient_tensors": 295,
+      "loss": 1.9284754991531372,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 44,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 33935696128
+        }
+      ]
+    },
+    {
+      "label": "lora16-4278",
+      "mode": "lora",
+      "input_tokens": 4278,
+      "selected_targets": 88,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 29490897280,
+          "device": "CUDA0",
+          "limit_bytes": 84572225536
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 8487040,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        }
+      ],
+      "observed_process_peak_mib": 38650,
+      "samples": 14,
+      "model_updates": 0,
+      "native_result_sha256": "b8d7dc34ab86bd1dd164c54692f2dcc5b3afe86a1f33bb2dd638372fa0adac03",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 687280502784,
+          "admission_estimate": 16735985664,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 704016488448,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 406096672,
+          "persistent": 10284933120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2156085248,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 7880
+        }
+      ],
+      "gradient_tensors": 590,
+      "nonzero_gradient_tensors": 295,
+      "loss": 1.143710970878601,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 44,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 29490897280
+        }
+      ]
+    },
+    {
+      "label": "lora16-3663",
+      "mode": "lora",
+      "input_tokens": 3663,
+      "selected_targets": 108,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 24992050688,
+          "device": "CUDA0",
+          "limit_bytes": 84572225536
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 8487040,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        }
+      ],
+      "observed_process_peak_mib": 34360,
+      "samples": 13,
+      "model_updates": 0,
+      "native_result_sha256": "ea8d21cdacc6b13e813f5cbe82d6008129fe1bf55d76a60651c606dfaeb3934d",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 521275129344,
+          "admission_estimate": 16735985664,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 538011115008,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 387916552,
+          "persistent": 10284933120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2156085248,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 7980
+        }
+      ],
+      "gradient_tensors": 590,
+      "nonzero_gradient_tensors": 295,
+      "loss": 0.4015304744243622,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 44,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 24992050688
+        }
+      ]
+    },
+    {
+      "label": "lora16-3029",
+      "mode": "lora",
+      "input_tokens": 3029,
+      "selected_targets": 14,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 20359037312,
+          "device": "CUDA0",
+          "limit_bytes": 84572225536
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84463173632
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 524416,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 8487040,
+          "device": "CUDA0",
+          "limit_bytes": 84461076480
+        }
+      ],
+      "observed_process_peak_mib": 29940,
+      "samples": 12,
+      "model_updates": 0,
+      "native_result_sha256": "22b3ae1f2453924de153a2fad503ea5a8e8a95efda46cb917f73fc66a3f0fd30",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 358766317056,
+          "admission_estimate": 16735985664,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 375502302720,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 255793608,
+          "persistent": 10284933120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2156085248,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 7510
+        }
+      ],
+      "gradient_tensors": 590,
+      "nonzero_gradient_tensors": 295,
+      "loss": 0.5866620540618896,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 44,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 20359037312
+        }
+      ]
+    },
+    {
+      "label": "full-4873",
+      "mode": "full",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 37191639296,
+          "device": "CUDA0",
+          "limit_bytes": 74715807744
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 1069547648,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 1069547648,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        }
+      ],
+      "observed_process_peak_mib": 55410,
+      "samples": 16,
+      "model_updates": 0,
+      "native_result_sha256": "20e662240c780747ae6a30277d3c078ef567d401493ff10cf22f6bec6b927d61",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 867048697344,
+          "admission_estimate": 26568130560,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 893616827904,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 377586312,
+          "persistent": 20134051840,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 4653
+        }
+      ],
+      "gradient_tensors": 381,
+      "nonzero_gradient_tensors": 381,
+      "loss": 1.9284754991531372,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 45,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 37191639296
+        }
+      ]
+    },
+    {
+      "label": "full-3663-dense-reference",
+      "mode": "full",
+      "input_tokens": 3663,
+      "selected_targets": 108,
+      "returncode": 0,
+      "graph_plans": [
+        {
+          "admitted": true,
+          "buffer_bytes": 27439520256,
+          "device": "CUDA0",
+          "limit_bytes": 74715807744
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 1069547648,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 52428928,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        },
+        {
+          "admitted": true,
+          "buffer_bytes": 1069547648,
+          "device": "CUDA0",
+          "limit_bytes": 74606755840
+        }
+      ],
+      "observed_process_peak_mib": 46110,
+      "samples": 14,
+      "model_updates": 0,
+      "native_result_sha256": "499c18abc828fee8ee4cff0ae1b7a891cff45b01a8edfccf53216acc95975faa",
+      "probe_kind": "gradient",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 521275129344,
+          "admission_estimate": 26568130560,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "conservative_estimate": 547843259904,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 387916552,
+          "persistent": 20134051840,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1",
+      "attention_recompute": [
+        {
+          "attention_tensors": 42,
+          "backward_reads_rewritten": 84,
+          "nodes": 5098
+        }
+      ],
+      "gradient_tensors": 381,
+      "nonzero_gradient_tensors": 381,
+      "loss": 0.4015304744243622,
+      "allocation_peaks": [
+        {
+          "checked_graphs": 45,
+          "device": "CUDA0",
+          "planned_graph_buffer_bytes": 27439520256
+        }
+      ],
+      "original_dense_comparison": {
+        "status": "PASS",
+        "gradient_norms": 381,
+        "maximum_l2_norm_difference": 1.7642974853515625e-05,
+        "loss_difference": 1.4901161193847656e-07,
+        "componentwise_equivalence_claimed": false
+      }
+    },
+    {
+      "label": "persistent-only-adamw-lora",
+      "mode": "lora",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": null,
+      "samples": 0,
+      "model_updates": 0,
+      "native_result_sha256": "15fe5d013a3c64bca74422dfc305bdd018d839e7c013c0b990db4ffc19149b3f",
+      "probe_kind": "persistent-only",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 867048697344,
+          "admission_estimate": 16953892864,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 884002590208,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 377586312,
+          "persistent": 10502840320,
+          "reserve": 4294967296,
+          "scratch_allowance": 2156085248,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1"
+    },
+    {
+      "label": "persistent-only-adamw-full",
+      "mode": "full",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": 550,
+      "samples": 1,
+      "model_updates": 0,
+      "native_result_sha256": "801e3c534f939f0b0ffebb761540604aa7a4dd4c36790232af777186511471a6",
+      "probe_kind": "persistent-only",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 867048697344,
+          "admission_estimate": 46702182400,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 913750879744,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 377586312,
+          "persistent": 40268103680,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1"
+    },
+    {
+      "label": "persistent-only-muon-full",
+      "mode": "full",
+      "input_tokens": 4873,
+      "selected_targets": 19,
+      "returncode": 0,
+      "graph_plans": [],
+      "observed_process_peak_mib": 14,
+      "samples": 1,
+      "model_updates": 0,
+      "native_result_sha256": "6e293894bae4f4e3701f2ec1ffb11df9cc94a2b7a045cfb44e929566305c1c6d",
+      "probe_kind": "persistent-only",
+      "status": "PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 867048697344,
+          "admission_estimate": 38774947840,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 905823645184,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 377586312,
+          "persistent": 32340869120,
+          "reserve": 4294967296,
+          "scratch_allowance": 2139111424,
+          "total": 101973491712
+        }
+      ],
+      "loss_projection": "selected-hidden-columns-v1"
+    }
+  ],
+  "model_updates": 0,
+  "adaptive_optimizer_allocation_proved": false,
+  "production_training_approved": false,
+  "frozen_study_changed": false,
+  "weights_published": false,
+  "promoted": false
+}
