@@ -1,0 +1,153 @@
+{
+  "array_limit": {
+    "accepted_entries": 4096,
+    "deliberately_widened_bound_mutation_detected": true,
+    "rejected_entries": 4097
+  },
+  "baseline_bw": "37410085c38cb75c3acabd55fb00af13c510761d",
+  "baseline_pcc": "98a46fc37f5d06a0d3e92829c020356089a00671",
+  "bw_distinct_targeted_tests": 25,
+  "bw_selections": [
+    {
+      "log": "lark-bw-green01.log",
+      "tests": 11
+    },
+    {
+      "log": "lark-cli-green01.log",
+      "tests": 13
+    },
+    {
+      "log": "lark-cli-green02.log",
+      "new_distinct": 1,
+      "tests": 3
+    },
+    {
+      "log": "lark-final-focused.log",
+      "new_distinct": 0,
+      "tests": 3
+    }
+  ],
+  "default_bw_payload_sha256": "4ff4f9c2c5c09fa9f3e37935c0e25fdc1704adda281cfc6c082b57130084fc4a",
+  "failed_alternatives": [
+    {
+      "accepted_observed": 37,
+      "accepted_synthetic": 0,
+      "actual_missing_suffix_reconstructed": false,
+      "elapsed_seconds": 0.0223087209960795,
+      "exception": "RuntimeError: Mask failed at 37: parser error: Too many items (limit 50000; mask); try avoiding single-byte/short lexemes\n<non-verbose/>",
+      "experimental_compiler": "preserve-gbnf-rule-boundaries-probe",
+      "lark_sha256": "4b6c3bb708af451c98f49cfe055d10c5249f99aa370cc4b2eade43324daa7302",
+      "limits_changed": false,
+      "model_calls": 0,
+      "original_engine_id": "59795d4f2a57ba77017e89db0f41896a48ac51a2725da89f777b68fc75093529",
+      "original_gbnf_sha256": "742ad3922819aafb9c044a5a557e5923e128ff001013dd5d2fc6890b39856d8a",
+      "original_prefix_tokens": 512,
+      "schema": 1,
+      "status": "FAILED",
+      "synthetic_limit": 4096,
+      "training_updates": 0
+    },
+    {
+      "accepted_observed": 5,
+      "accepted_synthetic": 0,
+      "actual_missing_suffix_reconstructed": false,
+      "elapsed_seconds": 0.002387925000221003,
+      "experimental_compiler": "preserve-array-boundaries-probe",
+      "lark_sha256": "d5e412bb6c09e4b007100312f6372aed116ad1543b61fa9c499e30766ffbf5f4",
+      "limits_changed": false,
+      "masked_index": 5,
+      "matcher_error": "",
+      "model_calls": 0,
+      "original_engine_id": "59795d4f2a57ba77017e89db0f41896a48ac51a2725da89f777b68fc75093529",
+      "original_prefix_tokens": 512,
+      "schema": 1,
+      "selected_rules": [
+        "CALL_2",
+        "CALL_3",
+        "TEXT_LINES"
+      ],
+      "status": "SYNTHETIC_TOKEN_MASKED",
+      "stop_reason": "NotStopped",
+      "synthetic_limit": 4096,
+      "training_updates": 0
+    }
+  ],
+  "host": "llm-49",
+  "kind": "Opt-in structured Lark grammar CPU qualification",
+  "llguidance": "1.9.1",
+  "log_sha256": {
+    "lark-array-mutant01.log": "031c9257e18f714ab826fbe855459740bf80f52c4a30c8f17e61a8b2fe522f6d",
+    "lark-bw-green01.log": "db0f9e135510174286271c3a8aa72a21c27549bf17b0205331ef7bcb84e3b877",
+    "lark-bw-red01.log": "457b1e5d8894c8489dd96bc9cd3d88c0ed001d514c142c292c7f07798bedac5d",
+    "lark-cli-green01.log": "9d073468975c232a42404f8a59e57a867de715a40cc1f642954ec65d56351556",
+    "lark-cli-green02.log": "0cb0767652d57f683abeddb613c08d4ded527f8482161221b5911d3a337d12a2",
+    "lark-cli-red01.log": "2b9f691e281775f449514a9e85db6c3605802a989359e0a2d091270639c22b25",
+    "lark-final-focused.log": "375c953ee04ff727b5dd90891da1f814b8cb45ba2c333d7d4f678688c1e57648",
+    "lark-pcc-g0.log": "7b70961c80e95db3ab66ceca3eb84a480b84c1ab8a7cc155d584617c7984086c",
+    "lark-pcc-green01.log": "6348a325d9afe8e33918c440c68b529c40c316a6f3a2db9474ec1cc370f9280b",
+    "lark-pcc-red01.log": "27c50f3323a219a16cbee30b225f95eeaab89ef6204a357dea5a68342e69a512"
+  },
+  "model_calls": 0,
+  "old_pcc_gbnf_engine_id": "9336c9ad3853598084545ee568edf3784c223654e3fac52f45912d5969db170f",
+  "pcc_G0": {
+    "cumulative_G1_G5_claimed": false,
+    "status": "PASS",
+    "tests": 58
+  },
+  "pcc_targeted": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 40
+  },
+  "private_diagnostic_sha256": "2e1ee62000962f4fff1dfe4839eb898e3b8bd9480af5eee1ac7cd35fd00f23a4",
+  "qualification_limits": [
+    "Scripted CPU workflow backend; no native GPU model workflow qualification.",
+    "The missing original response suffix was not reconstructed.",
+    "No saved controller, live source, frozen study or old failed journal was migrated.",
+    "Arbitrary long strings and browser interactions require separate qualification.",
+    "The original indeterminate operation has not been resolved by changing grammar."
+  ],
+  "real_tokenizer_diagnostic": {
+    "accepted_observed": 512,
+    "accepted_synthetic": 4096,
+    "actual_missing_suffix_reconstructed": false,
+    "elapsed_seconds": 1.4664441820059437,
+    "experimental_compiler": "supported-explicit-lark",
+    "lark_sha256": "a13f47f41778b04381532f4a264680fd4b7d2e4b2a15b9276ddea7f94a8c689b",
+    "limits_changed": false,
+    "matcher_error": "",
+    "model_calls": 0,
+    "new_engine_id": "4a3a045778016300ee995c22e3da1fad87ce8f9050df7cbdd038da96b0da007b",
+    "original_engine_id": "59795d4f2a57ba77017e89db0f41896a48ac51a2725da89f777b68fc75093529",
+    "original_prefix_tokens": 512,
+    "schema": 1,
+    "selected_rules": [
+      "CALL_0",
+      "CALL_1",
+      "CALL_2",
+      "CALL_3",
+      "CALL_4",
+      "CALL_5",
+      "CALL_6",
+      "CALL_7",
+      "CALL_8",
+      "CALL_9",
+      "TEXT_LINES"
+    ],
+    "status": "NO_ERROR_THROUGH_SYNTHETIC_LIMIT",
+    "stop_reason": "NotStopped",
+    "synthetic_limit": 4096,
+    "training_updates": 0
+  },
+  "runtime_sources_sha256": {
+    "branchwrite/coding_defaults.py": "c590ea2749b0434e004572db4cb036b80e8f8275f41b66809cefa31e2d4b3eb7",
+    "branchwrite/lark_grammar.py": "a5ed34ecf33be32d666a71ffa8c1a3cce6951e1d3cb8a61d735783b56c058ac8",
+    "branchwrite/run_cli.py": "a6a68af7cf10686c40639402496a82bf3041b42f26d63b3c2fb5dc76945b68ac",
+    "branchwrite/tool_registry.py": "95435369eed99858bcba40b1a050366ec36ca37182a38174b9cb015c44681e6f",
+    "experimental/branching_context/src/context_time_travel/grammar_first.py": "f2c774d7c696ec9703d3ebe0f673f21882a92df9292e6530d24193486a847a1d",
+    "experimental/branching_context/src/context_time_travel/thinking_grammar.py": "4f0099b4480889c3d53a79532ac99ce80d021ad22233ef9a4dbb5cf136469ed5"
+  },
+  "schema": 1,
+  "training_updates": 0
+}

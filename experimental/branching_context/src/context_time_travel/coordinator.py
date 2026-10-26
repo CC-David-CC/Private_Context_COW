@@ -724,6 +724,14 @@ class ContextCoordinator:
                     raise IntegrityError('Committed root presentation differs from operation intent')
             tokens = list(generated_text(history_segment(history,len(prior)+len(job.ids))))
             answer = dict(snapshot=head.tip,tokens=tokens,recovered=True,request_seconds=None,generation_seconds=None)
+            controller=bound.store.get_snapshot(head.tip)['controller']
+            if isinstance(controller.get('constraint'),dict):
+                registry=job.grammar_registry
+                if registry is None or not registry.matches_controller(controller):
+                    raise IntegrityError('Committed grammar identity is unavailable for replay completion')
+                canonical_tokens=history.text_tokens if isinstance(history,InputHistory) else history
+                session=registry.restore(controller,list(canonical_tokens))
+                answer.update(grammar_complete=session.is_complete(),stopped=session.is_stopped())
             result = dict(branch=asdict(confirmed),snapshot=head.tip,payload_sha256=metadata['payload_sha256'],
                 model_contract_id=model.profile['model_contract_id'],execution_profile_id=model.profile['execution_profile_id'])
             job.request.state = 'durable'

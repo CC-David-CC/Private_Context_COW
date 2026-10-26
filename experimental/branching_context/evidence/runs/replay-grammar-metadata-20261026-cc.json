@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "name": "replay-metadata-green02.log",
+      "sha256": "9d83412f16dcaffd8a3fb6173e55ee230f80c572112d0f68acc8ec2f5925febf",
+      "status": "PASS",
+      "tests": 18
+    },
+    {
+      "name": "replay-metadata-g0.log",
+      "sha256": "5049e7cfa46646ee9cd31a8a9753d7259d4e53f9e8a39d3785c84b3c9940d357",
+      "status": "PASS",
+      "tests": 58
+    }
+  ],
+  "controls": [
+    "explicit text replay and coordinator restart",
+    "complete/incomplete/accepting active grammar",
+    "text stop is separate from grammar completeness",
+    "unavailable grammar refuses",
+    "no new forward work on replay"
+  ],
+  "gpu_claim": false,
+  "native_backend_rebuilt": false,
+  "preserved_diagnostics": [
+    {
+      "name": "replay-metadata-red01.log",
+      "sha256": "aa8421338f40a39aa4278cb450b796df9a14fecd9ddca9541677620d9a596e30",
+      "status": "preserved diagnostic",
+      "tests": null
+    },
+    {
+      "name": "replay-coordinator-red01.log",
+      "sha256": "69abcdd7bd79a6f699d9c7a3dbe77ca60bb8e592f06296abc040cfdabb656cc6",
+      "status": "preserved diagnostic",
+      "tests": null
+    }
+  ],
+  "recorded_utc": "2026-10-26T15:23:22.939387+00:00",
+  "schema": 1,
+  "scope": "CPU replay metadata; no native GPU or cumulative G1-G5 qualification",
+  "source": {
+    "base_commit": "3adc5deb82fcfd92ff767584081fda3079c2daf9",
+    "changed_python_sha256": {
+      "experimental/branching_context/src/context_time_travel/coordinator.py": "7dd68d3eed6b3d3d21c50f55921af5183c6ac10caad2209093f15ca80faae1a2",
+      "serve/cow_text_adapter.py": "519237dfee934912059ea15704258a0e1b70a3062b0845c47c4c5643dadfc5b4",
+      "serve/test_cow_replayed_grammar_metadata.py": "e584cd5a1c0ea187e2bb54550672a8c709d1195fdab6601b893f4775a779691c"
+    }
+  },
+  "status": "PASS"
+}
