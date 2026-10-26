@@ -100,3 +100,31 @@ The separately bound native hat now matches eight independent fresh-oracle
 frontiers exactly and preserves restored state and consumed COW request outputs.
 See [the qualification and limits](DENSE-LORA-COW.md). This measures the attached
 hat and does not change the earlier failed merged-weight equivalence result.
+
+## Completed rank-16 update-68 standalone export
+
+A separate native CPU merge of the completed 68-update rank-16 adapter passed
+an independent saved-weight audit on 2026-10-26. This is the final checkpoint
+of that arm, not a new training update or a repeated training seed.
+
+All 381 tensors (295 adapted matrices; 2,516,756,480 values) were checked against
+FP64 `W + alpha/rank * B@A`. Maximum absolute error was
+`5.941085823302217e-8`, below the unchanged `2e-7` bound. Frozen tensor values
+were exact. The standalone F32 GGUF is 10,072,171,584 bytes; both input artifacts
+retained their original hashes. No GPU was allocated for this merge/audit.
+
+The first owner request omitted `examples`, which this native entry point's
+memory admission requires even for a merge. It returned code 2 before producing
+a model. The corrected request used a separate output directory and the exact
+original practice array for admission; the merge path does not forward or
+backpropagate those examples. The failed request and original logs are retained.
+This required field is an interface limitation, not a new training operation.
+
+The [merge receipt](../experimental/native_training/validation/rank16-update068-merge-qualification-20261026.json)
+and [every-weight audit](../experimental/native_training/validation/rank16-update068-merge-weight-audit-20261026.json)
+retain artifact identities and checks. The attached adapter's previous 494/864
+score is not substituted for a standalone F32 assessment. A separate standalone
+reference and seven precision-format assessments are running through S3/PCC/COW.
+Their results remain pending. This evidence does not waive the earlier failed
+all-position logit gate or establish equal free-running behavior, quantization
+quality, or release acceptance. The GGUF remains private.

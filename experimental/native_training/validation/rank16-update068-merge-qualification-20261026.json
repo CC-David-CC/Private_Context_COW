@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "recorded_utc": "2026-10-26",
+  "scope": "Completed rank16 update68 existing-adapter merge; saved-weight arithmetic only",
+  "original_refused_request": {
+    "reason": "Required examples missing from memory admission",
+    "native_returncode": 2,
+    "merged_model_created": false,
+    "training_updates": 0,
+    "automatic_retry": false
+  },
+  "corrected_request": {
+    "separate_owned_output": true,
+    "original_practice_examples_used_for_memory_admission": true,
+    "examples_forwarded_or_backpropagated": false
+  },
+  "native_merge": {
+    "adapted_matrices": 295,
+    "gpu_allocation_seconds": 0,
+    "independent_maximum_weight_error": 5.941085823302217e-08,
+    "merged_bytes": 10072171584,
+    "merged_model_sha256": "76f88c1788411f0cc2fc0aa9c9c27c32bcdec64b7ee064e88c70262f1872ae10",
+    "model_forward_calls": 0,
+    "next_action": "Evaluate this standalone F32 reference, then its seven precision formats; do not reuse the attached-adapter runtime as an identical evaluator.",
+    "original_inputs_unchanged": true,
+    "schema": 1,
+    "standalone_quality_evaluated": false,
+    "status": "PASS",
+    "training_updates": 0,
+    "weights_published": false
+  },
+  "independent_audit_sha256": "194bd87d7754409997e039b2243556312b3a524956d057a134e319b9a2fe8ce4",
+  "behavior_evaluated": false,
+  "all_position_logit_equivalence_claimed": false,
+  "model_promoted": false,
+  "weights_published": false
+}
