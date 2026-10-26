@@ -30,7 +30,8 @@ def tensor_arrays(path):
        tensor.shape[1] if len(tensor.shape)>1 else 1,tensor.shape[0])
  return arrays
 
-def run(executable,output,devices):
+def run(executable,output,devices,*,profile=PROFILE):
+ PROFILE=profile
  executable=Path(executable).resolve(strict=True);output=Path(output)
  output.mkdir(mode=0o700,parents=True,exist_ok=False)
  devices=list(devices)

@@ -16,7 +16,8 @@ from tools.pcc_cow_profile import bind_dense_profile,bind_dense_adapter
 
 PROFILE='dense-llama-action-8k-v1'
 
-def run(executable,output):
+def run(executable,output,*,profile=PROFILE):
+    PROFILE=profile
     executable=Path(executable).resolve(strict=True);root=Path(output).absolute()
     root.mkdir(mode=0o700,parents=True,exist_ok=False)
     model=make_fixture(root/'tiny.gguf',dtype='f32',layers=1,context_length=8192);base=sha256(model)

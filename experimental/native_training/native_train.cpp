@@ -413,7 +413,7 @@ struct Chain {
     Geometry h;
     std::vector<std::unique_ptr<Device>> devices;
     std::vector<std::unique_ptr<Block>> blocks;
-    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;
+    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;bool selected_loss_head=false;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r,const std::vector<int>&placement={}):h(geometry),full(train_full),rank(r){
         need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
         need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
@@ -476,11 +476,23 @@ struct Chain {
         std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense,dense_action_graph):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
         for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n);g.stage(x,blocks[i+1]->device);}
-        auto&head=*blocks.back();x=g.norm(x,head.params.at("output_norm.weight").w,h.eps);auto*logits=g.linear(head,"output.weight",x);g.stage(logits,head.device);
         auto targets=sample.at("targets").get<std::vector<int32_t>>();auto mask=sample.at("loss_mask").get<std::vector<bool>>();
-        need(int(targets.size())==n&&int(mask.size())==n,"Misaligned targets/mask");T*loss=nullptr;int selected=0;
+        need(int(targets.size())==n&&int(mask.size())==n,"Misaligned targets/mask");
+        // RMS norm and the output projection operate independently per hidden
+        // column. Gather only supervised columns before the large vocabulary
+        // projection; ordinary gather backward scatters their adjoints into
+        // the full hidden sequence. Attention and its history stay attached.
+        // A requested full-logit diagnostic retains the original V-by-T API.
+        const bool selected_projection=selected_loss_head&&observed_logits==nullptr;
+        if(selected_projection){
+            std::vector<int32_t>positions;for(int t=0;t<n;++t)if(mask[t])positions.push_back(t);
+            need(!positions.empty(),"Empty completion loss");
+            x=ggml_get_rows(c,x,g.indices(positions));
+        }
+        auto&head=*blocks.back();x=g.norm(x,head.params.at("output_norm.weight").w,h.eps);auto*logits=g.linear(head,"output.weight",x);g.stage(logits,head.device);
+        T*loss=nullptr;int selected=0;
         for(int t=0;t<n;++t)if(mask[t]){need(targets[t]>=0&&targets[t]<h.vocab,"Invalid target");std::vector<float>labels(h.vocab,0);labels[targets[t]]=1;
-            auto*ce=ggml_cross_entropy_loss(c,column(g,logits,t),g.input(h.vocab,1,labels));loss=loss?ggml_add(c,loss,ce):ce;++selected;}
+            auto*ce=ggml_cross_entropy_loss(c,column(g,logits,selected_projection?selected:t),g.input(h.vocab,1,labels));loss=loss?ggml_add(c,loss,ce):ce;++selected;}
         need(selected>0,"Empty completion loss");loss=ggml_scale(c,loss,weight/selected);g.stage(loss,head.device);
         if(backward)g.backward(loss,blocks);
         if(efficient_sequence)std::cerr<<"LONG_GRAPH nodes="<<ggml_graph_n_nodes(g.g)<<" capacity="<<g.capacity<<" metadata="<<Graph::metadata_bytes(g.capacity)<<std::endl;
@@ -732,7 +744,11 @@ struct GGUFSource {
 static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
     const auto optimizer_config=OptimizerConfig::parse(config);
     std::map<std::string,size_t>persistent,scratch,activations;
-    size_t length=0;for(auto&e:config.at("examples"))length=std::max(length,e.at("tokens").size());
+    size_t length=0,labels=0;for(auto&e:config.at("examples")){
+        length=std::max(length,e.at("tokens").size());size_t count=0;
+        for(auto&m:e.at("loss_mask"))if(m.get<bool>())++count;labels=std::max(labels,count);
+    }
+    const size_t head_length=model.selected_loss_head&&!config.contains("logits_output")?labels:length;
     const auto&h=model.h;
     for(size_t index=0;index<model.blocks.size();++index){auto&b=model.blocks[index];size_t bytes=0;for(auto&[name,p]:b->params)bytes+=ggml_nbytes(p.w);
         size_t train=0;for(auto[w,dw]:b->trainable())train+=ggml_nbytes(dw);
@@ -745,17 +761,16 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
             active=length*size_t(h.ffn)*4*20;
             if(!h.llama_dense&&index%h.interval)active+=length*size_t(h.state)*h.state*h.vheads*4*16;
             else active+=size_t(h.heads)*length*length*4*12;
-        }else if(index+1==model.blocks.size())active=length*size_t(h.vocab)*4*12;
+        }else if(index+1==model.blocks.size())active=head_length*size_t(h.vocab)*4*12;
         activations[b->device.name]+=active;
     }
     size_t graph_host=0;
     if(model.efficient_sequence){
         size_t nodes=Graph::bounded_capacity(length,h.layers,h.llama_dense,model.dense_action_graph);
         // Metadata, scheduler tables/placements, host masks and input copies.
-        size_t labels=0;for(auto&e:config.at("examples")){size_t count=0;for(auto&m:e.at("loss_mask"))if(m.get<bool>())++count;labels=std::max(labels,count);}
-        graph_host=Graph::metadata_bytes(nodes)+nodes*128+length*length*8+length*size_t(h.vocab)*8;
+        graph_host=Graph::metadata_bytes(nodes)+nodes*128+length*length*8+head_length*size_t(h.vocab)*8;
         // Cross-entropy column adjoints and accumulation are explicitly bounded.
-        activations[model.blocks.back()->device.name]+=labels*length*size_t(h.vocab)*8;
+        activations[model.blocks.back()->device.name]+=labels*head_length*size_t(h.vocab)*8;
         if(model.devices.size()>1){
             // Pinned GGML scheduler reserves at most one split/node with 30
             // inputs. Include its worst-case host tables/tensor descriptors.
@@ -912,7 +927,7 @@ static json train_model(const json&config){
     if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"),"Adaptive route requires ordinary-Llama full training or explicit AdamW LoRA");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
-    const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1";
+    const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1"||sequence_profile=="dense-llama-action-selected-head-8k-v1";
     need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||llama_profile,"Unknown sequence qualification profile");
     if(model.h.llama_dense)need(llama_profile,"Ordinary Llama requires its explicit bounded sequence profile");
     if(sequence_profile=="tiny-cpu-long-v1"){
@@ -926,7 +941,8 @@ static json train_model(const json&config){
         need(h.llama_dense&&h.layers<=42&&h.hidden<=4096&&h.ffn<=12288&&h.vocab<=262144&&h.heads<=32&&h.kvheads<=8&&h.head<=256,
              "Ordinary Llama bounded profile exceeds its inspected geometry bounds");
         model.maximum_sequence=sequence_profile=="dense-llama-short-v1"?512:8192;model.efficient_sequence=true;
-        model.dense_action_graph=sequence_profile=="dense-llama-action-8k-v1";
+        model.dense_action_graph=sequence_profile!="dense-llama-short-v1";
+        model.selected_loss_head=sequence_profile=="dense-llama-action-selected-head-8k-v1";
     }
     if(sequence_profile=="dense-short-v1"){
         need(!model.h.llama_dense,"Use the explicit ordinary Llama sequence profile");
@@ -952,6 +968,7 @@ static json train_model(const json&config){
     const bool admission_only=config.value("admission_only",false);
     auto plan=memory_plan(model,config,admission_only);std::cerr<<"MEMORY_ADMISSION "<<plan.dump()<<std::endl;
     auto finish=[&](json result){
+        if(model.selected_loss_head)result["loss_projection"]=config.contains("logits_output")?"full-logits-diagnostic-v1":"selected-hidden-columns-v1";
         if(model.h.llama_dense){result["architecture_contract"]="llama-dense-v1";result["sequence_profile"]=sequence_profile;}
         if(allocator){
             result["memory_profile"]=memory_profile;result["allocation_peaks"]=json::array();

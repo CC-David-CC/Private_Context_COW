@@ -346,3 +346,5 @@ archival. [Unified runtime qualification](docs/UNIFIED-LEARNING-RUNTIME.md) reco
 the tested API/execution source, native recovery follow-up and remaining scope.
 
 Optional native action training: [8k profile and qualification](docs/DENSE-LLAMA-ACTION-TRAINING.md). CPU/CUDA tiny-fixture mechanics pass; real MiniCPM allocation and quality remain separate checks.
+
+Optional native [selected-output action training](docs/SELECTED-HEAD-ACTION-TRAINING.md) keeps full context/backprop while projecting supervised positions only. Tiny CPU/CUDA and actual CPU service controls pass; real-model residency and learning remain separate gates.

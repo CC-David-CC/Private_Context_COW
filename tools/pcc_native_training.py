@@ -68,9 +68,10 @@ def validate_optimizer_request(request):
         if any(k not in request for k in ('initial_optimizer_state','initial_optimizer_state_sha256','example_cursor')):raise ValueError('Complete pinned optimizer resume request required')
     return kind
 
-LLAMA_DENSE_PROFILES=('dense-llama-short-v1','dense-llama-action-8k-v1')
+LLAMA_DENSE_PROFILES=('dense-llama-short-v1','dense-llama-action-8k-v1','dense-llama-action-selected-head-8k-v1')
 SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768,'dense-short-v1':512,
-                   'dense-llama-short-v1':512,'dense-llama-action-8k-v1':8192}
+                   'dense-llama-short-v1':512,'dense-llama-action-8k-v1':8192,
+                   'dense-llama-action-selected-head-8k-v1':8192}
 
 def validate_sequence_profile(profile,devices):
     if profile not in SEQUENCE_PROFILES:raise ValueError('Unknown sequence qualification profile')
