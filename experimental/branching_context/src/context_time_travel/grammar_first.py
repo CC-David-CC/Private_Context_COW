@@ -102,9 +102,9 @@ def normalize_grammar_source(fmt, source):
     canonical key order that defines its identity, so equal IDs cannot denote
     different parser behavior. Existing GBNF source bytes stay unchanged.
     """
-    if fmt == "gbnf":
+    if fmt in ("gbnf", "lark"):
         if not isinstance(source, str):
-            raise InvalidOperation("GBNF source must be text")
+            raise InvalidOperation(f"{fmt.upper()} source must be text")
         try:
             data = source.encode("utf-8")
         except UnicodeError as exc:
@@ -308,11 +308,11 @@ class GrammarEngine:
             fmt = value["format"]
             source_descriptor, source_bytes = normalize_grammar_source(fmt, value["source"])
             final = source_descriptor['final'] if fmt == 'thinking' else dict(format=fmt, source=source_descriptor)
-            if final['format'] == "gbnf":
+            if final['format'] in ("gbnf", "lark"):
                 try:
-                    grammar = llguidance.grammar_from("gbnf", final['source'])
+                    grammar = llguidance.grammar_from(final['format'], final['source'])
                 except Exception as exc:
-                    raise InvalidOperation("GBNF grammar compilation failed") from exc
+                    raise InvalidOperation(f"{final['format'].upper()} grammar compilation failed") from exc
             else:
                 has_json_schema = True
                 try:

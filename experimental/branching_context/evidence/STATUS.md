@@ -1,3 +1,11 @@
+2026-10-26: opt-in explicit Lark grammar CPU controls pass. The structured
+BW action/array grammar accepts 512 recorded-prefix tokens plus 4,096 synthetic
+tokens under unchanged parser limits. G0 passes 58 tests; 40 targeted PCC
+checks and BW CLI/HTTP/offline controls pass. No native model workflow or
+cumulative G1-G5 claim; the original indeterminate operation remains preserved.
+See [Lark grammar scope](../../../docs/LARK-GRAMMARS.md) and
+[receipt](runs/lark-grammar-20261026-cb.json).
+
 2026-10-23: bounded Strata/COW/BW integration qualification. The CPU campaign
 passed 2,077 tests and G0 passed 51; BW's focused integration selection passed
 158. Native Wen and Qwen completed tool/test/finish, pause/resume and replay

@@ -18,7 +18,7 @@ def normalize(source, normalize_final):
         raise InvalidOperation('Thinking grammar requires schema 1 and a 0..32768 token budget')
     final = source['final']
     if (not isinstance(final, dict) or set(final) != {'format', 'source'}
-            or final['format'] not in ('gbnf', 'json_schema')):
+            or final['format'] not in ('gbnf', 'lark', 'json_schema')):
         raise InvalidOperation('Thinking final must be one GBNF or JSON Schema definition')
     clean, _ = normalize_final(final['format'], final['source'])
     return dict(schema=1, max_tokens=source['max_tokens'],
