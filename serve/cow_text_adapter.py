@@ -633,6 +633,15 @@ class CowTextAdapter:
                 parts.append(decoder.finish())
         durable=self._committed_durable_receipt(source)
         answer = dict(snapshot=target,tokens=list(tokens),text=''.join(parts))
+        controller=target_record['controller']
+        if isinstance(controller.get('constraint'),dict):
+            if self.grammar_registry is None or not self.grammar_registry.matches_controller(controller):
+                raise InvalidOperation('Saved grammar identity is unavailable for replay completion')
+            canonical_tokens=history.text_tokens if isinstance(history,InputHistory) else history
+            session=self.grammar_registry.restore(controller,list(canonical_tokens))
+            # Acceptance and stopping differ: an accepting prefix can still be
+            # active, and a text stop can terminate an incomplete grammar.
+            answer.update(grammar_complete=session.is_complete(),stopped=session.is_stopped())
         thinking = self.thinking_result(target)
         if thinking is not None:
             answer['thinking'] = thinking

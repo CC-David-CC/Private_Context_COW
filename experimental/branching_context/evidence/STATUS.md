@@ -1,3 +1,10 @@
+2026-10-26: grammar-completion replay metadata CPU controls pass. Both
+explicit committed-text replay and coordinator restart preserve separate grammar
+completion/stopping flags from canonical history, without new forward work.
+18 targeted checks and G0 58 checks pass. No native GPU or cumulative G1-G5
+qualification is claimed for this patch. See [scope](../../../docs/REPLAY-GRAMMAR-METADATA.md)
+and [receipt](runs/replay-grammar-metadata-20261026-cc.json).
+
 2026-10-26: opt-in explicit Lark grammar CPU controls pass. The structured
 BW action/array grammar accepts 512 recorded-prefix tokens plus 4,096 synthetic
 tokens under unchanged parser limits. G0 passes 58 tests; 40 targeted PCC
