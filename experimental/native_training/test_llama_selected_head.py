@@ -14,7 +14,8 @@ from tools.pcc_native_training import execute_native
 PROFILE='dense-llama-action-selected-head-8k-v1'
 DENSE='dense-llama-action-8k-v1'
 
-def run(executable,output,devices):
+def run(executable,output,devices,*,profile=PROFILE):
+    PROFILE=profile
     root=Path(output);root.mkdir(mode=0o700,parents=True,exist_ok=False)
     executable=Path(executable).resolve(strict=True)
     qualification=action_qualification(executable,root/'existing-action-controls',devices,profile=PROFILE)
@@ -31,7 +32,11 @@ def run(executable,output,devices):
             for profile,label in [(DENSE,'dense'),(PROFILE,'selected')]:
                 candidate=execute_native(executable,dict(common,mode=mode,steps=steps,sequence_profile=profile,examples=[e]),
                     root/(str(n)+'-'+mode+'-'+label),timeout=600)
-                if label=='selected':assert candidate['receipt']['loss_projection']=='selected-hidden-columns-v1'
+                if label=='selected':
+                    assert candidate['receipt']['loss_projection']=='selected-hidden-columns-v1'
+                    if PROFILE=='dense-llama-action-recompute-8k-v1':
+                        assert candidate['receipt']['attention_profile']=='scaled-masked-softmax-rematerialized-v1'
+                        assert 'ATTENTION_RECOMPUTE 'in (root/(str(n)+'-'+mode+'-'+label)/'stderr.log').read_text()
                 pair.append(candidate)
             left=tensor_arrays(pair[0]['candidate_path']);right=tensor_arrays(pair[1]['candidate_path'])
             assert left.keys()==right.keys()
@@ -67,4 +72,5 @@ def run(executable,output,devices):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--executable',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True);parser.add_argument('--devices',nargs='+',default=['CPU'])
-    args=parser.parse_args();print(json.dumps(run(args.executable,args.output,args.devices)))
+    parser.add_argument('--profile',choices=[PROFILE,'dense-llama-action-recompute-8k-v1'],default=PROFILE)
+    args=parser.parse_args();print(json.dumps(run(args.executable,args.output,args.devices,profile=args.profile)))

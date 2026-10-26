@@ -4,7 +4,7 @@ Generated tiny model and synthetic digit-token teaching fixtures only. This does
 not assert S3 lesson approval, MiniCPM improvement or a production model identity.
 """
 from pathlib import Path
-import argparse,json,os,threading,time
+import argparse,json,math,os,threading,time
 from urllib.request import Request,urlopen
 from urllib.error import HTTPError
 from experimental.native_training.make_llama_fixture import make_fixture
@@ -13,6 +13,7 @@ from tools.pcc_lessons import LessonService,NativeRunner
 from tools.pcc_optimizer_profiles import identity
 from tools.pcc_candidate_parent import resolve_parent
 from tools.pcc_cow_profile import bind_dense_profile,bind_dense_adapter
+from experimental.native_training.test_llama_action_profile import tensor_arrays
 
 PROFILE='dense-llama-action-8k-v1'
 
@@ -66,6 +67,14 @@ def run(executable,output,*,profile=PROFILE):
             accepted=call('/cow/training/jobs',request);first=wait('first');assert first['state']=='complete',first
             operation=service._read(service.root/'operations/first.json');candidate=operation['candidate']
             assert candidate['receipt']['sequence_profile']==PROFILE
+            gradients=candidate['receipt']['steps'][0]['gradients']
+            assert all(math.isfinite(row['l2'])for row in gradients)and any(row['l2']>0 for row in gradients)
+            first_arrays=tensor_arrays(candidate['candidate_path'])
+            if mode=='full':
+                base_arrays=tensor_arrays(model)
+                assert first_arrays.keys()==base_arrays.keys()and any((first_arrays[name]!=base_arrays[name]).any()for name in base_arrays)
+            else:
+                assert any((values!=0).any()for name,values in first_arrays.items()if name.endswith('.lora_b'))
             gate_path=Path(candidate['candidate_path']).parent/'completion-gate.json'
             gate=json.loads(gate_path.read_bytes());assert gate['gate_id']==candidate['completion_recovery']['gate_id']
             assert first['optimizer_completed_steps']==1 and first['consumed_example_presentations']==2
@@ -98,12 +107,15 @@ def run(executable,output,*,profile=PROFILE):
             except HTTPError as error:assert error.code==400;error.close()
             else:raise AssertionError('Changed long-example stream silently reused optimizer state')
             second_candidate=service._read(service.root/'operations/continued.json')['candidate']
+            second_arrays=tensor_arrays(second_candidate['candidate_path'])
+            assert first_arrays.keys()==second_arrays.keys()and any((first_arrays[name]!=second_arrays[name]).any()for name in first_arrays)
             assert second_candidate['receipt']['parent_adapter_sha256']==candidate['candidate_sha256'] if mode=='lora'else second_candidate['base_sha256']==candidate['candidate_sha256']
             assert second_candidate['completion_recovery']['gate_id']
             cases.append(dict(mode=mode,optimizer=kind,status='PASS',actual_native_updates=2,example_presentations=4,
                 input_tokens=len(service.lesson(lessons[0])['example']['tokens']),
                 schema2_action_mask=True,automatic_independent_reload=True,original_completion_intent=True,
-                duplicate_operation_did_not_retrain=True,long_parent_state_resolved=True,changed_stream_resume_refused=True))
+                duplicate_operation_did_not_retrain=True,long_parent_state_resolved=True,changed_stream_resume_refused=True,
+                nonzero_gradients_observed=True,saved_weights_changed=True,continued_weights_changed=True))
         finally:
             server.shutdown();server.server_close();thread.join();service.close()
     assert sha256(model)==base

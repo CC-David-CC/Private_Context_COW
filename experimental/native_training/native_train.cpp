@@ -154,6 +154,9 @@ struct Graph {
     std::vector<std::pair<T*,std::vector<float>>> data;
     std::vector<std::pair<T*,std::vector<int32_t>>> ids;
     std::map<int,T*> causal_masks;
+    bool recompute_attention=false;
+    std::vector<T*> attention_probabilities;
+    std::vector<T*> preserved_loss_seeds;
     explicit Graph(Device&d):Graph(std::vector<Device*>{&d}){}
     explicit Graph(const std::vector<Device*>&ds,size_t nodes=default_capacity,bool efficient=false):
         capacity(nodes),efficient_sequence(efficient),device(*ds.at(0)),ctx(metadata_bytes(nodes)),devices(ds){
@@ -205,6 +208,46 @@ struct Graph {
         ggml_build_backward_expand(ctx.p,g,acc.data());
         for(int i=0;i<n;++i){auto*t=ggml_graph_node(g,i);auto*d=ggml_graph_get_grad(g,t);auto it=placements.find(t);if(d&&it!=placements.end())placements.emplace(d,it->second);}
         for(auto[w,dw]:params)need(ggml_graph_get_grad(g,w),"Missing full-graph gradient for "+std::string(w->name));
+        if(recompute_attention)rematerialize_attention(n);
+    }
+    void rematerialize_attention(int forward_nodes){
+        // First build the ordinary complete reverse graph. Replace only its
+        // reads of saved attention probabilities by equal recomputed values;
+        // no loss/parameter derivative or external section adjoint is supplied.
+        std::vector<T*>original;
+        for(int i=0;i<ggml_graph_n_nodes(g);++i)original.push_back(ggml_graph_node(g,i));
+        // The old graph owns the reverse-mode loss->loss accumulator map.
+        // Preserve its actual seed tensors before rebuilding topology; the
+        // new forward-expansion metadata has no autodiff accumulator map.
+        for(int i=0;i<forward_nodes;++i)if(original[i]->flags&GGML_TENSOR_FLAG_LOSS){
+            auto*seed=ggml_graph_get_grad_acc(g,original[i]);need(seed,"Attention recomputation lost the original loss gradient seed");
+            preserved_loss_seeds.push_back(seed);
+        }
+        std::map<T*,T*>replacement;
+        for(auto*probability:attention_probabilities){
+            need(probability->op==GGML_OP_SOFT_MAX&&probability->src[0]->op==GGML_OP_MUL_MAT,"Attention recomputation requires its inspected scaled masked softmax");
+            auto*score=probability->src[0];
+            auto*again=ggml_mul_mat(ctx.p,score->src[0],score->src[1]);ggml_mul_mat_set_prec(again,GGML_PREC_F32);
+            float scale=1,max_bias=0;std::memcpy(&scale,probability->op_params,sizeof(float));std::memcpy(&max_bias,(char*)probability->op_params+sizeof(float),sizeof(float));
+            auto*value=ggml_soft_max_ext(ctx.p,again,probability->src[1],scale,max_bias);
+            replacement.emplace(probability,value);
+            auto where=placements.find(probability);need(where!=placements.end(),"Attention recomputation lost original device ownership");
+            placements.emplace(again,where->second);placements.emplace(value,where->second);
+        }
+        size_t rewritten=0;
+        for(size_t i=size_t(forward_nodes);i<original.size();++i){
+            auto*t=original[i];
+            for(auto&source:t->src){auto found=replacement.find(source);if(found!=replacement.end()){source=found->second;++rewritten;}}
+            auto view=replacement.find(t->view_src);if(view!=replacement.end())t->view_src=view->second;
+        }
+        need(!replacement.empty()&&rewritten>=replacement.size(),"Attention recomputation has no backward consumers");
+        // Rebuild topology from every original node, preserving accumulator
+        // side effects and output flags. Direct expansion deliberately does
+        // not mark every intermediate tensor as an output/lifetime root.
+        auto*rebuilt=ggml_new_graph_custom(ctx.p,capacity,true);
+        for(auto*t:original)ggml_build_forward_expand(rebuilt,t);
+        g=rebuilt;
+        std::cerr<<"ATTENTION_RECOMPUTE "<<json({{"attention_tensors",replacement.size()},{"backward_reads_rewritten",rewritten},{"nodes",ggml_graph_n_nodes(g)}}).dump()<<std::endl;
     }
     void compute(){
         // No silent CPU fallback for a selected GPU training graph.
@@ -278,6 +321,7 @@ struct Graph {
         for(auto &[t,v]:data){need(t->buffer,"Unallocated/unused floating graph input");put(t,v);}
         for(auto &[t,v]:ids){need(t->buffer,"Unallocated/unused integer graph input");ggml_backend_tensor_set(t,v.data(),0,v.size()*4);}
         for(int i=0;i<ggml_graph_n_nodes(g);++i){auto*t=ggml_graph_node(g,i);if(t->flags&GGML_TENSOR_FLAG_LOSS){auto*d=ggml_graph_get_grad_acc(g,t);if(d){float one=1;ggml_backend_tensor_set(d,&one,0,4);}}}
+        for(auto*seed:preserved_loss_seeds){need(seed->buffer,"Unallocated preserved loss gradient seed");float one=1;ggml_backend_tensor_set(seed,&one,0,4);}
         need((direct_backend?ggml_backend_graph_compute(device.backend,g):ggml_backend_sched_graph_compute(sched,g))==GGML_STATUS_SUCCESS,"Native graph execution failed");
         for(auto*d:devices)ggml_backend_synchronize(d->backend);
     }
@@ -384,6 +428,7 @@ static T*attention(Graph&g,Block&b,const std::string&p,T*x,const Geometry&h,int 
         // GGML's ordinary softmax adjoint includes this explicit scale, so no
         // detached history or externally supplied section gradient is needed.
         scores=ggml_soft_max_ext(c,scores,g.shared_causal_mask(n),1/std::sqrt(float(d)),0.0f);
+        if(g.recompute_attention)g.attention_probabilities.push_back(scores);
     }else{
         std::vector<float>mask(n*n,0);for(int query=0;query<n;++query)for(int key=query+1;key<n;++key)mask[query*n+key]=-INFINITY;
         scores=ggml_soft_max(c,ggml_add(c,ggml_scale(c,scores,1/std::sqrt(float(d))),g.input(n,n,mask)));
@@ -427,7 +472,7 @@ struct Chain {
     Geometry h;
     std::vector<std::unique_ptr<Device>> devices;
     std::vector<std::unique_ptr<Block>> blocks;
-    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;bool selected_loss_head=false;
+    bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;bool selected_loss_head=false;bool recompute_attention=false;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r,const std::vector<int>&placement={}):h(geometry),full(train_full),rank(r){
         need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
         need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
@@ -488,6 +533,7 @@ struct Chain {
         auto tokens=sample.at("tokens").get<std::vector<int32_t>>();int n=tokens.size();need(n>=2&&n<=maximum_sequence,"Bounded sequence required");
         for(auto t:tokens)need(t>=0&&t<h.vocab,"Invalid input token");
         std::vector<Device*>ds;for(auto&d:devices)ds.push_back(d.get());Graph g(ds,efficient_sequence?Graph::bounded_capacity(n,h.layers,h.llama_dense,dense_action_graph):Graph::default_capacity,efficient_sequence);auto*c=g.ctx.p;
+        g.recompute_attention=recompute_attention;
         auto*x=ggml_get_rows(c,blocks.front()->params.at("token_embd.weight").w,g.indices(tokens));g.stage(x,blocks.front()->device);
         for(int i=0;i<h.layers;++i){x=layer(g,*blocks[i+1],i,x,h,n,selected_loss_head);g.stage(x,blocks[i+1]->device);}
         auto targets=sample.at("targets").get<std::vector<int32_t>>();auto mask=sample.at("loss_mask").get<std::vector<bool>>();
@@ -941,7 +987,7 @@ static json train_model(const json&config){
     if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"),"Adaptive route requires ordinary-Llama full training or explicit AdamW LoRA");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
-    const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1"||sequence_profile=="dense-llama-action-selected-head-8k-v1";
+    const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1"||sequence_profile=="dense-llama-action-selected-head-8k-v1"||sequence_profile=="dense-llama-action-recompute-8k-v1";
     need(sequence_profile=="short-v1"||sequence_profile=="tiny-cpu-long-v1"||sequence_profile=="dense-short-v1"||llama_profile,"Unknown sequence qualification profile");
     if(model.h.llama_dense)need(llama_profile,"Ordinary Llama requires its explicit bounded sequence profile");
     if(sequence_profile=="tiny-cpu-long-v1"){
@@ -956,7 +1002,8 @@ static json train_model(const json&config){
              "Ordinary Llama bounded profile exceeds its inspected geometry bounds");
         model.maximum_sequence=sequence_profile=="dense-llama-short-v1"?512:8192;model.efficient_sequence=true;
         model.dense_action_graph=sequence_profile!="dense-llama-short-v1";
-        model.selected_loss_head=sequence_profile=="dense-llama-action-selected-head-8k-v1";
+        model.recompute_attention=sequence_profile=="dense-llama-action-recompute-8k-v1";
+        model.selected_loss_head=sequence_profile=="dense-llama-action-selected-head-8k-v1"||model.recompute_attention;
     }
     if(sequence_profile=="dense-short-v1"){
         need(!model.h.llama_dense,"Use the explicit ordinary Llama sequence profile");
@@ -984,7 +1031,7 @@ static json train_model(const json&config){
     auto finish=[&](json result){
         if(model.selected_loss_head){
             result["loss_projection"]=config.contains("logits_output")?"full-logits-diagnostic-v1":"selected-hidden-columns-v1";
-            result["attention_profile"]="scaled-masked-softmax-shared-mask-v1";
+            result["attention_profile"]=model.recompute_attention?"scaled-masked-softmax-rematerialized-v1":"scaled-masked-softmax-shared-mask-v1";
         }
         if(model.h.llama_dense){result["architecture_contract"]="llama-dense-v1";result["sequence_profile"]=sequence_profile;}
         if(allocator){
