@@ -26,7 +26,7 @@ for axis,case in zip(axes,cases):
 axes[0].set_ylabel('Planned graph buffer (GiB)',fontsize=11)
 fig.suptitle('MiniCPM native backprop: keeping the full lesson while reducing saved attention',fontsize=16,fontweight='bold',y=.96)
 fig.text(.5,.89,'Same unchanged learned parent and exact examples | dedicated 96 GB-class RTX PRO 6000',ha='center',fontsize=11)
-fig.text(.5,.06,'Graph buffers exclude persistent weights, gradients, optimizer state, scratch and reserve. Dotted limits are native admission budgets.\n'
+fig.text(.5,.06,'Graph buffers exclude weights, persistent parameter gradients, optimizer state, scratch and reserve. Dotted limits are native admission budgets.\n'
     'Hatched bars were refused before allocation. PASS means a completed gradient probe, not an optimizer update or release acceptance.\n'
     'Intermediate improvements are cumulative. No context truncation, precision reduction or end-to-end speed claim.',ha='center',fontsize=9,color='#555555')
 fig.savefig(root/'docs/results/attention-recompute-real-memory-20261026.png',dpi=160,facecolor='white')
