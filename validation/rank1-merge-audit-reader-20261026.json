@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Independent audit-reader geometry correction and saved real rank1 merge verification",
+  "source_sha256": "184b1a44c0e713fc0014e3a1c1095caa19e46142ba9282101d18d493d219afde",
+  "controls_sha256": "3da3743174421f02eaf7029654c4f58b20f43fe25867958bf12a34b9d8950ea4",
+  "cpu_test_methods": 4,
+  "malformed_shape_subcases": 8,
+  "real_audit_sha256": "94437c5706e50b5030ae08d8a20addfb888cc11b8f5dee8448ea51128c49c42a",
+  "merged_model_sha256": "3eb523b31d1a494c69adb589c5ab17b8293eeeb3c7a1b3f232e9522a5058da91",
+  "original_native_merge_repeated": false,
+  "new_training_updates": 0,
+  "new_model_calls": 0,
+  "promoted": false
+}

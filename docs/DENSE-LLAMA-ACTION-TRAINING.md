@@ -170,3 +170,6 @@ python -m experimental.native_training.test_llama_action_multi \
 This establishes generated tiny-model mechanics on two GPUs. It does not qualify
 real MiniCPM allocation, optimizer-state residency, longer lessons, learning
 quality or release acceptance. Shared-load timings are not a speed comparison.
+
+The [rank-one merge audit correction](RANK1-MERGE-AUDIT.md) separately qualifies
+saved real rank-one weights without repeating their successful native merge.
