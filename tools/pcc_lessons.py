@@ -416,6 +416,7 @@ class NativeRunner:
         if getattr(self,'record_process_identity',False):native['record_process_identity']=True
         if profile:
             native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
+            if 'lora_update_space' in profile:native['lora_update_space']=profile['lora_update_space']
             if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
             if profile['state_policy']=='resume':
                 if parent is None or parent.get('mode')!=request['mode']:raise ValueError('Completed same-mode parent required for optimizer resume')

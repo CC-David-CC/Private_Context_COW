@@ -16,7 +16,15 @@ def requests(backend):
   if i==2:row['blk.0.ffn_up.weight']=[0.]*4
   gradients.append(row)
  settings=[('adamw',{}),('adamw',dict(weight_decay=.1,aux_weight_decay=.03)),('muon',dict(nesterov=False)),('muon',dict(nesterov=True)),('muon',dict(scaling='rms',weight_decay=.1,aux_weight_decay=.03)),('muon',dict(projection='fast-refine-v1',refine_start_step=2,refine_steps=5,scaling='rms',weight_decay=.1))]
- for index,(kind,options) in enumerate(settings):yield str(index),dict(optimizer=kind,optimizer_settings=dict(schema=1,**options),learning_rate=.003,backend=backend,parameters=params,gradients=gradients)
+ for index,(kind,options) in enumerate(settings):
+  base=dict(optimizer=kind,optimizer_settings=dict(schema=1,**options),learning_rate=.003,backend=backend,parameters=params,gradients=gradients)
+  yield str(index),base
+  # Independent numerical checks cover both singleton orientations and ensure
+  # prediction-head and unknown factors retain auxiliary AdamW routing.
+  names={n:n+'.lora_a' for n,s in shapes}
+  factor_params=[dict(p,name=names[p['name']]) for p in params]
+  factor_gradients=[{names[n]:v for n,v in row.items()} for row in gradients]
+  yield str(index)+'-factorwise',dict(base,mode='lora',lora_update_space='factorwise-v1',parameters=factor_params,gradients=factor_gradients)
 
 def run(executable,output,backend):
  output=Path(output);output.mkdir(mode=0o700,parents=True,exist_ok=False);results=[]

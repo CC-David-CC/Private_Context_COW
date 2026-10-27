@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "device": "CUDA0",
+  "scope": "Generated tiny-model LoRA continuation, not MiniCPM learning",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PASS",
+      "weights_and_moments_exactly_equal": true
+    },
+    {
+      "optimizer": "muon",
+      "status": "PASS",
+      "weights_and_moments_exactly_equal": true
+    }
+  ]
+}

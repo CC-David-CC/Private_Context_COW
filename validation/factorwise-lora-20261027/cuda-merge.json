@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Tiny native merge mechanics, not real-model LoRA qualification",
+  "device": "CUDA0",
+  "optimizer": "muon",
+  "factorwise": true,
+  "native_f32_merge": true,
+  "merged_tensors": 21,
+  "independent_FP64_weight_max_error": 1.4072920551111423e-08,
+  "adapter_vs_merged_loss_error": 0.0,
+  "adapter_vs_merged_logit_max_error": 5.960464477539063e-08,
+  "actual_tensor_storage": "F32",
+  "refusal_cases": 3,
+  "promoted": false
+}

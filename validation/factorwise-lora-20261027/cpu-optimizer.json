@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "backend": "CPU",
+  "scope": "Native optimizer tiny-tensor mechanics only; not MiniCPM training or learning",
+  "cases": [
+    {
+      "label": "0",
+      "optimizer": "adamw",
+      "settings": {
+        "schema": 1
+      },
+      "status": "PASS",
+      "scalar_comparisons": 804,
+      "max_absolute_error": 3.628228645302656e-08,
+      "failures": []
+    },
+    {
+      "label": "0-factorwise",
+      "optimizer": "adamw",
+      "settings": {
+        "schema": 1
+      },
+      "status": "PASS",
+      "scalar_comparisons": 804,
+      "max_absolute_error": 3.628228645302656e-08,
+      "failures": []
+    },
+    {
+      "label": "1",
+      "optimizer": "adamw",
+      "settings": {
+        "schema": 1,
+        "weight_decay": 0.1,
+        "aux_weight_decay": 0.03
+      },
+      "status": "PASS",
+      "scalar_comparisons": 804,
+      "max_absolute_error": 2.1512573222803866e-08,
+      "failures": []
+    },
+    {
+      "label": "1-factorwise",
+      "optimizer": "adamw",
+      "settings": {
+        "schema": 1,
+        "weight_decay": 0.1,
+        "aux_weight_decay": 0.03
+      },
+      "status": "PASS",
+      "scalar_comparisons": 804,
+      "max_absolute_error": 2.1512573222803866e-08,
+      "failures": []
+    },
+    {
+      "label": "2",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "nesterov": false
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 4.2067983825611055e-08,
+      "failures": []
+    },
+    {
+      "label": "2-factorwise",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "nesterov": false
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 4.2067983825611055e-08,
+      "failures": []
+    },
+    {
+      "label": "3",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "nesterov": true
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 5.51462239276046e-08,
+      "failures": []
+    },
+    {
+      "label": "3-factorwise",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "nesterov": true
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 5.51462239276046e-08,
+      "failures": []
+    },
+    {
+      "label": "4",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "scaling": "rms",
+        "weight_decay": 0.1,
+        "aux_weight_decay": 0.03
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 4.309315387862611e-08,
+      "failures": []
+    },
+    {
+      "label": "4-factorwise",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "scaling": "rms",
+        "weight_decay": 0.1,
+        "aux_weight_decay": 0.03
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 4.309315387862611e-08,
+      "failures": []
+    },
+    {
+      "label": "5",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "projection": "fast-refine-v1",
+        "refine_start_step": 2,
+        "refine_steps": 5,
+        "scaling": "rms",
+        "weight_decay": 0.1
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 8.396170184110652e-08,
+      "failures": []
+    },
+    {
+      "label": "5-factorwise",
+      "optimizer": "muon",
+      "settings": {
+        "schema": 1,
+        "projection": "fast-refine-v1",
+        "refine_start_step": 2,
+        "refine_steps": 5,
+        "scaling": "rms",
+        "weight_decay": 0.1
+      },
+      "status": "PASS",
+      "scalar_comparisons": 664,
+      "max_absolute_error": 8.396170184110652e-08,
+      "failures": []
+    }
+  ],
+  "promoted": false
+}

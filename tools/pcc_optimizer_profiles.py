@@ -17,8 +17,10 @@ def mode(profile):
 
 def recipe(profile):
     """Compare the exact registered recipe without title/state-policy labels."""
-    return dict(mode=mode(profile),rank=profile.get('rank'),optimizer=profile['optimizer'],
+    value=dict(mode=mode(profile),rank=profile.get('rank'),optimizer=profile['optimizer'],
         learning_rate=profile['learning_rate'],optimizer_settings=profile['optimizer_settings'])
+    if 'lora_update_space' in profile:value['lora_update_space']=profile['lora_update_space']
+    return value
 
 
 def profiles(value,*,sequence_profile,deadline):
@@ -26,15 +28,18 @@ def profiles(value,*,sequence_profile,deadline):
     result={}
     for key,profile in value.items():
         fields={'schema','title','optimizer','learning_rate','optimizer_settings','state_policy','training_budget_seconds'}
-        if type(profile) is not dict or type(profile.get('schema')) is not int or profile['schema'] not in (1,2):
+        if type(profile) is not dict or type(profile.get('schema')) is not int or profile['schema'] not in (1,2,3):
             raise ValueError('Optimizer profile identity/schema differs')
-        if profile['schema']==2:fields|={'mode','rank'}
+        if profile['schema']>=2:fields|={'mode','rank'}
+        if profile['schema']==3:fields.add('lora_update_space')
         if set(profile)!=fields or key!=identity(profile):raise ValueError('Optimizer profile identity/schema differs')
         if type(profile['title']) is not str or not 1<=len(profile['title'])<=160 or profile['optimizer'] not in ('adamw','muon') or profile['state_policy'] not in ('fresh','resume'):
             raise ValueError('Explicit native optimizer/title/state policy required')
         selected=mode(profile)
         if selected not in ('full','lora'):raise ValueError('Explicit full or LoRA optimizer mode required')
-        if profile['schema']==2:
+        if profile['schema']==3 and (selected!='lora' or profile['lora_update_space']!='factorwise-v1'):
+            raise ValueError('Schema 3 requires explicit factorwise LoRA')
+        if profile['schema']>=2:
             rank=profile['rank']
             if ((selected=='full' and rank is not None)
                     or (selected=='lora' and (type(rank) is not int or not 1<=rank<=256))):
@@ -43,10 +48,12 @@ def profiles(value,*,sequence_profile,deadline):
         if type(rate) not in (int,float) or not math.isfinite(rate) or not 0<rate<=.01:raise ValueError('Bounded positive profile rate required')
         if seconds is not None and (type(seconds) not in (int,float) or not math.isfinite(seconds) or not 0<seconds<deadline):
             raise ValueError('Profile training budget must be positive and below hard deadline')
-        if selected=='lora' and (profile['optimizer']!='adamw' or seconds is not None):
+        if selected=='lora' and ((profile['optimizer']!='adamw' and profile['schema']!=3) or seconds is not None):
             raise ValueError('Registered LoRA currently qualifies fixed-update AdamW, without a training-time budget')
-        validate_optimizer_request(dict(optimizer=profile['optimizer'],mode=selected,sequence_profile=sequence_profile,
-            optimizer_state_mode='fresh',optimizer_settings=profile['optimizer_settings']))
+        native=dict(optimizer=profile['optimizer'],mode=selected,sequence_profile=sequence_profile,
+            optimizer_state_mode='fresh',optimizer_settings=profile['optimizer_settings'])
+        if profile['schema']==3:native['lora_update_space']=profile['lora_update_space']
+        validate_optimizer_request(native)
         result[key]=copy.deepcopy(profile)
     return result
 

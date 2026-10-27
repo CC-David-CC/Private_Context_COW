@@ -6,9 +6,14 @@ struct OptimizerConfig {
     std::string kind="sgd",projection="jordan5",scaling="original";
     float lr=0,aux_lr=.0003f,beta1=.9f,beta2=.95f,eps=1e-8f,momentum=.95f;
     float decay=0,aux_decay=0,normalization_eps=1e-7f;
-    bool nesterov=true;int ns_steps=5,refine_steps=5;uint64_t refine_start=1;
+    bool nesterov=true,factorwise_lora=false;int ns_steps=5,refine_steps=5;uint64_t refine_start=1;
     static OptimizerConfig parse(const json&request){
         OptimizerConfig c;c.kind=request.value("optimizer",std::string("sgd"));
+        if(request.contains("lora_update_space")){
+            need(request["lora_update_space"].is_string()&&request["lora_update_space"]=="factorwise-v1","Unknown LoRA update space");
+            need(request.value("mode",std::string())=="lora"&&(c.kind=="adamw"||c.kind=="muon"),"Factorwise routing requires adaptive LoRA");
+            c.factorwise_lora=true;
+        }
         need(c.kind=="sgd"||c.kind=="adamw"||c.kind=="muon","Unsupported native optimizer");
         c.lr=request.value("learning_rate",.0001f);
         if(c.kind=="sgd"){for(const auto&key:{"optimizer_settings","initial_optimizer_state","initial_optimizer_state_sha256","optimizer_state_mode","optimizer_state_output"})need(!request.contains(key),"SGD does not consume adaptive optimizer state/settings");return c;}
@@ -34,7 +39,8 @@ struct OptimizerConfig {
         if(c.projection=="jordan5")need(!s.contains("refine_start_step")&&!s.contains("refine_steps"),"Jordan projection cannot silently ignore a refinement schedule");
         return c;
     }
-    json canonical()const{return {{"schema",1},{"optimizer",kind},{"precision","native-f32-v1"},{"learning_rate",lr},{"aux_learning_rate",aux_lr},{"beta1",beta1},{"beta2",beta2},{"epsilon",eps},{"momentum",momentum},{"nesterov",nesterov},{"ns_steps",ns_steps},{"projection",projection},{"scaling",scaling},{"weight_decay",decay},{"aux_weight_decay",aux_decay},{"normalization_epsilon",normalization_eps},{"refine_start_step",refine_start},{"refine_steps",refine_steps}};}
+    json canonical_base()const{return {{"schema",1},{"optimizer",kind},{"precision","native-f32-v1"},{"learning_rate",lr},{"aux_learning_rate",aux_lr},{"beta1",beta1},{"beta2",beta2},{"epsilon",eps},{"momentum",momentum},{"nesterov",nesterov},{"ns_steps",ns_steps},{"projection",projection},{"scaling",scaling},{"weight_decay",decay},{"aux_weight_decay",aux_decay},{"normalization_epsilon",normalization_eps},{"refine_start_step",refine_start},{"refine_steps",refine_steps}};}
+    json canonical()const{auto value=canonical_base();if(factorwise_lora)value["lora_update_space"]="factorwise-v1";return value;}
 };
 static bool optimizer_hidden_matrix(T*w){
     std::string n=w->name;if(n.rfind("blk.",0))return false;
@@ -46,6 +52,21 @@ static std::string optimizer_role(T*w){
     const std::string n=w->name;if(optimizer_hidden_matrix(w))return "hidden_matrix";
     if(n=="token_embd.weight")return "embedding";if(n=="output.weight")return "prediction_head";
     return "auxiliary_gain_bias_gate_or_other";
+}
+static bool optimizer_factor_hidden_matrix(T*w){
+    std::string n=w->name;
+    for(const std::string suffix:{".lora_a",".lora_b"}){
+        if(n.size()>suffix.size()&&n.compare(n.size()-suffix.size(),suffix.size(),suffix)==0){
+            n.resize(n.size()-suffix.size());
+            // Match the original weight name without mutating the live tensor.
+            if(n.rfind("blk.",0))return false;
+            auto dot=n.find('.',4);
+            if(dot==std::string::npos||dot==4||!std::all_of(n.begin()+4,n.begin()+dot,::isdigit))return false;
+            const std::set<std::string>allowed={"attn_q.weight","attn_k.weight","attn_v.weight","attn_output.weight","ffn_up.weight","ffn_gate.weight","ffn_down.weight"};
+            return allowed.count(n.substr(dot+1));
+        }
+    }
+    return false;
 }
 static T*optimizer_mm(Graph&g,T*a,T*b){auto*y=ggml_mul_mat(g.ctx.p,a,b);ggml_mul_mat_set_prec(y,GGML_PREC_F32);return y;}
 static T*optimizer_polar(Graph&g,T*x,const OptimizerConfig&c,uint64_t step){
@@ -73,10 +94,11 @@ struct OptimizerBlock {
     struct State{T*w;T*gradient;T*m;T*v;bool muon;std::string role;};std::vector<State>states;
     OptimizerBlock(Block&b,const OptimizerConfig&c):device(b.device){
         for(auto[w,dw]:b.trainable()){
-            bool muon=c.kind=="muon"&&optimizer_hidden_matrix(w);
+            const bool factor=c.factorwise_lora&&optimizer_factor_hidden_matrix(w);
+            bool muon=c.kind=="muon"&&(optimizer_hidden_matrix(w)||factor);
             auto*m=ggml_dup_tensor(ctx.p,w);ggml_set_name(m,(std::string(w->name)+".opt_m").c_str());
             T*v=muon?nullptr:ggml_dup_tensor(ctx.p,w);if(v)ggml_set_name(v,(std::string(w->name)+".opt_v").c_str());
-            states.push_back({w,dw,m,v,muon,optimizer_role(w)});
+            states.push_back({w,dw,m,v,muon,factor?"hidden_matrix_lora_factor":optimizer_role(w)});
         }
     }
     void allocate(){
@@ -105,7 +127,7 @@ struct NativeOptimizer {
                 g.forward(ggml_cpy(ctx,w,s.w));g.forward(ggml_cpy(ctx,m,s.m));++matrices;
             }else{
                 const float lr=config.kind=="adamw"?config.lr:config.aux_lr;
-                const float wd=optimizer_hidden_matrix(s.w)?config.decay:config.aux_decay;
+                const float wd=(optimizer_hidden_matrix(s.w)||(config.factorwise_lora&&optimizer_factor_hidden_matrix(s.w)))?config.decay:config.aux_decay;
                 auto*params=g.input(7,1,{lr,config.beta1,config.beta2,config.eps,wd,float(1/(1-std::pow(double(config.beta1),next))),float(1/(1-std::pow(double(config.beta2),next)))});
                 g.forward(ggml_opt_step_adamw(ctx,s.w,s.gradient,s.m,s.v,params));++aux;
             }

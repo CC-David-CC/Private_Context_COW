@@ -984,7 +984,7 @@ static json train_model(const json&config){
     for(auto&name:names)if(name!="CPU"){load_cuda();break;}
     const std::string mode=config.at("mode");need(mode=="full"||mode=="lora","Explicit full/lora mode required");
     GGUFSource source(config.at("model").get<std::string>());Chain model(source.geometry(),names,mode=="full",config.value("rank",4),config.value("block_devices",std::vector<int>{}));
-    if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"),"Adaptive route requires ordinary-Llama full training or explicit AdamW LoRA");
+    if(optimizer_config.kind!="sgd")need(model.h.llama_dense&&(mode=="full"||optimizer_config.kind=="adamw"||optimizer_config.factorwise_lora),"Adaptive route requires ordinary-Llama full training or explicit adaptive LoRA");
     const std::string sequence_profile=config.value("sequence_profile",std::string("short-v1"));
     if(timed)need(mode=="full"&&model.h.llama_dense&&sequence_profile=="dense-llama-short-v1","Training phase budget requires ordinary-Llama full standard backpropagation");
     const bool llama_profile=sequence_profile=="dense-llama-short-v1"||sequence_profile=="dense-llama-action-8k-v1"||sequence_profile=="dense-llama-action-selected-head-8k-v1"||sequence_profile=="dense-llama-action-recompute-8k-v1";

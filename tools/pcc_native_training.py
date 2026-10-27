@@ -45,11 +45,15 @@ def read_optimizer_state(path,expected_sha256):
 def validate_optimizer_request(request):
     kind=request.get('optimizer','sgd')
     if kind not in ('sgd','adamw','muon'):raise ValueError('Unknown native optimizer')
+    factorwise='lora_update_space' in request
+    if factorwise and (request['lora_update_space']!='factorwise-v1'
+            or request.get('mode')!='lora' or kind not in ('adamw','muon')):
+        raise ValueError('Explicit factorwise-v1 selection requires adaptive LoRA')
     if kind=='sgd':
         if any(k in request for k in ('optimizer_settings','initial_optimizer_state','initial_optimizer_state_sha256','optimizer_state_mode','optimizer_state_output')):
             raise ValueError('SGD does not consume adaptive optimizer state/settings')
         return kind
-    if request.get('sequence_profile') not in LLAMA_DENSE_PROFILES or (request.get('mode')!='full' and not (kind=='adamw' and request.get('mode')=='lora')):
+    if request.get('sequence_profile') not in LLAMA_DENSE_PROFILES or (request.get('mode')!='full' and not ((kind=='adamw' or factorwise) and request.get('mode')=='lora')):
         raise ValueError('Adaptive optimizers require ordinary-Llama full training or explicit AdamW LoRA')
     if request.get('mode')=='lora' and request.get('optimizer_state_mode')=='resume' and not request.get('initial_adapter'):
         raise ValueError('AdamW LoRA state resume requires its exact parent adapter')

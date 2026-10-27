@@ -8,11 +8,13 @@ import numpy as np
 
 HIDDEN={'attn_q.weight','attn_k.weight','attn_v.weight','attn_output.weight','ffn_up.weight','ffn_gate.weight','ffn_down.weight'}
 
-def hidden(name):
+def hidden(name, factorwise=False):
+ if factorwise and name.endswith(('.lora_a','.lora_b')):name=name.rsplit('.',1)[0]
  parts=name.split('.',2)
  return len(parts)==3 and parts[0]=='blk' and parts[1].isdigit() and parts[2] in HIDDEN
 
-def expected_role(name):
+def expected_role(name, factorwise=False):
+ if factorwise and hidden(name,True) and name.endswith(('.lora_a','.lora_b')):return 'hidden_matrix_lora_factor'
  if hidden(name):return 'hidden_matrix'
  return {'token_embd.weight':'embedding','output.weight':'prediction_head'}.get(name,'auxiliary_gain_bias_gate_or_other')
 
@@ -33,6 +35,8 @@ def rank_metrics(matrix):
 
 def verify(request,report,*,atol=2e-5,rtol=2e-4):
  config=report['config'];parameters={};moments={};second={};failures=[];worst=0.;comparisons=0;geometry=[]
+ factorwise=request.get('lora_update_space')=='factorwise-v1'
+ if factorwise and config.get('lora_update_space')!='factorwise-v1':raise ValueError('Missing factorwise optimizer configuration binding')
  def record(actual,expected,label):
   nonlocal worst,comparisons
   actual=np.array(actual,dtype=np.float64).reshape(expected.shape);error=float(np.max(np.abs(actual-expected)));worst=max(worst,error);comparisons+=expected.size
@@ -43,12 +47,12 @@ def verify(request,report,*,atol=2e-5,rtol=2e-4):
  groups={g['name']:g for g in report['groups']}
  if len(groups)!=len(parameters):raise ValueError('Incomplete optimizer groups')
  for name,group in groups.items():
-  expected='muon' if config['optimizer']=='muon' and hidden(name) else 'adamw'
-  if group['optimizer']!=expected or group['role']!=expected_role(name):failures.append(dict(field=name,reason='role-aware optimizer grouping mismatch',expected=expected))
+  expected='muon' if config['optimizer']=='muon' and hidden(name,factorwise) else 'adamw'
+  if group['optimizer']!=expected or group['role']!=expected_role(name,factorwise):failures.append(dict(field=name,reason='role-aware optimizer grouping mismatch',expected=expected))
  for step,(gradients,observed) in enumerate(zip(request['gradients'],report['steps']),1):
   if observed['completed_steps']!=step:failures.append(dict(field='step_counter',step=step))
   for name,weight in parameters.items():
-   gradient=np.array(gradients[name],dtype=np.float32).astype(np.float64).reshape(weight.shape);muon=config['optimizer']=='muon' and hidden(name)
+   gradient=np.array(gradients[name],dtype=np.float32).astype(np.float64).reshape(weight.shape);muon=config['optimizer']=='muon' and hidden(name,factorwise)
    if muon:
     beta=config['momentum'];moments[name]=beta*moments[name]+(1-beta)*gradient
     direction=beta*moments[name]+(1-beta)*gradient if config['nesterov'] else moments[name]
@@ -60,7 +64,7 @@ def verify(request,report,*,atol=2e-5,rtol=2e-4):
     beta1,beta2=config['beta1'],config['beta2'];moments[name]=beta1*moments[name]+(1-beta1)*gradient;second[name]=beta2*second[name]+(1-beta2)*gradient**2
     direction=(moments[name]/(1-beta1**step))/(np.sqrt(second[name]/(1-beta2**step))+config['epsilon'])
     rate=config['learning_rate'] if config['optimizer']=='adamw' else config['aux_learning_rate']
-    decay=config['weight_decay'] if hidden(name) else config['aux_weight_decay']
+    decay=config['weight_decay'] if hidden(name,factorwise) else config['aux_weight_decay']
     weight=weight*(1-rate*decay)-rate*direction
    parameters[name]=weight;actual=observed['parameters'][name]
    record(actual['weights'],weight,f'{step}:{name}:weights');record(actual['m'],moments[name],f'{step}:{name}:m')
