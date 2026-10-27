@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "Actual owner SSH archival fixture; no model updates or source deletion",
+  "bytes": 1048576,
+  "copy_readback_exact": true,
+  "idempotent_copy_reused": true,
+  "refusal_cases": 5,
+  "source_retained": true
+}
