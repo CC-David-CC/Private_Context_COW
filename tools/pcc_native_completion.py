@@ -196,11 +196,13 @@ def optimizer_configuration(request):
         beta1=settings.get('beta1',.9),beta2=settings.get('beta2',.95),epsilon=settings.get('epsilon',1e-8),
         momentum=settings.get('momentum',.95),weight_decay=settings.get('weight_decay',0),
         aux_weight_decay=settings.get('aux_weight_decay',0),normalization_epsilon=settings.get('normalization_epsilon',1e-7))
-    return dict(schema=1,optimizer=request['optimizer'],precision='native-f32-v1',
+    value=dict(schema=1,optimizer=request['optimizer'],precision='native-f32-v1',
         nesterov=settings.get('nesterov',True),ns_steps=settings.get('ns_steps',5),
         projection=settings.get('projection','jordan5'),scaling=settings.get('scaling','original'),
         refine_start_step=settings.get('refine_start_step',1),refine_steps=settings.get('refine_steps',5),
         **{k:f32(v) for k,v in floats.items()})
+    if 'lora_update_space' in request:value['lora_update_space']=request['lora_update_space']
+    return value
 
 
 def validate_state_payload(path,state):
@@ -286,7 +288,7 @@ def reload_request(request,receipt):
     last=validate_receipt(request,receipt)
     drop={'optimizer','optimizer_settings','optimizer_state_mode','initial_optimizer_state','initial_optimizer_state_sha256',
           'optimizer_state_output','example_cursor','training_budget_seconds','record_timing','record_process_identity',
-          'steps','candidate','gradient_probe_only','logits_output'}
+          'steps','candidate','gradient_probe_only','logits_output','lora_update_space'}
     value={k:copy.deepcopy(v) for k,v in request.items() if k not in drop}
     start=last['example_cursor']-last['examples']
     value.update(evaluate_only=True,examples=[copy.deepcopy(request['examples'][(start+j)%len(request['examples'])])

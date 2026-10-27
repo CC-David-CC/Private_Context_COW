@@ -22,7 +22,7 @@ def payload(path,model,dataset,cursor,steps,config):
 
 class SavedEvidence:
     """Actual service readers with bytes expressly NOT representing a model."""
-    def __init__(self,root,*,mode='full',optimizer='adamw',steps=3,parent=None,resume=False,job='original-job'):
+    def __init__(self,root,*,mode='full',optimizer='adamw',steps=3,parent=None,resume=False,job='original-job',factorwise=False,rank=2):
         self.root=Path(root);self.root.mkdir(mode=0o700,exist_ok=True)
         self.executable=self.root/'nonmodel-executable';self.executable.write_bytes(b'NOT AN EXECUTABLE OR MODEL');self.executable.chmod(0o600)
         self.base=self.root/'nonmodel-base.gguf';self.base.write_bytes(b'CONTROLLED NONMODEL BASE');self.base.chmod(0o600)
@@ -33,6 +33,9 @@ class SavedEvidence:
         if optimizer!='sgd':
             self.profile=dict(schema=2,title='Controlled nonmodel recipe',mode=mode,rank=2 if mode=='lora' else None,
                 optimizer=optimizer,learning_rate=.0001,optimizer_settings=dict(schema=1),state_policy='resume' if resume else 'fresh',training_budget_seconds=None)
+            if factorwise:
+                self.profile.update(schema=3,rank=rank,lora_update_space='factorwise-v1')
+                if rank>256:self.profile.update(schema=4,lora_rank_profile='extended-4096-v1')
             self.profile_id=identity(self.profile);self.config['optimizer_profiles']={self.profile_id:self.profile}
             if resume:
                 fresh=dict(self.profile,state_policy='fresh');self.config['optimizer_profiles'][identity(fresh)]=fresh
@@ -47,7 +50,7 @@ class SavedEvidence:
             result=self.service.submit('/cow/training/lessons',dict(operation_id='lesson-'+str(i),lesson=lesson));self.lessons.append(result['lesson_id'])
         self.job=job
         self.request=dict(operation_id=self.job,lesson_ids=self.lessons,mode=mode,batch_size=2,steps=steps,
-                          learning_rate=.0001,rank=2,parent_job_id=None)
+                          learning_rate=.0001,rank=rank,parent_job_id=None)
         if self.profile:self.request['optimizer_profile_id']=self.profile_id
         self.parent=None
         if parent is not None:
@@ -409,6 +412,19 @@ class NativeCompletionTests(unittest.TestCase):
         partial=SavedEvidence(Path(self.temp.name)/'partial',steps=2)
         try:self.assertEqual(nc.reload_request(partial.native,partial.raw)['examples'],[partial.native['examples'][2]])
         finally:partial.close()
+
+    def test_factorwise_saved_evidence_recovery_and_forward_reload(self):
+        for kind,rank in [('adamw',2),('muon',2),('muon',4096)]:
+            with self.subTest(optimizer=kind,rank=rank):
+                f=SavedEvidence(Path(self.temp.name)/('factorwise-'+kind+str(rank)),
+                                mode='lora',optimizer=kind,factorwise=True,rank=rank)
+                try:
+                    self.assertEqual(nc.optimizer_configuration(f.native)['lora_update_space'],'factorwise-v1')
+                    reload=nc.reload_request(f.native,f.raw)
+                    self.assertNotIn('lora_update_space',reload)
+                    if rank>256:self.assertEqual(reload['lora_rank_profile'],'extended-4096-v1')
+                    with self.forbidden():self.assertTrue(f.adopt()['adopted'])
+                finally:f.close()
 
     def test_missing_legacy_provenance_and_reload_gate_are_refused(self):
         f=self.fixture

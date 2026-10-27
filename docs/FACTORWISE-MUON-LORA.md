@@ -9,9 +9,10 @@ from orthogonalizing a full dense weight update and subsequently factorizing it.
 Owner optimizer profile schema 3 binds this selection, mode and rank. Schema 1
 and schema 2 retain their previous contracts. The update-space marker is part
 of the native optimizer checkpoint configuration; a resumed job cannot omit it
-and silently reinterpret the saved moments. Profiles currently retain the
-existing rank limit of 256. Higher ranks remain pending implementation and
-qualification; these results do not establish their memory requirements.
+and silently reinterpret the saved moments. Schemas 1 through 3 retain their
+rank limit of 256. Schema 4 additionally requires
+`lora_rank_profile: extended-4096-v1` and explicitly permits ranks through 4096.
+The native training and merge entry points enforce the same opt-in bound.
 
 Qualification on llm-60
 -----------------------
@@ -43,3 +44,36 @@ cross-device equality or interrupted mid-step recovery.
 New rank-comparison training must await those relevant qualifications and use
 the original frozen base and ordered practice. Existing completed comparison
 arms and their runtime identities remain separate.
+
+Extended-rank qualification
+----------------------------
+
+Generated rank-4096 models passed exact save/resume continuation on CPU, one
+CUDA device and two A100 devices. AdamW and factorwise Muon were both checked.
+CPU and CUDA Muon adapter merges passed independent FP64 tensor checks and
+adapter-versus-merged forward checks. Actual authenticated PCC HTTP jobs at
+rank 4096 passed for both optimizers, including owner-profile admission,
+idempotent operation replay, rejection of unbound requests and the independent
+completion reload gate at its unchanged 0.0002 absolute bound.
+
+The offline parent resolver also passed 26 generated-model checks with a
+rank-4096 Muon adapter, including exact state continuation and explicit fresh
+moments on retained learned weights. Controlled nonmodel recovery coverage
+includes factorwise AdamW, Muon and the extended layout; its 42 checks pass.
+These fixtures establish mechanics, not language-model learning quality.
+
+The memory planner and allocator now share the same optimizer-routing predicate.
+Persistent-byte estimates were checked against actual generated-model base,
+adapter and moment tensor sizes. Muon factors have one moment buffer; auxiliary
+AdamW factors have two. Before this correction, factorwise Muon admission
+overestimated its moment storage.
+
+Actual MiniCPM persistent admission passed on one 96 GiB GPU for ranks 32, 128
+and 2048 with both optimizers. Rank 4096 was refused on that card for both.
+Contiguous two-A100 placement passed persistent admission for rank 4096. Actual
+execution graphs, completed artifacts and assessment remain separate gates.
+Public summaries are in `validation/highrank-lora-20261027/`.
+
+Follow learning results in the separate
+[S³ high-rank report](https://github.com/CC-David-CC/sss/blob/feat/minicpm-highrank-20261027/docs/MINICPM-HIGH-RANKS.md).
+No improvement claim follows from these admission and recovery tests.

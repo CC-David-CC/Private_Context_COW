@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "devices": [
+    "CUDA0",
+    "CUDA1"
+  ],
+  "rank": 4096,
+  "scope": "Generated tiny-model LoRA continuation, not MiniCPM learning",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PASS",
+      "weights_and_moments_exactly_equal": true
+    },
+    {
+      "optimizer": "muon",
+      "status": "PASS",
+      "weights_and_moments_exactly_equal": true
+    }
+  ]
+}

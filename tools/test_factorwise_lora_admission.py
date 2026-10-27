@@ -1,10 +1,17 @@
 """Opt-in optimizer admission; native numerical qualification is separate."""
 import unittest
-from tools.pcc_native_training import validate_optimizer_request
+from tools.pcc_native_training import validate_optimizer_request,validate_lora_rank
 from tools.pcc_optimizer_profiles import profiles, identity, recipe
 
 
 class FactorwiseAdmission(unittest.TestCase):
+    def test_extended_ranks_need_new_profile(self):
+        for rank in (32,128,2048,4096):
+            request=dict(mode='lora',rank=rank,lora_rank_profile='extended-4096-v1')
+            self.assertEqual(validate_lora_rank(request),rank)
+        for request in (dict(mode='lora',rank=2048),dict(mode='full',rank=32,lora_rank_profile='extended-4096-v1'),
+                        dict(mode='lora',rank=4097,lora_rank_profile='extended-4096-v1')):
+            with self.assertRaises(ValueError):validate_lora_rank(request)
     def request(self, **changes):
         value=dict(optimizer='muon',mode='lora',sequence_profile='dense-llama-short-v1',
                    optimizer_state_mode='fresh',lora_update_space='factorwise-v1')
@@ -41,6 +48,13 @@ class FactorwiseAdmission(unittest.TestCase):
         for changes in (dict(schema=2),dict(lora_update_space='unknown'),dict(mode='full',rank=None)):
             bad=dict(profile,**changes)
             with self.subTest(changes=changes),self.assertRaises(ValueError):
+                profiles({identity(bad):bad},sequence_profile='dense-llama-short-v1',deadline=60)
+        extended=dict(profile,schema=4,rank=4096,lora_rank_profile='extended-4096-v1')
+        self.assertEqual(profiles({identity(extended):extended},sequence_profile='dense-llama-short-v1',deadline=60)[identity(extended)],extended)
+        self.assertEqual(recipe(extended)['lora_rank_profile'],'extended-4096-v1')
+        for change in (dict(schema=3),dict(rank=4097),dict(lora_rank_profile='unknown')):
+            bad=dict(extended,**change)
+            with self.subTest(change=change),self.assertRaises(ValueError):
                 profiles({identity(bad):bad},sequence_profile='dense-llama-short-v1',deadline=60)
 
 

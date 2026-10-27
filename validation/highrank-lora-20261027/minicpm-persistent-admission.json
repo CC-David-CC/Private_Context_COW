@@ -1,0 +1,174 @@
+{
+  "status": "COMPLETE",
+  "scope": "MiniCPM metadata-only persistent admission; no weights loaded, gradients or training",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "rank": 32,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 14185455616,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 14241495040,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 10938654720,
+          "reserve": 1073741824,
+          "scratch_allowance": 2173059072,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "muon",
+      "rank": 32,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 13984522240,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 14040561664,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 10737721344,
+          "reserve": 1073741824,
+          "scratch_allowance": 2173059072,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "adamw",
+      "rank": 128,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 16902184960,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 16958224384,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 13553541120,
+          "reserve": 1073741824,
+          "scratch_allowance": 2274902016,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "muon",
+      "rank": 128,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 16098451456,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 16154490880,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 12749807616,
+          "reserve": 1073741824,
+          "scratch_allowance": 2274902016,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "adamw",
+      "rank": 2048,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 71236771840,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 71292811264,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 65851269120,
+          "reserve": 1073741824,
+          "scratch_allowance": 4311760896,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "muon",
+      "rank": 2048,
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 58377035776,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 58433075200,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 52991533056,
+          "reserve": 1073741824,
+          "scratch_allowance": 4311760896,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "adamw",
+      "rank": 4096,
+      "status": "PERSISTENT_ADMISSION_REFUSED",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 129193664512,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": false,
+          "conservative_estimate": 129249703936,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 121635512320,
+          "reserve": 1073741824,
+          "scratch_allowance": 6484410368,
+          "total": 101973491712
+        }
+      ]
+    },
+    {
+      "optimizer": "muon",
+      "rank": 4096,
+      "status": "PERSISTENT_ADMISSION_REFUSED",
+      "memory_plan": [
+        {
+          "activation_allowance": 56039424,
+          "admission_estimate": 103474192384,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": false,
+          "conservative_estimate": 103530231808,
+          "device": "CUDA0",
+          "free": 101372723200,
+          "host_graph_allowance": 169861152,
+          "persistent": 95916040192,
+          "reserve": 1073741824,
+          "scratch_allowance": 6484410368,
+          "total": 101973491712
+        }
+      ]
+    }
+  ]
+}

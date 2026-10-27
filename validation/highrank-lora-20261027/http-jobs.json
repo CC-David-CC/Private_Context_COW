@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Generated tiny-model HTTP/native integration, not MiniCPM learning",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PASS",
+      "rank": 4096,
+      "completed_updates": 1,
+      "replay_reused_original_operation": true,
+      "refused_requests": 3
+    },
+    {
+      "optimizer": "muon",
+      "status": "PASS",
+      "rank": 4096,
+      "completed_updates": 1,
+      "replay_reused_original_operation": true,
+      "refused_requests": 3
+    }
+  ]
+}

@@ -25,7 +25,7 @@ def saved_tensors(path):
                                offset=info.data_start+t.offset) for t in info.tensors}
 
 
-def run(executable,output):
+def run(executable,output,lora_optimizer='adamw',lora_rank=2):
     root=Path(output).absolute();root.mkdir(mode=0o700,parents=True,exist_ok=False)
     original=make_fixture(root/'original.gguf',dtype='f32',layers=1)
     base=sha256(original)
@@ -47,6 +47,10 @@ def run(executable,output):
         else:raise AssertionError('Accepted invalid parent: '+label)
     for mode in ('full','lora'):
         request=dict(base_request,mode=mode)
+        if mode=='lora':
+            request.update(optimizer=lora_optimizer,rank=lora_rank)
+            if lora_optimizer=='muon' or lora_rank>256:request['lora_update_space']='factorwise-v1'
+            if lora_rank>256:request['lora_rank_profile']='extended-4096-v1'
         first=execute_native(executable,request,root/(mode+'-first'),timeout=75)
         version=Path(first['candidate_path']).parent/'versions'/(first['candidate_sha256']+'.json')
         bound=bind_dense_profile(template,model_path=Path(first['candidate_path']) if mode=='full' else original,
@@ -142,7 +146,7 @@ def run(executable,output):
     refused('symlink-candidate-cannot-expand-owner-roots',lambda:resolve_parent(chosen['reference'],bad_file,profile,artifact_roots=[root],state_policy='fresh'))
     assert sha256(original)==base
     result=dict(schema=1,status='PASS',scope='Generated tiny CPU native parent identity, continuation and refusal mechanics; no model quality or GPU qualification',
-        checks=checks,passed=len(checks),executable_sha256=sha256(executable),base_unchanged=True,gpu_used=False,promoted=False)
+        lora_optimizer=lora_optimizer,lora_rank=lora_rank,checks=checks,passed=len(checks),executable_sha256=sha256(executable),base_unchanged=True,gpu_used=False,promoted=False)
     write(root/'result.json',result)
     print(json.dumps(dict(status='PASS',passed=len(checks),gpu_used=False)))
     return result
@@ -150,4 +154,6 @@ def run(executable,output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--executable',type=Path,required=True)
-    parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();run(args.executable,args.output)
+    parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--lora-optimizer',choices=['adamw','muon'],default='adamw');parser.add_argument('--lora-rank',type=int,default=2)
+    args=parser.parse_args();run(args.executable,args.output,args.lora_optimizer,args.lora_rank)

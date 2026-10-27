@@ -68,6 +68,9 @@ static bool optimizer_factor_hidden_matrix(T*w){
     }
     return false;
 }
+static bool optimizer_uses_muon(T*w,const OptimizerConfig&c){
+    return c.kind=="muon"&&(optimizer_hidden_matrix(w)||(c.factorwise_lora&&optimizer_factor_hidden_matrix(w)));
+}
 static T*optimizer_mm(Graph&g,T*a,T*b){auto*y=ggml_mul_mat(g.ctx.p,a,b);ggml_mul_mat_set_prec(y,GGML_PREC_F32);return y;}
 static T*optimizer_polar(Graph&g,T*x,const OptimizerConfig&c,uint64_t step){
     auto*ctx=g.ctx.p;const bool transpose=x->ne[1]>x->ne[0];
@@ -95,7 +98,7 @@ struct OptimizerBlock {
     OptimizerBlock(Block&b,const OptimizerConfig&c):device(b.device){
         for(auto[w,dw]:b.trainable()){
             const bool factor=c.factorwise_lora&&optimizer_factor_hidden_matrix(w);
-            bool muon=c.kind=="muon"&&(optimizer_hidden_matrix(w)||factor);
+            bool muon=optimizer_uses_muon(w,c);
             auto*m=ggml_dup_tensor(ctx.p,w);ggml_set_name(m,(std::string(w->name)+".opt_m").c_str());
             T*v=muon?nullptr:ggml_dup_tensor(ctx.p,w);if(v)ggml_set_name(v,(std::string(w->name)+".opt_v").c_str());
             states.push_back({w,dw,m,v,muon,factor?"hidden_matrix_lora_factor":optimizer_role(w)});

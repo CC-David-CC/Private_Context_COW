@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE",
+  "scope": "Original frozen MiniCPM base and practice; persistent two-GPU admission only",
+  "physical_gpu_indices": [
+    2,
+    3
+  ],
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 6228649728,
+          "admission_estimate": 59685289984,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 65913939712,
+          "device": "CUDA0",
+          "free": 74828611584,
+          "host_graph_allowance": 204056681048,
+          "persistent": 56472453120,
+          "reserve": 1073741824,
+          "scratch_allowance": 2139095040,
+          "total": 85093777408
+        },
+        {
+          "activation_allowance": 18896103168,
+          "admission_estimate": 72721211392,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 91617314560,
+          "device": "CUDA1",
+          "free": 84646100992,
+          "host_graph_allowance": 204056681048,
+          "persistent": 65163059200,
+          "reserve": 1073741824,
+          "scratch_allowance": 6484410368,
+          "total": 85093777408
+        }
+      ]
+    },
+    {
+      "optimizer": "muon",
+      "status": "PERSISTENT_ADMISSION_PASS",
+      "memory_plan": [
+        {
+          "activation_allowance": 6228649728,
+          "admission_estimate": 46825553920,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 53054203648,
+          "device": "CUDA0",
+          "free": 74828611584,
+          "host_graph_allowance": 204056681048,
+          "persistent": 43612717056,
+          "reserve": 1073741824,
+          "scratch_allowance": 2139095040,
+          "total": 85093777408
+        },
+        {
+          "activation_allowance": 18896103168,
+          "admission_estimate": 59861475328,
+          "admission_stage": "persistent-and-host; graph checked before allocation",
+          "admitted": true,
+          "conservative_estimate": 78757578496,
+          "device": "CUDA1",
+          "free": 84646100992,
+          "host_graph_allowance": 204056681048,
+          "persistent": 52303323136,
+          "reserve": 1073741824,
+          "scratch_allowance": 6484410368,
+          "total": 85093777408
+        }
+      ]
+    }
+  ]
+}

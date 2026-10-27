@@ -6,15 +6,16 @@ from tools.pcc_native_training import execute_native,sha256
 from tools.gguf_reader import GGUFFile
 from experimental.native_training.make_llama_fixture import make_fixture
 
-def run(executable,output,device='CPU',optimizer='adamw',factorwise=False):
+def run(executable,output,device='CPU',optimizer='adamw',factorwise=False,rank=2):
     root=Path(output);root.mkdir(mode=0o700,parents=True,exist_ok=False)
     model=make_fixture(root/'base.gguf');base_hash=sha256(model)
     example=dict(id='owned',tokens=[0,1,2,3],targets=[1,2,3,4],
         loss_mask=[False,True,True,True],verified=True,provenance_sha256='b'*64)
-    common=dict(model=str(model),base_sha256=base_hash,mode='lora',rank=2,
+    common=dict(model=str(model),base_sha256=base_hash,mode='lora',rank=rank,
         devices=[device],sequence_profile='dense-llama-short-v1',memory_profile='allocator-v1',
         device_budget_bytes={device:4<<30},reserve_bytes=128<<20,host_reserve_bytes=128<<20,
         examples=[example],deadline_seconds=120)
+    if rank>256:common['lora_rank_profile']='extended-4096-v1'
     training=dict(common,optimizer=optimizer,optimizer_settings=dict(schema=1),
         optimizer_state_mode='fresh',learning_rate=.001,batch_size=1,steps=3)
     if factorwise:training['lora_update_space']='factorwise-v1'
@@ -49,6 +50,7 @@ def run(executable,output,device='CPU',optimizer='adamw',factorwise=False):
         if kind=='merged':
             config.update(model=str(merged),base_sha256=sha256(merged),mode='full')
             config.pop('initial_adapter');config.pop('initial_adapter_sha256')
+            config.pop('lora_rank_profile',None);config['rank']=4
         result=native(kind,config);losses.append(result['losses'][0])
         logits.append(np.fromfile(root/(kind+'-logits.bin'),dtype='<f4'))
     error=float(np.max(np.abs(logits[0]-logits[1])))
@@ -57,7 +59,7 @@ def run(executable,output,device='CPU',optimizer='adamw',factorwise=False):
         native('refused-'+str(index),dict(request,**change),'--merge-adapter',success=False)
     assert sha256(model)==base_hash and sha256(trained['candidate_path'])==trained['candidate_sha256']
     result=dict(schema=1,status='PASS',scope='Tiny native merge mechanics, not real-model LoRA qualification',
-        device=device,optimizer=optimizer,factorwise=factorwise,native_f32_merge=True,merged_tensors=len(actual),
+        device=device,rank=rank,optimizer=optimizer,factorwise=factorwise,native_f32_merge=True,merged_tensors=len(actual),
         independent_FP64_weight_max_error=worst,adapter_vs_merged_loss_error=abs(losses[0]-losses[1]),
         adapter_vs_merged_logit_max_error=error,actual_tensor_storage='F32',refusal_cases=3,promoted=False)
     (root/'result.json').write_text(json.dumps(result,indent=2)+'\n');return result
@@ -66,4 +68,5 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--executable',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='CPU')
     p.add_argument('--optimizer',choices=['adamw','muon'],default='adamw');p.add_argument('--factorwise',action='store_true')
-    a=p.parse_args();print(json.dumps(run(a.executable,a.output,a.device,a.optimizer,a.factorwise)))
+    p.add_argument('--rank',type=int,default=2)
+    a=p.parse_args();print(json.dumps(run(a.executable,a.output,a.device,a.optimizer,a.factorwise,a.rank)))

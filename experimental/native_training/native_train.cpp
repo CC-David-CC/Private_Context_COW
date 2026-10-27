@@ -474,7 +474,7 @@ struct Chain {
     std::vector<std::unique_ptr<Block>> blocks;
     bool full;int rank;int maximum_sequence=8192;bool efficient_sequence=false;bool dense_action_graph=false;bool selected_loss_head=false;bool recompute_attention=false;
     Chain(const Geometry&geometry,const std::vector<std::string>&names,bool train_full,int r,const std::vector<int>&placement={}):h(geometry),full(train_full),rank(r){
-        need(!names.empty()&&rank>0&&rank<=256,"Explicit devices and bounded positive rank required");
+        need(!names.empty()&&rank>0&&rank<=4096,"Explicit devices and bounded positive rank required");
         need(std::set<std::string>(names.begin(),names.end()).size()==names.size(),"Duplicate training devices are forbidden");
         need(names.size()==1||std::find(names.begin(),names.end(),"CPU")==names.end(),"CPU training uses one CPU backend; mixed CPU/CUDA placement is not qualified");
         for(auto&name:names)devices.push_back(std::make_unique<Device>(name));
@@ -584,6 +584,11 @@ struct Chain {
         }
     }
 };
+static void validate_rank_profile(const json&config){
+    bool extended=config.contains("lora_rank_profile");
+    if(extended)need(config.at("lora_rank_profile")=="extended-4096-v1"&&config.value("mode",std::string())=="lora","Unknown or incompatible extended rank profile");
+    need(config.value("rank",4)>0&&config.value("rank",4)<=(extended?4096:256),"Explicit bounded rank profile required");
+}
 #include "native_optimizer.h"
 #include "optimizer_state.h"
 
@@ -802,6 +807,7 @@ struct GGUFSource {
     }
 };
 static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
+    validate_rank_profile(config);
     const auto optimizer_config=OptimizerConfig::parse(config);
     std::map<std::string,size_t>persistent,scratch,activations;
     size_t length=0,labels=0;for(auto&e:config.at("examples")){
@@ -814,7 +820,7 @@ static json memory_plan(Chain&model,const json&config,bool inspect_only=false){
         size_t train=0;for(auto[w,dw]:b->trainable())train+=ggml_nbytes(dw);
         for(auto&[name,p]:b->params)if(p.a)bytes+=ggml_nbytes(p.a)+ggml_nbytes(p.b);
         size_t optimizer_bytes=0;
-        if(optimizer_config.kind!="sgd")for(auto[w,dw]:b->trainable())optimizer_bytes+=ggml_nbytes(w)*((optimizer_config.kind=="muon"&&optimizer_hidden_matrix(w))?1:2);
+        if(optimizer_config.kind!="sgd")for(auto[w,dw]:b->trainable())optimizer_bytes+=ggml_nbytes(w)*(optimizer_uses_muon(w,optimizer_config)?1:2);
         persistent[b->device.name]+=bytes+train+optimizer_bytes;scratch[b->device.name]=std::max(scratch[b->device.name],bytes*2);
         size_t active=0;
         if(index>0&&index+1<model.blocks.size()){
@@ -912,6 +918,7 @@ static void save_candidate(Chain&model,GGUFSource&source,const std::string&path,
     gguf_free(out);
 }
 static json merge_adapter_model(const json&config){
+    validate_rank_profile(config);
     const int deadline=config.value("deadline_seconds",3600);need(deadline>=1&&deadline<=3600,"Bounded merge lifecycle deadline required");alarm(unsigned(deadline));
     const std::string base=config.at("model"),adapter=config.at("initial_adapter"),output=config.at("candidate");
     need(native_file_sha256(base)==config.at("base_sha256")&&native_file_sha256(adapter)==config.at("initial_adapter_sha256"),"Pinned base/adapter hash mismatch");
@@ -974,6 +981,7 @@ static json train_model(const json&config){
     }
 
     need(config.value("backprop_mode",std::string("standard"))=="standard","This entry point requires ordinary end-to-end backpropagation");
+    validate_rank_profile(config);
     const auto optimizer_config=OptimizerConfig::parse(config);
     if(optimizer_config.kind!="sgd"){
         need(config.value("optimizer_state_mode",std::string())=="fresh"||config.value("optimizer_state_mode",std::string())=="resume","Explicit fresh/resume optimizer state mode required");

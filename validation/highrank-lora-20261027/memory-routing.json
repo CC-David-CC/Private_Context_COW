@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Persistent memory routing checked against completed tiny-model artifacts",
+  "cases": [
+    {
+      "optimizer": "adamw",
+      "status": "PASS",
+      "persistent_bytes": 9110960,
+      "optimizer_state_bytes": 4554752,
+      "model_weights_loaded": false
+    },
+    {
+      "optimizer": "muon",
+      "status": "PASS",
+      "persistent_bytes": 7013808,
+      "optimizer_state_bytes": 2457600,
+      "model_weights_loaded": false
+    }
+  ]
+}

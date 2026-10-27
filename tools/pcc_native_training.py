@@ -72,6 +72,15 @@ def validate_optimizer_request(request):
         if any(k not in request for k in ('initial_optimizer_state','initial_optimizer_state_sha256','example_cursor')):raise ValueError('Complete pinned optimizer resume request required')
     return kind
 
+def validate_lora_rank(request):
+    extended='lora_rank_profile' in request
+    if extended and (request['lora_rank_profile']!='extended-4096-v1' or request.get('mode')!='lora'):
+        raise ValueError('Extended rank profile requires explicit LoRA mode')
+    rank=request.get('rank',4)
+    if type(rank) is not int or not 1<=rank<=(4096 if extended else 256):
+        raise ValueError('Explicit bounded LoRA rank required')
+    return rank
+
 LLAMA_DENSE_PROFILES=('dense-llama-short-v1','dense-llama-action-8k-v1','dense-llama-action-selected-head-8k-v1','dense-llama-action-recompute-8k-v1')
 SEQUENCE_PROFILES={'short-v1':8192,'tiny-cpu-long-v1':32768,'dense-short-v1':512,
                    'dense-llama-short-v1':512,'dense-llama-action-8k-v1':8192,
@@ -238,9 +247,7 @@ def execute_native(executable,request,run_directory,*,timeout=3600,environment=N
         raise ValueError('Explicit LoRA or direct full-weight update required')
     optimizer_kind=validate_optimizer_request(request)
     timed=validate_training_budget_request(request)
-    rank=request.get('rank',4)
-    if type(rank) is not int or not 0<rank<=256:
-        raise ValueError('Explicit bounded LoRA rank required')
+    rank=validate_lora_rank(request)
     if type(request.get('learning_rate')) not in (int,float) or not math.isfinite(request['learning_rate']) or request['learning_rate']<=0:
         raise ValueError('Positive finite learning rate required')
     base=Path(request['model']).resolve(strict=True)

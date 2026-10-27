@@ -296,7 +296,13 @@ class LessonService:
                 if type(ids) is not list or not 1<=len(ids)<=4096 or len(set(ids))!=len(ids):raise ValueError('Select 1â€“4096 distinct lesson IDs')
                 for identity in ids:self._lesson(identity)
                 if request['mode'] not in ('lora','full'):raise ValueError('Explicit LoRA or full mode required')
-                for key,maximum in [('batch_size',128),('steps',self.max_steps),('rank',256)]:
+                rank_limit=256
+                if 'optimizer_profile_id' in request:
+                    validate_optimizer=getattr(self.runner,'validate_optimizer_request',None)
+                    if validate_optimizer is None:raise ValueError('Native optimizer profiles are not configured on this runner')
+                    selected_profile=validate_optimizer(request)
+                    if selected_profile and selected_profile['schema']==4:rank_limit=4096
+                for key,maximum in [('batch_size',128),('steps',self.max_steps),('rank',rank_limit)]:
                     if type(request[key]) is not int or not 1<=request[key]<=maximum:raise ValueError('Invalid '+key)
                 if request['steps']<(len(ids)+request['batch_size']-1)//request['batch_size']:
                     raise ValueError('Step budget must cover every selected lesson at least once')
@@ -417,6 +423,7 @@ class NativeRunner:
         if profile:
             native.update(optimizer=profile['optimizer'],optimizer_settings=profile['optimizer_settings'],optimizer_state_mode=profile['state_policy'])
             if 'lora_update_space' in profile:native['lora_update_space']=profile['lora_update_space']
+            if 'lora_rank_profile' in profile:native['lora_rank_profile']=profile['lora_rank_profile']
             if profile['training_budget_seconds'] is not None:native['training_budget_seconds']=profile['training_budget_seconds']
             if profile['state_policy']=='resume':
                 if parent is None or parent.get('mode')!=request['mode']:raise ValueError('Completed same-mode parent required for optimizer resume')

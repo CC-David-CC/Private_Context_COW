@@ -27,6 +27,9 @@ def _effective_settings(config):
     knobs to an algorithm that does not use them; never silently discard a
     non-default value. The native loader still checks the entire canonical state.
     """
+    config=deepcopy(config)
+    if 'lora_update_space' in config:
+        if config.pop('lora_update_space')!='factorwise-v1':raise ValueError('Unknown saved LoRA update space')
     defaults=dict(schema=1,optimizer='adamw',precision='native-f32-v1',learning_rate=0,
         aux_learning_rate=struct.unpack('<f',struct.pack('<f',.0003))[0],
         beta1=0,beta2=0,epsilon=0,momentum=struct.unpack('<f',struct.pack('<f',.95))[0],
@@ -189,11 +192,13 @@ def resolve_parent(reference,version_file,profile_file,*,artifact_roots,state_po
         if base_metadata.get('general.architecture')!='llama' or base_metadata.get('general.type')=='adapter':
             raise ValueError('LoRA requires an actual complete ordinary-Llama base')
         alpha=meta.get('adapter.lora.alpha')
+        factorwise=receipt.get('optimizer_checkpoint',{}).get('config',{}).get('lora_update_space')=='factorwise-v1'
         if (meta.get('general.type')!='adapter' or meta.get('adapter.type')!='lora'
-                or type(alpha) not in (int,float) or not math.isfinite(alpha) or not 1<=alpha<=256 or int(alpha)!=alpha):
+                or type(alpha) not in (int,float) or not math.isfinite(alpha) or not 1<=alpha<=(4096 if factorwise else 256) or int(alpha)!=alpha):
             raise ValueError('Native LoRA rank/alpha metadata required')
         fields=dict(mode='lora',model=str(model),base_sha256=version['base_sha256'],
                     initial_adapter=str(candidate),initial_adapter_sha256=version['candidate_sha256'],rank=int(alpha))
+        if alpha>256:fields['lora_rank_profile']='extended-4096-v1'
     # Reuse PCC's COW identity implementation, never a second hash convention.
     execution=template['execution'];gpu=execution['GPU']
     if type(gpu) is not list or len(gpu)!=1:raise ValueError('Existing single-device dense identity template required')
@@ -222,12 +227,16 @@ def resolve_parent(reference,version_file,profile_file,*,artifact_roots,state_po
                 or state['dataset_sha256']!=saved.get('dataset_sha256')
                 or state['dataset_sha256']!=optimizer_dataset_sha256(checked)
                 or config!=saved.get('config') or config.get('optimizer')!=receipt.get('optimizer')
-                or config.get('optimizer') not in ('adamw','muon') or (mode=='lora' and config['optimizer']!='adamw')):
+                or config.get('optimizer') not in ('adamw','muon')
+                or (mode=='lora' and config['optimizer']!='adamw' and config.get('lora_update_space')!='factorwise-v1')):
             raise ValueError('Exact optimizer candidate, recipe, practice stream and cursor must agree')
         state_fields=dict(optimizer=config['optimizer'],learning_rate=config['learning_rate'],
             optimizer_settings=_effective_settings(config),
             optimizer_state_mode='resume',initial_optimizer_state=str(p),
             initial_optimizer_state_sha256=version['optimizer_state_sha256'],example_cursor=state['example_cursor'])
+        if 'lora_update_space' in config:
+            if mode!='lora':raise ValueError('Saved factorwise state requires LoRA mode')
+            state_fields['lora_update_space']=config['lora_update_space']
         state_summary=dict(sha256=version['optimizer_state_sha256'],completed_steps=state['completed_steps'],
                            example_cursor=state['example_cursor'],dataset_sha256=state['dataset_sha256'])
     inputs.unchanged()

@@ -27,8 +27,10 @@ class LearningRuns:
             training=descriptor['training']
             if set(training)!={'mode','rank','batch_size','steps','learning_rate','optimizer_profile_id'}:
                 raise ValueError('Explicit registered training recipe required')
+            profile=service.runner.validate_optimizer_request(dict(training,parent_job_id=None))
+            rank_limit=4096 if profile and profile['schema']==4 else 256
             if any(type(training[k]) is not int or not 1<=training[k]<=maximum
-                    for k,maximum in [('rank',256),('batch_size',128),('steps',service.max_steps)]):
+                    for k,maximum in [('rank',rank_limit),('batch_size',128),('steps',service.max_steps)]):
                 raise ValueError('Learning policy exceeds owner native step/batch/rank limits')
             profile=service.runner.validate_optimizer_request(dict(training,parent_job_id=None))
             if profile is None or profile['state_policy']!='fresh':
