@@ -3,52 +3,80 @@ from pathlib import Path
 import argparse,hashlib,json,os,re,shlex,stat,subprocess
 
 REMOTE=r'''
+def require(value,message):
+ if not value:raise ValueError(message)
 from pathlib import Path
-import hashlib,json,os,shutil,stat,subprocess,sys
-os.umask(0o077)
-s=json.loads(sys.argv[1]);mount=Path(s['mount']);target=Path(s['destination'])
-assert mount.is_absolute() and mount.resolve(strict=True)==mount
-device=json.loads(subprocess.check_output(['findmnt','-J','-o','TARGET,UUID','--mountpoint',str(mount)],text=True))['filesystems'][0]
-assert device['target']==str(mount) and device['uuid']==s['mount_uuid'],'Archive mount identity differs'
-assert target.is_absolute() and target!=mount and target.is_relative_to(mount)
-assert target.resolve()==target,'Archive path contains a link or parent traversal'
-target.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
-assert target.parent.stat().st_uid==os.getuid(),'Archive directory is not owned by this account'
-pending=target.with_name(target.name+'.partial');receipt=target.with_name(target.name+'.archive.json')
+import hashlib, json, os, shutil, stat, subprocess, sys
+os.umask(63)
+s = json.loads(sys.argv[1])
+mount = Path(s['mount'])
+target = Path(s['destination'])
+require(mount.is_absolute() and mount.resolve(strict=True) == mount, 'Archive invariant failed')
+device = json.loads(subprocess.check_output(['findmnt', '-J', '-o', 'TARGET,UUID', '--mountpoint', str(mount)], text=True))['filesystems'][0]
+require(device['target'] == str(mount) and device['uuid'] == s['mount_uuid'], 'Archive mount identity differs')
+require(target.is_absolute() and target != mount and target.is_relative_to(mount), 'Archive invariant failed')
+require(target.resolve() == target, 'Archive path contains a link or parent traversal')
+target.parent.mkdir(parents=True, exist_ok=True, mode=448)
+require(target.parent.stat().st_uid == os.getuid(), 'Archive directory is not owned by this account')
+pending = target.with_name(target.name + '.partial')
+receipt = target.with_name(target.name + '.archive.json')
+
 def regular(p):
- st=p.lstat();assert stat.S_ISREG(st.st_mode) and st.st_uid==os.getuid();return st
+    st = p.lstat()
+    require(stat.S_ISREG(st.st_mode) and st.st_uid == os.getuid(), 'Archive invariant failed')
+    return st
+
 def sha(p):
- with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+    with p.open('rb') as f:
+        return hashlib.file_digest(f, 'sha256').hexdigest()
+
 def syncdir():
- fd=os.open(target.parent,os.O_RDONLY|os.O_DIRECTORY)
- try:os.fsync(fd)
- finally:os.close(fd)
+    fd = os.open(target.parent, os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
 if target.exists() or receipt.exists():
- assert target.exists() and receipt.exists(),'Incomplete archive publication; inspect original copy'
- assert regular(target).st_size==s['bytes'];regular(receipt)
- value=json.loads(receipt.read_bytes())
- assert value['sha256']==s['sha256'] and value['bytes']==s['bytes'] and value['destination']==str(target)
- assert value['mount_uuid']==s['mount_uuid'] and value['status']=='VERIFIED_ARCHIVE'
- assert sha(target)==s['sha256'],'Archived bytes differ from their receipt'
- value['reused']=True;print(json.dumps(value));sys.exit(0)
-assert not pending.exists() and not pending.is_symlink(),'Original transfer is incomplete; never overwrite it'
-assert shutil.disk_usage(mount).free>=s['bytes']+(1<<20),'Archive storage admission refused'
-if s['action']=='probe':print(json.dumps(dict(status='READY')));sys.exit(0)
-assert s['action']=='store'
+    require(target.exists() and receipt.exists(), 'Incomplete archive publication; inspect original copy')
+    require(regular(target).st_size == s['bytes'], 'Archive invariant failed')
+    regular(receipt)
+    value = json.loads(receipt.read_bytes())
+    require(value['sha256'] == s['sha256'] and value['bytes'] == s['bytes'] and (value['destination'] == str(target)), 'Archive invariant failed')
+    require(value['mount_uuid'] == s['mount_uuid'] and value['status'] == 'VERIFIED_ARCHIVE', 'Archive invariant failed')
+    require(sha(target) == s['sha256'], 'Archived bytes differ from their receipt')
+    value['reused'] = True
+    print(json.dumps(value))
+    sys.exit(0)
+require(not pending.exists() and (not pending.is_symlink()), 'Original transfer is incomplete; never overwrite it')
+require(shutil.disk_usage(mount).free >= s['bytes'] + (1 << 20), 'Archive storage admission refused')
+if s['action'] == 'probe':
+    print(json.dumps(dict(status='READY')))
+    sys.exit(0)
+require(s['action'] == 'store', 'Archive invariant failed')
 with pending.open('xb') as f:
- remaining=s['bytes']
- while remaining:
-  chunk=sys.stdin.buffer.read(min(4<<20,remaining));assert chunk,'Truncated archive input'
-  f.write(chunk);remaining-=len(chunk)
- assert not sys.stdin.buffer.read(1),'Archive input exceeds pinned size'
- f.flush();os.fsync(f.fileno())
-assert regular(pending).st_size==s['bytes'] and sha(pending)==s['sha256'],'Archive byte verification failed'
-value=dict(schema=1,status='VERIFIED_ARCHIVE',destination=str(target),mount_uuid=s['mount_uuid'],
- sha256=s['sha256'],bytes=s['bytes'],reused=False,source_retired=False)
-os.link(pending,target);pending.unlink();syncdir()
-temporary=receipt.with_name(receipt.name+'.partial')
-with temporary.open('x') as f:json.dump(value,f,sort_keys=True);f.write('\n');f.flush();os.fsync(f.fileno())
-os.link(temporary,receipt);temporary.unlink();syncdir()
+    remaining = s['bytes']
+    while remaining:
+        chunk = sys.stdin.buffer.read(min(4 << 20, remaining))
+        require(chunk, 'Truncated archive input')
+        f.write(chunk)
+        remaining -= len(chunk)
+    require(not sys.stdin.buffer.read(1), 'Archive input exceeds pinned size')
+    f.flush()
+    os.fsync(f.fileno())
+require(regular(pending).st_size == s['bytes'] and sha(pending) == s['sha256'], 'Archive byte verification failed')
+value = dict(schema=1, status='VERIFIED_ARCHIVE', destination=str(target), mount_uuid=s['mount_uuid'], sha256=s['sha256'], bytes=s['bytes'], reused=False, source_retired=False)
+os.link(pending, target)
+pending.unlink()
+syncdir()
+temporary = receipt.with_name(receipt.name + '.partial')
+with temporary.open('x') as f:
+    json.dump(value, f, sort_keys=True)
+    f.write('\n')
+    f.flush()
+    os.fsync(f.fileno())
+os.link(temporary, receipt)
+temporary.unlink()
+syncdir()
 print(json.dumps(value))
 '''
 
