@@ -606,6 +606,11 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 if path=='/cow/grammars' and grammar_catalog is None:
                     return self.json(404,{'error':'Grammar registration not enabled'})
                 data=self.body(grammar=path=='/cow/grammars')
+                if path=='/cow/text/context-preflight':
+                    if text_adapter is None:return self.json(404,{'error':'Text adapter not configured'})
+                    if urlsplit(self.path).query or set(data)!={'branch','revision','snapshot','mode','content','max_tokens'}:
+                        raise ValueError('Exact context preflight fields required')
+                    return self.json(200,text_adapter.context_preflight(**data))
                 if path in ('/cow/cancel','/cow/pause'):
                     if set(data)!={'operation_id'}:
                         raise ValueError('Request control requires only operation_id')

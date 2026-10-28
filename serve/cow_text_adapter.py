@@ -705,6 +705,59 @@ class CowTextAdapter:
         return self.token_adapter.create(branch,ids,operation_id,presentation=presentation,
             **({} if cancelled is None else {'cancelled':cancelled}))
 
+    def context_preflight(self, branch, revision, snapshot, mode, content, max_tokens):
+        """Count a text request against a pinned snapshot without dispatching it."""
+        if (type(revision) is not int or revision<0 or type(snapshot) is not str
+                or mode not in ('answer','ask','append_user','continue')
+                or type(max_tokens) is not int or max_tokens<=0):
+            raise UnsupportedTextRequest('Invalid context preflight request')
+        if mode in ('ask','append_user'):
+            if type(content) is not str or len(content.encode('utf-8'))>262144:
+                raise UnsupportedTextRequest('Bounded text content required')
+        elif content is not None:
+            raise UnsupportedTextRequest('This mode cannot append content')
+        budget=self.token_adapter.context_budget(branch)
+        if budget['revision']!=revision or budget['snapshot']!=snapshot:
+            raise Conflict('Context preflight source changed')
+        store=self.token_adapter.coordinator.store
+        head=store.head(branch)
+        with store.read_lease(snapshot):
+            canonical=history_for_snapshot(store,snapshot)
+            controller=store.get_snapshot(snapshot)['controller']
+            if not isinstance(controller,dict):
+                raise UnsupportedTextRequest('Snapshot controller is unavailable')
+            state=controller.get('status')
+            if mode=='answer':
+                if state!='idle' or self._root_mode_for_source(head,canonical,controller)!='prepared_answer':
+                    raise UnsupportedTextRequest('Initial answer requires a prepared prompt')
+                suffix=()
+            elif mode=='continue':
+                if state!='active':raise UnsupportedTextRequest('Continue requires an active controller')
+                suffix=()
+            elif mode=='ask':
+                if (state!='idle' or not callable(self.append_initial_user_suffix)
+                        or self._root_mode_for_source(head,canonical,controller)!='context_only'):
+                    raise UnsupportedTextRequest('First question requires a qualified context root')
+                suffix=tuple(self.append_initial_user_suffix(self._text_tail(canonical),controller,content))
+            else:
+                if state!='stopped' or not callable(self.append_user_suffix):
+                    raise UnsupportedTextRequest('Next question requires a completed turn')
+                suffix=tuple(self.append_user_suffix(self._text_tail(canonical),controller,content))
+            if mode in ('ask','append_user') and not suffix:
+                raise UnsupportedTextRequest('Question suffix must not be empty')
+            if len(canonical)!=budget['used_tokens']:
+                raise Conflict('Context preflight snapshot differs from budget')
+        current=store.head(branch)
+        if current.revision!=revision or current.tip!=snapshot:
+            raise Conflict('Context preflight source changed')
+        available=budget['remaining_tokens']-len(suffix)
+        return dict(schema=1,branch=branch,revision=revision,snapshot=snapshot,
+            model_contract_id=budget['model_contract_id'],execution_profile_id=budget['execution_profile_id'],
+            mode=mode,content_sha256=None if content is None else hashlib.sha256(content.encode('utf-8')).hexdigest(),
+            capacity_tokens=budget['capacity_tokens'],used_tokens=budget['used_tokens'],
+            input_tokens=len(suffix),requested_output_tokens=max_tokens,
+            available_output_tokens=max(0,available),fits=available>=max_tokens)
+
     def answer(self, branch, revision, operation_id, max_tokens, *, settings=None, cancelled=None,
                grammar_state=None, seed=None, text_stops=None):
         """Answer the prepared first prompt without rendering its history again."""

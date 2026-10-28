@@ -111,6 +111,47 @@ class PersistedTextStatusTests(unittest.TestCase):
   del model.profile['execution']['capacity']
   with self.assertRaises(urllib.error.HTTPError) as unavailable:urllib.request.urlopen(req,timeout=5)
   self.assertEqual(unavailable.exception.code,409)
+ def test_text_preflight_counts_boundary_and_rejects_stale_snapshot(self):
+  self.root_commit();c=self.case;model=c.models[0];head=c.coordinator.store.head('chat')
+  from context_time_travel.input_spans import history_for_snapshot
+  count=len(history_for_snapshot(c.coordinator.store,head.tip));model.profile['execution']['capacity']=count+8
+  self.lookup('unknown-operation');before=dict(model.stats)
+  url='http://127.0.0.1:'+str(self.server.server_port)+'/cow/text/context-preflight'
+  def post(data):
+   request=urllib.request.Request(url,data=json.dumps(data).encode(),headers={'Authorization':'Bearer status-key','Content-Type':'application/json'})
+   with urllib.request.urlopen(request,timeout=5) as response:return json.load(response)
+  body=dict(branch='chat',revision=head.revision,snapshot=head.tip,mode='answer',content=None,max_tokens=8)
+  value=post(body);self.assertTrue(value['fits']);self.assertEqual(value['input_tokens'],0)
+  self.assertEqual(value['available_output_tokens'],8)
+  body['max_tokens']=9;self.assertFalse(post(body)['fits'])
+  body['snapshot']='0'*64
+  with self.assertRaises(urllib.error.HTTPError) as stale:post(body)
+  self.assertEqual(stale.exception.code,409)
+  self.assertEqual(model.stats,before);self.assertEqual(c.coordinator.store.head('chat'),head)
+ def test_text_preflight_counts_actual_next_user_suffix(self):
+  self.root_commit();c=self.case;head=c.coordinator.store.head('chat')
+  c.text.answer('chat',head.revision,'answer-op',1).durable.result(5)
+  head=c.coordinator.store.head('chat');c.models[0].profile['execution']['capacity']=1024
+  before=dict(c.models[0].stats);continuation=c.text.context_preflight('chat',head.revision,head.tip,'continue',None,2)
+  self.assertEqual(continuation['input_tokens'],0);self.assertTrue(continuation['fits']);self.assertEqual(c.models[0].stats,before)
+  c.text.resume('chat',head.revision,'resume-op',2).durable.result(5)
+  head=c.coordinator.store.head('chat');model=c.models[0];model.profile['execution']['capacity']=1024
+  from context_time_travel.input_spans import history_for_snapshot
+  canonical=history_for_snapshot(c.coordinator.store,head.tip);controller=c.coordinator.store.get_snapshot(head.tip)['controller']
+  content='A literal question with spaces.\n';expected=c.text.append_user_suffix(canonical,controller,content)
+  before=dict(model.stats);result=c.text.context_preflight('chat',head.revision,head.tip,'append_user',content,1)
+  self.assertEqual(result['input_tokens'],len(expected));self.assertTrue(result['fits'])
+  self.assertEqual(model.stats,before);self.assertEqual(c.coordinator.store.head('chat'),head)
+ def test_text_preflight_counts_initial_question_suffix(self):
+  c=self.case;c.text.create('code-a',[{'role':'user','content':'saved context'}],
+   'code-root',namespace_id=c.namespace1).durable.result(5)
+  model=c.models[0];model.profile['execution']['capacity']=1024;head=c.coordinator.store.head('code-a')
+  from context_time_travel.input_spans import history_for_snapshot
+  canonical=history_for_snapshot(c.coordinator.store,head.tip);controller=c.coordinator.store.get_snapshot(head.tip)['controller']
+  content='First question';expected=c.text.append_initial_user_suffix(canonical,controller,content)
+  before=dict(model.stats);result=c.text.context_preflight('code-a',head.revision,head.tip,'ask',content,1)
+  self.assertEqual(result['input_tokens'],len(expected));self.assertTrue(result['fits'])
+  self.assertEqual(model.stats,before);self.assertEqual(c.coordinator.store.head('code-a'),head)
  def test_commit_then_failure_is_recovered_as_durable_after_reconstruction(self):
   self.root_commit();c=self.case;head=c.coordinator.store.head('chat');model=c.models[0]
   save=model.save_prepared_branch

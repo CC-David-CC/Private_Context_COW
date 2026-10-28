@@ -32,3 +32,17 @@ Remaining space is measured before a new user input is rendered and tokenized.
 That input and the requested output must both fit. This query does not count a
 future input, shorten a request, compact history or establish support for any
 particular context length. Those actions require their own verified policies.
+
+For a text request, an authenticated client can instead POST the exact fields
+`branch`, `revision`, `snapshot`, `mode`, `content`, and `max_tokens` to
+`/cow/text/context-preflight`. Modes are `answer`, `ask`, `append_user`, and
+`continue`; content is text for the two question modes and null otherwise. The
+server uses the configured suffix encoder and returns the input token count,
+available output space and `fits`, together with the source/profile identities
+and a content digest. It refuses a changed source and never dispatches model
+work. Image inputs are not supported by this preflight.
+
+This is a capacity observation, not authorization to generate: the caller must
+still use the same source, content and request budget, and the ordinary request
+checks remain authoritative. The preflight does not silently shorten output or
+compact a conversation. Keep request content and diagnostic responses private.
