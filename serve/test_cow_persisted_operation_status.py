@@ -27,13 +27,13 @@ class PersistedTextStatusTests(unittest.TestCase):
   c=self.case;c.text.prepare('chat',[dict(role='user',content='hello')],'root-op',namespace_id=c.namespace1).durable.result(5)
   head=c.coordinator.store.head('chat');request=c.text.answer('chat',head.revision,'answer-op',1);receipt=request.durable.result(5)
   self.assertEqual(request.text_result(),'hi');return receipt
- def lookup(self,operation):
+ def lookup(self,operation,path='/cow/operation'):
   if self.server is None:
    self.server=make_server(CowAdapter(self.case.coordinator),api_key='status-key',text_adapter=self.case.text)
    thread=threading.Thread(target=self.server.serve_forever,daemon=True);thread.start()
    def stop():self.server.shutdown();self.server.server_close();thread.join(3)
    self.addCleanup(stop)
-  url='http://127.0.0.1:'+str(self.server.server_port)+'/cow/operation?operation='+operation
+  url='http://127.0.0.1:'+str(self.server.server_port)+path+'?operation='+operation
   request=urllib.request.Request(url,headers={'Authorization':'Bearer status-key'})
   try:
    with urllib.request.urlopen(request,timeout=5) as r:return r.status,json.load(r)
@@ -67,6 +67,26 @@ class PersistedTextStatusTests(unittest.TestCase):
   c.new_coordinator();code,value=self.lookup('failed-answer')
   self.assertEqual(code,404);self.assertNotIn('receipt',value)
   self.assertEqual(c.coordinator.store.head('chat'),head)
+ def test_live_failure_diagnostic_is_read_only_and_process_scoped(self):
+  self.root_commit();c=self.case;head=c.coordinator.store.head('chat')
+  with patch.object(c.models[0],'run_greedy_request',side_effect=RuntimeError('synthetic inference failure')):
+   request=c.text.answer('chat',head.revision,'diagnostic-failure',1)
+   with self.assertRaises(RuntimeError):request.durable.result(5)
+  before=dict(c.models[0].stats)
+  code,value=self.lookup('diagnostic-failure','/cow/operation-diagnostic')
+  self.assertEqual(code,200,value);self.assertEqual(value['state'],'failed')
+  self.assertEqual(value['diagnostic_scope'],'coordinator-process-only')
+  self.assertEqual(value['failure'],dict(type='RuntimeError',message='synthetic inference failure'))
+  self.assertFalse(value['durable']);self.assertEqual(c.models[0].stats,before)
+  self.assertEqual(c.coordinator.store.head('chat'),head)
+  url='http://127.0.0.1:'+str(self.server.server_port)+'/cow/operation-diagnostic?operation=diagnostic-failure'
+  with self.assertRaises(urllib.error.HTTPError) as denied:urllib.request.urlopen(url,timeout=5)
+  self.assertEqual(denied.exception.code,401)
+  code,value=self.lookup('unknown-operation','/cow/operation-diagnostic')
+  self.assertEqual(code,404);self.assertNotIn('failure',value)
+  from context_time_travel.store import NotFound
+  c.new_coordinator()
+  with self.assertRaises(NotFound):c.coordinator.operation_diagnostic('diagnostic-failure')
  def test_commit_then_failure_is_recovered_as_durable_after_reconstruction(self):
   self.root_commit();c=self.case;head=c.coordinator.store.head('chat');model=c.models[0]
   save=model.save_prepared_branch

@@ -3016,6 +3016,23 @@ class ContextCoordinator:
             if durable: result['receipt']=handle.durable.result()
             return result
 
+    def operation_diagnostic(self,operation):
+        """Return private process-local failure details without retrying work.
+
+        This is diagnostic evidence, not a durable failure or abort receipt.
+        A published result can exist even when the live request failed.
+        """
+        with self._condition:
+            status=self.operation_status(operation)
+            handle=self._requests[operation]
+            status['diagnostic_scope']='coordinator-process-only'
+            status['failure']=None
+            if handle.state=='failed' and handle.durable.done() and not handle.durable.cancelled():
+                error=handle.durable.exception()
+                if error is not None:
+                    status['failure']=dict(type=type(error).__name__,message=str(error)[:4096])
+            return status
+
     def pending_request(self,branch):
         """Transient request or retryable publication status for a branch."""
         _name(branch)

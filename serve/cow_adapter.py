@@ -57,6 +57,10 @@ class CowAdapter:
             except NotFound:
                 return self.coordinator.store.evaluation_operation_status(operation_id)
 
+    def operation_diagnostic(self, operation_id):
+        """Private live-process diagnostics; never dispatch or infer abort."""
+        return self.coordinator.operation_diagnostic(operation_id)
+
     def status(self):
         """Return the coordinator's live metrics snapshot without model work."""
         return self.coordinator.metrics()
