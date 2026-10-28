@@ -67,6 +67,22 @@ class PersistedTextStatusTests(unittest.TestCase):
   c.new_coordinator();code,value=self.lookup('failed-answer')
   self.assertEqual(code,404);self.assertNotIn('receipt',value)
   self.assertEqual(c.coordinator.store.head('chat'),head)
+ def test_commit_then_failure_is_recovered_as_durable_after_reconstruction(self):
+  self.root_commit();c=self.case;head=c.coordinator.store.head('chat');model=c.models[0]
+  save=model.save_prepared_branch
+  def commit_then_fail(*args,**kwargs):
+   save(*args,**kwargs)
+   raise RuntimeError('synthetic lost publication acknowledgement')
+  with patch.dict(model.plans,{'commit-then-fail':(257,)}), patch.object(model,'save_prepared_branch',side_effect=commit_then_fail):
+   request=c.text.answer('chat',head.revision,'commit-then-fail',1)
+   with self.assertRaisesRegex(RuntimeError,'synthetic lost publication acknowledgement'):
+    request.durable.result(5)
+  live=c.coordinator.operation_status('commit-then-fail')
+  self.assertEqual(live['state'],'failed');self.assertFalse(live['durable'])
+  c.new_coordinator();code,value=self.lookup('commit-then-fail')
+  self.assertEqual(code,200,value);self.assertTrue(value['durable'])
+  self.assertEqual(value['scope'],'canonical-presentation')
+  self.assertEqual(value['receipt']['branch']['revision'],head.revision+1)
  def test_corrupt_intent_is_rejected_even_with_committed_reference(self):
   self.commit();self.case.new_coordinator();path=Path(self.case.temp.name)/'pool-operations/answer-op.json';record=json.loads(path.read_text());record['intent']['signature']='0'*64;path.write_text(json.dumps(record))
   code,value=self.lookup('answer-op');self.assertEqual(code,409,value);self.assertNotIn('receipt',value)
