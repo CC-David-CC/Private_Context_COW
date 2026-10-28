@@ -146,6 +146,30 @@ They cover explicit inspection/adoption, exact replay and commit crashes,
 busy/inherited locks, strict legacy refusal, altered original/adopted bytes,
 source/configuration/environment drift, numeric and optimizer-state corruption,
 typed hold states, authenticated HTTP, journals, lost acknowledgments and
-completion-only learning reconciliation. Native/model/GPU qualification of this
-combined feature is separate. Default non-opted-in execution retains one native
+completion-only learning reconciliation. GPU and real-model quality
+qualification remain separate. Default non-opted-in execution retains one native
 call and its original request; no reload is inserted there.
+
+### Actual native CPU recovery qualification
+
+One bounded qualification has now exercised the native training and recovery
+path with a generated tiny model. The [sanitized receipt](../validation/native-completion-recovery-20261026/README.md)
+records the exact source and executable hashes.
+
+The native engine performed one full-weight AdamW update on CPU, then an
+independent completion reload. Both commands exited successfully and the
+completion gate passed. A test supervisor then deliberately exited with code
+73 after the native update and reload had finished but before the service
+committed the job as complete. This was an injected interruption, not an
+unexpected machine or training crash.
+
+After restart, the original job was recovered through the actual BW owner
+commands: inspect the completion, explicitly adopt the verified completion,
+and reconcile the same learning round. The run reached `candidate_pending`
+without another native update. Dispatch guards recorded zero attempts during
+recovery. Promotion remained false.
+
+This proves one small CPU mechanics and recovery path. It does not measure
+MiniCPM or Wen answer quality, GPU training, retention, the full 68-update
+comparison, or broad model/backend compatibility. The candidate was left
+pending and was not accepted or exported.
