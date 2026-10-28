@@ -38,7 +38,11 @@ class MiniCPMPromptEncoder(CowPromptEncoder):
             raise ValueError('MiniCPM root prefix is not stable across its new-user frame')
         frame=ids[len(prefix_ids):];text=rendered[len(prefix):]
         tail='<think>\n' if thinking else '<think>\n\n</think>\n\n'
-        expected=('<|im_start|>user\n'+content.strip()+'<|im_end|>\n<|im_start|>assistant\n'+tail)
+        # MiniCPM's template inserts user content verbatim. Preserve leading
+        # and trailing whitespace (including a final newline) in the frame
+        # qualification; trimming here rejects valid requests and would make
+        # the check describe different prompt bytes than the model receives.
+        expected=('<|im_start|>user\n'+content+'<|im_end|>\n<|im_start|>assistant\n'+tail)
         if text!=expected:raise ValueError('MiniCPM new-user template frame differs from its qualified layout')
         start,end=self._control('<|im_start|>'),self._control('<|im_end|>')
         if (frame.count(start[0])!=2 or frame.count(end[0])!=1

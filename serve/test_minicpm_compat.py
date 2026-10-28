@@ -5,6 +5,7 @@ from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
+import tempfile
 import threading
 from types import SimpleNamespace
 import unittest
@@ -169,6 +170,36 @@ class MiniCPMCompatibilityTests(unittest.TestCase):
         with patch('serve.cow_compat.Service.encode_prompt', side_effect=AssertionError('must not encode')) as encode:
             with self.assertRaises(ValueError): f.prepare(chat_request(), 'chat')
             encode.assert_not_called()
+
+    def test_minicpm_new_user_frame_preserves_outer_whitespace(self):
+        from serve.cow_minicpm_prompt import MiniCPMPromptEncoder
+        from serve.frontend import ChatTemplate
+        source = """{{- bos_token }}{%- for message in messages %}{{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>\\n' }}{%- endfor %}{%- if add_generation_prompt %}{{- '<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n' }}{%- endif %}"""
+        class Tokenizer:
+            special_tokens = ['<|im_start|>', '<|im_end|>', '<s>', '</s>']
+            def encode(self, text, parse_special=False, plain=()):
+                if not parse_special:
+                    return [ord(char) for char in text]
+                result = []
+                while text:
+                    matches = [(text.find(token), token) for token in self.special_tokens
+                               if text.find(token) >= 0]
+                    if not matches:
+                        result.extend(ord(char) for char in text)
+                        break
+                    at, token = min(matches)
+                    result.extend(ord(char) for char in text[:at])
+                    result.append(100000 + self.special_tokens.index(token))
+                    text = text[at + len(token):]
+                return result
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'chat_template.jinja'
+            path.write_text(source, encoding='utf-8')
+            encoder = MiniCPMPromptEncoder(Tokenizer(), ChatTemplate(path),
+                                           template_kwargs=dict(enable_thinking=False))
+            for content in ['plain', '  leading and trailing  ', 'task with final newline\n', '\nleading newline']:
+                with self.subTest(content=repr(content)):
+                    self.assertTrue(encoder._user_frame(content))
 
     def test_health_labels_codec_support_without_native_or_quality_claim(self):
         with endpoint('synthetic text') as (f, url):
