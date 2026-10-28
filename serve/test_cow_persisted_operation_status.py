@@ -3,6 +3,7 @@
 These are actual Store/HTTP integration checks, not process-crash/GPU qualification.
 """
 import json,threading,unittest,urllib.request,urllib.error
+from unittest.mock import patch
 from pathlib import Path
 import serve.test_cow_presentation_flow as fixture
 from serve.cow_adapter import CowAdapter
@@ -55,6 +56,17 @@ class PersistedTextStatusTests(unittest.TestCase):
   self.case.new_coordinator();self.assert_read_only_lookup(expected)
  def test_unknown_operation_is_not_a_commit_or_abort_proof(self):
   self.commit();self.case.new_coordinator();before=dict(self.case.models[0].stats);code,value=self.lookup('unknown-operation');self.assertEqual(code,404);self.assertNotIn('receipt',value);self.assertEqual(self.case.models[0].stats,before)
+ def test_failed_generation_status_is_process_local_after_reconstruction(self):
+  self.root_commit();c=self.case;head=c.coordinator.store.head('chat')
+  with patch.object(c.models[0],'run_greedy_request',side_effect=RuntimeError('synthetic inference failure')):
+   request=c.text.answer('chat',head.revision,'failed-answer',1)
+   with self.assertRaisesRegex(RuntimeError,'synthetic inference failure'):request.durable.result(5)
+  live=c.coordinator.operation_status('failed-answer')
+  self.assertEqual(live['state'],'failed');self.assertFalse(live['durable'])
+  self.assertEqual(live['scope'],'coordinator-process')
+  c.new_coordinator();code,value=self.lookup('failed-answer')
+  self.assertEqual(code,404);self.assertNotIn('receipt',value)
+  self.assertEqual(c.coordinator.store.head('chat'),head)
  def test_corrupt_intent_is_rejected_even_with_committed_reference(self):
   self.commit();self.case.new_coordinator();path=Path(self.case.temp.name)/'pool-operations/answer-op.json';record=json.loads(path.read_text());record['intent']['signature']='0'*64;path.write_text(json.dumps(record))
   code,value=self.lookup('answer-op');self.assertEqual(code,409,value);self.assertNotIn('receipt',value)
