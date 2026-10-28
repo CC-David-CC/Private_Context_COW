@@ -13,6 +13,12 @@ class NoModelAdapter:
 
 
 class ConnectionInfoTests(unittest.TestCase):
+    def test_unauthenticated_peer_export_is_still_refused(self):
+        class PeerAdapter:
+            def cache_transfer_enabled(self): return True
+        with self.assertRaisesRegex(ValueError, 'requires an API key'):
+            make_server(PeerAdapter())
+
     def start(self, info=None, **kwargs):
         server = make_server(NoModelAdapter(), api_key="fixture-secret", connection_info=info, **kwargs)
         thread = threading.Thread(target=server.serve_forever, daemon=True)

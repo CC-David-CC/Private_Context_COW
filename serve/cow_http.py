@@ -248,9 +248,10 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
         raise ValueError('Training requires an authenticated, explicitly configured server')
     if host not in ('127.0.0.1','localhost','::1') and not api_key:
         raise ValueError('A public bind requires an API key')
-    transfer_enabled=getattr(adapter,'cache_transfer_enabled',None)
-    if callable(transfer_enabled) and transfer_enabled() and not api_key:
-        raise ValueError('Peer checkpoint export requires an API key')
+    if not api_key:
+        transfer_enabled=getattr(adapter,'cache_transfer_enabled',None)
+        if callable(transfer_enabled) and transfer_enabled():
+            raise ValueError('Peer checkpoint export requires an API key')
     if grammar_catalog is not None:
         if not api_key or text_adapter is None:
             raise ValueError('Grammar registration requires an API key and text adapter')
