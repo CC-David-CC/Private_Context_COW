@@ -3,8 +3,26 @@ import copy
 import hashlib
 import re
 
-POLICIES=('verified_thinking_actions_answer','actions_answer')
+POLICIES=(
+    'verified_thinking_actions_answer','actions_answer','answer_only',
+    'reasoning_and_answer','format_only','answer_and_format',
+    'reasoning_answer_and_format',
+)
+TARGET_KINDS=('thinking','action','answer','format','summary')
 SHA=re.compile(r'[a-f0-9]{64}\Z')
+
+def _is_target(policy,role,kind):
+    if role!='assistant':return False
+    selected={
+        'verified_thinking_actions_answer':{'thinking','action','answer','summary'},
+        'actions_answer':{'action','answer','summary'},
+        'answer_only':{'answer'},
+        'reasoning_and_answer':{'thinking','answer'},
+        'format_only':{'format'},
+        'answer_and_format':{'answer','format'},
+        'reasoning_answer_and_format':{'thinking','answer','format'},
+    }[policy]
+    return kind in selected
 
 def validate_segments_lesson(value):
     required={'schema','title','model_contract_id','segments','target_policy','scope','evidence'}
@@ -23,15 +41,15 @@ def validate_segments_lesson(value):
     for row in rows:
         if type(row) is not dict or set(row)!={'role','kind','rendered','verified','scope'}:raise ValueError('Exact rendered spans required')
         if row['scope']!='practice' or row['role'] not in ('system','user','assistant','tool'):raise ValueError('Evaluation data cannot enter training context')
-        if row['kind'] not in ('instruction','question','observation','thinking','action','answer','summary','framing') or type(row['verified']) is not bool:raise ValueError('Invalid segment')
+        if row['kind'] not in ('instruction','question','observation','thinking','action','answer','format','summary','framing') or type(row['verified']) is not bool:raise ValueError('Invalid segment')
         if type(row['rendered']) is not str or not row['rendered']:raise ValueError('Empty or invalid rendered span')
         total+=len(row['rendered'].encode())
         if total>2*1024*1024:raise ValueError('Rendered lesson exceeds byte budget')
-        selected=row['kind'] in ('thinking','action','answer','summary')
+        selected=row['kind'] in TARGET_KINDS
         if selected and row['role']!='assistant':raise ValueError('Assistant span has wrong role')
         if row['kind']=='framing' and (row['role']!='assistant' or row['verified'] is not False):raise ValueError('Template framing must be unverified assistant context')
         if row['role']=='assistant' and not selected and row['kind']!='framing':raise ValueError('Unknown assistant target kind')
-        if row['kind']=='thinking' and value['target_policy']=='actions_answer':selected=False
+        selected=_is_target(value['target_policy'],row['role'],row['kind'])
         if selected and not row['verified']:raise ValueError('Unverified text cannot be a target')
         targets.append(selected)
     if not any(targets):raise ValueError('No verified targets')
@@ -40,7 +58,7 @@ def validate_segments_lesson(value):
 def tokenize_segments(lesson,tokenize,maximum):
     value=validate_segments_lesson(lesson);text='';tokens=[];labels=[]
     for row in value['segments']:
-        selected=row['role']=='assistant' and row['kind'] in ('thinking','action','answer','summary') and (row['kind']!='thinking' or value['target_policy']=='verified_thinking_actions_answer')
+        selected=_is_target(value['target_policy'],row['role'],row['kind'])
         text+=row['rendered'];current=tokenize(text)
         if type(current) is not list or any(type(t) is not int or t<0 for t in current):raise ValueError('Invalid tokenizer output')
         if current[:len(tokens)]!=tokens:raise ValueError('Rendered role boundary does not align to tokenizer')

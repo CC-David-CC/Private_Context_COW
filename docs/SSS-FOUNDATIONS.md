@@ -29,12 +29,25 @@ rendered spans with role, kind, verification and practice scope, plus archive,
 checker evidence, tokenizer and renderer identities. The owner attests that the
 examples were independently verified; a JSON boolean is not a new task checker.
 
-Target policies are `verified_thinking_actions_answer` and `actions_answer`.
-Inference thinking is independent of that selection. User/tool/context tokens
-receive no target labels, but remain in the differentiable context. Unverified
-assistant targets and evaluation material are rejected. Token boundaries must
-align with the real tokenizer. Oversized examples fail instead of truncating.
-The existing BW/PCC submit and single/batch controls accept these lessons.
+The original target policies `verified_thinking_actions_answer` and
+`actions_answer` remain unchanged. The new response-learning policies are
+`answer_only`, `reasoning_and_answer`, `format_only`, `answer_and_format`, and
+`reasoning_answer_and_format`. A `format` span marks output syntax/structure;
+an `answer` span marks the task's semantic answer; composition supervises both.
+The format-only example supplies the known answer in the user context, so the
+model is practicing its expression rather than solving the underlying task.
+Direct and reasoning targets remain distinct. User/tool/context tokens receive no
+target labels but remain in the differentiable context. Unverified assistant
+targets and evaluation material are rejected. Token boundaries must align with
+the real tokenizer. Oversized examples fail instead of truncating. The existing
+BW/PCC submit and single/batch controls accept these lesson policies; actual
+candidate evaluation remains a separate step.
+
+The new matched S3 panel currently covers exact scalar-answer skill families
+only. Its JSON object schema is not used for proofs, arrays, tools, or unrelated
+task families. CPU tests confirm the PCC lesson service preserves the three
+separate loss masks. No model has been trained or scored with these new levels
+yet, and no capability gain is claimed.
 
 ## Opt-in long CPU mechanics
 

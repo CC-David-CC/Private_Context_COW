@@ -109,3 +109,69 @@ class TemplateFraming(unittest.TestCase):
                 expected=tokenize_segments(request['lesson'],self.token_ids,256)
                 for key in ('tokens','targets','loss_mask'):self.assertEqual(saved[key],expected[key])
             finally:service.close()
+
+
+class ResponseLevelMasks(unittest.TestCase):
+    def lesson(self, policy):
+        if policy=='answer_only':
+            segments=[dict(role='user',kind='question',rendered='Q:',verified=False,scope='practice'),
+                      dict(role='assistant',kind='answer',rendered='42',verified=True,scope='practice')]
+        elif policy=='reasoning_and_answer':
+            segments=[dict(role='user',kind='question',rendered='Q:',verified=False,scope='practice'),
+                      dict(role='assistant',kind='thinking',rendered='checked;',verified=True,scope='practice'),
+                      dict(role='assistant',kind='answer',rendered='42',verified=True,scope='practice')]
+        elif policy=='format_only':
+            segments=[dict(role='user',kind='question',rendered='Known answer: 42.',verified=False,scope='practice'),
+                      dict(role='assistant',kind='format',rendered='{"answer":"42"}',verified=True,scope='practice')]
+        else:
+            segments=[dict(role='user',kind='question',rendered='Q:',verified=False,scope='practice'),
+                      dict(role='assistant',kind='format',rendered='{"answer":"',verified=True,scope='practice'),
+                      dict(role='assistant',kind='answer',rendered='42',verified=True,scope='practice'),
+                      dict(role='assistant',kind='format',rendered='"}',verified=True,scope='practice')]
+        return dict(schema=2,title='Separate answer and format targets',model_contract_id='a'*64,
+                    scope='owned-training',target_policy=policy,segments=segments,
+                    evidence=dict(method='sss-verified-episode-v1',archive_sha256='b'*64,
+                                  verification_sha256='c'*64,renderer_sha256='d'*64,
+                                  tokenizer_sha256='e'*64))
+
+    def test_answer_format_and_composed_policies_select_different_tokens(self):
+        policies={
+            'answer_only': ('42',),
+            'reasoning_and_answer': ('checked;', '42'),
+            'format_only': ('{"answer":"42"}',),
+            'answer_and_format': ('{"answer":"', '42', '"}'),
+        }
+        for policy, selected in policies.items():
+            with self.subTest(policy=policy):
+                lesson_policy='answer_and_format' if policy=='answer_and_format' else policy
+                value=self.lesson(lesson_policy)
+                result=tokenize_segments(value,lambda text:list(text.encode()),256)
+                source=''.join(row['rendered'] for row in value['segments'])
+                self.assertEqual(result['tokens'],list(source.encode())[:-1])
+                self.assertEqual(result['targets'],list(source.encode())[1:])
+                self.assertEqual(sum(result['loss_mask']),sum(len(part.encode()) for part in selected))
+                self.assertEqual(value['target_policy'],lesson_policy)
+
+    def test_unverified_format_span_cannot_receive_loss(self):
+        value=self.lesson('format_only')
+        value['segments'][1]['verified']=False
+        with self.assertRaisesRegex(ValueError,'Unverified text cannot be a target'):
+            tokenize_segments(value,lambda text:list(text.encode()),256)
+
+    def test_lesson_service_persists_each_response_level_mask(self):
+        with tempfile.TemporaryDirectory() as root:
+            service=LessonService(Path(root)/'store','a'*64,lambda text:list(text.encode()),lambda *args:None)
+            try:
+                for index,policy in enumerate(('answer_only','reasoning_and_answer','format_only','answer_and_format')):
+                    value=self.lesson(policy)
+                    request=dict(operation_id='response-level-'+str(index),lesson=value)
+                    result=service.submit('/cow/training/lessons',request)
+                    saved=service.lesson(result['lesson_id'])['example']
+                    expected=tokenize_segments(value,lambda text:list(text.encode()),256)
+                    self.assertEqual(saved['loss_mask'],expected['loss_mask'])
+                    self.assertEqual(sum(saved['loss_mask']),len(''.join(
+                        row['rendered'] for row,selected in zip(value['segments'],
+                            [False,True] if policy in ('answer_only','format_only') else
+                            [False,True,True] if policy=='reasoning_and_answer' else
+                            [False,True,True,True]) if selected).encode()))
+            finally:service.close()
