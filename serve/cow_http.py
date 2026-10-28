@@ -459,6 +459,16 @@ def make_server(adapter,host='127.0.0.1',port=0,api_key=None,*,text_adapter=None
                 except ValueError as error:return self.json(400,dict(error=str(error)))
                 try:return self.json(200,adapter.status())
                 except Exception as error:return self.json(409,dict(error=str(error)))
+            if path=='/cow/context-budget':
+                try:
+                    query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
+                    if set(query)!={'branch'} or len(query['branch'])!=1:
+                        raise ValueError('Use exactly one branch query parameter')
+                    return self.json(200,adapter.context_budget(query['branch'][0]))
+                except (KeyError,ValueError) as error:return self.json(400,dict(error=str(error)))
+                except Exception as error:
+                    from context_time_travel.store import NotFound
+                    return self.json(404 if isinstance(error,NotFound) else 409,dict(error=str(error)))
             if path=='/cow/operation-diagnostic':
                 try:
                     query=parse_qs(urlsplit(self.path).query,keep_blank_values=True)

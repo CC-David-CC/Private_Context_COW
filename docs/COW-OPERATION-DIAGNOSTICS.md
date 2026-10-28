@@ -18,3 +18,17 @@ restarting model computation.
 The existing operation-status endpoint and its response remain unchanged. The
 diagnostic endpoint cannot reconstruct the error for operations whose coordinator
 has already stopped. Durable failure and crash-window recovery remain future work.
+
+## Inspect remaining context
+
+An authenticated client can query `GET /cow/context-budget?branch=NAME`. The
+response identifies the exact branch revision, snapshot and execution profile,
+and reports the snapshot's used tokens, configured capacity and remaining tokens.
+It reads the canonical snapshot without running inference or changing the branch.
+It refuses unavailable or inconsistent worker profiles. A branch may move after
+the query: bind any subsequent decision to the returned revision and snapshot.
+
+Remaining space is measured before a new user input is rendered and tokenized.
+That input and the requested output must both fit. This query does not count a
+future input, shorten a request, compact history or establish support for any
+particular context length. Those actions require their own verified policies.

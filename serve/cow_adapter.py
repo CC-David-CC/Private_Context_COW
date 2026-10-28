@@ -28,6 +28,35 @@ class CowAdapter:
         """List canonical heads without admitting inference or acquiring a GPU lease."""
         return self.coordinator.store.branches(root=root)
 
+    def context_budget(self, branch):
+        """Observe the exact snapshot and profile behind a context budget."""
+        coordinator=self.coordinator
+        with coordinator._condition:
+            if not coordinator._qualified:
+                raise InvalidOperation('Coordinator is not ready')
+            models=[worker.get('model') for worker in coordinator._workers.values()]
+            if not models or any(model is None for model in models):
+                raise InvalidOperation('Qualified model profiles are unavailable')
+            profiles={(model.profile.get('model_contract_id'),
+                       model.profile.get('execution_profile_id'),
+                       model.profile.get('execution',{}).get('capacity')) for model in models}
+        if len(profiles)!=1:
+            raise InvalidOperation('Worker context profiles differ')
+        model_id,profile_id,capacity=profiles.pop()
+        if type(capacity) is not int or capacity<=0 or not isinstance(model_id,str) or not isinstance(profile_id,str):
+            raise InvalidOperation('Pinned context capacity is unavailable')
+        head=coordinator.store.head(branch)
+        with coordinator.store.read_lease(head.tip):
+            snapshot=coordinator.store.get_snapshot(head.tip)
+            if snapshot.get('model_contract_id')!=model_id:
+                raise InvalidOperation('Snapshot belongs to a different model')
+            count=len(history_for_snapshot(coordinator.store,head.tip))
+        if count>capacity:
+            raise InvalidOperation('Snapshot exceeds pinned context capacity')
+        return dict(schema=1,branch=head.name,revision=head.revision,snapshot=head.tip,
+                    model_contract_id=model_id,execution_profile_id=profile_id,
+                    capacity_tokens=capacity,used_tokens=count,remaining_tokens=capacity-count)
+
     def namespaces(self):
         return self.coordinator.store.namespaces()
 

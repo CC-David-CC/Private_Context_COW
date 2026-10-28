@@ -87,6 +87,30 @@ class PersistedTextStatusTests(unittest.TestCase):
   from context_time_travel.store import NotFound
   c.new_coordinator()
   with self.assertRaises(NotFound):c.coordinator.operation_diagnostic('diagnostic-failure')
+ def test_context_budget_is_snapshot_bound_and_does_not_run_model(self):
+  self.root_commit();c=self.case;model=c.models[0];model.profile['execution']['capacity']=1024
+  head=c.coordinator.store.head('chat');before=dict(model.stats)
+  from context_time_travel.input_spans import history_for_snapshot
+  count=len(history_for_snapshot(c.coordinator.store,head.tip))
+  self.lookup('unknown-operation') # starts the authenticated HTTP fixture
+  url='http://127.0.0.1:'+str(self.server.server_port)+'/cow/context-budget?branch=chat'
+  req=urllib.request.Request(url,headers={'Authorization':'Bearer status-key'})
+  for capacity in (1024,8192,24576,32768,65536,131072):
+   model.profile['execution']['capacity']=capacity
+   with urllib.request.urlopen(req,timeout=5) as response:value=json.load(response)
+   self.assertEqual(value['branch'],'chat');self.assertEqual(value['revision'],head.revision)
+   self.assertEqual(value['snapshot'],head.tip);self.assertEqual(value['capacity_tokens'],capacity)
+   self.assertEqual(value['used_tokens'],count);self.assertEqual(value['remaining_tokens'],capacity-count)
+   self.assertEqual(value['execution_profile_id'],'flow-profile')
+  self.assertEqual(model.stats,before);self.assertEqual(c.coordinator.store.head('chat'),head)
+  with self.assertRaises(urllib.error.HTTPError) as denied:urllib.request.urlopen(url,timeout=5)
+  self.assertEqual(denied.exception.code,401)
+  model.profile['execution']['capacity']=count-1
+  with self.assertRaises(urllib.error.HTTPError) as overfull:urllib.request.urlopen(req,timeout=5)
+  self.assertEqual(overfull.exception.code,409)
+  del model.profile['execution']['capacity']
+  with self.assertRaises(urllib.error.HTTPError) as unavailable:urllib.request.urlopen(req,timeout=5)
+  self.assertEqual(unavailable.exception.code,409)
  def test_commit_then_failure_is_recovered_as_durable_after_reconstruction(self):
   self.root_commit();c=self.case;head=c.coordinator.store.head('chat');model=c.models[0]
   save=model.save_prepared_branch
