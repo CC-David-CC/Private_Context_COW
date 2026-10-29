@@ -33,7 +33,7 @@ int ctt_lora_attach(void*x,void*a,float scale){try{qwen35_attach_adapter(((Lease
 const char *ctt_error(){return error_text.c_str();}
 static void *ctt_load_impl(const char *path,const char *device){
  try {
-  ggml_backend_load_all();auto p=llama_model_default_params();p.n_gpu_layers=99;
+  ggml_backend_load_all();auto p=llama_model_default_params();p.n_gpu_layers=8;
   ggml_backend_dev_t devices[2]={};qwen35_select_device(p,device,devices);
   auto *m=llama_model_load_from_file(path,p);require(m,"Model load failed");
   char arch[64]={};llama_model_meta_val_str(m,"general.architecture",arch,sizeof(arch));

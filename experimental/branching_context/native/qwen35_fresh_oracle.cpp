@@ -23,7 +23,7 @@ int main(int argc, char ** argv) {
         if(has_lora&&std::string(argv[base_argc])!="--lora")throw std::runtime_error("Unknown oracle adapter option");
         ggml_backend_load_all();
         auto mp = llama_model_default_params();
-        mp.n_gpu_layers = 99;
+        mp.n_gpu_layers = 8;
         ggml_backend_dev_t devices[2]={};qwen35_select_device(mp,base_argc==6?argv[5]:nullptr,devices);
         auto * model = llama_model_load_from_file(argv[1], mp);
         if (!model) throw std::runtime_error("Model load failed");
