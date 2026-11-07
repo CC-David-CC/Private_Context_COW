@@ -1,5 +1,7 @@
 # Backend extensibility: initial source audit
 
+Implementation recommendations are superseded by [MODEL-EXTENSION-PLAN.md](MODEL-EXTENSION-PLAN.md). In particular, materialization residency is multidimensional, not the linear sketch below. Source observations remain the initial audit record.
+
 Inspection only, 2026-11-07. No runtime behavior changed or conformance claimed.
 Scope: backend setup/factories, leases, materialization, coordinator requests,
 capabilities and training entry point; BW/SSS client identity boundaries sampled.

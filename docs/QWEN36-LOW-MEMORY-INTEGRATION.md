@@ -1,5 +1,7 @@
 # Qwen3.6 A3B Q4 integration
 
+Architecture and delivery order: [MODEL-EXTENSION-PLAN.md](MODEL-EXTENSION-PLAN.md) supersedes the initial implementation sequence below. Retain the model provenance and measurements recorded here.
+
 Status: planned; original PR source preserved, PCC serving support not implemented.
 
 Source: Strata PR 2925, commit 7e36db2cf0f3b5b6dd177b22c723a279fd748633.
