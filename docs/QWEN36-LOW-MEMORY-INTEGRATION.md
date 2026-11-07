@@ -24,7 +24,7 @@ PCC main lacks src/qwen35/q36_engine.cu: cherry-picking alone is insufficient.
    Validate independent fresh-prefill logits, fork isolation, controller state,
    eviction/rebuild, persisted restart and incompatible-profile rejection.
    Deep-copy/replay correctness does not establish physical prefix sharing.
-5. Wire normal cow_server_setup.py / cow_server.py and existing client APIs.
+5. Wire normal cow_server_setup.py / cow_server.py and the versioned PCC API.
    Add cancellation, error propagation and resource cleanup tests. Never present
    standalone Strata chat as proof of PCC integration.
 6. Build/test on llm-49; qualify the actual Surface16 6 GB VRAM / 16 GB RAM
@@ -59,7 +59,8 @@ and integration into the chosen backend.
 Compiler requirement: support GCC 14 and GCC 15 through toolkit-aware selection.
 CUDA 12.9 rejects GCC 15: select installed GCC 14, without bypassing the guard.
 llm-49 builds with GCC 15 / CUDA 13.4. Surface Pascal requires CUDA 12.9 and the
-archived engine STRATA_EXPERIMENTAL_SM60 option; its checks are still pending.
+archived engine STRATA_EXPERIMENTAL_SM60 option. Its standalone check passed as
+recorded below; PCC correctness checks remain pending.
 
 Additional standalone smoke measurements (same pinned model and prompt, 128 tokens):
 
@@ -95,3 +96,11 @@ All runtime evidence is on each test machine under /home/maint/qwen36-test/:
 result.json, generation.stdout, generation.stderr, smoke.py and build logs.
 Weights and build products are outside source Git. PCC API integration,
 checkpoint correctness and main-branch promotion remain pending.
+
+## Current controlling plan
+
+Use [MODEL-EXTENSION-PLAN.md](MODEL-EXTENSION-PLAN.md),
+[MODEL-SUPPORT-BOUNDARIES.md](MODEL-SUPPORT-BOUNDARIES.md) and
+[AGENT-CONTROL-PLAN.md](AGENT-CONTROL-PLAN.md). Correctness and verified operation
+coverage determine acceptance. Existing throughput numbers are historical
+observations only. BW/SSS compatibility is not a gate; document interface changes.

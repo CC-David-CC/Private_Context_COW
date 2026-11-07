@@ -13,7 +13,10 @@ native dense adapters. Adding Qwen3.6 currently means another architecture branc
 new loader wiring and new continuation handling. We are steering toward one
 serving and learning platform: a model supplies its math, weight mapping and state
 semantics; PCC supplies reusable branching, execution/resource coordination,
-publication and recovery. BW and SSS consume the same contracts across models.
+publication and recovery. The architectural objective is correctness across more
+models and more independently verified operations, with fewer model-specific
+changes in shared code. BW and SSS may later adopt revised PCC interfaces; keeping
+those clients unchanged is no longer a requirement.
 
 The immediate proving case is Qwen3.6-35B-A3B UD-Q4_K_XL, a hybrid-attention MoE
 that runs on both a 6 GB Surface and larger GPUs. Standalone generation works;
@@ -22,28 +25,32 @@ and reconstruction are not yet integrated or qualified for it. A standalone
 engine process is not a PCC saved-context backend. Qwen3.5 dense support does
 not automatically confer support on the different Qwen3.6 MoE architecture.
 
-The desired practical outcome: run BW against this model, save its consumed
+The desired practical outcome: use the PCC API to save this model's consumed
 state, branch from it, continue after restart, survive cache eviction and rebuild
 when explicitly requested, with honest resource and recomputation accounting.
+Demonstrate that flow with a small PCC-owned contract client. BW and SSS migration
+is future work and does not gate this integration.
 Existing LoRA and full-training paths must keep working; this does not claim
 Qwen3.6 training exists. Its gradient/adapter implementations need their own work.
 
-### Present model support: bounded evidence, no universal fully-supported label
+### Present model support and the Qwen gap
 
-| Model route | Existing documented support | Important boundary |
-| --- | --- | --- |
-| Qwen3.8 Flash / qwen4exp | PCC serving and COW context mechanics; bounded Q4/Q8 numerical pressure checks | Lower quants/hardware and training do not inherit that qualification |
-| Qwen3.5-9B Q8_0 | Dense native adapter, text/image COW, strict restores and oracle campaigns | Whole-state copies, not physical GPU prefix sharing; hardware/profile-bound |
-| MiniCPM5-2B dense Llama | Explicit checked geometry, COW route, bounded attached-LoRA inference and separate native training work | Not arbitrary Llama models or every quant/device/optimizer combination |
-| Wen / Wen 1.1 | Dense adapter route and bounded client/evaluation work; native update pilots documented | Naming/import and training preparation are distinct from qualified end-to-end learning |
-| Qwen3.6-35B-A3B Q4 | Standalone 128-token generation on 4090, Blackwell and Surface GTX1060 | New PCC integration target; no PCC checkpoint qualification yet |
+The operation-by-operation baseline is
+[MODEL-SUPPORT-BOUNDARIES.md](MODEL-SUPPORT-BOUNDARIES.md). It separates historical
+qualification, implementation inspection, generated fixtures, resource probes
+and missing evidence. No model receives a universal “fully supported” label.
 
-Sources: MODELS-AND-RESULTS.md, QWEN35-9B-BACKEND.md, DENSE-LORA-COW.md,
-DENSE-LLAMA-ACTION-TRAINING.md, WEN-TRAINING.md and the Qwen integration record.
-This table summarizes repository documentation inspected on 2026-11-07; it is
-not a fresh execution of every historical qualification. No row establishes all
-seven operations on all supported hardware. Publish a generated per-profile
-operation/evidence matrix as the capability contract work lands.
+PCC already has Flash/qwen4exp, dense Qwen3.5, explicit MiniCPM dense-Llama and Wen
+routes. Their checkpoint, reconstruction, LoRA and training boundaries differ.
+MiniCPM has bounded real short-profile LoRA and full-training evidence; larger
+training profiles do not inherit it. Qwen3.5 restore evidence does not establish
+support for its reconstruction through the current guarded route.
+
+The new target is **Qwen3.6-35B-A3B UD-Q4_K_XL**. Its standalone engine generated
+128 tokens on three devices. PCC backend registration, complete continuation
+capture, immutable branching, strict checkpoint restore, cold reconstruction and
+normal serving integration remain to be implemented and qualified. The original
+low-memory patch manages expert weights; it does not implement PCC context saving.
 
 Success means the next supported-operator dense or MoE model reuses this path,
 instead of repeating Qwen-specific orchestration changes. New math still needs
@@ -51,27 +58,50 @@ implementation and qualification; the framework removes repeated plumbing.
 
 ## Outcome and measures
 
-Build a highly capable serving engine that is easy to extend without weakening
-correctness. “Most capable in the world” is an ambition, not an acceptance claim.
-Measure capability coverage, model onboarding effort, correctness, throughput,
-time to first token, tail latency, concurrency, startup, peak memory, disk/network
-traffic and recovery cost on published hardware/configurations. Do not optimize
-one tokens/s number at the expense of usable memory, reliability or extensibility.
+Build a highly capable serving and training platform that is easy to extend
+without weakening correctness. “Most capable” means the breadth and strength of
+verified operations, model coverage, state fidelity, recovery and maintainability.
+It is an ambition to measure, not a current comparative claim.
+
+The acceptance ordering is:
+
+1. Preserve history/controller/identity/authorization invariants and prove each
+   advertised operation within its exact envelope.
+2. Cover more model structures and independently qualified operations, including
+   training, without forcing inference-only assumptions into every layer.
+3. Reduce integration effort: fewer model-name branches and shared-layer edits,
+   reusable fixtures, useful refusals and documented interface changes.
+4. Keep resource use bounded and cancellation/recovery reliable on real hardware.
+
+Tokens per second is **not a goal or release score for this refactor**. Timing,
+memory and I/O observations diagnose hangs, unbounded work and regressions; a
+fast run cannot compensate for one incorrect continuation. Resource limits still
+matter because the supported Surface profile must actually be usable and safe to
+admit. Freeze correctness criteria before judging a candidate.
 
 For a model using supported operators/state semantics, adding it should require
-one model definition, weight/tokenizer/template mapping, a qualification fixture
+one model definition, weight/tokenizer/template mapping, qualification fixtures
 and registration. It should require no model-name edits to scheduler, checkpoint
-store, request/publication state machines, BW or SSS. A genuinely new architecture
-adds operator/state implementations behind the same contracts. Record actual
-files touched and model-specific branches added; use those as regression measures.
-Do not promise arbitrary models work from metadata alone.
+store or request/publication state machines. A genuinely new architecture adds
+operator/state implementations behind the same contracts. Record actual files
+touched and model-specific branches added against a declared baseline. Do not
+promise arbitrary models work from metadata alone.
+
+BW and SSS may be rewritten as needed later. Their current HTTP and Python
+interfaces are not architectural constraints or release gates. Every affected
+PCC interface still needs a versioned before/after contract and migration note;
+detectable incompatible versions/request shapes must receive an intelligible error.
+For unversioned clients that cannot be distinguished, document deployment/version
+selection that prevents silently reinterpreting their requests. Existing persisted
+history/identity guarantees and PCC's qualified training behavior remain protected.
 
 ## Preserve semantics, improve implementation boundaries
 
 Keep immutable input/history, controller state, revisioned branch references,
 model/profile identities, permissions and atomic publication as the existing
 source of truth. Keep strict zero-recompute restore distinct from reconstruction.
-Preserve external contracts and currently qualified numerical behavior. Internal
+Preserve currently qualified numerical behavior and logical persistence semantics.
+External interfaces may change through a documented, versioned migration. Internal
 classes, duplicated factories and inheritance hierarchies may change. Existing
 coupling is not a compatibility guarantee. Version any required persisted-format
 change explicitly; never weaken identity checks to make a new backend fit.
@@ -122,8 +152,9 @@ Each operation declaration includes:
 - supported model/tensor formats, device topology and numerical profiles;
 - operation-specific limits, adapter targets/rank/scale and optimizer combinations;
 - prerequisites, memory/work estimates and cleanup/cancellation boundary;
-- qualification status: implemented-unqualified, qualified for an exact envelope,
-  unavailable, or disabled by policy, with a useful reason and next action;
+- independent implementation status (implemented, absent or unknown), qualification
+  status (unqualified or qualified for an exact envelope) and policy enablement;
+  retain failed qualification attempts separately with useful reasons/next actions;
 - evidence references bound to source/build/model/profile and qualification scope.
 
 Static declarations, native startup probes and executed qualification are separate
@@ -180,7 +211,8 @@ applicable G0-G5 checks. Do not label unexecuted gates passed. Avoid making ever
 future optimization a prerequisite for the first useful merge.
 
 D. Integrate Qwen3.6 using those contracts and bounded expert placement. Test the
-normal PCC server and clients on llm-49 and Surface16, not only standalone chat.
+normal PCC server and conformance client on the 4090, 96 GB Blackwell and
+Surface16 profiles, not only standalone chat.
 Use independent fresh computation as oracle; compare logits/controllers, branch
 isolation, continuation and strict restores within the declared numerical envelope.
 Hybrid/all-resident parity is currently unqualified and outputs differed in the
@@ -195,10 +227,12 @@ reconstruction, multi-client admission and memory pressure. Add generated legal/
 illegal transition sequences and targeted native numerical tests. Simulations
 supplement, not replace, hardware tests. Account for all allocations and cleanup.
 
-F. Run BW/SSS unchanged first: BW real tool loop and branch reuse; SSS evaluation,
-LoRA/full-training and optimizer-resume regression flows where currently supported.
-SSS imports PCC helpers as well as using service contracts. Change clients only
-for a demonstrated contract requirement; document and test any migration.
+F. Validate a PCC-owned contract client against the versioned API and native/Python
+entry points. Exercise setup, capabilities, explicit rejection, serving, branching,
+save/restart/restore/reconstruction and cancellation. Publish API/ABI, Python import,
+capability schema, CLI/profile and persisted-format deltas with old/new examples,
+error behavior and migration guidance. Record BW/SSS impact for future authors;
+no BW/SSS execution or rewrite is required to accept this PCC slice.
 
 For each coherent slice, review source, compatibility and evidence and merge only
 the passing slice into main. Use a clean main checkout to build and repeat relevant
@@ -208,8 +242,20 @@ qualified by default. No automatic promotion based on branch smoke results.
 
 ## Future capability roadmap, not current promises
 
-Use the same boundaries for continuous batching, chunked prefill, speculative
+Extend coverage to new dense, recurrent, hybrid and MoE models, multimodal inputs,
+LoRA and full training, optimizer recovery and robust long-lived branching. Use
+the same boundaries for continuous batching, chunked prefill, speculative
 execution, paged/shared state, distributed placement, multimodal serving and
-training/serving scheduling. Prioritize measured bottlenecks; add each with its own
-operation, resource, continuation and cancellation contract. Preserve existing
+training/serving scheduling. Prioritize missing verified capabilities and
+demonstrated correctness needs; add each with its own operation, resource,
+continuation and cancellation contract. Preserve existing
 correctness while allowing faster execution profiles with explicit qualification.
+
+## Execution contract
+
+[AGENT-CONTROL-PLAN.md](AGENT-CONTROL-PLAN.md) defines controller authority, three
+machine lanes, branch ownership, dependency gates, stop conditions, acceptance
+records and restart handoff. [PCC-INTERFACE-CHANGELOG.md](PCC-INTERFACE-CHANGELOG.md)
+records planned versus shipped interface changes. Read these before delegating.
+Implementation begins with the P00 baseline; this document update does not claim
+that baseline, runtime refactor or Qwen PCC gates have run.

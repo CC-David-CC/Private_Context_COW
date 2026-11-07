@@ -73,7 +73,13 @@ This is not an exhaustive concurrency or training-native-code audit.
 - Only then merge the reviewed/tested feature into main. Short generation checks
   already passed but do not qualify any of these lifecycle/training guarantees.
 
-## BW and SSS
+## BW and SSS (historical recommendation, superseded)
+
+The owner subsequently removed unchanged BW/SSS compatibility as a requirement.
+The current plan permits versioned PCC interface changes and future client
+rewrites. The following records the earlier inspection, not an active gate.
+
+### Original inspection
 
 BW branchwrite/base_cli.py pins connection model/profile IDs and validates receipts;
 branchwrite/capabilities.py already validates server capability requirements.

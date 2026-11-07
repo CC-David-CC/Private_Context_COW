@@ -27,6 +27,18 @@ The original engine's separate setup documentation remains in
 [docs/AI_SETUP.md](docs/AI_SETUP.md) and [UPSTREAM_README.md](UPSTREAM_README.md).
 Do not substitute that server for the COW API expected by BranchWrite.
 
+## Active PCC model-platform work
+
+For the model-platform/Qwen3.6 effort, read `docs/MODEL-EXTENSION-PLAN.md`,
+`docs/MODEL-SUPPORT-BOUNDARIES.md` and `docs/AGENT-CONTROL-PLAN.md` before editing.
+The owner's current priority is correctness and independent operation coverage,
+not throughput. BW/SSS backwards compatibility is no longer required; document
+versioned interface changes in `docs/PCC-INTERFACE-CHANGELOG.md`. This scoped
+instruction supersedes older unchanged-client and speed-only acceptance advice.
+It does not relax immutable history, controller state, identity, training,
+authorization or evidence requirements. Worker agents follow a controller-issued
+ticket and may not promote their own qualification or merge themselves to main.
+
 ## Working on the code
 
 - Capture generalizable model failures in the sibling
