@@ -58,3 +58,19 @@ Compiler requirement: support GCC 14 and GCC 15 through toolkit-aware selection.
 CUDA 12.9 rejects GCC 15: select installed GCC 14, without bypassing the guard.
 llm-49 builds with GCC 15 / CUDA 13.4. Surface Pascal requires CUDA 12.9 and the
 archived engine STRATA_EXPERIMENTAL_SM60 option; its checks are still pending.
+
+Additional standalone smoke measurements (same pinned model and prompt, 128 tokens):
+
+| Device | Configured context | Decode tokens/s | Placement |
+| --- | ---: | ---: | --- |
+| RTX 4090 | 2048 | 184.2 | all experts in VRAM |
+| RTX 4090 | 4096 | 182.6 | all experts in VRAM |
+| RTX 4090 | 8192 | 183.1 | all experts in VRAM |
+| RTX 4090 | 16384 | 139.9 | hybrid, 235/256 experts per layer in VRAM |
+| RTX PRO 6000 Blackwell | 2048 | 246.7 | all experts in VRAM |
+
+These use a short 32-token prompt; they do not measure full-context prefill or
+long-context quality. At 16K the 4090 cache fetched 1,807,780,800 bytes with 940
+misses and 1905 hits. Hybrid output differed from the all-resident run; numerical
+parity and checkpoint correctness remain unqualified. The earlier approximate
+5K residency cutoff was contradicted by direct testing: 8K fits, 16K spills.
