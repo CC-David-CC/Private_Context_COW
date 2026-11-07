@@ -43,3 +43,18 @@ SHA256: 707a55a8a4397ecde44de0c499d3e68c1ad1d240d1da65826b4949d1043f4450
 Download once onto llm-49 model storage and reuse over LAN. Verify hash and inspect
 GGUF metadata/chat template before execution. Model weights stay outside Git.
 Historical PR throughput is not a new measurement or acceptance result.
+
+## Initial engine checks (2026-11-07)
+
+llm-49 generated 128 coherent tokens using the archived PR engine plus an optional
+MTP metadata compatibility fix. Decode: 184.2 tokens/s; total process wall time:
+12.58 s. This is standalone engine evidence, not PCC context/server validation.
+The downloaded model hash matched the pinned SHA256. It declares qwen35moe
+architecture and omits nextn_predict_layers; absent optional MTP means zero layers.
+The fix is retained separately on box-git in ~/qwen36-smoke-fixes pending tests
+and integration into the chosen backend.
+
+Compiler requirement: support GCC 14 and GCC 15 through toolkit-aware selection.
+CUDA 12.9 rejects GCC 15: select installed GCC 14, without bypassing the guard.
+llm-49 builds with GCC 15 / CUDA 13.4. Surface Pascal requires CUDA 12.9 and the
+archived engine STRATA_EXPERIMENTAL_SM60 option; its checks are still pending.
