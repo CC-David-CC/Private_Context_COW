@@ -5,6 +5,50 @@ Supersedes the implementation recommendations in BACKEND-STATE-MACHINE-AUDIT.md;
 that document remains the source-inspection record. QWEN36-LOW-MEMORY-INTEGRATION.md
 remains the Qwen qualification record and concrete model task.
 
+
+## Direction: from individual integrations to a reusable model platform
+
+Today PCC combines a specialized Flash MoE engine with separately integrated
+native dense adapters. Adding Qwen3.6 currently means another architecture branch,
+new loader wiring and new continuation handling. We are steering toward one
+serving and learning platform: a model supplies its math, weight mapping and state
+semantics; PCC supplies reusable branching, execution/resource coordination,
+publication and recovery. BW and SSS consume the same contracts across models.
+
+The immediate proving case is Qwen3.6-35B-A3B UD-Q4_K_XL, a hybrid-attention MoE
+that runs on both a 6 GB Surface and larger GPUs. Standalone generation works;
+PCC setup/serving, state export/import, exact continuation, branches, eviction
+and reconstruction are not yet integrated or qualified for it. A standalone
+engine process is not a PCC saved-context backend. Qwen3.5 dense support does
+not automatically confer support on the different Qwen3.6 MoE architecture.
+
+The desired practical outcome: run BW against this model, save its consumed
+state, branch from it, continue after restart, survive cache eviction and rebuild
+when explicitly requested, with honest resource and recomputation accounting.
+Existing LoRA and full-training paths must keep working; this does not claim
+Qwen3.6 training exists. Its gradient/adapter implementations need their own work.
+
+### Present model support: bounded evidence, no universal fully-supported label
+
+| Model route | Existing documented support | Important boundary |
+| --- | --- | --- |
+| Qwen3.8 Flash / qwen4exp | PCC serving and COW context mechanics; bounded Q4/Q8 numerical pressure checks | Lower quants/hardware and training do not inherit that qualification |
+| Qwen3.5-9B Q8_0 | Dense native adapter, text/image COW, strict restores and oracle campaigns | Whole-state copies, not physical GPU prefix sharing; hardware/profile-bound |
+| MiniCPM5-2B dense Llama | Explicit checked geometry, COW route, bounded attached-LoRA inference and separate native training work | Not arbitrary Llama models or every quant/device/optimizer combination |
+| Wen / Wen 1.1 | Dense adapter route and bounded client/evaluation work; native update pilots documented | Naming/import and training preparation are distinct from qualified end-to-end learning |
+| Qwen3.6-35B-A3B Q4 | Standalone 128-token generation on 4090, Blackwell and Surface GTX1060 | New PCC integration target; no PCC checkpoint qualification yet |
+
+Sources: MODELS-AND-RESULTS.md, QWEN35-9B-BACKEND.md, DENSE-LORA-COW.md,
+DENSE-LLAMA-ACTION-TRAINING.md, WEN-TRAINING.md and the Qwen integration record.
+This table summarizes repository documentation inspected on 2026-11-07; it is
+not a fresh execution of every historical qualification. No row establishes all
+seven operations on all supported hardware. Publish a generated per-profile
+operation/evidence matrix as the capability contract work lands.
+
+Success means the next supported-operator dense or MoE model reuses this path,
+instead of repeating Qwen-specific orchestration changes. New math still needs
+implementation and qualification; the framework removes repeated plumbing.
+
 ## Outcome and measures
 
 Build a highly capable serving engine that is easy to extend without weakening
