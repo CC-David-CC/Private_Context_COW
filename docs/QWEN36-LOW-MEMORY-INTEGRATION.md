@@ -74,3 +74,22 @@ long-context quality. At 16K the 4090 cache fetched 1,807,780,800 bytes with 940
 misses and 1905 hits. Hybrid output differed from the all-resident run; numerical
 parity and checkpoint correctness remain unqualified. The earlier approximate
 5K residency cutoff was contradicted by direct testing: 8K fits, 16K spills.
+
+Surface16-2 standalone smoke passed: GTX 1060 6 GB, 16 GB RAM, AC power,
+GCC 14 / CUDA 12.9, SM61 experimental build. Same pinned GGUF and 32-token
+prompt, context 2048, prefill 256, MTP off, 6 GiB expert RAM budget. Generated
+128 coherent tokens at 4.0 tokens/s (31.918 s decode). Prompt took 24.002 s,
+warm-up 79.9 s, total Python subprocess wall 145.35 s. Max process RSS was
+14,588,516 KiB, including file mappings; system swap reached about 1.6 GiB during
+warm-up. GPU sampled at 1404 MHz, 5313 MiB allocated. Cache peak 6,442,449,600
+bytes; 29,278 hits, 18,536 misses, 15,223 evictions and 35,653,132,800 bytes
+fetched through the cache (not a physical SSD-read measurement). 7/256 routed
+experts per layer resident. Output is readable; hybrid numerical parity remains
+unqualified. This demonstrates feasibility with substantial startup/memory cost.
+
+The optional-MTP compatibility patch is archived alongside the original patch.
+Apply it to the original PR commit before repeating these engine checks.
+All runtime evidence is on each test machine under /home/maint/qwen36-test/:
+result.json, generation.stdout, generation.stderr, smoke.py and build logs.
+Weights and build products are outside source Git. PCC API integration,
+checkpoint correctness and main-branch promotion remain pending.
