@@ -68,3 +68,38 @@ The PCC-owned conformance client tests actual version/error/continuation behavio
 “No BW changes” is not evidence of compatibility; compatibility stays untested
 unless someone later runs the relevant client. A future rewrite is allowed, and
 its author should be able to derive required behavior from this record and tests.
+
+## PCC-CONSTRUCT-001: checked shared backend construction
+
+Status: implemented-unreleased on the model-platform feature branch.
+Affected surfaces: internal Python construction and invalid HTTP worker profiles.
+See [BACKEND-REGISTRY.md](BACKEND-REGISTRY.md) for source entry points and tests.
+
+Before: BranchingModel selected four known backends and rejected unknown names;
+the HTTP worker repeated three constructors and otherwise attempted Strata.
+After: both use one lazy checked registry. Known supported constructors receive
+the same profile object and arguments. Unknown/malformed names reject with
+IntegrityError; native constructor errors propagate without engine fallback.
+Legacy native-Llama local loading preserves its default. It has no selected-worker
+interface, and HTTP worker construction now explicitly refuses that unsupported
+combination rather than attempting Strata with the wrong profile.
+
+No successful wire request/response, capability schema, model/profile identity,
+checkpoint format, controller boundary or training operation changes. No persisted
+migration or rollback conversion is required. No new inference or training
+qualification is granted by registration. Auth, publication and cancellation
+semantics remain in their existing owners.
+
+Migration: Python callers may use backend_registry.load_backend(profile,gpu_id)
+or continue BranchingModel.load_backend(profile). A custom local registry uses
+BackendDefinition and an immutable tuple of definitions. Invalid-profile callers
+must select a supported backend and retain its native/profile validation; they
+cannot rely on the old fallback. BW/SSS consumer compatibility is not tested or
+required for this slice. Unversioned external callers still use the existing API;
+no semantic reinterpretation of valid requests is introduced here.
+
+Tests: constructor selection/arguments, unknown-before-import, malformed profiles,
+legacy worker refusal, duplicate/custom registration, constructor-error identity,
+existing protocol/HTTP capability fixtures, G0 and Python training controls.
+Mocked constructors do not prove actual GPU behavior or native math. Native
+Qwen3.6 state/API and constrained operation admission remain subsequent work.

@@ -256,19 +256,8 @@ class BranchingModel:
 
     @staticmethod
     def load_backend(profile):
-        kind = profile.get('backend','llama.cpp')
-        if kind == 'qwen35-llama.cpp':
-            from .qwen35_backend import load_qwen35_backend
-            return load_qwen35_backend(profile)
-        if kind == 'llama-dense-llama.cpp':
-            from .llama_dense_backend import LlamaDenseBackend
-            return LlamaDenseBackend(profile)
-        if kind == 'strata':
-            from .strata_backend import StrataBackend
-            return StrataBackend(profile)
-        if kind != 'llama.cpp':
-            raise IntegrityError('Unsupported backend profile')
-        return NativeBackend(profile)
+        from .backend_registry import load_backend
+        return load_backend(profile)
     durability_scope = MappingProxyType(dict(platform='local-posix',
         process_crash_tested=True,power_loss_tested=False,
         publication='fsync-file; atomic-link-or-rename; fsync-directory'))

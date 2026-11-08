@@ -1036,14 +1036,8 @@ def main():
         from context_time_travel.store import Store
         preparer=vision_preparer_from_config(Store(args.store),components['mixed_renderer'],profile,args.vision_config)
     def factory(gpu):
-        if profile.get('backend') in ('qwen35-llama.cpp','llama-dense-llama.cpp'):
-            from context_time_travel.qwen35_backend import load_qwen35_backend
-            if profile.get('backend')=='llama-dense-llama.cpp':
-                from context_time_travel.llama_dense_backend import LlamaDenseBackend
-                backend=LlamaDenseBackend(profile,gpu_id=gpu)
-            else:backend=load_qwen35_backend(profile,gpu_id=gpu)
-        else:
-            backend=StrataBackend(profile,gpu_id=gpu)
+        from context_time_travel.backend_registry import load_backend
+        backend = load_backend(profile, gpu_id=gpu)
         return BranchingModel(args.store,backend,profile)
     trace=PoolTransitionTrace('cow-http') if args.pool_trace_output is not None else None
     coordinator=ContextCoordinator(args.store,config,factory,transition_trace=trace,input_preparer=preparer,cache_peers=peers)
