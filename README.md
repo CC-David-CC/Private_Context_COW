@@ -1,5 +1,9 @@
 # Private Context COW (PCC)
 
+<p align="center">
+  <img src="docs/assets/context-cow-logo.png" alt="Context COW logo: a cow above stacked context layers and branching paths" width="720">
+</p>
+
 [Recover an original completed training job](docs/NATIVE-COMPLETION-RECOVERY.md): the owner harness supports a person or authorized agent, including a smaller model, using typed inspection, explicit adoption and original-round reconciliation. A tiny synthetic model has now passed one native CPU update, reload, deliberate service stop, restart, and exact recovery through BW. This qualifies the recovery mechanics only; MiniCPM/Wen quality is not measured. See the [sanitized qualification receipt](validation/native-completion-recovery-20261026/README.md).
 
 [The durable learning loop: ELI5, master's, PhD, and applied guide](https://github.com/CC-David-CC/sss/blob/feat/minicpm-baseline-20261024/docs/LEARNING-MACHINERY.md) explains ownership, recovery, paired learning/forgetting, expanding assessments, commands, and current qualification limits. The new machinery checks are separate from the fixed 68-update comparison.
