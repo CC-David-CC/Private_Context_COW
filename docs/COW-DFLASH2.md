@@ -5,7 +5,9 @@ Context COW worker. The target still selects every output token. Draft tokens
 are temporary: only selected tokens and the corresponding target state enter a
 checkpoint. The current implementation is text-only, single-worker CUDA with
 fully resident FP16 attention state. It does not implement DFlash2 for image
-histories, HIP, SYCL, split-device sessions, or batched requests.
+histories, HIP, SYCL, split-device sessions, or batched requests. Text-only
+checkpoints remain restorable when carried by PCC's mixed-input checkpoint
+transport; actual image placements are rejected.
 
 Configure a new server using the normal Flash options to tools/cow_server_setup.py
 and additionally pass both absolute file paths:

@@ -178,7 +178,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
         error.clear();
 #ifdef STRATA_HAVE_DFLASH2
         if (draft_pack && (command=="reset" || command=="restore" || command=="load" || command=="feed" || command=="feed_image" || command=="activate" || command=="load_image" || command=="capture" || command=="write" || command=="quit")) reset_draft();
-        if (draft_pack && (command=="feed_image" || command=="load_image")) {
+        if (draft_pack && command=="feed_image") {
             error_reply("DFlash2 does not support image histories"); continue;
         }
 #endif
@@ -214,6 +214,11 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
             cow_vision::RestoreInput expected;
             try { expected = cow_vision::restore_metadata(metadata, state.max_cells, forward.vocab(), geometry.n_embd); }
             catch (const std::exception& e) { error_reply(e.what()); continue; }
+            // Mixed-format transport is also used for text-only cold restores.
+            // Reject only actual image placements, before changing session state.
+            if (draft_pack && !expected.placements.empty()) {
+                error_reply("DFlash2 does not support image histories"); continue;
+            }
             std::ifstream frontier(logits_path, std::ios::binary | std::ios::ate);
             const auto bytes = static_cast<std::streamsize>(forward.vocab())*sizeof(float);
             if (!frontier || frontier.tellg() != bytes) { error_reply("invalid image restore frontier extent"); continue; }
