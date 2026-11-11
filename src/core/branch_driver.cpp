@@ -126,6 +126,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     int32_t draft_tokens[8]={}, draft_prev[2]={};
     int draft_count=0,draft_kept=0,last_tap_count=0; int64_t draft_pos=0,last_tap_pos=0;
     int64_t offered_total=0,accepted_total=0,window_total=0;
+    uint64_t dflash_consumed_tokens=0;
     auto release_window=[&]() { draft_undo.reset(); if (draft_gdn) cudaFree(draft_gdn); draft_gdn=nullptr; draft_count=draft_kept=0; };
     auto reset_draft=[&]() { release_window();last_tap_count=0;last_tap_pos=0;if(draft_pack) drafter.reset(); };
     auto consume_with_draft=[&](int32_t token) -> bool {
@@ -139,7 +140,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
                 int32_t out=0; pool_failed=false;
                 const bool ok=session.begin(pos,1,error) && forward.run(1,&token,pos,pool,user,&out,error) && !pool_failed &&
                     forward.commit(1,error) && forward.copy_logits(0,logits.data()) && session.finish({token},logits,error);
-                if (ok) {last_tap_count=1;last_tap_pos=pos;++decode_timed_tokens;} return ok;
+                if (ok) {last_tap_count=1;last_tap_pos=pos;++dflash_consumed_tokens;} return ok;
             }
             int32_t guesses[Dflash2Drafter::kDrafts];float probs[Dflash2Drafter::kDrafts];
             if (!drafter.draft(forward.tap_dev(),last_tap_count,last_tap_pos,token,guesses,probs,error)) return false;
@@ -166,7 +167,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
         if(!forward.commit(k,error) || !forward.wait_commit(error) || !draft_undo->restore_suffix(k,error) || !forward.copy_logits(k-1,logits.data())) return false;
         if(k==1) {if(!session.finish_speculative_prefix({token},logits,error)) return false;}
         else {if(!session.finish({token},logits,error)) return false; ++accepted_total;}
-        draft_kept=k;++decode_timed_tokens;
+        draft_kept=k;++dflash_consumed_tokens;
         return true;
     };
 #endif
@@ -1465,7 +1466,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
                     if(ack=="cancel" || std::find(eos.begin(),eos.end(),token)!=eos.end()) break;
                 }
                 if(!ok) {error_reply(error.empty()?"DFlash2 decode failed":error);return 1;}
-                std::cout << "{\"status\":\"ok\",\"operator\":\"verified-dflash2-consumed-v1\",\"position\":" << start << ",\"count\":" << made << ",\"generated\":" << made << ",\"consumed\":" << session.ids().size() << ",\"forward_tokens\":" << (forward.completed_forward_tokens+prefill_tokens) << ",\"accepted_tokens\":" << (decode_timed_tokens+prefill_tokens) << ",\"draft_offered\":" << offered_total-offered_before << ",\"draft_accepted\":" << accepted_total-accepted_before << ",\"draft_windows\":" << window_total-windows_before << ",\"chunks\":[";
+                std::cout << "{\"status\":\"ok\",\"operator\":\"verified-dflash2-consumed-v1\",\"position\":" << start << ",\"count\":" << made << ",\"generated\":" << made << ",\"consumed\":" << session.ids().size() << ",\"forward_tokens\":" << (forward.completed_forward_tokens+prefill_tokens) << ",\"accepted_tokens\":" << (dflash_consumed_tokens+prefill_tokens) << ",\"draft_offered\":" << offered_total-offered_before << ",\"draft_accepted\":" << accepted_total-accepted_before << ",\"draft_windows\":" << window_total-windows_before << ",\"chunks\":[";
                 for(int64_t j=0;j<made;++j) {if(j) std::cout << ",";std::cout << "[" << start+j << ",1]";}std::cout << "]}" << std::endl;
                 reset_draft();continue;
             }
@@ -1706,7 +1707,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
                       << ",\"forward_tokens\":" << (forward.completed_forward_tokens + prefill_tokens);
 #ifdef STRATA_HAVE_DFLASH2
             if (draft_pack) {
-                std::cout << ",\"accepted_tokens\":" << (decode_timed_tokens + prefill_tokens)
+                std::cout << ",\"accepted_tokens\":" << (dflash_consumed_tokens + prefill_tokens)
                           << ",\"dflash2_offered\":" << offered_total
                           << ",\"dflash2_accepted\":" << accepted_total
                           << ",\"dflash2_windows\":" << window_total;

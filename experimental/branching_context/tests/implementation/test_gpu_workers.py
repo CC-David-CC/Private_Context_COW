@@ -32,6 +32,21 @@ class GPUWorkerSelectionTests(unittest.TestCase):
             'sut_command':['engine','--layer-split','auto']}}
         self.assertEqual(worker_command(p,(0,1,2)),['engine','--layer-split','auto','--gpu','0,1,2'])
 
+    def test_dflash_rejects_multiple_or_grouped_workers_before_start(self):
+        from context_time_travel.strata_backend import StrataBackend
+        from context_time_travel.store import InvalidOperation
+        from unittest.mock import patch
+        for gpus in ([0,1], [[0,1]], []):
+            profile = {'execution': {'GPU':gpus,'sut_command':['engine'],
+                'generated_operator':'verified-dflash2-consumed-v1',
+                'dflash2_protocol':'verified-window-v1',
+                'environment':{'STRATA_DFLASH2_PACK':'pack','STRATA_DFLASH2_VOCAB':'vocab'}},
+                'native_build':{'sha256':{'pack':'a'*64,'vocab':'b'*64}}}
+            with self.subTest(gpus=gpus), patch('context_time_travel.strata_backend.subprocess.Popen') as start:
+                with self.assertRaisesRegex(InvalidOperation,'one independent CUDA worker'):
+                    StrataBackend(profile)
+                start.assert_not_called()
+
     def test_current_native_adapter_rejects_unverified_multi_device_capture(self):
         from context_time_travel.strata_backend import StrataBackend
         from context_time_travel.store import InvalidOperation

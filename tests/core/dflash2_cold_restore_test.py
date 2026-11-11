@@ -50,9 +50,14 @@ class DFlash2ColdRestoreTest(unittest.TestCase):
                     self.assertEqual(request('stats')['forward_tokens'], before)
                     self.assertEqual(request('logits '+str(frontier))['status'], 'ok')
                     self.assertEqual(frontier.read_bytes(), expected)
+                    before_decode = request('stats')
                     self.assertEqual(request('decode 4')['consumed'], 4)
                     self.assertEqual(request('decode 5')['consumed'], 5)
-                    self.assertGreater(request('stats')['dflash2_offered'], 0)
+                    after_decode = request('stats')
+                    self.assertGreater(after_decode['dflash2_offered'], 0)
+                    self.assertEqual(after_decode['accepted_tokens'] - before_decode['accepted_tokens'], 2)
+                    self.assertEqual(after_decode['decode_timed_tokens'] - before_decode['decode_timed_tokens'], 0)
+                    self.assertGreater(after_decode['forward_tokens'] - before_decode['forward_tokens'], 2)
 
                     # A valid mixed restore manifest with an actual placement
                     # must fail before touching the current text-only session.

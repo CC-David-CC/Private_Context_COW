@@ -473,14 +473,25 @@ class StrataBackend:
         operator = profile['execution'].get('generated_operator')
         if (operator == 'verified-dflash2-consumed-v1') != self._dflash2:
             raise IntegrityError('DFlash2 operator differs from pinned protocol')
-        environment = profile['execution']['environment']
+        environment = profile['execution'].get('environment', {})
+        if type(environment) is not dict:
+            raise IntegrityError('Invalid native execution environment')
         names = ('STRATA_DFLASH2_PACK', 'STRATA_DFLASH2_VOCAB')
-        pins = profile['native_build']['sha256']
+        pins = profile.get('native_build', {}).get('sha256', {})
+        if self._dflash2 and type(pins) is not dict:
+            raise IntegrityError('Invalid native DFlash2 asset pins')
         if (self._dflash2 and any(type(environment.get(k)) is not str or
                                   not environment[k] or environment[k] not in pins for k in names)):
             raise IntegrityError('DFlash2 assets must be pinned in the execution profile')
         if not self._dflash2 and any(k in environment for k in names):
             raise IntegrityError('DFlash2 environment lacks its execution protocol')
+        if self._dflash2:
+            try:
+                draft_gpus = normalize_gpu_selection(profile['execution'].get('GPU'))
+            except (ValueError, TypeError) as exc:
+                raise InvalidOperation('DFlash2 requires one independent CUDA worker') from exc
+            if len(draft_gpus) != 1 or type(draft_gpus[0]) is not int:
+                raise InvalidOperation('DFlash2 requires one independent CUDA worker')
         command = worker_command(profile,gpu_id)
         if isinstance(gpu_id,(tuple,list)) and len(gpu_id)>1:
             # generate.cpp supports layer splitting, but this pinned private

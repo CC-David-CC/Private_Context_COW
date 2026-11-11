@@ -1,6 +1,18 @@
 {
   "schema": 1,
   "modules": {
+    "test_backend_registry": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_lark_grammar": {
+      "campaign": "cpu",
+      "requires": []
+    },
+    "test_operation_contracts": {
+      "campaign": "cpu",
+      "requires": []
+    },
     "test_fastokens_backend": {
       "campaign": "cpu",
       "requires": []

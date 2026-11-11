@@ -40,6 +40,8 @@ the verified-dflash2-consumed-v1 operator and describe accepted-token
 boundaries, not verifier batch shapes. The dflash2_offered, dflash2_accepted,
 and dflash2_windows counters count speculative work; forward_tokens includes
 target verification work and consumed_tokens counts accepted progress.
+The ordinary decode_timed_tokens counter excludes speculative decoding because
+the speculative path does not yet supply the corresponding per-stage timings.
 
 Do not assume this mode is faster. A small test using the UD-IQ3_XXS target
 on an NVIDIA RTX PRO 6000 Blackwell measured 106–110 output tokens/s with
