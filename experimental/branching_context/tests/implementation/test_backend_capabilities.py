@@ -49,6 +49,21 @@ class BackendCapabilityTests(unittest.TestCase):
             with self.subTest(key=key), self.assertRaises(CapabilityError):
                 describe_strata(value, broken)
 
+    def test_dflash_capability_requires_matching_handshake_and_is_text_only(self):
+        value = profile('strata')
+        value['execution'].update(resume_contract='identical-mixed-native-operators-v1',
+            generated_operator='verified-dflash2-consumed-v1',dflash2_protocol='verified-window-v1',
+            vision_protocol='explicit-image-rows-mrope-v3')
+        ready = dict(selected_token_protocol='consumed-selected-receipt-v1',
+            sampling_protocol='full-vocab-min-p-u53-v2',dflash2_protocol='verified-window-v1')
+        self.assertEqual(describe_strata(value,ready).inputs,('text',))
+        for protocol in (None,'disabled','unknown'):
+            bad = dict(ready,dflash2_protocol=protocol)
+            with self.subTest(protocol=protocol), self.assertRaises(CapabilityError):
+                describe_strata(value,bad)
+        value['execution']['generated_operator']='normal-verifier-decode'
+        with self.assertRaises(CapabilityError):describe_strata(value,ready)
+
     def test_reports_are_detached_and_do_not_contain_host_paths(self):
         value = profile(); value['model_path'] = '/private/weights.gguf'
         report = describe_dense(value)

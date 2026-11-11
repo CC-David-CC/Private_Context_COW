@@ -304,11 +304,15 @@ class _NativeRequest:
         self.backend.process.stdin.flush()
 
     def _finish(self, response, *, cancelled=False):
-        if (response.get('status') != 'ok' or response.get('operator') != 'normal-verifier-decode'
+        if (response.get('status') != 'ok' or response.get('operator') != self.backend.profile['execution']['generated_operator']
                 or type(response.get('generated')) is not int or response['generated'] != self.count
                 or type(response.get('consumed')) is not int or response['consumed'] != self.initial+self.count
                 or type(response.get('forward_tokens')) is not int
-                or response['forward_tokens']-self.before_work != self.count
+                or (not getattr(self.backend, '_dflash2', False) and response['forward_tokens']-self.before_work != self.count)
+                or (getattr(self.backend, '_dflash2', False) and (
+                    type(response.get('accepted_tokens')) is not int
+                    or response['accepted_tokens']-self.before_consumed != self.count
+                    or not self.count <= response['forward_tokens']-self.before_work <= 8*self.count))
                 or (self.count < self.limit and not cancelled and self.last_token not in self.eos)):
             raise IntegrityError('Incomplete or inconsistent native request completion')
         from .execution_receipt import tokens_digest, validate_operator_schedule
@@ -347,6 +351,7 @@ class _NativeRequest:
         try:
             if not self.started:
                 self.before_work = self.backend._refresh_stats()['forward_tokens']
+                self.before_consumed = self.backend.stats['consumed_tokens'] if getattr(self.backend, '_dflash2', False) else self.before_work
                 self.eos = tuple(self.backend.profile['execution']['eos_tokens'])
                 self.last_token = None
                 self.backend._request_active = self
@@ -461,6 +466,21 @@ class StrataBackend:
     def __init__(self, profile, *, gpu_id=None):
         self.profile = profile
         self.gpu_id = gpu_id
+        protocol = profile['execution'].get('dflash2_protocol')
+        if protocol not in (None, 'verified-window-v1'):
+            raise IntegrityError('Unsupported DFlash2 execution protocol')
+        self._dflash2 = protocol == 'verified-window-v1'
+        operator = profile['execution'].get('generated_operator')
+        if (operator == 'verified-dflash2-consumed-v1') != self._dflash2:
+            raise IntegrityError('DFlash2 operator differs from pinned protocol')
+        environment = profile['execution']['environment']
+        names = ('STRATA_DFLASH2_PACK', 'STRATA_DFLASH2_VOCAB')
+        pins = profile['native_build']['sha256']
+        if (self._dflash2 and any(type(environment.get(k)) is not str or
+                                  not environment[k] or environment[k] not in pins for k in names)):
+            raise IntegrityError('DFlash2 assets must be pinned in the execution profile')
+        if not self._dflash2 and any(k in environment for k in names):
+            raise IntegrityError('DFlash2 environment lacks its execution protocol')
         command = worker_command(profile,gpu_id)
         if isinstance(gpu_id,(tuple,list)) and len(gpu_id)>1:
             # generate.cpp supports layer splitting, but this pinned private
@@ -508,6 +528,10 @@ class StrataBackend:
             ready = self._read()
             if ready.get('status') != 'ready' or ready.get('vocab') != self.vocab_size or ready.get('capacity') != profile['execution']['capacity']:
                 raise IntegrityError('Native geometry differs from pinned profile')
+            if self._dflash2 and ready.get('dflash2_protocol') != 'verified-window-v1':
+                raise IntegrityError('Native DFlash2 capability differs from pinned profile')
+            if not self._dflash2 and ready.get('dflash2_protocol') not in (None, 'disabled'):
+                raise IntegrityError('Native DFlash2 was enabled outside the execution profile')
             _validate_selected_token_capability(profile, ready)
             _validate_grammar_selection_capability(profile, ready)
             _validate_sampling_capability(profile,ready)
@@ -748,7 +772,12 @@ class StrataBackend:
     def _refresh_stats(self):
         raw = self._request('stats')
         self.stats.update({key: value for key, value in raw.items() if key != 'status'})
-        self.stats['consumed_tokens'] = raw['forward_tokens']
+        if getattr(self, '_dflash2', False):
+            if type(raw.get('accepted_tokens')) is not int or raw['accepted_tokens'] < 0:
+                raise IntegrityError('Missing native DFlash2 accepted-work counter')
+            self.stats['consumed_tokens'] = raw['accepted_tokens']
+        else:
+            self.stats['consumed_tokens'] = raw['forward_tokens']
         self.stats['checkpoint_export_bytes'] = raw['saved_running_bytes'] + raw['written_file_bytes']
         self.stats['checkpoint_import_bytes'] = raw['restored_running_bytes'] + raw['loaded_file_bytes']
         return raw
@@ -792,7 +821,7 @@ class StrataBackend:
         return self._consume(lease, ids, 'feed')
 
     def consume_generated(self, lease, ids):
-        if self.profile['execution'].get('generated_operator') == 'normal-verifier-decode':
+        if self.profile['execution'].get('generated_operator') in ('normal-verifier-decode','verified-dflash2-consumed-v1'):
             if len(ids) != 1:
                 raise InvalidOperation('Generated decode requires one consumed token')
             return self._consume(lease, ids, 'decode')
@@ -802,7 +831,7 @@ class StrataBackend:
         self._check(lease)
         execution = self.profile['execution']
         if (execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'
-                or execution.get('generated_operator') != 'normal-verifier-decode'):
+                or execution.get('generated_operator') not in ('normal-verifier-decode','verified-dflash2-consumed-v1')):
             raise InvalidOperation('Pinned backend does not support native greedy requests')
         if getattr(self, '_protocol_failed', False):
             raise IntegrityError('Native request protocol failed; restart the backend')
@@ -834,8 +863,9 @@ class StrataBackend:
             self._request('reset')
             lease.bound = True
         before = self._refresh_stats()['forward_tokens']
+        before_consumed = self.stats['consumed_tokens'] if getattr(self, '_dflash2', False) else before
         try:
-            self._consume_completed(lease,ids,command,before,history if mixed else None)
+            self._consume_completed(lease,ids,command,before,before_consumed,history if mixed else None)
         except BaseException:
             if mixed:
                 # A failed completed receipt cannot leave partially advanced
@@ -843,13 +873,16 @@ class StrataBackend:
                 self._protocol_failed = True
             raise
 
-    def _consume_completed(self, lease, ids, command, before, history):
+    def _consume_completed(self, lease, ids, command, before, before_consumed, history):
         mixed = history is not None
         try:
             response = self._request(command + ' ' + ' '.join(map(str, ids)))
         finally:
             after = self._refresh_stats()['forward_tokens']
-        if after - before != len(ids) or response['consumed'] != lease.consumed + len(ids):
+        speculative_decode = getattr(self, '_dflash2', False) and command == 'decode'
+        valid_work = (0 <= after-before <= 8*len(ids)
+                      and self.stats['consumed_tokens']-before_consumed == len(ids)) if speculative_decode else after-before == len(ids)
+        if not valid_work or response['consumed'] != lease.consumed + len(ids):
             raise IntegrityError('Completed native work/frontier mismatch')
         contract = self.profile['execution'].get('resume_contract')
         if contract in ('identical-native-batches-v1','identical-native-operators-v1',RESUME_CONTRACT):
@@ -857,7 +890,7 @@ class StrataBackend:
             validate = validate_schedule if contract == 'identical-native-batches-v1' else validate_operator_schedule
             receipt = {key: response.get(key) for key in ('operator','position','count','chunks')}
             receipt['tokens_sha256'] = tokens_digest(ids)
-            expected_operator = 'normal-verifier-decode' if command == 'decode' else 'batched-prefill'
+            expected_operator = self.profile['execution']['generated_operator'] if command == 'decode' else 'batched-prefill'
             if receipt['operator'] != expected_operator:
                 raise IntegrityError('Native command operator receipt mismatch')
             # Validate the native response against the request before publishing

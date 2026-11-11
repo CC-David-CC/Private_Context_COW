@@ -104,6 +104,38 @@ class NativeRequestProtocolTests(unittest.TestCase):
         lease.__exit__(None, None, None)
         self.assertEqual(backend.stats['lease_releases'], 1)
 
+    def test_dflash_receipt_tracks_accepted_progress_and_bounded_work(self):
+        response = dict(self.final(2, work=13), accepted_tokens=6,
+                        operator='verified-dflash2-consumed-v1')
+        backend, lease = self.backend([
+            {'status':'token','token':2,'consumed':5},
+            {'status':'token','token':3,'consumed':6},response])
+        backend._dflash2 = True
+        backend.profile['execution']['generated_operator'] = 'verified-dflash2-consumed-v1'
+        backend.stats['consumed_tokens'] = 4
+        self.assertEqual(list(backend.generate_request(lease,2)),[2,3])
+        self.assertEqual(backend.last_execution_receipt['operator'],'verified-dflash2-consumed-v1')
+
+    def test_dflash_rejects_false_progress_work_and_operator(self):
+        cases = [
+            dict(accepted_tokens=5, forward_tokens=13, operator='verified-dflash2-consumed-v1'),
+            dict(accepted_tokens=6, forward_tokens=5, operator='verified-dflash2-consumed-v1'),
+            dict(accepted_tokens=6, forward_tokens=21, operator='verified-dflash2-consumed-v1'),
+            dict(accepted_tokens=6, forward_tokens=13, operator='normal-verifier-decode'),
+            dict(accepted_tokens=True, forward_tokens=13, operator='verified-dflash2-consumed-v1'),
+        ]
+        for fields in cases:
+            with self.subTest(fields=fields):
+                backend, lease = self.backend([
+                    {'status':'token','token':2,'consumed':5},
+                    {'status':'token','token':3,'consumed':6}, dict(self.final(2), **fields)])
+                backend._dflash2 = True
+                backend.profile['execution']['generated_operator'] = 'verified-dflash2-consumed-v1'
+                backend.stats['consumed_tokens'] = 4
+                with self.assertRaises(IntegrityError):
+                    list(backend.generate_request(lease,2))
+                self.assertTrue(backend._protocol_failed)
+
     def test_precreated_second_iterator_cannot_steal_active_request(self):
         backend, lease = self.backend([
             {'status': 'token', 'token': 2, 'consumed': 5}, self.final(1)])

@@ -104,7 +104,29 @@ def tokenizer_config(args):
     return {} if backend=='python' else dict(tokenizer_backend=backend)
 
 
+def dflash2_assets(args):
+    """Validate the experimental opt-in before hashing the target model."""
+    pack = getattr(args,'dflash2_pack',None)
+    vocab = getattr(args,'dflash2_vocab',None)
+    if (pack is None) != (vocab is None):
+        raise ValueError("--dflash2-pack and --dflash2-vocab must be supplied together")
+    if pack is None:
+        return []
+    if len(getattr(args,'gpu',None) or [0]) != 1:
+        raise ValueError("DFlash2 currently supports one independent CUDA worker")
+    if getattr(args,'vision_config',None) is not None:
+        raise ValueError("DFlash2 currently supports text histories only")
+    files = []
+    for path in (pack,vocab):
+        path = Path(path)
+        if not path.is_absolute() or path.is_symlink() or not path.is_file():
+            raise ValueError("DFlash2 assets must be absolute regular files")
+        files.append(path.resolve(strict=True))
+    return files
+
+
 def _make_profile(args,output):
+    draft_files=dflash2_assets(args)
     compatibility=compatibility_config(args)
     peers=cache_peer_config(args)
     roles=execution_role_config(args)
@@ -115,6 +137,8 @@ def _make_profile(args,output):
     model=args.model.resolve(strict=True)
     md=GGUFFile(model).metadata
     if md.get("general.architecture") in ("qwen35","wen1"):
+        if draft_files:
+            raise ValueError("DFlash2 requires the Flash model")
         if args.pack is not None or args.expert_profile is not None:
             raise ValueError("Dense Qwen does not use a Flash expert pack/profile")
         from experimental.branching_context.scripts.prepare_qwen35_profile import make_profile as qwen_profile
@@ -213,12 +237,17 @@ def _make_profile(args,output):
         execution['environment']={'CUDA_DEVICE_ORDER':'PCI_BUS_ID','CUDA_VISIBLE_DEVICES':','.join(map(str,workers))}
         # Each native worker receives its own physical --gpu from worker_command.
         command=execution['sut_command'];i=command.index('--gpu');del command[i:i+2]
+    if draft_files:
+        execution['dflash2_protocol'] = 'verified-window-v1'
+        execution['generated_operator'] = 'verified-dflash2-consumed-v1'
+        execution['environment'].update(STRATA_DFLASH2_PACK=str(draft_files[0]),
+                                        STRATA_DFLASH2_VOCAB=str(draft_files[1]))
     revision=subprocess.check_output(["git","-C",str(ROOT),"rev-parse","HEAD"],text=True).strip()
     prefixes=("serve/","tools/","experimental/branching_context/src/","experimental/branching_context/scripts/")
     tracked=subprocess.check_output(["git","-C",str(ROOT),"ls-files","-z"]).decode().split("\0")
     closure={name:fingerprint(ROOT/name)["sha256"] for name in tracked if name.endswith(".py") and name.startswith(prefixes)}
     helper=ROOT/"tools/gguf_reader.py"
-    build=dict(revision=revision,sha256={str(p):fingerprint(p)["sha256"] for p in (binary,helper)},
+    build=dict(revision=revision,sha256={str(p):fingerprint(p)["sha256"] for p in (binary,helper,*draft_files)},
         selected_runtime_source_closure=dict(source_commit=revision,files_sha256=closure))
     hardware=subprocess.check_output(["nvidia-smi","--query-gpu=name,uuid,driver_version,memory.total","--format=csv,noheader"],text=True).strip()
     profile=dict(backend="strata",backend_revision=revision,model_path=str(model),
@@ -287,6 +316,8 @@ def main():
     parser.add_argument('--decode-gpus',type=parse_gpus,help='Optional workers for continuation requests; both sets must cover --gpu')
     parser.add_argument('--scheduling',choices=('fifo','weighted-prefix','transfer-aware'),default='fifo',
         help='Shared-prefix, backlog-weighted queue admission; default preserves FIFO')
+    parser.add_argument("--dflash2-pack",type=Path,help="Opt in to verified DFlash2 with this draft pack (CUDA, text only).")
+    parser.add_argument("--dflash2-vocab",type=Path,help="Pinned draft vocabulary; required with --dflash2-pack.")
     parser.add_argument("--expert-profile",type=Path)
     parser.add_argument("--vision-config",type=Path,help="Optional existing pinned image-producer configuration; omit for text/restore-only serving.")
     parser.add_argument("--reuse-model-receipt",type=Path,help="Optional trusted prior hash receipt; changed file stamps force hashing.")

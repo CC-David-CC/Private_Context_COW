@@ -14,6 +14,14 @@ class NativeOperatorReceiptTests(unittest.TestCase):
         events = self.events()
         self.assertEqual(receipt.validate_operator_schedule(events,[1,2,3,4],8), receipt.schedule_digest(events))
 
+    def test_dflash_receipt_names_committed_decode_and_rejects_grouped_commits(self):
+        events = self.events()
+        events[1]['operator'] = 'verified-dflash2-consumed-v1'
+        receipt.validate_operator_schedule(events,[1,2,3,4],8)
+        events[1]['chunks'] = [[2,2]]
+        with self.assertRaises(ValueError):
+            receipt.validate_operator_schedule(events,[1,2,3,4],8)
+
     def test_original_batch_only_contract_still_rejects_normal_operator(self):
         with self.assertRaises(ValueError):
             receipt.validate_schedule(self.events(),[1,2,3,4],8)

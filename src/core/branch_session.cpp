@@ -171,22 +171,33 @@ bool BranchSession::bind(std::string& error) {
     return true;
 }
 bool BranchSession::begin(int64_t position, int64_t count, std::string& error) {
+    return begin_range(position,count,position,count,error);
+}
+bool BranchSession::begin_speculative_replay(int64_t position, int64_t first, int64_t window, std::string& error) {
+    if (!input_images_.empty() || first < 1 || window > 8)
+        return fail(error, "speculative replay requires one text-only window");
+    return begin_range(position,1,first,window,error);
+}
+bool BranchSession::begin_range(int64_t position, int64_t count, int64_t first, int64_t window, std::string& error) {
     if (state_ != State::ready || position != (int64_t)ids_.size() || count <= 0 ||
-        position < 0 || position > session_.max_cells || count > session_.max_cells - position)
+        position < 0 || position > session_.max_cells || count > session_.max_cells - position ||
+        first < 0 || first > position || window <= 0 || window > session_.max_cells-first ||
+        count > first+window-position)
         return fail(error, "invalid consumed position, capacity, or transition");
     if (!sync(error)) { state_ = State::failed; return false; }
     const auto shape = strata::kernels::qsa_real_shapes();
     std::vector<BranchPages::Write> writes;
     try { writes.reserve(bindings_.size()); }
     catch (...) { state_ = State::failed; return fail(error, "cannot allocate write list"); }
+    const int64_t window_first = first;
     for (const auto& b : bindings_) {
         uint64_t first, end;
         if (b->part == 4) {
-            first = position / shape.idx_block;
-            end = (position + count) / shape.idx_block + 1; // includes the moving spare row
+            first = window_first / shape.idx_block;
+            end = (window_first + window) / shape.idx_block + 1; // includes the moving spare row
         } else {
-            first = position / shape.page_size * shape.page_size;
-            end = (position + count + shape.page_size - 1) / shape.page_size * shape.page_size;
+            first = window_first / shape.page_size * shape.page_size;
+            end = (window_first + window + shape.page_size - 1) / shape.page_size * shape.page_size;
         }
         writes.push_back({&b->memory,first*b->per_cell,(end-first)*b->per_cell});
     }
@@ -290,6 +301,17 @@ bool BranchSession::finish(const std::vector<int32_t>& tokens, const std::vector
     state_ = State::ready;
     pending_ = 0;
     return true;
+}
+bool BranchSession::finish_speculative_prefix(const std::vector<int32_t>& tokens,
+                                                const std::vector<float>& logits, std::string& error) {
+    if (state_ != State::writing || tokens.empty() || (int64_t)tokens.size() > pending_ ||
+        !pending_input_ids_.empty() || !input_images_.empty())
+        return fail(error, "invalid text-only speculative prefix");
+    const auto original_pending = pending_;
+    pending_ = (int64_t)tokens.size();
+    if (finish(tokens, logits, error)) return true;
+    pending_ = original_pending;
+    return false;
 }
 BranchSessionImage BranchSession::freeze(std::string& error) {
     if (state_ != State::ready || ids_.empty() || !sync(error)) {

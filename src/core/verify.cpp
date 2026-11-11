@@ -5,6 +5,9 @@
 #endif
 #include "strata/kernels/gfx_arch.hpp"
 #include "strata/core/verify.hpp"
+#if defined(STRATA_HAVE_DFLASH2)
+#include "strata/kernels/dflash2.hpp"
+#endif
 #include "strata/core/remote_expert_opt.hpp"
 #include "strata/core/dma_batch.hpp"
 #include "strata/core/spec_prob.hpp"
@@ -514,6 +517,9 @@ Verifier::~Verifier() {
     if (df_fork_) cudaEventDestroy(df_fork_);
     for (cudaEvent_t e : df_join_)
         if (e) cudaEventDestroy(e);
+#if defined(STRATA_HAVE_DFLASH2)
+    if (tap_dev_) cudaFree(tap_dev_);
+#endif
     if (arena_) cudaFree(arena_);
     void* hosts[] = {h_tok_, h_step_, h_pos_, h_commit_, h_ple_, h_out_, h_x_, h_ids_, h_w_, h_seq_, h_flag_, h_ymiss_,
                      h_flagA_, h_plan_, h_flagB_, h_plan_err_, h_nf_};
@@ -624,6 +630,21 @@ bool Verifier::init(const WeightTable& wt, const ModelGeometry& g, SessionState&
               mapped(64, (void**) &h_plan_err_, (void**) &m_plan_err_) &&
               mapped(T * K * N * 4, (void**) &h_ymiss_, (void**) &m_ymiss_);
     if (!ok) { err = "verify: mapped staging allocation failed"; return false; }
+#if defined(STRATA_HAVE_DFLASH2)
+    if (!tap_req_.empty()) {
+        if (lb_ != 0 || le_ != g.n_layers) { err = "DFlash2 taps need a single stage"; return false; }
+        tap_slot_.assign((size_t)g.n_layers, -1);
+        for (int l : tap_req_) {
+            if (l < 0 || l >= g.n_layers - 1 || tap_slot_[(size_t)l] != -1) { err = "invalid DFlash2 tap layers"; return false; }
+            tap_slot_[(size_t)l] = (int)tap_layers_.size();
+            tap_layers_.push_back(l);
+        }
+        if (cudaMalloc((void**)&tap_dev_, (size_t)T * tap_layers_.size() * N * sizeof(float)) != cudaSuccess) {
+            err = "cannot allocate DFlash2 taps"; return false;
+        }
+    }
+#endif
+
     // the GPU plan: counts(4) | start(cap+1) | dst(cap) | tok(cap) | pad | ptr(cap u64) | ptr2(cap u64) | start2(cap+1)
     {
         const int64_t cap = (int64_t) (T * K);
@@ -1682,6 +1703,13 @@ bool Verifier::record_window(int T, cudaStream_t cs, std::string& err) {
         if (remote_opt_) remote_opt_->combine(bo_ + tb * N, y_dummy_ + tb * N, tb, n,
                               device_plan_ ? skip_ + grp : nullptr, ring, cs);
         stamp(l, 24, grp);
+#if defined(STRATA_HAVE_DFLASH2)
+        if (tap_dev_ && !batch_rec_ && l < (int64_t)tap_slot_.size() && tap_slot_[(size_t)l] >= 0) {
+            const int64_t nt = (int64_t)tap_layers_.size();
+            strata::kernels::df2_tap_gr(Rt(tb), HC*N, bo_+tb*N, N, inj2_+tb*HC, HC,
+                tap_dev_+((size_t)tb*nt+(size_t)tap_slot_[(size_t)l])*N, nt*N, n, N, (int)HC, cs);
+        }
+#endif
         if (l == g.n_layers - 1) {
             if (!fuse_head_gr) {
                 if (dec_batch && !g_no_multi_gr) gr_write_multi(Rt(tb), bo_ + tb * N, inj2_ + tb * HC, gs, Rt(tb), n, cs);

@@ -2452,7 +2452,16 @@ class ContextCoordinator:
                         pin.__exit__(None,None,None)
         after = model.backend.work_counters()
         expected = len(job.ids)+len(answer['tokens'])
-        if after['forward_tokens']-before['forward_tokens'] != expected:
+        execution = getattr(model.backend, 'profile', {}).get('execution', {})
+        if execution.get('dflash2_protocol') == 'verified-window-v1':
+            # Each generated token can start at most one eight-row verifier
+            # window. Input prefill remains exact and never uses speculation.
+            work = after['forward_tokens']-before['forward_tokens']
+            consumed = after['consumed_tokens']-before['consumed_tokens']
+            valid = consumed == expected and expected <= work <= len(job.ids)+8*len(answer['tokens'])
+        else:
+            valid = after['forward_tokens']-before['forward_tokens'] == expected
+        if not valid:
             raise InvalidOperation('Request recomputed a saved prefix or omitted consumed work')
         answer['counter_deltas'] = {k:after[k]-v for k,v in before.items()
             if type(v) in (int,float) and type(after.get(k)) in (int,float)}

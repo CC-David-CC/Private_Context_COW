@@ -103,3 +103,44 @@ legacy worker refusal, duplicate/custom registration, constructor-error identity
 existing protocol/HTTP capability fixtures, G0 and Python training controls.
 Mocked constructors do not prove actual GPU behavior or native math. Native
 Qwen3.6 state/API and constrained operation admission remain subsequent work.
+
+## PCC-DFLASH2-001: opt-in verified draft windows
+
+Status: implemented-unreleased, experimental. Contract version:
+verified-window-v1 / verified-dflash2-consumed-v1.
+
+Affected surfaces: setup CLI, worker capability, native private pipe,
+execution receipts and execution-profile identity. Existing HTTP request shapes
+are unchanged.
+
+Before: Flash generated tokens with the normal verifier, whose work counter
+matched consumed input and output tokens. After: a server may opt in with both
+setup options described in [COW-DFLASH2.md](COW-DFLASH2.md). The native worker
+checks proposals using the target and commits selected tokens individually.
+Its speculative receipt records committed-token boundaries. The separate
+accepted and forward counters distinguish accepted progress from verification
+work. Other profiles retain their prior accounting rules.
+
+Setup rejects a missing half of the asset pair, dense-model selection and an
+image producer. The native worker reports its protocol at startup; a mismatch
+with the pinned execution profile fails admission. DFlash2 draft assets are
+included in the execution-profile fingerprint, not the base-model weights
+contract. A checkpoint remains bound to the execution profile that created it;
+there is no automatic migration or relabeling. Resuming a checkpoint under a
+different execution profile has not been qualified.
+
+A completed token remains the publication and cancellation boundary. A
+speculative suffix is discarded before capture, cancellation, restore or
+process exit. This does not add a new durable draft state. The ordinary
+request, retry, authorization and branch APIs retain their existing shapes.
+
+BW and SSS imports and workflows were not specifically qualified by this
+change. Existing clients need no new request fields; they must not interpret
+forward work as accepted output count. New server profiles require both pinned
+draft files, sufficient GPU memory and a CUDA build. Omitting both setup options
+selects the existing worker.
+
+Focused tests cover receipt validation, native state restoration and greedy
+cancellation boundaries. The mode remains experimental pending the broader
+lifecycle, client and backend matrix; it is text-only and no HIP/SYCL,
+split-device or batched DFlash2 capability is claimed.

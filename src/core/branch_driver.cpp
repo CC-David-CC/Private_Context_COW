@@ -3,6 +3,11 @@
 #include "vision_dry.h"
 #include <chrono>
 #include "strata/core/branch_driver.hpp"
+#ifdef STRATA_HAVE_DFLASH2
+#include "strata/core/dflash2.hpp"
+#include "strata/core/speculative_undo.hpp"
+#include "strata/core/conversation_snapshot.hpp"
+#endif
 #include "strata/core/expert_source.hpp"
 #include "strata/core/branch_session.hpp"
 #include <algorithm>
@@ -50,9 +55,24 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     BranchSession session(state, geometry, "loaded-model-single-process-v1");
     if (!session.bind(error)) { error_reply(error); return 1; }
     Verifier forward;
+    const char* draft_pack = std::getenv("STRATA_DFLASH2_PACK");
+#ifndef STRATA_HAVE_DFLASH2
+    if (draft_pack) { error_reply("DFlash2 requires a CUDA build"); return 1; }
+#else
+    Dflash2Drafter drafter;
+    if (draft_pack) {
+        int device = 0;
+        const char* vocab = std::getenv("STRATA_DFLASH2_VOCAB");
+        if (!*draft_pack || !vocab || !*vocab || cudaGetDevice(&device) != cudaSuccess ||
+            !drafter.load(draft_pack, device, error)) {
+            error_reply(error.empty() ? "invalid DFlash2 pack or vocabulary" : error); return 1;
+        }
+        forward.set_taps(drafter.tap_layers());
+    }
+#endif
     // Strata requires capacity for at least two rows even when run() consumes
     // just one. The actual forced forward below always passes T=1.
-    if (!forward.init(weights, geometry, state, hits, head, 2, error)) { error_reply(error); return 1; }
+    if (!forward.init(weights, geometry, state, hits, head, draft_pack ? 8 : 2, error)) { error_reply(error); return 1; }
     // The verifier consumes the GPU plan produced by this exact dispatch.
     // Without this binding, resident experts are omitted from both CPU and GPU work.
     forward.set_pcie_mode(pcie_mode);
@@ -63,6 +83,10 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     } plan_reset{dispatch};
     bool& pool_failed = dispatch.failed;
     forward.set_head_sampling(false); // forced inputs; the API owns RNG/grammar
+#ifdef STRATA_HAVE_DFLASH2
+    if (draft_pack && (!drafter.bind(weights, head, std::getenv("STRATA_DFLASH2_VOCAB"), error) ||
+                       !drafter.prepare(forward.tap_dev(), error))) { error_reply(error); return 1; }
+#endif
     BranchHandleCounters handle_work;
     BranchHandles<BranchSessionImage> images(handle_work);
     ConversationCache ram_cache(size_t(1024) * 1024 * 1024, 8);
@@ -71,6 +95,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     uint64_t grammar_selection_calls = 0, grammar_selection_logit_bytes = 0, grammar_selection_mask_bytes = 0, sampling_calls = 0, sampling_logit_bytes = 0, sampling_mask_bytes = 0, sampling_ns = 0, sampling_v2_calls = 0, sampling_v2_logit_bytes = 0, sampling_v2_mask_bytes = 0, sampling_v2_ns = 0, sampling_v3_calls = 0, sampling_v3_logit_bytes = 0, sampling_v3_mask_bytes = 0, sampling_v3_ns = 0, dry_penalized_candidates = 0; uint64_t sampling_v4_calls = 0, sampling_v4_logit_bytes = 0, sampling_v4_mask_bytes = 0, sampling_v4_ns = 0, typical_filter_calls = 0, dynatemp_filter_calls = 0, dry_penalized_candidates_v4 = 0; uint64_t sampling_v5_calls = 0, sampling_v5_logit_bytes = 0, sampling_v5_mask_bytes = 0, sampling_v5_ns = 0, sampling_v5_activation_draws = 0, sampling_v5_activated_calls = 0, sampling_v5_removed_candidates = 0, typical_filter_calls_v5 = 0, dynatemp_filter_calls_v5 = 0, dry_penalized_candidates_v5 = 0; uint64_t sampling_adaptive_p_calls = 0, sampling_adaptive_p_logit_bytes = 0, sampling_adaptive_p_mask_bytes = 0, sampling_adaptive_p_ns = 0; uint64_t sampling_mirostat2_calls = 0, sampling_mirostat2_logit_bytes = 0, sampling_mirostat2_mask_bytes = 0, sampling_mirostat2_ns = 0;
     std::cout << "{\"status\":\"ready\",\"vocab\":" << forward.vocab()
               << ",\"capacity\":" << state.max_cells
+              << (draft_pack ? ",\"dflash2_protocol\":\"verified-window-v1\"" : "")
               << ",\"native_request_protocol\":\"consumed-greedy-ack-v1\",\"selected_token_protocol\":\"consumed-selected-receipt-v1\",\"grammar_selection_protocol\":\"finite-mask-argmax-v1\",\"sampling_protocol\":\"full-vocab-adaptive-p-u53-v7\",\"adaptive_p_protocol\":\"full-vocab-adaptive-p-u53-v7\",\"mirostat2_protocol\":\"full-vocab-mirostat2-u53-v6\",\"sampling_v6_protocol\":\"full-vocab-mirostat2-u53-v6\",\"sampling_v5_protocol\":\"full-vocab-xtc-min-p-u53-v5\",\"sampling_v4_protocol\":\"full-vocab-typical-dyna-min-p-u53-v4\",\"sampling_v3_protocol\":\"full-vocab-dry-min-p-u53-v3\",\"sampling_v2_protocol\":\"full-vocab-min-p-u53-v2\",\"sampling_v1_protocol\":\"full-vocab-min-p-u53-v1\",\"mirostat2_feedback_protocol\":\"mirostat2-state-v1\",\"adaptive_p_feedback_protocol\":\"adaptive-p-state-v1\",\"adaptive_p_feedback_version\":1,\"mirostat2_feedback_version\":1}" << std::endl;
 
     strata::prefill::Prefill batched;
@@ -90,12 +115,73 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     uint64_t sampling_mixed_dry_calls=0,sampling_mixed_dry_ns=0,
         sampling_mixed_dry_logit_bytes=0,sampling_mixed_dry_mask_bytes=0;
     uint64_t sampling_image_dry_combination_calls=0;
+#ifdef STRATA_HAVE_DFLASH2
+    // Retain an ephemeral verified window across selected-token commands.
+    std::unique_ptr<SpeculativeUndo> draft_undo;
+    void* draft_gdn=nullptr; ConversationStateSizes draft_sizes;
+    struct DraftGdnCleanup {
+        void*& buffer;
+        ~DraftGdnCleanup() { if (buffer) cudaFree(buffer); }
+    } draft_gdn_cleanup{draft_gdn};
+    int32_t draft_tokens[8]={}, draft_prev[2]={};
+    int draft_count=0,draft_kept=0,last_tap_count=0; int64_t draft_pos=0,last_tap_pos=0;
+    int64_t offered_total=0,accepted_total=0,window_total=0;
+    auto release_window=[&]() { draft_undo.reset(); if (draft_gdn) cudaFree(draft_gdn); draft_gdn=nullptr; draft_count=draft_kept=0; };
+    auto reset_draft=[&]() { release_window();last_tap_count=0;last_tap_pos=0;if(draft_pack) drafter.reset(); };
+    auto consume_with_draft=[&](int32_t token) -> bool {
+        if (!session.input_images().empty()) { error="DFlash2 does not support image histories"; return false; }
+        const int64_t pos=(int64_t)session.ids().size();
+        if (token<0 || token>=forward.vocab() || pos>=state.max_cells) {error="invalid selected token";return false;}
+        bool reuse=draft_undo && draft_kept<draft_count && token==draft_tokens[draft_kept];
+        if (!reuse) {
+            if (draft_undo) {last_tap_count=draft_kept;last_tap_pos=draft_pos;release_window();}
+            if (!last_tap_count || state.max_cells-pos<2) {
+                int32_t out=0; pool_failed=false;
+                const bool ok=session.begin(pos,1,error) && forward.run(1,&token,pos,pool,user,&out,error) && !pool_failed &&
+                    forward.commit(1,error) && forward.copy_logits(0,logits.data()) && session.finish({token},logits,error);
+                if (ok) {last_tap_count=1;last_tap_pos=pos;++decode_timed_tokens;} return ok;
+            }
+            int32_t guesses[Dflash2Drafter::kDrafts];float probs[Dflash2Drafter::kDrafts];
+            if (!drafter.draft(forward.tap_dev(),last_tap_count,last_tap_pos,token,guesses,probs,error)) return false;
+            draft_count=(int)std::min<int64_t>(8,state.max_cells-pos);draft_pos=pos;draft_kept=0;draft_tokens[0]=token;
+            for(int j=1;j<draft_count;++j) {
+                if(guesses[j-1]<0 || guesses[j-1]>=forward.vocab()) {draft_count=j;break;}
+                draft_tokens[j]=guesses[j-1];
+            }
+            if(draft_count<2) {error="invalid DFlash2 candidates";return false;}
+            draft_prev[0]=state.ple_prev[0];draft_prev[1]=state.ple_prev[1];
+            draft_undo=std::make_unique<SpeculativeUndo>();
+            if(!session.begin(pos,draft_count,error) || !draft_undo->capture(state,geometry,pos,draft_count,error) ||
+               !conversation_session_sizes(geometry,state,draft_sizes,error) || cudaMalloc(&draft_gdn,draft_sizes.gdn)!=cudaSuccess ||
+               cudaMemcpy(draft_gdn,state.gdn_state,draft_sizes.gdn,cudaMemcpyDeviceToDevice)!=cudaSuccess || cudaDeviceSynchronize()!=cudaSuccess) {error="cannot start speculative transaction";return false;}
+            int32_t out[8]={};pool_failed=false;
+            if(!forward.run(draft_count,draft_tokens,pos,pool,user,out,error) || pool_failed || !draft_undo->capture_candidates(error)) return false;
+            ++window_total;offered_total+=draft_count-1;
+        } else {
+            if (!session.begin_speculative_replay(pos,draft_pos,draft_count,error) || !draft_undo->reapply_candidates(error) ||
+                cudaMemcpy(state.gdn_state,draft_gdn,draft_sizes.gdn,cudaMemcpyDeviceToDevice)!=cudaSuccess || cudaDeviceSynchronize()!=cudaSuccess) {error="cannot replay speculative transaction";return false;}
+            state.ple_prev[0]=draft_prev[0];state.ple_prev[1]=draft_prev[1];
+        }
+        const int k=draft_kept+1;
+        if(!forward.commit(k,error) || !forward.wait_commit(error) || !draft_undo->restore_suffix(k,error) || !forward.copy_logits(k-1,logits.data())) return false;
+        if(k==1) {if(!session.finish_speculative_prefix({token},logits,error)) return false;}
+        else {if(!session.finish({token},logits,error)) return false; ++accepted_total;}
+        draft_kept=k;++decode_timed_tokens;
+        return true;
+    };
+#endif
     std::string line;
     while (std::getline(std::cin, line)) {
         std::istringstream in(line);
         std::string command;
         in >> command;
         error.clear();
+#ifdef STRATA_HAVE_DFLASH2
+        if (draft_pack && (command=="reset" || command=="restore" || command=="load" || command=="feed" || command=="feed_image" || command=="activate" || command=="load_image" || command=="capture" || command=="write" || command=="quit")) reset_draft();
+        if (draft_pack && (command=="feed_image" || command=="load_image")) {
+            error_reply("DFlash2 does not support image histories"); continue;
+        }
+#endif
         if (!session.input_images().empty() && (command == "park" || command == "activate")) {
             error_reply("legacy native host cache has no canonical image lookup"); continue;
         }
@@ -1360,6 +1446,25 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
             }
             std::string extra;
             if (!valid || (in >> extra)) { error_reply("invalid greedy request"); continue; }
+#ifdef STRATA_HAVE_DFLASH2
+            if (draft_pack) {
+                reset_draft();const auto start=session.ids().size();int64_t made=0;bool ok=true;
+                const auto offered_before=offered_total,accepted_before=accepted_total,windows_before=window_total;
+                for (;made<limit;) {
+                    const auto& f=session.logits();
+                    if (f.empty() || !std::all_of(f.begin(),f.end(),[](float v){return std::isfinite(v);})) {error="invalid frontier";ok=false;break;}
+                    const int32_t token=(int32_t)std::distance(f.begin(),std::max_element(f.begin(),f.end()));
+                    if(!consume_with_draft(token)) {ok=false;break;}
+                    ++made;std::cout << "{\"status\":\"token\",\"token\":" << token << ",\"consumed\":" << session.ids().size() << "}" << std::endl;
+                    std::string ack;if(!std::getline(std::cin,ack) || (ack!="advance" && ack!="cancel")) {error="invalid acknowledgment";ok=false;break;}
+                    if(ack=="cancel" || std::find(eos.begin(),eos.end(),token)!=eos.end()) break;
+                }
+                if(!ok) {error_reply(error.empty()?"DFlash2 decode failed":error);return 1;}
+                std::cout << "{\"status\":\"ok\",\"operator\":\"verified-dflash2-consumed-v1\",\"position\":" << start << ",\"count\":" << made << ",\"generated\":" << made << ",\"consumed\":" << session.ids().size() << ",\"forward_tokens\":" << (forward.completed_forward_tokens+prefill_tokens) << ",\"accepted_tokens\":" << (decode_timed_tokens+prefill_tokens) << ",\"draft_offered\":" << offered_total-offered_before << ",\"draft_accepted\":" << accepted_total-accepted_before << ",\"draft_windows\":" << window_total-windows_before << ",\"chunks\":[";
+                for(int64_t j=0;j<made;++j) {if(j) std::cout << ",";std::cout << "[" << start+j << ",1]";}std::cout << "]}" << std::endl;
+                reset_draft();continue;
+            }
+#endif
             const auto start_position = session.ids().size();
             std::vector<int64_t> completed_positions;
             bool ok = true;
@@ -1415,7 +1520,15 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
             if (!(in >> token) || (in >> extra) || token < 0 || token >= forward.vocab()) {
                 error_reply("decode requires one selected token"); continue;
             }
-            const int64_t position = session.ids().size(); int32_t unused = 0; pool_failed = false;
+            const int64_t position = session.ids().size();
+#ifdef STRATA_HAVE_DFLASH2
+            if (draft_pack) {
+                if(!consume_with_draft(token)) {error_reply(error.empty()?"DFlash2 selected-token decode failed":error);return 1;}
+                std::cout << "{\"status\":\"ok\",\"operator\":\"verified-dflash2-consumed-v1\",\"position\":" << position << ",\"count\":1,\"consumed\":" << session.ids().size() << ",\"chunks\":[[" << position << ",1]],\"draft_offered\":" << offered_total << ",\"draft_accepted\":" << accepted_total << ",\"draft_windows\":" << window_total << "}" << std::endl;
+                continue;
+            }
+#endif
+            int32_t unused = 0; pool_failed = false;
             auto timer = std::chrono::steady_clock::now();
             const bool prepared = session.begin(position, 1, error);
             decode_prepare_ns += std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now()-timer).count();
@@ -1585,8 +1698,16 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
             const auto h = branch_digest_counters();
             const auto snapshots = BranchSession::snapshot_counters();
             std::cout << "{\"status\":\"ok\",\"consumed\":" << session.ids().size()
-                      << ",\"forward_tokens\":" << (forward.completed_forward_tokens + prefill_tokens)
-                      << ",\"prefill_tokens\":" << prefill_tokens
+                      << ",\"forward_tokens\":" << (forward.completed_forward_tokens + prefill_tokens);
+#ifdef STRATA_HAVE_DFLASH2
+            if (draft_pack) {
+                std::cout << ",\"accepted_tokens\":" << (decode_timed_tokens + prefill_tokens)
+                          << ",\"dflash2_offered\":" << offered_total
+                          << ",\"dflash2_accepted\":" << accepted_total
+                          << ",\"dflash2_windows\":" << window_total;
+            }
+#endif
+            std::cout << ",\"prefill_tokens\":" << prefill_tokens
                       << ",\"prefill_chunks\":" << prefill_chunks << ",\"grammar_selection_calls\":" << grammar_selection_calls << ",\"grammar_selection_logit_bytes\":" << grammar_selection_logit_bytes << ",\"grammar_selection_mask_bytes\":" << grammar_selection_mask_bytes << ",\"sampling_calls\":" << sampling_calls << ",\"sampling_logit_bytes\":" << sampling_logit_bytes << ",\"sampling_mask_bytes\":" << sampling_mask_bytes << ",\"sampling_ns\":" << sampling_ns << ",\"sampling_v2_calls\":" << sampling_v2_calls << ",\"sampling_v2_logit_bytes\":" << sampling_v2_logit_bytes << ",\"sampling_v2_mask_bytes\":" << sampling_v2_mask_bytes << ",\"sampling_v2_ns\":" << sampling_v2_ns << ",\"sampling_v3_calls\":" << sampling_v3_calls << ",\"sampling_v3_logit_bytes\":" << sampling_v3_logit_bytes << ",\"sampling_v3_mask_bytes\":" << sampling_v3_mask_bytes << ",\"sampling_v3_ns\":" << sampling_v3_ns << ",\"sampling_mixed_dry_calls\":" << sampling_mixed_dry_calls << ",\"sampling_mixed_dry_ns\":" << sampling_mixed_dry_ns << ",\"sampling_mixed_dry_logit_bytes\":" << sampling_mixed_dry_logit_bytes << ",\"sampling_mixed_dry_mask_bytes\":" << sampling_mixed_dry_mask_bytes << ",\"sampling_v4_calls\":" << sampling_v4_calls << ",\"sampling_v4_logit_bytes\":" << sampling_v4_logit_bytes << ",\"sampling_v4_mask_bytes\":" << sampling_v4_mask_bytes << ",\"sampling_v4_ns\":" << sampling_v4_ns << ",\"sampling_image_dry_combination_calls\":" << sampling_image_dry_combination_calls << ",\"sampling_v5_calls\":" << sampling_v5_calls << ",\"sampling_v5_logit_bytes\":" << sampling_v5_logit_bytes << ",\"sampling_v5_mask_bytes\":" << sampling_v5_mask_bytes << ",\"sampling_v5_ns\":" << sampling_v5_ns << ",\"sampling_mirostat2_calls\":" << sampling_mirostat2_calls << ",\"sampling_mirostat2_logit_bytes\":" << sampling_mirostat2_logit_bytes << ",\"sampling_mirostat2_mask_bytes\":" << sampling_mirostat2_mask_bytes << ",\"sampling_mirostat2_ns\":" << sampling_mirostat2_ns << ",\"sampling_adaptive_p_calls\":" << sampling_adaptive_p_calls << ",\"sampling_adaptive_p_logit_bytes\":" << sampling_adaptive_p_logit_bytes << ",\"sampling_adaptive_p_mask_bytes\":" << sampling_adaptive_p_mask_bytes << ",\"sampling_adaptive_p_ns\":" << sampling_adaptive_p_ns << ",\"sampling_v5_activation_draws\":" << sampling_v5_activation_draws << ",\"sampling_v5_activated_calls\":" << sampling_v5_activated_calls << ",\"sampling_v5_removed_candidates\":" << sampling_v5_removed_candidates << ",\"typical_filter_calls_v5\":" << typical_filter_calls_v5 << ",\"dynatemp_filter_calls_v5\":" << dynatemp_filter_calls_v5 << ",\"dry_penalized_candidates_v5\":" << dry_penalized_candidates_v5 << ",\"typical_filter_calls\":" << typical_filter_calls << ",\"dynatemp_filter_calls\":" << dynatemp_filter_calls << ",\"dry_penalized_candidates_v4\":" << dry_penalized_candidates_v4 << ",\"dry_penalized_candidates\":" << dry_penalized_candidates
                       << ",\"decode_prepare_ns\":" << decode_prepare_ns
                       << ",\"decode_compute_ns\":" << decode_compute_ns

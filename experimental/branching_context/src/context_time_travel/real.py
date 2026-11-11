@@ -39,7 +39,7 @@ def supports_consumed_selection(profile):
              and e.get('vision_protocol')=='explicit-image-rows-mrope-v3'
              and e.get('native_binding_protocol')=='qwen35-streamed-cells-mrope-v2')))
     return (e.get('resume_contract') in ('identical-native-operators-v1',RESUME_CONTRACT)
-        and e.get('generated_operator')=='normal-verifier-decode')
+        and e.get('generated_operator') in ('normal-verifier-decode','verified-dflash2-consumed-v1'))
 
 
 def digest_file(path):
@@ -551,7 +551,7 @@ class BranchingModel:
                 stream=stream,on_token=on_token,cancelled=cancelled,
                 artifacts=artifacts,reencode=reencode)
         if (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
-                or execution.get('generated_operator') != 'normal-verifier-decode'
+                or execution.get('generated_operator') not in ('normal-verifier-decode','verified-dflash2-consumed-v1')
                 or execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'
                 or not callable(getattr(self.backend,'generate_request',None))):
             raise InvalidOperation('Resident greedy request requires the pinned native operator contract')
@@ -1360,7 +1360,7 @@ class BranchingModel:
             and supports_consumed_selection(self.profile)
             and execution.get('resume_contract')=='identical-native-batches-v1')
         if not dense_llama and (execution.get('resume_contract') not in ('identical-native-operators-v1',RESUME_CONTRACT)
-                or execution.get('generated_operator') != 'normal-verifier-decode'
+                or execution.get('generated_operator') not in ('normal-verifier-decode','verified-dflash2-consumed-v1')
                 or execution.get('native_request_protocol') != 'consumed-greedy-ack-v1'):
             raise InvalidOperation('History reconstruction requires a qualified explicit native profile')
         with self.store.read_lease(snapshot):

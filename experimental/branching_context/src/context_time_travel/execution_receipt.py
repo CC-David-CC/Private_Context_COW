@@ -18,7 +18,7 @@ def validate_schedule(schedule, history, chunk_limit):
 
 
 def validate_operator_schedule(schedule, history, chunk_limit):
-    return _validate_schedule(schedule, history, chunk_limit, {'batched-prefill','normal-verifier-decode'})
+    return _validate_schedule(schedule, history, chunk_limit, {'batched-prefill','normal-verifier-decode','verified-dflash2-consumed-v1'})
 
 
 def validate_input_schedule(schedule, history, chunk_limit):
@@ -48,7 +48,7 @@ def validate_input_schedule(schedule, history, chunk_limit):
         if (type(event['rotary_cursor']) is not int or
                 any(event[k] != value for k,value in expected.items())):
             raise ValueError('Mixed execution receipt input/position identity mismatch')
-        if event['operator']=='normal-verifier-decode' and projection.new_image(event['position'],end):
+        if event['operator'] in ('normal-verifier-decode','verified-dflash2-consumed-v1') and projection.new_image(event['position'],end):
             raise ValueError('Decode cannot consume image rows')
     validate_operator_schedule(legacy,projection.native_tokens,chunk_limit)
     return schedule_digest(schedule)
@@ -76,7 +76,7 @@ def _validate_schedule(schedule, history, chunk_limit, operators):
             if (not isinstance(entry, (list, tuple)) or len(entry) != 2
                     or any(type(v) is not int for v in entry)
                     or entry[0] != cursor or not 0 < entry[1] <= chunk_limit
-                    or (event['operator'] == 'normal-verifier-decode' and entry[1] != 1)
+                    or (event['operator'] in ('normal-verifier-decode','verified-dflash2-consumed-v1') and entry[1] != 1)
                     or cursor+entry[1] > position+count):
                 raise ValueError('Invalid completed native chunk boundary')
             cursor += entry[1]
@@ -136,7 +136,7 @@ class _InputScheduleCursor:
             if not history.spans or history.spans[-1]['kind'] != 'text':
                 raise ValueError('Execution boundary must follow completed image input')
             delta = history.segment(position)
-            if (event['operator'] == 'normal-verifier-decode'
+            if (event['operator'] in ('normal-verifier-decode','verified-dflash2-consumed-v1')
                     and any(span['kind']=='image' for span in delta.spans)):
                 raise ValueError('Decode cannot consume image rows')
             expected = dict(inputs_sha256=history.digest, **input_binding(history))

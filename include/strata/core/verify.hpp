@@ -91,6 +91,13 @@ public:
     bool init(const WeightTable& wt, const ModelGeometry& g, SessionState& ss, const VerifyHits& hits,
               const NativeHead* head, int max_t, std::string& err);
 
+#if defined(STRATA_HAVE_DFLASH2)
+    // Before init: request completed layer outputs for a single-stage DFlash2 drafter.
+    void set_taps(const std::vector<int>& layers) { tap_req_ = layers; }
+    const float* tap_dev() const { return tap_dev_; }
+    bool tapping() const { return tap_dev_ != nullptr; }
+#endif
+
     /// One window: `tokens[0..T)` at positions pos0.., the pool served per layer; `out[t]` = argmax after token t.
     /// The PLE rows are gathered here from `ss.ple_prev` and the tokens.  Captures the T-token graph on first use.
     bool run(int T, const int32_t* tokens, int64_t pos0, PoolMultiFn pool, void* user, int32_t* out, std::string& err);
@@ -428,6 +435,10 @@ private:
     double prof_sum_[2][kProfPer] = {};   // [GDN / QSA layers][stage]
     int64_t prof_windows_ = 0;
 
+#if defined(STRATA_HAVE_DFLASH2)
+    std::vector<int> tap_req_, tap_layers_, tap_slot_;
+    float* tap_dev_ = nullptr;
+#endif
     const WeightTable* wt_ = nullptr;
     const ModelGeometry* g_ = nullptr;
     SessionState* ss_ = nullptr;

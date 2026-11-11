@@ -74,19 +74,21 @@ def describe_strata(profile, ready):
     e = _identity(profile)
     if (profile.get('backend') != 'strata'
             or e.get('resume_contract') not in ('identical-native-operators-v1', 'identical-mixed-native-operators-v1')
-            or e.get('generated_operator') != 'normal-verifier-decode'):
+            or e.get('generated_operator') not in ('normal-verifier-decode','verified-dflash2-consumed-v1')):
         raise CapabilityError('Unknown Strata continuation protocol')
     for key in ('native_request_protocol', 'selected_token_protocol',
-                'grammar_selection_protocol', 'sampling_protocol'):
+                'grammar_selection_protocol', 'sampling_protocol', 'dflash2_protocol'):
         if e.get(key) is not None and ready.get(key) != e[key]:
             raise CapabilityError('Native capability differs from pinned ' + key)
+    if (e.get('generated_operator') == 'verified-dflash2-consumed-v1') != (e.get('dflash2_protocol') == 'verified-window-v1'):
+        raise CapabilityError('DFlash2 operator and protocol differ')
     mixed = e['resume_contract'] == 'identical-mixed-native-operators-v1'
     if mixed and e.get('vision_protocol') != 'explicit-image-rows-mrope-v3':
         raise CapabilityError('Unknown Strata mixed-input protocol')
     # The state codec is bound to the complete execution profile. This label
     # deliberately conveys no portability across builds or GPU layouts.
     return NativeCapabilities('strata', 'moe', profile['model_contract_id'],
-        profile['execution_profile_id'], ('text', 'image') if mixed else ('text',),
+        profile['execution_profile_id'], ('text', 'image') if mixed and not e.get('dflash2_protocol') else ('text',),
         'execution-profile-bound', e['resume_contract'], e['capacity'],
         e.get('sampling_protocol'), e.get('selected_token_protocol'),
         e.get('grammar_selection_protocol'), native_residency=True)

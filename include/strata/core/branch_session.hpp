@@ -61,6 +61,11 @@ public:
     bool bind(std::string& error);
     bool reset(std::string& error);
     bool begin(int64_t position, int64_t count, std::string& error);
+    // Protect the entire original verify window before replaying one more
+    // accepted token. Only that one token is pending publication.
+    bool begin_speculative_replay(int64_t position, int64_t first, int64_t window, std::string& error);
+    // Publish a verified prefix after the caller has restored rejected bytes.
+    bool finish_speculative_prefix(const std::vector<int32_t>& tokens, const std::vector<float>& logits, std::string& error);
     // Validated image-aware append. Existing placements cannot be changed.
     // The position table is installed before forward; finish publishes the
     // metadata only after these exact tokens have been consumed successfully.
@@ -112,6 +117,7 @@ private:
     std::vector<int32_t> pending_input_ids_;
     bool install_positions(const VisionLayout& plan, std::string& error);
     bool map_prefix(int64_t tokens, std::string& error);
+    bool begin_range(int64_t position, int64_t count, int64_t first, int64_t window, std::string& error);
     BranchSessionCounters counters_;
     State state_ = State::unbound;
     int64_t pending_ = 0;
