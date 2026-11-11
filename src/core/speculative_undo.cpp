@@ -8,7 +8,42 @@ namespace strata::core {
 namespace {
 bool fail(std::string& error, const char* message) { error=message; return false; }
 }
-SpeculativeUndo::~SpeculativeUndo() { if (candidates_) cudaFree(candidates_); if (saved_) cudaFree(saved_); }
+SpeculativeUndo::~SpeculativeUndo() { if (copy_stream_) cudaStreamDestroy(static_cast<cudaStream_t>(copy_stream_)); if (device_copies_) cudaFree(device_copies_); if (candidates_) cudaFree(candidates_); if (saved_) cudaFree(saved_); }
+
+// A window contains many small independent physical rows. Submit their
+// descriptors together and copy them on the GPU, on a dedicated stream.
+// The caller synchronizes the device before and after each operation.
+bool SpeculativeUndo::copy_slots(unsigned char* buffer, bool to_buffer, int accepted) {
+    if (!copy_stream_) {
+        cudaStream_t stream=nullptr;
+        if (cudaStreamCreateWithFlags(&stream,cudaStreamNonBlocking)!=cudaSuccess) return false;
+        copy_stream_=stream;
+    }
+    if (!device_copies_ && cudaMalloc(reinterpret_cast<void**>(&device_copies_),slots_.size()*sizeof(*device_copies_))!=cudaSuccess)
+        return false;
+    const auto block=strata::kernels::qsa_real_shapes().idx_block;
+    const int64_t consumed=first_+accepted;
+    const bool no_complete=accepted >= 0 && first_/block == consumed/block;
+    host_copies_.clear();
+    try {
+        host_copies_.reserve(slots_.size());
+        for (const auto& slot:slots_) {
+            if (accepted >= 0) {
+                const bool restore=slot.pooled ? (slot.position == -1 ? no_complete :
+                    (no_complete ? slot.position >= first_/block : slot.position > consumed/block)) : slot.position >= consumed;
+                if (!restore) continue;
+            }
+            void* dest=to_buffer ? static_cast<void*>(buffer+slot.offset) : slot.target;
+            const void* source=to_buffer ? slot.target : static_cast<const void*>(buffer+slot.offset);
+            host_copies_.push_back({dest,source,slot.bytes});
+        }
+    } catch (...) { return false; }
+    if (host_copies_.empty()) return true;
+    const auto stream=static_cast<cudaStream_t>(copy_stream_);
+    if (cudaMemcpyAsync(device_copies_,host_copies_.data(),host_copies_.size()*sizeof(*device_copies_),cudaMemcpyHostToDevice,stream)!=cudaSuccess)
+        return false;
+    return kernels::speculative_copy(device_copies_,host_copies_.size(),copy_stream_);
+}
 
 bool SpeculativeUndo::capture(SessionState& state, const ModelGeometry& g, int64_t first, int count, std::string& error) {
     if (saved_ || !slots_.empty() || first < 1 || count < 1 || count > 8 || first > state.max_cells ||
@@ -42,9 +77,7 @@ bool SpeculativeUndo::capture(SessionState& state, const ModelGeometry& g, int64
     } catch (...) { return fail(error,"cannot allocate speculative undo metadata"); }
     if (cudaDeviceSynchronize()!=cudaSuccess || cudaMalloc((void**)&saved_,bytes_)!=cudaSuccess)
         return fail(error,"cannot allocate speculative undo on the GPU");
-    for (const auto& slot:slots_)
-        if (cudaMemcpy(saved_+slot.offset,slot.target,slot.bytes,cudaMemcpyDeviceToDevice)!=cudaSuccess)
-            return fail(error,"cannot save speculative preimage");
+    if (!copy_slots(saved_,true,-1)) return fail(error,"cannot save speculative preimage");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize speculative preimage");
     return true;
 }
@@ -53,9 +86,7 @@ bool SpeculativeUndo::capture_candidates(std::string& error) {
     if (!saved_ || candidates_) return fail(error,"invalid speculative candidate capture");
     if (cudaDeviceSynchronize()!=cudaSuccess || cudaMalloc((void**)&candidates_,bytes_)!=cudaSuccess)
         return fail(error,"cannot allocate speculative candidates on the GPU");
-    for (const auto& slot:slots_)
-        if (cudaMemcpy(candidates_+slot.offset,slot.target,slot.bytes,cudaMemcpyDeviceToDevice)!=cudaSuccess)
-            return fail(error,"cannot save speculative candidates");
+    if (!copy_slots(candidates_,true,-1)) return fail(error,"cannot save speculative candidates");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize speculative candidates");
     return true;
 }
@@ -63,9 +94,7 @@ bool SpeculativeUndo::capture_candidates(std::string& error) {
 bool SpeculativeUndo::reapply_candidates(std::string& error) {
     if (!candidates_) return fail(error,"missing speculative candidates");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize speculative reapply");
-    for (const auto& slot:slots_)
-        if (cudaMemcpy(slot.target,candidates_+slot.offset,slot.bytes,cudaMemcpyDeviceToDevice)!=cudaSuccess)
-            return fail(error,"cannot reapply speculative candidates");
+    if (!copy_slots(candidates_,false,-1)) return fail(error,"cannot reapply speculative candidates");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize speculative candidates");
     return true;
 }
@@ -73,15 +102,7 @@ bool SpeculativeUndo::reapply_candidates(std::string& error) {
 bool SpeculativeUndo::restore_suffix(int accepted, std::string& error) {
     if (!saved_ || accepted < 0 || accepted > count_) return fail(error,"invalid speculative accepted prefix");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize target commit");
-    const auto block=strata::kernels::qsa_real_shapes().idx_block;
-    const int64_t consumed=first_+accepted;
-    const bool no_complete=first_/block == consumed/block;
-    for (const auto& slot:slots_) {
-        const bool restore=slot.pooled ? (slot.position == -1 ? no_complete :
-            (no_complete ? slot.position >= first_/block : slot.position > consumed/block)) : slot.position >= consumed;
-        if (restore && cudaMemcpy(slot.target,saved_+slot.offset,slot.bytes,cudaMemcpyDeviceToDevice)!=cudaSuccess)
-            return fail(error,"cannot restore rejected speculative state");
-    }
+    if (!copy_slots(saved_,false,accepted)) return fail(error,"cannot restore rejected speculative state");
     if (cudaDeviceSynchronize()!=cudaSuccess) return fail(error,"cannot synchronize rejected-state restore");
     return true;
 }

@@ -118,7 +118,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
 #ifdef STRATA_HAVE_DFLASH2
     // Retain an ephemeral verified window across selected-token commands.
     std::unique_ptr<SpeculativeUndo> draft_undo;
-    void* draft_gdn=nullptr; ConversationStateSizes draft_sizes;
+    void* draft_gdn=nullptr; size_t draft_gdn_capacity=0; ConversationStateSizes draft_sizes;
     struct DraftGdnCleanup {
         void*& buffer;
         ~DraftGdnCleanup() { if (buffer) cudaFree(buffer); }
@@ -127,8 +127,26 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
     int draft_count=0,draft_kept=0,last_tap_count=0; int64_t draft_pos=0,last_tap_pos=0;
     int64_t offered_total=0,accepted_total=0,window_total=0;
     uint64_t dflash_consumed_tokens=0;
-    auto release_window=[&]() { draft_undo.reset(); if (draft_gdn) cudaFree(draft_gdn); draft_gdn=nullptr; draft_count=draft_kept=0; };
-    auto reset_draft=[&]() { release_window();last_tap_count=0;last_tap_pos=0;if(draft_pack) drafter.reset(); };
+    // Reuse the scratch allocation across windows; every new window overwrites
+    // its full active extent before it can be read or replayed.
+    auto reserve_draft_gdn=[&](size_t bytes) {
+        if (draft_gdn && draft_gdn_capacity >= bytes) return true;
+        if (draft_gdn) {
+            if (cudaFree(draft_gdn)!=cudaSuccess) return false;
+            draft_gdn=nullptr; draft_gdn_capacity=0;
+        }
+        if (cudaMalloc(&draft_gdn,bytes)!=cudaSuccess) return false;
+        draft_gdn_capacity=bytes;
+        return true;
+    };
+    auto release_window=[&]() { draft_undo.reset(); draft_count=draft_kept=0; };
+    auto reset_draft=[&]() {
+        release_window();
+        if (draft_gdn) cudaFree(draft_gdn);
+        draft_gdn=nullptr; draft_gdn_capacity=0;
+        last_tap_count=0; last_tap_pos=0;
+        if (draft_pack) drafter.reset();
+    };
     auto consume_with_draft=[&](int32_t token) -> bool {
         if (!session.input_images().empty()) { error="DFlash2 does not support image histories"; return false; }
         const int64_t pos=(int64_t)session.ids().size();
@@ -153,7 +171,7 @@ int branch_driver(const WeightTable& weights, const ModelGeometry& geometry, Ses
             draft_prev[0]=state.ple_prev[0];draft_prev[1]=state.ple_prev[1];
             draft_undo=std::make_unique<SpeculativeUndo>();
             if(!session.begin(pos,draft_count,error) || !draft_undo->capture(state,geometry,pos,draft_count,error) ||
-               !conversation_session_sizes(geometry,state,draft_sizes,error) || cudaMalloc(&draft_gdn,draft_sizes.gdn)!=cudaSuccess ||
+               !conversation_session_sizes(geometry,state,draft_sizes,error) || !reserve_draft_gdn(draft_sizes.gdn) ||
                cudaMemcpy(draft_gdn,state.gdn_state,draft_sizes.gdn,cudaMemcpyDeviceToDevice)!=cudaSuccess || cudaDeviceSynchronize()!=cudaSuccess) {error="cannot start speculative transaction";return false;}
             int32_t out[8]={};pool_failed=false;
             if(!forward.run(draft_count,draft_tokens,pos,pool,user,out,error) || pool_failed || !draft_undo->capture_candidates(error)) return false;

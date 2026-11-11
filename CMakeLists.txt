@@ -484,7 +484,7 @@ if(STRATA_ENABLE_CUDA OR STRATA_ENABLE_HIP)
     # DFlash2 drafter and its kernels, from Strata v0.2.13; dormant unless selected by the branch driver.
     target_compile_definitions(strata_engine PUBLIC STRATA_HAVE_DFLASH2=1)
     target_sources(strata_engine PRIVATE src/core/dflash2.cpp src/core/speculative_undo.cpp)
-    target_sources(strata_kernels PRIVATE src/kernels/cuda/dflash2.cu)
+    target_sources(strata_kernels PRIVATE src/kernels/cuda/dflash2.cu src/kernels/cuda/speculative_copy.cu)
     if(STRATA_BUILD_TESTS)
       add_executable(dflash2_tap_test tests/cuda/dflash2_tap_test.cpp)
       target_include_directories(dflash2_tap_test PRIVATE ${_strata_gpu_include_directories})
